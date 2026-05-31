@@ -1,0 +1,93 @@
+"use client";
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+
+export default function Nav() {
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const handler = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handler);
+    return () => window.removeEventListener("scroll", handler);
+  }, []);
+
+  return (
+    <nav
+      style={{
+        position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
+        background: "rgba(247,244,239,0.97)",
+        backdropFilter: "blur(12px)",
+        borderBottom: "1px solid rgba(26,43,74,0.12)",
+        boxShadow: scrolled ? "0 2px 20px rgba(26,43,74,0.1)" : "none",
+        transition: "box-shadow 0.3s",
+      }}
+    >
+      <div style={{ maxWidth: 1140, margin: "0 auto", padding: "14px 24px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <Link href="/">
+          <Image src="/logo.png" alt="RGV Performance Marketing" height={44} width={220} style={{ height: 44, width: "auto" }} priority />
+        </Link>
+
+        {/* Desktop links */}
+        <div className="hidden md:flex items-center gap-7">
+          {["Services", "How It Works", "Pricing", "Why Us", "FAQ"].map((item) => (
+            <a
+              key={item}
+              href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
+              style={{ fontSize: 14, fontWeight: 500, color: "var(--muted)", textDecoration: "none", transition: "color 0.2s" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--orange)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
+            >
+              {item}
+            </a>
+          ))}
+        </div>
+
+        <a
+          href="#pricing"
+          className="hidden md:inline-flex"
+          style={{ background: "var(--orange)", color: "#fff", fontWeight: 700, fontSize: 14, padding: "10px 20px", borderRadius: 4, textDecoration: "none", transition: "background 0.2s" }}
+          onMouseEnter={(e) => (e.currentTarget.style.background = "var(--orange-light)")}
+          onMouseLeave={(e) => (e.currentTarget.style.background = "var(--orange)")}
+        >
+          Get Started
+        </a>
+
+        {/* Hamburger */}
+        <button
+          className="flex md:hidden flex-col gap-1.5 p-1 bg-transparent border-none cursor-pointer"
+          onClick={() => setOpen(!open)}
+          aria-label="Menu"
+        >
+          <span style={{ display: "block", width: 24, height: 2, background: "var(--navy)", transition: "all 0.3s", transform: open ? "rotate(45deg) translate(5px,5px)" : "none" }} />
+          <span style={{ display: "block", width: 24, height: 2, background: "var(--navy)", transition: "all 0.3s", opacity: open ? 0 : 1 }} />
+          <span style={{ display: "block", width: 24, height: 2, background: "var(--navy)", transition: "all 0.3s", transform: open ? "rotate(-45deg) translate(5px,-5px)" : "none" }} />
+        </button>
+      </div>
+
+      {/* Mobile menu */}
+      {open && (
+        <div style={{ background: "var(--cream)", borderTop: "1px solid var(--border)", padding: "8px 24px 20px" }}>
+          {["Services", "How It Works", "Pricing", "Why Us", "FAQ"].map((item) => (
+            <a
+              key={item}
+              href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
+              onClick={() => setOpen(false)}
+              style={{ display: "block", padding: "13px 0", borderBottom: "1px solid var(--border)", fontSize: 16, fontWeight: 500, color: "var(--text)", textDecoration: "none" }}
+            >
+              {item}
+            </a>
+          ))}
+          <a
+            href="#pricing"
+            onClick={() => setOpen(false)}
+            style={{ display: "inline-flex", marginTop: 16, background: "var(--orange)", color: "#fff", fontWeight: 700, fontSize: 15, padding: "12px 24px", borderRadius: 4, textDecoration: "none" }}
+          >
+            Get Started →
+          </a>
+        </div>
+      )}
+    </nav>
+  );
+}

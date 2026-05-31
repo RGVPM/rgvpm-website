@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+:root {
+  --orange: #E8621A;
+  --orange-light: #FF7A2F;
+  --orange-dim: rgba(232,98,26,0.12);
+  --navy: #1A2B4A;
+  --navy-mid: #243658;
+  --cream: #F7F4EF;
+  --cream-dark: #EDE9E2;
+  --text: #1A2B4A;
+  --muted: #5A6B8A;
+  --border: rgba(26,43,74,0.12);
+  --white: #FFFFFF;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--navy);
+  overflow-x: hidden;
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+
+/* Fade up animation */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
