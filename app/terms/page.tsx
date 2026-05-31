@@ -133,7 +133,50 @@ export default function TermsPage() {
           </li>
         </ul>
 
-        <h2 style={h2}>8. Ad Spend</h2>
+        <h2 style={h2}>8. Website Services &amp; Cancellation</h2>
+        <p style={p}>
+          Where RGV Performance Marketing built your website, the following applies upon cancellation
+          of services:
+        </p>
+        <ul style={{ paddingLeft: 22, marginBottom: 14 }}>
+          <li style={li}>
+            All lead capture forms installed on the website will be deactivated and removed.
+          </li>
+          <li style={li}>
+            Any SMS, email inbox, chat, or booking widgets installed under the RGV Performance
+            Marketing account will be disconnected.
+          </li>
+          <li style={li}>
+            Review request automations and social media planner access tied to the agency account
+            will be revoked.
+          </li>
+          <li style={li}>
+            Any tracking pixels, GTM containers, or analytics configurations managed by RGV
+            Performance Marketing may be removed.
+          </li>
+          <li style={li}>
+            Website hosting provided through RGV Performance Marketing will be terminated. The client
+            is responsible for migrating to their own hosting provider prior to or at the time of
+            cancellation.
+          </li>
+          <li style={li}>
+            Website files (HTML, code, images, copy) belong to the client upon final payment and will
+            be made available for download upon request.
+          </li>
+          <li style={li}>
+            Domain names should be, and are assumed to be, registered in the client&apos;s name. RGV
+            Performance Marketing is not responsible for domain renewals.
+          </li>
+          <li style={li}>
+            Google Business Profile access granted to the client remains the client&apos;s property.
+          </li>
+          <li style={li}>
+            RGV Performance Marketing is not responsible for any loss of leads, traffic, or revenue
+            resulting from cancellation of services.
+          </li>
+        </ul>
+
+        <h2 style={h2}>9. Ad Spend</h2>
         <p style={p}>
           Where your plan includes paid advertising, we manage ad campaigns on your behalf. However,
           ad spend budgets &mdash; the amounts paid to platforms such as Google and Meta to run your
@@ -142,14 +185,14 @@ export default function TermsPage() {
           budget; you fund the ad accounts.
         </p>
 
-        <h2 style={h2}>9. Termination by Us</h2>
+        <h2 style={h2}>10. Termination by Us</h2>
         <p style={p}>
           We reserve the right to suspend or terminate service for non-payment or for abusive,
           unlawful, or otherwise inappropriate behavior toward our team. Termination for these reasons
           does not entitle you to a refund of any payments made.
         </p>
 
-        <h2 style={h2}>10. Intellectual Property</h2>
+        <h2 style={h2}>11. Intellectual Property</h2>
         <p style={p}>
           Work product created specifically for you in the course of providing services becomes your
           property upon final payment for that work. Until final payment is received, all work product
@@ -157,7 +200,7 @@ export default function TermsPage() {
           methods, know-how, and non-client-specific tools developed in the course of our business.
         </p>
 
-        <h2 style={h2}>11. Limitation of Liability</h2>
+        <h2 style={h2}>12. Limitation of Liability</h2>
         <p style={p}>
           To the fullest extent permitted by law, RGV Performance Marketing shall not be liable for
           any indirect, incidental, special, consequential, or punitive damages, or for any loss of
@@ -167,14 +210,14 @@ export default function TermsPage() {
           preceding the event giving rise to the claim.
         </p>
 
-        <h2 style={h2}>12. Governing Law</h2>
+        <h2 style={h2}>13. Governing Law</h2>
         <p style={p}>
           These Terms are governed by and construed in accordance with the laws of the State of Texas,
           without regard to its conflict-of-law provisions. Any disputes shall be resolved in the
           courts located in the State of Texas.
         </p>
 
-        <h2 style={h2}>13. Contact</h2>
+        <h2 style={h2}>14. Contact</h2>
         <p style={p}>
           Questions about these Terms? Contact us at{" "}
           <a href="mailto:info@rgvperformancemarketing.com" style={{ color: "var(--orange)" }}>
