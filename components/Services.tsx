@@ -1,40 +1,12 @@
-const services = [
-  {
-    icon: "📍",
-    title: "Google Business Profile & Local Visibility",
-    text: "Get found when customers nearby search for what you offer. We optimize your Google presence and lock down NAP consistency across all directories.",
-    features: ["GBP setup & full optimization", "NAP audit & citation consistency", "Review generation automation"],
-  },
-  {
-    icon: "🔍",
-    title: "Local SEO",
-    text: "Rank higher in Google searches for your city and service area. We handle on-page optimization, content, and link building so you get found — and stay found.",
-    features: ["On-page SEO & keyword targeting", "Local content creation", "Citation building & link outreach"],
-  },
-  {
-    icon: "📢",
-    title: "Paid Advertising",
-    text: "Google and Meta campaigns built for ROI — not just impressions. We track every lead and optimize constantly.",
-    features: ["Google Search & Display Ads", "Facebook & Instagram Ads", "Retargeting campaigns"],
-  },
-  {
-    icon: "💬",
-    title: "Two-Way SMS & Email Marketing",
-    text: "Reach your customers where they actually read — text and email. Respond to inquiries from one inbox and blast promos, announcements, and follow-ups to your list.",
-    features: ["Two-way SMS & email inbox", "Broadcast campaigns to your list", "Automated follow-up sequences"],
-  },
-  {
-    icon: "📅",
-    title: "Social Media & Newsletter",
-    text: "Stay top of mind with consistent social content and a monthly newsletter your customers actually want to read. You pick the topics — we handle the rest.",
-    features: ["Social media planner & scheduler", "Monthly newsletter (you pick the topic)", "Bilingual content available"],
-  },
-  {
-    icon: "⚙️",
-    title: "Lead Management & Automation",
-    text: "Never lose a lead again. We build pipelines that capture every inquiry, respond instantly, and nurture prospects until they book.",
-    features: ["Lead pipeline dashboard", "Automated SMS + email follow-up", "Appointment scheduling automation"],
-  },
+import Link from "next/link";
+import Icon from "@/components/Icon";
+import { services } from "@/lib/services";
+
+// Each card alternates a subtle background tint + accent color for visual variety.
+const tints = [
+  { bg: "#fff", accent: "var(--orange)" },
+  { bg: "var(--cream)", accent: "var(--teal)" },
+  { bg: "var(--orange-wash)", accent: "var(--orange)" },
 ];
 
 export default function Services() {
@@ -54,24 +26,33 @@ export default function Services() {
         </div>
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20 }} className="svc-grid-responsive">
-          {services.map((svc) => (
-            <div
-              key={svc.title}
-              style={{ background: "#fff", border: "1px solid var(--border)", borderRadius: 10, padding: 30, transition: "all 0.2s", position: "relative", overflow: "hidden" }}
-              className="svc-card"
-            >
-              <div style={{ fontSize: 28, marginBottom: 14 }}>{svc.icon}</div>
-              <h3 style={{ fontSize: 17, fontWeight: 700, color: "var(--navy)", marginBottom: 8 }}>{svc.title}</h3>
-              <p style={{ fontSize: 13, color: "var(--muted)", lineHeight: 1.65 }}>{svc.text}</p>
-              <div style={{ marginTop: 14, paddingTop: 14, borderTop: "1px solid var(--border)" }}>
-                {svc.features.map((f) => (
-                  <div key={f} style={{ display: "flex", alignItems: "flex-start", gap: 8, fontSize: 12, color: "var(--muted)", marginBottom: 5 }}>
-                    <span style={{ color: "var(--orange)", fontWeight: 700, flexShrink: 0 }}>→</span> {f}
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
+          {services.map((svc, i) => {
+            const tint = tints[i % tints.length];
+            return (
+              <Link
+                key={svc.slug}
+                href={`/services/${svc.slug}`}
+                style={{ background: tint.bg, border: "1px solid var(--border)", borderRadius: 10, padding: 30, position: "relative", overflow: "hidden", textDecoration: "none", color: "inherit", display: "block" }}
+                className="svc-card"
+              >
+                <div style={{ width: 48, height: 48, borderRadius: 10, background: "#fff", border: "1px solid var(--border)", display: "flex", alignItems: "center", justifyContent: "center", color: tint.accent, marginBottom: 16 }}>
+                  <Icon name={svc.icon} size={24} color={tint.accent} />
+                </div>
+                <h3 style={{ fontSize: 17, fontWeight: 700, color: "var(--navy)", marginBottom: 8 }}>{svc.cardTitle}</h3>
+                <p style={{ fontSize: 13, color: "var(--muted)", lineHeight: 1.65 }}>{svc.cardText}</p>
+                <div style={{ marginTop: 14, paddingTop: 14, borderTop: "1px solid var(--border)" }}>
+                  {svc.cardFeatures.map((f) => (
+                    <div key={f} style={{ display: "flex", alignItems: "flex-start", gap: 8, fontSize: 12, color: "var(--muted)", marginBottom: 5 }}>
+                      <span style={{ color: tint.accent, fontWeight: 700, flexShrink: 0 }}>→</span> {f}
+                    </div>
+                  ))}
+                </div>
+                <div style={{ marginTop: 16, fontSize: 13, fontWeight: 700, color: tint.accent, display: "inline-flex", alignItems: "center", gap: 6 }}>
+                  Learn more →
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -21,29 +21,30 @@ export default function Footer() {
             {
               title: "Services",
               links: [
-                { label: "Google Business Profile", href: "#services" },
-                { label: "Local SEO", href: "#services" },
-                { label: "Paid Advertising", href: "#services" },
-                { label: "SMS & Email Marketing", href: "#services" },
-                { label: "Lead Management", href: "#services" },
-                { label: "Newsletters", href: "#services" },
+                { label: "Google Business Profile", href: "/services/google-business-profile" },
+                { label: "Local SEO", href: "/services/local-seo" },
+                { label: "Paid Advertising", href: "/services/paid-advertising" },
+                { label: "SMS & Email Marketing", href: "/services/sms-email-marketing" },
+                { label: "Lead Management", href: "/services/lead-management" },
+                { label: "Social Media & Newsletter", href: "/services/social-media-newsletter" },
               ],
             },
             {
               title: "Plans",
               links: [
-                { label: "Plant the Flag — $399/mo", href: "#pricing" },
-                { label: "Build the Machine — $899/mo", href: "#pricing" },
-                { label: "Own the Market — $1,999/mo", href: "#pricing" },
+                { label: "Plant the Flag — $399/mo", href: "/pricing" },
+                { label: "Build the Machine — $899/mo", href: "/pricing" },
+                { label: "Own the Market — $1,999/mo", href: "/pricing" },
               ],
             },
             {
               title: "Company",
               links: [
-                { label: "How It Works", href: "#how-it-works" },
-                { label: "Why Us", href: "#why-us" },
-                { label: "FAQ", href: "#faq" },
-                { label: "Contact", href: "mailto:info@rgvperformancemarketing.com" },
+                { label: "Services", href: "/services" },
+                { label: "Pricing", href: "/pricing" },
+                { label: "About", href: "/about" },
+                { label: "Blog", href: "/blog" },
+                { label: "Contact", href: "/contact" },
               ],
             },
           ].map((col) => (
@@ -54,9 +55,9 @@ export default function Footer() {
               <ul style={{ listStyle: "none" }}>
                 {col.links.map((link) => (
                   <li key={link.label} style={{ marginBottom: 9 }}>
-                    <a href={link.href} style={{ fontSize: 13, color: "rgba(255,255,255,0.55)", textDecoration: "none" }}>
+                    <Link href={link.href} style={{ fontSize: 13, color: "rgba(255,255,255,0.55)", textDecoration: "none" }}>
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

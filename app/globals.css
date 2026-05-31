@@ -4,8 +4,11 @@
   --orange: #E8621A;
   --orange-light: #FF7A2F;
   --orange-dim: rgba(232,98,26,0.12);
+  --orange-wash: #FBF1EA;
   --navy: #1A2B4A;
   --navy-mid: #243658;
+  --teal: #2A9D8F;
+  --teal-dim: rgba(42,157,143,0.12);
   --cream: #F7F4EF;
   --cream-dark: #EDE9E2;
   --text: #1A2B4A;
@@ -36,4 +39,30 @@ body {
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* Service card hover */
+.svc-card {
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+.svc-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 36px rgba(26,43,74,0.10);
+  border-color: rgba(232,98,26,0.4);
+}
+
+/* Responsive grids — collapse multi-column layouts on smaller screens */
+@media (max-width: 900px) {
+  .hero-grid-responsive,
+  .why-grid-responsive { grid-template-columns: 1fr !important; gap: 40px !important; }
+  .svc-grid-responsive,
+  .steps-grid-responsive,
+  .plans-grid-responsive { grid-template-columns: repeat(2, 1fr) !important; }
+  .footer-grid-responsive { grid-template-columns: 1fr 1fr !important; gap: 32px !important; }
+}
+@media (max-width: 620px) {
+  .svc-grid-responsive,
+  .steps-grid-responsive,
+  .plans-grid-responsive,
+  .footer-grid-responsive { grid-template-columns: 1fr !important; }
 }

@@ -3,6 +3,14 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+const NAV_LINKS = [
+  { label: "Services", href: "/services" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "About", href: "/about" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
+];
+
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -31,28 +39,28 @@ export default function Nav() {
 
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-7">
-          {["Services", "How It Works", "Pricing", "Why Us", "FAQ"].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
+          {NAV_LINKS.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
               style={{ fontSize: 14, fontWeight: 500, color: "var(--muted)", textDecoration: "none", transition: "color 0.2s" }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "var(--orange)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
             >
-              {item}
-            </a>
+              {item.label}
+            </Link>
           ))}
         </div>
 
-        <a
-          href="#pricing"
+        <Link
+          href="/pricing"
           className="hidden md:inline-flex"
           style={{ background: "var(--orange)", color: "#fff", fontWeight: 700, fontSize: 14, padding: "10px 20px", borderRadius: 4, textDecoration: "none", transition: "background 0.2s" }}
           onMouseEnter={(e) => (e.currentTarget.style.background = "var(--orange-light)")}
           onMouseLeave={(e) => (e.currentTarget.style.background = "var(--orange)")}
         >
           Get Started
-        </a>
+        </Link>
 
         {/* Hamburger */}
         <button
@@ -69,23 +77,23 @@ export default function Nav() {
       {/* Mobile menu */}
       {open && (
         <div style={{ background: "var(--cream)", borderTop: "1px solid var(--border)", padding: "8px 24px 20px" }}>
-          {["Services", "How It Works", "Pricing", "Why Us", "FAQ"].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
+          {NAV_LINKS.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
               onClick={() => setOpen(false)}
               style={{ display: "block", padding: "13px 0", borderBottom: "1px solid var(--border)", fontSize: 16, fontWeight: 500, color: "var(--text)", textDecoration: "none" }}
             >
-              {item}
-            </a>
+              {item.label}
+            </Link>
           ))}
-          <a
-            href="#pricing"
+          <Link
+            href="/pricing"
             onClick={() => setOpen(false)}
             style={{ display: "inline-flex", marginTop: 16, background: "var(--orange)", color: "#fff", fontWeight: 700, fontSize: 15, padding: "12px 24px", borderRadius: 4, textDecoration: "none" }}
           >
             Get Started →
-          </a>
+          </Link>
         </div>
       )}
     </nav>

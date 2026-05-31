@@ -17,6 +17,7 @@ const plans = [
     ],
     href: "https://buy.stripe.com/28E00jcv2gd03dw1cZ7Zu0h",
     featured: false,
+    accent: "var(--teal)",
   },
   {
     tier: "// Most Popular",
@@ -36,6 +37,7 @@ const plans = [
     ],
     href: "https://buy.stripe.com/5kQaEXfHed0O3dwdZL7Zu0i",
     featured: true,
+    accent: "var(--orange)",
   },
   {
     tier: "// Full Service",
@@ -55,21 +57,23 @@ const plans = [
     ],
     href: "https://buy.stripe.com/aFa3cv1Qo7Gu29sf3P7Zu0j",
     featured: false,
+    accent: "#6E86B8",
   },
 ];
 
-export default function Pricing() {
+export default function Pricing({ asPage = false }: { asPage?: boolean }) {
+  const Heading = asPage ? "h1" : "h2";
   return (
-    <section id="pricing" style={{ padding: "96px 0", background: "var(--navy)" }}>
+    <section id="pricing" style={{ padding: asPage ? "56px 0 96px" : "96px 0", background: "var(--navy)" }}>
       <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
         {/* Header */}
         <div style={{ textAlign: "center", maxWidth: 640, margin: "0 auto 64px" }}>
           <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange)", background: "rgba(232,98,26,0.2)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--orange)" }}>
             Plans & Pricing
           </span>
-          <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(36px,4vw,54px)", letterSpacing: "0.03em", color: "#fff", lineHeight: 1.0, margin: "12px 0 16px" }}>
-            Pick Your Plan. Start Growing.
-          </h2>
+          <Heading style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(36px,4vw,54px)", letterSpacing: "0.03em", color: "#fff", lineHeight: 1.0, margin: "12px 0 16px" }}>
+            {asPage ? "Digital Marketing Pricing & Plans" : "Pick Your Plan. Start Growing."}
+          </Heading>
           <p style={{ fontSize: 17, color: "rgba(255,255,255,0.55)", lineHeight: 1.65 }}>
             Transparent pricing. No long-term contracts. No hidden fees. Website design is available as a separate service on all plans.
           </p>
@@ -81,14 +85,15 @@ export default function Pricing() {
             <div
               key={plan.name}
               style={{
-                borderRadius: 12, padding: "36px 28px",
+                borderRadius: 12, padding: "32px 28px 36px",
                 border: plan.featured ? "1px solid var(--orange)" : "1px solid rgba(255,255,255,0.1)",
+                borderTop: `4px solid ${plan.accent}`,
                 background: plan.featured ? "var(--orange)" : "rgba(255,255,255,0.05)",
                 display: "flex", flexDirection: "column",
                 transition: "transform 0.25s, box-shadow 0.25s",
               }}
             >
-              <div style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: plan.featured ? "rgba(255,255,255,0.75)" : "rgba(255,255,255,0.45)", marginBottom: 20 }}>
+              <div style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: plan.featured ? "rgba(255,255,255,0.75)" : plan.accent, marginBottom: 20 }}>
                 {plan.tier}
               </div>
               <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 30, letterSpacing: "0.04em", color: "#fff", marginBottom: 6 }}>
@@ -110,7 +115,7 @@ export default function Pricing() {
               <div style={{ flex: 1, marginBottom: 28 }}>
                 {plan.features.map((feat) => (
                   <div key={feat} style={{ display: "flex", alignItems: "flex-start", gap: 10, fontSize: 13, color: plan.featured ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.75)", marginBottom: 11, lineHeight: 1.5 }}>
-                    <span style={{ color: plan.featured ? "rgba(255,255,255,0.9)" : "var(--orange)", fontWeight: 700, flexShrink: 0, marginTop: 1 }}>✓</span>
+                    <span style={{ color: plan.featured ? "rgba(255,255,255,0.9)" : plan.accent, fontWeight: 700, flexShrink: 0, marginTop: 1 }}>✓</span>
                     {feat}
                   </div>
                 ))}

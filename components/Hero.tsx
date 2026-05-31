@@ -1,10 +1,12 @@
+import Icon from "@/components/Icon";
+
 export default function Hero() {
   const services = [
-    { icon: "🌐", name: "Websites & SEO", sub: "Built to rank. Built to convert." },
-    { icon: "📢", name: "Paid Advertising", sub: "Google, Meta, retargeting" },
-    { icon: "💬", name: "Two-Way SMS & Email", sub: "Inbox, blasts & automation" },
-    { icon: "📅", name: "Social Media Planner", sub: "Schedule posts across platforms" },
-    { icon: "⚙️", name: "Lead Management", sub: "Pipelines, follow-up, appointments" },
+    { icon: "globe" as const, name: "Websites & SEO", sub: "Built to rank. Built to convert." },
+    { icon: "megaphone" as const, name: "Paid Advertising", sub: "Google, Meta, retargeting" },
+    { icon: "chat" as const, name: "Two-Way SMS & Email", sub: "Inbox, blasts & automation" },
+    { icon: "calendar" as const, name: "Social Media Planner", sub: "Schedule posts across platforms" },
+    { icon: "settings" as const, name: "Lead Management", sub: "Pipelines, follow-up, appointments" },
   ];
 
   return (
@@ -84,12 +86,12 @@ export default function Hero() {
           <div className="hidden lg:block">
             <div style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 14, padding: 28, backdropFilter: "blur(8px)" }}>
               <div style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--orange)", marginBottom: 18 }}>
-                // What we handle
+                {"// What we handle"}
               </div>
               {services.map((svc) => (
                 <div key={svc.name} style={{ display: "flex", alignItems: "center", gap: 12, padding: "13px 14px", borderRadius: 8, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.07)", marginBottom: 8 }}>
-                  <div style={{ width: 34, height: 34, borderRadius: 7, background: "var(--orange-dim)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 15, flexShrink: 0 }}>
-                    {svc.icon}
+                  <div style={{ width: 34, height: 34, borderRadius: 7, background: "var(--orange-dim)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                    <Icon name={svc.icon} size={17} color="var(--orange)" />
                   </div>
                   <div>
                     <div style={{ fontSize: 13, fontWeight: 600, color: "#fff" }}>{svc.name}</div>
