@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -15,6 +16,10 @@ const NAV_LINKS = [
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
@@ -40,17 +45,21 @@ export default function Nav() {
 
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-7">
-          {NAV_LINKS.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              style={{ fontSize: 14, fontWeight: 500, color: "var(--muted)", textDecoration: "none", transition: "color 0.2s" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--orange)")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {NAV_LINKS.map((item) => {
+            const active = isActive(item.href);
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={active ? "page" : undefined}
+                style={{ fontSize: 14, fontWeight: active ? 700 : 500, color: active ? "var(--orange)" : "var(--muted)", textDecoration: "none", transition: "color 0.2s" }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--orange)")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = active ? "var(--orange)" : "var(--muted)")}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </div>
 
         <Link
@@ -78,16 +87,20 @@ export default function Nav() {
       {/* Mobile menu */}
       {open && (
         <div style={{ background: "var(--cream)", borderTop: "1px solid var(--border)", padding: "8px 24px 20px" }}>
-          {NAV_LINKS.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={() => setOpen(false)}
-              style={{ display: "block", padding: "13px 0", borderBottom: "1px solid var(--border)", fontSize: 16, fontWeight: 500, color: "var(--text)", textDecoration: "none" }}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {NAV_LINKS.map((item) => {
+            const active = isActive(item.href);
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                aria-current={active ? "page" : undefined}
+                style={{ display: "block", padding: "13px 0", borderBottom: "1px solid var(--border)", fontSize: 16, fontWeight: active ? 700 : 500, color: active ? "var(--orange)" : "var(--text)", textDecoration: "none" }}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
           <Link
             href="/pricing"
             onClick={() => setOpen(false)}

@@ -84,7 +84,17 @@ body {
   opacity: 0;
   animation: heroSlideRight 0.85s cubic-bezier(0.2, 0.7, 0.2, 1) 0.2s both;
 }
+/* Page transition (route change) */
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.page-transition {
+  animation: pageFadeIn 0.3s ease-out both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-animate,
-  .hero-card-animate { opacity: 1; animation: none; }
+  .hero-card-animate,
+  .page-transition { opacity: 1; animation: none; }
 }
