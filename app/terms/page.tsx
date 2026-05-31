@@ -132,8 +132,19 @@ export default function TermsPage() {
             and processed. Billing continues as normal until that point.
           </li>
         </ul>
+        <p style={p}>
+          Cancellation requests must be submitted at least 5 business days before the next billing
+          date. Requests submitted less than 5 business days before the billing date will take effect
+          the following billing cycle, and the client will be charged for that cycle normally.
+        </p>
 
         <h2 style={h2}>8. Website Services &amp; Cancellation</h2>
+        <p style={p}>
+          Active clients on a paid plan are entitled to unlimited website update requests at no
+          additional charge. Requests must be submitted at least 24 hours in advance. Updates are only
+          available while the client&apos;s plan is active and in good standing. New pages, full
+          redesigns, or significant structural changes may be quoted separately.
+        </p>
         <p style={p}>
           Where RGV Performance Marketing built your website, the following applies upon cancellation
           of services:
@@ -183,6 +194,13 @@ export default function TermsPage() {
           ads &mdash; are billed directly to you by those platforms. Ad spend is not included in your
           monthly service fee and is not our financial responsibility. We help you set and manage your
           budget; you fund the ad accounts.
+        </p>
+        <p style={p}>
+          All ad accounts (Google Ads, Meta Ads, etc.) are created under the client&apos;s own Google
+          and/or Meta account. Client retains full ownership of all ad accounts, pixel data,
+          audiences, and campaign history at all times, including after cancellation. RGV Performance
+          Marketing will request access as a manager or partner &mdash; we do not take ownership of
+          client ad accounts.
         </p>
 
         <h2 style={h2}>10. Termination by Us</h2>
