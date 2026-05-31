@@ -66,3 +66,25 @@ body {
   .plans-grid-responsive,
   .footer-grid-responsive { grid-template-columns: 1fr !important; }
 }
+
+/* Hero entrance animations */
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes heroSlideRight {
+  from { opacity: 0; transform: translateX(48px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.hero-animate {
+  opacity: 0;
+  animation: heroFadeUp 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.hero-card-animate {
+  opacity: 0;
+  animation: heroSlideRight 0.85s cubic-bezier(0.2, 0.7, 0.2, 1) 0.2s both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-animate,
+  .hero-card-animate { opacity: 1; animation: none; }
+}

@@ -1,4 +1,79 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Icon from "@/components/Icon";
+
+type Stat = {
+  num?: string;
+  target?: number;
+  suffix?: string;
+  label: string;
+};
+
+const stats: Stat[] = [
+  { num: "3", target: 3, label: "Simple plans to choose from" },
+  { num: "AI", label: "Powered systems & tools" },
+  { target: 24, suffix: "/7", label: "Always-on lead capture" },
+  { num: "956", target: 956, label: "Locally rooted. Broadly serving." },
+];
+
+function StatValue({ stat, duration = 1500 }: { stat: Stat; duration?: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [value, setValue] = useState(0);
+  const started = useRef(false);
+
+  const numberStyle: React.CSSProperties = {
+    fontFamily: "'Bebas Neue', sans-serif",
+    fontSize: 32,
+    color: "var(--orange)",
+    letterSpacing: "0.04em",
+  };
+
+  useEffect(() => {
+    // Non-numeric stats (e.g. "AI") render statically — nothing to count.
+    if (stat.target == null) return;
+    const el = ref.current;
+    if (!el) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setValue(stat.target);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !started.current) {
+            started.current = true;
+            const start = performance.now();
+            const tick = (now: number) => {
+              const progress = Math.min((now - start) / duration, 1);
+              const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+              setValue(Math.round(eased * (stat.target as number)));
+              if (progress < 1) requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [stat.target, duration]);
+
+  if (stat.target == null) {
+    return <div style={numberStyle}>{stat.num}</div>;
+  }
+
+  return (
+    <div ref={ref} style={numberStyle}>
+      {value}
+      {stat.suffix ?? ""}
+    </div>
+  );
+}
 
 export default function Hero() {
   const services = [
@@ -36,7 +111,7 @@ export default function Hero() {
           className="hero-grid-responsive">
           {/* Left */}
           <div>
-            <div style={{ marginBottom: 24 }}>
+            <div className="hero-animate" style={{ marginBottom: 24, animationDelay: "0.05s" }}>
               <span style={{
                 display: "inline-flex", alignItems: "center", gap: 8,
                 fontFamily: "var(--font-dm-mono), monospace", fontSize: 11,
@@ -52,14 +127,20 @@ export default function Hero() {
               fontSize: "clamp(50px, 6vw, 84px)", lineHeight: 0.95,
               color: "#fff", letterSpacing: "0.02em", marginBottom: 24,
             }}>
-              More Leads.<br />
-              <span style={{ color: "var(--orange)" }}>More Customers.</span><br />
-              Less Guesswork.
+              <span className="hero-animate" style={{ display: "block", animationDelay: "0.15s" }}>
+                More Leads.
+              </span>
+              <span className="hero-animate" style={{ display: "block", color: "var(--orange)", animationDelay: "0.25s" }}>
+                More Customers.
+              </span>
+              <span className="hero-animate" style={{ display: "block", animationDelay: "0.35s" }}>
+                Less Guesswork.
+              </span>
             </h1>
-            <p style={{ fontSize: 18, fontWeight: 300, color: "rgba(255,255,255,0.65)", lineHeight: 1.7, maxWidth: 480, marginBottom: 36 }}>
+            <p className="hero-animate" style={{ fontSize: 18, fontWeight: 300, color: "rgba(255,255,255,0.65)", lineHeight: 1.7, maxWidth: 480, marginBottom: 36, animationDelay: "0.45s" }}>
               We build the digital systems that grow your business — websites, SEO, ads, lead management, and more. Straightforward plans, real results.
             </p>
-            <div style={{ display: "flex", gap: 14, flexWrap: "wrap", marginBottom: 48 }}>
+            <div className="hero-animate" style={{ display: "flex", gap: 14, flexWrap: "wrap", marginBottom: 48, animationDelay: "0.55s" }}>
               <a href="#pricing" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "var(--orange)", color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 28px", borderRadius: 4, textDecoration: "none" }}>
                 View Plans →
               </a>
@@ -68,14 +149,9 @@ export default function Hero() {
               </a>
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 24, paddingTop: 40, borderTop: "1px solid rgba(255,255,255,0.1)" }}>
-              {[
-                { num: "3", label: "Simple plans to choose from" },
-                { num: "AI", label: "Powered systems & tools" },
-                { num: "EN+ES", label: "Bilingual content available" },
-                { num: "956", label: "Locally rooted. Broadly serving." },
-              ].map((s) => (
-                <div key={s.num}>
-                  <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 32, color: "var(--orange)", letterSpacing: "0.04em" }}>{s.num}</div>
+              {stats.map((s) => (
+                <div key={s.label}>
+                  <StatValue stat={s} />
                   <div style={{ fontSize: 12, color: "rgba(255,255,255,0.45)", marginTop: 2, lineHeight: 1.4 }}>{s.label}</div>
                 </div>
               ))}
@@ -83,7 +159,7 @@ export default function Hero() {
           </div>
 
           {/* Right card */}
-          <div className="hidden lg:block">
+          <div className="hidden lg:block hero-card-animate">
             <div style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 14, padding: 28, backdropFilter: "blur(8px)" }}>
               <div style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--orange)", marginBottom: 18 }}>
                 {"// What we handle"}
