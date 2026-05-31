@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Icon from "@/components/Icon";
 import PageHero from "@/components/PageHero";
 import JsonLd from "@/components/JsonLd";
+import ContactForm from "@/components/ContactForm";
 import { canonical, breadcrumbSchema, localBusinessSchema, SITE } from "@/lib/site";
 
 const url = canonical("/contact");
@@ -18,25 +19,6 @@ export const metadata: Metadata = {
     description: "Tell us about your business and we'll map out your path to more leads.",
     siteName: SITE.name,
   },
-};
-
-const inputStyle: React.CSSProperties = {
-  width: "100%",
-  padding: "12px 14px",
-  borderRadius: 6,
-  border: "1px solid var(--border)",
-  background: "#fff",
-  fontSize: 14,
-  fontFamily: "var(--font-dm-sans), sans-serif",
-  color: "var(--navy)",
-};
-
-const labelStyle: React.CSSProperties = {
-  display: "block",
-  fontSize: 12,
-  fontWeight: 600,
-  color: "var(--navy)",
-  marginBottom: 6,
 };
 
 export default function ContactPage() {
@@ -70,44 +52,7 @@ export default function ContactPage() {
                 <p style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.6, marginBottom: 24 }}>
                   Fill this out and we&apos;ll be in touch quickly — usually the same business day.
                 </p>
-                <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/contact?sent=1">
-                  <input type="hidden" name="form-name" value="contact" />
-                  <p style={{ display: "none" }}>
-                    <label>
-                      Don&apos;t fill this out: <input name="bot-field" />
-                    </label>
-                  </p>
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16 }} className="svc-grid-responsive">
-                    <div>
-                      <label style={labelStyle} htmlFor="name">Name</label>
-                      <input style={inputStyle} type="text" id="name" name="name" required />
-                    </div>
-                    <div>
-                      <label style={labelStyle} htmlFor="business">Business</label>
-                      <input style={inputStyle} type="text" id="business" name="business" />
-                    </div>
-                  </div>
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16 }} className="svc-grid-responsive">
-                    <div>
-                      <label style={labelStyle} htmlFor="email">Email</label>
-                      <input style={inputStyle} type="email" id="email" name="email" required />
-                    </div>
-                    <div>
-                      <label style={labelStyle} htmlFor="phone">Phone</label>
-                      <input style={inputStyle} type="tel" id="phone" name="phone" />
-                    </div>
-                  </div>
-                  <div style={{ marginBottom: 20 }}>
-                    <label style={labelStyle} htmlFor="message">What would you like to grow?</label>
-                    <textarea style={{ ...inputStyle, minHeight: 120, resize: "vertical" }} id="message" name="message" required />
-                  </div>
-                  <button
-                    type="submit"
-                    style={{ width: "100%", background: "var(--orange)", color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 28px", borderRadius: 6, border: "none", cursor: "pointer" }}
-                  >
-                    Send Message →
-                  </button>
-                </form>
+                <ContactForm />
               </div>
 
               {/* Contact info */}
