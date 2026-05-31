@@ -45,6 +45,8 @@ export default function Footer() {
                 { label: "About", href: "/about" },
                 { label: "Blog", href: "/blog" },
                 { label: "Contact", href: "/contact" },
+                { label: "Terms & Conditions", href: "/terms" },
+                { label: "Privacy Policy", href: "/privacy" },
               ],
             },
           ].map((col) => (

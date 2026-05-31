@@ -147,6 +147,13 @@ export default function Pricing({ asPage = false }: { asPage?: boolean }) {
             Questions? Email us.
           </a>
         </p>
+        <p style={{ textAlign: "center", marginTop: 10, fontSize: 12.5, color: "rgba(255,255,255,0.35)" }}>
+          By subscribing you agree to our{" "}
+          <a href="/terms" style={{ color: "rgba(255,255,255,0.55)" }}>
+            Terms &amp; Conditions
+          </a>
+          .
+        </p>
       </div>
     </section>
   );
