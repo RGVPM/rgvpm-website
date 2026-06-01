@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -30,6 +31,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
       </head>
       <body>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-4G6Y27NLZ4"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-4G6Y27NLZ4');
+          `}
+        </Script>
         <Nav />
         <PageTransition>{children}</PageTransition>
         <Footer />
