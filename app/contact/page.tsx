@@ -41,6 +41,29 @@ export default function ContactPage() {
           crumbs={[{ name: "Home", path: "/" }, { name: "Contact", path: "/contact" }]}
         />
 
+        <section style={{ padding: "44px 0", background: "var(--navy)" }}>
+          <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 20 }}>
+              <div>
+                <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 30, letterSpacing: "0.03em", color: "#fff", lineHeight: 1.05 }}>
+                  Prefer to talk? Book a free discovery call
+                </div>
+                <p style={{ fontSize: 14, color: "rgba(255,255,255,0.65)", lineHeight: 1.6, marginTop: 6, maxWidth: 560 }}>
+                  Grab a time that works for you — we&apos;ll walk through your goals and map out next steps. No pressure, no obligation.
+                </p>
+              </div>
+              <a
+                href="https://api.rgvperformancemarketing.com/widget/bookings/rgvpmdiscoverycall"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "var(--orange)", color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 28px", borderRadius: 4, textDecoration: "none", flexShrink: 0 }}
+              >
+                Book a Free Call →
+              </a>
+            </div>
+          </div>
+        </section>
+
         <section style={{ padding: "88px 0", background: "var(--cream)" }}>
           <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
             <div style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 56, alignItems: "start" }} className="why-grid-responsive">

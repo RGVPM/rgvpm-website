@@ -62,15 +62,17 @@ export default function Nav() {
           })}
         </div>
 
-        <Link
-          href="/pricing"
+        <a
+          href="https://api.rgvperformancemarketing.com/widget/bookings/rgvpmdiscoverycall"
+          target="_blank"
+          rel="noopener noreferrer"
           className="hidden md:inline-flex"
           style={{ background: "var(--orange)", color: "#fff", fontWeight: 700, fontSize: 14, padding: "10px 20px", borderRadius: 4, textDecoration: "none", transition: "background 0.2s" }}
           onMouseEnter={(e) => (e.currentTarget.style.background = "var(--orange-light)")}
           onMouseLeave={(e) => (e.currentTarget.style.background = "var(--orange)")}
         >
-          Get Started
-        </Link>
+          Book a Free Call
+        </a>
 
         {/* Hamburger */}
         <button
@@ -101,13 +103,15 @@ export default function Nav() {
               </Link>
             );
           })}
-          <Link
-            href="/pricing"
+          <a
+            href="https://api.rgvperformancemarketing.com/widget/bookings/rgvpmdiscoverycall"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setOpen(false)}
             style={{ display: "inline-flex", marginTop: 16, background: "var(--orange)", color: "#fff", fontWeight: 700, fontSize: 15, padding: "12px 24px", borderRadius: 4, textDecoration: "none" }}
           >
-            Get Started →
-          </Link>
+            Book a Free Call →
+          </a>
         </div>
       )}
     </nav>

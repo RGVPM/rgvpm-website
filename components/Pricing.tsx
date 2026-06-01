@@ -141,6 +141,18 @@ export default function Pricing({ asPage = false }: { asPage?: boolean }) {
           ))}
         </div>
 
+        <p style={{ textAlign: "center", marginTop: 40, fontSize: 15, color: "rgba(255,255,255,0.8)" }}>
+          Not sure which plan is right for you?{" "}
+          <a
+            href="https://api.rgvperformancemarketing.com/widget/bookings/rgvpmdiscoverycall"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "var(--orange)", fontWeight: 700, textDecoration: "none" }}
+          >
+            Book a free discovery call →
+          </a>
+        </p>
+
         <p style={{ textAlign: "center", marginTop: 36, fontSize: 13, color: "rgba(255,255,255,0.35)" }}>
           All plans are month-to-month. Website design is a separate service. Ad spend (Google/Meta) is billed directly by the platform.{" "}
           <a href="mailto:info@rgvperformancemarketing.com" style={{ color: "rgba(255,255,255,0.55)" }}>

@@ -141,11 +141,11 @@ export default function Hero() {
               We build the digital systems that grow your business — websites, SEO, ads, lead management, and more. Straightforward plans, real results.
             </p>
             <div className="hero-animate" style={{ display: "flex", gap: 14, flexWrap: "wrap", marginBottom: 48, animationDelay: "0.55s" }}>
-              <a href="#pricing" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "var(--orange)", color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 28px", borderRadius: 4, textDecoration: "none" }}>
-                View Plans →
+              <a href="https://api.rgvperformancemarketing.com/widget/bookings/rgvpmdiscoverycall" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "var(--orange)", color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 28px", borderRadius: 4, textDecoration: "none" }}>
+                Book a Free Call →
               </a>
-              <a href="mailto:info@rgvperformancemarketing.com" style={{ display: "inline-flex", alignItems: "center", background: "rgba(255,255,255,0.1)", color: "#fff", fontWeight: 600, fontSize: 15, padding: "14px 28px", borderRadius: 4, textDecoration: "none", border: "1px solid rgba(255,255,255,0.25)" }}>
-                Talk to Us
+              <a href="/pricing" style={{ display: "inline-flex", alignItems: "center", background: "rgba(255,255,255,0.1)", color: "#fff", fontWeight: 600, fontSize: 15, padding: "14px 28px", borderRadius: 4, textDecoration: "none", border: "1px solid rgba(255,255,255,0.25)" }}>
+                View Plans →
               </a>
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 24, paddingTop: 40, borderTop: "1px solid rgba(255,255,255,0.1)" }}>

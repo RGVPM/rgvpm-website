@@ -117,8 +117,8 @@ export function CTA() {
             Pick your plan and we&apos;ll have you up and running in two weeks. No long-term commitment required.
           </p>
           <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
-            <a href="#pricing" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "#fff", color: "var(--navy)", fontWeight: 700, fontSize: 15, padding: "14px 28px", borderRadius: 4, textDecoration: "none" }}>
-              View Plans →
+            <a href="https://api.rgvperformancemarketing.com/widget/bookings/rgvpmdiscoverycall" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "#fff", color: "var(--navy)", fontWeight: 700, fontSize: 15, padding: "14px 28px", borderRadius: 4, textDecoration: "none" }}>
+              Book a Free Call →
             </a>
             <a href="mailto:info@rgvperformancemarketing.com" style={{ display: "inline-flex", alignItems: "center", background: "rgba(255,255,255,0.15)", color: "#fff", fontWeight: 600, fontSize: 15, padding: "14px 28px", borderRadius: 4, textDecoration: "none", border: "2px solid rgba(255,255,255,0.35)" }}>
               Email Us
