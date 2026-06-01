@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Icon from "@/components/Icon";
 import PageHero from "@/components/PageHero";
 import JsonLd from "@/components/JsonLd";
-import ContactForm from "@/components/ContactForm";
+import Script from "next/script";
 import { canonical, breadcrumbSchema, localBusinessSchema, SITE } from "@/lib/site";
 
 const url = canonical("/contact");
@@ -34,6 +34,10 @@ export default function ContactPage() {
         ]}
       />
       <main>
+        <Script
+          src="https://api.rgvperformancemarketing.com/js/form_embed.js"
+          strategy="afterInteractive"
+        />
         <PageHero
           eyebrow="Contact"
           title="Let's Talk About Your Growth"
@@ -75,7 +79,23 @@ export default function ContactPage() {
                 <p style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.6, marginBottom: 24 }}>
                   Fill this out and we&apos;ll be in touch quickly — usually the same business day.
                 </p>
-                <ContactForm />
+                <iframe
+                  src="https://api.rgvperformancemarketing.com/widget/form/1EFO5mH7pJ9tQZmLuLMK"
+                  style={{ width: "100%", height: 858, border: "none", borderRadius: 8 }}
+                  id="inline-1EFO5mH7pJ9tQZmLuLMK"
+                  data-layout="{'id':'INLINE'}"
+                  data-trigger-type="alwaysShow"
+                  data-trigger-value=""
+                  data-activation-type="alwaysActivated"
+                  data-activation-value=""
+                  data-deactivation-type="neverDeactivate"
+                  data-deactivation-value=""
+                  data-form-name="Site Form"
+                  data-height="858"
+                  data-layout-iframe-id="inline-1EFO5mH7pJ9tQZmLuLMK"
+                  data-form-id="1EFO5mH7pJ9tQZmLuLMK"
+                  title="Site Form"
+                />
               </div>
 
               {/* Contact info */}
