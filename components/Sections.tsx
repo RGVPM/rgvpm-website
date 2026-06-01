@@ -31,7 +31,7 @@ export function HowItWorks() {
       <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
         <div style={{ textAlign: "center", maxWidth: 640, margin: "0 auto 64px" }}>
           <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange)", background: "var(--orange-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--orange)" }}>The Process</span>
-          <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(36px,4vw,54px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 16px" }}>Simple. Fast. No Fluff.</h2>
+          <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(36px,4vw,54px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 16px" }}>Simple &amp; Fast</h2>
           <p style={{ fontSize: 17, color: "var(--muted)", lineHeight: 1.65 }}>We don&apos;t do 6-month onboarding. Most clients are up and running within two weeks.</p>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 28 }} className="steps-grid-responsive">
