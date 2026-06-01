@@ -1,7 +1,6 @@
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
 import { IndustryStrip, HowItWorks, WhyUs, CTA } from "@/components/Sections";
-import Services from "@/components/Services";
 import FAQ from "@/components/FAQ";
 import JsonLd from "@/components/JsonLd";
 import { localBusinessSchema, faqSchema, SITE } from "@/lib/site";
@@ -45,7 +44,6 @@ export default function Home() {
         <Marquee />
         <IndustryStrip />
         <HowItWorks />
-        <Services />
         <WhyUs />
         <FAQ />
         <CTA />
