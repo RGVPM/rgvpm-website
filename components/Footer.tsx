@@ -21,6 +21,8 @@ export default function Footer() {
             {
               title: "Services",
               links: [
+                { label: "Website Design", href: "/services/website-design" },
+                { label: "AI Implementation", href: "/services/ai-implementation" },
                 { label: "Google Business Profile", href: "/services/google-business-profile" },
                 { label: "Local SEO", href: "/services/local-seo" },
                 { label: "Paid Advertising", href: "/services/paid-advertising" },

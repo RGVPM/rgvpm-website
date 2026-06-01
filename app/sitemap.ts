@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE } from "@/lib/site";
 import { serviceSlugs } from "@/lib/services";
+import { citySlugs, webDesignCityPath, aiCityPath } from "@/lib/cities";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPaths: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
@@ -18,7 +19,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly" as const,
   }));
 
-  return [...staticPaths, ...servicePaths].map((entry) => ({
+  // New specialized service pages (not part of the lib/services data set).
+  const specializedServicePaths = [
+    { path: "/services/website-design", priority: 0.8, changeFrequency: "monthly" as const },
+    { path: "/services/ai-implementation", priority: 0.8, changeFrequency: "monthly" as const },
+  ];
+
+  // City landing pages for website design + AI implementation.
+  const cityPaths = citySlugs.flatMap((slug) => [
+    { path: webDesignCityPath(slug), priority: 0.7, changeFrequency: "monthly" as const },
+    { path: aiCityPath(slug), priority: 0.7, changeFrequency: "monthly" as const },
+  ]);
+
+  return [...staticPaths, ...servicePaths, ...specializedServicePaths, ...cityPaths].map((entry) => ({
     url: entry.path === "/" ? SITE.url : `${SITE.url}${entry.path}`,
     changeFrequency: entry.changeFrequency,
     priority: entry.priority,
