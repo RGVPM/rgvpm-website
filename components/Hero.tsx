@@ -11,7 +11,6 @@ type Stat = {
 };
 
 const stats: Stat[] = [
-  { num: "3", target: 3, label: "Simple plans to choose from" },
   { num: "AI", label: "Powered systems & tools" },
   { target: 24, suffix: "/7", label: "Always-on lead capture" },
   { num: "956", target: 956, label: "Locally rooted. Broadly serving." },
@@ -148,7 +147,7 @@ export default function Hero() {
                 View Plans →
               </a>
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 24, paddingTop: 40, borderTop: "1px solid rgba(255,255,255,0.1)" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24, paddingTop: 40, borderTop: "1px solid rgba(255,255,255,0.1)" }}>
               {stats.map((s) => (
                 <div key={s.label}>
                   <StatValue stat={s} />
