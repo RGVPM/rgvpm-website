@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Pricing from "@/components/Pricing";
+import PricingTabs from "@/components/PricingTabs";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FaqAccordion from "@/components/FaqAccordion";
 import InnerCTA from "@/components/InnerCTA";
@@ -63,12 +63,12 @@ export default function PricingPage() {
         ]}
       />
       <main>
-        <div style={{ background: "var(--navy)", paddingTop: 100 }}>
+        <div style={{ background: "#0f1c33", paddingTop: 100 }}>
           <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
             <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Pricing", path: "/pricing" }]} dark inHero />
           </div>
         </div>
-        <Pricing asPage />
+        <PricingTabs />
 
         <section style={{ padding: "88px 0", background: "var(--cream)" }}>
           <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
