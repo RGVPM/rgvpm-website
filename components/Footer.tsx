@@ -13,6 +13,7 @@ export default function Footer() {
             </p>
             <div style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", lineHeight: 1.9 }}>
               <div>📍 Harlingen, TX</div>
+              <div>📞 <a href="tel:+19567939152" style={{ color: "var(--orange)", textDecoration: "none" }}>(956) 793-9152</a></div>
               <div>✉️ <a href="mailto:info@rgvperformancemarketing.com" style={{ color: "var(--orange)", textDecoration: "none" }}>info@rgvperformancemarketing.com</a></div>
             </div>
           </div>
