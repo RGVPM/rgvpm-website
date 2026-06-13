@@ -43,6 +43,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             gtag('config', 'G-4G6Y27NLZ4');
           `}
         </Script>
+        <Script
+          src="https://widgets.leadconnectorhq.com/loader.js"
+          data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+          data-widget-id="6a2d06d49cb8f1e129b49b63"
+          data-source="WEB_USER"
+          strategy="afterInteractive"
+        />
         <Nav />
         <PageTransition>{children}</PageTransition>
         <Footer />
