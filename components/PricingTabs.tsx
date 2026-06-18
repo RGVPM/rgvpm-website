@@ -305,7 +305,7 @@ function SocialTab() {
           highlighted
           name="Content Crew"
           description="You shoot — we make it look pro."
-          price="$550"
+          price="$650"
           priceSuffix="/mo"
           priceNote="month-to-month"
           features={[
