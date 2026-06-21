@@ -3,6 +3,8 @@ import { SITE } from "@/lib/site";
 import { serviceSlugs } from "@/lib/services";
 import { citySlugs, webDesignCityPath, aiCityPath } from "@/lib/cities";
 import { localSeoCityPath, LOCAL_SEO_CITIES } from "@/lib/localSeo";
+import { googleAdsCityPath, GOOGLE_ADS_CITIES } from "@/lib/googleAds";
+import { gbpCityPath, GBP_CITIES } from "@/lib/gbp";
 import { postSlugs } from "@/lib/posts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -40,6 +42,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly" as const,
   }));
 
+  // Google Ads + Google Business Profile city landing pages.
+  const googleAdsPaths = Object.keys(GOOGLE_ADS_CITIES).map((slug) => ({
+    path: googleAdsCityPath(slug),
+    priority: 0.8,
+    changeFrequency: "monthly" as const,
+  }));
+  const gbpPaths = Object.keys(GBP_CITIES).map((slug) => ({
+    path: gbpCityPath(slug),
+    priority: 0.8,
+    changeFrequency: "monthly" as const,
+  }));
+
   // Blog posts.
   const postPaths = postSlugs.map((slug) => ({
     path: `/blog/${slug}`,
@@ -49,7 +63,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const lastModified = new Date();
 
-  return [...staticPaths, ...servicePaths, ...specializedServicePaths, ...cityPaths, ...localSeoPaths, ...postPaths].map((entry) => ({
+  return [...staticPaths, ...servicePaths, ...specializedServicePaths, ...cityPaths, ...localSeoPaths, ...googleAdsPaths, ...gbpPaths, ...postPaths].map((entry) => ({
     url: entry.path === "/" ? SITE.url : `${SITE.url}${entry.path}`,
     lastModified,
     changeFrequency: entry.changeFrequency,

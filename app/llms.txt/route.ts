@@ -1,6 +1,8 @@
 import { SITE, PLANS, SERVICE_AREA_CITIES } from "@/lib/site";
 import { citySlugs, webDesignCityPath, aiCityPath } from "@/lib/cities";
 import { localSeoCityPath } from "@/lib/localSeo";
+import { googleAdsCityPath } from "@/lib/googleAds";
+import { gbpCityPath } from "@/lib/gbp";
 
 /**
  * /llms.txt — a Markdown brief for AI assistants and answer engines
@@ -51,6 +53,8 @@ export function GET() {
   for (const slug of citySlugs) {
     const name = slug.split("-").map((w) => w[0].toUpperCase() + w.slice(1)).join(" ");
     lines.push(`- [Local SEO in ${name}, TX](${u(localSeoCityPath(slug))})`);
+    lines.push(`- [Google Business Profile Optimization in ${name}, TX](${u(gbpCityPath(slug))})`);
+    lines.push(`- [Google Ads Management in ${name}, TX](${u(googleAdsCityPath(slug))})`);
     lines.push(`- [Website Design in ${name}, TX](${u(webDesignCityPath(slug))})`);
     lines.push(`- [AI Implementation in ${name}, TX](${u(aiCityPath(slug))})`);
   }

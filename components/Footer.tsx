@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { cities, webDesignCityPath, aiCityPath } from "@/lib/cities";
 import { localSeoCityPath } from "@/lib/localSeo";
+import { googleAdsCityPath } from "@/lib/googleAds";
+import { gbpCityPath } from "@/lib/gbp";
 import { SOCIAL_PROFILES } from "@/lib/site";
 
 function socialLabel(url: string): string {
@@ -102,6 +104,8 @@ export default function Footer() {
                 <div style={{ fontSize: 13, fontWeight: 700, color: "rgba(255,255,255,0.85)", marginBottom: 8 }}>{c.name}, TX</div>
                 <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
                   <Link href={localSeoCityPath(c.slug)} style={{ fontSize: 12.5, color: "rgba(255,255,255,0.5)", textDecoration: "none" }}>Local SEO</Link>
+                  <Link href={gbpCityPath(c.slug)} style={{ fontSize: 12.5, color: "rgba(255,255,255,0.5)", textDecoration: "none" }}>Google Business Profile</Link>
+                  <Link href={googleAdsCityPath(c.slug)} style={{ fontSize: 12.5, color: "rgba(255,255,255,0.5)", textDecoration: "none" }}>Google Ads</Link>
                   <Link href={webDesignCityPath(c.slug)} style={{ fontSize: 12.5, color: "rgba(255,255,255,0.5)", textDecoration: "none" }}>Website Design</Link>
                   <Link href={aiCityPath(c.slug)} style={{ fontSize: 12.5, color: "rgba(255,255,255,0.5)", textDecoration: "none" }}>AI Implementation</Link>
                 </div>
