@@ -44,11 +44,11 @@ export const SERVICE_AREA_CITIES = [
  * doesn't exist yet — only verified URLs should ship here.
  */
 export const SOCIAL_PROFILES: string[] = [
-  // "https://www.google.com/maps/place/?q=place_id:...",   // Google Business Profile
-  // "https://www.facebook.com/...",
-  // "https://www.instagram.com/...",
-  // "https://www.linkedin.com/company/...",
-  // "https://www.youtube.com/@...",
+  "https://www.instagram.com/rgvperformacemarketing/",
+  "https://www.facebook.com/people/RGVPM/61572104973174/",
+  // TODO(owner): add Google Business Profile share link once available
+  //   (Google Maps → your listing → Share → Copy link). A search URL won't work.
+  // TODO(owner): add LinkedIn / YouTube if/when they exist.
 ];
 
 /**
@@ -61,8 +61,8 @@ export const FOUNDER: { name: string; jobTitle?: string } | null = null;
 /** Standard business hours. TODO(owner): confirm/adjust to your real hours. */
 export const OPENING_HOURS = {
   days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-  opens: "09:00",
-  closes: "18:00",
+  opens: "08:00",
+  closes: "17:00",
 } as const;
 
 export const STRIPE_LINKS = {

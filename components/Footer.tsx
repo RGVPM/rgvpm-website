@@ -2,6 +2,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { cities, webDesignCityPath, aiCityPath } from "@/lib/cities";
 import { localSeoCityPath } from "@/lib/localSeo";
+import { SOCIAL_PROFILES } from "@/lib/site";
+
+function socialLabel(url: string): string {
+  if (url.includes("instagram")) return "Instagram";
+  if (url.includes("facebook")) return "Facebook";
+  if (url.includes("linkedin")) return "LinkedIn";
+  if (url.includes("youtube")) return "YouTube";
+  if (url.includes("google")) return "Google";
+  return "Profile";
+}
 
 export default function Footer() {
   return (
@@ -18,6 +28,15 @@ export default function Footer() {
               <div>📞 <a href="tel:+19567939152" style={{ color: "var(--orange)", textDecoration: "none" }}>(956) 793-9152</a></div>
               <div>✉️ <a href="mailto:info@rgvperformancemarketing.com" style={{ color: "var(--orange)", textDecoration: "none" }}>info@rgvperformancemarketing.com</a></div>
             </div>
+            {SOCIAL_PROFILES.length > 0 && (
+              <div style={{ display: "flex", gap: 16, marginTop: 18 }}>
+                {SOCIAL_PROFILES.map((href) => (
+                  <a key={href} href={href} target="_blank" rel="noopener noreferrer" style={{ fontSize: 12.5, fontWeight: 600, color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>
+                    {socialLabel(href)}
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
 
           {[
