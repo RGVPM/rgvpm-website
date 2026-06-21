@@ -5,45 +5,43 @@ import PageHero from "@/components/PageHero";
 import InnerCTA from "@/components/InnerCTA";
 import JsonLd from "@/components/JsonLd";
 import { canonical, breadcrumbSchema, SITE, ORGANIZATION_ID } from "@/lib/site";
+import { POSTS } from "@/lib/posts";
 
 const url = canonical("/blog");
 
 export const metadata: Metadata = {
   title: "Blog — Local Marketing Tips for Small Businesses",
   description:
-    "Practical local marketing insights for small businesses — SEO, Google Business Profile, paid ads, lead management, and more. New articles coming soon.",
+    "Practical local marketing guides for Rio Grande Valley small businesses — local SEO, Google Maps rankings, website costs, paid ads, and more.",
   alternates: { canonical: url },
-  // Keep the empty blog out of the index until real articles ship, so it does
-  // not drag down sitewide quality signals. Remove `robots` once posts exist.
-  robots: { index: false, follow: true },
   openGraph: {
     type: "website",
     url,
     title: `Blog | ${SITE.name}`,
-    description: "Practical local marketing insights for small businesses. Coming soon.",
+    description: "Practical local marketing insights for small businesses in the Rio Grande Valley.",
     siteName: SITE.name,
   },
 };
-
-// Planned content categories — each maps to a service so the empty state still
-// drives internal links and signals topical focus to search engines.
-const topics = [
-  { icon: "search" as const, title: "Local SEO", text: "How local businesses climb the rankings and win the map pack.", href: "/services/local-seo" },
-  { icon: "map-pin" as const, title: "Google Business Profile", text: "Getting found, earning reviews, and standing out locally.", href: "/services/google-business-profile" },
-  { icon: "megaphone" as const, title: "Paid Advertising", text: "Running Google and Meta ads that produce real leads.", href: "/services/paid-advertising" },
-  { icon: "settings" as const, title: "Lead Management", text: "Capturing, responding to, and converting more of your leads.", href: "/services/lead-management" },
-  { icon: "chat" as const, title: "SMS & Email", text: "Staying in front of customers with messages they actually read.", href: "/services/sms-email-marketing" },
-  { icon: "calendar" as const, title: "Social & Content", text: "Staying top of mind with consistent, bilingual content.", href: "/services/social-media-newsletter" },
-];
 
 const blogSchema = {
   "@context": "https://schema.org",
   "@type": "Blog",
   name: `${SITE.name} Blog`,
-  description: "Practical local marketing insights for small businesses.",
+  description: "Practical local marketing insights for small businesses in the Rio Grande Valley.",
   url,
   publisher: { "@id": ORGANIZATION_ID },
+  blogPost: POSTS.map((p) => ({
+    "@type": "BlogPosting",
+    headline: p.title,
+    description: p.description,
+    url: canonical(`/blog/${p.slug}`),
+    datePublished: p.datePublished,
+    dateModified: p.dateModified,
+    author: { "@id": ORGANIZATION_ID },
+  })),
 };
+
+const cardAccents = ["var(--orange)", "var(--teal)", "#6E86B8"];
 
 export default function BlogPage() {
   return (
@@ -61,45 +59,33 @@ export default function BlogPage() {
         <PageHero
           eyebrow="Blog"
           title="Local Marketing, Made Practical"
-          subtitle="Straight-talking insights to help local businesses get found online and turn searches into customers. We're publishing our first articles soon."
+          subtitle="Straight-talking guides to help Rio Grande Valley businesses get found online and turn searches into customers."
           accent="var(--teal)"
           crumbs={[{ name: "Home", path: "/" }, { name: "Blog", path: "/blog" }]}
         />
 
-        {/* Empty state */}
-        <section style={{ padding: "88px 0 56px", background: "var(--cream)" }}>
-          <div style={{ maxWidth: 700, margin: "0 auto", padding: "0 24px", textAlign: "center" }}>
-            <div style={{ width: 64, height: 64, borderRadius: 14, background: "#fff", border: "1px solid var(--border)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 24px" }}>
-              <Icon name="chart" size={30} color="var(--teal)" />
-            </div>
-            <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(28px,3vw,42px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.05, marginBottom: 14 }}>
-              Articles Coming Soon
-            </h2>
-            <p style={{ fontSize: 16, color: "var(--muted)", lineHeight: 1.7 }}>
-              We&apos;re building a library of practical guides on local SEO, Google Business Profile, paid ads, and lead management — written for busy small-business owners, not marketers. In the meantime, explore the topics we&apos;ll be covering.
-            </p>
-          </div>
-        </section>
-
-        {/* Topic categories */}
-        <section style={{ padding: "0 0 88px", background: "var(--cream)" }}>
+        {/* Article list */}
+        <section style={{ padding: "80px 0 88px", background: "var(--cream)" }}>
           <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20 }} className="svc-grid-responsive">
-              {topics.map((t, i) => {
-                const accent = ["var(--orange)", "var(--teal)", "#6E86B8"][i % 3];
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 24 }} className="svc-grid-responsive">
+              {POSTS.map((p, i) => {
+                const accent = cardAccents[i % cardAccents.length];
                 return (
                   <Link
-                    key={t.title}
-                    href={t.href}
+                    key={p.slug}
+                    href={`/blog/${p.slug}`}
                     className="svc-card"
-                    style={{ background: "#fff", border: "1px solid var(--border)", borderRadius: 10, padding: 26, textDecoration: "none", color: "inherit", display: "block" }}
+                    style={{ background: "#fff", border: "1px solid var(--border)", borderTop: `4px solid ${accent}`, borderRadius: 10, padding: 28, textDecoration: "none", color: "inherit", display: "flex", flexDirection: "column" }}
                   >
-                    <div style={{ width: 44, height: 44, borderRadius: 10, background: "var(--cream)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 14 }}>
-                      <Icon name={t.icon} size={22} color={accent} />
+                    <div style={{ width: 46, height: 46, borderRadius: 10, background: "var(--cream)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 16 }}>
+                      <Icon name={p.icon} size={23} color={accent} />
                     </div>
-                    <h3 style={{ fontSize: 16, fontWeight: 700, color: "var(--navy)", marginBottom: 6 }}>{t.title}</h3>
-                    <p style={{ fontSize: 13.5, color: "var(--muted)", lineHeight: 1.6 }}>{t.text}</p>
-                    <div style={{ marginTop: 12, fontSize: 12.5, fontWeight: 700, color: accent }}>Explore service →</div>
+                    <div style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", color: accent, marginBottom: 10 }}>
+                      {p.category} · {p.readMinutes} min
+                    </div>
+                    <h2 style={{ fontSize: 18, fontWeight: 700, color: "var(--navy)", lineHeight: 1.3, marginBottom: 10 }}>{p.title}</h2>
+                    <p style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.6, marginBottom: 16 }}>{p.excerpt}</p>
+                    <div style={{ marginTop: "auto", fontSize: 13, fontWeight: 700, color: accent }}>Read the guide →</div>
                   </Link>
                 );
               })}
