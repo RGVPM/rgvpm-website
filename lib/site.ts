@@ -45,7 +45,7 @@ export const SERVICE_AREA_CITIES = [
  */
 export const SOCIAL_PROFILES: string[] = [
   "https://share.google/P2QVUDKeJlWeX0QGX", // Google Business Profile (entity /g/11nc2gcm67)
-  "https://www.instagram.com/rgvperformacemarketing/",
+  "https://www.instagram.com/rgvperformancemarketing/",
   "https://www.facebook.com/people/RGVPM/61572104973174/",
   // TODO(owner): add LinkedIn / YouTube if/when they exist.
 ];
