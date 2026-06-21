@@ -19,7 +19,24 @@ export const metadata: Metadata = {
     url: "https://rgvperformancemarketing.com",
     siteName: "RGV Performance Marketing",
   },
-  robots: { index: true, follow: true },
+  twitter: {
+    card: "summary_large_image",
+    title: "RGV Performance Marketing | AI-Powered Digital Marketing",
+    description:
+      "AI-powered digital marketing for local businesses in the Rio Grande Valley. Websites, SEO, paid ads, lead management, and more.",
+  },
+  alternates: { canonical: "https://rgvperformancemarketing.com" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

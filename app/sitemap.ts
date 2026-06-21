@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 import { SITE } from "@/lib/site";
 import { serviceSlugs } from "@/lib/services";
 import { citySlugs, webDesignCityPath, aiCityPath } from "@/lib/cities";
+import { localSeoCityPath, LOCAL_SEO_CITIES } from "@/lib/localSeo";
+import { postSlugs } from "@/lib/posts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPaths: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
@@ -31,8 +33,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: aiCityPath(slug), priority: 0.7, changeFrequency: "monthly" as const },
   ]);
 
-  return [...staticPaths, ...servicePaths, ...specializedServicePaths, ...cityPaths].map((entry) => ({
+  // Local SEO city landing pages.
+  const localSeoPaths = Object.keys(LOCAL_SEO_CITIES).map((slug) => ({
+    path: localSeoCityPath(slug),
+    priority: 0.8,
+    changeFrequency: "monthly" as const,
+  }));
+
+  // Blog posts.
+  const postPaths = postSlugs.map((slug) => ({
+    path: `/blog/${slug}`,
+    priority: 0.6,
+    changeFrequency: "monthly" as const,
+  }));
+
+  const lastModified = new Date();
+
+  return [...staticPaths, ...servicePaths, ...specializedServicePaths, ...cityPaths, ...localSeoPaths, ...postPaths].map((entry) => ({
     url: entry.path === "/" ? SITE.url : `${SITE.url}${entry.path}`,
+    lastModified,
     changeFrequency: entry.changeFrequency,
     priority: entry.priority,
   }));
