@@ -44,10 +44,9 @@ export const SERVICE_AREA_CITIES = [
  * doesn't exist yet — only verified URLs should ship here.
  */
 export const SOCIAL_PROFILES: string[] = [
+  "https://share.google/P2QVUDKeJlWeX0QGX", // Google Business Profile (entity /g/11nc2gcm67)
   "https://www.instagram.com/rgvperformacemarketing/",
   "https://www.facebook.com/people/RGVPM/61572104973174/",
-  // TODO(owner): add Google Business Profile share link once available
-  //   (Google Maps → your listing → Share → Copy link). A search URL won't work.
   // TODO(owner): add LinkedIn / YouTube if/when they exist.
 ];
 
