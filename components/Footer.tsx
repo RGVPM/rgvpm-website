@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { cities, webDesignCityPath, aiCityPath } from "@/lib/cities";
+import { localSeoCityPath } from "@/lib/localSeo";
 
 export default function Footer() {
   return (
@@ -81,6 +82,14 @@ export default function Footer() {
               <span style={{ fontSize: 12, color: "rgba(255,255,255,0.4)", minWidth: 110 }}>Website Design:</span>
               {cities.map((c) => (
                 <Link key={c.slug} href={webDesignCityPath(c.slug)} style={{ fontSize: 12.5, color: "rgba(255,255,255,0.55)", textDecoration: "none" }}>
+                  {c.name}
+                </Link>
+              ))}
+            </div>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "6px 14px", alignItems: "baseline" }}>
+              <span style={{ fontSize: 12, color: "rgba(255,255,255,0.4)", minWidth: 110 }}>Local SEO:</span>
+              {cities.map((c) => (
+                <Link key={c.slug} href={localSeoCityPath(c.slug)} style={{ fontSize: 12.5, color: "rgba(255,255,255,0.55)", textDecoration: "none" }}>
                   {c.name}
                 </Link>
               ))}
