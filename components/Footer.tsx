@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { cities, webDesignCityPath, aiCityPath } from "@/lib/cities";
 
 export default function Footer() {
   return (
@@ -68,6 +69,31 @@ export default function Footer() {
               </ul>
             </div>
           ))}
+        </div>
+
+        {/* Areas We Serve — internal links to every city landing page */}
+        <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: 28, marginBottom: 8 }}>
+          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", marginBottom: 14 }}>
+            Areas We Serve
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "6px 14px", alignItems: "baseline" }}>
+              <span style={{ fontSize: 12, color: "rgba(255,255,255,0.4)", minWidth: 110 }}>Website Design:</span>
+              {cities.map((c) => (
+                <Link key={c.slug} href={webDesignCityPath(c.slug)} style={{ fontSize: 12.5, color: "rgba(255,255,255,0.55)", textDecoration: "none" }}>
+                  {c.name}
+                </Link>
+              ))}
+            </div>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "6px 14px", alignItems: "baseline" }}>
+              <span style={{ fontSize: 12, color: "rgba(255,255,255,0.4)", minWidth: 110 }}>AI Implementation:</span>
+              {cities.map((c) => (
+                <Link key={c.slug} href={aiCityPath(c.slug)} style={{ fontSize: 12.5, color: "rgba(255,255,255,0.55)", textDecoration: "none" }}>
+                  {c.name}
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
 
         <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: 28, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>

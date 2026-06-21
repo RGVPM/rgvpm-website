@@ -31,8 +31,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: aiCityPath(slug), priority: 0.7, changeFrequency: "monthly" as const },
   ]);
 
+  const lastModified = new Date();
+
   return [...staticPaths, ...servicePaths, ...specializedServicePaths, ...cityPaths].map((entry) => ({
     url: entry.path === "/" ? SITE.url : `${SITE.url}${entry.path}`,
+    lastModified,
     changeFrequency: entry.changeFrequency,
     priority: entry.priority,
   }));

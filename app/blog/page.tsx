@@ -4,7 +4,7 @@ import Icon from "@/components/Icon";
 import PageHero from "@/components/PageHero";
 import InnerCTA from "@/components/InnerCTA";
 import JsonLd from "@/components/JsonLd";
-import { canonical, breadcrumbSchema, SITE } from "@/lib/site";
+import { canonical, breadcrumbSchema, SITE, ORGANIZATION_ID } from "@/lib/site";
 
 const url = canonical("/blog");
 
@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   description:
     "Practical local marketing insights for small businesses — SEO, Google Business Profile, paid ads, lead management, and more. New articles coming soon.",
   alternates: { canonical: url },
+  // Keep the empty blog out of the index until real articles ship, so it does
+  // not drag down sitewide quality signals. Remove `robots` once posts exist.
+  robots: { index: false, follow: true },
   openGraph: {
     type: "website",
     url,
@@ -39,7 +42,7 @@ const blogSchema = {
   name: `${SITE.name} Blog`,
   description: "Practical local marketing insights for small businesses.",
   url,
-  publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
+  publisher: { "@id": ORGANIZATION_ID },
 };
 
 export default function BlogPage() {

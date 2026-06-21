@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { canonical, breadcrumbSchema, SITE } from "@/lib/site";
+import { canonical, breadcrumbSchema, serviceListSchema, localBusinessSchema, SITE } from "@/lib/site";
 import PageHero from "@/components/PageHero";
 import Services from "@/components/Services";
 import Icon from "@/components/Icon";
@@ -43,10 +43,23 @@ export default function ServicesHub() {
   return (
     <>
       <JsonLd
-        data={breadcrumbSchema([
-          { name: "Home", path: "/" },
-          { name: "Services", path: "/services" },
-        ])}
+        data={[
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/services" },
+          ]),
+          serviceListSchema([
+            { name: "Website Design", path: "/services/website-design" },
+            { name: "AI Implementation", path: "/services/ai-implementation" },
+            { name: "Local SEO", path: "/services/local-seo" },
+            { name: "Google Business Profile", path: "/services/google-business-profile" },
+            { name: "Paid Advertising", path: "/services/paid-advertising" },
+            { name: "SMS & Email Marketing", path: "/services/sms-email-marketing" },
+            { name: "Lead Management", path: "/services/lead-management" },
+            { name: "Social Media & Newsletter", path: "/services/social-media-newsletter" },
+          ]),
+          localBusinessSchema(),
+        ]}
       />
       <main>
         <PageHero
