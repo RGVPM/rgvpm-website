@@ -2,9 +2,9 @@ import Image from "next/image";
 import { CLIENTS } from "@/lib/clients";
 
 /**
- * Left-to-right marquee of client logos. Each logo links out to the client's
- * website as a dofollow backlink (SEO value for them). Renders nothing until
- * at least one client is added in lib/clients.ts.
+ * Transparent, card-less marquee of client logos — sits directly on its
+ * parent section background. Each logo is a dofollow backlink to the client.
+ * Renders nothing until at least one client is added in lib/clients.ts.
  */
 export default function ClientMarquee() {
   if (CLIENTS.length === 0) return null;
@@ -12,12 +12,10 @@ export default function ClientMarquee() {
   const doubled = [...CLIENTS, ...CLIENTS];
 
   return (
-    <section style={{ background: "var(--navy)", borderTop: "1px solid rgba(255,255,255,0.06)", padding: "40px 0" }}>
-      <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px", marginBottom: 22, textAlign: "center" }}>
-        <span style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.4)" }}>
-          Businesses We&apos;ve Built For
-        </span>
-      </div>
+    <div style={{ marginTop: 44 }}>
+      <p style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--muted)", textAlign: "center", marginBottom: 24 }}>
+        Some of Our Recent Work
+      </p>
       <div style={{ overflow: "hidden", maskImage: "linear-gradient(to right, transparent, #000 8%, #000 92%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, #000 8%, #000 92%, transparent)" }}>
         <div className="animate-marquee-reverse" style={{ display: "flex", alignItems: "center", whiteSpace: "nowrap", width: "max-content" }}>
           {doubled.map((client, i) => (
@@ -27,27 +25,25 @@ export default function ClientMarquee() {
               target="_blank"
               rel="noopener"
               title={`Visit ${client.name}`}
-              style={{ display: "inline-flex", alignItems: "center", padding: "0 16px", textDecoration: "none" }}
+              style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", padding: "0 38px", height: 56, opacity: 0.82, textDecoration: "none" }}
             >
-              <div style={{ background: "#fff", borderRadius: 12, height: 84, minWidth: 210, padding: "0 30px", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 2px 12px rgba(0,0,0,0.18)" }}>
-                {client.logo ? (
-                  <Image
-                    src={client.logo}
-                    alt={`${client.name} logo`}
-                    height={140}
-                    width={260}
-                    style={{ height: "auto", maxHeight: 68, width: "auto", maxWidth: 200, objectFit: "contain" }}
-                  />
-                ) : (
-                  <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 26, letterSpacing: "0.05em", color: "var(--navy)" }}>
-                    {client.name}
-                  </span>
-                )}
-              </div>
+              {client.logo ? (
+                <Image
+                  src={client.logo}
+                  alt={`${client.name} logo`}
+                  height={140}
+                  width={260}
+                  style={{ height: "auto", maxHeight: 50, width: "auto", maxWidth: 180, objectFit: "contain" }}
+                />
+              ) : (
+                <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 26, letterSpacing: "0.05em", color: "var(--navy)" }}>
+                  {client.name}
+                </span>
+              )}
             </a>
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 }

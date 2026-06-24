@@ -1,6 +1,5 @@
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
-import ClientMarquee from "@/components/ClientMarquee";
 import { IndustryStrip, HowItWorks, WhyUs, CTA } from "@/components/Sections";
 import FAQ from "@/components/FAQ";
 import HomeBlogStrip from "@/components/HomeBlogStrip";
@@ -15,7 +14,6 @@ export default function Home() {
       <main>
         <Hero />
         <Marquee />
-        <ClientMarquee />
         <IndustryStrip />
         <HowItWorks />
         <WhyUs />

@@ -1,4 +1,5 @@
 import Icon from "@/components/Icon";
+import ClientMarquee from "@/components/ClientMarquee";
 
 export function IndustryStrip() {
   const industries = ["🏠 Home Services","✂️ Salons & Barbershops","🔧 Contractors","🍽️ Restaurants & Food","🏥 Healthcare & Clinics","🛒 Retail","⚖️ Professional Services","🚗 Auto Services","+ More"];
@@ -15,6 +16,7 @@ export function IndustryStrip() {
             </div>
           ))}
         </div>
+        <ClientMarquee />
       </div>
     </section>
   );
