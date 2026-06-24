@@ -114,7 +114,7 @@ export default function AboutPage() {
                   I started RGV Performance Marketing after watching too many great local businesses stay invisible online — not because they weren&apos;t good at what they do, but because no one ever built them a system to get found. Meanwhile, the competitor down the street won the customer for one reason: they simply showed up first.
                 </p>
                 <p style={{ fontSize: 16.5, color: "rgba(255,255,255,0.75)", lineHeight: 1.75, marginBottom: 16 }}>
-                  So I built the agency I wished those owners had — one that pairs modern AI tools with real, hands-on strategy to deliver the kind of results that used to require a team three times the size, at a price a local business can actually afford. No long-term contracts, no vanity metrics, no jargon. Just websites, SEO, ads, and automation that turn searches into customers — built right here for the Rio Grande Valley, in English and Spanish.
+                  So I built the agency I wished those owners had — one that pairs modern AI tools with real, hands-on strategy to deliver the kind of results that used to require a team three times the size, at a price a local business can actually afford. No long-term contracts, no vanity metrics, no jargon. Just websites, SEO, ads, and automation that turn searches into customers — built right here for the Rio Grande Valley.
                 </p>
                 <p style={{ fontSize: 16.5, color: "rgba(255,255,255,0.75)", lineHeight: 1.75 }}>
                   As for who&apos;s behind it? That reveal is coming soon — follow along on Instagram. Until then, the work speaks for itself.
