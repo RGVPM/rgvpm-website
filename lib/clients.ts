@@ -21,4 +21,5 @@ export interface Client {
  *   { name: "CCL Contracting", url: "https://cclcontracting.com", logo: "/clients/ccl-contracting.png" },
  */
 export const CLIENTS: Client[] = [
+  { name: "CCL Contracting", url: "https://www.cclcontracting.com", logo: "/clients/ccl-contracting.png" },
 ];

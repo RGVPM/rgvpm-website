@@ -26,22 +26,24 @@ export default function ClientMarquee() {
               href={client.url}
               target="_blank"
               rel="noopener"
-              title={client.name}
-              style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", padding: "0 40px", height: 56, opacity: 0.75, transition: "opacity 0.2s", textDecoration: "none" }}
+              title={`Visit ${client.name}`}
+              style={{ display: "inline-flex", alignItems: "center", padding: "0 16px", textDecoration: "none" }}
             >
-              {client.logo ? (
-                <Image
-                  src={client.logo}
-                  alt={client.name}
-                  height={40}
-                  width={160}
-                  style={{ height: 40, width: "auto", objectFit: "contain", filter: "brightness(0) invert(1)" }}
-                />
-              ) : (
-                <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 24, letterSpacing: "0.05em", color: "rgba(255,255,255,0.85)" }}>
-                  {client.name}
-                </span>
-              )}
+              <div style={{ background: "#fff", borderRadius: 12, height: 84, minWidth: 210, padding: "0 30px", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 2px 12px rgba(0,0,0,0.18)" }}>
+                {client.logo ? (
+                  <Image
+                    src={client.logo}
+                    alt={`${client.name} logo`}
+                    height={140}
+                    width={260}
+                    style={{ height: "auto", maxHeight: 68, width: "auto", maxWidth: 200, objectFit: "contain" }}
+                  />
+                ) : (
+                  <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 26, letterSpacing: "0.05em", color: "var(--navy)" }}>
+                    {client.name}
+                  </span>
+                )}
+              </div>
             </a>
           ))}
         </div>
