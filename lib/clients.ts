@@ -22,4 +22,5 @@ export interface Client {
  */
 export const CLIENTS: Client[] = [
   { name: "CCL Contracting", url: "https://www.cclcontracting.com", logo: "/clients/ccl-contracting.png" },
+  { name: "Premium Foam — Spray Foam Insulation", url: "https://www.cclcontracting.com/spray-foam-insulation/", logo: "/clients/premium-foam.png" },
 ];
