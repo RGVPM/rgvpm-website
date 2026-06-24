@@ -2,20 +2,9 @@ import Icon from "@/components/Icon";
 import ClientMarquee from "@/components/ClientMarquee";
 
 export function IndustryStrip() {
-  const industries = ["🏠 Home Services","✂️ Salons & Barbershops","🔧 Contractors","🍽️ Restaurants & Food","🏥 Healthcare & Clinics","🛒 Retail","⚖️ Professional Services","🚗 Auto Services","+ More"];
   return (
-    <section style={{ padding: "56px 0", background: "var(--cream-dark)" }}>
+    <section style={{ padding: "60px 0", background: "var(--cream-dark)" }}>
       <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
-        <p style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--muted)", textAlign: "center", marginBottom: 28 }}>
-          Built for service-based local businesses
-        </p>
-        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12 }}>
-          {industries.map((ind) => (
-            <div key={ind} style={{ padding: "9px 18px", borderRadius: 100, border: "1px solid var(--border)", background: "#fff", fontSize: 13, fontWeight: 500, color: "var(--muted)" }}>
-              {ind}
-            </div>
-          ))}
-        </div>
         <ClientMarquee />
       </div>
     </section>
