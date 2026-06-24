@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
+import ClientMarquee from "@/components/ClientMarquee";
 import { IndustryStrip, HowItWorks, WhyUs, CTA } from "@/components/Sections";
 import FAQ from "@/components/FAQ";
 import JsonLd from "@/components/JsonLd";
@@ -13,6 +14,7 @@ export default function Home() {
       <main>
         <Hero />
         <Marquee />
+        <ClientMarquee />
         <IndustryStrip />
         <HowItWorks />
         <WhyUs />

@@ -1,8 +1,7 @@
 const items = [
-  "Website Design", "Local SEO", "Google Ads", "Facebook & Instagram Ads",
-  "Google Business Profile", "Lead Management", "Two-Way SMS & Email",
-  "Monthly Newsletter", "Social Media Planner", "Reputation Management",
-  "Marketing Automation", "NAP Consistency",
+  "Medspas", "Home Services", "Salons & Barbershops", "Contractors",
+  "Restaurants & Food", "Healthcare & Clinics", "Retail",
+  "Professional Services", "Auto Services",
 ];
 
 export default function Marquee() {
