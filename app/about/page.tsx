@@ -4,7 +4,9 @@ import Icon from "@/components/Icon";
 import PageHero from "@/components/PageHero";
 import InnerCTA from "@/components/InnerCTA";
 import JsonLd from "@/components/JsonLd";
-import { canonical, breadcrumbSchema, localBusinessSchema, SITE } from "@/lib/site";
+import { canonical, breadcrumbSchema, localBusinessSchema, SITE, SOCIAL_PROFILES } from "@/lib/site";
+
+const instagramUrl = SOCIAL_PROFILES.find((u) => u.includes("instagram"));
 
 const url = canonical("/about");
 
@@ -68,6 +70,57 @@ export default function AboutPage() {
             <p style={{ fontSize: 16.5, color: "var(--muted)", lineHeight: 1.75 }}>
               We pair modern AI tools with hands-on strategy to deliver results that used to require a team three times our size, at prices a local business can actually afford. Straightforward plans, real reporting, and no long-term contracts — just steady, measurable growth.
             </p>
+          </div>
+        </section>
+
+        {/* Meet the Founder */}
+        <section style={{ padding: "96px 0", background: "var(--navy)", position: "relative", overflow: "hidden" }}>
+          <div style={{ position: "absolute", inset: 0, opacity: 0.04, backgroundImage: "linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)", backgroundSize: "56px 56px" }} />
+          <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px", position: "relative", zIndex: 2 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "0.8fr 1.2fr", gap: 56, alignItems: "center" }} className="why-grid-responsive">
+              {/* Mystery photo placeholder */}
+              <div>
+                <div style={{ position: "relative", aspectRatio: "4 / 5", borderRadius: 16, overflow: "hidden", background: "linear-gradient(150deg, #243a63 0%, #0e1830 100%)", border: "1px solid rgba(255,255,255,0.12)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <div style={{ position: "absolute", width: 320, height: 320, borderRadius: "50%", background: "radial-gradient(circle, rgba(232,98,26,0.22) 0%, transparent 65%)" }} />
+                  <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 200, lineHeight: 1, color: "rgba(255,255,255,0.10)", position: "relative" }}>?</span>
+                  <div style={{ position: "absolute", top: 16, left: 16, fontFamily: "var(--font-dm-mono), monospace", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--orange)", background: "rgba(232,98,26,0.15)", border: "1px solid rgba(232,98,26,0.4)", padding: "6px 12px", borderRadius: 100 }}>
+                    Coming Soon
+                  </div>
+                  <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, padding: "28px 22px", background: "linear-gradient(to top, rgba(8,14,26,0.92), transparent)", textAlign: "center" }}>
+                    <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 26, letterSpacing: "0.04em", color: "#fff", lineHeight: 1.05 }}>
+                      Identity Reveal Coming Soon
+                    </div>
+                    {instagramUrl && (
+                      <a href={instagramUrl} target="_blank" rel="noopener" style={{ display: "inline-block", marginTop: 8, fontSize: 12.5, fontWeight: 600, color: "var(--orange)", textDecoration: "none" }}>
+                        Follow on Instagram for the reveal →
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              {/* Bio */}
+              <div>
+                <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange)", background: "rgba(232,98,26,0.15)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--orange)" }}>
+                  Meet the Founder
+                </span>
+                <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "#fff", lineHeight: 1.0, margin: "14px 0 6px" }}>
+                  The Mind Behind the Machine
+                </h2>
+                <div style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: 12, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.5)", marginBottom: 22 }}>
+                  Founder &amp; CEO · RGV Performance Marketing
+                </div>
+                <p style={{ fontSize: 16.5, color: "rgba(255,255,255,0.75)", lineHeight: 1.75, marginBottom: 16 }}>
+                  I started RGV Performance Marketing after watching too many great local businesses stay invisible online — not because they weren&apos;t good at what they do, but because no one ever built them a system to get found. Meanwhile, the competitor down the street won the customer for one reason: they simply showed up first.
+                </p>
+                <p style={{ fontSize: 16.5, color: "rgba(255,255,255,0.75)", lineHeight: 1.75, marginBottom: 16 }}>
+                  So I built the agency I wished those owners had — one that pairs modern AI tools with real, hands-on strategy to deliver the kind of results that used to require a team three times the size, at a price a local business can actually afford. No long-term contracts, no vanity metrics, no jargon. Just websites, SEO, ads, and automation that turn searches into customers — built right here for the Rio Grande Valley, in English and Spanish.
+                </p>
+                <p style={{ fontSize: 16.5, color: "rgba(255,255,255,0.75)", lineHeight: 1.75 }}>
+                  As for who&apos;s behind it? That reveal is coming soon — follow along on Instagram. Until then, the work speaks for itself.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
