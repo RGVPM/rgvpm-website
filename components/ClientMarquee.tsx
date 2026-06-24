@@ -33,7 +33,7 @@ export default function ClientMarquee() {
                   alt={`${client.name} logo`}
                   height={200}
                   width={360}
-                  style={{ height: "auto", maxHeight: 84, width: "auto", maxWidth: 260, objectFit: "contain" }}
+                  style={{ height: "auto", maxHeight: client.maxHeight ?? 84, width: "auto", maxWidth: 260, objectFit: "contain" }}
                 />
               ) : (
                 <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 26, letterSpacing: "0.05em", color: "var(--navy)" }}>
