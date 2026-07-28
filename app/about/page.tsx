@@ -33,8 +33,8 @@ const values = [
 ];
 
 const founders = [
-  { role: "Founder & CEO", tag: "Reveal 01" },
-  { role: "Co-Founder", tag: "Reveal 02" },
+  { role: "Co-Founder", title: "CEO", tag: "Reveal 01" },
+  { role: "Co-Founder", title: "Operations Director", tag: "Reveal 02" },
 ];
 
 export default function AboutPage() {
@@ -93,12 +93,12 @@ export default function AboutPage() {
                       <div style={{ position: "absolute", top: 12, left: 12, fontFamily: "var(--font-dm-mono), monospace", fontSize: 9, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--orange)", background: "rgba(232,98,26,0.15)", border: "1px solid rgba(232,98,26,0.4)", padding: "5px 10px", borderRadius: 100 }}>
                         {f.tag}
                       </div>
-                      <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, padding: "26px 14px 18px", background: "linear-gradient(to top, rgba(8,14,26,0.92), transparent)", textAlign: "center" }}>
+                      <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, padding: "26px 8px 18px", background: "linear-gradient(to top, rgba(8,14,26,0.92), transparent)", textAlign: "center" }}>
                         <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(17px,1.6vw,21px)", letterSpacing: "0.04em", color: "#fff", lineHeight: 1.05 }}>
                           {f.role}
                         </div>
-                        <div style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: 9.5, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.5)", marginTop: 6 }}>
-                          Identity Reveal Soon
+                        <div style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: 9.5, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--orange)", marginTop: 6, lineHeight: 1.35, minHeight: "2.7em", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                          {f.title}
                         </div>
                       </div>
                     </div>
