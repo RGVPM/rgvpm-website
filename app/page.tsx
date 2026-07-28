@@ -1,8 +1,13 @@
-import Hero from "@/components/Hero";
-import Marquee from "@/components/Marquee";
-import { IndustryStrip, HowItWorks, WhyUs, CTA } from "@/components/Sections";
-import FAQ from "@/components/FAQ";
-import HomeBlogStrip from "@/components/HomeBlogStrip";
+import HomeHero from "@/components/home/HomeHero";
+import IndustryMarquee from "@/components/home/IndustryMarquee";
+import WorkShowcase from "@/components/home/WorkShowcase";
+import Capabilities from "@/components/home/Capabilities";
+import Process from "@/components/home/Process";
+import WhyUs from "@/components/home/WhyUs";
+import Approach from "@/components/home/Approach";
+import BlogEditorial from "@/components/home/BlogEditorial";
+import HomeFaq from "@/components/home/HomeFaq";
+import FinalCta from "@/components/home/FinalCta";
 import JsonLd from "@/components/JsonLd";
 import { localBusinessSchema, organizationSchema, websiteSchema, faqSchema, SITE } from "@/lib/site";
 import { homeFaqs } from "@/lib/faqs";
@@ -12,14 +17,16 @@ export default function Home() {
     <>
       <JsonLd data={[localBusinessSchema(), organizationSchema(), websiteSchema(), faqSchema(homeFaqs)]} />
       <main>
-        <Hero />
-        <Marquee />
-        <IndustryStrip />
-        <HowItWorks />
+        <HomeHero />
+        <IndustryMarquee />
+        <WorkShowcase />
+        <Capabilities />
+        <Process />
         <WhyUs />
-        <HomeBlogStrip />
-        <FAQ />
-        <CTA />
+        <Approach />
+        <BlogEditorial />
+        <HomeFaq />
+        <FinalCta />
       </main>
     </>
   );

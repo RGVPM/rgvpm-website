@@ -17,23 +17,23 @@ function socialLabel(url: string): string {
 
 export default function Footer() {
   return (
-    <footer style={{ background: "var(--navy)", color: "#fff", padding: "64px 0 32px" }}>
-      <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: 40, marginBottom: 48 }} className="footer-grid-responsive">
+    <footer style={{ background: "var(--navy)", color: "#fff", padding: "var(--s9) 0 var(--s6)" }}>
+      <div className="rg-container">
+        <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: 40, marginBottom: "var(--s9)" }} className="footer-grid-responsive">
           <div>
-            <Image src="/logo.png" alt="RGV Performance Marketing" width={200} height={47} style={{ height: 47, width: "auto", marginBottom: 16 }} />
-            <p style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", lineHeight: 1.7, maxWidth: 260, marginBottom: 20 }}>
+            <Image src="/logo.png" alt="RGV Performance Marketing" width={200} height={47} sizes="200px" style={{ height: 47, width: "auto", marginBottom: 16 }} />
+            <p style={{ fontSize: 13, color: "rgba(255,255,255,0.62)", lineHeight: 1.7, maxWidth: 260, marginBottom: 20 }}>
               AI-powered digital marketing for local businesses. Websites, SEO, ads, lead management, newsletters, and more. Locally rooted. Built to scale.
             </p>
-            <div style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", lineHeight: 1.9 }}>
+            <address style={{ fontSize: 13, color: "rgba(255,255,255,0.55)", lineHeight: 1.9, fontStyle: "normal" }}>
               <div>📍 Harlingen, TX</div>
-              <div>📞 <a href="tel:+19567939152" style={{ color: "var(--orange)", textDecoration: "none" }}>(956) 793-9152</a></div>
-              <div>✉️ <a href="mailto:info@rgvperformancemarketing.com" style={{ color: "var(--orange)", textDecoration: "none" }}>info@rgvperformancemarketing.com</a></div>
-            </div>
+              <div>📞 <a href="tel:+19567939152" style={{ color: "var(--orange-on-dark)", textDecoration: "none" }}>(956) 793-9152</a></div>
+              <div style={{ wordBreak: "break-word" }}>✉️ <a href="mailto:info@rgvperformancemarketing.com" style={{ color: "var(--orange-on-dark)", textDecoration: "none" }}>info@rgvperformancemarketing.com</a></div>
+            </address>
             {SOCIAL_PROFILES.length > 0 && (
               <div style={{ display: "flex", gap: 16, marginTop: 18 }}>
                 {SOCIAL_PROFILES.map((href) => (
-                  <a key={href} href={href} target="_blank" rel="noopener noreferrer" style={{ fontSize: 12.5, fontWeight: 600, color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>
+                  <a key={href} href={href} target="_blank" rel="noopener noreferrer" style={{ fontSize: 12.5, fontWeight: 600, color: "rgba(255,255,255,0.75)", textDecoration: "none" }}>
                     {socialLabel(href)}
                   </a>
                 ))}
@@ -77,13 +77,13 @@ export default function Footer() {
             },
           ].map((col) => (
             <div key={col.title}>
-              <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", marginBottom: 18 }}>
+              <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.66)", marginBottom: 18 }}>
                 {col.title}
               </div>
               <ul style={{ listStyle: "none" }}>
                 {col.links.map((link) => (
                   <li key={link.label} style={{ marginBottom: 9 }}>
-                    <Link href={link.href} style={{ fontSize: 13, color: "rgba(255,255,255,0.55)", textDecoration: "none" }}>
+                    <Link href={link.href} style={{ fontSize: 13, color: "rgba(255,255,255,0.7)", textDecoration: "none" }}>
                       {link.label}
                     </Link>
                   </li>
@@ -95,7 +95,7 @@ export default function Footer() {
 
         {/* Areas We Serve — internal links to every city landing page */}
         <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: 28, marginBottom: 8 }}>
-          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", marginBottom: 14 }}>
+          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.66)", marginBottom: 14 }}>
             Areas We Serve
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))", gap: "22px 24px" }}>
@@ -103,11 +103,11 @@ export default function Footer() {
               <div key={c.slug}>
                 <div style={{ fontSize: 13, fontWeight: 700, color: "rgba(255,255,255,0.85)", marginBottom: 8 }}>{c.name}, TX</div>
                 <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
-                  <Link href={localSeoCityPath(c.slug)} style={{ fontSize: 12.5, color: "rgba(255,255,255,0.5)", textDecoration: "none" }}>Local SEO</Link>
-                  <Link href={gbpCityPath(c.slug)} style={{ fontSize: 12.5, color: "rgba(255,255,255,0.5)", textDecoration: "none" }}>Google Business Profile</Link>
-                  <Link href={googleAdsCityPath(c.slug)} style={{ fontSize: 12.5, color: "rgba(255,255,255,0.5)", textDecoration: "none" }}>Google Ads</Link>
-                  <Link href={webDesignCityPath(c.slug)} style={{ fontSize: 12.5, color: "rgba(255,255,255,0.5)", textDecoration: "none" }}>Website Design</Link>
-                  <Link href={aiCityPath(c.slug)} style={{ fontSize: 12.5, color: "rgba(255,255,255,0.5)", textDecoration: "none" }}>AI Implementation</Link>
+                  <Link href={localSeoCityPath(c.slug)} style={{ fontSize: 12.5, color: "rgba(255,255,255,0.68)", textDecoration: "none" }}>Local SEO</Link>
+                  <Link href={gbpCityPath(c.slug)} style={{ fontSize: 12.5, color: "rgba(255,255,255,0.68)", textDecoration: "none" }}>Google Business Profile</Link>
+                  <Link href={googleAdsCityPath(c.slug)} style={{ fontSize: 12.5, color: "rgba(255,255,255,0.68)", textDecoration: "none" }}>Google Ads</Link>
+                  <Link href={webDesignCityPath(c.slug)} style={{ fontSize: 12.5, color: "rgba(255,255,255,0.68)", textDecoration: "none" }}>Website Design</Link>
+                  <Link href={aiCityPath(c.slug)} style={{ fontSize: 12.5, color: "rgba(255,255,255,0.68)", textDecoration: "none" }}>AI Implementation</Link>
                 </div>
               </div>
             ))}
@@ -115,10 +115,10 @@ export default function Footer() {
         </div>
 
         <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: 28, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
-          <div style={{ fontSize: 12, color: "rgba(255,255,255,0.3)" }}>
+          <div style={{ fontSize: 12, color: "rgba(255,255,255,0.6)" }}>
             © {new Date().getFullYear()} RGV Performance Marketing. All rights reserved.
           </div>
-          <div style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: 10, letterSpacing: "0.1em", color: "rgba(255,255,255,0.2)" }}>
+          <div style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: 10, letterSpacing: "0.1em", color: "rgba(255,255,255,0.62)" }}>
             THE RGV PERFORMANCE MARKETING TEAM
           </div>
         </div>
