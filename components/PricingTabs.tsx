@@ -6,13 +6,12 @@ import Script from "next/script";
 const BOOKING = "https://api.rgvperformancemarketing.com/widget/bookings/rgvpmdiscoverycall";
 const bebas = { fontFamily: "'Bebas Neue', sans-serif" } as const;
 
-type TabId = "websites" | "social" | "plans" | "ai";
+type TabId = "websites" | "social" | "plans";
 
 const TABS: { id: TabId; label: string }[] = [
   { id: "websites", label: "Websites" },
   { id: "social", label: "Social Media" },
   { id: "plans", label: "Marketing Plans" },
-  { id: "ai", label: "AI & Automation" },
 ];
 
 /* ----------------------------- shared card ----------------------------- */
@@ -512,96 +511,6 @@ function PlansTab() {
   );
 }
 
-function AiTab() {
-  return (
-    <div>
-      <div className="grid gap-6 lg:grid-cols-3">
-        <Card
-          tier="// Starter"
-          tierClass="text-emerald-400"
-          checkClass="text-emerald-400"
-          name="Automate"
-          description="Plug the leaky bucket. Stop losing leads to missed calls and slow follow-up."
-          price="$497"
-          priceSuffix="setup"
-          priceNote="+ $147/mo"
-          features={[
-            "Missed call text-back",
-            "Lead follow-up (SMS + email when a form is filled)",
-            "Review request automation after appointments",
-            "SMS appointment reminders",
-            "1 workflow built & maintained",
-          ]}
-          ctaLabel="Get Started →"
-          ctaHref={BOOKING}
-        />
-        <Card
-          tier="// Most Popular"
-          highlighted
-          name="Accelerate"
-          description="Build a real lead-to-customer system. Multi-channel, multi-workflow, working in the background."
-          price="$997"
-          priceSuffix="setup"
-          priceNote="+ $347/mo"
-          features={[
-            "Everything in Automate",
-            "Up to 5 automation workflows",
-            "Multi-channel nurture (SMS + email + DMs)",
-            "Lead scoring & pipeline routing",
-            "AI chatbot on your website",
-            "Monthly automation tune-up",
-          ]}
-          ctaLabel="Get Started →"
-          ctaHref={BOOKING}
-        />
-        <Card
-          tier="// Custom"
-          name="Dominate"
-          description="For businesses ready to replace whole roles with AI agents and voice assistants."
-          price="$1,997+"
-          priceSuffix="setup"
-          priceNote="Starting setup + custom monthly"
-          features={[
-            "Everything in Accelerate",
-            'Voice AI agent ("Pam") — answers calls 24/7',
-            "Custom AI agent trained on your business",
-            "Full ops automation",
-            "Custom integrations with your existing tools",
-            "Dedicated automation engineer",
-          ]}
-          ctaLabel="Request a Quote →"
-          ctaHref={BOOKING}
-        />
-      </div>
-
-      {/* Skool community callout */}
-      <div className="mt-8 rounded-xl border border-emerald-400/30 bg-emerald-400/5 p-8 text-center">
-        <div
-          className="mb-2 text-[11px] font-medium uppercase tracking-[0.14em] text-emerald-400"
-          style={{ fontFamily: "var(--font-dm-mono), monospace" }}
-        >
-          // Learn it yourself
-        </div>
-        <h3 className="mb-3 text-3xl tracking-wide text-white" style={bebas}>
-          Want to learn AI for your business?
-        </h3>
-        <p className="mx-auto mb-6 max-w-2xl text-sm leading-relaxed text-slate-300">
-          Join our community where small business owners learn how to use AI to save time, get leads, and grow — no
-          tech background required.
-        </p>
-        <a
-          href="https://www.skool.com/ai-for-small-businesses-6465/about"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center rounded-md bg-emerald-400 px-6 py-3 text-sm font-bold text-slate-900 transition-colors hover:bg-emerald-300"
-        >
-          Join the Community →
-        </a>
-      </div>
-    </div>
-  );
-}
-
 /* ------------------------------- modal -------------------------------- */
 
 function QuoteModal({ onClose }: { onClose: () => void }) {
@@ -666,13 +575,9 @@ export default function PricingTabs() {
           <button type="button" onClick={() => setActiveTab("websites")} className="font-semibold text-orange-500 underline underline-offset-2 hover:text-orange-400">
             Websites
           </button>
-          ,{" "}
+          {" "}or{" "}
           <button type="button" onClick={() => setActiveTab("social")} className="font-semibold text-orange-500 underline underline-offset-2 hover:text-orange-400">
             Social Media
-          </button>
-          , or{" "}
-          <button type="button" onClick={() => setActiveTab("ai")} className="font-semibold text-orange-500 underline underline-offset-2 hover:text-orange-400">
-            AI &amp; Automation
           </button>
           . Want everything bundled at a discount? See{" "}
           <button type="button" onClick={() => setActiveTab("plans")} className="font-semibold text-orange-500 underline underline-offset-2 hover:text-orange-400">
@@ -722,7 +627,6 @@ export default function PricingTabs() {
           {activeTab === "websites" && <WebsitesTab onQuote={() => setQuoteModalOpen(true)} />}
           {activeTab === "social" && <SocialTab />}
           {activeTab === "plans" && <PlansTab />}
-          {activeTab === "ai" && <AiTab />}
         </div>
 
         {/* page footer CTA */}
