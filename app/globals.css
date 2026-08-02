@@ -550,15 +550,23 @@ body {
 .rg-btn:hover { transform: translateY(-2px); }
 .rg-btn:active { transform: translateY(0); }
 
-/* Horizontal swipe on touch devices instead of forced auto-scroll */
+/* Swap auto-scroll for a swipe track on touch — but only where swiping is
+   actually better than drifting.
+   This used to apply to every .rg-scroller, which meant the client logo
+   strip and the industries band sat frozen on every phone. Both are small,
+   neither is worth swiping, and a stopped marquee reads as broken. The work
+   showcase is the opposite case: big linked cards that a thumb should drag,
+   so it opts in with .rg-scroller--swipe.
+   Motion here is still governed by prefers-reduced-motion above, which stops
+   every track and makes them hand-scrollable. */
 @media (hover: none) and (pointer: coarse) {
-  .rg-scroller {
+  .rg-scroller--swipe {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
-  .rg-scroller::-webkit-scrollbar { display: none; }
-  .rg-marquee-track { animation: none !important; width: max-content; }
-  .rg-snap { scroll-snap-align: center; }
+  .rg-scroller--swipe::-webkit-scrollbar { display: none; }
+  .rg-scroller--swipe .rg-marquee-track { animation: none !important; width: max-content; }
+  .rg-scroller--swipe .rg-snap { scroll-snap-align: center; }
 }

@@ -186,7 +186,9 @@ function Track({
 }) {
   return (
     <div
-      className="rg-scroller"
+      // --swipe: on touch these cards stop drifting and become a thumb-dragged
+      // snap track. Opt-in, so the smaller logo/industry marquees keep moving.
+      className="rg-scroller rg-scroller--swipe"
       style={{
         overflow: "hidden",
         maskImage: "linear-gradient(to right, transparent, #000 5%, #000 95%, transparent)",

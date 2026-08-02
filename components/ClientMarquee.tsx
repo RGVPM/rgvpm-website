@@ -71,7 +71,6 @@ function Pass() {
           key={client.name}
           href="/results"
           aria-label={`${client.name} — see client results`}
-          className="rg-snap"
           style={{
             display: "inline-flex",
             alignItems: "center",
