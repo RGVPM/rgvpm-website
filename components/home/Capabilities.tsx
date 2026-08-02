@@ -15,7 +15,7 @@ const CAPABILITIES = [
     num: "01",
     icon: "globe" as const,
     name: "Websites & SEO",
-    sub: "Built to rank. Built to convert.",
+    sub: "Designed to rank. Tuned to convert.",
     href: "/services/website-design",
   },
   {

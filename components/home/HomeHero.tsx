@@ -1,54 +1,105 @@
-import Image from "next/image";
-import { Button, GridTexture } from "@/components/home/Primitives";
+import { GridTexture } from "@/components/home/Primitives";
+import GrowthDashboard from "@/components/home/GrowthDashboard";
 import { SITE } from "@/lib/site";
 
 /**
  * Homepage hero.
  *
- * Server component by design — the previous version was a client
- * component purely to count numbers up from zero, which server-rendered
- * "0/7" and "0" into the HTML on every request. The values are static
- * text now, so they are correct in the initial paint, correct for
- * crawlers, and cost no client JS.
+ * Server component by design — nothing here needs state, so no client JS
+ * ships for the hero and the headline is the LCP element as plain text in
+ * the initial HTML. Every animation is CSS (see the `hero-*` and `rg-dash-*`
+ * keyframes in globals.css) and touches only transform / opacity /
+ * stroke-dashoffset, so none of it can shift layout.
+ *
+ * Two columns: message left, dashboard right, collapsing to a single stack
+ * at 1024px. Client logos deliberately live outside the hero — the marquee
+ * section directly beneath it carries them.
  */
 
-const PROOF = [
-  { value: "AI", label: "Powered systems & tools" },
-  { value: "24/7", label: "Always-on lead capture" },
-  { value: "956", label: "Locally rooted. Broadly serving." },
-];
+/** Compact reasons-to-trust. Deliberately not claims we can't stand behind. */
+const TRUST = ["Local RGV Team", "AI-Powered Systems", "Month-to-Month Options"];
 
-/** The connected growth engine, in the order a customer moves through it. */
-const ENGINE = [
-  { step: "01", name: "Websites & SEO", note: "Get found" },
-  { step: "02", name: "Paid Advertising", note: "Get traffic" },
-  { step: "03", name: "Lead Management", note: "Capture & route" },
-  { step: "04", name: "SMS & Email", note: "Follow up" },
-];
+function CheckMark() {
+  return (
+    <svg
+      width="15"
+      height="15"
+      viewBox="0 0 16 16"
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      style={{ flexShrink: 0 }}
+    >
+      <circle cx="8" cy="8" r="7.25" stroke="rgba(232,98,26,0.5)" strokeWidth="1.5" />
+      <path
+        d="M4.9 8.2 6.9 10.2 11.1 6"
+        stroke="var(--orange-on-dark)"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function ResultsIcon() {
+  return (
+    <svg
+      width="15"
+      height="15"
+      viewBox="0 0 16 16"
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      style={{ flexShrink: 0 }}
+    >
+      <path d="M2 14h12" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      <path d="M4.4 14V9.4M8 14V4.6M11.6 14v-6.6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+    </svg>
+  );
+}
 
 export default function HomeHero() {
   return (
     <section
+      aria-labelledby="hero-heading"
       style={{
         background: "var(--navy)",
         position: "relative",
         overflow: "hidden",
-        paddingTop: "clamp(112px, 14vh, 168px)",
-        paddingBottom: "clamp(72px, 9vh, 120px)",
+        paddingTop: "clamp(104px, 13vh, 156px)",
+        paddingBottom: "clamp(64px, 8vh, 108px)",
       }}
     >
       <GridTexture opacity={0.05} />
-      {/* Single controlled warm bloom — anchored behind the visual, not a floating orb */}
+
+      {/* One controlled warm bloom behind the dashboard — atmosphere, not an
+          orb. It breathes on a 22s cycle; held still for reduced motion. */}
+      <div
+        aria-hidden="true"
+        className="rg-hero-glow"
+        style={{
+          position: "absolute",
+          right: "-16%",
+          top: "-22%",
+          width: "66%",
+          aspectRatio: "1",
+          background:
+            "radial-gradient(circle, rgba(232,98,26,0.22) 0%, rgba(232,98,26,0.055) 42%, transparent 68%)",
+          pointerEvents: "none",
+        }}
+      />
+      {/* Second, much cooler bloom low-left so the navy isn't flat */}
       <div
         aria-hidden="true"
         style={{
           position: "absolute",
-          right: "-14%",
-          top: "-18%",
-          width: "62%",
+          left: "-12%",
+          bottom: "-30%",
+          width: "48%",
           aspectRatio: "1",
           background:
-            "radial-gradient(circle, rgba(232,98,26,0.20) 0%, rgba(232,98,26,0.05) 42%, transparent 68%)",
+            "radial-gradient(circle, rgba(90,132,200,0.16) 0%, transparent 66%)",
           pointerEvents: "none",
         }}
       />
@@ -67,301 +118,180 @@ export default function HomeHero() {
       />
 
       <div className="rg-container" style={{ position: "relative", zIndex: 2 }}>
-        <div
-          className="rg-hero-grid"
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1.02fr 0.98fr",
-            gap: "clamp(40px, 5vw, 76px)",
-            alignItems: "center",
-          }}
-        >
+        <div className="rg-hero-grid">
           {/* ── Message ─────────────────────────────────────────── */}
-          <div>
-            <div className="hero-animate" style={{ animationDelay: "0.05s", marginBottom: "var(--s5)" }}>
-              <span
-                className="rg-label"
-                style={{
-                  color: "var(--orange-on-dark)",
-                  background: "rgba(232,98,26,0.12)",
-                  border: "1px solid rgba(232,98,26,0.3)",
-                  padding: "8px 16px 8px 14px",
-                  borderRadius: "var(--r-pill)",
-                }}
-              >
-                AI-Powered Digital Marketing
-              </span>
-            </div>
+          <div className="rg-hero-msg">
+            <p
+              className="hero-animate rg-label"
+              style={{
+                color: "var(--orange-on-dark)",
+                margin: "0 0 var(--s5)",
+                animationDelay: "0.05s",
+              }}
+            >
+              AI-Powered Marketing Systems
+            </p>
 
             <h1
+              id="hero-heading"
               className="rg-display"
               style={{
-                fontSize: "var(--fs-display)",
+                fontSize: "var(--fs-hero)",
                 color: "#fff",
                 margin: "0 0 var(--s5)",
+                letterSpacing: "0.012em",
+                lineHeight: 0.98,
               }}
             >
               <span className="hero-animate" style={{ display: "block", animationDelay: "0.13s" }}>
-                More Leads.
+                Your Competitor Isn&rsquo;t Better.
               </span>
               <span
                 className="hero-animate"
                 style={{ display: "block", color: "var(--orange)", animationDelay: "0.21s" }}
               >
-                More Customers.
-              </span>
-              <span className="hero-animate" style={{ display: "block", animationDelay: "0.29s" }}>
-                Less Guesswork.
+                They Just Show Up First.
               </span>
             </h1>
 
             <p
-              className="hero-animate"
+              className="hero-animate rg-hero-lede"
               style={{
-                fontSize: 18,
-                fontWeight: 300,
-                color: "rgba(255,255,255,0.68)",
-                lineHeight: 1.72,
+                fontSize: 17.5,
+                fontWeight: 400,
+                color: "rgba(255,255,255,0.82)",
+                lineHeight: 1.62,
                 maxWidth: "46ch",
-                margin: "0 0 var(--s7)",
-                animationDelay: "0.37s",
+                margin: "0 0 var(--s4)",
+                animationDelay: "0.29s",
               }}
             >
-              We build the digital systems that grow your business — websites, SEO, ads, lead
-              management, and more. Straightforward plans, real results.
+              Most businesses don&rsquo;t lose customers because they&rsquo;re bad. They lose them
+              because customers never find them.
+            </p>
+            <p
+              className="hero-animate rg-hero-sub"
+              style={{
+                fontSize: 16,
+                fontWeight: 300,
+                color: "rgba(255,255,255,0.62)",
+                lineHeight: 1.68,
+                maxWidth: "48ch",
+                margin: "0 0 var(--s7)",
+                animationDelay: "0.35s",
+              }}
+            >
+              We build marketing systems that help businesses rank higher, capture more leads, and
+              turn attention into measurable growth.
             </p>
 
             <div
-              className="hero-animate rg-cta-actions"
+              className="hero-animate rg-hero-actions"
               style={{
                 display: "flex",
+                alignItems: "center",
                 gap: "var(--s3)",
                 flexWrap: "wrap",
-                marginBottom: "var(--s8)",
-                animationDelay: "0.45s",
+                marginBottom: "var(--s6)",
+                animationDelay: "0.43s",
               }}
             >
-              <Button href={SITE.bookingUrl} variant="onDark">
-                Book a Free Call <span aria-hidden="true">→</span>
-              </Button>
-              <Button href="/pricing" variant="ghostDark">
-                View Plans <span aria-hidden="true">→</span>
-              </Button>
+              {/*
+                Primary CTA → the existing discovery-call booking flow, which
+                is the strongest conversion destination currently live.
+                TODO(owner): when a dedicated "Growth Assessment" form exists
+                (GHL form or an /assessment route), swap this single href for
+                it — nothing else in the hero needs to change.
+              */}
+              <a
+                href={SITE.bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rg-btn rg-hero-cta"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 10,
+                  background: "var(--orange)",
+                  color: "#fff",
+                  fontWeight: 700,
+                  // 19px clears WCAG's 18.66px large-text threshold, so white
+                  // on the brand orange passes at 3:1 without altering it.
+                  fontSize: 19,
+                  lineHeight: 1,
+                  padding: "19px 26px",
+                  borderRadius: "var(--r-hero-sm)",
+                  textDecoration: "none",
+                  boxShadow: "var(--shadow-orange)",
+                  transition:
+                    "transform var(--t-fast) var(--ease), box-shadow var(--t-med) var(--ease)",
+                }}
+              >
+                Get My Free Growth Assessment{" "}
+                <span aria-hidden="true" className="rg-hero-cta-arrow">
+                  →
+                </span>
+              </a>
+
+              <a
+                href="/results"
+                className="rg-hero-secondary"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 9,
+                  padding: "17px 19px",
+                  fontSize: 15,
+                  fontWeight: 600,
+                  color: "rgba(255,255,255,0.82)",
+                  textDecoration: "none",
+                  border: "1px solid rgba(255,255,255,0.22)",
+                  borderRadius: "var(--r-hero-sm)",
+                  background: "transparent",
+                  transition:
+                    "color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease), background var(--t-fast) var(--ease)",
+                }}
+              >
+                <ResultsIcon />
+                See Client Results
+              </a>
             </div>
 
-            {/* Proof — static text, no count-up. Values are right on first paint. */}
-            <dl
-              className="hero-animate"
+            <ul
+              className="hero-animate rg-hero-trust"
               style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(3, auto)",
-                justifyContent: "start",
-                gap: "clamp(20px, 4vw, 48px)",
-                paddingTop: "var(--s6)",
-                borderTop: "1px solid rgba(255,255,255,0.14)",
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "10px clamp(16px, 2.4vw, 28px)",
+                listStyle: "none",
                 margin: 0,
-                animationDelay: "0.53s",
+                padding: 0,
+                animationDelay: "0.51s",
               }}
             >
-              {PROOF.map((p) => (
-                <div key={p.label}>
-                  <dt
-                    className="rg-display"
-                    style={{ fontSize: 34, color: "var(--orange)", lineHeight: 1 }}
-                  >
-                    {p.value}
-                  </dt>
-                  <dd
-                    style={{
-                      fontSize: 12,
-                      color: "rgba(255,255,255,0.5)",
-                      marginTop: 6,
-                      lineHeight: 1.45,
-                      maxWidth: "18ch",
-                      marginInline: 0,
-                    }}
-                  >
-                    {p.label}
-                  </dd>
-                </div>
+              {TRUST.map((t) => (
+                <li
+                  key={t}
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: 8,
+                    fontSize: 13.5,
+                    fontWeight: 500,
+                    color: "rgba(255,255,255,0.72)",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  <CheckMark />
+                  {t}
+                </li>
               ))}
-            </dl>
+            </ul>
           </div>
 
-          {/* ── The growth engine, shown ────────────────────────── */}
-          <div className="rg-hero-visual hero-card-animate" aria-hidden="true">
-            <div style={{ position: "relative", paddingBottom: 28 }}>
-              {/* Browser window with real client work */}
-              <div
-                style={{
-                  borderRadius: "var(--r-lg)",
-                  overflow: "hidden",
-                  border: "1px solid rgba(255,255,255,0.16)",
-                  background: "#0E1830",
-                  boxShadow: "0 40px 90px -30px rgba(0,0,0,0.75)",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 7,
-                    padding: "11px 14px",
-                    background: "rgba(255,255,255,0.07)",
-                    borderBottom: "1px solid rgba(255,255,255,0.09)",
-                  }}
-                >
-                  {["#FF5F57", "#FEBC2E", "#28C840"].map((c) => (
-                    <span
-                      key={c}
-                      style={{ width: 9, height: 9, borderRadius: "50%", background: c, opacity: 0.85 }}
-                    />
-                  ))}
-                  <span
-                    style={{
-                      marginLeft: 10,
-                      flex: 1,
-                      height: 20,
-                      borderRadius: "var(--r-pill)",
-                      background: "rgba(255,255,255,0.08)",
-                      display: "flex",
-                      alignItems: "center",
-                      padding: "0 12px",
-                      fontFamily: "var(--font-dm-mono), monospace",
-                      fontSize: 9.5,
-                      letterSpacing: "0.06em",
-                      color: "rgba(255,255,255,0.45)",
-                    }}
-                  >
-                    cclcontracting.com
-                  </span>
-                </div>
-                <Image
-                  src="/work/ccl-contracting.webp"
-                  alt=""
-                  width={1200}
-                  height={750}
-                  sizes="(max-width: 1023px) 0px, 46vw"
-                  priority
-                  style={{ display: "block", width: "100%", height: "auto" }}
-                />
-              </div>
-
-              {/* Engine rail — the connected system, no invented numbers */}
-              <div
-                style={{
-                  position: "absolute",
-                  left: "-7%",
-                  bottom: -14,
-                  width: "62%",
-                  background: "rgba(14,24,48,0.92)",
-                  backdropFilter: "blur(14px)",
-                  WebkitBackdropFilter: "blur(14px)",
-                  border: "1px solid rgba(255,255,255,0.14)",
-                  borderRadius: "var(--r-md)",
-                  padding: "16px 18px",
-                  boxShadow: "0 28px 60px -22px rgba(0,0,0,0.8)",
-                }}
-              >
-                <div
-                  style={{
-                    fontFamily: "var(--font-dm-mono), monospace",
-                    fontSize: 9,
-                    letterSpacing: "0.16em",
-                    textTransform: "uppercase",
-                    color: "var(--orange)",
-                    marginBottom: 12,
-                  }}
-                >
-                  One connected system
-                </div>
-                <ol style={{ listStyle: "none", margin: 0, padding: 0, position: "relative" }}>
-                  {/* Spine connecting the steps */}
-                  <span
-                    style={{
-                      position: "absolute",
-                      left: 8,
-                      top: 12,
-                      bottom: 12,
-                      width: 1,
-                      background:
-                        "linear-gradient(to bottom, rgba(232,98,26,0.7), rgba(232,98,26,0.15))",
-                    }}
-                  />
-                  {ENGINE.map((e) => (
-                    <li
-                      key={e.step}
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: 12,
-                        padding: "6px 0",
-                        position: "relative",
-                      }}
-                    >
-                      <span
-                        style={{
-                          width: 17,
-                          height: 17,
-                          flexShrink: 0,
-                          borderRadius: "50%",
-                          background: "#0E1830",
-                          border: "1px solid rgba(232,98,26,0.75)",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          fontFamily: "var(--font-dm-mono), monospace",
-                          fontSize: 7.5,
-                          color: "var(--orange)",
-                          zIndex: 1,
-                        }}
-                      >
-                        {e.step}
-                      </span>
-                      <span style={{ fontSize: 12.5, fontWeight: 600, color: "#fff" }}>{e.name}</span>
-                      <span
-                        style={{
-                          marginLeft: "auto",
-                          fontSize: 10.5,
-                          color: "rgba(255,255,255,0.42)",
-                          whiteSpace: "nowrap",
-                        }}
-                      >
-                        {e.note}
-                      </span>
-                    </li>
-                  ))}
-                </ol>
-              </div>
-
-              {/* Local presence chip */}
-              <div
-                style={{
-                  position: "absolute",
-                  right: -10,
-                  top: "16%",
-                  background: "var(--orange)",
-                  borderRadius: "var(--r-md)",
-                  padding: "11px 15px",
-                  boxShadow: "var(--shadow-orange)",
-                }}
-              >
-                <div
-                  style={{
-                    fontFamily: "var(--font-dm-mono), monospace",
-                    fontSize: 8.5,
-                    letterSpacing: "0.14em",
-                    textTransform: "uppercase",
-                    color: "rgba(255,255,255,0.8)",
-                  }}
-                >
-                  Local Search
-                </div>
-                <div style={{ fontSize: 13, fontWeight: 700, color: "#fff", marginTop: 2 }}>
-                  Built to be found
-                </div>
-              </div>
-            </div>
+          {/* ── The system we run, made visible ─────────────────── */}
+          <div className="rg-hero-visual hero-card-animate">
+            <GrowthDashboard />
           </div>
         </div>
       </div>

@@ -1,10 +1,9 @@
 import HomeHero from "@/components/home/HomeHero";
 import IndustryMarquee from "@/components/home/IndustryMarquee";
-import WorkShowcase from "@/components/home/WorkShowcase";
+import { IndustryStrip } from "@/components/Sections";
 import Capabilities from "@/components/home/Capabilities";
 import Process from "@/components/home/Process";
-import WhyUs from "@/components/home/WhyUs";
-import Approach from "@/components/home/Approach";
+import SocialFollow from "@/components/home/SocialFollow";
 import BlogEditorial from "@/components/home/BlogEditorial";
 import HomeFaq from "@/components/home/HomeFaq";
 import FinalCta from "@/components/home/FinalCta";
@@ -19,11 +18,11 @@ export default function Home() {
       <main>
         <HomeHero />
         <IndustryMarquee />
-        <WorkShowcase />
+        {/* Client logo marquee — the logos hand off to /results. */}
+        <IndustryStrip />
         <Capabilities />
         <Process />
-        <WhyUs />
-        <Approach />
+        <SocialFollow />
         <BlogEditorial />
         <HomeFaq />
         <FinalCta />

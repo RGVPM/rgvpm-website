@@ -40,6 +40,14 @@
   --r-xs: 3px; --r-sm: 6px; --r-md: 10px; --r-lg: 16px; --r-xl: 22px;
   --r-pill: 999px;
 
+  /* The hero and its dashboard were drawn against a tighter radius scale
+     than the rest of the site uses. Rather than move the global tokens —
+     which would restyle every card and button on every page — the hero
+     carries its own, and nothing outside it is affected. */
+  --r-hero-sm: 4px;   /* CTA buttons */
+  --r-hero-md: 8px;   /* dashboard tiles, meters, activity rows */
+  --r-hero-lg: 12px;  /* dashboard panel */
+
   /* Elevation */
   --shadow-1: 0 1px 2px rgba(26,43,74,0.06);
   --shadow-2: 0 10px 30px -10px rgba(26,43,74,0.16);
@@ -63,9 +71,16 @@
   --orange-on-dark: #F5833D;  /* on navy — 5.5:1 */
 
   /* Display type */
-  /* Sized so "More Customers." — the longest hero line — stays on one
-     line inside the hero column at every width above the 1024px collapse. */
   --fs-display: clamp(44px, 6vw, 84px);
+
+  /* The hero headline gets its own scale, sized against the hero's LEFT
+     COLUMN rather than the viewport. Its longest line — "Your Competitor
+     Isn't Better." — is 29 Bebas characters, roughly twice the old hero's
+     longest line, so borrowing --fs-display would wrap it and strand
+     "Better." on a line of its own.
+     Measured: that line renders at 10.22em wide, so the cap below keeps it
+     on one line from the 1024px collapse up to the container's max width. */
+  --fs-hero: clamp(34px, 3.9vw, 56px);
   --fs-h2: clamp(34px, 4.4vw, 62px);
   --fs-h3: clamp(21px, 2vw, 27px);
   --fs-body: 16.5px;
@@ -137,6 +152,16 @@ html { scroll-behavior: smooth; }
 }
 .rg-navlink:hover { color: var(--orange-ink) !important; }
 .rg-navlink:hover .rg-navlink-rule { transform: scaleX(1); }
+
+/* Solutions dropdown rows */
+.rg-navmenu-item {
+  transition: background var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+}
+.rg-navmenu-item:hover,
+.rg-navmenu-item:focus-visible {
+  background: var(--orange-wash);
+  color: var(--orange-ink) !important;
+}
 
 /* Visually hidden but available to screen readers and crawlers */
 .sr-only {
@@ -232,16 +257,110 @@ body {
   border-color: rgba(232,98,26,0.4);
 }
 
-/* ── Homepage responsive rules ───────────────────────────────────
-   The hero visual is hidden below 1024px, so the hero grid must
-   collapse at 1024px too — not 900px — or the right column renders
-   as dead space between 901px and 1023px.
+/* ── Hero layout ─────────────────────────────────────────────────
+   Message left, dashboard right, stacking at 1024px. Client logos
+   live in the marquee section below the hero, not inside it.
    ─────────────────────────────────────────────────────────────── */
+.rg-hero-grid {
+  display: grid;
+  /* 1.2/0.8, not 50/50: the CTA row needs ~590px to sit on one line, and
+     the dashboard reads fine down to ~400px. */
+  grid-template-columns: 1.2fr 0.8fr;
+  column-gap: clamp(36px, 4.4vw, 66px);
+  row-gap: var(--s7);
+  align-items: center;
+}
+.rg-hero-msg { min-width: 0; }
+.rg-hero-visual { min-width: 0; }
+
+/* Secondary CTA — understated until you reach for it */
+.rg-hero-secondary:hover,
+.rg-hero-secondary:focus-visible {
+  color: #fff;
+  border-color: rgba(232,98,26,0.6);
+  background: rgba(232,98,26,0.1);
+}
+.rg-hero-cta:hover { transform: translateY(-2px); box-shadow: 0 20px 46px -14px rgba(232,98,26,0.55); }
+.rg-hero-cta:active { transform: translateY(0); }
+
+/* ── Growth dashboard ────────────────────────────────────────────
+   Every animation below is transform / opacity / stroke-dashoffset
+   only, so none of it can trigger layout or shift the page.
+   ─────────────────────────────────────────────────────────────── */
+.rg-dash {
+  transition: transform var(--t-slow) var(--ease), box-shadow var(--t-slow) var(--ease);
+}
+.rg-dash:hover { transform: translateY(-5px); }
+/* The chart draws with preserveAspectRatio: none, so its height has to
+   track the panel's width or the trend line reads flat. */
+.rg-dash-chart { height: 78px; }
+
+@keyframes rgDashDraw   { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
+@keyframes rgDashTip    { from { opacity: 0; transform: scale(0.4); } to { opacity: 1; transform: none; } }
+@keyframes rgDashMeter  { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes rgDashPulse  { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+@keyframes rgDashEvent  { 0%, 8% { background: rgba(232,98,26,0.12); border-color: rgba(232,98,26,0.34); }
+                          26%, 100% { background: rgba(255,255,255,0.035); border-color: rgba(255,255,255,0.08); } }
+@keyframes rgHeroGlow   { 0%, 100% { opacity: 0.85; transform: scale(1); }
+                          50%      { opacity: 1;    transform: scale(1.07); } }
+
+@media (prefers-reduced-motion: no-preference) {
+  .rg-dash-line {
+    stroke-dasharray: 100;
+    animation: rgDashDraw 1.2s var(--ease-out) 0.45s both;
+  }
+  .rg-dash-tip {
+    transform-origin: 294px 32px;
+    animation: rgDashTip var(--t-med) var(--ease-out) 1.5s both;
+  }
+  .rg-dash-meter { transform-origin: left center; animation: rgDashMeter 1s var(--ease-out) both; }
+  .rg-dash-pulse { animation: rgDashPulse 2.6s var(--ease) infinite; }
+  /* Rotating highlight across the activity rows — the only looping motion
+     in the hero, and it is a slow colour fade, not movement. */
+  .rg-dash-event { animation: rgDashEvent 7.8s var(--ease) infinite; }
+  .rg-hero-glow { animation: rgHeroGlow 22s var(--ease) infinite; }
+}
+
+/* ── Homepage responsive rules ─────────────────────────────────── */
 @media (max-width: 1023px) {
-  .rg-hero-grid { grid-template-columns: 1fr !important; gap: var(--s7) !important; }
-  .rg-hero-visual { display: none !important; }
+  .rg-hero-grid { grid-template-columns: 1fr !important; row-gap: var(--s7) !important; }
+  /* Compact mobile card: the meters and the activity feed come off so the
+     dashboard can't push the client strip and the next section down. */
+  .rg-dash-detail { display: none !important; }
+  .rg-dash:hover { transform: none; }
   .rg-split { grid-template-columns: 1fr !important; gap: var(--s7) !important; }
   .rg-sticky { position: static !important; }
+}
+/* Tablet: the stacked panel is roughly twice as wide as the desktop column,
+   so the tiles spread into a single strip and the chart gets its height back. */
+@media (min-width: 561px) and (max-width: 1023px) {
+  .rg-dash-tiles { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+  .rg-dash-chart { height: 104px; }
+}
+@media (max-width: 560px) {
+  /* On a phone the two sentences can't hold one line each without dropping
+     to ~27px, which is too quiet for a hero. They're allowed to wrap to two
+     balanced lines instead (text-wrap: balance on .rg-display), which never
+     leaves a single word stranded. */
+  :root { --fs-hero: clamp(33px, 9vw, 42px); }
+
+  /* Tightened so the primary CTA clears the fold on a 667px-tall phone
+     without shrinking the copy to the point of being hard to read. */
+  #hero-heading { margin-bottom: var(--s4) !important; }
+  .rg-hero-lede { font-size: 16.5px !important; line-height: 1.55 !important; margin-bottom: var(--s3) !important; }
+  .rg-hero-sub  { font-size: 15.5px !important; line-height: 1.6 !important;  margin-bottom: var(--s6) !important; }
+
+  /* !important because the container carries an inline align-items for the
+     desktop row, and inline styles outrank a plain media-query rule. */
+  .rg-hero-actions { flex-direction: column !important; align-items: stretch !important; }
+  .rg-hero-actions > a { justify-content: center !important; text-align: center; }
+  /* The label is 19px/700 to stay WCAG-compliant on the brand orange, so it
+     can't shrink to fit a phone. Trimming the side padding keeps it on one
+     line down to ~380px, and it wraps centred below that. */
+  .rg-hero-cta { padding-inline: 20px !important; }
+  /* A full-width button doesn't need the directional arrow, and dropping it
+     buys the 30px that keeps the label on one line at 390px. */
+  .rg-hero-cta-arrow { display: none; }
 }
 @media (max-width: 860px) {
   .rg-cap-row { grid-template-columns: 1fr !important; gap: var(--s4) !important; }
@@ -309,6 +428,10 @@ body {
   .animate-marquee-reverse,
   .rg-marquee-track { animation: none !important; }
   .rg-scroller { overflow-x: auto !important; }
+  /* The dashboard's lift is the only hero motion declared outside a
+     no-preference query, so it has to be switched off here by hand. */
+  .rg-dash { transition: none !important; }
+  .rg-dash:hover { transform: none !important; }
   html { scroll-behavior: auto; }
 }
 
@@ -381,6 +504,37 @@ body {
       opacity: 1;
     }
   }
+}
+
+/* ── Social follow cards ─────────────────────────────────────── */
+.rg-social-card {
+  transition: transform var(--t-med) var(--ease), border-color var(--t-med) var(--ease),
+    background var(--t-med) var(--ease);
+}
+.rg-social-card:hover,
+.rg-social-card:focus-visible {
+  transform: translateY(-4px);
+  border-color: rgba(232,98,26,0.5);
+  background: rgba(232,98,26,0.09);
+}
+.rg-social-card .rg-social-mark,
+.rg-social-card .rg-social-arrow {
+  transition: background var(--t-med) var(--ease), border-color var(--t-med) var(--ease),
+    transform var(--t-med) var(--ease);
+}
+.rg-social-card:hover .rg-social-mark,
+.rg-social-card:focus-visible .rg-social-mark {
+  background: var(--orange);
+  border-color: var(--orange);
+}
+.rg-social-card:hover .rg-social-arrow,
+.rg-social-card:focus-visible .rg-social-arrow { transform: translateX(3px); }
+
+@media (max-width: 860px) {
+  .rg-social-grid { grid-template-columns: 1fr !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rg-social-card, .rg-social-card:hover { transform: none !important; }
 }
 
 /* Blog cards */

@@ -1,7 +1,7 @@
 import { Label, Lede, Section } from "@/components/home/Primitives";
 
 /**
- * Diagnose / Build / Grow as a vertical timeline with a sticky heading.
+ * Diagnose / Launch / Grow as a vertical timeline with a sticky heading.
  * Copy is unchanged from the original HowItWorks section, including the
  * two-week onboarding positioning.
  *
@@ -17,9 +17,9 @@ const STEPS = [
   },
   {
     num: "02",
-    title: "Build",
+    title: "Launch",
     text: "We set up your growth engine: GBP optimization, NAP consistency, lead capture, automated follow-up, newsletters, and ad campaigns — all in one coordinated push.",
-    signals: ["GBP optimization", "Lead capture & routing", "Campaign build"],
+    signals: ["GBP optimization", "Lead capture & routing", "Campaign setup"],
   },
   {
     num: "03",

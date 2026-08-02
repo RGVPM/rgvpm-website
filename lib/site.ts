@@ -47,8 +47,35 @@ export const SOCIAL_PROFILES: string[] = [
   "https://share.google/P2QVUDKeJlWeX0QGX", // Google Business Profile (entity /g/11nc2gcm67)
   "https://www.instagram.com/rgvperformancemarketing/",
   "https://www.facebook.com/people/RGVPM/61572104973174/",
-  // TODO(owner): add LinkedIn / YouTube if/when they exist.
+  "https://www.linkedin.com/company/rgv-performance-marketing/",
+  // TODO(owner): add YouTube if/when it exists.
 ];
+
+/**
+ * The three profiles we actively point people at, in display order, with the
+ * handle to show. Kept separate from SOCIAL_PROFILES because that list also
+ * carries the Google Business Profile — right for schema `sameAs`, wrong for
+ * a "follow us" row. URLs are the same strings, so the two can't drift.
+ */
+export const SOCIAL_LINKS = [
+  {
+    name: "Instagram",
+    handle: "@rgvperformancemarketing",
+    url: "https://www.instagram.com/rgvperformancemarketing/",
+  },
+  {
+    name: "Facebook",
+    handle: "RGV Performance Marketing",
+    url: "https://www.facebook.com/people/RGVPM/61572104973174/",
+  },
+  {
+    name: "LinkedIn",
+    // No "/company/" prefix: with it the handle overflows the card on a
+    // 390px phone and gets ellipsed.
+    handle: "rgv-performance-marketing",
+    url: "https://www.linkedin.com/company/rgv-performance-marketing/",
+  },
+] as const;
 
 /**
  * Business owner / founder. Once filled, this strengthens E-E-A-T and lets the

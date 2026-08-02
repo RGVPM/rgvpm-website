@@ -84,7 +84,7 @@ function BrowserCard({ project }: { project: Project }) {
           {project.screenshot ? (
             <Image
               src={project.screenshot}
-              alt={`${project.name} website, built by RGV Performance Marketing`}
+              alt={`${project.name} website, designed by RGV Performance Marketing`}
               fill
               loading="lazy"
               sizes="(max-width: 700px) 80vw, (max-width: 1180px) 40vw, 460px"
@@ -214,50 +214,61 @@ function Track({
   );
 }
 
-export default function WorkShowcase() {
+/**
+ * @param withHeader  Set false on /results, where PageHero already supplies
+ *   the h1 and the intro — a second heading directly beneath it would be
+ *   redundant to read and would give the page two competing titles.
+ */
+export default function WorkShowcase({ withHeader = true }: { withHeader?: boolean } = {}) {
   const [trackA, trackB] = workTracks();
   if (trackA.length === 0) return null;
 
   return (
-    <Section background="var(--cream)" labelledBy="recent-work-heading" style={{ overflow: "hidden" }}>
-      <div className="rg-container">
-        <div
-          className="rg-reveal"
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "flex-end",
-            gap: "var(--s6)",
-            flexWrap: "wrap",
-            marginBottom: "var(--s8)",
-          }}
-        >
-          {/* px, not ch — this wrapper uses the body font, so `ch` here would
-              size against DM Sans and crush the Bebas heading inside it. */}
-          <div style={{ maxWidth: 560 }}>
-            <Label>Some of Our Recent Work</Label>
-            <h2
-              id="recent-work-heading"
-              className="rg-display"
-              style={{ fontSize: "var(--fs-h2)", color: "var(--navy)", margin: "var(--s4) 0 0" }}
-            >
-              Built for Businesses That Need to Be Found
-            </h2>
-          </div>
-          <p
+    <Section
+      background="var(--cream)"
+      labelledBy={withHeader ? "recent-work-heading" : undefined}
+      style={{ overflow: "hidden" }}
+    >
+      {withHeader && (
+        <div className="rg-container">
+          <div
+            className="rg-reveal"
             style={{
-              fontSize: 15.5,
-              color: "var(--muted)",
-              lineHeight: 1.7,
-              maxWidth: "42ch",
-              margin: 0,
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "flex-end",
+              gap: "var(--s6)",
+              flexWrap: "wrap",
+              marginBottom: "var(--s8)",
             }}
           >
-            Real websites we designed and launched for real Rio Grande Valley businesses. Every one
-            is live — click through and see it for yourself.
-          </p>
+            {/* px, not ch — this wrapper uses the body font, so `ch` here would
+                size against DM Sans and crush the Bebas heading inside it. */}
+            <div style={{ maxWidth: 560 }}>
+              <Label>Some of Our Recent Work</Label>
+              <h2
+                id="recent-work-heading"
+                className="rg-display"
+                style={{ fontSize: "var(--fs-h2)", color: "var(--navy)", margin: "var(--s4) 0 0" }}
+              >
+                Websites for Businesses That Need to Be Found
+              </h2>
+            </div>
+            <p
+              style={{
+                fontSize: 15.5,
+                color: "var(--muted)",
+                lineHeight: 1.7,
+                maxWidth: "42ch",
+                margin: 0,
+              }}
+            >
+              Real websites we designed and launched for real Rio Grande Valley businesses. Every
+              one is live — click through and see it for yourself.
+            </p>
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Full-bleed tracks — the sites are the point, so they run edge to edge */}
       <div style={{ display: "grid", gap: "var(--s6)" }} className="rg-reveal">
