@@ -47,12 +47,19 @@ export const TRACKING = {
 /* ── Destinations ─────────────────────────────────────────────────────── */
 export const OFFER_LINKS = {
   /**
-   * TODO(owner): paste the two Stripe payment links.
-   * Empty string = the CTA routes to the booking calendar instead, so the
-   * page never ships a dead or invented checkout URL.
+   * Stripe payment links. An empty string routes that plan's CTA to the
+   * booking calendar instead, so the page never ships a dead checkout URL.
+   *
+   * TODO(owner): growthSeo is still unset — the $549 button currently opens
+   * the calendar, not checkout.
+   *
+   * TODO(owner): in Stripe, set this link's success URL to
+   *   https://rgvperformancemarketing.com/website-offer/thank-you?plan=website-crm
+   * Without it the buyer lands on Stripe's default confirmation and the
+   * Meta `Purchase` event never fires.
    */
   stripe: {
-    websiteCrm: "",
+    websiteCrm: "https://buy.stripe.com/9B6cN552Ad0ObK21cZ7Zu0t",
     growthSeo: "",
   },
   /** Real, live GHL booking widget — already used across the site. */
