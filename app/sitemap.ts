@@ -12,6 +12,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/", priority: 1.0, changeFrequency: "weekly" },
     { path: "/services", priority: 0.9, changeFrequency: "monthly" },
     { path: "/pricing", priority: 0.9, changeFrequency: "monthly" },
+    // Paid-traffic offer page. Indexable and canonical to itself — it targets
+    // "$0 upfront website" intent that /pricing doesn't. Its thank-you page is
+    // noindex and deliberately absent here.
+    { path: "/website-offer", priority: 0.9, changeFrequency: "monthly" },
     { path: "/results", priority: 0.8, changeFrequency: "monthly" },
     { path: "/about", priority: 0.6, changeFrequency: "yearly" },
     { path: "/contact", priority: 0.7, changeFrequency: "yearly" },
