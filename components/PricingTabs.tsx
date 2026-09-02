@@ -35,6 +35,10 @@ interface CardProps {
   onCta?: () => void;
   highlighted?: boolean;
   checkClass?: string;
+  /** Skip the column-grid lift; use for stacked full-width rows. */
+  stacked?: boolean;
+  /** Two-column feature list on sm+ — better for full-width cards. */
+  featureGrid?: boolean;
 }
 
 function Card({
@@ -54,9 +58,11 @@ function Card({
   onCta,
   highlighted = false,
   checkClass = "text-orange-500",
+  stacked = false,
+  featureGrid = false,
 }: CardProps) {
   const cardClasses = highlighted
-    ? "bg-orange-500 border border-orange-400 shadow-2xl lg:-mt-4 lg:mb-4"
+    ? `bg-orange-500 border border-orange-400 shadow-2xl${stacked ? "" : " lg:-mt-4 lg:mb-4"}`
     : "bg-slate-800/40 border border-slate-700";
 
   const cta = highlighted
@@ -104,7 +110,7 @@ function Card({
 
       <div className={`mb-6 h-px ${highlighted ? "bg-white/20" : "bg-slate-700"}`} />
 
-      <ul className="mb-6 flex-1 space-y-3">
+      <ul className={`mb-6 flex-1 ${featureGrid ? "grid gap-3 sm:grid-cols-2" : "space-y-3"}`}>
         {features.map((f) => (
           <li
             key={f}
@@ -148,111 +154,73 @@ function Card({
 
 function WebsitesTab({ onQuote }: { onQuote: () => void }) {
   return (
-    <div>
-      <div className="mx-auto flex max-w-3xl flex-col rounded-xl border border-slate-700 bg-slate-800/40 p-7 md:p-9">
-        <div
-          className="mb-5 text-[11px] font-medium uppercase tracking-[0.14em] text-slate-400"
-          style={{ fontFamily: "var(--font-dm-mono), monospace" }}
-        >
-          // BUILD + MAINTAIN
-        </div>
-
-        <h3 className="mb-2 text-3xl tracking-wide text-white" style={bebas}>
-          Custom Website + Hosting
-        </h3>
-
-        <p className="mb-7 text-sm leading-relaxed text-slate-400">
-          A fast, modern site built from scratch around your business — then we host it, secure it, and update it
-          whenever you need.
-        </p>
-
-        {/* pricing display */}
-        <div className="mb-7">
-          <div className="flex items-baseline gap-2">
-            <span className="text-5xl font-bold leading-none text-white">From $1,000</span>
-            <span className="text-xl font-normal text-slate-400">/build</span>
-          </div>
-          <div className="mt-2 text-sm text-slate-400">
-            One-time fee · Range: $1,000–$3,500 based on scope
-          </div>
-
-          <div className="my-4 border-t border-slate-700" />
-
-          <div className="flex items-baseline gap-2">
-            <span className="text-3xl font-bold leading-none text-white">+ $397</span>
-            <span className="text-lg font-normal text-slate-400">/mo</span>
-          </div>
-          <div className="mt-2 text-sm text-slate-400">Hosting &amp; unlimited updates · month-to-month</div>
-        </div>
-
-        <ul className="mb-7 grid gap-3 sm:grid-cols-2">
-          {[
-            "Custom design (no templates)",
-            "Mobile-first & blazing fast",
-            "SEO foundations baked in",
-            "Lead capture wired to CRM",
-            "Bilingual (EN/ES) available",
-            "Reliable hosting + SSL",
-            "Unlimited content updates after launch",
-            "Backups & uptime monitoring",
-            "Security patches & maintenance",
-            "24-hour support response",
-          ].map((f) => (
-            <li key={f} className="flex items-start gap-2.5 text-sm leading-snug text-slate-300">
-              <span className="mt-px flex-shrink-0 font-bold text-orange-500">✓</span>
-              {f}
-            </li>
-          ))}
-        </ul>
-
-        <button
-          type="button"
-          onClick={onQuote}
-          className="flex items-center justify-center rounded-md bg-orange-500 px-4 py-3 text-sm font-bold text-white transition-colors hover:bg-orange-600"
-        >
-          Get a Custom Quote →
-        </button>
-      </div>
-
-      {/* SEO add-on banner */}
-      <div className="mt-8 rounded-xl border border-orange-500/30 bg-orange-500/5 p-7">
-        <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
-          <div>
-            <div
-              className="mb-1 text-[11px] font-medium uppercase tracking-[0.14em] text-orange-500"
-              style={{ fontFamily: "var(--font-dm-mono), monospace" }}
-            >
-              // Add-On
-            </div>
-            <h3 className="text-2xl tracking-wide text-white" style={bebas}>
-              SEO Add-On
-            </h3>
-          </div>
-          <div className="flex items-baseline gap-1.5">
-            <span className="text-4xl leading-none text-white" style={bebas}>
-              +$500
-            </span>
-            <span className="text-sm text-slate-400">/mo</span>
-          </div>
-        </div>
-        <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-          {[
-            "New SEO pages added monthly",
-            "Google Business Profile buildout",
-            "Backlink outreach",
-            "Keyword tracking & reporting",
-          ].map((f) => (
-            <li key={f} className="flex items-start gap-2.5 text-sm text-slate-300">
-              <span className="mt-px flex-shrink-0 font-bold text-orange-500">✓</span>
-              {f}
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <p className="mt-6 text-center text-sm text-slate-400">
-        Already on a Marketing Plan? Light SEO is included — this add-on layers on deeper work.
-      </p>
+    <div className="flex flex-col gap-6">
+      <Card
+        stacked
+        featureGrid
+        tier="// Lead system"
+        name="CRM Lead Management"
+        description="Stop losing leads in texts, voicemail, and random emails. One inbox, one pipeline."
+        price="$97"
+        priceSuffix="/mo"
+        priceNote="month-to-month"
+        features={[
+          "Every form fill, call, and chat lands in one place",
+          "Instant ping when a new lead comes in",
+          "Text and email from the same inbox (phone in your pocket)",
+          "Simple pipeline: new → talking → booked → won",
+          "See which ads or pages actually sent the lead",
+          "Calendar so bookings don't live in a notebook",
+          "Works on your phone",
+        ]}
+        ctaLabel="Book a Call →"
+        ctaHref={BOOKING}
+      />
+      <Card
+        stacked
+        featureGrid
+        highlighted
+        tier="// Site + leads"
+        name="Website + CRM"
+        description="A site that actually catches jobs, plus the CRM. One-time build quoted separately ($1,000–$3,500 based on scope)."
+        price="$297"
+        priceSuffix="/mo"
+        priceNote="One-time build $1,000–$3,500 · quoted to scope."
+        subNote="month-to-month"
+        features={[
+          "Custom site, not a template",
+          "Hosting, SSL, backups, security",
+          "Unlimited standard updates (hours, photos, copy, services)",
+          "Forms + chat dump straight into the CRM",
+          "Everything in the $97 CRM",
+          "Mobile-first and bilingual if you need it",
+          "We keep it live and patched so you don't babysit WordPress",
+        ]}
+        ctaLabel="Get a Custom Quote →"
+        onCta={onQuote}
+      />
+      <Card
+        stacked
+        featureGrid
+        tier="// Get found"
+        name="SEO Package"
+        description="Website + CRM, then we work Google so more of the right people find you. No #1 ranking guarantee."
+        price="$497"
+        priceSuffix="/mo"
+        priceNote="One-time build $1,000–$3,500 · quoted to scope."
+        subNote="month-to-month"
+        features={[
+          "Everything in Website + CRM",
+          "Google Business Profile built out (photos, categories, posts)",
+          "City/service pages that match how people actually search",
+          "On-page + technical cleanup so Google can read the site",
+          "Keyword plan vs. the shops you're losing to",
+          "Monthly content that targets real Search Console queries",
+          "Monthly report: what moved, what we're doing next",
+        ]}
+        ctaLabel="Get a Custom Quote →"
+        onCta={onQuote}
+      />
     </div>
   );
 }
