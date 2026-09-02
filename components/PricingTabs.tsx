@@ -211,8 +211,8 @@ function WebsitesTab({ onQuote }: { onQuote: () => void }) {
           "Mobile-first and bilingual if you need it",
           "We keep it live and patched so you don't babysit WordPress",
         ]}
-        ctaLabel="Get a Custom Quote →"
-        onCta={onQuote}
+        ctaLabel="Get Started →"
+        ctaHref="https://buy.stripe.com/9B66oH0MkbWK7tMf3P7Zu0B"
       />
       <Card
         stacked
