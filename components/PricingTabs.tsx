@@ -179,7 +179,7 @@ function WebsitesTab({ onQuote }: { onQuote: () => void }) {
           <div className="my-4 border-t border-slate-700" />
 
           <div className="flex items-baseline gap-2">
-            <span className="text-3xl font-bold leading-none text-white">+ $397</span>
+            <span className="text-3xl font-bold leading-none text-white">+ $197</span>
             <span className="text-lg font-normal text-slate-400">/mo</span>
           </div>
           <div className="mt-2 text-sm text-slate-400">Hosting &amp; unlimited updates · month-to-month</div>
