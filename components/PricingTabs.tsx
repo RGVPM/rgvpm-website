@@ -188,8 +188,8 @@ function WebsitesTab({ onQuote }: { onQuote: () => void }) {
           "Calendar so bookings don't live in a notebook",
           "Works on your phone",
         ]}
-        ctaLabel="Book a Call →"
-        ctaHref={BOOKING}
+        ctaLabel="Get Started →"
+        ctaHref="https://buy.stripe.com/8x2bJ12UsbWK29saNz7Zu0m"
       />
       <Card
         stacked
