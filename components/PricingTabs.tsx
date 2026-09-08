@@ -412,16 +412,14 @@ function PlansTab() {
           priceNote={annual ? "No activation fee" : "+ $399 one-time activation fee"}
           subNote={annual ? "Annual contract · billed monthly" : undefined}
           features={[
-            "Google Business Profile setup & optimization",
-            "NAP audit & citation consistency",
-            "Review request automation",
-            "Basic lead capture form (on your existing site)",
-            "Two-way SMS & email inbox",
-            "Email & SMS blast tool (DIY send to your list)",
-            "Monthly newsletter (we write & send)",
-            "Content Calendar social — themes, captions, shot lists (you shoot & post)",
-            "Access to scheduling tool",
-            "Monthly snapshot report",
+            "Get found on Google (Business Profile setup & cleanup)",
+            "Keep your name/address/phone consistent online",
+            "Ask happy customers for reviews (we set it up)",
+            "Catch leads from your site (form → your inbox)",
+            "Texts & emails in one place",
+            "Blast your list yourself when you want",
+            "We write & send a monthly newsletter",
+            "Simple monthly snapshot of what's working",
           ]}
           ctaLabel="Get Started →"
           ctaHref={
@@ -442,14 +440,14 @@ function PlansTab() {
           subNote={annual ? "Annual contract · billed monthly" : undefined}
           features={[
             "Everything in Plant the Flag",
-            "Real local SEO (pages, GBP buildout, backlinks)",
-            "Paid ad management (Google OR Meta) — ad spend billed separately by platform",
-            "Email & SMS broadcast campaigns (we write & send)",
-            "Content Crew social — you shoot, we edit + brand (1 reel + 1 creative + stories per week)",
-            "Lead automation (missed call text-back, follow-up sequences, appointment reminders)",
-            "Lead pipeline dashboard",
-            "AI chatbot on your website",
-            "Monthly strategy calls",
+            "Local SEO (pages, Google profile depth, backlinks)",
+            "Ads managed for you — Google or Meta (you fund the spend)",
+            "We write & send email/SMS campaigns",
+            "Social: you shoot, we edit & brand (1 reel + 1 creative + stories / week)",
+            "Follow-ups on autopilot (missed-call text, sequences, reminders)",
+            "See every lead in one pipeline",
+            "Website chatbot that answers after hours",
+            "Monthly strategy call",
           ]}
           ctaLabel="Get Started →"
           ctaHref={
@@ -469,13 +467,13 @@ function PlansTab() {
           subNote={annual ? "Annual contract · billed monthly" : undefined}
           features={[
             "Everything in Build the Machine",
-            "Multi-platform ads (Google + Meta) — ad spend billed separately by each platform",
-            "Full Service Social — we run your account, post for you, manage DMs (2 reels + 1 post + unlimited stories per week + monthly on-site shoot for local clients)",
-            "Advanced AI automation suite (up to 5 workflows, multi-channel nurture, lead scoring, monthly tune-up)",
+            "Ads on Google and Meta — $750/mo ad spend included",
+            "We run social for you — posts + DMs (2 edited reels + 1 post + stories / week)",
+            "Monthly on-site content with our content recruiter if local",
+            "More automation — multi-channel nurture, lead scoring, monthly tune-up",
             "Dedicated account strategist",
             "Bi-weekly strategy calls",
-            "Monthly 1-hour session with our content creator",
-            "Priority support — same-day response",
+            "Priority support",
           ]}
           ctaLabel="Get Started →"
           ctaHref={
@@ -487,8 +485,10 @@ function PlansTab() {
       </div>
 
       <p className="mt-6 text-center text-sm text-slate-400">
-        All plans are month-to-month or 12-month annual contracts. Ad spend (Google/Meta) is billed directly by the
-        platforms.
+        All plans are month-to-month or 12-month annual contracts. Activation is a one-time setup fee on Plant the Flag
+        and Build the Machine only; Own the Market has no activation fee. On Build the Machine, ad spend is billed by
+        Google and Meta (you fund the spend). On Own the Market, $750/mo ad spend is included; additional spend is billed
+        separately. Website design is quoted separately on all plans.
       </p>
     </div>
   );
