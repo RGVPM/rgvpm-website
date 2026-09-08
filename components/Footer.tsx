@@ -60,7 +60,7 @@ export default function Footer() {
               links: [
                 { label: "Plant the Flag — $399/mo", href: "/pricing" },
                 { label: "Build the Machine — $899/mo", href: "/pricing" },
-                { label: "Own the Market — $1,999/mo", href: "/pricing" },
+                { label: "Own the Market — $2,499/mo", href: "/pricing" },
               ],
             },
             {
