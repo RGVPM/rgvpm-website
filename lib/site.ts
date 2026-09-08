@@ -101,7 +101,7 @@ export const STRIPE_LINKS = {
 export const PLANS = [
   { name: "Plant the Flag", price: 399, description: "Get found online: Google Business Profile, local SEO foundations, lead capture, and reviews." },
   { name: "Build the Machine", price: 899, description: "A full growth engine: SEO, paid ads management, two-way SMS & email, automation, and reporting." },
-  { name: "Own the Market", price: 1999, description: "Dominate locally: managed ads, content, social, reputation, and hands-on monthly optimization." },
+  { name: "Own the Market", price: 2499, description: "Dominate locally: managed ads, content, social, reputation, and hands-on monthly optimization." },
 ] as const;
 
 /** Absolute canonical URL for a given path ("/" or "/services/local-seo"). */
