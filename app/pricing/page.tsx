@@ -38,7 +38,7 @@ const pricingFaqs = [
   },
   {
     q: "Does ad spend come out of the monthly fee?",
-    a: "No. Ad management is included in your plan, but the actual spend — what you pay Google or Meta to run your ads — is a separate budget billed directly to you by the platform. We help you set the right budget and manage every dollar of it; you fund the account.",
+    a: "On Build the Machine, ad management is included, but you fund the ad spend — Google and Meta bill you directly, and we manage the campaigns. Plant the Flag does not include ads. On Own the Market, $750/mo ad spend is included; any spend above that is billed separately by the platforms (you fund the overage).",
   },
   {
     q: "Can I upgrade or downgrade my plan?",

@@ -6,14 +6,14 @@ const plans = [
     price: "$399",
     activation: "+ $399 one-time activation fee",
     features: [
-      "Google Business Profile setup & optimization",
-      "NAP audit & citation consistency",
-      "Review request automation",
-      "Basic lead capture form (on your existing site)",
-      "Two-way SMS & email inbox",
-      "Monthly newsletter (you pick the topic, we write & send)",
-      "Social media planner tool (self-schedule posts)",
-      "Monthly snapshot report",
+      "Get found on Google (Business Profile setup & cleanup)",
+      "Keep your name/address/phone consistent online",
+      "Ask happy customers for reviews (we set it up)",
+      "Catch leads from your site (form → your inbox)",
+      "Texts & emails in one place",
+      "Blast your list yourself when you want",
+      "We write & send a monthly newsletter",
+      "Simple monthly snapshot of what's working",
     ],
     href: "https://buy.stripe.com/28E00jcv2gd03dw1cZ7Zu0h",
     featured: false,
@@ -27,13 +27,14 @@ const plans = [
     activation: "+ $399 one-time activation fee",
     features: [
       "Everything in Plant the Flag",
-      "Local SEO (on-page, content, citations)",
-      "Paid ad management (Google or Meta)",
-      "Email & SMS broadcast campaigns",
-      "Automated lead follow-up sequences",
-      "Lead pipeline dashboard",
-      "Appointment scheduling automation",
-      "Monthly strategy calls",
+      "Local SEO (pages, Google profile depth, backlinks)",
+      "Ads managed for you — Google or Meta (you fund the spend)",
+      "We write & send email/SMS campaigns",
+      "Social: you shoot, we edit & brand (1 reel + 1 creative + stories / week)",
+      "Follow-ups on autopilot (missed-call text, sequences, reminders)",
+      "See every lead in one pipeline",
+      "Website chatbot that answers after hours",
+      "Monthly strategy call",
     ],
     href: "https://buy.stripe.com/5kQaEXfHed0O3dwdZL7Zu0i",
     featured: true,
@@ -43,18 +44,17 @@ const plans = [
     tier: "// Full Service",
     name: "Own the Market",
     tagline: "Dominate your category. Full-service execution across every channel with a dedicated strategist in your corner.",
-    price: "$1,999",
+    price: "$2,499",
     activation: "No activation fee",
     features: [
       "Everything in Build the Machine",
-      "Multi-platform ads (Google + Meta)",
-      "Full social media management",
-      "Video content (Reels & Shorts)",
-      "Advanced automation sequences",
+      "Ads on Google and Meta — $750/mo ad spend included",
+      "We run social for you — posts + DMs (2 edited reels + 1 post + stories / week)",
+      "Monthly on-site content with our content recruiter if local",
+      "More automation — multi-channel nurture, lead scoring, monthly tune-up",
       "Dedicated account strategist",
       "Bi-weekly strategy calls",
-      "Monthly 1-hour session with our content creator",
-      "Priority support — same-day response",
+      "Priority support",
     ],
     href: "https://buy.stripe.com/aFa3cv1Qo7Gu29sf3P7Zu0j",
     featured: false,
@@ -154,7 +154,7 @@ export default function Pricing({ asPage = false }: { asPage?: boolean }) {
         </p>
 
         <p style={{ textAlign: "center", marginTop: 36, fontSize: 13, color: "rgba(255,255,255,0.35)" }}>
-          All plans are month-to-month. Website design is a separate service. Ad spend (Google/Meta) is billed directly by the platform.{" "}
+          All plans are month-to-month. Activation is a one-time setup fee on Plant the Flag and Build the Machine only; Own the Market has no activation fee. On Build the Machine, ad spend is billed by Google and Meta (you fund the spend). On Own the Market, $750/mo ad spend is included; additional spend is billed separately. Website design is quoted separately on all plans.{" "}
           <a href="mailto:info@rgvperformancemarketing.com" style={{ color: "rgba(255,255,255,0.55)" }}>
             Questions? Email us.
           </a>
