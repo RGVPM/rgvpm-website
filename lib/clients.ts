@@ -12,13 +12,14 @@ export interface Client {
 }
 
 /**
- * Featured client logos for the homepage "client" marquee.
- * Each entry becomes a dofollow link to the client's site (a backlink for them).
+ * Featured client logos for the homepage logo strip.
+ * Only real clients with files already in /public/clients/ belong here.
+ * Do not invent placeholder brands.
  *
- * TODO(owner): add your real clients. For each:
- *   1. Drop their logo (transparent PNG/SVG, ~light on dark works best) in public/clients/
+ * TODO(owner): add more real clients later. For each:
+ *   1. Drop their logo (transparent PNG/SVG) in public/clients/
  *   2. Add an entry below with their name, website URL, and the logo path.
- * The marquee section stays hidden until at least one client is listed.
+ * The strip stays reserved (empty-ready) if this list is cleared.
  *
  * Example:
  *   { name: "CCL Contracting", url: "https://cclcontracting.com", logo: "/clients/ccl-contracting.png" },

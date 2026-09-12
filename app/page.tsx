@@ -1,9 +1,8 @@
 import HomeHero from "@/components/home/HomeHero";
-import IndustryMarquee from "@/components/home/IndustryMarquee";
-import { IndustryStrip } from "@/components/Sections";
 import Capabilities from "@/components/home/Capabilities";
 import Process from "@/components/home/Process";
-import SocialFollow from "@/components/home/SocialFollow";
+import HomeProof from "@/components/home/HomeProof";
+import LogoStrip from "@/components/home/LogoStrip";
 import BlogEditorial from "@/components/home/BlogEditorial";
 import HomeFaq from "@/components/home/HomeFaq";
 import FinalCta from "@/components/home/FinalCta";
@@ -17,12 +16,10 @@ export default function Home() {
       <JsonLd data={[localBusinessSchema(), organizationSchema(), websiteSchema(), faqSchema(homeFaqs)]} />
       <main>
         <HomeHero />
-        <IndustryMarquee />
-        {/* Client logo marquee — the logos hand off to /results. */}
-        <IndustryStrip />
         <Capabilities />
         <Process />
-        <SocialFollow />
+        <HomeProof />
+        <LogoStrip />
         <BlogEditorial />
         <HomeFaq />
         <FinalCta />
