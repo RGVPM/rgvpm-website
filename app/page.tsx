@@ -18,7 +18,7 @@ export default function Home() {
       <main>
         <HomeHero />
         <IndustryMarquee />
-        {/* Client logo marquee — the logos hand off to /results. */}
+        {/* Client logo marquee — each logo links out to the client's site. */}
         <IndustryStrip />
         <Capabilities />
         <Process />

@@ -234,7 +234,7 @@ export default function HomeHero() {
               </a>
 
               <a
-                href="/results"
+                href="/pricing"
                 className="rg-hero-secondary"
                 style={{
                   display: "inline-flex",
@@ -253,7 +253,7 @@ export default function HomeHero() {
                 }}
               >
                 <ResultsIcon />
-                See Client Results
+                See Plans &amp; Pricing
               </a>
             </div>
 

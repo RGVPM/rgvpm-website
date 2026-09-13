@@ -6,10 +6,8 @@ import { CLIENTS } from "@/lib/clients";
  * parent section background. Renders nothing until at least one client is
  * added in lib/clients.ts.
  *
- * The logos point at /results rather than out to each client's site: this
- * strip's job is to hand people off to the work. The clients still get
- * their outbound dofollow link from the showcase cards on that page, so no
- * backlink is lost by routing the logos inward.
+ * Each logo is a real dofollow link out to the client's live site — a
+ * small backlink for them, and proof for the visitor that the work exists.
  */
 export default function ClientMarquee() {
   if (CLIENTS.length === 0) return null;
@@ -24,23 +22,10 @@ export default function ClientMarquee() {
           textTransform: "uppercase",
           color: "var(--muted)",
           textAlign: "center",
-          marginBottom: 10,
+          marginBottom: 28,
         }}
       >
         Businesses We Work With
-      </p>
-      <p style={{ textAlign: "center", marginBottom: 28 }}>
-        <a
-          href="/results"
-          style={{
-            fontSize: 14,
-            fontWeight: 600,
-            color: "var(--orange-ink)",
-            textDecoration: "none",
-          }}
-        >
-          See their results <span aria-hidden="true">→</span>
-        </a>
       </p>
       <div
         className="rg-scroller"
@@ -69,8 +54,10 @@ function Pass() {
       {CLIENTS.map((client) => (
         <a
           key={client.name}
-          href="/results"
-          aria-label={`${client.name} — see client results`}
+          href={client.url}
+          target="_blank"
+          rel="noopener"
+          aria-label={`${client.name} — visit their website (opens in a new tab)`}
           style={{
             display: "inline-flex",
             alignItems: "center",

@@ -16,7 +16,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // "$0 upfront website" intent that /pricing doesn't. Its thank-you page is
     // noindex and deliberately absent here.
     { path: "/website-offer", priority: 0.9, changeFrequency: "monthly" },
-    { path: "/results", priority: 0.8, changeFrequency: "monthly" },
     { path: "/about", priority: 0.6, changeFrequency: "yearly" },
     { path: "/contact", priority: 0.7, changeFrequency: "yearly" },
     { path: "/blog", priority: 0.5, changeFrequency: "weekly" },

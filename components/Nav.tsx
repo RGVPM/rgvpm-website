@@ -9,10 +9,10 @@ type NavItem = { label: string; href: string; children?: { label: string; href: 
 
 /**
  * Every href below resolves to a page that already exists — the eight
- * solution links are the real /services routes, and "Results" is the
- * /results work page. "Industries" and "Case Studies" are deliberately
- * absent: neither has a destination yet, and a nav that leads somewhere
- * empty costs more trust than a shorter nav does.
+ * solution links are the real /services routes. "Industries", "Results",
+ * and "Case Studies" are deliberately absent: none has a destination yet,
+ * and a nav that leads somewhere empty costs more trust than a shorter
+ * nav does.
  */
 const SOLUTIONS = [
   { label: "Website Design", href: "/services/website-design" },
@@ -27,7 +27,6 @@ const SOLUTIONS = [
 
 const NAV_LINKS: NavItem[] = [
   { label: "Solutions", href: "/services", children: SOLUTIONS },
-  { label: "Results", href: "/results" },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
   { label: "Resources", href: "/blog" },

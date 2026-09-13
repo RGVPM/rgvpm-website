@@ -6,6 +6,13 @@ const nextConfig: NextConfig = {
   // cross-origin dev resources and the client never hydrates, leaving the page
   // visible but non-interactive on those devices.
   allowedDevOrigins: ["192.168.1.233"],
+  async redirects() {
+    return [
+      // /results was retired (Sept 2026). Google had it indexed, and the
+      // hero + client marquee used to link there, so send stragglers home.
+      { source: "/results", destination: "/", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;
