@@ -1,4 +1,5 @@
 import type { IconName } from "@/components/Icon";
+import { SITE } from "@/lib/site";
 
 export interface PostSection {
   type: "h2" | "h3" | "p" | "ul";
@@ -14,6 +15,9 @@ export interface Post {
   excerpt: string;
   category: string;
   icon: IconName;
+  /** Public path to the unique 1200×630 social/listing thumbnail. */
+  image: string;
+  imageAlt: string;
   datePublished: string; // ISO date
   dateModified: string; // ISO date
   readMinutes: number;
@@ -35,6 +39,9 @@ export const POSTS: Post[] = [
       "A plain-English guide to digital marketing for Harlingen and Rio Grande Valley businesses — what it includes, what it costs, and how to choose an agency that drives real leads.",
     category: "Digital Marketing",
     icon: "chart",
+    image: "/blog/digital-marketing-harlingen-tx-guide.webp",
+    imageAlt:
+      "Navy branded card for Digital Marketing in Harlingen, with rising chart bars and an orange accent.",
     datePublished: "2026-06-24",
     dateModified: "2026-06-24",
     readMinutes: 9,
@@ -106,6 +113,9 @@ export const POSTS: Post[] = [
       "Most RGV small-business websites land between $1,500 and $6,000 to build, plus a small monthly cost to host and maintain. Here's exactly what you're paying for — and what to avoid.",
     category: "Website Design",
     icon: "target",
+    image: "/blog/how-much-does-a-website-cost-rio-grande-valley.webp",
+    imageAlt:
+      "Navy branded card for website costs in the Rio Grande Valley, with nested frames and an orange highlight.",
     datePublished: "2026-06-21",
     dateModified: "2026-06-21",
     readMinutes: 7,
@@ -160,6 +170,9 @@ export const POSTS: Post[] = [
       "Ranking in the Google map pack comes down to three things: relevance, distance, and prominence. Here's how RGV businesses can improve all three and win more local calls.",
     category: "Local SEO",
     icon: "map-pin",
+    image: "/blog/how-to-rank-higher-google-maps-rio-grande-valley.webp",
+    imageAlt:
+      "Navy branded card for ranking higher on Google Maps in the Rio Grande Valley, with concentric rings and a map pin.",
     datePublished: "2026-06-21",
     dateModified: "2026-06-21",
     readMinutes: 8,
@@ -208,6 +221,9 @@ export const POSTS: Post[] = [
       "Regular SEO helps you rank for broad searches anywhere. Local SEO helps you rank for searches tied to your city and the map pack. For a business that serves a local area, local SEO is what drives calls.",
     category: "Local SEO",
     icon: "search",
+    image: "/blog/local-seo-vs-regular-seo.webp",
+    imageAlt:
+      "Navy branded card comparing local SEO and regular SEO as two side-by-side panels.",
     datePublished: "2026-06-21",
     dateModified: "2026-06-21",
     readMinutes: 5,
@@ -251,6 +267,9 @@ export const POSTS: Post[] = [
       "A practical guide to Brownsville SEO: map pack rankings, Google Business Profile optimization, reviews, and bilingual local search that turns searches into calls.",
     category: "Local SEO",
     icon: "map-pin",
+    image: "/blog/brownsville-seo-how-to-rank-local-business.webp",
+    imageAlt:
+      "Navy branded card for Brownsville SEO, with a map grid and one highlighted city cell.",
     datePublished: "2026-08-31",
     dateModified: "2026-08-31",
     readMinutes: 8,
@@ -348,6 +367,9 @@ export const POSTS: Post[] = [
       "A practical guide to Harlingen SEO: map pack rankings, Google Business Profile optimization, reviews, and bilingual local search that turns searches into calls.",
     category: "Local SEO",
     icon: "map-pin",
+    image: "/blog/harlingen-seo-how-to-rank-local-business.webp",
+    imageAlt:
+      "Navy branded card for Harlingen SEO, with a map grid and the center city cell highlighted.",
     datePublished: "2026-09-07",
     dateModified: "2026-09-07",
     readMinutes: 8,
@@ -446,6 +468,9 @@ export const POSTS: Post[] = [
       "A practical RGV website design guide: when a builder is enough, when custom wins, and what Harlingen and Valley businesses actually need to turn searches into calls.",
     category: "Website Design",
     icon: "globe",
+    image: "/blog/rgv-website-design-builder-vs-custom.webp",
+    imageAlt:
+      "Navy branded card comparing website builders and custom design for Rio Grande Valley businesses.",
     datePublished: "2026-09-14",
     dateModified: "2026-09-14",
     readMinutes: 8,
@@ -519,8 +544,15 @@ export const POSTS: Post[] = [
   },
 ];
 
+export const POST_IMAGE_SIZE = { width: 1200, height: 630 } as const;
+
 export const postSlugs = POSTS.map((p) => p.slug);
 
 export function getPost(slug: string): Post | undefined {
   return POSTS.find((p) => p.slug === slug);
+}
+
+/** Absolute URL for Open Graph, Twitter, and JSON-LD image fields. */
+export function postImageUrl(post: Pick<Post, "image">): string {
+  return `${SITE.url}${post.image}`;
 }

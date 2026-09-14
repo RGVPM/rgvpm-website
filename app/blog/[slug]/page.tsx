@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getPost, postSlugs } from "@/lib/posts";
+import { getPost, postSlugs, postImageUrl, POST_IMAGE_SIZE } from "@/lib/posts";
 import { canonical, breadcrumbSchema, faqSchema, SITE, ORGANIZATION_ID } from "@/lib/site";
 import PageHero from "@/components/PageHero";
 import FaqAccordion from "@/components/FaqAccordion";
 import InnerCTA from "@/components/InnerCTA";
 import JsonLd from "@/components/JsonLd";
+import BlogThumb from "@/components/BlogThumb";
 
 export function generateStaticParams() {
   return postSlugs.map((slug) => ({ slug }));
@@ -17,11 +18,30 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = getPost(slug);
   if (!post) return {};
   const url = canonical(`/blog/${slug}`);
+  const image = {
+    url: postImageUrl(post),
+    width: POST_IMAGE_SIZE.width,
+    height: POST_IMAGE_SIZE.height,
+    alt: post.imageAlt,
+  };
   return {
     title: { absolute: `${post.metaTitle} | ${SITE.name}` },
     description: post.description,
     alternates: { canonical: url },
-    openGraph: { type: "article", url, title: post.metaTitle, description: post.description, siteName: SITE.name },
+    openGraph: {
+      type: "article",
+      url,
+      title: post.metaTitle,
+      description: post.description,
+      siteName: SITE.name,
+      images: [image],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.metaTitle,
+      description: post.description,
+      images: [image],
+    },
   };
 }
 
@@ -45,7 +65,12 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     url,
     datePublished: post.datePublished,
     dateModified: post.dateModified,
-    image: `${SITE.url}/opengraph-image`,
+    image: {
+      "@type": "ImageObject",
+      url: postImageUrl(post),
+      width: POST_IMAGE_SIZE.width,
+      height: POST_IMAGE_SIZE.height,
+    },
     inLanguage: "en-US",
     author: { "@id": ORGANIZATION_ID, name: SITE.name },
     publisher: { "@id": ORGANIZATION_ID },
@@ -65,6 +90,9 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
         <article style={{ padding: "64px 0 24px", background: "#fff" }}>
           <div style={{ maxWidth: 760, margin: "0 auto", padding: "0 24px" }}>
+            <figure style={{ margin: "0 0 28px", borderRadius: 12, overflow: "hidden", border: "1px solid var(--border)" }}>
+              <BlogThumb post={post} sizes="(max-width: 800px) 100vw, 760px" priority />
+            </figure>
             <div style={{ fontSize: 13, color: "var(--muted)", marginBottom: 28, display: "flex", gap: 14, flexWrap: "wrap" }}>
               <span>{new Date(post.datePublished).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</span>
               <span>·</span>
