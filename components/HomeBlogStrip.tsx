@@ -1,8 +1,6 @@
 import Link from "next/link";
-import Icon from "@/components/Icon";
 import { POSTS } from "@/lib/posts";
-
-const accents = ["var(--orange)", "var(--teal)", "#6E86B8"];
+import BlogCard, { blogCardAccent } from "@/components/BlogCard";
 
 /** "From Our Blog" homepage strip — surfaces the latest posts and passes
  *  homepage link authority to them. Shows the 3 most recent. */
@@ -28,27 +26,9 @@ export default function HomeBlogStrip() {
         </div>
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 24 }} className="svc-grid-responsive">
-          {posts.map((p, i) => {
-            const accent = accents[i % accents.length];
-            return (
-              <Link
-                key={p.slug}
-                href={`/blog/${p.slug}`}
-                className="svc-card"
-                style={{ background: "#fff", border: "1px solid var(--border)", borderTop: `4px solid ${accent}`, borderRadius: 10, padding: 28, textDecoration: "none", color: "inherit", display: "flex", flexDirection: "column" }}
-              >
-                <div style={{ width: 46, height: 46, borderRadius: 10, background: "var(--cream)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 16 }}>
-                  <Icon name={p.icon} size={23} color={accent} />
-                </div>
-                <div style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", color: accent, marginBottom: 10 }}>
-                  {p.category} · {p.readMinutes} min
-                </div>
-                <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--navy)", lineHeight: 1.3, marginBottom: 10 }}>{p.title}</h3>
-                <p style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.6, marginBottom: 16 }}>{p.excerpt}</p>
-                <div style={{ marginTop: "auto", fontSize: 13, fontWeight: 700, color: accent }}>Read the guide →</div>
-              </Link>
-            );
-          })}
+          {posts.map((p, i) => (
+            <BlogCard key={p.slug} post={p} accent={blogCardAccent(i)} heading="h3" />
+          ))}
         </div>
       </div>
     </section>

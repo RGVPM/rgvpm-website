@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Icon from "@/components/Icon";
+import BlogThumb from "@/components/BlogThumb";
 import { Label, Section } from "@/components/home/Primitives";
 import { POSTS } from "@/lib/posts";
 
@@ -61,101 +62,95 @@ export default function BlogEditorial() {
             alignItems: "stretch",
           }}
         >
-          {/* Lead article */}
           <Link
             href={`/blog/${lead.slug}`}
             className="rg-lead-card"
             style={{
               display: "flex",
               flexDirection: "column",
-              justifyContent: "space-between",
-              gap: "var(--s7)",
               background: "var(--navy)",
               borderRadius: "var(--r-lg)",
-              padding: "clamp(28px, 3.4vw, 48px)",
+              padding: 0,
+              overflow: "hidden",
               textDecoration: "none",
               color: "inherit",
-              position: "relative",
-              overflow: "hidden",
               minHeight: 320,
             }}
           >
+            <BlogThumb post={lead} sizes="(max-width: 900px) 100vw, 55vw" priority />
             <div
-              aria-hidden="true"
               style={{
-                position: "absolute",
-                right: "-18%",
-                top: "-30%",
-                width: "70%",
-                aspectRatio: "1",
-                background: "radial-gradient(circle, rgba(232,98,26,0.22) 0%, transparent 66%)",
-                pointerEvents: "none",
-              }}
-            />
-            <div style={{ position: "relative" }}>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 12,
-                  fontFamily: "var(--font-dm-mono), monospace",
-                  fontSize: 10.5,
-                  letterSpacing: "0.12em",
-                  textTransform: "uppercase",
-                  color: "var(--orange-on-dark)",
-                  marginBottom: "var(--s5)",
-                }}
-              >
-                <span
-                  style={{
-                    background: "rgba(232,98,26,0.16)",
-                    border: "1px solid rgba(232,98,26,0.35)",
-                    borderRadius: "var(--r-pill)",
-                    padding: "6px 12px",
-                  }}
-                >
-                  Latest
-                </span>
-                <span style={{ color: "rgba(255,255,255,0.45)" }}>
-                  {lead.category} · {lead.readMinutes} min read
-                </span>
-              </div>
-              <h3
-                className="rg-display"
-                style={{
-                  fontSize: "clamp(26px, 2.8vw, 40px)",
-                  color: "#fff",
-                  margin: "0 0 var(--s4)",
-                  maxWidth: "20ch",
-                }}
-              >
-                {lead.title}
-              </h3>
-              <p
-                style={{
-                  fontSize: 15,
-                  color: "rgba(255,255,255,0.62)",
-                  lineHeight: 1.7,
-                  margin: 0,
-                  maxWidth: "52ch",
-                }}
-              >
-                {lead.excerpt}
-              </p>
-            </div>
-            <span
-              style={{
-                position: "relative",
-                fontSize: 13.5,
-                fontWeight: 700,
-                color: "var(--orange-on-dark)",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                gap: "var(--s5)",
+                padding: "clamp(22px, 2.8vw, 36px)",
+                flex: 1,
               }}
             >
-              Read the guide <span aria-hidden="true">→</span>
-            </span>
+              <div>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 12,
+                    fontFamily: "var(--font-dm-mono), monospace",
+                    fontSize: 10.5,
+                    letterSpacing: "0.12em",
+                    textTransform: "uppercase",
+                    color: "var(--orange-on-dark)",
+                    marginBottom: "var(--s4)",
+                  }}
+                >
+                  <span
+                    style={{
+                      background: "rgba(232,98,26,0.16)",
+                      border: "1px solid rgba(232,98,26,0.35)",
+                      borderRadius: "var(--r-pill)",
+                      padding: "6px 12px",
+                    }}
+                  >
+                    Latest
+                  </span>
+                  <span style={{ color: "rgba(255,255,255,0.45)" }}>
+                    {lead.category} · {lead.readMinutes} min read
+                  </span>
+                </div>
+                <h3
+                  className="rg-display"
+                  style={{
+                    fontSize: "clamp(22px, 2.4vw, 34px)",
+                    color: "#fff",
+                    margin: "0 0 var(--s3)",
+                    maxWidth: "22ch",
+                  }}
+                >
+                  {lead.title}
+                </h3>
+                <p
+                  style={{
+                    fontSize: 15,
+                    color: "rgba(255,255,255,0.62)",
+                    lineHeight: 1.7,
+                    margin: 0,
+                    maxWidth: "52ch",
+                  }}
+                >
+                  {lead.excerpt}
+                </p>
+              </div>
+              <span
+                style={{
+                  fontSize: 13.5,
+                  fontWeight: 700,
+                  color: "var(--orange-on-dark)",
+                }}
+              >
+                Read the guide <span aria-hidden="true">→</span>
+              </span>
+            </div>
           </Link>
 
-          {/* Supporting articles */}
           <div style={{ display: "grid", gap: "clamp(16px, 2vw, 24px)", alignContent: "stretch" }}>
             {rest.map((p) => (
               <Link
@@ -164,36 +159,24 @@ export default function BlogEditorial() {
                 className="rg-post-card"
                 style={{
                   display: "flex",
-                  gap: "var(--s4)",
+                  flexDirection: "column",
                   background: "#fff",
                   border: "1px solid var(--border)",
                   borderRadius: "var(--r-md)",
-                  padding: "clamp(20px, 2.2vw, 28px)",
+                  padding: 0,
+                  overflow: "hidden",
                   textDecoration: "none",
                   color: "inherit",
-                  alignItems: "flex-start",
                   flex: 1,
                 }}
               >
-                <span
-                  style={{
-                    width: 42,
-                    height: 42,
-                    borderRadius: "var(--r-sm)",
-                    background: "var(--cream)",
-                    border: "1px solid var(--border)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexShrink: 0,
-                  }}
-                >
-                  <Icon name={p.icon} size={20} color="var(--orange)" />
-                </span>
-                <span style={{ minWidth: 0 }}>
+                <BlogThumb post={p} sizes="(max-width: 900px) 100vw, 40vw" />
+                <span style={{ minWidth: 0, padding: "clamp(16px, 2vw, 22px)", display: "flex", flexDirection: "column" }}>
                   <span
                     style={{
-                      display: "block",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 8,
                       fontFamily: "var(--font-dm-mono), monospace",
                       fontSize: 10,
                       letterSpacing: "0.12em",
@@ -202,6 +185,7 @@ export default function BlogEditorial() {
                       marginBottom: 8,
                     }}
                   >
+                    <Icon name={p.icon} size={14} color="var(--orange)" />
                     {p.category} · {p.readMinutes} min
                   </span>
                   <span
