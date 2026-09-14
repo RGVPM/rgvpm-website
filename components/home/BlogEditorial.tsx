@@ -159,7 +159,7 @@ export default function BlogEditorial() {
                 className="rg-post-card"
                 style={{
                   display: "flex",
-                  gap: 0,
+                  flexDirection: "column",
                   background: "#fff",
                   border: "1px solid var(--border)",
                   borderRadius: "var(--r-md)",
@@ -167,24 +167,11 @@ export default function BlogEditorial() {
                   overflow: "hidden",
                   textDecoration: "none",
                   color: "inherit",
-                  alignItems: "stretch",
                   flex: 1,
                 }}
               >
-                <span
-                  className="rg-post-thumb"
-                  style={{
-                    position: "relative",
-                    width: 148,
-                    minHeight: 132,
-                    flexShrink: 0,
-                    background: "#111C30",
-                    display: "block",
-                  }}
-                >
-                  <BlogThumb post={p} fill sizes="148px" />
-                </span>
-                <span style={{ minWidth: 0, padding: "clamp(16px, 2vw, 24px)", display: "flex", flexDirection: "column" }}>
+                <BlogThumb post={p} sizes="(max-width: 900px) 100vw, 40vw" />
+                <span style={{ minWidth: 0, padding: "clamp(16px, 2vw, 22px)", display: "flex", flexDirection: "column" }}>
                   <span
                     style={{
                       display: "flex",

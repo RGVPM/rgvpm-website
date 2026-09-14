@@ -546,15 +546,6 @@ body {
 .rg-lead-card:hover { box-shadow: var(--shadow-3); }
 .rg-post-card:hover { box-shadow: var(--shadow-2); border-color: rgba(232,98,26,0.4); }
 
-@media (max-width: 560px) {
-  .rg-post-card { flex-direction: column !important; }
-  .rg-post-thumb {
-    width: 100% !important;
-    min-height: 0 !important;
-    aspect-ratio: 1200 / 630;
-  }
-}
-
 /* Buttons — one hover behaviour for the whole page */
 .rg-btn:hover { transform: translateY(-2px); }
 .rg-btn:active { transform: translateY(0); }
