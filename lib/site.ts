@@ -81,7 +81,7 @@ export const SOCIAL_LINKS = [
  * Business owner / founder. Once filled, this strengthens E-E-A-T and lets the
  * schema name a real person behind the company.
  */
-export const FOUNDER: { name: string; jobTitle?: string } | null = { name: "Derrick Tamez", jobTitle: "Co-Founder & CEO" };
+export const FOUNDER: { name: string; jobTitle?: string } | null = { name: "Derrick Tamez", jobTitle: "Founder & CEO" };
 
 /** Standard business hours. TODO(owner): confirm/adjust to your real hours. */
 export const OPENING_HOURS = {

@@ -47,9 +47,9 @@ const FOUNDERS: Founder[] = [
   {
     first: "Derrick",
     name: "Derrick Tamez, MBA",
-    title: "Co-Founder & CEO",
+    title: "Founder & CEO",
     initials: "DT",
-    // photo: "/founders/derrick.jpg",
+    photo: "/founders/derrick.jpg",
     facts: [
       "10+ years in sales & marketing leadership",
       "Sales operations & systems",
