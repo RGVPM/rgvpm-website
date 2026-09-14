@@ -10,16 +10,16 @@ const url = canonical("/about");
 const linkedinUrl = SOCIAL_PROFILES.find((u) => u.includes("linkedin"));
 
 export const metadata: Metadata = {
-  title: "About Us — Meet Derrick & Kelsey Tamez",
+  title: "Meet the Team — Derrick & Kelsey Tamez",
   description:
-    "RGV Performance Marketing is run by Derrick and Kelsey Tamez, a husband-and-wife team in Harlingen, TX. Meet the founders and see what we build for Rio Grande Valley businesses.",
+    "RGV Performance Marketing is run by Derrick Tamez, MBA, and Kelsey Tamez, a husband-and-wife team in Harlingen, TX. Meet the team, see what we build for Rio Grande Valley businesses, and find out how to join us.",
   alternates: { canonical: url },
   openGraph: {
     type: "website",
     url,
     title: `About ${SITE.name}`,
     description:
-      "Meet Derrick and Kelsey Tamez, the husband-and-wife team behind RGV Performance Marketing.",
+      "Meet Derrick and Kelsey Tamez, the husband-and-wife team behind RGV Performance Marketing. We're hiring.",
     siteName: SITE.name,
   },
 };
@@ -30,8 +30,7 @@ export const metadata: Metadata = {
  * panel with the founder's initials instead, so the page never shows a
  * broken image while a photo is pending.
  *
- * Every claim in `facts` and `bio` comes from Derrick's own partnership
- * portfolio. Kelsey's section is written from what the previous About page
+ * Derrick's `facts` and `bio` were written with him. Kelsey's section is written from what the previous About page
  * said about her role; TODO(owner): replace with her real background.
  */
 type Founder = {
@@ -47,20 +46,20 @@ type Founder = {
 const FOUNDERS: Founder[] = [
   {
     first: "Derrick",
-    name: "Derrick Tamez",
+    name: "Derrick Tamez, MBA",
     title: "Co-Founder & CEO",
     initials: "DT",
     // photo: "/founders/derrick.jpg",
     facts: [
       "10+ years in sales & marketing leadership",
-      "Built a department from 1 to 580 accounts",
-      "Closed 387 of those accounts personally",
-      "MBA · Bilingual English & Spanish",
+      "Sales operations & systems",
+      "Builds AI automation",
+      "Harlingen, TX",
     ],
     bio: [
-      "Derrick has spent more than ten years in sales and marketing leadership, the last five of them inside software companies that serve small businesses. At Aesthetic Record, a software platform for the aesthetics industry, he was promoted from sales into Sales Operations Manager and built its lead-management and marketing department from a single account into a seven-figure line of business with 580 customers. He closed 387 of them himself.",
-      "He designed the sales process, the forecasting model, and the operations behind that department, and was one of four brand ambassadors chosen to represent the company at industry conferences. Along the way he built an AI-powered operations stack that cut 30 to 40 hours of manual work a week from each workflow it touched.",
-      "That is the leverage RGV Performance Marketing brings to local businesses: the systems big companies pay whole teams to run, built and managed for a price a Valley business can afford. Derrick holds an MBA, works in English and Spanish, and lives in Harlingen.",
+      "Derrick spent more than ten years in sales and marketing leadership, the last five inside software companies that serve small businesses. At Aesthetic Record, a software platform for the aesthetics industry, he moved from sales into Sales Operations Manager and built a lead-management and marketing department from a single account into a seven-figure line of business, designing the sales process, the forecasting, and the operations behind it.",
+      "Somewhere in that stretch he started building his own tools with AI. First to handle follow-up, then reporting, then whole workflows. Each one quietly took over a piece of his own job, and every time he automated himself out of a role, he moved on to build the next thing. That habit is what RGV Performance Marketing runs on.",
+      "Today those same systems do the work that used to take a full team, which is how a Valley business gets a real website, local search, ads, and follow-up for a price that makes sense. Derrick holds an MBA and lives in Harlingen with Kelsey.",
     ],
   },
   {
@@ -96,11 +95,11 @@ function Portrait({ f }: { f: Founder }) {
       style={{
         position: "relative",
         aspectRatio: "4 / 5",
-        borderRadius: "var(--r-hero-md)",
+        borderRadius: "var(--r-lg)",
         overflow: "hidden",
-        background: "linear-gradient(160deg, #243658 0%, #0F1C34 100%)",
-        border: "1px solid rgba(247,244,239,0.18)",
-        boxShadow: "0 34px 70px -28px rgba(4,9,20,0.8)",
+        background: "linear-gradient(160deg, #243658 0%, #1A2B4A 100%)",
+        border: "1px solid var(--border)",
+        boxShadow: "0 30px 60px -30px rgba(26,43,74,0.45)",
       }}
     >
       {f.photo ? (
@@ -173,42 +172,40 @@ export default function AboutPage() {
         ]}
       />
       <main>
-        {/* ── Meet the founders: the first thing on the page ─────── */}
+        {/* ── Meet the team: the first thing on the page ─────────── */}
         <section
           aria-labelledby="about-heading"
           style={{
-            background: "linear-gradient(180deg, var(--navy) 0%, #15233D 100%)",
+            background: "var(--cream)",
             paddingTop: "clamp(120px, 14vh, 152px)",
             paddingBottom: "clamp(72px, 8vh, 110px)",
           }}
         >
           <div className="rg-container">
             <div style={{ maxWidth: 780 }}>
-              <p className="rg-label" style={{ color: "var(--orange-on-dark)", margin: "0 0 var(--s4)" }}>
-                Meet the Founders
+              <p className="rg-label" style={{ color: "var(--orange-ink)", margin: "0 0 var(--s4)" }}>
+                Meet the Team
               </p>
               <h1
                 id="about-heading"
                 className="rg-display"
-                style={{ fontSize: "var(--fs-hero)", color: "#fff", margin: 0, lineHeight: 0.96 }}
+                style={{ fontSize: "var(--fs-hero)", color: "var(--navy)", margin: 0, lineHeight: 0.96 }}
               >
-                We&rsquo;re Derrick and Kelsey Tamez.
-                <span style={{ display: "block", color: "var(--orange)" }}>
-                  We Get Valley Businesses Found.
-                </span>
+                Hi, We&rsquo;re Derrick and Kelsey.
+                <span style={{ display: "block", color: "var(--orange)" }}>Good to Meet You.</span>
               </h1>
               <p
                 style={{
                   fontSize: 18,
                   lineHeight: 1.6,
-                  color: "rgba(255,255,255,0.78)",
+                  color: "var(--muted)",
                   maxWidth: "52ch",
                   margin: "var(--s5) 0 0",
                 }}
               >
-                A husband-and-wife team in Harlingen, Texas. We build websites, local search,
-                ads, and follow-up systems for small businesses, then run them so the owner
-                doesn&rsquo;t have to.
+                We&rsquo;re a husband-and-wife team in Harlingen, Texas. We build websites, local
+                search, ads, and follow-up systems for small businesses, then run them so the
+                owner doesn&rsquo;t have to. And we&rsquo;re growing.
               </p>
             </div>
 
@@ -223,7 +220,7 @@ export default function AboutPage() {
                   alignItems: "center",
                   marginTop: i === 0 ? "var(--s9)" : "var(--s8)",
                   paddingTop: i === 0 ? 0 : "var(--s8)",
-                  borderTop: i === 0 ? "none" : "1px solid rgba(255,255,255,0.1)",
+                  borderTop: i === 0 ? "none" : "1px solid var(--border)",
                 }}
               >
                 <div className="rg-founder-photo" style={{ order: i % 2 === 0 ? 0 : 1 }}>
@@ -232,11 +229,11 @@ export default function AboutPage() {
                 <div>
                   <h2
                     className="rg-display"
-                    style={{ fontSize: "clamp(32px, 3.4vw, 46px)", color: "#fff", margin: 0 }}
+                    style={{ fontSize: "clamp(32px, 3.4vw, 46px)", color: "var(--navy)", margin: 0 }}
                   >
-                    {f.first}
+                    {f.name}
                   </h2>
-                  <p style={{ fontFamily: mono, fontSize: 11.5, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange-on-dark)", margin: "10px 0 0" }}>
+                  <p style={{ fontFamily: mono, fontSize: 11.5, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange-ink)", margin: "10px 0 0" }}>
                     {f.title}
                   </p>
                   <ul
@@ -257,8 +254,9 @@ export default function AboutPage() {
                           fontSize: 11,
                           letterSpacing: "0.06em",
                           textTransform: "uppercase",
-                          color: "rgba(255,255,255,0.78)",
-                          border: "1px solid rgba(255,255,255,0.18)",
+                          color: "var(--navy)",
+                          background: "#fff",
+                          border: "1px solid var(--border)",
                           borderRadius: "var(--r-pill)",
                           padding: "7px 12px",
                         }}
@@ -273,7 +271,7 @@ export default function AboutPage() {
                       style={{
                         fontSize: 16.5,
                         lineHeight: 1.75,
-                        color: "rgba(255,255,255,0.76)",
+                        color: "var(--muted)",
                         margin: j === 0 ? "var(--s5) 0 0" : "var(--s4) 0 0",
                         maxWidth: "62ch",
                       }}
@@ -286,14 +284,81 @@ export default function AboutPage() {
             ))}
 
             {linkedinUrl && (
-              <p style={{ margin: "var(--s7) 0 0", fontSize: 15, color: "rgba(255,255,255,0.7)" }}>
+              <p style={{ margin: "var(--s7) 0 0", fontSize: 15, color: "var(--muted)" }}>
                 Want the longer version?{" "}
-                <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" style={{ color: "#fff", fontWeight: 600, textDecoration: "underline", textUnderlineOffset: 5, textDecorationColor: "var(--orange)" }}>
+                <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" style={{ color: "var(--navy)", fontWeight: 600, textDecoration: "underline", textUnderlineOffset: 5, textDecorationColor: "var(--orange)" }}>
                   Follow us on LinkedIn
                 </a>
                 , where we post the client breakdowns.
               </p>
             )}
+          </div>
+        </section>
+
+        {/* ── We're hiring ─────────────────────────────────────── */}
+        <section aria-labelledby="hiring-heading" style={{ background: "var(--navy)", padding: "clamp(64px, 7vw, 96px) 0" }}>
+          <div className="rg-container">
+            <div
+              className="why-grid-responsive"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1.2fr 0.8fr",
+                gap: "clamp(32px, 5vw, 72px)",
+                alignItems: "center",
+              }}
+            >
+              <div>
+                <p className="rg-label" style={{ color: "var(--orange-on-dark)", margin: "0 0 var(--s4)" }}>
+                  We&rsquo;re Hiring
+                </p>
+                <h2 id="hiring-heading" className="rg-display" style={{ fontSize: "var(--fs-h2)", color: "#fff", margin: 0 }}>
+                  The Team Is Growing.
+                  <span style={{ display: "block", color: "var(--orange)" }}>Come Build With Us.</span>
+                </h2>
+                <p style={{ fontSize: 17, lineHeight: 1.7, color: "rgba(255,255,255,0.74)", maxWidth: "52ch", margin: "var(--s5) 0 0" }}>
+                  We&rsquo;re adding to the team this week. If you&rsquo;re in the Valley, you care
+                  about local businesses, and you&rsquo;re good at what you do, we want to hear
+                  from you. Tell us what you&rsquo;d bring and why. No cover-letter formality
+                  required.
+                </p>
+              </div>
+              <div
+                style={{
+                  background: "rgba(255,255,255,0.05)",
+                  border: "1px solid rgba(255,255,255,0.14)",
+                  borderRadius: "var(--r-md)",
+                  padding: "var(--s6)",
+                }}
+              >
+                <p style={{ fontFamily: mono, fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.55)", margin: 0 }}>
+                  How to reach us
+                </p>
+                <a
+                  href={`mailto:${SITE.email}?subject=${encodeURIComponent("I'd like to join the RGVPM team")}`}
+                  className="rg-btn rg-hero-cta"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: 10,
+                    marginTop: "var(--s4)",
+                    background: "var(--orange)",
+                    color: "#fff",
+                    fontWeight: 700,
+                    fontSize: 17,
+                    lineHeight: 1,
+                    padding: "16px 22px",
+                    borderRadius: "var(--r-hero-sm)",
+                    textDecoration: "none",
+                    boxShadow: "var(--shadow-orange)",
+                  }}
+                >
+                  Email Us About Joining
+                </a>
+                <p style={{ fontFamily: mono, fontSize: 12, color: "rgba(255,255,255,0.6)", margin: "var(--s4) 0 0", wordBreak: "break-all" }}>
+                  {SITE.email}
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
