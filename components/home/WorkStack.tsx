@@ -20,10 +20,10 @@ const SITES = [
     screenshot: "/work/premium-foam.webp",
   },
   {
-    name: "D'Vash Aesthetics",
-    url: "https://www.dvashaesthetics.com",
-    city: "Harlingen, TX",
-    screenshot: "/work/dvash-aesthetics.webp",
+    name: "Us To You Mobile Health",
+    url: "https://www.ustoyoumobilehealth.com",
+    city: "San Antonio, TX",
+    screenshot: "/work/us-to-you-mobile-health.webp",
   },
   {
     name: "Mac's Dove Hunts",
