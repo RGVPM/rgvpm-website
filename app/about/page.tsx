@@ -53,13 +53,15 @@ const FOUNDERS: Founder[] = [
     facts: [
       "10+ years in sales & marketing leadership",
       "Sales operations & systems",
-      "Builds AI automation",
-      "Harlingen, TX",
+      "AI Guru",
+      "Lean Six Sigma Black Belt",
     ],
     bio: [
-      "Derrick spent more than ten years in sales and marketing leadership, the last five inside software companies that serve small businesses. At Aesthetic Record, a software platform for the aesthetics industry, he moved from sales into Sales Operations Manager and built a lead-management and marketing department from a single account into a seven-figure line of business, designing the sales process, the forecasting, and the operations behind it.",
-      "Somewhere in that stretch he started building his own tools with AI. First to handle follow-up, then reporting, then whole workflows. Each one quietly took over a piece of his own job, and every time he automated himself out of a role, he moved on to build the next thing. That habit is what RGV Performance Marketing runs on.",
-      "Today those same systems do the work that used to take a full team, which is how a Valley business gets a real website, local search, ads, and follow-up for a price that makes sense. Derrick holds an MBA and lives in Harlingen with Kelsey.",
+      "Derrick spent more than a decade in sales and marketing leadership, including five years inside software companies serving small businesses. At Aesthetic Record, a leading software platform for the aesthetics industry, he worked his way from sales into Sales Operations Manager, where he helped build a lead management and marketing division from a single account into a seven-figure line of business. Along the way, he designed the sales processes, forecasting systems, and operational structure needed to scale it.",
+      "During that time, Derrick also began building his own AI-powered tools. What started as simple automations for lead follow-up quickly expanded into reporting systems, internal workflows, and tools that could take over entire parts of his day-to-day work. Each time he found a way to automate a repetitive process, he used the time it created to build the next system.",
+      "That mindset became the foundation for RGV Performance Marketing.",
+      "Today, Derrick uses the same approach to help small businesses operate and market themselves more efficiently. By combining websites, local search, paid advertising, lead management automation, and AI-driven follow-up into one streamlined system, RGV Performance Marketing gives local businesses access to capabilities that once required multiple agencies, employees, and software platforms.",
+      "With an MBA and more than a decade of experience building sales and marketing systems, Derrick now brings that experience directly to businesses across the Rio Grande Valley and beyond.",
     ],
   },
   {
@@ -67,7 +69,7 @@ const FOUNDERS: Founder[] = [
     name: "Kelsey Tamez",
     title: "Co-Founder & Operations Director",
     initials: "KT",
-    // photo: "/founders/kelsey.jpg",
+    // photo: "/founders/kelsey.jpg",  // TODO(owner): drop kelsey.jpg in /public/founders and uncomment
     facts: [
       "Runs onboarding and client communication",
       "Owns timelines, details, and delivery",
@@ -191,8 +193,8 @@ export default function AboutPage() {
                 className="rg-display"
                 style={{ fontSize: "var(--fs-hero)", color: "var(--navy)", margin: 0, lineHeight: 0.96 }}
               >
-                Hi, We&rsquo;re Derrick and Kelsey.
-                <span style={{ display: "block", color: "var(--orange)" }}>Good to Meet You.</span>
+                Small Team. Serious Systems.
+                <span style={{ display: "block", color: "var(--orange)" }}>Built in the Rio Grande Valley.</span>
               </h1>
               <p
                 style={{
