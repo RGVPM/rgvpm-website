@@ -1,8 +1,9 @@
 export interface Client {
   /** Client business name (used as the logo's alt text and text fallback). */
   name: string;
-  /** Client website — rendered as a real dofollow backlink (passes SEO value to them). */
-  url: string;
+  /** Client website — rendered as a real dofollow backlink (passes SEO value to them).
+   *  Omit it and the logo renders as a plain, unlinked image. */
+  url?: string;
   /** Path to the logo file in /public/clients/, e.g. "/clients/ccl-contracting.png".
    *  If omitted, the client name renders as a text wordmark instead. */
   logo?: string;
@@ -12,7 +13,7 @@ export interface Client {
 }
 
 /**
- * Featured client logos for the homepage "client" marquee.
+ * Client logos for the homepage "Trusted by" marquee.
  * Each entry becomes a dofollow link to the client's site (a backlink for them).
  *
  * TODO(owner): add your real clients. For each:
@@ -33,4 +34,12 @@ export const CLIENTS: Client[] = [
   // light/transparent version exists yet — renders as a Bebas text wordmark.
   // TODO(owner): drop a dark or transparent logo in /clients to swap in.
   { name: "Mac's Dove Hunts", url: "https://www.macsdovehunts.com" },
+  { name: "NeuroMotion Rehabilitation", url: "https://neuromotionrehabilitation.com", logo: "/clients/neuromotion-rehab.png", maxHeight: 92 },
+  // Unlinked by request.
+  { name: "6 Day Medical Weight Loss", logo: "/clients/6-day-medical-weight-loss.png", maxHeight: 56 },
+  { name: "STX Swing Doctor", url: "https://www.stxswingdoctor.com", logo: "/clients/stx-swing-doctor.png", maxHeight: 94 },
+  // Recolored navy from the champagne original so it reads on the cream strip.
+  { name: "The Spa Business Coach", logo: "/clients/the-spa-business-coach.png", maxHeight: 70 },
+  // No website yet (Instagram only), so it renders unlinked.
+  { name: "Tsukie Coffee", logo: "/clients/tsukie-coffee.png", maxHeight: 96 },
 ];

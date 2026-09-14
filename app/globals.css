@@ -75,12 +75,10 @@
 
   /* The hero headline gets its own scale, sized against the hero's LEFT
      COLUMN rather than the viewport. Its longest line — "Your Competitor
-     Isn't Better." — is 29 Bebas characters, roughly twice the old hero's
-     longest line, so borrowing --fs-display would wrap it and strand
-     "Better." on a line of its own.
-     Measured: that line renders at 10.22em wide, so the cap below keeps it
-     on one line from the 1024px collapse up to the container's max width. */
-  --fs-hero: clamp(34px, 3.9vw, 56px);
+     Isn't Better." — is set on two explicit lines, so the longest line is
+     "They Just Show Up First." at roughly 8.7em. The 62px cap keeps that on
+     one line inside the ~570px message column at the container's max width. */
+  --fs-hero: clamp(40px, 5.3vw, 62px);
   --fs-h2: clamp(34px, 4.4vw, 62px);
   --fs-h3: clamp(21px, 2vw, 27px);
   --fs-body: 16.5px;
@@ -258,84 +256,111 @@ body {
 }
 
 /* ── Hero layout ─────────────────────────────────────────────────
-   Message left, dashboard right, stacking at 1024px. Client logos
-   live in the marquee section below the hero, not inside it.
+   Message left, real client sites right, stacking at 1024px. Client
+   logos live in the marquee section below the hero, not inside it.
    ─────────────────────────────────────────────────────────────── */
 .rg-hero-grid {
   display: grid;
-  /* 1.2/0.8, not 50/50: the CTA row needs ~590px to sit on one line, and
-     the dashboard reads fine down to ~400px. */
-  grid-template-columns: 1.2fr 0.8fr;
-  column-gap: clamp(36px, 4.4vw, 66px);
+  /* 1.08/0.92: the message column needs ~570px for the headline's longest
+     line at 62px; the site stack reads fine down to ~440px. */
+  grid-template-columns: 1.08fr 0.92fr;
+  column-gap: clamp(40px, 5vw, 72px);
   row-gap: var(--s7);
   align-items: center;
 }
 .rg-hero-msg { min-width: 0; }
 .rg-hero-visual { min-width: 0; }
 
-/* Secondary CTA — understated until you reach for it */
+/* Secondary CTA: a plain text link, so the orange button is the only button */
+.rg-hero-secondary {
+  font-size: 15.5px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.86);
+  text-decoration: underline;
+  text-decoration-color: rgba(255,255,255,0.32);
+  text-underline-offset: 6px;
+  text-decoration-thickness: 1px;
+  transition: color var(--t-fast) var(--ease), text-decoration-color var(--t-fast) var(--ease);
+}
 .rg-hero-secondary:hover,
 .rg-hero-secondary:focus-visible {
   color: #fff;
-  border-color: rgba(232,98,26,0.6);
-  background: rgba(232,98,26,0.1);
+  text-decoration-color: var(--orange);
 }
 .rg-hero-cta:hover { transform: translateY(-2px); box-shadow: 0 20px 46px -14px rgba(232,98,26,0.55); }
 .rg-hero-cta:active { transform: translateY(0); }
 
-/* ── Growth dashboard ────────────────────────────────────────────
-   Every animation below is transform / opacity / stroke-dashoffset
-   only, so none of it can trigger layout or shift the page.
+/* Proof rail: three short facts separated by hairlines */
+.rg-hero-proof-item { display: inline-flex; align-items: center; white-space: nowrap; }
+.rg-hero-proof-item + .rg-hero-proof-item::before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 12px;
+  margin: 0 16px;
+  background: rgba(255,255,255,0.22);
+}
+
+/* ── Client site stack ───────────────────────────────────────────
+   Three screenshots layered in the hero's right column. The outer
+   .rg-stack-card animates in (opacity + translateY); the inner
+   .rg-stack-frame carries the resting rotation and the hover lift, so
+   the two transforms never fight.
    ─────────────────────────────────────────────────────────────── */
-.rg-dash {
+.rg-stack {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+.rg-stack-card { position: absolute; }
+.rg-stack-card--back  { top: 0;    left: 0;  width: 68%; z-index: 1; }
+.rg-stack-card--mid   { top: 13%;  right: 0; width: 68%; z-index: 2; }
+.rg-stack-card--front { bottom: 0; left: 6%; width: 86%; z-index: 3; }
+.rg-stack-frame {
+  display: block;
+  overflow: hidden;
+  border-radius: var(--r-hero-md);
+  border: 1px solid rgba(247,244,239,0.22);
+  background: #0F1C34;
+  box-shadow: 0 34px 70px -28px rgba(4,9,20,0.85), 0 0 0 1px rgba(4,9,20,0.5);
   transition: transform var(--t-slow) var(--ease), box-shadow var(--t-slow) var(--ease);
 }
-.rg-dash:hover { transform: translateY(-5px); }
-/* The chart draws with preserveAspectRatio: none, so its height has to
-   track the panel's width or the trend line reads flat. */
-.rg-dash-chart { height: 78px; }
+.rg-stack-card--back  .rg-stack-frame { transform: rotate(-4.5deg); }
+.rg-stack-card--mid   .rg-stack-frame { transform: rotate(3.5deg); }
+.rg-stack-card--back  .rg-stack-frame,
+.rg-stack-card--mid   .rg-stack-frame { border-color: rgba(247,244,239,0.14); }
+.rg-stack-card--back img,
+.rg-stack-card--mid img { opacity: 0.88; }
+.rg-stack-card--front .rg-stack-frame:hover,
+.rg-stack-card--front .rg-stack-frame:focus-visible {
+  transform: translateY(-6px);
+  box-shadow: 0 44px 80px -30px rgba(4,9,20,0.9), 0 0 0 1px rgba(232,98,26,0.55);
+}
+.rg-stack-card--back .rg-stack-frame:hover { transform: rotate(-4.5deg) translateY(-4px); }
+.rg-stack-card--mid  .rg-stack-frame:hover { transform: rotate(3.5deg) translateY(-4px); }
 
-@keyframes rgDashDraw   { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
-@keyframes rgDashTip    { from { opacity: 0; transform: scale(0.4); } to { opacity: 1; transform: none; } }
-@keyframes rgDashMeter  { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-@keyframes rgDashPulse  { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
-@keyframes rgDashEvent  { 0%, 8% { background: rgba(232,98,26,0.12); border-color: rgba(232,98,26,0.34); }
-                          26%, 100% { background: rgba(255,255,255,0.035); border-color: rgba(255,255,255,0.08); } }
-@keyframes rgHeroGlow   { 0%, 100% { opacity: 0.85; transform: scale(1); }
-                          50%      { opacity: 1;    transform: scale(1.07); } }
-
+@keyframes rgStackIn {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 @media (prefers-reduced-motion: no-preference) {
-  .rg-dash-line {
-    stroke-dasharray: 100;
-    animation: rgDashDraw 1.2s var(--ease-out) 0.45s both;
-  }
-  .rg-dash-tip {
-    transform-origin: 294px 32px;
-    animation: rgDashTip var(--t-med) var(--ease-out) 1.5s both;
-  }
-  .rg-dash-meter { transform-origin: left center; animation: rgDashMeter 1s var(--ease-out) both; }
-  .rg-dash-pulse { animation: rgDashPulse 2.6s var(--ease) infinite; }
-  /* Rotating highlight across the activity rows — the only looping motion
-     in the hero, and it is a slow colour fade, not movement. */
-  .rg-dash-event { animation: rgDashEvent 7.8s var(--ease) infinite; }
-  .rg-hero-glow { animation: rgHeroGlow 22s var(--ease) infinite; }
+  .rg-stack-card { opacity: 0; animation: rgStackIn 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  .rg-stack-card--back  { animation-delay: 0.22s; }
+  .rg-stack-card--mid   { animation-delay: 0.36s; }
+  .rg-stack-card--front { animation-delay: 0.5s; }
 }
 
 /* ── Homepage responsive rules ─────────────────────────────────── */
 @media (max-width: 1023px) {
   .rg-hero-grid { grid-template-columns: 1fr !important; row-gap: var(--s7) !important; }
-  /* Compact mobile card: the meters and the activity feed come off so the
-     dashboard can't push the client strip and the next section down. */
-  .rg-dash-detail { display: none !important; }
-  .rg-dash:hover { transform: none; }
+  /* Stacked layout: only the front site renders, full width, so the hero
+     can't push the client strip and the next section down. */
+  .rg-stack { aspect-ratio: auto; max-width: 600px; margin: 0 auto; }
+  .rg-stack-card--back, .rg-stack-card--mid { display: none; }
+  .rg-stack-card--front { position: static; width: 100%; }
+  .rg-stack-card--front .rg-stack-frame:hover { transform: none; }
   .rg-split { grid-template-columns: 1fr !important; gap: var(--s7) !important; }
   .rg-sticky { position: static !important; }
-}
-/* Tablet: the stacked panel is roughly twice as wide as the desktop column,
-   so the tiles spread into a single strip and the chart gets its height back. */
-@media (min-width: 561px) and (max-width: 1023px) {
-  .rg-dash-tiles { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
-  .rg-dash-chart { height: 104px; }
 }
 @media (max-width: 560px) {
   /* On a phone the two sentences can't hold one line each without dropping
@@ -348,12 +373,15 @@ body {
      without shrinking the copy to the point of being hard to read. */
   #hero-heading { margin-bottom: var(--s4) !important; }
   .rg-hero-lede { font-size: 16.5px !important; line-height: 1.55 !important; margin-bottom: var(--s3) !important; }
-  .rg-hero-sub  { font-size: 15.5px !important; line-height: 1.6 !important;  margin-bottom: var(--s6) !important; }
 
   /* !important because the container carries an inline align-items for the
      desktop row, and inline styles outrank a plain media-query rule. */
   .rg-hero-actions { flex-direction: column !important; align-items: stretch !important; }
   .rg-hero-actions > a { justify-content: center !important; text-align: center; }
+  /* The proof rail stacks vertically on a phone; the hairline dividers
+     only make sense in a single row. */
+  .rg-hero-proof { flex-direction: column !important; align-items: flex-start !important; gap: 10px !important; }
+  .rg-hero-proof-item + .rg-hero-proof-item::before { display: none; }
   /* The label is 19px/700 to stay WCAG-compliant on the brand orange, so it
      can't shrink to fit a phone. Trimming the side padding keeps it on one
      line down to ~380px, and it wraps centred below that. */
@@ -428,10 +456,10 @@ body {
   .animate-marquee-reverse,
   .rg-marquee-track { animation: none !important; }
   .rg-scroller { overflow-x: auto !important; }
-  /* The dashboard's lift is the only hero motion declared outside a
-     no-preference query, so it has to be switched off here by hand. */
-  .rg-dash { transition: none !important; }
-  .rg-dash:hover { transform: none !important; }
+  /* The site stack's hover lift is declared outside a no-preference query,
+     so it is switched off here by hand. */
+  .rg-stack-frame { transition: none !important; }
+  .rg-stack-card--front .rg-stack-frame:hover { transform: none !important; }
   html { scroll-behavior: auto; }
 }
 

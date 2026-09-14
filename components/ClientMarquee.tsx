@@ -25,7 +25,7 @@ export default function ClientMarquee() {
           marginBottom: 28,
         }}
       >
-        Businesses We Work With
+        Trusted by 50+ businesses across Texas and beyond
       </p>
       <div
         className="rg-scroller"
@@ -51,53 +51,64 @@ export default function ClientMarquee() {
 function Pass() {
   return (
     <div style={{ display: "flex", alignItems: "center" }}>
-      {CLIENTS.map((client) => (
-        <a
-          key={client.name}
-          href={client.url}
-          target="_blank"
-          rel="noopener"
-          aria-label={`${client.name} — visit their website (opens in a new tab)`}
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            justifyContent: "center",
-            flexShrink: 0,
-            padding: "0 48px",
-            height: 100,
-            opacity: 0.82,
-            textDecoration: "none",
-          }}
-        >
-          {client.logo ? (
-            <Image
-              src={client.logo}
-              alt={`${client.name} logo`}
-              height={200}
-              width={360}
-              style={{
-                height: "auto",
-                maxHeight: client.maxHeight ?? 84,
-                width: "auto",
-                maxWidth: 260,
-                objectFit: "contain",
-              }}
-            />
-          ) : (
-            <span
-              style={{
-                fontFamily: "'Bebas Neue', sans-serif",
-                fontSize: 26,
-                letterSpacing: "0.05em",
-                color: "var(--navy)",
-                whiteSpace: "nowrap",
-              }}
-            >
-              {client.name}
-            </span>
-          )}
-        </a>
-      ))}
+      {CLIENTS.map((client) => {
+        const inner = client.logo ? (
+          <Image
+            src={client.logo}
+            alt={`${client.name} logo`}
+            height={200}
+            width={360}
+            // next/image won't optimize SVG; serve those files as-is.
+            unoptimized={client.logo.endsWith(".svg")}
+            style={{
+              height: "auto",
+              maxHeight: client.maxHeight ?? 84,
+              width: "auto",
+              maxWidth: 260,
+              objectFit: "contain",
+            }}
+          />
+        ) : (
+          <span
+            style={{
+              fontFamily: "'Bebas Neue', sans-serif",
+              fontSize: 26,
+              letterSpacing: "0.05em",
+              color: "var(--navy)",
+              whiteSpace: "nowrap",
+            }}
+          >
+            {client.name}
+          </span>
+        );
+        const cell = {
+          display: "inline-flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexShrink: 0,
+          padding: "0 48px",
+          height: 100,
+          opacity: 0.82,
+          textDecoration: "none",
+        } as const;
+        // Clients without a url render as a plain image, not a link.
+        return client.url ? (
+          <a
+            key={client.name}
+            href={client.url}
+            target="_blank"
+            rel="noopener"
+            aria-label={`${client.name} — visit their website (opens in a new tab)`}
+            style={cell}
+          >
+            {inner}
+          </a>
+        ) : (
+          <span key={client.name} style={cell}>
+            {inner}
+          </span>
+        );
+      })}
     </div>
   );
 }
