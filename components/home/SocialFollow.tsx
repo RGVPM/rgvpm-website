@@ -1,22 +1,19 @@
-import { GridTexture, Label } from "@/components/home/Primitives";
+import { Label } from "@/components/home/Primitives";
 import { SOCIAL_LINKS } from "@/lib/site";
 
 /**
- * "Follow along" — the dark break between the cream process section and
- * the cream blog strip. It keeps the treatment of the approach statement
- * that used to sit here (navy, faint grid, one low-left warm bloom) so the
- * page's light/dark rhythm is unchanged.
+ * "Follow along": the dark break between the cream timeline section and
+ * the cream blog strip. LinkedIn leads, since that's where the longer
+ * client breakdowns are posted; Instagram and Facebook follow.
  *
- * Server component, no client JS. Handles and URLs come from lib/site.ts,
- * which also feeds the footer and the schema `sameAs` list, so the three
- * can never drift apart.
+ * Plain navy, no texture or glow: same treatment as the hero. Server
+ * component, no client JS. Handles and URLs come from lib/site.ts, which
+ * also feeds the footer and the schema `sameAs` list, so they can't drift.
  *
- * No follower counts, no "join 10,000 others" — nothing here asserts a
- * number we can't stand behind.
+ * No follower counts: nothing here asserts a number we can't stand behind.
  */
 
 const BRAND_MARKS: Record<string, React.ReactNode> = {
-  // Outline mark, matching Instagram's own line-art logo.
   Instagram: (
     <>
       <rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4" strokeWidth="1.7" />
@@ -40,88 +37,137 @@ const BRAND_MARKS: Record<string, React.ReactNode> = {
   ),
 };
 
+const linkedin = SOCIAL_LINKS.find((s) => s.name === "LinkedIn")!;
+const others = SOCIAL_LINKS.filter((s) => s.name !== "LinkedIn");
+
+function Mark({ name, size = 22 }: { name: string; size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      focusable="false"
+      aria-hidden="true"
+    >
+      {BRAND_MARKS[name]}
+    </svg>
+  );
+}
+
 export default function SocialFollow() {
   return (
     <section
       aria-labelledby="social-heading"
       style={{
-        background: "var(--navy)",
-        position: "relative",
-        overflow: "hidden",
+        background: "linear-gradient(180deg, #15233D 0%, var(--navy) 100%)",
         paddingBlock: "var(--section-y)",
       }}
     >
-      <GridTexture opacity={0.05} />
-      <div
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          left: "-10%",
-          bottom: "-30%",
-          width: "55%",
-          aspectRatio: "1",
-          background: "radial-gradient(circle, rgba(232,98,26,0.16) 0%, transparent 65%)",
-          pointerEvents: "none",
-        }}
-      />
-
-      <div className="rg-container" style={{ position: "relative", zIndex: 2 }}>
-        <div className="rg-reveal" style={{ maxWidth: 640 }}>
-          <Label tone="dark">Follow Along</Label>
-          <h2
-            id="social-heading"
-            className="rg-display"
-            style={{
-              fontSize: "var(--fs-h2)",
-              color: "#fff",
-              margin: "var(--s4) 0 0",
-            }}
-          >
-            See What We&rsquo;re Working On.
-          </h2>
-          <p
-            style={{
-              fontSize: 17,
-              fontWeight: 300,
-              lineHeight: 1.7,
-              color: "rgba(255,255,255,0.68)",
-              maxWidth: "52ch",
-              margin: "var(--s5) 0 0",
-            }}
-          >
-            Client launches, before-and-afters, and what&rsquo;s actually working in local
-            marketing right now — posted as it happens.
-          </p>
-        </div>
-
-        <ul
-          className="rg-reveal rg-social-grid"
+      <div className="rg-container">
+        <div
+          className="rg-social-split"
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-            gap: "var(--s4)",
-            listStyle: "none",
-            margin: "var(--s8) 0 0",
-            padding: 0,
+            gridTemplateColumns: "1.1fr 0.9fr",
+            gap: "clamp(40px, 6vw, 96px)",
+            alignItems: "center",
           }}
         >
-          {SOCIAL_LINKS.map((s) => (
-            <li key={s.name}>
+          {/* ── Copy + LinkedIn CTA ─────────────────────────────── */}
+          <div className="rg-reveal">
+            <Label tone="dark">Follow Along</Label>
+            <h2
+              id="social-heading"
+              className="rg-display"
+              style={{ fontSize: "var(--fs-h2)", color: "#fff", margin: "var(--s4) 0 0" }}
+            >
+              Let&rsquo;s Connect On LinkedIn.
+            </h2>
+            <p
+              style={{
+                fontSize: 17,
+                fontWeight: 300,
+                lineHeight: 1.7,
+                color: "rgba(255,255,255,0.7)",
+                maxWidth: "50ch",
+                margin: "var(--s5) 0 0",
+              }}
+            >
+              Client launches, before-and-afters, and straight talk about what&rsquo;s working for
+              Valley businesses. LinkedIn is where the longer breakdowns live.
+            </p>
+
+            <a
+              href={linkedin.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rg-btn rg-hero-cta"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 10,
+                marginTop: "var(--s6)",
+                background: "var(--orange)",
+                color: "#fff",
+                fontWeight: 700,
+                fontSize: 18,
+                lineHeight: 1,
+                padding: "17px 24px",
+                borderRadius: "var(--r-hero-sm)",
+                textDecoration: "none",
+                boxShadow: "var(--shadow-orange)",
+                transition:
+                  "transform var(--t-fast) var(--ease), box-shadow var(--t-med) var(--ease)",
+              }}
+            >
+              <Mark name="LinkedIn" size={18} />
+              Follow on LinkedIn
+            </a>
+
+            <p
+              style={{
+                fontFamily: "var(--font-dm-mono), ui-monospace, monospace",
+                fontSize: 11.5,
+                letterSpacing: "0.08em",
+                color: "rgba(255,255,255,0.5)",
+                margin: "var(--s4) 0 0",
+              }}
+            >
+              linkedin.com/company/{linkedin.handle}
+            </p>
+          </div>
+
+          {/* ── Platform cards, LinkedIn featured ───────────────── */}
+          <ul
+            className="rg-reveal"
+            style={{
+              display: "grid",
+              gap: "var(--s3)",
+              listStyle: "none",
+              margin: 0,
+              padding: 0,
+            }}
+          >
+            <li>
               <a
-                href={s.url}
+                href={linkedin.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rg-social-card"
+                className="rg-social-card rg-social-card--featured"
+                aria-label="RGV Performance Marketing on LinkedIn (opens in a new tab)"
                 style={{
                   display: "flex",
                   alignItems: "center",
                   gap: "var(--s4)",
-                  padding: "var(--s5)",
+                  padding: "var(--s5) var(--s5)",
                   borderRadius: "var(--r-md)",
-                  border: "1px solid rgba(255,255,255,0.14)",
-                  background: "rgba(255,255,255,0.045)",
+                  border: "1px solid rgba(232,98,26,0.45)",
+                  background: "rgba(232,98,26,0.09)",
                   textDecoration: "none",
-                  height: "100%",
                 }}
               >
                 <span
@@ -132,65 +178,116 @@ export default function SocialFollow() {
                     alignItems: "center",
                     justifyContent: "center",
                     flexShrink: 0,
-                    width: 46,
-                    height: 46,
+                    width: 58,
+                    height: 58,
                     borderRadius: "var(--r-sm)",
-                    border: "1px solid rgba(255,255,255,0.16)",
-                    background: "rgba(255,255,255,0.06)",
+                    background: "var(--orange)",
+                    border: "1px solid var(--orange)",
                     color: "#fff",
                   }}
                 >
-                  <svg
-                    width="22"
-                    height="22"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    focusable="false"
-                  >
-                    {BRAND_MARKS[s.name]}
-                  </svg>
+                  <Mark name="LinkedIn" size={28} />
                 </span>
-
-                <span style={{ display: "grid", gap: 4, minWidth: 0 }}>
+                <span style={{ display: "grid", gap: 5, minWidth: 0 }}>
                   <span
                     style={{
                       fontFamily: "'Bebas Neue', sans-serif",
-                      fontSize: 21,
+                      fontSize: 26,
                       letterSpacing: "0.05em",
                       color: "#fff",
                       lineHeight: 1,
                     }}
                   >
-                    {s.name}
+                    LinkedIn
                   </span>
-                  <span
-                    style={{
-                      fontFamily: "var(--font-dm-mono), ui-monospace, monospace",
-                      fontSize: 11.5,
-                      color: "rgba(255,255,255,0.55)",
-                      overflow: "hidden",
-                      textOverflow: "ellipsis",
-                      whiteSpace: "nowrap",
-                    }}
-                  >
-                    {s.handle}
+                  <span style={{ fontSize: 14, color: "rgba(255,255,255,0.72)", lineHeight: 1.4 }}>
+                    Client breakdowns and what&rsquo;s working, posted as it happens.
                   </span>
                 </span>
-
                 <span
                   aria-hidden="true"
                   className="rg-social-arrow"
-                  style={{ marginLeft: "auto", color: "var(--orange-on-dark)", fontSize: 15 }}
+                  style={{ marginLeft: "auto", color: "var(--orange-on-dark)", fontSize: 17 }}
                 >
                   →
                 </span>
               </a>
             </li>
-          ))}
-        </ul>
+
+            {others.map((s) => (
+              <li key={s.name}>
+                <a
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rg-social-card"
+                  aria-label={`RGV Performance Marketing on ${s.name} (opens in a new tab)`}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "var(--s4)",
+                    padding: "var(--s4) var(--s5)",
+                    borderRadius: "var(--r-md)",
+                    border: "1px solid rgba(255,255,255,0.14)",
+                    background: "rgba(255,255,255,0.045)",
+                    textDecoration: "none",
+                  }}
+                >
+                  <span
+                    className="rg-social-mark"
+                    aria-hidden="true"
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
+                      width: 44,
+                      height: 44,
+                      borderRadius: "var(--r-sm)",
+                      border: "1px solid rgba(255,255,255,0.16)",
+                      background: "rgba(255,255,255,0.06)",
+                      color: "#fff",
+                    }}
+                  >
+                    <Mark name={s.name} />
+                  </span>
+                  <span style={{ display: "grid", gap: 4, minWidth: 0 }}>
+                    <span
+                      style={{
+                        fontFamily: "'Bebas Neue', sans-serif",
+                        fontSize: 21,
+                        letterSpacing: "0.05em",
+                        color: "#fff",
+                        lineHeight: 1,
+                      }}
+                    >
+                      {s.name}
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: "var(--font-dm-mono), ui-monospace, monospace",
+                        fontSize: 11.5,
+                        color: "rgba(255,255,255,0.55)",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      {s.handle}
+                    </span>
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className="rg-social-arrow"
+                    style={{ marginLeft: "auto", color: "var(--orange-on-dark)", fontSize: 15 }}
+                  >
+                    →
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );

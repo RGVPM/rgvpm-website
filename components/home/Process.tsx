@@ -1,31 +1,30 @@
 import { Label, Lede, Section } from "@/components/home/Primitives";
 
 /**
- * Diagnose / Launch / Grow as a vertical timeline with a sticky heading.
- * Copy is unchanged from the original HowItWorks section, including the
- * two-week onboarding positioning.
+ * "New website in 8 to 10 days" as a three-step vertical timeline with a
+ * sticky heading. Deliberately plain: one promise, three steps, day ranges.
  *
- * The connecting spine is a plain gradient rule — no scroll listener, no
+ * The connecting spine is a plain gradient rule: no scroll listener, no
  * JS. Stacks to a simple timeline under 1024px.
  */
 const STEPS = [
   {
     num: "01",
-    title: "Diagnose",
-    text: "We audit your current digital presence — website, Google profile, competitors — and pinpoint exactly where you're losing leads and visibility.",
-    signals: ["Website audit", "Google profile review", "Competitor gap analysis"],
+    days: "Days 1 to 2",
+    title: "Kickoff",
+    text: "A short call to learn your business. Then we gather your photos, services, and anything else the site needs.",
   },
   {
     num: "02",
-    title: "Launch",
-    text: "We set up your growth engine: GBP optimization, NAP consistency, lead capture, automated follow-up, newsletters, and ad campaigns — all in one coordinated push.",
-    signals: ["GBP optimization", "Lead capture & routing", "Campaign setup"],
+    days: "Days 3 to 7",
+    title: "Design & Build",
+    text: "We design the pages, write the copy, and build the whole site mobile-first. You see it before it goes anywhere.",
   },
   {
     num: "03",
-    title: "Grow",
-    text: "We execute, optimize, and report every month. You see exactly what's working, what we're improving, and how every dollar is performing.",
-    signals: ["Monthly optimization", "Transparent reporting", "Ongoing content"],
+    days: "Days 8 to 10",
+    title: "Launch",
+    text: "One round of revisions, final polish, and your site goes live. After that we keep it updated and growing.",
   },
 ];
 
@@ -43,16 +42,17 @@ export default function Process() {
           }}
         >
           <div className="rg-sticky" style={{ position: "sticky", top: 120 }}>
-            <Label>The Process</Label>
+            <Label>Timeline</Label>
             <h2
               id="process-heading"
               className="rg-display"
               style={{ fontSize: "var(--fs-h2)", color: "var(--navy)", margin: "var(--s4) 0 0" }}
             >
-              Simple &amp; Fast
+              A New Website In As Little As 8 to 10 Days.
             </h2>
             <Lede>
-              We don&apos;t do 6-month onboarding. Most clients are up and running within two weeks.
+              No six-month onboarding. We design it, build it, and launch it fast, then keep it
+              working for you.
             </Lede>
             <div
               style={{
@@ -68,9 +68,9 @@ export default function Process() {
               }}
             >
               <span className="rg-display" style={{ fontSize: 30, color: "var(--orange)" }}>
-                2 Wks
+                8-10 Days
               </span>
-              <span style={{ fontSize: 13, color: "var(--muted)" }}>average time to go live</span>
+              <span style={{ fontSize: 13, color: "var(--muted)" }}>from kickoff to launch</span>
             </div>
           </div>
 
@@ -120,6 +120,19 @@ export default function Process() {
                   {s.num}
                 </span>
                 <div style={{ paddingTop: 6 }}>
+                  <span
+                    style={{
+                      display: "inline-block",
+                      fontFamily: "var(--font-dm-mono), monospace",
+                      fontSize: 10.5,
+                      letterSpacing: "0.1em",
+                      textTransform: "uppercase",
+                      color: "var(--orange-ink)",
+                      marginBottom: "var(--s2)",
+                    }}
+                  >
+                    {s.days}
+                  </span>
                   <h3
                     className="rg-display"
                     style={{
@@ -135,41 +148,12 @@ export default function Process() {
                       fontSize: 15.5,
                       color: "var(--muted)",
                       lineHeight: 1.72,
-                      margin: "0 0 var(--s4)",
+                      margin: 0,
                       maxWidth: "56ch",
                     }}
                   >
                     {s.text}
                   </p>
-                  <ul
-                    style={{
-                      listStyle: "none",
-                      margin: 0,
-                      padding: 0,
-                      display: "flex",
-                      flexWrap: "wrap",
-                      gap: "var(--s2)",
-                    }}
-                  >
-                    {s.signals.map((sig) => (
-                      <li
-                        key={sig}
-                        style={{
-                          fontFamily: "var(--font-dm-mono), monospace",
-                          fontSize: 10.5,
-                          letterSpacing: "0.08em",
-                          textTransform: "uppercase",
-                          color: "var(--muted)",
-                          background: "#fff",
-                          border: "1px solid var(--border)",
-                          borderRadius: "var(--r-pill)",
-                          padding: "7px 13px",
-                        }}
-                      >
-                        {sig}
-                      </li>
-                    ))}
-                  </ul>
                 </div>
               </li>
             ))}
