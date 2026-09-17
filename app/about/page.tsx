@@ -68,7 +68,7 @@ const FOUNDERS: Founder[] = [
     name: "Kelsey Tamez",
     title: "Co-Founder & Operations Director",
     initials: "KT",
-    // photo: "/founders/kelsey.jpg",  // TODO(owner): drop kelsey.jpg in /public/founders and uncomment
+    photo: "/founders/kelsey.jpg",
     facts: [
       "5 years as a Senior Account Manager",
       "UTSA, Early Childhood Education",
