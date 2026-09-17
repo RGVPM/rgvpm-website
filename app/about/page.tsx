@@ -30,8 +30,7 @@ export const metadata: Metadata = {
  * panel with the founder's initials instead, so the page never shows a
  * broken image while a photo is pending.
  *
- * Derrick's `facts` and `bio` were written with him. Kelsey's section is written from what the previous About page
- * said about her role; TODO(owner): replace with her real background.
+ * Both bios were written with the founders.
  */
 type Founder = {
   first: string;
@@ -71,13 +70,14 @@ const FOUNDERS: Founder[] = [
     initials: "KT",
     // photo: "/founders/kelsey.jpg",  // TODO(owner): drop kelsey.jpg in /public/founders and uncomment
     facts: [
-      "Runs onboarding and client communication",
-      "Owns timelines, details, and delivery",
-      "Your point of contact, not a rotating handoff",
+      "5 years as a Senior Account Manager",
+      "UTSA, Early Childhood Education",
+      "Client onboarding & operations",
     ],
     bio: [
-      "Kelsey runs the side of the business clients feel every week: onboarding, communication, timelines, and the standard of care that makes people want to stay. When a site is in build, she is the one keeping the schedule honest and making sure nothing gets lost between a kickoff call and a launch.",
-      "Every account gets both founders. Derrick lives in the strategy, the systems, and the numbers. Kelsey keeps the relationship, the details, and the follow-through. You get both of us, not a handoff to someone you have never met.",
+      "Kelsey graduated from the University of Texas at San Antonio with a degree in early childhood education, a field that teaches you how to meet people where they are, explain things clearly, and build routines that hold up under pressure. She brought all of that into business.",
+      "She spent five years at Aesthetic Record as a Senior Account Manager, working with hundreds of clinic owners and staff as they set up their software, trained their teams, and grew their practices. Day after day she watched which setups worked and which ones fell apart, and she developed an eye for the most effective way to organize a business so it runs smoothly from the start.",
+      "At RGV Performance Marketing, Kelsey runs onboarding, client communication, and delivery. When a new client comes on, she is the one mapping out how their systems should fit together, keeping the timeline honest, and making sure nothing gets lost between kickoff and launch. Clients get her directly, not a handoff.",
     ],
   },
 ];
