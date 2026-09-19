@@ -4,6 +4,8 @@ export interface PostSection {
   type: "h2" | "h3" | "p" | "ul";
   text?: string;
   items?: string[];
+  /** Optional inline links for a "p" section: each `text` must appear verbatim in `text`. */
+  links?: { text: string; href: string }[];
 }
 
 export interface Post {
@@ -434,6 +436,74 @@ export const POSTS: Post[] = [
       { href: "/blog/how-to-rank-higher-google-maps-rio-grande-valley", label: "How to Rank Higher on Google Maps" },
       { href: "/blog/local-seo-vs-regular-seo", label: "Local SEO vs. Regular SEO" },
       { href: "/blog/brownsville-seo-how-to-rank-local-business", label: "Brownsville SEO Guide" },
+    ],
+  },
+  {
+    slug: "mcallen-seo-how-to-rank-local-business",
+    title: "McAllen SEO: How to Rank a Local Business in McAllen, TX",
+    metaTitle: "McAllen SEO: Rank Your Local Business in 2026",
+    description:
+      "Learn how McAllen businesses can improve Google Maps visibility, earn local rankings, and turn nearby searches into calls and customers.",
+    excerpt:
+      "Learn how McAllen businesses can improve Google Maps visibility, earn local rankings, and turn nearby searches into calls and customers.",
+    category: "Local SEO",
+    icon: "map-pin",
+    datePublished: "2026-09-22",
+    dateModified: "2026-09-22",
+    readMinutes: 6,
+    tldr:
+      "McAllen SEO helps a business appear when nearby customers search on Google and Google Maps. Strong local visibility depends on an accurate Google Business Profile, recent reviews, consistent business information, a fast website, and useful content written specifically for McAllen customers. The goal is not more impressions. It is more qualified calls, directions, appointments, and sales.",
+    sections: [
+      { type: "p", text: "McAllen is one of the Rio Grande Valley's busiest commercial markets. Retailers, medical practices, restaurants, home-service companies, and professional firms compete for attention along major corridors such as Interstate 2, 10th Street, Nolana Avenue, and the areas surrounding La Plaza Mall. A business can be well established and still disappear online when a customer searches from a phone a few blocks away." },
+      { type: "p", text: "That is the problem local SEO solves. It helps Google understand what you offer, where you serve customers, and why your business is a relevant choice for a McAllen search." },
+      { type: "h2", text: "Why McAllen requires a local search strategy" },
+      { type: "p", text: "Someone who searches “dentist near me,” “McAllen roofing company,” or “best restaurant in McAllen” is usually close to making a decision. Google answers many of those searches with a map and three prominent business listings. If your company does not appear there, the customer may never reach your website." },
+      { type: "p", text: "McAllen also attracts customers from neighboring communities and cross-border shoppers. That creates opportunity, but it also makes generic “Rio Grande Valley” marketing too broad. Your website and business profile need strong McAllen signals while accurately describing the wider area you serve." },
+      { type: "h2", text: "Start with your Google Business Profile" },
+      { type: "p", text: "Your Google Business Profile is often the first thing a local customer sees. Complete every field that helps someone choose or contact you:" },
+      { type: "ul", items: [
+        "Select the most accurate primary category and only relevant secondary categories.",
+        "List the services or products customers actually search for.",
+        "Keep your hours, phone number, website, and service area current.",
+        "Upload original photos of your team, location, products, and completed work.",
+        "Publish useful updates rather than leaving the profile inactive.",
+        "Ask real customers for reviews and reply to each review professionally.",
+      ]},
+      { type: "p", text: "Do not create extra listings for neighborhoods or services when no separate staffed location exists. A clean, policy-compliant profile is more valuable than several risky listings." },
+      { type: "h2", text: "Build a website page that deserves to rank in McAllen" },
+      { type: "p", text: "A city page should offer more than a city name inserted into a standard template. It should answer the questions a McAllen customer asks before calling. Explain the service, who it is for, what the process looks like, the areas you serve, and what happens after an inquiry." },
+      { type: "p", text: "Use “McAllen” naturally in the page title, main heading, opening copy, image descriptions, and relevant subheadings. Add original local context, but avoid repeating the city in every paragraph. Google and customers both recognize forced copy." },
+      { type: "p", text: "The page also needs to work well on a phone. Use readable text, fast-loading images, obvious tap-to-call buttons, and short forms. A visitor should understand the offer and the next step within seconds." },
+      { type: "h2", text: "Earn reviews that help people choose you" },
+      { type: "p", text: "Reviews build both prominence and trust. Create a simple request process that reaches customers shortly after a successful transaction. A direct review link sent by text or email is usually enough." },
+      { type: "p", text: "Never buy reviews or ask employees to pose as customers. A smaller stream of honest, recent feedback is safer and more persuasive. Replies matter too: thank happy customers, address criticism calmly, and never expose private customer information." },
+      { type: "h2", text: "Make your business information consistent" },
+      { type: "p", text: "Google compares your name, address, and phone number across your website, social profiles, chambers, industry directories, and other listings. Old phone numbers or conflicting business names create uncertainty." },
+      { type: "p", text: "Choose one official format and correct the most visible sources first. If you are a service-area business, follow Google's rules about hiding an address that customers do not visit. Consistency matters more than creating hundreds of low-quality directory listings." },
+      { type: "h2", text: "Create content around real McAllen questions" },
+      { type: "p", text: "Useful content can capture searches that a service page cannot. A contractor might explain how Valley heat affects roofing materials. A medical practice might answer a common appointment question. A retailer might publish a local buying guide. The topic should help a customer make a decision and connect naturally to a service you provide." },
+      { type: "p", text: "English and Spanish content can expand reach when each version is written and reviewed for the audience. A literal translation of generic copy is not a local strategy." },
+      { type: "h2", text: "Strengthen the path between related pages" },
+      { type: "p", text: "Internal links help customers and search engines reach the next useful page. From this guide, link to Local SEO services in McAllen, Google Business Profile services in McAllen, the main Local SEO service, and the guide to ranking higher on Google Maps.", links: [
+        { text: "Local SEO services in McAllen", href: "/local-seo-mcallen-tx" },
+        { text: "Google Business Profile services in McAllen", href: "/google-business-profile-mcallen-tx" },
+        { text: "Local SEO service", href: "/services/local-seo" },
+        { text: "ranking higher on Google Maps", href: "/blog/how-to-rank-higher-google-maps-rio-grande-valley" },
+      ]},
+      { type: "p", text: "Use descriptive link text. “Google Business Profile services in McAllen” tells a reader more than “click here.”" },
+      { type: "h2", text: "Measure leads, not vanity metrics" },
+      { type: "p", text: "Track phone calls, forms, direction requests, booked appointments, and qualified leads. Rankings and profile views help diagnose progress, but they are not the final business result. Record a baseline before making changes, then review performance consistently." },
+      { type: "p", text: "Local SEO is ongoing work. Competitors add reviews, Google updates results, and customer language changes. The companies that keep their profiles, websites, and content current have the best chance to hold visibility." },
+      { type: "h2", text: "A practical McAllen SEO checklist" },
+      { type: "p", text: "This week, verify your Google category and hours, request reviews from recent customers, check your contact information across major profiles, improve one weak city page, and confirm every inquiry is tracked. Those steps create a stronger foundation than chasing shortcuts." },
+      { type: "p", text: "Want to see what is limiting your McAllen visibility? RGV Performance Marketing can review your profile, website, local content, and rankings and show you the next useful steps. Call (956) 793-9152 or request a free ranking review." },
+    ],
+    faqs: [],
+    related: [
+      { href: "/local-seo-mcallen-tx", label: "Local SEO services in McAllen" },
+      { href: "/google-business-profile-mcallen-tx", label: "Google Business Profile services in McAllen" },
+      { href: "/services/local-seo", label: "Local SEO service" },
+      { href: "/blog/how-to-rank-higher-google-maps-rio-grande-valley", label: "Ranking higher on Google Maps" },
     ],
   },
 ];
