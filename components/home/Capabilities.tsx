@@ -1,180 +1,168 @@
 import Link from "next/link";
+import Image from "next/image";
 import Icon from "@/components/Icon";
-import { Label, Lede, Section } from "@/components/home/Primitives";
+import { Section } from "@/components/home/Primitives";
 
 /**
- * Service capabilities as large numbered editorial rows rather than a
- * five-card grid. A sticky heading column holds the framing while the
- * rows scroll past it. Every row is a real link into the services tree,
- * so the internal linking is unchanged and fully crawlable.
+ * What we run for a client, as a five-cell bento grid.
  *
- * Service names and descriptions are the existing homepage language.
+ * Every cell is a real link into the services tree, so the homepage keeps
+ * its internal links. The two feature cells carry real proof rather than
+ * decoration: a screenshot of a site we built and launched, and our own
+ * #1 Google ranking for "seo harlingen" (Semrush, Sept 2026).
+ *
+ * Desktop: 3 columns, websites spans two. Stacks to one column under 900px.
  */
-const CAPABILITIES = [
+type Tone = "navy" | "orange" | "white" | "cream";
+
+const CELLS: {
+  tone: Tone;
+  span?: 2;
+  icon: Parameters<typeof Icon>[0]["name"];
+  kicker: string;
+  title: string;
+  text: string;
+  href: string;
+  cta: string;
+}[] = [
   {
-    num: "01",
-    icon: "globe" as const,
-    name: "Websites & SEO",
-    sub: "Designed to rank. Tuned to convert.",
+    tone: "navy",
+    span: 2,
+    icon: "globe",
+    kicker: "Websites",
+    title: "A site that actually catches jobs.",
+    text: "Custom-built, mobile-first, and live in 8 to 10 days. We host it, patch it, and keep it updated so you never babysit it.",
     href: "/services/website-design",
+    cta: "Website design",
   },
   {
-    num: "02",
-    icon: "megaphone" as const,
-    name: "Paid Advertising",
-    sub: "Google, Meta, retargeting",
+    tone: "orange",
+    icon: "target",
+    kicker: "Local SEO",
+    title: "Show up first on Google.",
+    text: "Our own site ranks #1 for “seo harlingen.” We run the same playbook for your business, your city, and your services.",
+    href: "/services/local-seo",
+    cta: "Local SEO",
+  },
+  {
+    tone: "white",
+    icon: "megaphone",
+    kicker: "Paid ads",
+    title: "Google and Meta ads that pay for themselves.",
+    text: "We build, run, and tune the campaigns. You see what every dollar brought in.",
     href: "/services/paid-advertising",
+    cta: "Paid advertising",
   },
   {
-    num: "03",
-    icon: "chat" as const,
-    name: "Two-Way SMS & Email",
-    sub: "Inbox, blasts & automation",
-    href: "/services/sms-email-marketing",
-  },
-  {
-    num: "04",
-    icon: "calendar" as const,
-    name: "Social Media Planner",
-    sub: "Schedule posts across platforms",
-    href: "/services/social-media-newsletter",
-  },
-  {
-    num: "05",
-    icon: "settings" as const,
-    name: "Lead Management",
-    sub: "Pipelines, follow-up, appointments",
+    tone: "cream",
+    icon: "chat",
+    kicker: "Lead management",
+    title: "Every lead in one inbox.",
+    text: "Calls, forms, texts, and emails in one place, with missed-call text-back and follow-ups that run on their own.",
     href: "/services/lead-management",
+    cta: "Lead management",
+  },
+  {
+    tone: "white",
+    icon: "users",
+    kicker: "Social & email",
+    title: "Content that keeps you top of mind.",
+    text: "Edited reels, branded posts, and a monthly newsletter, so past customers remember who to call.",
+    href: "/services/social-media-newsletter",
+    cta: "Social & newsletters",
   },
 ];
+
+const TONE: Record<Tone, { bg: string; border: string; title: string; text: string; kicker: string; iconBg: string; iconColor: string }> = {
+  navy: { bg: "var(--navy)", border: "var(--navy)", title: "#fff", text: "rgba(255,255,255,0.72)", kicker: "var(--orange-on-dark)", iconBg: "rgba(255,255,255,0.08)", iconColor: "#fff" },
+  orange: { bg: "var(--orange)", border: "var(--orange)", title: "#fff", text: "rgba(255,255,255,0.9)", kicker: "rgba(255,255,255,0.85)", iconBg: "rgba(255,255,255,0.16)", iconColor: "#fff" },
+  white: { bg: "#fff", border: "var(--border)", title: "var(--navy)", text: "var(--muted)", kicker: "var(--orange-ink)", iconBg: "var(--cream)", iconColor: "var(--orange)" },
+  cream: { bg: "var(--cream)", border: "var(--border)", title: "var(--navy)", text: "var(--muted)", kicker: "var(--orange-ink)", iconBg: "#fff", iconColor: "var(--orange)" },
+};
+
+const mono = "var(--font-dm-mono), ui-monospace, monospace";
 
 export default function Capabilities() {
   return (
     <Section background="#fff" labelledBy="capabilities-heading">
       <div className="rg-container">
-        <div
-          className="rg-split"
-          style={{
-            display: "grid",
-            gridTemplateColumns: "0.85fr 1.15fr",
-            gap: "clamp(40px, 6vw, 96px)",
-            alignItems: "start",
-          }}
-        >
-          {/* Sticky framing column */}
-          <div className="rg-sticky" style={{ position: "sticky", top: 120 }}>
-            <Label>What We Handle</Label>
-            <h2
-              id="capabilities-heading"
-              className="rg-display"
-              style={{ fontSize: "var(--fs-h2)", color: "var(--navy)", margin: "var(--s4) 0 0" }}
-            >
-              One Growth Engine.
-              <br />
-              Not Five Vendors.
-            </h2>
-            <Lede>
-              Each piece feeds the next — the site earns the traffic, the ads amplify it, and lead
-              management makes sure nothing falls through. We run all of it together.
-            </Lede>
-            <Link
-              href="/services"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 8,
-                marginTop: "var(--s6)",
-                fontSize: 14,
-                fontWeight: 700,
-                color: "var(--orange-ink)",
-                textDecoration: "none",
-              }}
-            >
-              Explore all services <span aria-hidden="true">→</span>
-            </Link>
-          </div>
+        <div style={{ maxWidth: 720 }}>
+          <h2
+            id="capabilities-heading"
+            className="rg-display"
+            style={{ fontSize: "var(--fs-h2)", color: "var(--navy)", margin: 0 }}
+          >
+            One Growth Engine.
+            <span style={{ color: "var(--orange)" }}> Not Five Vendors.</span>
+          </h2>
+          <p style={{ fontSize: 17, lineHeight: 1.7, color: "var(--muted)", margin: "var(--s5) 0 0", maxWidth: "58ch" }}>
+            The site earns the traffic, the ads amplify it, and lead management makes sure nothing
+            falls through. One team runs all of it.
+          </p>
+        </div>
 
-          {/* Numbered capability rows */}
-          <ol style={{ listStyle: "none", margin: 0, padding: 0 }}>
-            {CAPABILITIES.map((c, i) => (
-              <li key={c.num} className="rg-reveal">
+        <ul className="rg-bento">
+          {CELLS.map((c) => {
+            const t = TONE[c.tone];
+            return (
+              <li key={c.href} className={`rg-reveal${c.span ? " rg-bento-wide" : ""}`}>
                 <Link
                   href={c.href}
-                  className="rg-cap-row"
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "auto 1fr auto",
-                    alignItems: "center",
-                    gap: "var(--s5)",
-                    padding: "var(--s6) 0",
-                    borderTop: i === 0 ? "1px solid var(--border)" : "none",
-                    borderBottom: "1px solid var(--border)",
-                    textDecoration: "none",
-                    color: "inherit",
-                    position: "relative",
-                  }}
+                  className={`rg-bento-cell rg-bento-${c.tone}`}
+                  style={{ background: t.bg, borderColor: t.border }}
                 >
-                  <span
-                    className="rg-cap-num rg-display"
-                    style={{
-                      fontSize: 56,
-                      lineHeight: 0.8,
-                      color: "var(--cream-dark)",
-                      transition: "color var(--t-med) var(--ease)",
-                      minWidth: "1.9ch",
-                    }}
-                  >
-                    {c.num}
-                  </span>
-                  <span>
+                  <div className="rg-bento-copy">
                     <span
-                      className="rg-cap-name"
+                      aria-hidden="true"
                       style={{
-                        display: "block",
-                        fontSize: "var(--fs-h3)",
-                        fontWeight: 700,
-                        color: "var(--navy)",
-                        lineHeight: 1.2,
-                        transition: "color var(--t-med) var(--ease)",
+                        display: "inline-flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        width: 44,
+                        height: 44,
+                        borderRadius: "var(--r-sm)",
+                        background: t.iconBg,
                       }}
                     >
-                      {c.name}
+                      <Icon name={c.icon} size={21} color={t.iconColor} />
                     </span>
-                    <span
-                      style={{
-                        display: "block",
-                        fontSize: 14.5,
-                        color: "var(--muted)",
-                        marginTop: 5,
-                        lineHeight: 1.55,
-                      }}
-                    >
-                      {c.sub}
+                    <p style={{ fontFamily: mono, fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: t.kicker, margin: "var(--s5) 0 0" }}>
+                      {c.kicker}
+                    </p>
+                    <h3 style={{ fontSize: c.span ? "clamp(24px, 2.4vw, 32px)" : 21, fontWeight: 700, lineHeight: 1.2, color: t.title, margin: "var(--s2) 0 0", letterSpacing: "-0.01em" }}>
+                      {c.title}
+                    </h3>
+                    <p style={{ fontSize: 15, lineHeight: 1.65, color: t.text, margin: "var(--s3) 0 0", maxWidth: "46ch" }}>
+                      {c.text}
+                    </p>
+                    <span className="rg-bento-more" style={{ color: c.tone === "white" || c.tone === "cream" ? "var(--orange-ink)" : "#fff" }}>
+                      {c.cta} <span aria-hidden="true">→</span>
                     </span>
-                  </span>
-                  <span
-                    className="rg-cap-icon"
-                    style={{
-                      width: 46,
-                      height: 46,
-                      borderRadius: "var(--r-md)",
-                      background: "var(--cream)",
-                      border: "1px solid var(--border)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      flexShrink: 0,
-                      transition:
-                        "background var(--t-med) var(--ease), border-color var(--t-med) var(--ease)",
-                    }}
-                  >
-                    <Icon name={c.icon} size={21} color="var(--orange)" />
-                  </span>
+                  </div>
+                  {c.span && (
+                    <div className="rg-bento-shot" aria-hidden="true">
+                      <Image
+                        src="/work/dvash-aesthetics.webp"
+                        alt=""
+                        width={1200}
+                        height={750}
+                        sizes="(max-width: 900px) 90vw, 420px"
+                        style={{ display: "block", width: "100%", height: "auto" }}
+                      />
+                    </div>
+                  )}
                 </Link>
               </li>
-            ))}
-          </ol>
-        </div>
+            );
+          })}
+        </ul>
+
+        <Link
+          href="/services"
+          style={{ display: "inline-flex", alignItems: "center", gap: 8, marginTop: "var(--s6)", fontSize: 15, fontWeight: 700, color: "var(--orange-ink)", textDecoration: "none" }}
+        >
+          See every service we offer <span aria-hidden="true">→</span>
+        </Link>
       </div>
     </Section>
   );

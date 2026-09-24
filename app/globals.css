@@ -174,15 +174,150 @@ html { scroll-behavior: smooth; }
   border: 0;
 }
 
-/* Capability row hover — number and title warm together */
-.rg-cap-row:hover .rg-cap-num,
-.rg-cap-row:focus-visible .rg-cap-num { color: var(--orange); }
-.rg-cap-row:hover .rg-cap-name,
-.rg-cap-row:focus-visible .rg-cap-name { color: var(--orange-ink); }
-.rg-cap-row:hover .rg-cap-icon,
-.rg-cap-row:focus-visible .rg-cap-icon {
-  background: var(--orange-dim);
-  border-color: rgba(232,98,26,0.4);
+/* ── Services bento ──────────────────────────────────────────────
+   3 columns, websites spans two. Cells lift on hover; the arrow slides.
+   ─────────────────────────────────────────────────────────────── */
+.rg-bento {
+  list-style: none;
+  margin: var(--s8) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--s4);
+}
+.rg-bento > li { display: flex; }
+.rg-bento-wide { grid-column: span 2; }
+.rg-bento-cell {
+  position: relative;
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid;
+  border-radius: var(--r-lg);
+  text-decoration: none;
+  transition: transform var(--t-med) var(--ease), box-shadow var(--t-med) var(--ease), border-color var(--t-med) var(--ease);
+}
+.rg-bento-cell:hover,
+.rg-bento-cell:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 50px -28px rgba(26,43,74,0.45);
+}
+.rg-bento-white:hover, .rg-bento-cream:hover { border-color: rgba(232,98,26,0.45) !important; }
+.rg-bento-copy {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(24px, 2.6vw, 34px);
+  min-height: 300px;
+}
+.rg-bento-wide .rg-bento-copy { max-width: 54%; }
+.rg-bento-more {
+  margin-top: auto;
+  padding-top: var(--s5);
+  font-size: 14px;
+  font-weight: 700;
+}
+.rg-bento-more span { display: inline-block; transition: transform var(--t-med) var(--ease); }
+.rg-bento-cell:hover .rg-bento-more span { transform: translateX(4px); }
+/* Real client site, bleeding off the bottom-right of the websites cell */
+.rg-bento-shot {
+  position: absolute;
+  right: -5%;
+  bottom: -16%;
+  width: 56%;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  border: 1px solid rgba(247,244,239,0.22);
+  box-shadow: 0 30px 60px -24px rgba(4,9,20,0.8);
+  transform: rotate(-3deg);
+  transition: transform var(--t-slow) var(--ease);
+}
+.rg-bento-cell:hover .rg-bento-shot { transform: rotate(-3deg) translateY(-8px); }
+
+/* ── Timeline rail ─────────────────────────────────────────────── */
+.rg-process-head {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: var(--s6) clamp(40px, 6vw, 96px);
+  align-items: end;
+}
+.rg-steps {
+  list-style: none;
+  margin: var(--s8) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(28px, 4vw, 56px);
+  position: relative;
+}
+/* the rail: runs through the centre of the markers */
+.rg-steps::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 26px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--orange), rgba(232,98,26,0.35) 60%, rgba(26,43,74,0.12));
+}
+.rg-step { position: relative; }
+.rg-step-marker {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  margin-bottom: var(--s5);
+  border-radius: 50%;
+  background: var(--navy);
+  color: #fff;
+  font-size: 21px;
+  letter-spacing: 0.06em;
+  box-shadow: 0 0 0 6px var(--cream);
+}
+
+/* ── Closing reassurance line: hairline-separated, no dots ──────── */
+.rg-reassure {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px 0;
+  font-size: 13.5px;
+  color: rgba(255,255,255,0.6);
+}
+.rg-reassure li { display: inline-flex; align-items: center; }
+.rg-reassure li + li::before {
+  content: "";
+  width: 1px;
+  height: 12px;
+  margin: 0 18px;
+  background: rgba(255,255,255,0.22);
+}
+
+@media (max-width: 900px) {
+  .rg-bento { grid-template-columns: 1fr; }
+  .rg-bento-wide { grid-column: auto; }
+  .rg-bento-wide .rg-bento-copy { max-width: none; padding-bottom: 0; min-height: 0; }
+  .rg-bento-wide .rg-bento-cell { flex-direction: column; }
+  .rg-bento-shot { position: relative; right: auto; bottom: auto; width: 86%; margin: var(--s5) 0 -24px auto; }
+  .rg-bento-copy { min-height: 0; }
+  .rg-process-head { grid-template-columns: 1fr; }
+  .rg-steps { grid-template-columns: 1fr; gap: var(--s7); padding-left: 76px; }
+  .rg-steps::before { left: 26px; right: auto; top: 0; bottom: 0; width: 2px; height: auto;
+    background: linear-gradient(180deg, var(--orange), rgba(232,98,26,0.35) 60%, rgba(26,43,74,0.12)); }
+  .rg-step-marker { position: absolute; left: -76px; top: -6px; margin: 0; }
+  .rg-reassure { flex-direction: column; align-items: center; }
+  .rg-reassure li + li::before { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rg-bento-cell, .rg-bento-shot, .rg-bento-more span { transition: none !important; }
+  .rg-bento-cell:hover { transform: none; }
+  .rg-bento-cell:hover .rg-bento-shot { transform: rotate(-3deg); }
 }
 
 /* Focus ring — visible on every interactive element, both themes */
@@ -391,8 +526,6 @@ body {
   .rg-hero-cta-arrow { display: none; }
 }
 @media (max-width: 860px) {
-  .rg-cap-row { grid-template-columns: 1fr !important; gap: var(--s4) !important; }
-  .rg-cap-row .rg-cap-num { font-size: 42px !important; }
   .rg-proof { grid-template-columns: repeat(2, 1fr) !important; gap: var(--s6) var(--s4) !important; }
   .rg-blog-feature { grid-template-columns: 1fr !important; }
   .rg-why-grid { grid-template-columns: 1fr !important; }

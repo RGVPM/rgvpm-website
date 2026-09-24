@@ -1,20 +1,21 @@
 import Link from "next/link";
-import { Button, GridTexture } from "@/components/home/Primitives";
+import Image from "next/image";
+import { Button } from "@/components/home/Primitives";
 import { SITE } from "@/lib/site";
 
 /**
- * Closing section. Deliberately mirrors the hero — same navy field, same
- * grid texture, same warm bloom — so the page closes where it opened
- * instead of ending on an unrelated gradient banner.
+ * Closing section. Plain navy like the hero, with the founders' faces so the
+ * last thing a visitor sees is who they'd actually be talking to.
  *
- * One dominant CTA (Book a Free Call), with pricing and email as the
- * secondary paths. Reassurance line restates existing month-to-month and
- * two-week onboarding positioning. No countdowns, no manufactured scarcity.
+ * One dominant CTA, same label as the nav and hero ("Book with us!"), with
+ * pricing, phone, and email as secondary paths. No countdowns, no
+ * manufactured scarcity.
  */
-const REASSURANCE = [
-  "Month-to-month — cancel anytime",
-  "Most clients live in two weeks",
-  "No long-term contracts",
+const REASSURANCE = ["Month-to-month, cancel anytime", "New site live in 8 to 10 days", "No long-term contracts"];
+
+const FOUNDERS = [
+  { src: "/founders/derrick.jpg", alt: "Derrick Tamez" },
+  { src: "/founders/kelsey.jpg", alt: "Kelsey Tamez" },
 ];
 
 export default function FinalCta() {
@@ -22,126 +23,68 @@ export default function FinalCta() {
     <section
       aria-labelledby="final-cta-heading"
       style={{
-        background: "var(--navy)",
-        position: "relative",
-        overflow: "hidden",
+        background: "linear-gradient(180deg, var(--navy) 0%, #15233D 100%)",
         paddingBlock: "var(--section-y)",
       }}
     >
-      <GridTexture opacity={0.05} />
-      <div
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          left: "50%",
-          top: "-40%",
-          transform: "translateX(-50%)",
-          width: "min(900px, 90%)",
-          aspectRatio: "1",
-          background: "radial-gradient(circle, rgba(232,98,26,0.22) 0%, transparent 62%)",
-          pointerEvents: "none",
-        }}
-      />
-      {/* Hairline echoing the one that closes the hero */}
-      <div
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          left: 0,
-          right: 0,
-          top: 0,
-          height: 1,
-          background:
-            "linear-gradient(90deg, transparent, rgba(255,255,255,0.16) 22%, rgba(232,98,26,0.5) 50%, rgba(255,255,255,0.16) 78%, transparent)",
-        }}
-      />
+      <div className="rg-container" style={{ textAlign: "center" }}>
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: "var(--s5)" }}>
+          {FOUNDERS.map((f, i) => (
+            <span
+              key={f.src}
+              style={{
+                width: 64,
+                height: 64,
+                borderRadius: "50%",
+                overflow: "hidden",
+                border: "3px solid var(--navy)",
+                boxShadow: "0 0 0 1px rgba(255,255,255,0.18)",
+                marginLeft: i === 0 ? 0 : -14,
+                position: "relative",
+                display: "block",
+              }}
+            >
+              <Image src={f.src} alt={f.alt} fill sizes="64px" style={{ objectFit: "cover", objectPosition: "50% 18%" }} />
+            </span>
+          ))}
+        </div>
+        <p style={{ fontSize: 14, color: "rgba(255,255,255,0.6)", margin: "0 0 var(--s5)" }}>
+          You&rsquo;ll talk to Derrick and Kelsey directly.
+        </p>
 
-      <div
-        className="rg-container"
-        style={{ position: "relative", zIndex: 2, textAlign: "center" }}
-      >
         <h2
           id="final-cta-heading"
           className="rg-display"
-          style={{
-            fontSize: "clamp(42px, 6vw, 88px)",
-            color: "#fff",
-            margin: "0 auto var(--s5)",
-            maxWidth: "16ch",
-          }}
+          style={{ fontSize: "clamp(42px, 6vw, 88px)", color: "#fff", margin: "0 auto var(--s5)", maxWidth: "16ch" }}
         >
           Ready to Grow Your Business?
         </h2>
-        <p
-          style={{
-            fontSize: 17,
-            color: "rgba(255,255,255,0.68)",
-            lineHeight: 1.7,
-            margin: "0 auto var(--s7)",
-            maxWidth: "52ch",
-          }}
-        >
-          Pick your plan and we&apos;ll have you up and running in two weeks. No long-term
-          commitment required.
+        <p style={{ fontSize: 17, color: "rgba(255,255,255,0.7)", lineHeight: 1.7, margin: "0 auto var(--s7)", maxWidth: "50ch" }}>
+          Tell us what you&rsquo;re trying to grow. We&rsquo;ll map out the plan on a quick call and can
+          have your new site live in as little as 8 to 10 days.
         </p>
 
         <div
           className="rg-cta-actions"
-          style={{
-            display: "flex",
-            gap: "var(--s3)",
-            justifyContent: "center",
-            flexWrap: "wrap",
-            marginBottom: "var(--s7)",
-          }}
+          style={{ display: "flex", gap: "var(--s3)", justifyContent: "center", flexWrap: "wrap", marginBottom: "var(--s7)" }}
         >
           <Button href={SITE.bookingUrl} variant="onDark" style={{ padding: "18px 34px", fontSize: 16 }}>
-            Book a Free Call <span aria-hidden="true">→</span>
+            Book with us! <span aria-hidden="true">→</span>
           </Button>
           <Button href="/pricing" variant="ghostDark" style={{ padding: "18px 34px", fontSize: 16 }}>
             View Plans &amp; Pricing
           </Button>
         </div>
 
-        <ul
-          style={{
-            listStyle: "none",
-            margin: "0 0 var(--s7)",
-            padding: 0,
-            display: "flex",
-            justifyContent: "center",
-            flexWrap: "wrap",
-            gap: "var(--s3) var(--s6)",
-          }}
-        >
+        <ul className="rg-reassure">
           {REASSURANCE.map((r) => (
-            <li
-              key={r}
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 9,
-                fontSize: 13,
-                color: "rgba(255,255,255,0.55)",
-              }}
-            >
-              <span
-                aria-hidden="true"
-                style={{
-                  width: 5,
-                  height: 5,
-                  borderRadius: "50%",
-                  background: "var(--orange)",
-                  flexShrink: 0,
-                }}
-              />
-              {r}
-            </li>
+            <li key={r}>{r}</li>
           ))}
         </ul>
 
         <div
           style={{
+            marginTop: "var(--s7)",
             paddingTop: "var(--s6)",
             borderTop: "1px solid rgba(255,255,255,0.12)",
             display: "flex",
@@ -151,22 +94,13 @@ export default function FinalCta() {
             fontSize: 14,
           }}
         >
-          <a
-            href={`tel:${SITE.phone}`}
-            style={{ color: "rgba(255,255,255,0.75)", textDecoration: "none", fontWeight: 600 }}
-          >
+          <a href={`tel:${SITE.phone}`} style={{ color: "rgba(255,255,255,0.78)", textDecoration: "none", fontWeight: 600 }}>
             {SITE.phoneHuman}
           </a>
-          <a
-            href={`mailto:${SITE.email}`}
-            style={{ color: "rgba(255,255,255,0.75)", textDecoration: "none", fontWeight: 600 }}
-          >
+          <a href={`mailto:${SITE.email}`} style={{ color: "rgba(255,255,255,0.78)", textDecoration: "none", fontWeight: 600 }}>
             {SITE.email}
           </a>
-          <Link
-            href="/contact"
-            style={{ color: "var(--orange-on-dark)", textDecoration: "none", fontWeight: 700 }}
-          >
+          <Link href="/contact" style={{ color: "var(--orange-on-dark)", textDecoration: "none", fontWeight: 700 }}>
             Contact us <span aria-hidden="true">→</span>
           </Link>
         </div>

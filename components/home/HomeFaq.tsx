@@ -1,4 +1,4 @@
-import { Label, Section } from "@/components/home/Primitives";
+import { Section } from "@/components/home/Primitives";
 import { homeFaqs } from "@/lib/faqs";
 
 /**
@@ -18,33 +18,16 @@ export default function HomeFaq() {
   return (
     <Section id="faq" background="#fff" labelledBy="faq-heading">
       <div className="rg-container">
-        <div
-          className="rg-split"
-          style={{
-            display: "grid",
-            gridTemplateColumns: "0.72fr 1.28fr",
-            gap: "clamp(40px, 6vw, 96px)",
-            alignItems: "start",
-          }}
-        >
-          <div className="rg-sticky" style={{ position: "sticky", top: 120 }}>
-            <Label>FAQ</Label>
+        <div style={{ maxWidth: 820, margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: "var(--s7)" }}>
             <h2
               id="faq-heading"
               className="rg-display"
-              style={{ fontSize: "var(--fs-h2)", color: "var(--navy)", margin: "var(--s4) 0 0" }}
+              style={{ fontSize: "var(--fs-h2)", color: "var(--navy)", margin: 0 }}
             >
               Common Questions
             </h2>
-            <p
-              style={{
-                fontSize: 16,
-                color: "var(--muted)",
-                lineHeight: 1.7,
-                margin: "var(--s5) 0 0",
-                maxWidth: "30ch",
-              }}
-            >
+            <p style={{ fontSize: 17, color: "var(--muted)", lineHeight: 1.7, margin: "var(--s4) 0 0" }}>
               Straight answers. No runaround.
             </p>
           </div>

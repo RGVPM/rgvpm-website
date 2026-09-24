@@ -7,7 +7,7 @@ export const homeFaqs = [
   },
   {
     q: "Is website design included in the plans?",
-    a: "Website design is a separate service on all plans — not bundled into the monthly fee. This keeps plan pricing clean and means you're not paying for a website rebuild every month. We'll quote your site separately based on what you need, and it integrates seamlessly with whichever plan you're on.",
+    a: "Yes, on Plant the Flag and the SEO Package. Both include a custom website we build, host, and keep updated, with no separate build fee. Build the Machine and Own the Market are marketing plans; if you need a new site on one of those, we quote it separately based on what you need.",
   },
   {
     q: "How does the newsletter work?",

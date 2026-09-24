@@ -1,11 +1,11 @@
-import { Label, Lede, Section } from "@/components/home/Primitives";
+import { Section } from "@/components/home/Primitives";
 
 /**
- * "New website in 8 to 10 days" as a three-step vertical timeline with a
- * sticky heading. Deliberately plain: one promise, three steps, day ranges.
+ * "New website in 8 to 10 days" as a horizontal three-step rail.
  *
- * The connecting spine is a plain gradient rule: no scroll listener, no
- * JS. Stacks to a simple timeline under 1024px.
+ * The rail is a plain rule with three markers, no scroll listener, no JS.
+ * Under 900px the steps stack and the rail turns vertical (globals.css,
+ * `.rg-steps`).
  */
 const STEPS = [
   {
@@ -28,137 +28,45 @@ const STEPS = [
   },
 ];
 
+const mono = "var(--font-dm-mono), ui-monospace, monospace";
+
 export default function Process() {
   return (
     <Section id="how-it-works" background="var(--cream)" labelledBy="process-heading">
       <div className="rg-container">
-        <div
-          className="rg-split"
-          style={{
-            display: "grid",
-            gridTemplateColumns: "0.8fr 1.2fr",
-            gap: "clamp(40px, 6vw, 96px)",
-            alignItems: "start",
-          }}
-        >
-          <div className="rg-sticky" style={{ position: "sticky", top: 120 }}>
-            <Label>Timeline</Label>
-            <h2
-              id="process-heading"
-              className="rg-display"
-              style={{ fontSize: "var(--fs-h2)", color: "var(--navy)", margin: "var(--s4) 0 0" }}
-            >
-              A New Website In As Little As 8 to 10 Days.
-            </h2>
-            <Lede>
-              No six-month onboarding. We design it, build it, and launch it fast, then keep it
-              working for you.
-            </Lede>
-            <div
-              style={{
-                display: "inline-flex",
-                alignItems: "baseline",
-                gap: 10,
-                marginTop: "var(--s6)",
-                padding: "14px 20px",
-                background: "#fff",
-                border: "1px solid var(--border)",
-                borderLeft: "3px solid var(--orange)",
-                borderRadius: "var(--r-sm)",
-              }}
-            >
-              <span className="rg-display" style={{ fontSize: 30, color: "var(--orange)" }}>
-                8-10 Days
-              </span>
-              <span style={{ fontSize: 13, color: "var(--muted)" }}>from kickoff to launch</span>
-            </div>
-          </div>
-
-          <ol style={{ listStyle: "none", margin: 0, padding: 0, position: "relative" }}>
-            {/* Timeline spine */}
-            <span
-              aria-hidden="true"
-              style={{
-                position: "absolute",
-                left: 26,
-                top: 34,
-                bottom: 34,
-                width: 2,
-                background:
-                  "linear-gradient(to bottom, var(--orange), rgba(232,98,26,0.35) 55%, rgba(26,43,74,0.12))",
-              }}
-            />
-            {STEPS.map((s) => (
-              <li
-                key={s.num}
-                className="rg-reveal"
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "54px 1fr",
-                  gap: "var(--s5)",
-                  paddingBottom: "var(--s8)",
-                  position: "relative",
-                }}
-              >
-                <span
-                  className="rg-display"
-                  style={{
-                    width: 54,
-                    height: 54,
-                    borderRadius: "50%",
-                    background: "var(--navy)",
-                    color: "#fff",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: 21,
-                    letterSpacing: "0.06em",
-                    zIndex: 1,
-                    boxShadow: "0 0 0 6px var(--cream)",
-                  }}
-                >
-                  {s.num}
-                </span>
-                <div style={{ paddingTop: 6 }}>
-                  <span
-                    style={{
-                      display: "inline-block",
-                      fontFamily: "var(--font-dm-mono), monospace",
-                      fontSize: 10.5,
-                      letterSpacing: "0.1em",
-                      textTransform: "uppercase",
-                      color: "var(--orange-ink)",
-                      marginBottom: "var(--s2)",
-                    }}
-                  >
-                    {s.days}
-                  </span>
-                  <h3
-                    className="rg-display"
-                    style={{
-                      fontSize: "clamp(26px, 3vw, 38px)",
-                      color: "var(--navy)",
-                      margin: "0 0 var(--s3)",
-                    }}
-                  >
-                    {s.title}
-                  </h3>
-                  <p
-                    style={{
-                      fontSize: 15.5,
-                      color: "var(--muted)",
-                      lineHeight: 1.72,
-                      margin: 0,
-                      maxWidth: "56ch",
-                    }}
-                  >
-                    {s.text}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ol>
+        <div className="rg-process-head">
+          <h2
+            id="process-heading"
+            className="rg-display"
+            style={{ fontSize: "var(--fs-h2)", color: "var(--navy)", margin: 0 }}
+          >
+            A New Website In As Little As
+            <span style={{ color: "var(--orange)" }}> 8 to 10 Days.</span>
+          </h2>
+          <p style={{ fontSize: 17, lineHeight: 1.7, color: "var(--muted)", margin: 0, maxWidth: "40ch" }}>
+            No six-month onboarding. We design it, build it, and launch it fast, then keep it working
+            for you.
+          </p>
         </div>
+
+        <ol className="rg-steps">
+          {STEPS.map((s) => (
+            <li key={s.num} className="rg-step rg-reveal">
+              <span className="rg-step-marker rg-display" aria-hidden="true">
+                {s.num}
+              </span>
+              <p style={{ fontFamily: mono, fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange-ink)", margin: 0 }}>
+                {s.days}
+              </p>
+              <h3 className="rg-display" style={{ fontSize: "clamp(28px, 2.6vw, 36px)", color: "var(--navy)", margin: "var(--s2) 0 var(--s3)" }}>
+                {s.title}
+              </h3>
+              <p style={{ fontSize: 15.5, lineHeight: 1.7, color: "var(--muted)", margin: 0, maxWidth: "36ch" }}>
+                {s.text}
+              </p>
+            </li>
+          ))}
+        </ol>
       </div>
     </Section>
   );
