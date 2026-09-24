@@ -37,7 +37,7 @@ export function GET() {
   L.push("## Pricing (detailed)");
   L.push("Month-to-month, no long-term contracts. Website design is quoted separately. Paid ad spend is billed by Google/Meta directly, on top of management.");
   for (const p of PLANS) L.push(`- **${p.name} — $${p.price.toLocaleString()}/mo:** ${p.description}`);
-  L.push("Plant the Flag and Build the Machine include a one-time activation fee covering onboarding and setup; Own the Market has no activation fee.");
+  L.push("Build the Machine includes a one-time activation fee covering onboarding and setup; Plant the Flag, the SEO Package, and Own the Market have no activation fee. All plans are month-to-month.");
   L.push(`Full breakdown: ${u("/pricing")}`);
   L.push("");
 

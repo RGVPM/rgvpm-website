@@ -3,7 +3,7 @@
 export const homeFaqs = [
   {
     q: "Do I have to sign a long-term contract?",
-    a: "No. All plans are month-to-month. We believe in earning your business every month — not locking you in. The only upfront cost is the one-time activation fee on Plant the Flag and Build the Machine plans, which covers onboarding, setup, and getting everything configured.",
+    a: "No. All plans are month-to-month. We believe in earning your business every month — not locking you in. The only upfront cost is the one-time activation fee on the Build the Machine plan, which covers onboarding, setup, and getting everything configured.",
   },
   {
     q: "Is website design included in the plans?",
@@ -15,7 +15,7 @@ export const homeFaqs = [
   },
   {
     q: "What's the social media planner tool?",
-    a: "It's a scheduling tool included with every plan that lets you (or your team) plan and schedule posts across your social platforms from one place. On the Own the Market plan, we manage and post the content for you. On Plant the Flag and Build the Machine, you have the tool to do it yourself whenever you want.",
+    a: "It's a scheduling tool included with every plan that lets you (or your team) plan and schedule posts across your social platforms from one place. On the Own the Market plan, we manage and post the content for you. On our other plans, you have the tool to do it yourself whenever you want.",
   },
   {
     q: "What does \"two-way SMS & email\" mean?",

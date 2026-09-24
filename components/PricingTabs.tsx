@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState, type ReactNode } from "react";
-import Script from "next/script";
+import { useState, type ReactNode } from "react";
 
 const BOOKING = "https://api.rgvperformancemarketing.com/widget/bookings/rgvpmdiscoverycall";
 const bebas = { fontFamily: "'Bebas Neue', sans-serif" } as const;
@@ -156,29 +155,17 @@ function Card({
 
 /* ------------------------------ tab bodies ------------------------------ */
 
-function SeptemberBuildFeePromo({ highlighted = false }: { highlighted?: boolean }) {
-  return (
-    <div className="mt-2 flex flex-wrap items-baseline gap-x-2.5 gap-y-1 text-sm">
-      <s className={highlighted ? "text-white/60" : "text-slate-500"}>$1,000–$3,500</s>
-      <span className={`font-semibold ${highlighted ? "text-emerald-100" : "text-orange-400"}`}>
-        $0 · waived for September
-      </span>
-    </div>
-  );
-}
-
-function WebsitesTab({ onQuote }: { onQuote: () => void }) {
+function WebsitesTab() {
   return (
     <div className="mx-auto grid max-w-5xl gap-6 lg:grid-cols-2">
       <Card
         highlighted
         tier="// Site + leads"
-        name="Website + CRM"
+        name="Plant the Flag"
         description="A site that actually catches jobs, plus the CRM."
-        price="$297"
+        price="$397"
         priceSuffix="/mo"
-        priceExtra={<SeptemberBuildFeePromo highlighted />}
-        priceNote="One-time website build. Promo ends September 30, 2026."
+        priceNote="month-to-month"
         features={[
           "Custom site, not a template",
           "Hosting, SSL, backups, security",
@@ -189,18 +176,17 @@ function WebsitesTab({ onQuote }: { onQuote: () => void }) {
           "We keep it live and patched so you don't babysit WordPress",
         ]}
         ctaLabel="Get Started →"
-        ctaHref="https://buy.stripe.com/9B66oH0MkbWK7tMf3P7Zu0B"
+        ctaHref="https://buy.stripe.com/7sY9ATeDa4ui3dwg7T7Zu0F"
       />
       <Card
         tier="// Get found"
         name="SEO Package"
-        description="Website + CRM, then we work Google so more of the right people find you. No #1 ranking guarantee."
-        price="$497"
+        description="Plant the Flag, then we work Google so more of the right people find you. No #1 ranking guarantee."
+        price="$597"
         priceSuffix="/mo"
-        priceExtra={<SeptemberBuildFeePromo />}
-        priceNote="One-time website build. Promo ends September 30, 2026."
+        priceNote="month-to-month"
         features={[
-          "Everything in Website + CRM",
+          "Everything in Plant the Flag",
           "Google Business Profile built out (photos, categories, posts)",
           "City/service pages that match how people actually search",
           "On-page + technical cleanup so Google can read the site",
@@ -208,8 +194,8 @@ function WebsitesTab({ onQuote }: { onQuote: () => void }) {
           "Monthly content that targets real Search Console queries",
           "Monthly report: what moved, what we're doing next",
         ]}
-        ctaLabel="Get a Custom Quote →"
-        onCta={onQuote}
+        ctaLabel="Get Started →"
+        ctaHref="https://buy.stripe.com/fZu9ATgLi0e28xQbRD7Zu0G"
       />
     </div>
   );
@@ -306,120 +292,44 @@ function SocialTab() {
 }
 
 function PlansTab() {
-  const [billingCycle, setBillingCycle] = useState<"monthly" | "annual">("monthly");
-  const annual = billingCycle === "annual";
-
   return (
-    <div>
-      {/* billing toggle */}
-      <div className="mb-7 flex flex-col items-center">
-        <div className="inline-flex items-center gap-1 rounded-full border border-slate-700 bg-slate-800/40 p-1">
-          <button
-            type="button"
-            onClick={() => setBillingCycle("monthly")}
-            aria-pressed={!annual}
-            className={`flex min-h-[44px] touch-manipulation items-center rounded-full px-5 py-2 text-sm font-semibold transition-colors ${
-              !annual ? "bg-orange-500 text-white" : "text-slate-400 hover:text-white"
-            }`}
-          >
-            Monthly
-          </button>
-          <button
-            type="button"
-            onClick={() => setBillingCycle("annual")}
-            aria-pressed={annual}
-            className={`flex min-h-[44px] touch-manipulation items-center rounded-full px-5 py-2 text-sm font-semibold transition-colors ${
-              annual ? "bg-orange-500 text-white" : "text-slate-400 hover:text-white"
-            }`}
-          >
-            Annual
-            <span
-              className={`ml-2 rounded px-1.5 py-0.5 text-[10px] font-semibold ${
-                annual ? "bg-white/20 text-white" : "bg-emerald-400/15 text-emerald-400"
-              }`}
-            >
-              Save up to 20%
-            </span>
-          </button>
-        </div>
-        {annual && (
-          <p className="mt-3 text-xs italic text-slate-400">
-            Annual contracts are billed monthly with a 12-month commitment.
-          </p>
-        )}
-      </div>
-
+    <div className="mx-auto max-w-5xl">
       <div className="mb-7 rounded-md border border-slate-700 bg-slate-800/40 p-4 text-center text-sm text-slate-300">
         💰 Bundle &amp; save. These plans combine work from our other tabs at a discount, with one team coordinating
         everything.
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-3">
-        <Card
-          tier="// Starter"
-          tierClass="text-emerald-400"
-          checkClass="text-emerald-400"
-          name="Plant the Flag"
-          description="Get your digital foundation locked in. Show up where customers are searching and stay in front of the ones you already have."
-          price={annual ? "$333" : "$399"}
-          priceSuffix="/mo"
-          savings={annual ? "Save $1,191 your first year" : undefined}
-          priceNote={annual ? "No activation fee" : "+ $399 one-time activation fee"}
-          subNote={annual ? "Annual contract · billed monthly" : undefined}
-          features={[
-            "Get found on Google (Business Profile setup & cleanup)",
-            "Keep your name/address/phone consistent online",
-            "Ask happy customers for reviews (we set it up)",
-            "Catch leads from your site (form → your inbox)",
-            "Texts & emails in one place",
-            "Blast your list yourself when you want",
-            "We write & send a monthly newsletter",
-            "Simple monthly snapshot of what's working",
-          ]}
-          ctaLabel="Get Started →"
-          ctaHref={
-            annual
-              ? "https://api.rgvperformancemarketing.com/payment-link/6a25c9dc03b17c94f571507d"
-              : "https://api.rgvperformancemarketing.com/payment-link/6a25cb6303b17c94f5715080"
-          }
-        />
+      <div className="grid gap-6 lg:grid-cols-2">
         <Card
           tier="// Most Popular"
           highlighted
           name="Build the Machine"
           description="A full digital growth engine running 24/7 — SEO, ads, automation, and lead management all working together."
-          price={annual ? "$749" : "$899"}
+          price="$899"
           priceSuffix="/mo"
-          savings={annual ? "Save $2,199 your first year" : undefined}
-          priceNote={annual ? "No activation fee" : "+ $399 one-time activation fee"}
-          subNote={annual ? "Annual contract · billed monthly" : undefined}
+          priceNote="+ $399 one-time activation fee"
           features={[
-            "Everything in Plant the Flag",
+            "Google Business Profile, listings cleanup & review requests",
+            "Every lead, text, and email in one inbox",
+            "Monthly newsletter + a simple monthly report",
             "Local SEO (pages, Google profile depth, backlinks)",
             "Ads managed for you — Google or Meta (you fund the spend)",
             "We write & send email/SMS campaigns",
             "Social: you shoot, we edit & brand (1 reel + 1 creative + stories / week)",
             "Follow-ups on autopilot (missed-call text, sequences, reminders)",
-            "See every lead in one pipeline",
             "Website chatbot that answers after hours",
             "Monthly strategy call",
           ]}
           ctaLabel="Get Started →"
-          ctaHref={
-            annual
-              ? "https://api.rgvperformancemarketing.com/payment-link/6a25ca5371a0aa761e463757"
-              : "https://api.rgvperformancemarketing.com/payment-link/6a25cba371a0aa761e46375b"
-          }
+          ctaHref="https://api.rgvperformancemarketing.com/payment-link/6a25cba371a0aa761e46375b"
         />
         <Card
           tier="// Full Service"
           name="Own the Market"
           description="Dominate your category. Full-service execution across every channel with a dedicated strategist in your corner."
-          price={annual ? "$1,999" : "$2,499"}
+          price="$2,499"
           priceSuffix="/mo"
-          savings={annual ? "Save $6,000/year" : undefined}
           priceNote="No activation fee"
-          subNote={annual ? "Annual contract · billed monthly" : undefined}
           features={[
             "Everything in Build the Machine",
             "Ads on Google and Meta — $750/mo ad spend included",
@@ -431,67 +341,16 @@ function PlansTab() {
             "Priority support",
           ]}
           ctaLabel="Get Started →"
-          ctaHref={
-            annual
-              ? "https://api.rgvperformancemarketing.com/payment-link/6a25caa571a0aa761e463758"
-              : "https://api.rgvperformancemarketing.com/payment-link/6a25c95c03b17c94f571507c"
-          }
+          ctaHref="https://api.rgvperformancemarketing.com/payment-link/6a25c95c03b17c94f571507c"
         />
       </div>
 
       <p className="mt-6 text-center text-sm text-slate-400">
-        All plans are month-to-month or 12-month annual contracts. Activation is a one-time setup fee on Plant the Flag
-        and Build the Machine only; Own the Market has no activation fee. On Build the Machine, ad spend is billed by
-        Google and Meta (you fund the spend). On Own the Market, $750/mo ad spend is included; additional spend is billed
-        separately. Website design is quoted separately on all plans.
+        All plans are month-to-month. Build the Machine has a one-time activation fee; Own the Market has none. On Build
+        the Machine, ad spend is billed by Google and Meta (you fund the spend). On Own the Market, $750/mo ad spend is
+        included; additional spend is billed separately. Website design is quoted separately on these plans, or see the
+        Websites tab for plans that include one.
       </p>
-    </div>
-  );
-}
-
-/* ------------------------------- modal -------------------------------- */
-
-function QuoteModal({ onClose }: { onClose: () => void }) {
-  useEffect(() => {
-    const handler = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-    };
-    window.addEventListener("keydown", handler);
-    return () => window.removeEventListener("keydown", handler);
-  }, [onClose]);
-
-  return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-0"
-      onClick={onClose}
-      role="presentation"
-    >
-      <div
-        className="relative mx-4 max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-xl border border-slate-700 bg-[#0f1c33]"
-        onClick={(e) => e.stopPropagation()}
-        role="dialog"
-        aria-modal="true"
-        aria-label="Web Design Interest"
-      >
-        <button
-          type="button"
-          onClick={onClose}
-          aria-label="Close"
-          className="absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-slate-800 text-xl text-slate-300 transition-colors hover:bg-slate-700 hover:text-white"
-        >
-          ×
-        </button>
-        <div className="p-5 pt-12">
-          <iframe
-            src="https://api.rgvperformancemarketing.com/widget/form/W4okHNYC7NqGmLm9tcA0"
-            style={{ display: "block", width: "100%", height: "600px", border: "none", borderRadius: "8px" }}
-            id="inline-W4okHNYC7NqGmLm9tcA0"
-            data-form-name="Web Design Interest"
-            data-form-id="W4okHNYC7NqGmLm9tcA0"
-            title="Web Design Interest"
-          />
-        </div>
-      </div>
     </div>
   );
 }
@@ -500,11 +359,9 @@ function QuoteModal({ onClose }: { onClose: () => void }) {
 
 export default function PricingTabs() {
   const [activeTab, setActiveTab] = useState<TabId>("plans");
-  const [quoteModalOpen, setQuoteModalOpen] = useState(false);
 
   return (
     <section className="bg-[#0f1c33] pb-24 pt-2">
-      <Script src="https://api.rgvperformancemarketing.com/js/form_embed.js" strategy="afterInteractive" />
 
       <div className="mx-auto max-w-6xl px-6">
         {/* top banner */}
@@ -562,7 +419,7 @@ export default function PricingTabs() {
 
         {/* tab content */}
         <div className="mt-12">
-          {activeTab === "websites" && <WebsitesTab onQuote={() => setQuoteModalOpen(true)} />}
+          {activeTab === "websites" && <WebsitesTab />}
           {activeTab === "social" && <SocialTab />}
           {activeTab === "plans" && <PlansTab />}
         </div>
@@ -581,7 +438,6 @@ export default function PricingTabs() {
         </div>
       </div>
 
-      {quoteModalOpen && <QuoteModal onClose={() => setQuoteModalOpen(false)} />}
     </section>
   );
 }

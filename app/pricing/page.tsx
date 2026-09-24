@@ -11,14 +11,14 @@ const url = canonical("/pricing");
 export const metadata: Metadata = {
   title: "Pricing & Plans — Digital Marketing for Local Business",
   description:
-    "Simple, transparent digital marketing pricing. Three month-to-month plans from $399/mo. No long-term contracts, no hidden fees. Website design available separately.",
+    "Simple, transparent digital marketing pricing. Month-to-month plans from $397/mo, including a custom website and lead management. No long-term contracts, no hidden fees.",
   alternates: { canonical: url },
   openGraph: {
     type: "website",
     url,
     title: `Pricing & Plans | ${SITE.name}`,
     description:
-      "Three simple, month-to-month plans from $399/mo. Transparent pricing, no contracts, no hidden fees.",
+      "Month-to-month plans from $397/mo. Transparent pricing, no contracts, no hidden fees.",
     siteName: SITE.name,
   },
 };
@@ -26,27 +26,27 @@ export const metadata: Metadata = {
 const pricingFaqs = [
   {
     q: "Do I have to sign a long-term contract?",
-    a: "No. All plans are month-to-month. We believe in earning your business every month — not locking you in. The only upfront cost is the one-time activation fee on Plant the Flag and Build the Machine, which covers onboarding, setup, and getting everything configured.",
+    a: "No. All plans are month-to-month. We believe in earning your business every month, not locking you in. The only upfront cost anywhere is the one-time activation fee on Build the Machine, which covers onboarding, setup, and getting everything configured.",
   },
   {
     q: "Is website design included in the price?",
-    a: "Website design is a separate service on all plans — not bundled into the monthly fee. This keeps plan pricing clean and means you're not paying for a website rebuild every month. We quote your site separately based on what you need, and it integrates with whichever plan you're on.",
+    a: "Yes, on Plant the Flag and the SEO Package. Both include a custom website we build, host, and keep updated, with no separate build fee. Build the Machine and Own the Market are marketing plans; if you need a new site on one of those, we quote it separately based on what you need.",
   },
   {
     q: "What is the activation fee?",
-    a: "Plant the Flag and Build the Machine include a one-time $399 activation fee that covers onboarding, account setup, and configuring your systems. Own the Market has no activation fee. After activation, you simply pay the flat monthly rate.",
+    a: "Build the Machine includes a one-time $399 activation fee that covers onboarding, account setup, and configuring your systems. Plant the Flag, the SEO Package, and Own the Market have no activation fee. After activation, you simply pay the flat monthly rate.",
   },
   {
     q: "Does ad spend come out of the monthly fee?",
-    a: "On Build the Machine, ad management is included, but you fund the ad spend — Google and Meta bill you directly, and we manage the campaigns. Plant the Flag does not include ads. On Own the Market, $750/mo ad spend is included; any spend above that is billed separately by the platforms (you fund the overage).",
+    a: "On Build the Machine, ad management is included, but you fund the ad spend — Google and Meta bill you directly, and we manage the campaigns. Plant the Flag and the SEO Package do not include ads. On Own the Market, $750/mo ad spend is included; any spend above that is billed separately by the platforms (you fund the overage).",
   },
   {
     q: "Can I upgrade or downgrade my plan?",
-    a: "Yes. Because every plan is month-to-month, you can move up or down as your needs change. Many clients start with Plant the Flag to lock in their foundation, then upgrade to Build the Machine or Own the Market as they're ready to scale.",
+    a: "Yes. Because every plan is month-to-month, you can move up or down as your needs change. Many clients start with Plant the Flag to get a website and lead system in place, then add the SEO Package or a marketing plan as they're ready to scale.",
   },
   {
     q: "Which plan is right for my business?",
-    a: "Plant the Flag is ideal if you need to get found and stay in front of existing customers. Build the Machine adds SEO, ads, and lead automation for businesses ready to actively grow. Own the Market is full-service execution with a dedicated strategist. If you're unsure, contact us and we'll recommend the right fit.",
+    a: "Plant the Flag is ideal if you need a website that catches leads and one inbox to manage them. The SEO Package adds Google Business Profile and local SEO work so more of the right people find you. Build the Machine adds ads, automation, and social content for businesses ready to actively grow. Own the Market is full-service execution with a dedicated strategist. If you're unsure, contact us and we'll recommend the right fit.",
   },
 ];
 

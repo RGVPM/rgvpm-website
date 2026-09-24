@@ -564,7 +564,7 @@ export const services: Service[] = [
       },
       {
         q: "Do you create the social media content for me?",
-        a: "On the Own the Market plan, yes — we create and post your content for you, including reels and shorts. On Plant the Flag and Build the Machine, you get the planner tool to schedule your own posts. We'll recommend the right level based on how hands-on you want to be.",
+        a: "On the Own the Market plan, yes — we create and post your content for you, including reels and shorts. On our other plans, you get the planner tool to schedule your own posts. We'll recommend the right level based on how hands-on you want to be.",
       },
       {
         q: "Can you produce content in Spanish?",
