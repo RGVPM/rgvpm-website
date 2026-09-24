@@ -217,15 +217,15 @@ function WebsitesTab({ onQuote }: { onQuote: () => void }) {
 
 function SocialTab() {
   const rows: { label: string; cells: Cell[] }[] = [
-    { label: "Content calendar", cells: ["✓", "✓", "✓"] },
-    { label: "Reels per week", cells: ["—", "1", "2"] },
-    { label: "Static posts per week", cells: ["—", "—", "1"] },
-    { label: "Stories", cells: ["—", "From your content", "Unlimited"] },
-    { label: "Who shoots?", cells: ["You", "You", "You + monthly on-site shoot"] },
-    { label: "Who edits?", cells: ["You", { t: "We do", hl: true }, { t: "We do", hl: true }] },
-    { label: "Who posts?", cells: ["You", "You", { t: "We do", hl: true }] },
-    { label: "DM & lead management", cells: ["—", "—", { t: "We do", hl: true }] },
-    { label: "Branding applied", cells: ["—", "✓", "✓"] },
+    { label: "Content calendar", cells: ["✓", "✓"] },
+    { label: "Reels per week", cells: ["1", "2"] },
+    { label: "Static posts per week", cells: ["—", "1"] },
+    { label: "Stories", cells: ["From your content", "Unlimited"] },
+    { label: "Who shoots?", cells: ["You", "You + monthly on-site shoot"] },
+    { label: "Who edits?", cells: [{ t: "We do", hl: true }, { t: "We do", hl: true }] },
+    { label: "Who posts?", cells: ["You", { t: "We do", hl: true }] },
+    { label: "DM & lead management", cells: ["—", { t: "We do", hl: true }] },
+    { label: "Branding applied", cells: ["✓", "✓"] },
   ];
 
   const renderCell = (c: Cell) => {
@@ -236,27 +236,8 @@ function SocialTab() {
   };
 
   return (
-    <div>
-      <div className="grid gap-6 lg:grid-cols-3">
-        <Card
-          tier="// You Run It"
-          tierClass="text-emerald-400"
-          checkClass="text-emerald-400"
-          name="Content Calendar"
-          description="You shoot, edit, and post — we plan."
-          price="$150"
-          priceSuffix="/mo"
-          priceNote="month-to-month"
-          features={[
-            "Monthly content calendar",
-            "Themes & captions written for you",
-            "Shot list (what to record)",
-            "Talk tracks for video content",
-            "Bilingual (EN/ES) available",
-          ]}
-          ctaLabel="Get Started →"
-          ctaHref="https://api.rgvperformancemarketing.com/payment-link/6a25065171a0aa761e463688"
-        />
+    <div className="mx-auto max-w-5xl">
+      <div className="grid gap-6 lg:grid-cols-2">
         <Card
           tier="// Most Popular"
           highlighted
@@ -266,7 +247,7 @@ function SocialTab() {
           priceSuffix="/mo"
           priceNote="month-to-month"
           features={[
-            "Everything in Content Calendar",
+            "Monthly content calendar, captions, and shot list",
             "1 edited reel per week",
             "1 branded creative per week",
             "Stories created from your content",
@@ -298,11 +279,10 @@ function SocialTab() {
 
       {/* comparison table */}
       <div className="mt-10 overflow-x-auto rounded-xl border border-slate-700">
-        <table className="w-full min-w-[640px] border-collapse text-sm">
+        <table className="w-full min-w-[480px] border-collapse text-sm">
           <thead>
             <tr className="border-b border-slate-700 bg-slate-800/40">
               <th className="p-4 text-left font-semibold text-slate-400">Compare plans</th>
-              <th className="p-4 text-center font-semibold text-white">Content Calendar</th>
               <th className="p-4 text-center font-semibold text-orange-500">Content Crew</th>
               <th className="p-4 text-center font-semibold text-white">Full Service Social</th>
             </tr>
