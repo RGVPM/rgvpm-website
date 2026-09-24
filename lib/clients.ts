@@ -37,6 +37,7 @@ export const CLIENTS: Client[] = [
   { name: "NeuroMotion Rehabilitation", url: "https://neuromotionrehabilitation.com", logo: "/clients/neuromotion-rehab.png", maxHeight: 92 },
   // Unlinked by request.
   { name: "6 Day Medical Weight Loss", logo: "/clients/6-day-medical-weight-loss.png", maxHeight: 56 },
+  { name: "V&S Painting & More", url: "https://vspaintingaustin.com", logo: "/clients/vs-painting.png", maxHeight: 60 },
   { name: "STX Swing Doctor", url: "https://www.stxswingdoctor.com", logo: "/clients/stx-swing-doctor.png", maxHeight: 94 },
   // Recolored navy from the champagne original so it reads on the cream strip.
   { name: "The Spa Business Coach", logo: "/clients/the-spa-business-coach.png", maxHeight: 70 },
