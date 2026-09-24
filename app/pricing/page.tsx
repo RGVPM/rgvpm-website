@@ -63,7 +63,8 @@ export default function PricingPage() {
         ]}
       />
       <main>
-        <div style={{ background: "#0f1c33", paddingTop: 100 }}>
+        {/* flow-root keeps the breadcrumb's bottom margin inside this navy band; without it the margin collapsed through and showed a cream stripe. */}
+        <div style={{ background: "#0f1c33", paddingTop: 100, display: "flow-root" }}>
           <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
             <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Pricing", path: "/pricing" }]} dark inHero />
           </div>
