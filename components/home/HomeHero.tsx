@@ -93,8 +93,6 @@ export default function HomeHero() {
               {/*
                 Primary CTA goes to the discovery-call booking flow, the
                 strongest conversion destination currently live.
-                TODO(owner): when a dedicated "Growth Assessment" form exists,
-                swap this single href for it.
               */}
               <a
                 href={SITE.bookingUrl}
@@ -120,7 +118,7 @@ export default function HomeHero() {
                     "transform var(--t-fast) var(--ease), box-shadow var(--t-med) var(--ease)",
                 }}
               >
-                Get My Free Growth Assessment{" "}
+                Book with us!{" "}
                 <span aria-hidden="true" className="rg-hero-cta-arrow">
                   →
                 </span>

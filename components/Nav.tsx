@@ -29,7 +29,7 @@ const NAV_LINKS: NavItem[] = [
   { label: "Solutions", href: "/services", children: SOLUTIONS },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
-  { label: "Resources", href: "/blog" },
+  { label: "Blogs", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -377,7 +377,7 @@ export default function Nav() {
                   "background var(--t-fast) var(--ease), transform var(--t-fast) var(--ease), box-shadow var(--t-med) var(--ease)",
               }}
             >
-              Get My Growth Assessment
+              Book with us!
             </a>
 
             <button
@@ -521,7 +521,7 @@ export default function Nav() {
               textAlign: "center",
             }}
           >
-            Get My Growth Assessment <span aria-hidden="true">→</span>
+            Book with us! <span aria-hidden="true">→</span>
           </a>
           <a
             href={`tel:${SITE.phone}`}
