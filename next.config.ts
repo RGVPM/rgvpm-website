@@ -11,6 +11,11 @@ const nextConfig: NextConfig = {
       // /results was retired (Sept 2026). Google had it indexed, and the
       // hero + client marquee used to link there, so send stragglers home.
       { source: "/results", destination: "/", permanent: true },
+      // City SEO blog posts retired Sept 2026: near-duplicates of each other
+      // that competed with the city service pages for the same keywords.
+      { source: "/blog/brownsville-seo-how-to-rank-local-business", destination: "/local-seo-brownsville-tx", permanent: true },
+      { source: "/blog/harlingen-seo-how-to-rank-local-business", destination: "/local-seo-harlingen-tx", permanent: true },
+      { source: "/blog/mcallen-seo-how-to-rank-local-business", destination: "/local-seo-mcallen-tx", permanent: true },
     ];
   },
 };
