@@ -169,31 +169,8 @@ function SeptemberBuildFeePromo({ highlighted = false }: { highlighted?: boolean
 
 function WebsitesTab({ onQuote }: { onQuote: () => void }) {
   return (
-    <div className="flex flex-col gap-6">
+    <div className="mx-auto grid max-w-5xl gap-6 lg:grid-cols-2">
       <Card
-        stacked
-        featureGrid
-        tier="// Lead system"
-        name="CRM Lead Management"
-        description="Stop losing leads in texts, voicemail, and random emails. One inbox, one pipeline."
-        price="$97"
-        priceSuffix="/mo"
-        priceNote="month-to-month"
-        features={[
-          "Every form fill, call, and chat lands in one place",
-          "Instant ping when a new lead comes in",
-          "Text and email from the same inbox (phone in your pocket)",
-          "Simple pipeline: new → talking → booked → won",
-          "See which ads or pages actually sent the lead",
-          "Calendar so bookings don't live in a notebook",
-          "Works on your phone",
-        ]}
-        ctaLabel="Get Started →"
-        ctaHref="https://buy.stripe.com/8x2bJ12UsbWK29saNz7Zu0m"
-      />
-      <Card
-        stacked
-        featureGrid
         highlighted
         tier="// Site + leads"
         name="Website + CRM"
@@ -206,8 +183,8 @@ function WebsitesTab({ onQuote }: { onQuote: () => void }) {
           "Custom site, not a template",
           "Hosting, SSL, backups, security",
           "Unlimited standard updates (hours, photos, copy, services)",
-          "Forms + chat dump straight into the CRM",
-          "Everything in the $97 CRM",
+          "Every form fill, call, and chat lands in one inbox",
+          "Instant ping when a new lead comes in, text and email back from your phone",
           "Mobile-first and bilingual if you need it",
           "We keep it live and patched so you don't babysit WordPress",
         ]}
@@ -215,8 +192,6 @@ function WebsitesTab({ onQuote }: { onQuote: () => void }) {
         ctaHref="https://buy.stripe.com/9B66oH0MkbWK7tMf3P7Zu0B"
       />
       <Card
-        stacked
-        featureGrid
         tier="// Get found"
         name="SEO Package"
         description="Website + CRM, then we work Google so more of the right people find you. No #1 ranking guarantee."
