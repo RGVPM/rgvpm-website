@@ -488,12 +488,13 @@ body {
 /* ── Homepage responsive rules ─────────────────────────────────── */
 @media (max-width: 1023px) {
   .rg-hero-grid { grid-template-columns: 1fr !important; row-gap: var(--s7) !important; }
-  /* Stacked layout: only the front site renders, full width, so the hero
-     can't push the client strip and the next section down. */
-  .rg-stack { aspect-ratio: auto; max-width: 600px; margin: 0 auto; }
-  .rg-stack-card--back, .rg-stack-card--mid { display: none; }
-  .rg-stack-card--front { position: static; width: 100%; }
+  /* Stacked layout: the same three-site composition as desktop, scaled
+     down and capped, so phones see all three client sites without the
+     hero growing much taller. Hover lifts are off on touch. */
+  .rg-stack { aspect-ratio: 1 / 0.9; max-width: 560px; margin: 0 auto; }
   .rg-stack-card--front .rg-stack-frame:hover { transform: none; }
+  .rg-stack-card--back .rg-stack-frame:hover { transform: rotate(-4.5deg); }
+  .rg-stack-card--mid  .rg-stack-frame:hover { transform: rotate(3.5deg); }
   .rg-split { grid-template-columns: 1fr !important; gap: var(--s7) !important; }
   .rg-sticky { position: static !important; }
 }
