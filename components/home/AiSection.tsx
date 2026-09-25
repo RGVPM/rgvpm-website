@@ -12,31 +12,11 @@ import { AI_BOOKING_URL } from "@/lib/aiImplementation";
  * five builds in a 3 + 2 grid, CTAs below. Stacks to one column at 900px.
  */
 const BUILDS: { icon: Parameters<typeof Icon>[0]["name"]; title: string; text: string }[] = [
-  {
-    icon: "target",
-    title: "AI consulting & strategy",
-    text: "We map where your time and leads go, and where AI actually helps. Plain answers, no hype.",
-  },
-  {
-    icon: "phone",
-    title: "AI receptionist & chat",
-    text: "Answers calls and website chats around the clock, qualifies the lead, and books the appointment.",
-  },
-  {
-    icon: "bolt",
-    title: "Automated follow-up",
-    text: "Every new lead gets a text and an email within seconds, then a follow-up sequence that runs on its own.",
-  },
-  {
-    icon: "settings",
-    title: "Workflow automation & custom builds",
-    text: "Reports, intake, scheduling, handoffs. If your team does it by hand every week, we can likely automate it.",
-  },
-  {
-    icon: "users",
-    title: "AI training for your team",
-    text: "Hands-on sessions that get your people using AI tools with confidence in their day-to-day work.",
-  },
+  { icon: "target", title: "AI consulting", text: "Find where AI actually pays off." },
+  { icon: "phone", title: "AI receptionist & chat", text: "Answers 24/7 and books appointments." },
+  { icon: "bolt", title: "Automated follow-up", text: "Every lead answered in seconds." },
+  { icon: "settings", title: "Workflow automation", text: "Automate your team's repetitive work." },
+  { icon: "users", title: "AI training for teams", text: "Get your team fluent in AI tools." },
 ];
 
 const mono = "var(--font-dm-mono), ui-monospace, monospace";
@@ -57,31 +37,22 @@ export default function AiSection() {
               We Run on AI.
               <span style={{ display: "block", color: "var(--orange)" }}>Now We Build It for You.</span>
             </h2>
-            <p style={{ fontSize: 17, lineHeight: 1.7, color: "rgba(255,255,255,0.74)", margin: 0, maxWidth: "54ch" }}>
-              AI is built into everything we do, from research and copy to follow-up that runs on its
-              own. We&rsquo;ll show you where it fits in your business, then build it.
+            <p style={{ fontSize: 17, lineHeight: 1.7, color: "rgba(255,255,255,0.74)", margin: 0, maxWidth: "54ch", textWrap: "pretty" }}>
+              AI runs through everything we do. We&rsquo;ll show you where it fits in your business,
+              then build it.
             </p>
             </div>
 
             <ul className="rg-ai-builds">
               {BUILDS.map((b) => (
                 <li key={b.title} className="rg-ai-build">
-                  <span
-                    aria-hidden="true"
-                    style={{
-                      width: 44,
-                      height: 44,
-                      borderRadius: "var(--r-sm)",
-                      background: "rgba(232,98,26,0.14)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <Icon name={b.icon} size={20} color="var(--orange-on-dark)" />
+                  <span className="rg-ai-icon" aria-hidden="true">
+                    <Icon name={b.icon} size={18} color="var(--orange-on-dark)" />
                   </span>
-                  <h3 style={{ fontSize: 19, fontWeight: 700, color: "#fff", lineHeight: 1.3, margin: "var(--s4) 0 0" }}>{b.title}</h3>
-                  <p style={{ fontSize: 15, lineHeight: 1.65, color: "rgba(255,255,255,0.68)", margin: "var(--s2) 0 0", maxWidth: "40ch" }}>{b.text}</p>
+                  <span>
+                    <h3 style={{ fontSize: 17, fontWeight: 700, color: "#fff", lineHeight: 1.3, margin: 0 }}>{b.title}</h3>
+                    <p style={{ fontSize: 14.5, lineHeight: 1.55, color: "rgba(255,255,255,0.66)", margin: "4px 0 0" }}>{b.text}</p>
+                  </span>
                 </li>
               ))}
             </ul>
