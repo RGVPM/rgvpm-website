@@ -43,7 +43,7 @@ export function GET() {
   lines.push(`# ${SITE.name}`);
   lines.push("");
   lines.push(
-    `> AI-powered digital marketing agency based in ${SITE.city}, ${SITE.region}, serving small and local businesses across the ${SITE.areaServed}. We build and run the digital growth engine — websites, local SEO, Google Business Profile, paid ads, AI automation, lead management, and bilingual (English/Spanish) content — on simple, month-to-month plans with no long-term contracts.`,
+    `> AI and marketing agency based in ${SITE.city}, ${SITE.region}, serving small and local businesses across the ${SITE.areaServed}. We build and run the digital growth engine (websites, local SEO, Google Business Profile, paid ads, and lead management) and consult on and build AI systems for businesses: AI receptionists, automated lead follow-up, chatbots, and workflow automation. Bilingual (English/Spanish) content is available, and plans are simple and month-to-month with no long-term contracts.`,
   );
   lines.push("");
   lines.push(`- **Location:** ${SITE.city}, ${SITE.region} (service-area business serving the Rio Grande Valley)`);

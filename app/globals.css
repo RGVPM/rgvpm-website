@@ -235,6 +235,24 @@ html { scroll-behavior: smooth; }
 }
 .rg-bento-cell:hover .rg-bento-shot { transform: rotate(-3deg) translateY(-8px); }
 
+/* ── Homepage AI section ───────────────────────────────────────── */
+.rg-ai-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: clamp(40px, 6vw, 88px);
+  align-items: center;
+}
+@media (max-width: 900px) {
+  .rg-ai-grid { grid-template-columns: 1fr; }
+  /* Stacked: the headline and list lead; the photo follows as the sign-off. */
+  .rg-ai-photo { max-width: 420px; order: 2; }
+}
+@media (max-width: 560px) {
+  .rg-ai-actions { flex-direction: column; align-items: stretch !important; }
+  .rg-ai-actions > a:first-child { justify-content: center; }
+  .rg-ai-actions > a:last-child { text-align: center; }
+}
+
 /* ── Timeline rail ─────────────────────────────────────────────── */
 .rg-process-head {
   display: grid;

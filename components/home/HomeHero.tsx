@@ -18,7 +18,7 @@ export default function HomeHero() {
   const proof = [
     "Local team in Harlingen",
     "50+ live client sites",
-    "Month-to-month plans",
+    "AI consulting & builds",
   ];
 
   return (
@@ -38,6 +38,12 @@ export default function HomeHero() {
         <div className="rg-hero-grid">
           {/* ── Message ─────────────────────────────────────────── */}
           <div className="rg-hero-msg">
+            <p
+              className="hero-animate rg-label"
+              style={{ color: "var(--orange-on-dark)", margin: "0 0 var(--s5)", animationDelay: "0s" }}
+            >
+              AI &amp; Marketing Agency
+            </p>
             <h1
               id="hero-heading"
               className="rg-display"
@@ -75,8 +81,9 @@ export default function HomeHero() {
                 animationDelay: "0.27s",
               }}
             >
-              Most businesses don&rsquo;t lose customers because they&rsquo;re bad. They lose
-              them because customers never find them. We build the systems that fix that.
+              We&rsquo;re an AI and marketing agency. We get you found on Google, then build the
+              AI that answers your calls, follows up with every lead, and takes the busywork off
+              your plate.
             </p>
 
             <div

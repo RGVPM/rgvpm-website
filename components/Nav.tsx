@@ -20,13 +20,14 @@ const SOLUTIONS = [
   { label: "Google Business Profile", href: "/services/google-business-profile" },
   { label: "Paid Advertising", href: "/services/paid-advertising" },
   { label: "Lead Management", href: "/services/lead-management" },
-  { label: "AI Implementation", href: "/services/ai-implementation" },
+  { label: "AI Consulting & Builds", href: "/services/ai-implementation" },
   { label: "SMS & Email Marketing", href: "/services/sms-email-marketing" },
   { label: "Social Media & Newsletters", href: "/services/social-media-newsletter" },
 ];
 
 const NAV_LINKS: NavItem[] = [
   { label: "Solutions", href: "/services", children: SOLUTIONS },
+  { label: "AI Consulting", href: "/services/ai-implementation" },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
   { label: "Blogs", href: "/blog" },

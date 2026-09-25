@@ -7,16 +7,18 @@ export const AI_BOOKING_URL =
 /** Shared, non-city content for the AI Implementation service + city pages. */
 
 export const AI_IMPL = {
-  eyebrow: "AI Implementation",
-  h1: "Put AI to Work in Your Business",
+  eyebrow: "AI Consulting & Implementation",
+  h1: "AI Consulting That Turns Into Real Systems",
   heroSub:
-    "Stop doing manually what a system can do automatically. We build AI and automation into your business so calls get answered, follow-up happens instantly, and the repetitive work runs itself.",
-  metaTitle: "AI Implementation & Business Automation for Local Business",
+    "We run our own agency on AI, and we'll show you exactly where it fits in yours. Then we build it: AI that answers your calls, follows up with every lead, and takes the repetitive work off your team.",
+  metaTitle: "AI Consulting & Implementation for Small Business",
   metaDescription:
-    "AI implementation and business automation for local businesses — AI voice receptionist, automated lead follow-up, workflow automation, chatbots, and more. Book an AI strategy call with RGV Performance Marketing.",
+    "AI consulting and implementation for small and local businesses: AI strategy, AI receptionists, automated lead follow-up, chatbots, workflow automation, and team training. Book an AI strategy call with RGV Performance Marketing.",
   primaryKeyword: "AI implementation for small business",
   keywordCluster: [
     "AI implementation for small business",
+    "AI consulting services",
+    "AI consultant for small business",
     "business automation",
     "AI tools for local business",
     "marketing automation",
@@ -25,24 +27,19 @@ export const AI_IMPL = {
 
 export const AI_WHAT_WE_DO: { icon: IconName; title: string; text: string }[] = [
   {
+    icon: "target",
+    title: "AI Strategy & Consulting",
+    text: "We map how your leads come in and where your team's time goes, then show you where AI actually pays off. Plain answers, no hype.",
+  },
+  {
     icon: "phone",
     title: "AI Voice Receptionist",
-    text: "Answers your calls, qualifies leads, and books appointments 24/7 — so you never miss an opportunity, even after hours.",
+    text: "Answers your calls, qualifies leads, and books appointments around the clock, so you never miss an opportunity, even after hours.",
   },
   {
     icon: "chat",
     title: "Automated Lead Follow-Up",
-    text: "SMS and email sequences triggered instantly the moment a lead comes in, so prospects hear from you while interest is highest.",
-  },
-  {
-    icon: "settings",
-    title: "Workflow Automation",
-    text: "Connect the tools you already use and eliminate the repetitive manual tasks quietly eating up your day.",
-  },
-  {
-    icon: "megaphone",
-    title: "AI Content Creation Systems",
-    text: "Systems that help you produce social media posts, newsletters, and ad copy at scale — consistently and on brand.",
+    text: "Text and email sequences triggered the moment a lead comes in, so prospects hear from you while interest is highest.",
   },
   {
     icon: "cpu",
@@ -51,15 +48,20 @@ export const AI_WHAT_WE_DO: { icon: IconName; title: string; text: string }[] = 
   },
   {
     icon: "wrench",
-    title: "Custom Automation Builds",
-    text: "Have a process that's uniquely yours? We design and build custom automations tailored to how your business actually runs.",
+    title: "Workflow Automation & Custom Builds",
+    text: "Connect the tools you already use and automate the repetitive work. Have a process that's uniquely yours? We design and build around it.",
+  },
+  {
+    icon: "users",
+    title: "AI Training for Your Team",
+    text: "Hands-on sessions that get your people using AI tools with confidence, so the gains don't stop at what we build.",
   },
 ];
 
 export const AI_STEPS: { title: string; text: string }[] = [
   {
-    title: "Audit Your Workflow",
-    text: "We map how leads come in, where time gets lost, and which repetitive tasks are ripe for automation — so we automate what actually moves the needle.",
+    title: "Consult & Audit",
+    text: "We sit down with you, map how leads come in and where time gets lost, and pick the few places where AI will actually move the needle.",
   },
   {
     title: "Build the Automation Stack",

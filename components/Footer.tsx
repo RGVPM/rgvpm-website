@@ -23,7 +23,7 @@ export default function Footer() {
           <div>
             <Image src="/logo.png" alt="RGV Performance Marketing" width={200} height={47} sizes="200px" style={{ height: 47, width: "auto", marginBottom: 16 }} />
             <p style={{ fontSize: 13, color: "rgba(255,255,255,0.62)", lineHeight: 1.7, maxWidth: 260, marginBottom: 20 }}>
-              AI-powered digital marketing for local businesses. Websites, SEO, ads, lead management, newsletters, and more. Locally rooted. Built to scale.
+              An AI and marketing agency for local businesses. Websites, SEO, ads, and AI systems that answer calls and follow up for you. Locally rooted. Built to scale.
             </p>
             <address style={{ fontSize: 13, color: "rgba(255,255,255,0.55)", lineHeight: 1.9, fontStyle: "normal" }}>
               <div>📍 Harlingen, TX</div>
@@ -46,7 +46,7 @@ export default function Footer() {
               title: "Services",
               links: [
                 { label: "Website Design", href: "/services/website-design" },
-                { label: "AI Implementation", href: "/services/ai-implementation" },
+                { label: "AI Consulting & Builds", href: "/services/ai-implementation" },
                 { label: "Google Business Profile", href: "/services/google-business-profile" },
                 { label: "Local SEO", href: "/services/local-seo" },
                 { label: "Paid Advertising", href: "/services/paid-advertising" },

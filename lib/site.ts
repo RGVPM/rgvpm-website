@@ -13,7 +13,7 @@ export const SITE = {
   /** Approx. coordinates for Harlingen, TX (service-area business — no public street address). */
   geo: { latitude: 26.1906, longitude: -97.6961 },
   description:
-    "AI-powered digital marketing for local businesses. Websites, SEO, paid ads, lead management, newsletters, and more. Locally rooted. Built to scale.",
+    "An AI and marketing agency for local businesses. We build websites, SEO, and ads, plus the AI systems that answer calls, follow up with leads, and cut the busywork. Locally rooted. Built to scale.",
   team: "The RGV Performance Marketing Team",
   /** Booking / discovery-call URL (used as a contact action). */
   bookingUrl: "https://api.rgvperformancemarketing.com/widget/bookings/rgvpmdiscoverycall",

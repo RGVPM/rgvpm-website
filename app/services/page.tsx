@@ -17,8 +17,8 @@ const specialized = [
   {
     href: "/services/ai-implementation",
     icon: "cpu" as const,
-    title: "AI Implementation",
-    text: "Put AI to work in your business — an AI voice receptionist, instant lead follow-up, chatbots, and workflow automation that runs the busywork for you.",
+    title: "AI Consulting & Builds",
+    text: "We show you where AI fits in your business, then build it: an AI receptionist, instant lead follow-up, chatbots, workflow automation, and training for your team.",
   },
 ];
 
@@ -79,7 +79,7 @@ export default function ServicesHub() {
                 Specialized Services
               </span>
               <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 0" }}>
-                Website Design &amp; AI Implementation
+                Website Design &amp; AI Consulting
               </h2>
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 20 }} className="why-grid-responsive">

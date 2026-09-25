@@ -205,8 +205,8 @@ export default function AboutPage() {
                   margin: "var(--s5) 0 0",
                 }}
               >
-                We&rsquo;re a husband-and-wife team in Harlingen, Texas. We build websites, local
-                search, ads, and follow-up systems for small businesses, then run them so the
+                We&rsquo;re a husband-and-wife AI and marketing agency in Harlingen, Texas. We build
+                websites, local search, ads, and the AI systems behind them, then run it all so the
                 owner doesn&rsquo;t have to. And we&rsquo;re growing.
               </p>
             </div>

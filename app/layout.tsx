@@ -7,11 +7,11 @@ import PageTransition from "@/components/PageTransition";
 
 export const metadata: Metadata = {
   title: {
-    default: "RGV Performance Marketing | AI-Powered Digital Marketing",
+    default: "RGV Performance Marketing | AI & Marketing Agency",
     template: "%s | RGV Performance Marketing",
   },
   description:
-    "AI-powered digital marketing for local businesses. Websites, SEO, paid ads, lead management, newsletters, and more. Locally rooted. Built to scale.",
+    "An AI and marketing agency for local businesses. We build websites, SEO, and ads, plus the AI systems that answer calls, follow up with leads, and cut the busywork. Locally rooted. Built to scale.",
   metadataBase: new URL("https://rgvperformancemarketing.com"),
   openGraph: {
     type: "website",
@@ -21,9 +21,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "RGV Performance Marketing | AI-Powered Digital Marketing",
+    title: "RGV Performance Marketing | AI & Marketing Agency",
     description:
-      "AI-powered digital marketing for local businesses in the Rio Grande Valley. Websites, SEO, paid ads, lead management, and more.",
+      "An AI and marketing agency for local businesses in the Rio Grande Valley. Websites, SEO, ads, and AI systems that answer calls and follow up for you.",
   },
   alternates: { canonical: "https://rgvperformancemarketing.com" },
   robots: {

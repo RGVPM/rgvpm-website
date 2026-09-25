@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 const crumbs = [
   { name: "Home", path: "/" },
   { name: "Services", path: "/services" },
-  { name: "AI Implementation", path },
+  { name: "AI Consulting", path },
 ];
 
 const serviceSchema = {
