@@ -108,9 +108,10 @@ export default function AiImplementationPage({ eyebrow, h1, heroSub, crumbs, cit
               Learn the tools we use every day by building a real tool for your own business, from an
               empty folder to a live link. No coding background needed, and you keep everything you build.
             </p>
-            <Link href="/learn-claude-code" className="rg-hero-secondary" style={{ display: "inline-block", marginTop: 24 }}>
-              How build sessions work
-            </Link>
+            <div style={{ display: "flex", gap: 24, flexWrap: "wrap", marginTop: 24 }}>
+              <Link href="/learn-claude-code" className="rg-hero-secondary">How build sessions work</Link>
+              <Link href="/claude-code-templates" className="rg-hero-secondary">Free Claude Code templates</Link>
+            </div>
           </div>
           <ul className="rg-tool-chips" aria-label="Tools you'll learn">
             {AI_TOOLS.map((t) => (

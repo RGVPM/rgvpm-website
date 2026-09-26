@@ -356,6 +356,62 @@ html { scroll-behavior: smooth; }
   .rg-bwm { grid-template-columns: 1fr; }
 }
 
+/* ── /claude-code-templates (lead magnet) ──────────────────────── */
+.rg-kit-hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--s7) clamp(40px, 6vw, 88px);
+  align-items: start;
+}
+.rg-kit-list {
+  list-style: none;
+  margin: var(--s6) 0 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+  color: rgba(255,255,255,0.86);
+  font-size: 15.5px;
+}
+.rg-kit-list li { display: flex; gap: 10px; }
+.rg-kit-list li span { color: var(--orange-on-dark); font-weight: 700; }
+.rg-kit-card {
+  background: #fff;
+  border-radius: var(--r-lg);
+  padding: clamp(24px, 3vw, 34px);
+  box-shadow: 0 34px 70px -30px rgba(4,9,20,0.85);
+  border-top: 4px solid var(--orange);
+}
+.rg-kit-two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s8) clamp(40px, 6vw, 96px);
+}
+.rg-kit-days { list-style: none; margin: var(--s5) 0 0; padding: 0; }
+.rg-kit-days li {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+  font-size: 16.5px;
+  font-weight: 600;
+  color: var(--navy);
+}
+.rg-kit-days li span {
+  font-family: var(--font-dm-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--orange-ink);
+  min-width: 48px;
+}
+@media (max-width: 900px) {
+  .rg-kit-hero, .rg-kit-two { grid-template-columns: 1fr; }
+  /* The full list repeats in "What's in the kit" below; on phones the
+     signup card should come straight after the intro. */
+  .rg-kit-list { display: none; }
+}
+
 /* ── /learn-claude-code ─────────────────────────────────────────── */
 .rg-steps--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .rg-steps--4 .rg-step-marker { box-shadow: 0 0 0 6px #fff; }

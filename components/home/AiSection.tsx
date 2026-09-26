@@ -93,6 +93,12 @@ export default function AiSection() {
                 Learn Claude Code 1-on-1
               </Link>
             </div>
+            <p style={{ margin: "var(--s5) 0 0", fontSize: 14.5, color: "rgba(255,255,255,0.66)" }}>
+              <span style={{ fontFamily: "var(--font-dm-mono), ui-monospace, monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange-on-dark)", marginRight: 10 }}>Free</span>
+              <Link href="/claude-code-templates" style={{ color: "#fff", fontWeight: 600, textUnderlineOffset: 4 }}>
+                Claude Code templates + a 5-day build course
+              </Link>
+            </p>
           </div>
         </div>
       </div>

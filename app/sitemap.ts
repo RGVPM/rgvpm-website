@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // noindex and deliberately absent here.
     { path: "/website-offer", priority: 0.9, changeFrequency: "monthly" },
     { path: "/learn-claude-code", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/claude-code-templates", priority: 0.8, changeFrequency: "monthly" },
     { path: "/about", priority: 0.6, changeFrequency: "yearly" },
     { path: "/contact", priority: 0.7, changeFrequency: "yearly" },
     { path: "/blog", priority: 0.5, changeFrequency: "weekly" },
