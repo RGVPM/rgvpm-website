@@ -3,7 +3,6 @@
 
 ## Get started
 - Install Claude Code: see https://docs.claude.com (search "Claude Code quickstart").
-- Install Codex CLI: `npm install -g @openai/codex`, then run `codex`.
 - Start a session: open a terminal **inside your project folder** and run `claude`.
 
 ## The everyday moves

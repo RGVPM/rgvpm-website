@@ -211,13 +211,13 @@ export default function LearnClaudeCodePage() {
                 Not Ready for a Session? <span style={{ color: "var(--orange)" }}>Start Free.</span>
               </h2>
               <p style={{ fontSize: 16.5, lineHeight: 1.7, color: "rgba(255,255,255,0.74)", margin: "14px 0 0", maxWidth: "50ch" }}>
-                Get our Claude Code templates and a 5-day email course that takes you from install to
-                a live link.
+                Get a free AI agent that reviews your inbox every morning, plus our Claude Code starter
+                kit and a 5-day email course.
               </p>
             </div>
             <div>
               <Link href="/claude-code-templates" className="rg-hero-cta" style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "var(--orange)", color: "#fff", fontWeight: 700, fontSize: 17, lineHeight: 1, padding: "17px 24px", borderRadius: "var(--r-hero-sm)", textDecoration: "none", boxShadow: "var(--shadow-orange)" }}>
-                Get the free templates <span aria-hidden="true">→</span>
+                Get the free agent <span aria-hidden="true">→</span>
               </Link>
             </div>
           </div>

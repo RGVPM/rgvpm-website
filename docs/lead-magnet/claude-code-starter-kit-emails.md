@@ -1,118 +1,119 @@
-# Claude Code Starter Kit: welcome email + 5-day course
+# Free Morning Inbox Agent: welcome email + 5-day course
 
-Load these into your email system as an automation triggered by the "Claude Code Starter
-Kit" form. Tag new subscribers `claude-code-kit` and add them to the newsletter list.
+Load these into your email system as an automation triggered by the "Claude Code
+Starter Kit" form. Tag new subscribers `claude-code-kit` and add them to the
+newsletter list. Timing: Welcome immediately, then Day 1 to Day 5 once a day at 9:00 AM.
 
-Suggested timing: Welcome immediately, then Day 1 to Day 5 once a day at 9:00 AM.
-Every email links back to the kit page: https://rgvperformancemarketing.com/claude-code-templates/kit
+Kit link used below: https://rgvperformancemarketing.com/claude-code-templates/kit
+
+**The goal of this sequence:** get them one quick win (the agent running), show them
+they can change it themselves with Claude Code, then invite them to a 1-on-1 session
+to build something bigger.
 
 ---
 
 ## Welcome (send immediately)
 
-**Subject:** Your Claude Code Starter Kit is here
-**Preview:** Templates, a cheat sheet, and your first build this week.
+**Subject:** Your free AI inbox agent is ready
+**Preview:** 10 minutes today, a sorted inbox every morning after.
 
 Hey {{first_name}},
 
-Here's your kit: https://rgvperformancemarketing.com/claude-code-templates/kit
+Here's your Morning Inbox Agent: https://rgvperformancemarketing.com/claude-code-templates/kit
 
-Inside: a CLAUDE.md template, a one-page project spec, three "build this" templates (a
-landing page, a quote calculator, and a weekly report), and a Claude Code cheat sheet.
+Four steps, copy and paste, about 10 minutes. Starting tomorrow, around 8 AM, you'll
+get one email that tells you what needs your reply, what you're waiting on, and what
+you can skip.
 
-Starting tomorrow, you'll get one short email a day for five days. By Friday you'll have
-built and shipped your first AI tool. No coding background needed.
+Set it up today and reply to tell me when your first briefing lands.
 
-Talk soon,
 Derrick
 RGV Performance Marketing
 
 ---
 
-## Day 1: Set up your workbench
+## Day 1: Get it running
 
-**Subject:** Day 1: Get Claude Code running (15 minutes)
-**Preview:** One folder, one terminal, one command.
+**Subject:** Did your first briefing show up?
+**Preview:** If not, here's the one step people miss.
 
-Today is just setup.
+If your agent is running, you should have a briefing in your inbox already.
 
-1. Install Claude Code. Search "Claude Code quickstart" on docs.claude.com and follow the steps for your computer.
-2. Make a new empty folder on your desktop. Call it `first-build`.
-3. Open a terminal in that folder and type `claude`.
-4. Say hello. Ask it: "What can you help me build in this folder?"
+If not, it's almost always step 4: after you click Run, Google asks for permission.
+Click Review permissions, pick your account, then Advanced, then Go to the project,
+then Allow. It looks scary. It's your own script, running in your own account.
 
-That's it. If you got a reply, you're set up. Tomorrow we teach it about your business.
+Kit and steps: https://rgvperformancemarketing.com/claude-code-templates/kit
 
-Stuck? Reply to this email and tell me where.
-
----
-
-## Day 2: Teach it your business
-
-**Subject:** Day 2: The one file that makes AI actually useful
-**Preview:** CLAUDE.md is the difference between generic and yours.
-
-Open the kit and copy `CLAUDE.md` into your `first-build` folder.
-
-Fill in the blanks: what the project is, who it's for, your real business facts, and how
-you want it to work. Five minutes, max.
-
-Why this matters: Claude Code reads this file every time it starts. It's how it knows your
-phone number, your prices, your colors, and that it should never make things up.
-
-Using Codex? Copy `AGENTS.md` too. It does the same job for Codex.
+Stuck anywhere? Hit reply and tell me which step.
 
 ---
 
-## Day 3: Write the spec
+## Day 2: Turn on the AI summary
 
-**Subject:** Day 3: Say what "done" looks like
-**Preview:** The 10 minutes that save you hours.
+**Subject:** Make your briefing think for you
+**Preview:** Top priorities and suggested replies, for a few cents a day.
 
-Most bad AI builds start with a vague ask. Today you write a clear one.
+Right now your briefing sorts your inbox. Today, let's make it think.
 
-Pick one of the three build templates in the kit (the quote calculator is a great first
-build), or fill in `project-spec-template.md` for your own idea.
+1. Get a Claude API key at console.anthropic.com (API Keys, Create Key).
+2. In your Apps Script project: gear icon, Script properties, Add script property.
+   Name: ANTHROPIC_API_KEY. Value: your key. Save.
 
-The most important part: section 7, the example. Paste a real sample of what goes in and
-what a good result looks like.
-
-Save it. Tomorrow we build.
-
----
-
-## Day 4: Build it
-
-**Subject:** Day 4: Build day
-**Preview:** Paste the spec. Ask for the plan. Then let it work.
-
-Open your folder, start `claude`, and paste your spec with this line at the end:
-
-"Show me your plan first. Don't change anything until I say go."
-
-Read the plan. Push back on anything that's off. Then say go.
-
-When it's done, open the result. Ask for changes in plain English, one at a time:
-"Make the button bigger." "Add a field for zip code." "Undo that last change."
-
-This is the whole skill: describe, review, steer.
+Tomorrow's briefing will open with your top 3 priorities and a one-line suggested reply
+for every email that needs one. It typically costs a few cents a day.
 
 ---
 
-## Day 5: Ship it
+## Day 3: Make it yours with Claude Code
 
-**Subject:** Day 5: Put it on the internet
-**Preview:** A live link you can send to anyone.
+**Subject:** Change your agent by asking in plain English
+**Preview:** No coding. You describe it, Claude Code writes it.
 
-Ask Claude Code: "How do I put this online for free?" For a simple page, it will likely
-walk you through Netlify, where you can drag your folder onto the page and get a live link.
+This is the part most people don't know is possible.
 
-Send that link to one person today.
+1. Install Claude Code: search "Claude Code quickstart" on docs.claude.com.
+2. Save your agent script into a folder on your computer.
+3. Open that folder in Claude Code and ask for what you want:
+   - "Flag anything about invoices or payments as urgent."
+   - "Also send the briefing to my assistant."
+   - "Only send it on weekdays, at 7 AM."
+4. Paste the new version back into Apps Script, Save, and run setup again.
 
-You just built and shipped an AI tool. Most people never get this far.
+You just edited an AI agent without writing code. That's the whole skill.
 
-Want to go further? We sit down with business owners 1-on-1 and build real tools together:
-custom agents, internal apps, and the systems that run the business.
-https://rgvperformancemarketing.com/learn-claude-code
+---
+
+## Day 4: Build your second agent
+
+**Subject:** What else could run while you sleep?
+**Preview:** Your next agent, in one sentence.
+
+Now that you've seen it work, think about what else you check every morning or every
+week by hand. A few ideas owners build next:
+
+- A Friday email that lists every lead that didn't get a reply this week.
+- A daily note of tomorrow's appointments, pulled from your calendar.
+- A weekly summary of your sales spreadsheet.
+
+Open Claude Code in a new folder, copy in CLAUDE.md from your kit (fill in the blanks
+about your business), and describe the agent in one or two sentences. Ask it to show
+you the plan before it builds.
+
+---
+
+## Day 5: What to automate next
+
+**Subject:** Want to build the next one together?
+**Preview:** 1-on-1, your business, a real tool by the end.
+
+You've got an agent running every morning and you've changed it yourself. Most people
+never get that far.
+
+If you want to go bigger (agents that follow up with leads, tools your team uses every
+day, the systems that run the business), we sit down with owners 1-on-1 and build it
+together with Claude Code. You drive, I coach, and you keep everything.
+
+Book a build session: https://rgvperformancemarketing.com/learn-claude-code
 
 Derrick
