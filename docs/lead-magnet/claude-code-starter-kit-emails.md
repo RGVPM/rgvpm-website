@@ -35,25 +35,50 @@ RGV Performance Marketing
 
 ---
 
-## Day 1: Get it running
+## Day 1: Install Claude Code
 <!-- Send only after Derrick has personally sent the agent. -->
 
-**Subject:** Did your first briefing show up?
-**Preview:** If not, here's the one step people miss.
+**Subject:** Day 1: Install Claude Code (and check your agent)
+**Preview:** The tool behind everything we build. 15 minutes.
 
-If your agent is running, you should have a briefing in your inbox already.
+Today is setup day.
 
-If not, it's almost always step 4: after you click Run, Google asks for permission.
-Click Review permissions, pick your account, then Advanced, then Go to the project,
-then Allow. It looks scary. It's your own script, running in your own account.
+1. Install Claude Code. Search "Claude Code quickstart" on docs.claude.com and follow the
+   steps for your computer.
+2. Make a folder on your desktop called `my-agents` and save your Morning Inbox Agent
+   script into it.
+3. Open a terminal in that folder, type `claude`, and ask: "Explain what this script does,
+   in plain English."
 
-The full steps are in the setup guide I sent you.
+That's it. Tomorrow you'll use it to change your agent.
+
+Also: if your first inbox briefing hasn't shown up yet, it's almost always the permission
+step. After you click Run, Google asks for permission: click Review permissions, pick your
+account, then Advanced, then Go to the project, then Allow. It's your own script, running
+in your own account.
 
 Stuck anywhere? Hit reply and tell me which step.
 
 ---
 
-## Day 2: Turn on the AI summary
+## Day 2: Make your agent yours
+
+**Subject:** Change your agent by asking in plain English
+**Preview:** No coding. You describe it, Claude Code writes it.
+
+Open your `my-agents` folder in Claude Code and ask for what you want:
+
+- "Flag anything about invoices or payments as urgent."
+- "Also send the briefing to my assistant."
+- "Only send it on weekdays, at 7 AM."
+
+Paste the new version back into Apps Script, Save, and run setup again.
+
+You just edited an AI agent without writing code. That's the whole skill.
+
+---
+
+## Day 3: Turn on the AI summary
 
 **Subject:** Make your briefing think for you
 **Preview:** Top priorities and suggested replies, for a few cents a day.
@@ -66,25 +91,6 @@ Right now your briefing sorts your inbox. Today, let's make it think.
 
 Tomorrow's briefing will open with your top 3 priorities and a one-line suggested reply
 for every email that needs one. It typically costs a few cents a day.
-
----
-
-## Day 3: Make it yours with Claude Code
-
-**Subject:** Change your agent by asking in plain English
-**Preview:** No coding. You describe it, Claude Code writes it.
-
-This is the part most people don't know is possible.
-
-1. Install Claude Code: search "Claude Code quickstart" on docs.claude.com.
-2. Save your agent script into a folder on your computer.
-3. Open that folder in Claude Code and ask for what you want:
-   - "Flag anything about invoices or payments as urgent."
-   - "Also send the briefing to my assistant."
-   - "Only send it on weekdays, at 7 AM."
-4. Paste the new version back into Apps Script, Save, and run setup again.
-
-You just edited an AI agent without writing code. That's the whole skill.
 
 ---
 

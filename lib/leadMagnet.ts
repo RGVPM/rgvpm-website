@@ -32,9 +32,9 @@ export const KIT_PROMISE = [
 ] as const;
 
 export const KIT_COURSE = [
-  { day: "Day 1", title: "Get your morning agent running" },
-  { day: "Day 2", title: "Turn on the AI summary" },
-  { day: "Day 3", title: "Install Claude Code and make the agent yours" },
+  { day: "Day 1", title: "Install Claude Code" },
+  { day: "Day 2", title: "Make your agent yours with Claude Code" },
+  { day: "Day 3", title: "Turn on the AI summary" },
   { day: "Day 4", title: "Build your second agent" },
   { day: "Day 5", title: "What to automate next" },
 ] as const;
