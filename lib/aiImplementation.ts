@@ -53,8 +53,8 @@ export const AI_WHAT_WE_DO: { icon: IconName; title: string; text: string }[] = 
   },
   {
     icon: "users",
-    title: "AI Training for Your Team",
-    text: "Hands-on sessions that get your people using AI tools with confidence, so the gains don't stop at what we build.",
+    title: "Learn to Build With AI",
+    text: "One-on-one and team sessions where you learn Claude Code and Codex by building a real tool for your business.",
   },
 ];
 
@@ -110,16 +110,16 @@ export const AI_FAQS: FaqItem[] = [
 
 export const AI_RELATED: RelatedLink[] = [
   {
+    href: "/learn-claude-code",
+    title: "Learn Claude Code 1-on-1",
+    text: "Build a real tool for your business with AI coding agents, with us beside you.",
+    icon: "cpu",
+  },
+  {
     href: "/services/lead-management",
     title: "Lead Management",
     text: "The pipeline and automation that captures and converts every inquiry.",
     icon: "settings",
-  },
-  {
-    href: "/services/sms-email-marketing",
-    title: "SMS & Email Marketing",
-    text: "Two-way conversations, broadcasts, and automated follow-up that fuel your automations.",
-    icon: "chat",
   },
   {
     href: "/services/website-design",

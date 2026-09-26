@@ -27,7 +27,14 @@ const SOLUTIONS = [
 
 const NAV_LINKS: NavItem[] = [
   { label: "Solutions", href: "/services", children: SOLUTIONS },
-  { label: "AI Consulting", href: "/services/ai-implementation" },
+  {
+    label: "AI",
+    href: "/services/ai-implementation",
+    children: [
+      { label: "AI Consulting & Builds", href: "/services/ai-implementation" },
+      { label: "Learn Claude Code 1-on-1", href: "/learn-claude-code" },
+    ],
+  },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
   { label: "Blogs", href: "/blog" },
@@ -303,6 +310,8 @@ export default function Nav() {
                       boxShadow: "var(--shadow-3)",
                     }}
                   >
+                    {/* Skip the "All …" link when a child already goes to the same page. */}
+                    {!item.children.some((c) => c.href === item.href) && (
                     <Link
                       href={item.href}
                       onClick={() => setMenu(null)}
@@ -327,6 +336,7 @@ export default function Nav() {
                       All {item.label}
                       <span aria-hidden="true">→</span>
                     </Link>
+                    )}
                     {item.children.map((child) => (
                       <Link
                         key={child.href}

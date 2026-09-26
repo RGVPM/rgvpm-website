@@ -8,15 +8,16 @@ import { AI_BOOKING_URL } from "@/lib/aiImplementation";
  * The agency's AI positioning on the homepage: consulting first, then the
  * systems we build. No pricing: the CTA is the AI strategy calendar.
  *
- * Server component, no client JS. Full-width: heading and intro on top, the
- * five builds in a 3 + 2 grid, CTAs below. Stacks to one column at 900px.
+ * Server component, no client JS. Full-width: heading and intro on top, six
+ * offers in two rows of three, CTAs below. Stacks to one column at 900px.
  */
 const BUILDS: { icon: Parameters<typeof Icon>[0]["name"]; title: string; text: string }[] = [
+  { icon: "users", title: "Build with me, 1-on-1", text: "Learn Claude Code and Codex by building." },
+  { icon: "cpu", title: "Custom AI agents", text: "Agents that research, write, and report." },
+  { icon: "wrench", title: "Custom tools & apps", text: "Internal tools shipped in days, not months." },
   { icon: "target", title: "AI consulting", text: "Find where AI actually pays off." },
-  { icon: "phone", title: "AI receptionist & chat", text: "Answers 24/7 and books appointments." },
-  { icon: "bolt", title: "Automated follow-up", text: "Every lead answered in seconds." },
-  { icon: "settings", title: "Workflow automation", text: "Automate your team's repetitive work." },
-  { icon: "users", title: "AI training for teams", text: "Get your team fluent in AI tools." },
+  { icon: "phone", title: "AI receptionist & follow-up", text: "Calls and leads answered 24/7." },
+  { icon: "chart", title: "Team AI workshops", text: "Get your whole team building with AI." },
 ];
 
 const mono = "var(--font-dm-mono), ui-monospace, monospace";
@@ -35,11 +36,11 @@ export default function AiSection() {
             <div className="rg-ai-head">
             <h2 id="ai-heading" className="rg-display" style={{ fontSize: "var(--fs-h2)", color: "#fff", margin: 0 }}>
               We Run on AI.
-              <span style={{ display: "block", color: "var(--orange)" }}>Now We Build It for You.</span>
+              <span style={{ display: "block", color: "var(--orange)" }}>Now Build It With Us.</span>
             </h2>
             <p style={{ fontSize: 17, lineHeight: 1.7, color: "rgba(255,255,255,0.74)", margin: 0, maxWidth: "54ch", textWrap: "pretty" }}>
-              AI runs through everything we do. We&rsquo;ll show you where it fits in your business,
-              then build it.
+              We build real software with Claude Code and Codex every day. We&rsquo;ll build it for
+              you, or sit down one-on-one and teach you to build your own.
             </p>
             </div>
 
@@ -79,10 +80,10 @@ export default function AiSection() {
                   transition: "transform var(--t-fast) var(--ease), box-shadow var(--t-med) var(--ease)",
                 }}
               >
-                Book an AI strategy call <span aria-hidden="true">→</span>
+                Book an AI session <span aria-hidden="true">→</span>
               </a>
-              <Link href="/services/ai-implementation" className="rg-hero-secondary">
-                See our AI consulting
+              <Link href="/learn-claude-code" className="rg-hero-secondary">
+                Learn Claude Code 1-on-1
               </Link>
             </div>
           </div>

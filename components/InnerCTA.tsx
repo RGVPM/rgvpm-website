@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function InnerCTA({
   heading = "Ready to Grow Your Business?",
-  text = "Pick your plan and we'll have you up and running in two weeks. No long-term commitment required.",
+  text = "Pick your plan and we can have your new site live in as little as 8 to 10 days. No long-term commitment required.",
 }: {
   heading?: string;
   text?: string;

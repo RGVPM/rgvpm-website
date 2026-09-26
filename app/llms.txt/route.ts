@@ -16,7 +16,8 @@ import { POSTS } from "@/lib/posts";
 
 const SERVICES: { name: string; path: string; summary: string }[] = [
   { name: "Website Design", path: "/services/website-design", summary: "Fast, mobile-first, SEO-ready websites with lead capture built in." },
-  { name: "AI Implementation", path: "/services/ai-implementation", summary: "AI voice receptionist, instant lead follow-up, chatbots, and workflow automation." },
+  { name: "AI Consulting & Builds", path: "/services/ai-implementation", summary: "AI strategy and consulting, custom AI agents and tools, AI receptionist, instant lead follow-up, chatbots, and workflow automation." },
+  { name: "Learn Claude Code 1-on-1", path: "/learn-claude-code", summary: "One-on-one and team sessions teaching business owners to build real tools with AI coding agents like Claude Code and Codex. No coding background needed." },
   { name: "Local SEO", path: "/services/local-seo", summary: "On-page optimization, local content, and citation building to rank in your city and service area." },
   { name: "Google Business Profile", path: "/services/google-business-profile", summary: "GBP optimization, reviews, and map-pack visibility." },
   { name: "Paid Advertising", path: "/services/paid-advertising", summary: "Google and Meta ad campaigns managed to produce real leads." },
