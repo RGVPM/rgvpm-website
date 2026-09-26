@@ -236,8 +236,8 @@ html { scroll-behavior: smooth; }
 .rg-bento-cell:hover .rg-bento-shot { transform: rotate(-3deg) translateY(-8px); }
 
 /* ── Homepage AI section ─────────────────────────────────────────
-   Heading stacked over the intro, then five builds in a 3 + 2 grid on
-   a 6-column track, separated by hairlines, no cards.
+   Heading stacked over the intro, then six offers in two rows of three
+   on a 6-column track, separated by hairlines, no cards.
    ─────────────────────────────────────────────────────────────── */
 .rg-ai-head {
   display: grid;
@@ -261,7 +261,6 @@ html { scroll-behavior: smooth; }
   padding-top: var(--s4);
   border-top: 1px solid rgba(255,255,255,0.14);
 }
-.rg-ai-build:nth-child(n+4) { grid-column: span 3; }
 .rg-ai-icon {
   width: 36px;
   height: 36px;
@@ -273,7 +272,7 @@ html { scroll-behavior: smooth; }
 }
 @media (max-width: 900px) {
   .rg-ai-builds { grid-template-columns: 1fr; gap: 0; margin-top: var(--s6); }
-  .rg-ai-build, .rg-ai-build:nth-child(n+4) { grid-column: auto; padding: var(--s4) 0; }
+  .rg-ai-build { grid-column: auto; padding: var(--s4) 0; }
   .rg-ai-build:last-child { border-bottom: 1px solid rgba(255,255,255,0.14); }
 }
 @media (max-width: 560px) {
@@ -324,6 +323,24 @@ html { scroll-behavior: smooth; }
   font-size: 21px;
   letter-spacing: 0.06em;
   box-shadow: 0 0 0 6px var(--cream);
+}
+
+/* ── /learn-claude-code ─────────────────────────────────────────── */
+.rg-steps--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.rg-steps--4 .rg-step-marker { box-shadow: 0 0 0 6px #fff; }
+.rg-lcc-proof {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: var(--s5) clamp(32px, 5vw, 80px);
+  align-items: center;
+}
+.rg-lcc-two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s8) clamp(40px, 6vw, 96px);
+}
+@media (max-width: 900px) {
+  .rg-lcc-proof, .rg-lcc-two { grid-template-columns: 1fr; }
 }
 
 /* ── Closing reassurance line: hairline-separated, no dots ──────── */
@@ -661,10 +678,49 @@ body {
   animation: rgTrackLeft var(--track-duration, 60s) linear infinite;
 }
 .rg-marquee-track[data-dir="right"] { animation-name: rgTrackRight; }
-/* Pause on hover and while any child has keyboard focus, so a
-   keyboard user can actually reach the links inside a moving track. */
-.rg-scroller:hover .rg-marquee-track,
-.rg-scroller:focus-within .rg-marquee-track { animation-play-state: paused; }
+/* Pause on hover (real pointers only) and while a child has *keyboard*
+   focus, so a keyboard user can reach the links in a moving track.
+   Both used to fire on phones too: a tap left :hover / :focus-within stuck
+   and the strip froze until the page reloaded. */
+@media (hover: hover) and (pointer: fine) {
+  .rg-scroller:hover .rg-marquee-track { animation-play-state: paused; }
+}
+.rg-scroller:has(:focus-visible) .rg-marquee-track { animation-play-state: paused; }
+
+/* Client logo strip cells. Per-logo height comes in as --logo-mh so it
+   can be scaled down on small screens. */
+.rg-logo-cell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 0 48px;
+  height: 100px;
+  opacity: 0.82;
+  text-decoration: none;
+}
+.rg-logo-img {
+  height: auto;
+  width: auto;
+  max-width: 260px;
+  max-height: var(--logo-mh, 84px);
+  object-fit: contain;
+}
+.rg-logo-word {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  letter-spacing: 0.05em;
+  color: var(--navy);
+  white-space: nowrap;
+}
+@media (max-width: 640px) {
+  .rg-hide-sm { display: none; }
+  .rg-logo-strip { padding: 36px 0 !important; }
+  .rg-logo-strip p { margin-bottom: 18px !important; }
+  .rg-logo-cell { padding: 0 26px; height: 72px; }
+  .rg-logo-img { max-width: 170px; max-height: calc(var(--logo-mh, 84px) * 0.66); }
+  .rg-logo-word { font-size: 20px; }
+}
 
 /* Work cards — lift and warm the frame on hover/focus */
 .rg-work-frame {

@@ -3,7 +3,7 @@ import ClientMarquee from "@/components/ClientMarquee";
 
 export function IndustryStrip() {
   return (
-    <section style={{ padding: "60px 0", background: "var(--cream-dark)" }}>
+    <section className="rg-logo-strip" style={{ padding: "60px 0", background: "var(--cream-dark)" }}>
       <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
         <ClientMarquee />
       </div>

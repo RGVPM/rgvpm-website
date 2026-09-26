@@ -25,7 +25,7 @@ export default function ClientMarquee() {
           marginBottom: 28,
         }}
       >
-        Trusted by 50+ businesses across Texas and beyond
+        Trusted by 50+ businesses<span className="rg-hide-sm"> across Texas and beyond</span>
       </p>
       <div
         className="rg-scroller"
@@ -60,37 +60,16 @@ function Pass() {
             width={360}
             // next/image won't optimize SVG; serve those files as-is.
             unoptimized={client.logo.endsWith(".svg")}
-            style={{
-              height: "auto",
-              maxHeight: client.maxHeight ?? 84,
-              width: "auto",
-              maxWidth: 260,
-              objectFit: "contain",
-            }}
+            // Eager: lazy images inside a transformed, overflow-hidden track
+            // load late or never on some phones, leaving blank gaps.
+            loading="eager"
+            className="rg-logo-img"
+            style={{ ["--logo-mh" as string]: `${client.maxHeight ?? 84}px` }}
           />
         ) : (
-          <span
-            style={{
-              fontFamily: "'Bebas Neue', sans-serif",
-              fontSize: 26,
-              letterSpacing: "0.05em",
-              color: "var(--navy)",
-              whiteSpace: "nowrap",
-            }}
-          >
-            {client.name}
-          </span>
+          <span className="rg-logo-word">{client.name}</span>
         );
-        const cell = {
-          display: "inline-flex",
-          alignItems: "center",
-          justifyContent: "center",
-          flexShrink: 0,
-          padding: "0 48px",
-          height: 100,
-          opacity: 0.82,
-          textDecoration: "none",
-        } as const;
+
         // Clients without a url render as a plain image, not a link.
         return client.url ? (
           <a
@@ -99,12 +78,12 @@ function Pass() {
             target="_blank"
             rel="noopener"
             aria-label={`${client.name} — visit their website (opens in a new tab)`}
-            style={cell}
+            className="rg-logo-cell"
           >
             {inner}
           </a>
         ) : (
-          <span key={client.name} style={cell}>
+          <span key={client.name} className="rg-logo-cell">
             {inner}
           </span>
         );
