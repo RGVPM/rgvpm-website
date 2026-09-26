@@ -9,6 +9,7 @@ import {
   AI_WHO,
   AI_FAQS,
   AI_RELATED,
+  AI_TOOLS,
 } from "@/lib/aiImplementation";
 
 const stepAccents = ["var(--orange)", "var(--teal)", "#6E86B8"];
@@ -79,7 +80,7 @@ export default function AiImplementationPage({ eyebrow, h1, heroSub, crumbs, cit
               AI &amp; Automation, Built For Your Business
             </h2>
             <p style={{ fontSize: 16, color: "var(--muted)", lineHeight: 1.65 }}>
-              From answering calls to following up with leads, we put the right systems to work so your business runs without the busywork.
+              From one-on-one build sessions to custom agents and tools, we put real AI to work in your business, and teach you and your team to build it too.
             </p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20 }} className="svc-grid-responsive">
@@ -93,6 +94,29 @@ export default function AiImplementationPage({ eyebrow, h1, heroSub, crumbs, cit
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Build with me, 1-on-1 */}
+      <section style={{ padding: "72px 0", background: "var(--navy)" }}>
+        <div className="rg-container rg-bwm">
+          <div>
+            <h2 className="rg-display" style={{ fontSize: "clamp(32px,3.8vw,50px)", color: "#fff", margin: 0 }}>
+              Build With Me, <span style={{ color: "var(--orange)" }}>1-on-1</span>
+            </h2>
+            <p style={{ fontSize: 16.5, lineHeight: 1.7, color: "rgba(255,255,255,0.74)", margin: "16px 0 0", maxWidth: "52ch" }}>
+              Learn the tools we use every day by building a real tool for your own business, from an
+              empty folder to a live link. No coding background needed, and you keep everything you build.
+            </p>
+            <Link href="/learn-claude-code" className="rg-hero-secondary" style={{ display: "inline-block", marginTop: 24 }}>
+              How build sessions work
+            </Link>
+          </div>
+          <ul className="rg-tool-chips" aria-label="Tools you'll learn">
+            {AI_TOOLS.map((t) => (
+              <li key={t}>{t}</li>
+            ))}
+          </ul>
         </div>
       </section>
 

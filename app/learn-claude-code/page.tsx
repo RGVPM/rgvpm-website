@@ -3,7 +3,7 @@ import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FaqAccordion from "@/components/FaqAccordion";
-import { AI_BOOKING_URL } from "@/lib/aiImplementation";
+import { AI_BOOKING_URL, AI_TOOLS } from "@/lib/aiImplementation";
 import { canonical, breadcrumbSchema, faqSchema, SITE, LOCAL_BUSINESS_ID } from "@/lib/site";
 
 /**
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 
 const STEPS = [
   { num: "01", title: "Bring a real problem", text: "A report you rebuild every week, a tool you wish existed, a site you want to ship. We build around it." },
-  { num: "02", title: "Set up your tools", text: "Claude Code and Codex on your own machine, with GitHub, so everything you build stays yours." },
+  { num: "02", title: "Set up your tools", text: "Claude Code, Codex, and the rest of the stack on your own machine, with GitHub, so everything stays yours." },
   { num: "03", title: "Build it together", text: "You drive, I coach. Write the spec, steer the agent, review what it made, and fix what's off." },
   { num: "04", title: "Ship it and keep it", text: "We put it live, then you leave with the project, the notes, and a plan for what to build next." },
 ];
@@ -55,7 +55,7 @@ const WHO = [
   "Developers who want to move faster with agents",
 ];
 
-const TOOLS = ["Claude Code", "Codex", "Claude", "ChatGPT", "Cursor", "GitHub", "Next.js", "Supabase", "n8n", "Netlify"];
+const TOOLS = [...AI_TOOLS, "GitHub", "Cursor", "Next.js", "Supabase", "n8n", "Netlify"];
 
 const FAQS = [
   { q: "Do I need to know how to code?", a: "No. Most people who book have never written code. AI coding agents write the code; you learn to describe what you want clearly, steer the agent, and check the result. That's the skill that matters now." },
@@ -193,7 +193,8 @@ export default function LearnClaudeCodePage() {
           <div className="rg-container" style={{ textAlign: "center" }}>
             <h2 className="rg-display" style={{ fontSize: "clamp(28px, 3vw, 40px)", color: "var(--navy)", margin: 0 }}>The Tools You&rsquo;ll Use</h2>
             <p style={{ fontSize: 16, color: "var(--muted)", margin: "var(--s3) auto 0", maxWidth: "52ch" }}>
-              The same stack we build with. We pick the right ones for what you&rsquo;re making.
+              Claude Code, Codex, Hermes, Grok, Orca, and Grokbot, plus the stack we ship with. We
+              pick the right ones for what you&rsquo;re making.
             </p>
             <ul style={{ listStyle: "none", margin: "var(--s6) auto 0", padding: 0, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 10, maxWidth: 820 }}>
               {TOOLS.map((t) => (

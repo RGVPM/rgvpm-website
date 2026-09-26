@@ -4,16 +4,20 @@ import type { FaqItem, RelatedLink } from "@/lib/webDesign";
 export const AI_BOOKING_URL =
   "https://api.rgvperformancemarketing.com/widget/bookings/ai-implementation-rgvpm";
 
+/** The AI tools we build with and teach in 1-on-1 sessions. One list, used
+ *  on the homepage, the AI page, and /learn-claude-code so they never drift. */
+export const AI_TOOLS = ["Claude Code", "Codex", "Hermes", "Grok", "Orca", "Grokbot"] as const;
+
 /** Shared, non-city content for the AI Implementation service + city pages. */
 
 export const AI_IMPL = {
   eyebrow: "AI Consulting & Implementation",
   h1: "AI Consulting That Turns Into Real Systems",
   heroSub:
-    "We run our own agency on AI, and we'll show you exactly where it fits in yours. Then we build it: AI that answers your calls, follows up with every lead, and takes the repetitive work off your team.",
+    "We run our own agency on AI. We'll show you where it fits in yours, build it for you, or sit down one-on-one and teach you to build it yourself: custom agents, custom tools, and AI that answers calls and follows up with every lead.",
   metaTitle: "AI Consulting & Implementation for Small Business",
   metaDescription:
-    "AI consulting and implementation for small and local businesses: AI strategy, AI receptionists, automated lead follow-up, chatbots, workflow automation, and team training. Book an AI strategy call with RGV Performance Marketing.",
+    "AI consulting and builds for small and local businesses: 1-on-1 build sessions with Claude Code and Codex, custom AI agents and tools, AI strategy, AI receptionists and follow-up, and team AI workshops. Book an AI session with RGV Performance Marketing.",
   primaryKeyword: "AI implementation for small business",
   keywordCluster: [
     "AI implementation for small business",
@@ -27,34 +31,34 @@ export const AI_IMPL = {
 
 export const AI_WHAT_WE_DO: { icon: IconName; title: string; text: string }[] = [
   {
+    icon: "users",
+    title: "Build With Me, 1-on-1",
+    text: "Learn Claude Code, Codex, Hermes, Grok, Orca, and Grokbot by building a real tool for your own business, one-on-one.",
+  },
+  {
+    icon: "cpu",
+    title: "Custom AI Agents",
+    text: "Agents that research, write, report, and run whole parts of your operation, built around your data and your tools.",
+  },
+  {
+    icon: "wrench",
+    title: "Custom Tools & Apps",
+    text: "Internal tools, dashboards, and apps shipped in days, not months, with the same AI coding agents we teach.",
+  },
+  {
     icon: "target",
     title: "AI Strategy & Consulting",
     text: "We map how your leads come in and where your team's time goes, then show you where AI actually pays off. Plain answers, no hype.",
   },
   {
     icon: "phone",
-    title: "AI Voice Receptionist",
-    text: "Answers your calls, qualifies leads, and books appointments around the clock, so you never miss an opportunity, even after hours.",
+    title: "AI Receptionist & Follow-Up",
+    text: "Calls, chats, and new leads answered around the clock, with follow-up that keeps running on its own.",
   },
   {
-    icon: "chat",
-    title: "Automated Lead Follow-Up",
-    text: "Text and email sequences triggered the moment a lead comes in, so prospects hear from you while interest is highest.",
-  },
-  {
-    icon: "cpu",
-    title: "Chatbots for Web & Social",
-    text: "Answer questions and capture leads automatically on your website and in your social media DMs.",
-  },
-  {
-    icon: "wrench",
-    title: "Workflow Automation & Custom Builds",
-    text: "Connect the tools you already use and automate the repetitive work. Have a process that's uniquely yours? We design and build around it.",
-  },
-  {
-    icon: "users",
-    title: "Learn to Build With AI",
-    text: "One-on-one and team sessions where you learn Claude Code and Codex by building a real tool for your business.",
+    icon: "chart",
+    title: "Team AI Workshops",
+    text: "Hands-on workshops that get your whole team building with AI, around the workflows you actually run.",
   },
 ];
 
@@ -76,23 +80,27 @@ export const AI_STEPS: { title: string; text: string }[] = [
 export const AI_WHO = {
   heading: "Who it's for",
   intro:
-    "AI implementation is built for local businesses losing time and leads to manual work. It's a fit if you:",
+    "Our AI work is for businesses that want AI doing real work, not just a chatbot on the website. It's a fit if you:",
   bullets: [
-    "Spend too much time on manual follow-up and day-to-day admin",
-    "Miss calls — and lose the leads that come with them",
-    "Lose business because nobody responds to inquiries fast enough",
-    "Repeat the same tasks every day that a system could handle for you",
+    "Want to learn to build your own AI tools, not just buy them",
+    "Have a process your team repeats every week that AI could run",
+    "Need a custom tool or agent that off-the-shelf software doesn't cover",
+    "Miss calls and lose leads because nobody responds fast enough",
   ],
 };
 
 export const AI_FAQS: FaqItem[] = [
+  {
+    q: "Can you teach me to build with AI myself?",
+    a: "Yes. In our one-on-one build sessions you learn Claude Code, Codex, and the other tools we use by building a real tool for your own business, from an empty folder to a live link. No coding background needed, and you keep everything you build. Teams can book workshops too.",
+  },
   {
     q: "Do I need to be tech-savvy?",
     a: "Not at all. We handle the setup, the integrations, and the ongoing management — you just tell us how your business runs. Everything is built to be simple for you and your team to use day to day.",
   },
   {
     q: "What tools do you use?",
-    a: "We work with leading AI and automation platforms and connect them to the software you already rely on. Rather than forcing one rigid system on you, we recommend the right stack for your business and your budget.",
+    a: "For building, we work with AI coding agents and models including Claude Code, Codex, Hermes, Grok, Orca, and Grokbot, and connect what we build to the software you already rely on. We pick the right tool for the job and your budget rather than forcing one system on you."
   },
   {
     q: "How long does implementation take?",

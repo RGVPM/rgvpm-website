@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Icon from "@/components/Icon";
-import { AI_BOOKING_URL } from "@/lib/aiImplementation";
+import { AI_BOOKING_URL, AI_TOOLS } from "@/lib/aiImplementation";
 
 /**
  * "We run on AI. Now we build it for you."
@@ -11,8 +11,8 @@ import { AI_BOOKING_URL } from "@/lib/aiImplementation";
  * Server component, no client JS. Full-width: heading and intro on top, six
  * offers in two rows of three, CTAs below. Stacks to one column at 900px.
  */
-const BUILDS: { icon: Parameters<typeof Icon>[0]["name"]; title: string; text: string }[] = [
-  { icon: "users", title: "Build with me, 1-on-1", text: "Learn Claude Code and Codex by building." },
+const BUILDS: { icon: Parameters<typeof Icon>[0]["name"]; title: string; text: string; tools?: readonly string[] }[] = [
+  { icon: "users", title: "Build with me, 1-on-1", text: "Learn by building with:", tools: AI_TOOLS },
   { icon: "cpu", title: "Custom AI agents", text: "Agents that research, write, and report." },
   { icon: "wrench", title: "Custom tools & apps", text: "Internal tools shipped in days, not months." },
   { icon: "target", title: "AI consulting", text: "Find where AI actually pays off." },
@@ -53,6 +53,13 @@ export default function AiSection() {
                   <span>
                     <h3 style={{ fontSize: 17, fontWeight: 700, color: "#fff", lineHeight: 1.3, margin: 0 }}>{b.title}</h3>
                     <p style={{ fontSize: 14.5, lineHeight: 1.55, color: "rgba(255,255,255,0.66)", margin: "4px 0 0" }}>{b.text}</p>
+                    {b.tools && (
+                      <ul className="rg-tool-chips rg-tool-chips--sm" aria-label="Tools">
+                        {b.tools.map((t) => (
+                          <li key={t}>{t}</li>
+                        ))}
+                      </ul>
+                    )}
                   </span>
                 </li>
               ))}
