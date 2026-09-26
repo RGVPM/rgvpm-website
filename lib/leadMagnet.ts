@@ -4,34 +4,23 @@ import { SITE } from "@/lib/site";
  * AI lead magnet: a free Morning Inbox Agent (the centerpiece) plus the
  * Claude Code Starter Kit and a 5-day email course.
  *
+ * Derrick sends the kit to each new signup personally, so there is no
+ * public download or setup page. The kit source lives in
+ * docs/lead-magnet/claude-code-starter-kit/ (not served by the site).
+ *
  * FORM: create a form in the lead system (first name + email) named
- * "Claude Code Starter Kit", point its on-submit redirect at KIT_PAGE, and
- * paste its ID below. Until then the landing page falls back to a
- * pre-filled email so no signup is lost. Welcome + 5-day email copy lives in
- * docs/lead-magnet/claude-code-starter-kit-emails.md.
+ * "Claude Code Starter Kit" and paste its ID below. Until then the landing
+ * page falls back to a pre-filled email so no signup is lost. Welcome +
+ * 5-day email copy lives in docs/lead-magnet/claude-code-starter-kit-emails.md.
  */
 export const KIT_FORM_ID = ""; // TODO(owner): paste the lead-system form ID
 
 export const KIT_NAME = "Claude Code Starter Kit";
 export const KIT_LANDING = "/claude-code-templates";
-export const KIT_PAGE = "/claude-code-templates/kit";
-export const KIT_ZIP = "/kits/claude-code-starter-kit.zip";
-export const KIT_DIR = "/kits/claude-code-starter-kit";
 
 export const KIT_FALLBACK_MAILTO =
   `mailto:${SITE.email}?subject=${encodeURIComponent("Send me the Claude Code Starter Kit")}` +
   `&body=${encodeURIComponent("Hi! Please send me the free Claude Code Starter Kit and add me to the 5-day course.\n\nName:\n")}`;
-
-/** The free agent: the Apps Script file people paste into script.google.com. */
-export const KIT_AGENT_FILE = "morning-inbox-agent.gs";
-
-/** Everything in the kit, in reading order. `file` is relative to KIT_DIR. */
-export const KIT_FILES = [
-  { file: "morning-inbox-agent-setup.md", title: "Morning Inbox Agent: setup guide", text: "Four steps, about 10 minutes, no coding." },
-  { file: "morning-inbox-agent.gs", title: "Morning Inbox Agent", text: "Reviews your Gmail every morning and emails you a briefing." },
-  { file: "CLAUDE.md", title: "CLAUDE.md template", text: "The instructions file Claude Code reads every session. Fill in the blanks for your business." },
-  { file: "claude-code-cheat-sheet.md", title: "Claude Code cheat sheet", text: "The commands and habits you'll use every day." },
-] as const;
 
 /** What the landing page promises, in plain English. */
 export const KIT_PROMISE = [

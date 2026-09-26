@@ -4,7 +4,9 @@ Load these into your email system as an automation triggered by the "Claude Code
 Starter Kit" form. Tag new subscribers `claude-code-kit` and add them to the
 newsletter list. Timing: Welcome immediately, then Day 1 to Day 5 once a day at 9:00 AM.
 
-Kit link used below: https://rgvperformancemarketing.com/claude-code-templates/kit
+There is no public download page. Derrick sends each new signup the agent and setup
+guide personally (files in `docs/lead-magnet/claude-code-starter-kit/`), so the welcome
+email only confirms the signup and sets the expectation.
 
 **The goal of this sequence:** get them one quick win (the agent running), show them
 they can change it themselves with Claude Code, then invite them to a 1-on-1 session
@@ -14,18 +16,19 @@ to build something bigger.
 
 ## Welcome (send immediately)
 
-**Subject:** Your free AI inbox agent is ready
-**Preview:** 10 minutes today, a sorted inbox every morning after.
+**Subject:** You're in. Your AI inbox agent is on its way
+**Preview:** I'm sending it to you personally.
 
 Hey {{first_name}},
 
-Here's your Morning Inbox Agent: https://rgvperformancemarketing.com/claude-code-templates/kit
+Thanks for signing up. I'm sending your Morning Inbox Agent to you personally, along
+with a short setup guide. Watch for it from me within one business day.
 
-Four steps, copy and paste, about 10 minutes. Starting tomorrow, around 8 AM, you'll
-get one email that tells you what needs your reply, what you're waiting on, and what
-you can skip.
+Setup is four steps, copy and paste, about 10 minutes. After that, every morning
+around 8 AM you'll get one email that tells you what needs your reply, what you're
+waiting on, and what you can skip.
 
-Set it up today and reply to tell me when your first briefing lands.
+When it arrives, set it up and reply to tell me when your first briefing lands.
 
 Derrick
 RGV Performance Marketing
@@ -33,6 +36,7 @@ RGV Performance Marketing
 ---
 
 ## Day 1: Get it running
+<!-- Send only after Derrick has personally sent the agent. -->
 
 **Subject:** Did your first briefing show up?
 **Preview:** If not, here's the one step people miss.
@@ -43,7 +47,7 @@ If not, it's almost always step 4: after you click Run, Google asks for permissi
 Click Review permissions, pick your account, then Advanced, then Go to the project,
 then Allow. It looks scary. It's your own script, running in your own account.
 
-Kit and steps: https://rgvperformancemarketing.com/claude-code-templates/kit
+The full steps are in the setup guide I sent you.
 
 Stuck anywhere? Hit reply and tell me which step.
 

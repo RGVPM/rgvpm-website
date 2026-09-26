@@ -33,8 +33,8 @@ export const metadata: Metadata = {
 };
 
 const FAQS = [
-  { q: "Is it really free?", a: "Yes. Sign up with your name and email and you get the agent and the kit right away, plus five short emails that help you build your next one. Unsubscribe any time." },
-  { q: "Do I need to know how to code?", a: "No. Setup is copy and paste: open Google Apps Script, paste the agent in, click Run. The step-by-step guide walks you through every click." },
+  { q: "Is it really free?", a: "Yes. Sign up with your name and email and Derrick sends you the agent and setup guide personally, plus five short emails that help you build your next one. Unsubscribe any time." },
+  { q: "Do I need to know how to code?", a: "No. Setup is copy and paste: open Google Apps Script, paste the agent in, click Run. The setup guide we send you walks through every click." },
   { q: "Does it cost anything to run?", a: "The agent runs free on Google. The optional AI summary uses your own Claude API key and typically costs a few cents a day. Skip it and you still get a clean, sorted briefing every morning." },
   { q: "Is my email safe?", a: "The agent runs inside your own Google account, and nothing comes to us. If you turn on the AI summary, short previews of your emails are sent to Anthropic's API to write it." },
   { q: "Does it work with Outlook?", a: "Not this version. It works with Gmail and Google Workspace accounts." },
