@@ -6,7 +6,7 @@ export const AI_BOOKING_URL =
 
 /** The AI tools we build with and teach in 1-on-1 sessions. One list, used
  *  on the homepage, the AI page, and /learn-claude-code so they never drift. */
-export const AI_TOOLS = ["Claude Code", "Codex", "Hermes", "Grok", "Orca", "Grokbot"] as const;
+export const AI_TOOLS = ["Claude Code", "Codex", "Hermes", "Orca", "Grokbot"] as const;
 
 /** Shared, non-city content for the AI Implementation service + city pages. */
 
@@ -33,7 +33,7 @@ export const AI_WHAT_WE_DO: { icon: IconName; title: string; text: string }[] = 
   {
     icon: "users",
     title: "Build With Me, 1-on-1",
-    text: "Learn Claude Code, Codex, Hermes, Grok, Orca, and Grokbot by building a real tool for your own business, one-on-one.",
+    text: "Learn Claude Code, Codex, Hermes, Orca, and Grokbot by building a real tool for your own business, one-on-one.",
   },
   {
     icon: "cpu",
@@ -100,7 +100,7 @@ export const AI_FAQS: FaqItem[] = [
   },
   {
     q: "What tools do you use?",
-    a: "For building, we work with AI coding agents and models including Claude Code, Codex, Hermes, Grok, Orca, and Grokbot, and connect what we build to the software you already rely on. We pick the right tool for the job and your budget rather than forcing one system on you."
+    a: "For building, we work with AI coding agents and models including Claude Code, Codex, Hermes, Orca, and Grokbot, and connect what we build to the software you already rely on. We pick the right tool for the job and your budget rather than forcing one system on you."
   },
   {
     q: "How long does implementation take?",

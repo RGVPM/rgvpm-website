@@ -139,10 +139,9 @@ export default function LearnClaudeCodePage() {
                 We Don&rsquo;t Teach From Slides.
               </h2>
               <p style={{ fontSize: 17, lineHeight: 1.7, color: "var(--muted)", margin: 0, maxWidth: "56ch" }}>
-                This website, our client sites, and every{" "}
-                <a href="https://www.scanrank.co" target="_blank" rel="noopener" style={{ color: "var(--orange-ink)", fontWeight: 600 }}>ScanRank</a>{" "}
-                marketing report we deliver are built with Claude Code. You learn the exact workflow we
-                run our business on.
+                This website and the client sites we launch are built with Claude Code, and so are the
+                internal tools and AI agents we run our own business on. You learn the exact workflow we
+                use every day.
               </p>
             </div>
           </div>
@@ -193,7 +192,7 @@ export default function LearnClaudeCodePage() {
           <div className="rg-container" style={{ textAlign: "center" }}>
             <h2 className="rg-display" style={{ fontSize: "clamp(28px, 3vw, 40px)", color: "var(--navy)", margin: 0 }}>The Tools You&rsquo;ll Use</h2>
             <p style={{ fontSize: 16, color: "var(--muted)", margin: "var(--s3) auto 0", maxWidth: "52ch" }}>
-              Claude Code, Codex, Hermes, Grok, Orca, and Grokbot, plus the stack we ship with. We
+              Claude Code, Codex, Hermes, Orca, and Grokbot, plus the stack we ship with. We
               pick the right ones for what you&rsquo;re making.
             </p>
             <ul style={{ listStyle: "none", margin: "var(--s6) auto 0", padding: 0, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 10, maxWidth: 820 }}>
@@ -201,6 +200,26 @@ export default function LearnClaudeCodePage() {
                 <li key={t} style={{ fontFamily: mono, fontSize: 12.5, letterSpacing: "0.04em", color: "var(--navy)", background: "var(--cream)", border: "1px solid var(--border)", borderRadius: "var(--r-pill)", padding: "9px 16px" }}>{t}</li>
               ))}
             </ul>
+          </div>
+        </section>
+
+        {/* ── Free kit ─────────────────────────────────────────────── */}
+        <section style={{ background: "var(--navy)", paddingBlock: "var(--section-y-tight)" }}>
+          <div className="rg-container rg-bwm">
+            <div>
+              <h2 className="rg-display" style={{ fontSize: "clamp(30px, 3.4vw, 44px)", color: "#fff", margin: 0 }}>
+                Not Ready for a Session? <span style={{ color: "var(--orange)" }}>Start Free.</span>
+              </h2>
+              <p style={{ fontSize: 16.5, lineHeight: 1.7, color: "rgba(255,255,255,0.74)", margin: "14px 0 0", maxWidth: "50ch" }}>
+                Get our Claude Code templates and a 5-day email course that takes you from install to
+                a live link.
+              </p>
+            </div>
+            <div>
+              <Link href="/claude-code-templates" className="rg-hero-cta" style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "var(--orange)", color: "#fff", fontWeight: 700, fontSize: 17, lineHeight: 1, padding: "17px 24px", borderRadius: "var(--r-hero-sm)", textDecoration: "none", boxShadow: "var(--shadow-orange)" }}>
+                Get the free templates <span aria-hidden="true">→</span>
+              </Link>
+            </div>
           </div>
         </section>
 
