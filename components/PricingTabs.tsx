@@ -327,12 +327,12 @@ function PlansTab() {
           tier="// Full Service"
           name="Own the Market"
           description="Dominate your category. Full-service execution across every channel with a dedicated strategist in your corner."
-          price="$2,499"
+          price="$1,499"
           priceSuffix="/mo"
           priceNote="No activation fee"
           features={[
             "Everything in Build the Machine",
-            "Ads on Google and Meta — $750/mo ad spend included",
+            "Ads managed on Google and Meta (you fund the spend)",
             "We run social for you — posts + DMs (2 edited reels + 1 post + stories / week)",
             "Monthly on-site content with our content recruiter if local",
             "More automation — multi-channel nurture, lead scoring, monthly tune-up",
@@ -340,16 +340,17 @@ function PlansTab() {
             "Bi-weekly strategy calls",
             "Priority support",
           ]}
-          ctaLabel="Get Started →"
-          ctaHref="https://api.rgvperformancemarketing.com/payment-link/6a25c95c03b17c94f571507c"
+          // The old payment link charges $2,499/mo. Until a $1,499 link exists,
+          // this routes to the booking calendar so no one is charged the old price.
+          ctaLabel="Book a Call →"
+          ctaHref={BOOKING}
         />
       </div>
 
       <p className="mt-6 text-center text-sm text-slate-400">
-        All plans are month-to-month. Build the Machine has a one-time activation fee; Own the Market has none. On Build
-        the Machine, ad spend is billed by Google and Meta (you fund the spend). On Own the Market, $750/mo ad spend is
-        included; additional spend is billed separately. Website design is quoted separately on these plans, or see the
-        Websites tab for plans that include one.
+        All plans are month-to-month. Build the Machine has a one-time activation fee; Own the Market has none. On both
+        plans, ad spend is billed by Google and Meta (you fund the spend). Website design is quoted separately on these
+        plans, or see the Websites tab for plans that include one.
       </p>
     </div>
   );

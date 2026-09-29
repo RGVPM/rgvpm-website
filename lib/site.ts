@@ -101,7 +101,7 @@ export const PLANS = [
   { name: "Plant the Flag", price: 397, description: "A custom website built, hosted, and maintained for you, plus one inbox for every lead." },
   { name: "SEO Package", price: 597, description: "Everything in Plant the Flag, plus Google Business Profile and local SEO work so more of the right people find you." },
   { name: "Build the Machine", price: 899, description: "A full growth engine: SEO, paid ads management, two-way SMS & email, automation, and reporting." },
-  { name: "Own the Market", price: 2499, description: "Dominate locally: managed ads, content, social, reputation, and hands-on monthly optimization." },
+  { name: "Own the Market", price: 1499, description: "Dominate locally: managed ads, content, social, reputation, and hands-on monthly optimization." },
 ] as const;
 
 /** Absolute canonical URL for a given path ("/" or "/services/local-seo"). */
