@@ -340,10 +340,8 @@ function PlansTab() {
             "Bi-weekly strategy calls",
             "Priority support",
           ]}
-          // The old payment link charges $2,499/mo. Until a $1,499 link exists,
-          // this routes to the booking calendar so no one is charged the old price.
-          ctaLabel="Book a Call →"
-          ctaHref={BOOKING}
+          ctaLabel="Get Started →"
+          ctaHref="https://api.rgvperformancemarketing.com/payment-link/6abb6ded694b1c53da8ce2dc"
         />
       </div>
 
