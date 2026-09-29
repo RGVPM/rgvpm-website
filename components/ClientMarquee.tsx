@@ -35,7 +35,7 @@ export default function ClientMarquee() {
           WebkitMaskImage: "linear-gradient(to right, transparent, #000 8%, #000 92%, transparent)",
         }}
       >
-        <div className="rg-marquee-track" data-dir="right" style={{ ["--track-duration" as string]: "50s" }}>
+        <div className="rg-marquee-track" data-dir="right" style={{ ["--track-duration" as string]: "60s" }}>
           <Pass />
           {/* Duplicate pass makes the loop seamless. aria-hidden + inert so a
               screen reader meets each client once, not twice. */}

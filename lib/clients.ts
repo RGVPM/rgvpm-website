@@ -43,4 +43,8 @@ export const CLIENTS: Client[] = [
   { name: "The Spa Business Coach", logo: "/clients/the-spa-business-coach.png", maxHeight: 70 },
   // No website yet (Instagram only), so it renders unlinked.
   { name: "Tsukie Coffee", logo: "/clients/tsukie-coffee.png", maxHeight: 96 },
+  { name: "Glammed Up Aesthetics", url: "https://glammedupaesthetics.com", logo: "/clients/glammed-up-aesthetics.png", maxHeight: 76 },
+  { name: "EZ Clean Express", url: "https://www.ezcleanexpress.com", logo: "/clients/ez-clean-express.png", maxHeight: 80 },
+  // laferiacoop.com doesn't resolve yet, so the logo renders unlinked.
+  { name: "La Feria Co-op Gin & Supply", logo: "/clients/la-feria-coop.png", maxHeight: 84 },
 ];
