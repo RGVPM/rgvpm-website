@@ -1,0 +1,12 @@
+<!-- Netlify Forms registration only. Netlify reads this at deploy time to learn the
+     form's fields; the real form is components/AgentSignupForm.tsx, which POSTs here. -->
+<!DOCTYPE html>
+<html><body>
+  <form name="free-inbox-agent" data-netlify="true" netlify-honeypot="company" hidden>
+    <input type="hidden" name="form-name" value="free-inbox-agent" />
+    <input name="name" />
+    <input name="email" type="email" />
+    <input name="phone" type="tel" />
+    <input name="company" />
+  </form>
+</body></html>

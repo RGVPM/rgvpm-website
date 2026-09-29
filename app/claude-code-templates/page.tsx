@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Script from "next/script";
 import JsonLd from "@/components/JsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { canonical, breadcrumbSchema, faqSchema, SITE } from "@/lib/site";
-import { KIT_FORM_ID, KIT_FALLBACK_MAILTO, KIT_PROMISE, KIT_COURSE, KIT_NAME } from "@/lib/leadMagnet";
+import AgentSignupForm from "@/components/AgentSignupForm";
+import { KIT_PROMISE, KIT_COURSE } from "@/lib/leadMagnet";
 
 /**
  * Lead magnet landing page: a free Morning Inbox Agent + the Claude Code
  * Starter Kit + a 5-day email course, in exchange for a newsletter signup.
  *
  * Targets "claude code templates" (Semrush, Sept 2026: 880/mo, difficulty 11)
- * and "claude code cheat sheet" (390/mo). The signup form is an embed from the
- * lead system (KIT_FORM_ID); until that exists, a pre-filled email stands in.
+ * and "claude code cheat sheet" (390/mo). Signups (name, email, phone) go to
+ * Netlify Forms via components/AgentSignupForm.tsx.
  */
 const path = "/claude-code-templates";
 const url = canonical(path);
@@ -46,40 +46,6 @@ const crumbs = [
   { name: "Learn Claude Code", path: "/learn-claude-code" },
   { name: "Free AI Agent", path },
 ];
-
-function SignupBox() {
-  if (KIT_FORM_ID) {
-    return (
-      <>
-        <Script src="https://api.rgvperformancemarketing.com/js/form_embed.js" strategy="afterInteractive" />
-        <iframe
-          src={`https://api.rgvperformancemarketing.com/widget/form/${KIT_FORM_ID}`}
-          id={`inline-${KIT_FORM_ID}`}
-          title={KIT_NAME}
-          data-layout="{'id':'INLINE'}"
-          data-form-name={KIT_NAME}
-          data-layout-iframe-id={`inline-${KIT_FORM_ID}`}
-          data-form-id={KIT_FORM_ID}
-          style={{ width: "100%", minHeight: 420, border: "none", borderRadius: 8 }}
-        />
-      </>
-    );
-  }
-  return (
-    <>
-      <p style={{ fontSize: 15, lineHeight: 1.6, color: "var(--muted)", margin: "0 0 18px" }}>
-        Send us a quick email and we&rsquo;ll reply with the agent, the kit, and your 5-day course.
-      </p>
-      <a
-        href={KIT_FALLBACK_MAILTO}
-        className="rg-hero-cta"
-        style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 10, background: "var(--orange)", color: "#fff", fontWeight: 700, fontSize: 17, lineHeight: 1, padding: "18px 24px", borderRadius: "var(--r-hero-sm)", textDecoration: "none", boxShadow: "var(--shadow-orange)" }}
-      >
-        Send me the free agent <span aria-hidden="true">→</span>
-      </a>
-    </>
-  );
-}
 
 export default function ClaudeCodeTemplatesPage() {
   return (
@@ -118,7 +84,7 @@ export default function ClaudeCodeTemplatesPage() {
                 <h2 style={{ fontSize: 22, fontWeight: 700, color: "var(--navy)", lineHeight: 1.25, margin: "8px 0 14px" }}>
                   Join the AI Builder newsletter and get the agent free.
                 </h2>
-                <SignupBox />
+                <AgentSignupForm />
                 <p style={{ fontSize: 12.5, lineHeight: 1.5, color: "var(--muted)", margin: "14px 0 0" }}>
                   One useful email a week after the course. Unsubscribe any time.
                 </p>
