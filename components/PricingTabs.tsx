@@ -333,7 +333,7 @@ function PlansTab() {
           features={[
             "Everything in Build the Machine",
             "Ads managed on Google and Meta (you fund the spend)",
-            "We run social for you — posts + DMs (2 edited reels + 1 post + stories / week)",
+            "We run socials for you — posts + DMs (2 edited reels + 1 post + stories / week)",
             "Monthly on-site content with our content recruiter if local",
             "More automation — multi-channel nurture, lead scoring, monthly tune-up",
             "Dedicated account strategist",
