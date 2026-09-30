@@ -53,7 +53,7 @@ export const POSTS: Post[] = [
       ]},
       { type: "p", text: "That is the whole menu. A chatbot on the homepage that cannot book anything is not one of these jobs." },
       { type: "h2", text: "Start with the lead, not the tool" },
-      { type: "p", text: "If a new inquiry sits until the next morning, that is the first automation. An AI receptionist and follow-up can take the call or the form, answer the basic questions, and book or hand the lead to a person. You already know this costs you jobs. You do not need a strategy retreat to prove it." },
+      { type: "p", text: "If a new inquiry sits until the next morning, that is the first automation. An AI receptionist and follow-up can take the call or the form, answer the basic questions, and book or hand the lead to a person. You already know this costs you jobs. You do not need a strategy retreat to prove it.", links: [{ text: "AI receptionist and follow-up", href: "/services/ai-implementation" }] },
       { type: "p", text: "Do this only if a person still checks what the system said. AI should take the first reply. It should not invent prices, promises, or appointment times you do not offer." },
       { type: "h2", text: "Then use AI to get found" },
       { type: "p", text: "Search is changing. People ask Google, and they ask ChatGPT and other answer engines, \"who does this in Harlingen?\" Those answers are pulled from businesses that say, in plain language, what they do, where they do it, and how to hire them. An AI marketing agency in the Valley should be publishing that, city by city, not stuffing the phrase \"AI\" into a page that is really about something else." },
@@ -77,7 +77,8 @@ export const POSTS: Post[] = [
       { q: "Do I need to know how to code to use AI in my business?", a: "No. Answering leads and publishing clear service pages does not require code. Building your own internal tool is a separate step, and that is something you can learn one-on-one or have built for you." },
     ],
     related: [
-      { href: "/services/ai-implementation", label: "AI Consulting & Implementation" },
+      { href: "/services/ai-implementation", label: "AI Automation & Consulting" },
+      { href: "/ai-implementation-mcallen-tx", label: "AI Automation in McAllen" },
       { href: "/learn-claude-code", label: "1-on-1 AI Build Sessions" },
       { href: "/blog/rgv-seo-digital-marketing", label: "RGV SEO and Digital Marketing" },
       { href: "/contact", label: "Book a Call" },

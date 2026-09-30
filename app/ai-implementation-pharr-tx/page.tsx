@@ -1,4 +1,4 @@
-import { getCity, aiCityMetadata, aiCityJsonLd, aiCityCrumbs } from "@/lib/cities";
+import { getCity, aiCityMetadata, aiCityJsonLd, aiCityCrumbs, aiCityFaqs, aiCityLinks } from "@/lib/cities";
 import JsonLd from "@/components/JsonLd";
 import AiImplementationPage from "@/components/AiImplementationPage";
 import { AI_IMPL } from "@/lib/aiImplementation";
@@ -18,6 +18,12 @@ export default function Page() {
         crumbs={aiCityCrumbs(city)}
         cityIntro={city.ai.intro}
         backToMain
+        faqs={aiCityFaqs(city)}
+        cityLinks={{
+          eyebrow: "Nearby",
+          heading: `AI Automation Near ${city.name} & More Services`,
+          links: aiCityLinks(city),
+        }}
       />
     </>
   );

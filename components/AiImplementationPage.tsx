@@ -2,6 +2,8 @@ import Link from "next/link";
 import Icon from "@/components/Icon";
 import PageHero from "@/components/PageHero";
 import FaqAccordion from "@/components/FaqAccordion";
+import CityLinks, { type CityLink } from "@/components/CityLinks";
+import type { FaqItem } from "@/lib/webDesign";
 import {
   AI_BOOKING_URL,
   AI_WHAT_WE_DO,
@@ -34,9 +36,13 @@ export interface AiImplementationPageProps {
   cityIntro?: { heading: string; body: string[] };
   /** City pages link back to the main service page. */
   backToMain?: boolean;
+  /** FAQs to render (defaults to the shared AI FAQs). Must match the FAQPage schema on the page. */
+  faqs?: FaqItem[];
+  /** Internal links: the city pages (on the service page) or nearby cities + related city services (on city pages). */
+  cityLinks?: { eyebrow?: string; heading: string; intro?: string; links: CityLink[] };
 }
 
-export default function AiImplementationPage({ eyebrow, h1, heroSub, crumbs, cityIntro, backToMain }: AiImplementationPageProps) {
+export default function AiImplementationPage({ eyebrow, h1, heroSub, crumbs, cityIntro, backToMain, faqs = AI_FAQS, cityLinks }: AiImplementationPageProps) {
   return (
     <main>
       <PageHero eyebrow={eyebrow} title={h1} subtitle={heroSub} accent="var(--teal)" crumbs={crumbs}>
@@ -62,7 +68,7 @@ export default function AiImplementationPage({ eyebrow, h1, heroSub, crumbs, cit
             ))}
             {backToMain && (
               <Link href="/services/ai-implementation" style={{ display: "inline-flex", fontSize: 14, fontWeight: 700, color: "var(--orange)", textDecoration: "none" }}>
-                ← Explore our full AI implementation services
+                ← See all our AI automation services
               </Link>
             )}
           </div>
@@ -77,7 +83,7 @@ export default function AiImplementationPage({ eyebrow, h1, heroSub, crumbs, cit
               What We Do
             </span>
             <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 16px" }}>
-              AI &amp; Automation, Built For Your Business
+              AI Agents, AI Receptionists &amp; Automation
             </h2>
             <p style={{ fontSize: 16, color: "var(--muted)", lineHeight: 1.65 }}>
               From one-on-one build sessions to custom agents and tools, we put real AI to work in your business, and teach you and your team to build it too.
@@ -200,12 +206,16 @@ export default function AiImplementationPage({ eyebrow, h1, heroSub, crumbs, cit
               FAQ
             </span>
             <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 0" }}>
-              AI Implementation Questions, Answered
+              AI Automation Questions, Answered
             </h2>
           </div>
-          <FaqAccordion items={AI_FAQS} />
+          <FaqAccordion items={faqs} />
         </div>
       </section>
+
+      {cityLinks && (
+        <CityLinks eyebrow={cityLinks.eyebrow} heading={cityLinks.heading} intro={cityLinks.intro} links={cityLinks.links} />
+      )}
 
       {/* Related services */}
       <section style={{ padding: "88px 0", background: "var(--cream)" }}>

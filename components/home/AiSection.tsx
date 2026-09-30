@@ -89,6 +89,9 @@ export default function AiSection() {
               >
                 Book an AI session <span aria-hidden="true">→</span>
               </a>
+              <Link href="/services/ai-implementation" className="rg-hero-secondary">
+                AI automation services
+              </Link>
               <Link href="/learn-claude-code" className="rg-hero-secondary">
                 Learn Claude Code 1-on-1
               </Link>

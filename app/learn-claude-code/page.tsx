@@ -69,7 +69,7 @@ const mono = "var(--font-dm-mono), ui-monospace, monospace";
 
 const crumbs = [
   { name: "Home", path: "/" },
-  { name: "AI Consulting", path: "/services/ai-implementation" },
+  { name: "AI Automation", path: "/services/ai-implementation" },
   { name: "Learn Claude Code", path },
 ];
 
@@ -244,7 +244,7 @@ export default function LearnClaudeCodePage() {
               <a href={AI_BOOKING_URL} target="_blank" rel="noopener noreferrer" className="rg-hero-cta" style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "var(--orange)", color: "#fff", fontWeight: 700, fontSize: 17, lineHeight: 1, padding: "18px 28px", borderRadius: "var(--r-hero-sm)", textDecoration: "none", boxShadow: "var(--shadow-orange)" }}>
                 Book a build session <span aria-hidden="true">→</span>
               </a>
-              <Link href="/services/ai-implementation" className="rg-hero-secondary">See all AI consulting</Link>
+              <Link href="/services/ai-implementation" className="rg-hero-secondary">See all AI automation services</Link>
             </div>
           </div>
         </section>

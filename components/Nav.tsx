@@ -20,7 +20,7 @@ const SOLUTIONS = [
   { label: "Google Business Profile", href: "/services/google-business-profile" },
   { label: "Paid Advertising", href: "/services/paid-advertising" },
   { label: "Lead Management", href: "/services/lead-management" },
-  { label: "AI Consulting & Builds", href: "/services/ai-implementation" },
+  { label: "AI Automation & Consulting", href: "/services/ai-implementation" },
   { label: "SMS & Email Marketing", href: "/services/sms-email-marketing" },
   { label: "Social Media & Newsletters", href: "/services/social-media-newsletter" },
 ];
@@ -31,7 +31,7 @@ const NAV_LINKS: NavItem[] = [
     label: "AI",
     href: "/services/ai-implementation",
     children: [
-      { label: "AI Consulting & Builds", href: "/services/ai-implementation" },
+      { label: "AI Automation & Consulting", href: "/services/ai-implementation" },
       { label: "Learn Claude Code 1-on-1", href: "/learn-claude-code" },
     ],
   },

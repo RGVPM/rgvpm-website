@@ -11,21 +11,24 @@ export const AI_TOOLS = ["Claude Code", "Codex", "Hermes", "Orca", "Grokbot"] as
 /** Shared, non-city content for the AI Implementation service + city pages. */
 
 export const AI_IMPL = {
-  eyebrow: "AI Consulting & Implementation",
-  h1: "AI Consulting That Turns Into Real Systems",
+  eyebrow: "AI Automation & Consulting",
+  h1: "AI Automation & AI Consulting for Small Businesses",
   heroSub:
     "We run our own agency on AI. We'll show you where it fits in yours, build it for you, or sit down one-on-one and teach you to build it yourself: custom agents, custom tools, and AI that answers calls and follows up with every lead.",
-  metaTitle: "AI Consulting & Implementation for Small Business",
+  /** Absolute <title> (≤60 chars). "AI automation" is the phrase searchers use; "consultant" is the other head term. */
+  metaTitle: "AI Automation Agency & AI Consultant | Harlingen, TX",
   metaDescription:
-    "AI consulting and builds for small and local businesses: 1-on-1 build sessions with Claude Code and Codex, custom AI agents and tools, AI strategy, AI receptionists and follow-up, and team AI workshops. Book an AI session with RGV Performance Marketing.",
-  primaryKeyword: "AI implementation for small business",
+    "AI automation and AI consulting for small businesses: AI receptionist, instant lead follow-up, custom AI agents and 1-on-1 build sessions. Based in Harlingen, TX.",
+  primaryKeyword: "AI automation for small business",
   keywordCluster: [
-    "AI implementation for small business",
-    "AI consulting services",
+    "AI automation agency",
+    "AI automation for small business",
     "AI consultant for small business",
-    "business automation",
-    "AI tools for local business",
-    "marketing automation",
+    "AI consulting services",
+    "AI agents for small business",
+    "AI receptionist for small business",
+    "AI lead follow up",
+    "AI implementation",
   ],
 };
 
@@ -90,6 +93,14 @@ export const AI_WHO = {
 };
 
 export const AI_FAQS: FaqItem[] = [
+  {
+    q: "What does an AI automation agency do?",
+    a: "We find the jobs in your business that AI can take over, build the automation, and keep it running. For most local businesses that starts with an AI receptionist and instant lead follow-up, then moves to custom AI agents and internal tools for the work your team repeats every week.",
+  },
+  {
+    q: "Do I need an AI consultant or someone to build it?",
+    a: "Usually both, and we do both. The consulting part maps how your leads come in and where your team's time goes, so you know which automations are worth it. Then we build them, or teach you to build them yourself in one-on-one sessions.",
+  },
   {
     q: "Can you teach me to build with AI myself?",
     a: "Yes. In our one-on-one build sessions you learn Claude Code, Codex, and the other tools we use by building a real tool for your own business, from an empty folder to a live link. No coding background needed, and you keep everything you build. Teams can book workshops too.",

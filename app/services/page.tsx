@@ -17,7 +17,7 @@ const specialized = [
   {
     href: "/services/ai-implementation",
     icon: "cpu" as const,
-    title: "AI Consulting & Builds",
+    title: "AI Automation & Consulting",
     text: "We show you where AI fits in your business, then build it: an AI receptionist, instant lead follow-up, chatbots, workflow automation, and training for your team.",
   },
 ];
@@ -50,7 +50,7 @@ export default function ServicesHub() {
           ]),
           serviceListSchema([
             { name: "Website Design", path: "/services/website-design" },
-            { name: "AI Implementation", path: "/services/ai-implementation" },
+            { name: "AI Automation", path: "/services/ai-implementation" },
             { name: "Local SEO", path: "/services/local-seo" },
             { name: "Google Business Profile", path: "/services/google-business-profile" },
             { name: "Paid Advertising", path: "/services/paid-advertising" },
@@ -79,7 +79,7 @@ export default function ServicesHub() {
                 Specialized Services
               </span>
               <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 0" }}>
-                Website Design &amp; AI Consulting
+                Website Design &amp; AI Automation
               </h2>
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 20 }} className="why-grid-responsive">
