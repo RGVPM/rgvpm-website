@@ -3,6 +3,7 @@ import JsonLd from "@/components/JsonLd";
 import WebDesignPage from "@/components/WebDesignPage";
 import { WEB_DESIGN, WEB_DESIGN_FAQS } from "@/lib/webDesign";
 import { canonical, breadcrumbSchema, faqSchema, SITE, LOCAL_BUSINESS_ID } from "@/lib/site";
+import { cities, webDesignCityPath } from "@/lib/cities";
 
 const path = "/services/website-design";
 const url = canonical(path);
@@ -42,7 +43,18 @@ export default function WebsiteDesignServicePage() {
   return (
     <>
       <JsonLd data={[serviceSchema, breadcrumbSchema(crumbs), faqSchema(WEB_DESIGN_FAQS)]} />
-      <WebDesignPage eyebrow={WEB_DESIGN.eyebrow} h1={WEB_DESIGN.h1} heroSub={WEB_DESIGN.heroSub} crumbs={crumbs} />
+      <WebDesignPage
+        eyebrow={WEB_DESIGN.eyebrow}
+        h1={WEB_DESIGN.h1}
+        heroSub={WEB_DESIGN.heroSub}
+        crumbs={crumbs}
+        nearby={{
+          eyebrow: "Across the Valley",
+          heading: "Website Design Across the RGV",
+          intro: "We build for businesses in every Rio Grande Valley city. Find the page for yours.",
+          links: cities.map((c) => ({ href: webDesignCityPath(c.slug), label: `Website design in ${c.name}, TX` })),
+        }}
+      />
     </>
   );
 }

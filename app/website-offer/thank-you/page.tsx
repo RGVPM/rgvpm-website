@@ -21,6 +21,9 @@ export const metadata: Metadata = {
   title: "You're in — welcome to RGVPM",
   description: "Your RGV Performance Marketing plan is confirmed. Here's what happens next.",
   robots: { index: false, follow: false },
+  // Self-referencing canonical. Without it the page inherited the root
+  // layout's homepage canonical, which contradicts the noindex above.
+  alternates: { canonical: `${SITE.url}/website-offer/thank-you` },
 };
 
 const NEXT_STEPS = [

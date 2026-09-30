@@ -16,18 +16,20 @@ export interface RelatedLink {
 
 export const WEB_DESIGN = {
   eyebrow: "Website Design",
-  h1: "We Build Websites That Work",
+  h1: "RGV Website Design That Works",
   heroSub:
     "Fast, mobile-first websites built to rank on Google and turn visitors into leads — not just look good. Every site we build is designed around one goal: growing your business.",
-  metaTitle: "Website Design Services for Small Businesses",
+  metaTitle: "RGV Website Design Services",
   metaDescription:
-    "Professional website design for small businesses — fast, mobile-first sites with on-page SEO and lead capture built in. Custom-quoted by RGV Performance Marketing in the Rio Grande Valley.",
+    "RGV website design for small businesses: fast, mobile-first sites in English or Spanish, with SEO and lead forms built in. Custom quote, live in 2–4 weeks.",
   primaryKeyword: "website design services",
   keywordCluster: [
     "website design",
     "website design services",
     "small business website design",
     "professional website design",
+    "rgv website design",
+    "rgv web design",
   ],
 };
 

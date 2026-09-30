@@ -4,6 +4,9 @@ import PageHero from "@/components/PageHero";
 import FaqAccordion from "@/components/FaqAccordion";
 import InnerCTA from "@/components/InnerCTA";
 import WebDesignForm from "@/components/WebDesignForm";
+import CityDetails, { type CityDetailsContent } from "@/components/CityDetails";
+import CityLinks, { type CityLink } from "@/components/CityLinks";
+import type { FaqItem } from "@/lib/webDesign";
 import {
   WEB_DESIGN_INCLUDED,
   WEB_DESIGN_STEPS,
@@ -24,9 +27,15 @@ export interface WebDesignPageProps {
   cityIntro?: { heading: string; body: string[] };
   /** City pages link back to the main service page. */
   backToMain?: boolean;
+  /** City-specific market section, rendered after the intro. */
+  details?: CityDetailsContent;
+  /** FAQ list override (city FAQs + shared). Defaults to the shared list. */
+  faqs?: FaqItem[];
+  /** Descriptive internal links (city pages or, on the hub, every city). */
+  nearby?: { eyebrow?: string; heading: string; intro?: string; links: CityLink[] };
 }
 
-export default function WebDesignPage({ eyebrow, h1, heroSub, crumbs, cityIntro, backToMain }: WebDesignPageProps) {
+export default function WebDesignPage({ eyebrow, h1, heroSub, crumbs, cityIntro, backToMain, details, faqs, nearby }: WebDesignPageProps) {
   return (
     <main>
       <PageHero eyebrow={eyebrow} title={h1} subtitle={heroSub} crumbs={crumbs}>
@@ -58,6 +67,8 @@ export default function WebDesignPage({ eyebrow, h1, heroSub, crumbs, cityIntro,
           </div>
         </section>
       )}
+
+      {details && <CityDetails {...details} />}
 
       {/* What's included */}
       <section style={{ padding: "88px 0", background: "var(--cream)" }}>
@@ -167,7 +178,7 @@ export default function WebDesignPage({ eyebrow, h1, heroSub, crumbs, cityIntro,
               Website Design Questions, Answered
             </h2>
           </div>
-          <FaqAccordion items={WEB_DESIGN_FAQS} />
+          <FaqAccordion items={faqs ?? WEB_DESIGN_FAQS} />
         </div>
       </section>
 
@@ -199,6 +210,8 @@ export default function WebDesignPage({ eyebrow, h1, heroSub, crumbs, cityIntro,
           </div>
         </div>
       </section>
+
+      {nearby && <CityLinks eyebrow={nearby.eyebrow ?? "Nearby"} heading={nearby.heading} intro={nearby.intro} links={nearby.links} background="var(--cream)" />}
 
       <InnerCTA />
     </main>

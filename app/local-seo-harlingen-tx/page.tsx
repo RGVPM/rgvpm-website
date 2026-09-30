@@ -1,4 +1,4 @@
-import { localSeoCityMetadata, localSeoCityJsonLd, localSeoCityCrumbs, getLocalSeoCity, LOCAL_SEO } from "@/lib/localSeo";
+import { localSeoCityMetadata, localSeoCityJsonLd, localSeoCityCrumbs, localSeoCityFaqs, localSeoCityLinks, getLocalSeoCity, LOCAL_SEO } from "@/lib/localSeo";
 import JsonLd from "@/components/JsonLd";
 import LocalSeoPage from "@/components/LocalSeoPage";
 
@@ -18,6 +18,9 @@ export default function Page() {
         heroSub={city.heroSub}
         crumbs={localSeoCityCrumbs(SLUG, NAME)}
         cityIntro={city.intro}
+        details={city.details}
+        faqs={localSeoCityFaqs(SLUG)}
+        nearby={{ heading: `More for ${NAME} Businesses`, links: localSeoCityLinks(SLUG, NAME) }}
         backToMain
       />
     </>

@@ -1,4 +1,4 @@
-import { getCity, webDesignCityMetadata, webDesignCityJsonLd, webDesignCityCrumbs } from "@/lib/cities";
+import { getCity, webDesignCityMetadata, webDesignCityJsonLd, webDesignCityCrumbs, webDesignCityFaqs, webDesignCityLinks } from "@/lib/cities";
 import JsonLd from "@/components/JsonLd";
 import WebDesignPage from "@/components/WebDesignPage";
 import { WEB_DESIGN } from "@/lib/webDesign";
@@ -17,6 +17,9 @@ export default function Page() {
         heroSub={city.webDesign.heroSub}
         crumbs={webDesignCityCrumbs(city)}
         cityIntro={city.webDesign.intro}
+        details={city.webDesign.details}
+        faqs={webDesignCityFaqs(city)}
+        nearby={{ heading: `More for ${city.name} Businesses`, links: webDesignCityLinks(city) }}
         backToMain
       />
     </>
