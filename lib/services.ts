@@ -44,9 +44,9 @@ export const services: Service[] = [
       "Local content creation",
       "Citation building & link outreach",
     ],
-    metaTitle: "Local SEO Services in the Rio Grande Valley",
+    metaTitle: "RGV SEO & Local SEO Services",
     metaDescription:
-      "Local SEO services that rank your business in your city and service area. On-page optimization, local content, and citation building from RGV Performance Marketing.",
+      "RGV SEO and local SEO for small businesses in Harlingen, McAllen, Brownsville and across the Valley. Rank in Google Maps, get monthly reports, no contract.",
     primaryKeyword: "local SEO services",
     keywordCluster: [
       "local SEO services",
@@ -56,7 +56,7 @@ export const services: Service[] = [
       "Rio Grande Valley SEO",
     ],
     eyebrow: "Local SEO",
-    h1: "Local SEO That Gets You Found First",
+    h1: "RGV Local SEO That Gets You Found First",
     heroSub:
       "When someone nearby searches for what you offer, you want to be the first name they see. Our local SEO services put your business at the top of local search and keep it there.",
     whatItIs: {

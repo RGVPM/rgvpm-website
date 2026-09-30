@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import HomeHero from "@/components/home/HomeHero";
 import { IndustryStrip } from "@/components/Sections";
 import Capabilities from "@/components/home/Capabilities";
@@ -31,6 +32,14 @@ export default function Home() {
   );
 }
 
-export const metadata = {
+const HOME_TITLE = "Harlingen Marketing Agency & SEO | RGV Performance Marketing";
+const HOME_DESCRIPTION =
+  "Harlingen marketing agency for RGV small businesses: websites, local SEO and Google Ads that bring in calls, plus AI that follows up. Month-to-month plans.";
+
+export const metadata: Metadata = {
+  title: { absolute: HOME_TITLE },
+  description: HOME_DESCRIPTION,
   alternates: { canonical: SITE.url },
+  openGraph: { type: "website", url: SITE.url, title: HOME_TITLE, description: HOME_DESCRIPTION, siteName: SITE.name },
+  twitter: { card: "summary_large_image", title: HOME_TITLE, description: HOME_DESCRIPTION },
 };

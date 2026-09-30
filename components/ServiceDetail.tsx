@@ -5,10 +5,11 @@ import PageHero from "@/components/PageHero";
 import FaqAccordion from "@/components/FaqAccordion";
 import RelatedServices from "@/components/RelatedServices";
 import InnerCTA from "@/components/InnerCTA";
+import CityLinks, { type CityLink } from "@/components/CityLinks";
 
 const stepAccents = ["var(--orange)", "var(--teal)", "#6E86B8", "var(--navy)"];
 
-export default function ServiceDetail({ service }: { service: Service }) {
+export default function ServiceDetail({ service, cityLinks }: { service: Service; cityLinks?: { heading: string; intro?: string; links: CityLink[] } }) {
   return (
     <main>
       <PageHero
@@ -114,6 +115,8 @@ export default function ServiceDetail({ service }: { service: Service }) {
           <FaqAccordion items={service.faqs} />
         </div>
       </section>
+
+      {cityLinks && <CityLinks heading={cityLinks.heading} intro={cityLinks.intro} links={cityLinks.links} />}
 
       <RelatedServices slugs={service.related} />
       <InnerCTA />

@@ -4,6 +4,32 @@ import { getService, services } from "@/lib/services";
 import { canonical, breadcrumbSchema, faqSchema, SITE, LOCAL_BUSINESS_ID } from "@/lib/site";
 import ServiceDetail from "@/components/ServiceDetail";
 import JsonLd from "@/components/JsonLd";
+import { cities } from "@/lib/cities";
+import { localSeoCityPath } from "@/lib/localSeo";
+import { gbpCityPath } from "@/lib/gbp";
+import { googleAdsCityPath } from "@/lib/googleAds";
+
+/** Services that have city landing pages, and how to label each link. */
+const CITY_LINKS: Record<string, { heading: string; intro: string; path: (slug: string) => string; label: (city: string) => string }> = {
+  "local-seo": {
+    heading: "Local SEO by City",
+    intro: "Each Rio Grande Valley city has its own map pack and competitors. Pick yours to see how we approach it.",
+    path: localSeoCityPath,
+    label: (c) => (c === "Harlingen" ? "Harlingen SEO services" : `Local SEO in ${c}, TX`),
+  },
+  "google-business-profile": {
+    heading: "Google Business Profile by City",
+    intro: "Map-pack results are local to each city. See what we do for businesses near you.",
+    path: gbpCityPath,
+    label: (c) => `Google Business Profile in ${c}, TX`,
+  },
+  "paid-advertising": {
+    heading: "Google Ads Management by City",
+    intro: "Campaigns targeted to the cities you actually serve.",
+    path: googleAdsCityPath,
+    label: (c) => `Google Ads management in ${c}, TX`,
+  },
+};
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -67,7 +93,18 @@ export default async function ServicePage({
           faqSchema(service.faqs),
         ]}
       />
-      <ServiceDetail service={service} />
+      <ServiceDetail
+        service={service}
+        cityLinks={
+          CITY_LINKS[slug]
+            ? {
+                heading: CITY_LINKS[slug].heading,
+                intro: CITY_LINKS[slug].intro,
+                links: cities.map((c) => ({ href: CITY_LINKS[slug].path(c.slug), label: CITY_LINKS[slug].label(c.name) })),
+              }
+            : undefined
+        }
+      />
     </>
   );
 }

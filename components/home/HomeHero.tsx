@@ -42,7 +42,7 @@ export default function HomeHero() {
               className="hero-animate rg-label"
               style={{ color: "var(--orange-on-dark)", margin: "0 0 var(--s5)", animationDelay: "0s" }}
             >
-              AI &amp; Marketing Agency
+              Harlingen, TX &middot; AI &amp; Marketing Agency
             </p>
             <h1
               id="hero-heading"
