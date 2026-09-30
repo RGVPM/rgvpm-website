@@ -16,6 +16,9 @@ const nextConfig: NextConfig = {
       { source: "/blog/brownsville-seo-how-to-rank-local-business", destination: "/local-seo-brownsville-tx", permanent: true },
       { source: "/blog/harlingen-seo-how-to-rank-local-business", destination: "/local-seo-harlingen-tx", permanent: true },
       { source: "/blog/mcallen-seo-how-to-rank-local-business", destination: "/local-seo-mcallen-tx", permanent: true },
+      // Lead-magnet setup page removed Sept 2026 (kit is now sent by email).
+      // Google still had it queued and was reporting it as a 404.
+      { source: "/claude-code-templates/kit", destination: "/claude-code-templates", permanent: true },
     ];
   },
 };
