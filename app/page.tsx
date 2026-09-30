@@ -32,9 +32,9 @@ export default function Home() {
   );
 }
 
-const HOME_TITLE = "Harlingen Marketing Agency & SEO | RGV Performance Marketing";
+const HOME_TITLE = "Harlingen AI & Marketing Agency | RGV Performance Marketing";
 const HOME_DESCRIPTION =
-  "Harlingen marketing agency for RGV small businesses: websites, local SEO and Google Ads that bring in calls, plus AI that follows up. Month-to-month plans.";
+  "Harlingen AI & marketing agency for RGV small businesses: websites, local SEO and Google Ads that bring in calls, plus AI that follows up. Month-to-month.";
 
 export const metadata: Metadata = {
   title: { absolute: HOME_TITLE },
