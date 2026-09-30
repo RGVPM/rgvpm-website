@@ -28,6 +28,62 @@ export interface Post {
 
 export const POSTS: Post[] = [
   {
+    slug: "ai-friday-local-business-rgv",
+    title: "AI Friday: What a Local Business in the RGV Should Automate First",
+    metaTitle: "AI Friday: AI for Local Businesses in the RGV",
+    description:
+      "An AI Friday tip for Rio Grande Valley businesses: the first job worth automating, and what to leave alone until that one works.",
+    excerpt:
+      "AI for a local business is not a pile of new apps. Start with the one job that is already costing you calls, then add the next piece on Friday.",
+    category: "AI Friday",
+    icon: "cpu",
+    datePublished: "2026-09-30",
+    dateModified: "2026-09-30",
+    readMinutes: 6,
+    tldr:
+      "For a Rio Grande Valley business, the first AI job worth automating is lead response: answering the call, the form, and the text while you are on a job. Getting found on Google and building a custom internal tool come after that, not before. One working workflow beats five unused subscriptions.",
+    sections: [
+      { type: "p", text: "AI Friday is a short tip we publish for owners in Harlingen, McAllen, Brownsville, and the rest of the Valley. This first one answers the question we get most: if I want AI in the business, what do I actually turn on first?" },
+      { type: "h2", text: "What AI means for a local business" },
+      { type: "p", text: "Skip the demo reel. In a local company, AI earns its place when it does a job a person is already doing late, slowly, or not at all. Three jobs cover almost every win we see:" },
+      { type: "ul", items: [
+        "Answer the lead. The phone, the website form, and the text message get a reply even when you are on a roof, in a treatment room, or closed for the day.",
+        "Get found. Your website, your Google profile, and the pages for each city you serve stay clear enough that the right search lands on you.",
+        "Remove one office chore. A report, an inbox sort, a follow-up list, or a simple internal tool that your team repeats every week.",
+      ]},
+      { type: "p", text: "That is the whole menu. A chatbot on the homepage that cannot book anything is not one of these jobs." },
+      { type: "h2", text: "Start with the lead, not the tool" },
+      { type: "p", text: "If a new inquiry sits until the next morning, that is the first automation. An AI receptionist and follow-up can take the call or the form, answer the basic questions, and book or hand the lead to a person. You already know this costs you jobs. You do not need a strategy retreat to prove it." },
+      { type: "p", text: "Do this only if a person still checks what the system said. AI should take the first reply. It should not invent prices, promises, or appointment times you do not offer." },
+      { type: "h2", text: "Then use AI to get found" },
+      { type: "p", text: "Search is changing. People ask Google, and they ask ChatGPT and other answer engines, \"who does this in Harlingen?\" Those answers are pulled from businesses that say, in plain language, what they do, where they do it, and how to hire them. An AI marketing agency in the Valley should be publishing that, city by city, not stuffing the phrase \"AI\" into a page that is really about something else." },
+      { type: "p", text: "Use AI to draft and check. You still decide the facts. A page about your real service, with your real cities and your real offer, is what both Google and the answer engines can cite. Our AI consulting work starts there: where AI fits, and where a human still has to sign off.", links: [{ text: "AI consulting", href: "/services/ai-implementation" }] },
+      { type: "h2", text: "Build one tool after the first two are real" },
+      { type: "p", text: "Custom agents and small internal tools are the third step. They pay off when you can point at a weekly task and say \"this exact thing.\" Learning to build that yourself is what the 1-on-1 AI build sessions are for. They are a bad first purchase if calls are still going to voicemail.", links: [{ text: "1-on-1 AI build sessions", href: "/learn-claude-code" }] },
+      { type: "h2", text: "What to leave alone this month" },
+      { type: "ul", items: [
+        "A stack of AI apps nobody on the team has opened twice.",
+        "Automating a follow-up process you have not written down. The automation will copy the mess.",
+        "Publishing AI content that names services you do not sell. That ranks you for the wrong search and then disappoints the person who calls.",
+        "Waiting to \"do AI\" until you have replaced your website, your ads, and your staff. The first workflow can go live beside what you already use.",
+      ]},
+      { type: "h2", text: "The Friday rule" },
+      { type: "p", text: "Each AI Friday we will cover one move a Valley owner can make that week: a lead workflow, a page worth publishing, or a small tool. If you want us to pick the first job in your business and build it, book a call and we will start with where the leads leak.", links: [{ text: "book a call", href: "/contact" }] },
+    ],
+    faqs: [
+      { q: "What is the first AI tool a small business should use?", a: "Start with lead response: something that answers new calls, forms, and texts when you cannot, and hands the real conversation to a person. Buying a pile of writing and image tools before that rarely shows up in revenue." },
+      { q: "Can AI help my business rank on Google?", a: "AI can help you draft and check pages, but rankings still come from clear pages about real services in real cities, a complete Google Business Profile, and reviews. Publishing generic AI articles that do not match your business does not help, and it can hurt." },
+      { q: "What does an AI marketing agency do?", a: "It uses AI inside the marketing work: faster lead follow-up, cleaner local pages, and custom tools for the tasks your team repeats. The agency is still responsible for the facts, the offer, and the results. The tools do not replace that." },
+      { q: "Do I need to know how to code to use AI in my business?", a: "No. Answering leads and publishing clear service pages does not require code. Building your own internal tool is a separate step, and that is something you can learn one-on-one or have built for you." },
+    ],
+    related: [
+      { href: "/services/ai-implementation", label: "AI Consulting & Implementation" },
+      { href: "/learn-claude-code", label: "1-on-1 AI Build Sessions" },
+      { href: "/blog/rgv-seo-digital-marketing", label: "RGV SEO and Digital Marketing" },
+      { href: "/contact", label: "Book a Call" },
+    ],
+  },
+  {
     slug: "rgv-seo-digital-marketing",
     title: "RGV SEO and Digital Marketing: What Valley Businesses Should Run First",
     metaTitle: "RGV SEO & Digital Marketing: What to Run First",
