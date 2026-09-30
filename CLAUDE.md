@@ -11,9 +11,11 @@
 - All client-facing output attributed to "The RGV Performance Marketing Team"
 
 ## Pricing (current)
-- Plant the Flag: $399/mo + $399 activation
-- Build the Machine: $899/mo + $399 activation
-- Own the Market: $1,999/mo (no activation fee)
+(Source of truth: lib/site.ts + components/PricingTabs.tsx, matches the live site)
+- Plant the Flag: $397/mo
+- SEO Package: $597/mo
+- Build the Machine: $899/mo + $399 one-time activation
+- Own the Market: $1,499/mo (no activation fee)
 - Website design is SEPARATE on all tiers
 
 ## Stripe Payment Links
