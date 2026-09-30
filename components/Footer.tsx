@@ -46,7 +46,7 @@ export default function Footer() {
               title: "Services",
               links: [
                 { label: "Website Design", href: "/services/website-design" },
-                { label: "AI Consulting & Builds", href: "/services/ai-implementation" },
+                { label: "AI Automation & Consulting", href: "/services/ai-implementation" },
                 { label: "Google Business Profile", href: "/services/google-business-profile" },
                 { label: "Local SEO", href: "/services/local-seo" },
                 { label: "Paid Advertising", href: "/services/paid-advertising" },
@@ -108,7 +108,7 @@ export default function Footer() {
                   <Link href={gbpCityPath(c.slug)} style={{ fontSize: 12.5, color: "rgba(255,255,255,0.68)", textDecoration: "none" }}>Google Business Profile</Link>
                   <Link href={googleAdsCityPath(c.slug)} style={{ fontSize: 12.5, color: "rgba(255,255,255,0.68)", textDecoration: "none" }}>Google Ads</Link>
                   <Link href={webDesignCityPath(c.slug)} style={{ fontSize: 12.5, color: "rgba(255,255,255,0.68)", textDecoration: "none" }}>Website Design</Link>
-                  <Link href={aiCityPath(c.slug)} style={{ fontSize: 12.5, color: "rgba(255,255,255,0.68)", textDecoration: "none" }}>AI Implementation</Link>
+                  <Link href={aiCityPath(c.slug)} style={{ fontSize: 12.5, color: "rgba(255,255,255,0.68)", textDecoration: "none" }}>AI Automation</Link>
                 </div>
               </div>
             ))}

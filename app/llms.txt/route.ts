@@ -16,7 +16,7 @@ import { POSTS } from "@/lib/posts";
 
 const SERVICES: { name: string; path: string; summary: string }[] = [
   { name: "Website Design", path: "/services/website-design", summary: "Fast, mobile-first, SEO-ready websites with lead capture built in." },
-  { name: "AI Consulting & Builds", path: "/services/ai-implementation", summary: "AI strategy and consulting, custom AI agents and tools, AI receptionist, instant lead follow-up, chatbots, and workflow automation." },
+  { name: "AI Automation & Consulting", path: "/services/ai-implementation", summary: "AI automation and consulting for small businesses: AI strategy, custom AI agents and tools, AI receptionist, instant lead follow-up, chatbots, and workflow automation." },
   { name: "Free AI Inbox Agent + Claude Code Starter Kit", path: "/claude-code-templates", summary: "A free Google Apps Script agent that reviews your Gmail every morning at 8 and emails you a briefing (optional Claude AI summary), plus a CLAUDE.md template, a Claude Code cheat sheet, and a 5-day email course." },
   { name: "Learn Claude Code 1-on-1", path: "/learn-claude-code", summary: "One-on-one and team sessions teaching business owners to build real tools with AI coding agents like Claude Code and Codex. No coding background needed." },
   { name: "Local SEO", path: "/services/local-seo", summary: "On-page optimization, local content, and citation building to rank in your city and service area." },
@@ -92,7 +92,7 @@ export function GET() {
     lines.push(`- [Google Business Profile Optimization in ${name}, TX](${u(gbpCityPath(slug))})`);
     lines.push(`- [Google Ads Management in ${name}, TX](${u(googleAdsCityPath(slug))})`);
     lines.push(`- [Website Design in ${name}, TX](${u(webDesignCityPath(slug))})`);
-    lines.push(`- [AI Implementation in ${name}, TX](${u(aiCityPath(slug))})`);
+    lines.push(`- [AI Automation in ${name}, TX](${u(aiCityPath(slug))})`);
   }
   lines.push("");
 

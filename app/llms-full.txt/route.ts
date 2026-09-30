@@ -88,7 +88,7 @@ export function GET() {
     L.push(`- Google Business Profile: ${u(gbpCityPath(slug))}`);
     L.push(`- Google Ads Management: ${u(googleAdsCityPath(slug))}`);
     L.push(`- Website Design: ${u(webDesignCityPath(slug))}`);
-    L.push(`- AI Implementation: ${u(aiCityPath(slug))}`);
+    L.push(`- AI Automation: ${u(aiCityPath(slug))}`);
     L.push("");
   }
 

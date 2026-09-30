@@ -66,18 +66,36 @@ export const cities: City[] = [
       },
     },
     ai: {
-      h1: "AI Implementation for Harlingen, TX Businesses",
+      metaTitle: "AI Automation & AI Consultant in Harlingen, TX",
+      h1: "AI Automation & AI Consulting in Harlingen, TX",
       heroSub:
-        "Put AI to work in your Harlingen business — answer every call, follow up with every lead instantly, and automate the busywork.",
+        "Put AI to work in your Harlingen business: answer every call, follow up with every lead instantly, and automate the busywork. Built by a team based right here.",
       description:
-        "AI implementation and business automation for Harlingen, TX businesses. AI voice receptionist, instant lead follow-up, and workflow automation from RGV Performance Marketing.",
+        "Harlingen AI consultant and automation team building AI receptionists, instant lead follow-up and custom AI agents for local businesses. Book a call.",
       intro: {
-        heading: "AI & Automation for Harlingen Businesses",
+        heading: "AI Automation for Harlingen Businesses",
         body: [
-          "Harlingen's business owners wear a lot of hats, and the busier you get, the more leads slip through the cracks — missed calls, slow follow-up, and hours lost to repetitive admin.",
-          "As a Harlingen-based team, we build AI and automation that handle that work for you, so every call gets answered and every lead gets followed up the moment it comes in.",
+          "Harlingen's business owners wear a lot of hats, and the busier you get, the more leads slip through the cracks: missed calls, slow follow-up, and hours lost to repetitive admin.",
+          "As a Harlingen-based team, we build AI and automation that handle that work for you, so every call gets answered and every lead gets followed up the moment it comes in. Because we're local, you can sit down with us to map it out in person.",
         ],
       },
+      faqs: [
+        {
+          q: "Is there an AI consultant based in Harlingen?",
+          a: "Yes. RGV Performance Marketing is based in Harlingen. We can meet in person to map where AI fits in your business, then build the automation or teach you to build it one-on-one.",
+        },
+        {
+          q: "What should a Harlingen business automate first?",
+          a: "Usually lead response: answering calls, forms and texts when you can't, and following up right away. Once that works, we look at the office chores your team repeats every week.",
+        },
+      ],
+      nearby: [
+        { href: "/ai-implementation-san-benito-tx", label: "AI automation in San Benito" },
+        { href: "/ai-implementation-brownsville-tx", label: "AI automation in Brownsville" },
+        { href: "/ai-implementation-weslaco-tx", label: "AI automation in Weslaco" },
+        { href: "/local-seo-harlingen-tx", label: "Local SEO in Harlingen" },
+        { href: "/website-design-harlingen-tx", label: "Website design in Harlingen" },
+      ],
     },
   },
   {
@@ -149,18 +167,45 @@ export const cities: City[] = [
       },
     },
     ai: {
-      h1: "AI Implementation for McAllen, TX Businesses",
+      metaTitle: "AI Automation for Businesses in McAllen, TX | AI Agents",
+      h1: "AI Automation for Businesses in McAllen, TX",
       heroSub:
-        "Put AI to work in your McAllen business — capture every lead, respond instantly, and out-operate the competition.",
+        "Custom AI agents, workflow automation and an AI receptionist for McAllen businesses: capture every lead, respond instantly, and out-operate the competition.",
       description:
-        "AI implementation and business automation for McAllen, TX businesses. AI voice receptionist, instant lead follow-up, and workflow automation from RGV Performance Marketing.",
+        "AI automation company for McAllen businesses: custom AI agents, workflow automation, an AI receptionist and instant lead follow-up built around your tools.",
       intro: {
-        heading: "AI & Automation for McAllen Businesses",
+        heading: "AI Automation Built for the McAllen Market",
         body: [
-          "In a market as competitive as McAllen, the business that answers first usually wins the customer — and the one that misses the call loses it to someone else.",
-          "We build McAllen businesses AI systems that answer calls 24/7, follow up with leads instantly, and automate repetitive tasks, so you stay a step ahead in the Valley's busiest market.",
+          "In a market as competitive as McAllen, the business that answers first usually wins the customer, and the one that misses the call loses it to someone else.",
+          "We build McAllen businesses AI systems that answer calls around the clock, follow up with leads instantly, and automate repetitive tasks, so you stay a step ahead in the Valley's busiest market.",
+          "Beyond lead response, we build custom AI agents and workflow automation around the software you already use: agents that research, write and report, and small internal tools that take a weekly chore off your team's plate.",
         ],
       },
+      faqs: [
+        {
+          q: "Do you build custom AI automation for McAllen businesses?",
+          a: "Yes. We map how your McAllen business actually runs, then build automations around the tools you already use, from an AI receptionist and lead follow-up to custom AI agents and internal tools.",
+        },
+        {
+          q: "What are AI agents for business?",
+          a: "An AI agent is software that does a multi-step job for you, like researching, writing a report, or sorting an inbox, instead of just answering a single question. We build agents around your data and your tools, and a person still checks the work that matters.",
+        },
+        {
+          q: "What is AI workflow automation?",
+          a: "It connects the steps your team repeats, like a new lead coming in, a reply going out, and an appointment getting booked, so they run on their own. AI handles the parts that used to need a person to read and respond.",
+        },
+        {
+          q: "Do you work with McAllen businesses if you're based in Harlingen?",
+          a: "Yes. We work with businesses across the Valley, McAllen included. Most of the work runs on calls and shared screens, and we can meet in person when that's easier.",
+        },
+      ],
+      nearby: [
+        { href: "/ai-implementation-pharr-tx", label: "AI automation in Pharr" },
+        { href: "/ai-implementation-mission-tx", label: "AI automation in Mission" },
+        { href: "/ai-implementation-edinburg-tx", label: "AI automation in Edinburg" },
+        { href: "/local-seo-mcallen-tx", label: "Local SEO in McAllen" },
+        { href: "/website-design-mcallen-tx", label: "Website design in McAllen" },
+      ],
     },
   },
   {
@@ -181,18 +226,35 @@ export const cities: City[] = [
       },
     },
     ai: {
-      h1: "AI Implementation for Brownsville, TX Businesses",
+      metaTitle: "Brownsville AI Automation & AI Receptionist Services",
+      h1: "AI Automation for Brownsville, TX Businesses",
       heroSub:
-        "Put AI to work in your Brownsville business — answer every call, follow up instantly, and scale without the busywork.",
+        "Put AI to work in your Brownsville business: an AI receptionist that answers every call, instant follow-up, and automation that scales without the busywork.",
       description:
-        "AI implementation and business automation for Brownsville, TX businesses. AI voice receptionist, instant lead follow-up, and workflow automation from RGV Performance Marketing.",
+        "AI automation for Brownsville, TX businesses: an AI receptionist that answers every call, instant lead follow-up and automation that grows with you.",
       intro: {
-        heading: "AI & Automation for Brownsville Businesses",
+        heading: "AI Automation for a Growing Brownsville",
         body: [
           "Brownsville is growing fast, and growth brings more inquiries than a busy team can handle by hand. The result is missed calls and slow follow-up that quietly cost you business.",
-          "We build Brownsville businesses AI and automation that scale with you — answering calls around the clock, responding to leads instantly, and taking repetitive work off your plate.",
+          "We build Brownsville businesses AI and automation that scale with you: answering calls around the clock, responding to leads instantly, and taking repetitive work off your plate.",
         ],
       },
+      faqs: [
+        {
+          q: "Can an AI receptionist answer calls for my Brownsville business?",
+          a: "Yes. An AI receptionist answers calls, chats and new leads around the clock, handles the basic questions, and passes real conversations to your team. It should never invent prices or promises you don't offer, so we set it up around your actual services.",
+        },
+        {
+          q: "Do you meet with Brownsville businesses in person?",
+          a: "We're based in Harlingen, a short drive away. Most of the work runs on calls and shared screens, and we can meet in person when that's easier.",
+        },
+      ],
+      nearby: [
+        { href: "/ai-implementation-san-benito-tx", label: "AI automation in San Benito" },
+        { href: "/ai-implementation-harlingen-tx", label: "AI automation in Harlingen" },
+        { href: "/local-seo-brownsville-tx", label: "Local SEO in Brownsville" },
+        { href: "/website-design-brownsville-tx", label: "Website design in Brownsville" },
+      ],
     },
   },
   {
@@ -213,18 +275,36 @@ export const cities: City[] = [
       },
     },
     ai: {
-      h1: "AI Implementation for Edinburg, TX Businesses",
+      metaTitle: "AI Automation Agency in Edinburg, TX | Lead Follow-Up",
+      h1: "AI Automation Agency for Edinburg, TX Businesses",
       heroSub:
-        "Put AI to work in your Edinburg business — answer every call, follow up with every lead instantly, and automate the repetitive work.",
+        "Put AI to work in your Edinburg business: answer every call, follow up with every lead instantly, and automate the repetitive work.",
       description:
-        "AI implementation and business automation for Edinburg, TX businesses. AI voice receptionist, instant lead follow-up, and workflow automation from RGV Performance Marketing.",
+        "Edinburg AI automation agency: instant lead follow-up, an AI receptionist and custom automation so your business replies before customers move on.",
       intro: {
-        heading: "AI & Automation for Edinburg Businesses",
+        heading: "AI Automation for Edinburg Businesses",
         body: [
-          "Edinburg's young, always-connected population expects fast responses — and when your business is slow to reply, they move on to the next option in seconds.",
+          "Edinburg's young, always-connected population expects fast responses, and when your business is slow to reply, they move on to the next option in seconds.",
           "We build Edinburg businesses AI systems that answer instantly, follow up automatically, and keep your calendar full, so you meet that expectation without adding to your workload.",
         ],
       },
+      faqs: [
+        {
+          q: "How fast does AI lead follow-up respond?",
+          a: "Automated follow-up replies the moment a call is missed or a form comes in, day or night, then hands the conversation to your team. That speed matters in a market like Edinburg, where customers compare options in seconds.",
+        },
+        {
+          q: "Can my Edinburg team learn to build its own AI tools?",
+          a: "Yes. We run one-on-one build sessions and team workshops where you build a real tool for your own business. No coding background needed.",
+        },
+      ],
+      nearby: [
+        { href: "/ai-implementation-mcallen-tx", label: "AI automation in McAllen" },
+        { href: "/ai-implementation-pharr-tx", label: "AI automation in Pharr" },
+        { href: "/ai-implementation-mission-tx", label: "AI automation in Mission" },
+        { href: "/local-seo-edinburg-tx", label: "Local SEO in Edinburg" },
+        { href: "/website-design-edinburg-tx", label: "Website design in Edinburg" },
+      ],
     },
   },
   {
@@ -245,18 +325,35 @@ export const cities: City[] = [
       },
     },
     ai: {
-      h1: "AI Implementation for Mission, TX Businesses",
+      metaTitle: "AI Automation for Mission, TX Businesses | AI Receptionist",
+      h1: "AI Automation for Mission, TX Businesses",
       heroSub:
-        "Put AI to work in your Mission business — never miss a call, follow up instantly, and let the busywork run itself.",
+        "Put AI to work in your Mission business: never miss a call, follow up instantly, and let the busywork run itself.",
       description:
-        "AI implementation and business automation for Mission, TX businesses. AI voice receptionist, instant lead follow-up, and workflow automation from RGV Performance Marketing.",
+        "AI automation for Mission, TX: an AI receptionist so you never miss a call, automatic follow-up, and workflows that take repetitive work off a small team.",
       intro: {
-        heading: "AI & Automation for Mission Businesses",
+        heading: "AI Automation for Mission Businesses",
         body: [
-          "As Mission keeps growing, local businesses are fielding more calls and inquiries than ever — and the small team handling them can only do so much by hand.",
+          "As Mission keeps growing, local businesses are fielding more calls and inquiries than ever, and the small team handling them can only do so much by hand.",
           "We build Mission businesses AI and automation that answer every call, respond to every lead instantly, and handle the repetitive follow-up, so growth doesn't mean lost opportunities.",
         ],
       },
+      faqs: [
+        {
+          q: "Is AI automation worth it for a small Mission business?",
+          a: "It is when it takes over a job your team is already doing late or not at all, like answering calls after hours or following up with every inquiry. We'll tell you honestly if a process isn't worth automating yet.",
+        },
+        {
+          q: "Will AI automation work with the software I already use?",
+          a: "In most cases, yes. We connect to your existing lead management, calendar, forms and lead sources rather than replacing them.",
+        },
+      ],
+      nearby: [
+        { href: "/ai-implementation-mcallen-tx", label: "AI automation in McAllen" },
+        { href: "/ai-implementation-edinburg-tx", label: "AI automation in Edinburg" },
+        { href: "/local-seo-mission-tx", label: "Local SEO in Mission" },
+        { href: "/website-design-mission-tx", label: "Website design in Mission" },
+      ],
     },
   },
   {
@@ -277,18 +374,36 @@ export const cities: City[] = [
       },
     },
     ai: {
-      h1: "AI Implementation for Weslaco, TX Businesses",
+      metaTitle: "Weslaco AI Automation & AI Consulting for Small Business",
+      h1: "AI Automation & Consulting in Weslaco, TX",
       heroSub:
-        "Put AI to work in your Weslaco business — answer every call, follow up instantly, and automate the day-to-day busywork.",
+        "Put AI to work in your Weslaco business: answer every call, follow up instantly, and automate the day-to-day busywork.",
       description:
-        "AI implementation and business automation for Weslaco, TX businesses. AI voice receptionist, instant lead follow-up, and workflow automation from RGV Performance Marketing.",
+        "AI consulting and automation for Weslaco small businesses: we find where AI pays off, then build the AI receptionist, follow-up and tools to run it.",
       intro: {
-        heading: "AI & Automation for Weslaco Businesses",
+        heading: "AI Automation for Weslaco Businesses",
         body: [
-          "Weslaco's mid-Valley location puts your business in front of a steady stream of local and passing customers — but only if you can respond before they move on.",
-          "We build Weslaco businesses AI systems that answer calls 24/7 and follow up with leads the instant they arrive, while automation quietly handles the repetitive work in the background.",
+          "Weslaco's mid-Valley location puts your business in front of a steady stream of local and passing customers, but only if you can respond before they move on.",
+          "We build Weslaco businesses AI systems that answer calls around the clock and follow up with leads the instant they arrive, while automation quietly handles the repetitive work in the background.",
         ],
       },
+      faqs: [
+        {
+          q: "What does AI consulting look like for a Weslaco business?",
+          a: "We sit down with you, map how leads come in and where your team's time goes, and pick the few places where AI will actually pay off. Then we build it, or teach you to.",
+        },
+        {
+          q: "Do you serve Weslaco from Harlingen?",
+          a: "Yes. Weslaco is right between our Harlingen base and the upper Valley, so we can meet in person or work over calls and shared screens.",
+        },
+      ],
+      nearby: [
+        { href: "/ai-implementation-harlingen-tx", label: "AI automation in Harlingen" },
+        { href: "/ai-implementation-pharr-tx", label: "AI automation in Pharr" },
+        { href: "/ai-implementation-mcallen-tx", label: "AI automation in McAllen" },
+        { href: "/local-seo-weslaco-tx", label: "Local SEO in Weslaco" },
+        { href: "/website-design-weslaco-tx", label: "Website design in Weslaco" },
+      ],
     },
   },
   {
@@ -309,18 +424,35 @@ export const cities: City[] = [
       },
     },
     ai: {
-      h1: "AI Implementation for San Benito, TX Businesses",
+      metaTitle: "AI Automation in San Benito, TX | AI Receptionist",
+      h1: "AI Automation for San Benito, TX Businesses",
       heroSub:
-        "Put AI to work in your San Benito business — answer every call, follow up instantly, and free up your time.",
+        "Put AI to work in your San Benito business: answer every call, follow up instantly, and free up your time.",
       description:
-        "AI implementation and business automation for San Benito, TX businesses. AI voice receptionist, instant lead follow-up, and workflow automation from RGV Performance Marketing.",
+        "AI automation for San Benito businesses: every call answered, every lead followed up right away, and more time back for the work only you can do.",
       intro: {
-        heading: "AI & Automation for San Benito Businesses",
+        heading: "AI Automation for San Benito Businesses",
         body: [
-          "In a tight-knit community like San Benito, responsiveness is reputation — a missed call or a slow reply gets noticed, and so does fast, reliable service.",
+          "In a tight-knit community like San Benito, responsiveness is reputation. A missed call or a slow reply gets noticed, and so does fast, reliable service.",
           "We build San Benito businesses AI and automation that make sure every call is answered and every lead hears back right away, so you protect the reputation your business runs on.",
         ],
       },
+      faqs: [
+        {
+          q: "Will an AI receptionist feel impersonal to my San Benito customers?",
+          a: "It takes the first reply, not the relationship. The AI answers right away and handles basic questions, then hands the real conversation to you or your team.",
+        },
+        {
+          q: "Is your team local to San Benito?",
+          a: "We're based next door in Harlingen, so we can meet in person and support you after launch.",
+        },
+      ],
+      nearby: [
+        { href: "/ai-implementation-harlingen-tx", label: "AI automation in Harlingen" },
+        { href: "/ai-implementation-brownsville-tx", label: "AI automation in Brownsville" },
+        { href: "/local-seo-san-benito-tx", label: "Local SEO in San Benito" },
+        { href: "/website-design-san-benito-tx", label: "Website design in San Benito" },
+      ],
     },
   },
   {
@@ -341,18 +473,36 @@ export const cities: City[] = [
       },
     },
     ai: {
-      h1: "AI Implementation for Pharr, TX Businesses",
+      metaTitle: "AI Automation Company in Pharr, TX | Workflow Automation",
+      h1: "AI Automation Company Serving Pharr, TX",
       heroSub:
-        "Put AI to work in your Pharr business — capture every lead, respond instantly, and automate the repetitive work.",
+        "Put AI to work in your Pharr business: capture every lead, respond instantly, and automate the repetitive work between your tools.",
       description:
-        "AI implementation and business automation for Pharr, TX businesses. AI voice receptionist, instant lead follow-up, and workflow automation from RGV Performance Marketing.",
+        "AI and workflow automation for Pharr businesses: connect your tools, answer every call with an AI receptionist, and follow up on every lead automatically.",
       intro: {
-        heading: "AI & Automation for Pharr Businesses",
+        heading: "AI & Workflow Automation for Pharr Businesses",
         body: [
-          "As one of the Valley's busiest commerce and logistics hubs, Pharr moves fast — and businesses here can't afford the missed calls and slow follow-up that come with doing everything manually.",
+          "As one of the Valley's busiest commerce and logistics hubs, Pharr moves fast, and businesses here can't afford the missed calls and slow follow-up that come with doing everything manually.",
           "We build Pharr businesses AI and automation that keep pace: answering calls around the clock, following up with leads instantly, and connecting your tools so the repetitive work runs itself.",
         ],
       },
+      faqs: [
+        {
+          q: "Can you automate the busywork between our business tools?",
+          a: "Yes. We connect your forms, calendar, inbox and lead management so the steps your team repeats run on their own, with AI handling the parts that used to need someone to read and respond.",
+        },
+        {
+          q: "Can you build a custom internal tool for my Pharr business?",
+          a: "Yes. We build internal tools, dashboards and custom AI agents around a specific weekly task, or teach you to build them yourself in one-on-one sessions.",
+        },
+      ],
+      nearby: [
+        { href: "/ai-implementation-mcallen-tx", label: "AI automation in McAllen" },
+        { href: "/ai-implementation-edinburg-tx", label: "AI automation in Edinburg" },
+        { href: "/ai-implementation-weslaco-tx", label: "AI automation in Weslaco" },
+        { href: "/local-seo-pharr-tx", label: "Local SEO in Pharr" },
+        { href: "/website-design-pharr-tx", label: "Website design in Pharr" },
+      ],
     },
   },
 ];
@@ -432,10 +582,10 @@ export function webDesignCityLinks(city: City): CityLink[] {
   ];
 }
 
-/* ---- AI Implementation city builders ---- */
+/* ---- AI Automation city builders (URLs keep the original /ai-implementation-* slugs) ---- */
 export function aiCityMetadata(city: City): Metadata {
   const url = canonical(aiCityPath(city.slug));
-  const title = `AI Implementation for ${city.name}, TX Businesses | ${SITE.name}`;
+  const title = city.ai.metaTitle ?? `AI Automation in ${city.name}, TX | ${SITE.name}`;
   return {
     title: { absolute: title },
     description: city.ai.description,
@@ -448,21 +598,36 @@ export function aiCityMetadata(city: City): Metadata {
 export function aiCityCrumbs(city: City) {
   return [
     { name: "Home", path: "/" },
-    { name: "AI Implementation", path: "/services/ai-implementation" },
+    { name: "AI Automation", path: "/services/ai-implementation" },
     { name: `${city.name}, TX`, path: aiCityPath(city.slug) },
+  ];
+}
+
+/** City FAQs first, then the shared ones. Drives both the accordion and the FAQPage schema. */
+export function aiCityFaqs(city: City): FaqItem[] {
+  return [...(city.ai.faqs ?? []), ...AI_FAQS];
+}
+
+/** Neighbouring AI city pages plus the same city's local SEO and web design pages. */
+export function aiCityLinks(city: City): CityLink[] {
+  if (city.ai.nearby) return city.ai.nearby;
+  return [
+    { href: `/local-seo-${city.slug}-tx`, label: `Local SEO in ${city.name}` },
+    { href: webDesignCityPath(city.slug), label: `Website design in ${city.name}` },
   ];
 }
 
 export function aiCityJsonLd(city: City) {
   return [
     serviceSchemaNode({
-      name: `AI Implementation for ${city.name}, TX Businesses`,
-      serviceType: AI_IMPL.primaryKeyword,
+      name: city.ai.h1,
+      serviceType: "AI automation",
       description: city.ai.description,
       url: canonical(aiCityPath(city.slug)),
       areaName: `${city.name}, TX`,
     }),
+    localBusinessSchema(),
     breadcrumbSchema(aiCityCrumbs(city)),
-    faqSchema(AI_FAQS),
+    faqSchema(aiCityFaqs(city)),
   ];
 }
