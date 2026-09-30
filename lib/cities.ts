@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
-import { canonical, SITE, LOCAL_BUSINESS_ID, breadcrumbSchema, faqSchema } from "@/lib/site";
+import { canonical, SITE, LOCAL_BUSINESS_ID, breadcrumbSchema, faqSchema, localBusinessSchema } from "@/lib/site";
+import type { CityDetailsContent } from "@/components/CityDetails";
+import type { CityLink } from "@/components/CityLinks";
+import type { FaqItem } from "@/lib/webDesign";
 import { WEB_DESIGN, WEB_DESIGN_FAQS } from "@/lib/webDesign";
 import { AI_IMPL, AI_FAQS } from "@/lib/aiImplementation";
 
@@ -8,6 +11,14 @@ export interface CityVariant {
   heroSub: string;
   description: string;
   intro: { heading: string; body: string[] };
+  /** Optional <title> override (absolute, ≤60 chars). Defaults to the shared template. */
+  metaTitle?: string;
+  /** Optional city-specific section: what's different about this market. */
+  details?: CityDetailsContent;
+  /** Optional city-specific FAQs, shown before the shared ones (and in FAQPage schema). */
+  faqs?: FaqItem[];
+  /** Optional hand-picked internal links to related city pages. */
+  nearby?: CityLink[];
 }
 
 export interface City {
@@ -22,11 +33,30 @@ export const cities: City[] = [
     slug: "harlingen",
     name: "Harlingen",
     webDesign: {
+      metaTitle: "Harlingen Web Design & Builder | RGV Performance Marketing",
       h1: "Website Design in Harlingen, TX",
       heroSub:
         "Fast, mobile-first websites for Harlingen businesses — built to rank on Google and turn local searches into booked customers.",
       description:
-        "Professional website design in Harlingen, TX. Fast, mobile-first, SEO-ready websites built to turn local searches into leads. Custom-quoted by RGV Performance Marketing.",
+        "Need a website builder in Harlingen? A local team designs, writes and launches your fast, SEO-ready site in 2–4 weeks, in English or Spanish. Free quote.",
+      faqs: [
+        {
+          q: "Is this a website builder like Wix or Squarespace?",
+          a: "No. With a DIY website builder you design, write and maintain the site yourself. We're a Harlingen team that builds the site for you: design, copy, on-page SEO, lead forms and launch. You review it and ask for changes; we do the work. You still own the finished site.",
+        },
+        {
+          q: "Can I meet with you in Harlingen?",
+          a: "Yes. We're based in Harlingen, so we can sit down in person or talk by phone or video. Most of the build happens over shared drafts, and you can reach us at any point along the way.",
+        },
+      ],
+      nearby: [
+        { href: "/local-seo-harlingen-tx", label: "Harlingen SEO services" },
+        { href: "/google-business-profile-harlingen-tx", label: "Google Business Profile optimization in Harlingen" },
+        { href: "/google-ads-management-harlingen-tx", label: "Google Ads management in Harlingen" },
+        { href: "/blog/how-much-does-a-website-cost-rio-grande-valley", label: "How much a website costs in the RGV" },
+        { href: "/website-design-brownsville-tx", label: "Website design in Brownsville" },
+        { href: "/website-design-mcallen-tx", label: "Web design in McAllen" },
+      ],
       intro: {
         heading: "Websites Built for Harlingen Businesses",
         body: [
@@ -54,11 +84,62 @@ export const cities: City[] = [
     slug: "mcallen",
     name: "McAllen",
     webDesign: {
-      h1: "Website Design in McAllen, TX",
+      metaTitle: "McAllen Web Design That Ranks | RGV Performance Marketing",
+      h1: "McAllen Web Design for Small Businesses",
       heroSub:
         "Websites for McAllen businesses that load fast, rank on Google, and turn the Valley's busiest market into booked customers.",
       description:
-        "Professional website design in McAllen, TX. Fast, mobile-first, SEO-ready websites built to win the Valley's most competitive market. Custom-quoted by RGV Performance Marketing.",
+        "McAllen web design for small businesses: fast, mobile-first sites in English and Spanish, with SEO and lead forms built in. Live in 2–4 weeks. Free quote.",
+      details: {
+        heading: "Building a Website for the McAllen Market",
+        intro:
+          "McAllen is the Valley's main shopping hub, and it draws customers from both sides of the border. A site that works here has to handle that. These are the things we build in for McAllen clients.",
+        points: [
+          {
+            title: "Built for shoppers from both sides of the border",
+            text: "McAllen pulls shoppers from Reynosa and Monterrey as well as the rest of Hidalgo County, and a lot of them browse in Spanish. We can build your key pages in both languages so the customer driving over the bridge finds you in the language they searched in.",
+          },
+          {
+            title: "Fast on a phone, not just on a desktop",
+            text: "Most people look you up on a phone, often on a cellular connection in a parking lot on 10th Street. We keep pages light, put tap-to-call and directions up front, and test on real phones before launch.",
+          },
+          {
+            title: "A page for each thing you sell",
+            text: "In a market this crowded, one generic page can't rank for everything. We give each main service its own page, so Google can match you to \"teeth whitening McAllen\" or \"AC repair McAllen\" instead of guessing.",
+          },
+          {
+            title: "Forms that reach you right away",
+            text: "Every form on your site goes straight into your lead management inbox, with an instant reply to the customer. In McAllen the business that answers first usually gets the job.",
+          },
+        ],
+      },
+      faqs: [
+        {
+          q: "How much does a website cost in McAllen?",
+          a: "It depends on the number of pages, the features, and whether you need English and Spanish versions. We quote every project after a short call so you only pay for what you need. Our guide on what a website costs in the Rio Grande Valley breaks down the typical price ranges and what drives them.",
+        },
+        {
+          q: "Do you work with McAllen businesses if you're based in Harlingen?",
+          a: "Yes. We work with businesses across the Valley, McAllen included. Most of the process runs on calls and shared drafts, and we can meet in person when that's easier.",
+        },
+        {
+          q: "Will my new McAllen website rank on Google?",
+          a: "It launches with on-page SEO built in: titles, headings, fast load times and schema markup. Ranking for competitive McAllen searches usually also takes ongoing local SEO and a strong Google Business Profile, which we offer as a separate service.",
+        },
+        {
+          q: "Can you redesign my current site without losing my Google rankings?",
+          a: "Yes. Before launch we map every old URL to its new page and set up permanent redirects, keep the titles and content that already rank, and resubmit your sitemap to Google so the switch doesn't cost you the traffic you've earned.",
+        },
+      ],
+      nearby: [
+        { href: "/local-seo-mcallen-tx", label: "Local SEO in McAllen" },
+        { href: "/google-business-profile-mcallen-tx", label: "Google Business Profile optimization in McAllen" },
+        { href: "/google-ads-management-mcallen-tx", label: "Google Ads management in McAllen" },
+        { href: "/blog/how-much-does-a-website-cost-rio-grande-valley", label: "How much a website costs in the RGV" },
+        { href: "/website-design-edinburg-tx", label: "Website design in Edinburg" },
+        { href: "/website-design-mission-tx", label: "Website design in Mission" },
+        { href: "/website-design-pharr-tx", label: "Website design in Pharr" },
+      ],
       intro: {
         heading: "Websites Built for McAllen Businesses",
         body: [
@@ -303,7 +384,7 @@ function serviceSchemaNode(args: { name: string; serviceType: string; descriptio
 /* ---- Website Design city builders ---- */
 export function webDesignCityMetadata(city: City): Metadata {
   const url = canonical(webDesignCityPath(city.slug));
-  const title = `Website Design in ${city.name}, TX | ${SITE.name}`;
+  const title = city.webDesign.metaTitle ?? `Website Design in ${city.name}, TX | ${SITE.name}`;
   return {
     title: { absolute: title },
     description: city.webDesign.description,
@@ -330,8 +411,24 @@ export function webDesignCityJsonLd(city: City) {
       url: canonical(webDesignCityPath(city.slug)),
       areaName: `${city.name}, TX`,
     }),
+    localBusinessSchema(),
     breadcrumbSchema(webDesignCityCrumbs(city)),
-    faqSchema(WEB_DESIGN_FAQS),
+    faqSchema(webDesignCityFaqs(city)),
+  ];
+}
+
+/** City FAQs first, then the shared ones. Drives both the accordion and the FAQPage schema. */
+export function webDesignCityFaqs(city: City): FaqItem[] {
+  return [...(city.webDesign.faqs ?? []), ...WEB_DESIGN_FAQS];
+}
+
+/** Hand-picked links if the city has them, otherwise the same city's other services. */
+export function webDesignCityLinks(city: City): CityLink[] {
+  if (city.webDesign.nearby) return city.webDesign.nearby;
+  return [
+    { href: `/local-seo-${city.slug}-tx`, label: `Local SEO in ${city.name}, TX` },
+    { href: `/google-business-profile-${city.slug}-tx`, label: `Google Business Profile in ${city.name}` },
+    { href: `/google-ads-management-${city.slug}-tx`, label: `Google Ads management in ${city.name}` },
   ];
 }
 

@@ -3,6 +3,9 @@ import Icon from "@/components/Icon";
 import PageHero from "@/components/PageHero";
 import FaqAccordion from "@/components/FaqAccordion";
 import InnerCTA from "@/components/InnerCTA";
+import CityDetails, { type CityDetailsContent } from "@/components/CityDetails";
+import CityLinks, { type CityLink } from "@/components/CityLinks";
+import type { FaqItem } from "@/lib/localSeo";
 import {
   LOCAL_SEO_INCLUDED,
   LOCAL_SEO_STEPS,
@@ -20,9 +23,15 @@ export interface LocalSeoPageProps {
   crumbs: { name: string; path: string }[];
   cityIntro?: { heading: string; body: string[] };
   backToMain?: boolean;
+  /** City-specific market section, rendered after the intro. */
+  details?: CityDetailsContent;
+  /** FAQ list override (city FAQs + shared). Defaults to the shared list. */
+  faqs?: FaqItem[];
+  /** Descriptive internal links to related city pages. */
+  nearby?: { heading: string; links: CityLink[] };
 }
 
-export default function LocalSeoPage({ eyebrow, h1, heroSub, crumbs, cityIntro, backToMain }: LocalSeoPageProps) {
+export default function LocalSeoPage({ eyebrow, h1, heroSub, crumbs, cityIntro, backToMain, details, faqs, nearby }: LocalSeoPageProps) {
   return (
     <main>
       <PageHero eyebrow={eyebrow} title={h1} subtitle={heroSub} crumbs={crumbs}>
@@ -54,6 +63,8 @@ export default function LocalSeoPage({ eyebrow, h1, heroSub, crumbs, cityIntro, 
           </div>
         </section>
       )}
+
+      {details && <CityDetails {...details} />}
 
       {/* What's included */}
       <section style={{ padding: "88px 0", background: "var(--cream)" }}>
@@ -147,7 +158,7 @@ export default function LocalSeoPage({ eyebrow, h1, heroSub, crumbs, cityIntro, 
               Local SEO Questions, Answered
             </h2>
           </div>
-          <FaqAccordion items={LOCAL_SEO_FAQS} />
+          <FaqAccordion items={faqs ?? LOCAL_SEO_FAQS} />
         </div>
       </section>
 
@@ -179,6 +190,8 @@ export default function LocalSeoPage({ eyebrow, h1, heroSub, crumbs, cityIntro, 
           </div>
         </div>
       </section>
+
+      {nearby && <CityLinks eyebrow="Nearby" heading={nearby.heading} links={nearby.links} />}
 
       <InnerCTA />
     </main>

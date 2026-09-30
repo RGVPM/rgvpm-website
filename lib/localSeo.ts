@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import type { IconName } from "@/components/Icon";
-import { canonical, SITE, LOCAL_BUSINESS_ID, breadcrumbSchema, faqSchema } from "@/lib/site";
+import { canonical, SITE, LOCAL_BUSINESS_ID, breadcrumbSchema, faqSchema, localBusinessSchema } from "@/lib/site";
+import type { CityDetailsContent } from "@/components/CityDetails";
+import type { CityLink } from "@/components/CityLinks";
 
 export interface FaqItem {
   q: string;
@@ -86,20 +88,53 @@ export interface LocalSeoCity {
   heroSub: string;
   description: string;
   intro: { heading: string; body: string[] };
+  /** Optional <title> override (absolute, ≤60 chars). Defaults to the shared template. */
+  metaTitle?: string;
+  /** Optional city-specific section: what's different about ranking in this market. */
+  details?: CityDetailsContent;
+  /** Optional city-specific FAQs, shown before the shared ones (and in FAQPage schema). */
+  faqs?: FaqItem[];
+  /** Optional hand-picked internal links to related city pages. */
+  nearby?: CityLink[];
 }
 
 export const LOCAL_SEO_CITIES: Record<string, LocalSeoCity> = {
   harlingen: {
-    h1: "Local SEO Services in Harlingen, TX",
+    metaTitle: "Harlingen SEO: Local, Affordable | RGV Performance Marketing",
+    h1: "Harlingen SEO & Local SEO Services",
     heroSub: "Rank higher in Harlingen's local search results and map pack — so customers here find your business first instead of a competitor.",
-    description: "Local SEO services in Harlingen, TX. Rank in the map pack and local search with on-page optimization, Google Business Profile work, and bilingual local content from RGV Performance Marketing.",
+    description: "Harlingen SEO from a Harlingen-based team. Climb Google Maps and local search on a month-to-month plan: no contract, and a ranking report every month.",
     intro: {
-      heading: "Local SEO Built for Harlingen Businesses",
+      heading: "SEO in Harlingen, From a Harlingen Team",
       body: [
         "As the commercial hub of the Rio Grande Valley, Harlingen has a dense, competitive mix of healthcare, retail, and service businesses — which means more companies fighting for the same local searches you need to win.",
         "We're based right here in Harlingen, so we know the market. We optimize your Google Business Profile, pages, and content for the exact searches your Harlingen customers are typing, so you climb the map pack and turn local searches into calls.",
       ],
     },
+    details: {
+      heading: "What Harlingen SEO Work Looks Like",
+      intro: "Harlingen is small enough that a handful of businesses own each map pack, and big enough that those spots are worth fighting for. Here is where we focus for Harlingen clients.",
+      points: [
+        { title: "Every way people phrase the search", text: "Customers type \"seo harlingen\", \"harlingen tx roofer\", \"dentist near me\" and the same thing in Spanish. We map those variations to the right page on your site so Google has one clear answer for each." },
+        { title: "The map pack comes first", text: "For most Harlingen service searches, the three map results take the clicks before anyone scrolls. Your Google Business Profile categories, services, photos and reviews get worked on before anything else." },
+        { title: "Serving the whole Valley from Harlingen", text: "Harlingen sits between McAllen and Brownsville, and many businesses here serve both. Ranking in Harlingen does not carry over to other cities, so we add service-area pages for the cities you actually drive to." },
+        { title: "Affordable, month to month", text: "SEO is included in our plans with no long-term contract. You get a report each month showing rankings, map views and calls, and you stay because it's working, not because a contract says so." },
+      ],
+    },
+    faqs: [
+      { q: "How much does SEO cost in Harlingen?", a: "Our local SEO work is included in month-to-month plans with no long-term contract, and every plan and price is listed on our pricing page. Website design is quoted separately if you need a new site. We'll tell you on the first call which plan fits, including when a smaller plan is enough." },
+      { q: "Can I meet with you in Harlingen?", a: "Yes. We're a Harlingen-based team, so we can meet in person or talk by phone or video, whichever is easier for you. Most of the ongoing work is handled remotely, and you get a monthly report either way." },
+      { q: "My business serves the whole Valley. Can I still rank in Harlingen?", a: "Yes. Your Google Business Profile ranks strongest near your address, and dedicated pages help you show up in the other cities you serve. We usually start with Harlingen, then add pages for McAllen, Brownsville or wherever your customers are." },
+    ],
+    nearby: [
+      { href: "/website-design-harlingen-tx", label: "Website design in Harlingen" },
+      { href: "/google-business-profile-harlingen-tx", label: "Google Business Profile optimization in Harlingen" },
+      { href: "/google-ads-management-harlingen-tx", label: "Google Ads management in Harlingen" },
+      { href: "/blog/digital-marketing-harlingen-tx-guide", label: "Digital marketing in Harlingen: 2026 guide" },
+      { href: "/local-seo-brownsville-tx", label: "Local SEO in Brownsville" },
+      { href: "/local-seo-mcallen-tx", label: "Local SEO in McAllen" },
+      { href: "/local-seo-san-benito-tx", label: "Local SEO in San Benito" },
+    ],
   },
   mcallen: {
     h1: "Local SEO Services in McAllen, TX",
@@ -114,9 +149,10 @@ export const LOCAL_SEO_CITIES: Record<string, LocalSeoCity> = {
     },
   },
   brownsville: {
-    h1: "Local SEO Services in Brownsville, TX",
+    metaTitle: "Brownsville SEO & Local SEO, TX | RGV Performance Marketing",
+    h1: "Brownsville SEO & Local SEO Services",
     heroSub: "Capture Brownsville's fast-growing market. Local SEO that ranks your business in local search and the map pack as the city booms.",
-    description: "Local SEO services in Brownsville, TX. Rank in local search and the map pack in a fast-growing border city with optimization, content, and GBP work from RGV Performance Marketing.",
+    description: "Brownsville SEO from a Valley team: Google Maps rankings, English and Spanish content, monthly reports, no long-term contract. Get a free ranking review.",
     intro: {
       heading: "Local SEO Built for Brownsville Businesses",
       body: [
@@ -124,6 +160,30 @@ export const LOCAL_SEO_CITIES: Record<string, LocalSeoCity> = {
         "Local SEO is how you stake your claim early. We optimize your Google Business Profile and pages for Brownsville searches, build local content and citations, and grow your reviews — so you capture this growth instead of watching competitors take it.",
       ],
     },
+    details: {
+      heading: "What It Takes to Rank in Brownsville",
+      intro: "Brownsville searches don't behave like Harlingen or McAllen searches. The city is spread out, it's the Cameron County seat, and a lot of its customers cross the border or just moved here. This is what we plan around.",
+      points: [
+        { title: "Distance across a spread-out city", text: "Google weighs how close a business is to the person searching. A shop near the Boca Chica Boulevard corridor and a customer on the north side off I-69E can be far apart in Google's eyes. We set up your service areas and location pages so you show up across the parts of town you actually serve." },
+        { title: "Customers from across the border", text: "Shoppers and patients from Matamoros come over the Gateway, B&M and Veterans bridges, and many of them search in Spanish. Spanish service pages and a bilingual Google Business Profile let you rank for searches that most competitors never target." },
+        { title: "New residents who don't know anyone yet", text: "Growth around the Port of Brownsville and the space industry at Boca Chica is bringing in people with no local referrals to lean on. They search Google for everything. Ranking now means they find you before they find a competitor." },
+        { title: "Reviews stand in for referrals", text: "In Brownsville, people ask family and neighbors who to call. Online, your Google reviews do that job. We set up automatic review requests after each job so your profile keeps getting fresh, real reviews." },
+      ],
+    },
+    faqs: [
+      { q: "Do I need an office in Brownsville to rank in Brownsville?", a: "Not always. Google ranks map results mostly on how close you are to the searcher, so an address in Brownsville helps the most. Service-area businesses that travel to customers can still rank by setting Brownsville as a service area and having a strong Brownsville page on their site. We're based in Harlingen, about half an hour up I-69E, and work with businesses across Brownsville." },
+      { q: "How is Brownsville SEO different from Harlingen or McAllen SEO?", a: "Each city has its own map pack and its own set of competitors, so ranking in Harlingen does nothing for Brownsville searches. Brownsville also has a larger share of Spanish-language and cross-border searches, so bilingual content matters more here than almost anywhere else in the Valley." },
+      { q: "What's included in a Brownsville local SEO plan?", a: "Google Business Profile optimization, on-page SEO for your Brownsville pages, local content in English and Spanish, citation cleanup, review requests, and a monthly report on rankings, map views and calls. Plans are month-to-month, and every plan and price is on our pricing page." },
+      { q: "Should I run ads in Brownsville while SEO builds?", a: "If you need calls this month, yes. Google Ads can put you at the top of Brownsville searches within days, while local SEO takes a few months to build. Many businesses run both, then lean more on SEO as rankings grow and the cost per lead drops." },
+    ],
+    nearby: [
+      { href: "/google-business-profile-brownsville-tx", label: "Google Business Profile optimization in Brownsville" },
+      { href: "/website-design-brownsville-tx", label: "Website design in Brownsville" },
+      { href: "/google-ads-management-brownsville-tx", label: "Google Ads management in Brownsville" },
+      { href: "/local-seo-harlingen-tx", label: "Harlingen SEO services" },
+      { href: "/local-seo-san-benito-tx", label: "Local SEO in San Benito" },
+      { href: "/blog/how-to-rank-higher-google-maps-rio-grande-valley", label: "How to rank higher on Google Maps in the RGV" },
+    ],
   },
   edinburg: {
     h1: "Local SEO Services in Edinburg, TX",
@@ -197,7 +257,7 @@ export function getLocalSeoCity(slug: string): LocalSeoCity | undefined {
 export function localSeoCityMetadata(slug: string, name: string): Metadata {
   const city = LOCAL_SEO_CITIES[slug];
   const url = canonical(localSeoCityPath(slug));
-  const title = `Local SEO Services in ${name}, TX | ${SITE.name}`;
+  const title = city.metaTitle ?? `Local SEO Services in ${name}, TX | ${SITE.name}`;
   return {
     title: { absolute: title },
     description: city.description,
@@ -228,7 +288,25 @@ export function localSeoCityJsonLd(slug: string, name: string) {
       areaServed: { "@type": "City", name: `${name}, TX` },
       provider: { "@type": "ProfessionalService", "@id": LOCAL_BUSINESS_ID, name: SITE.name, url: SITE.url },
     },
+    localBusinessSchema(),
     breadcrumbSchema(localSeoCityCrumbs(slug, name)),
-    faqSchema(LOCAL_SEO_FAQS.map((f) => ({ q: f.q, a: f.a }))),
+    faqSchema(localSeoCityFaqs(slug)),
+  ];
+}
+
+/** City FAQs first, then the shared ones. Drives both the accordion and the FAQPage schema. */
+export function localSeoCityFaqs(slug: string): FaqItem[] {
+  return [...(LOCAL_SEO_CITIES[slug]?.faqs ?? []), ...LOCAL_SEO_FAQS];
+}
+
+/** Default "nearby" links for a city page that has no hand-picked list. */
+export function localSeoCityLinks(slug: string, name: string): CityLink[] {
+  const city = LOCAL_SEO_CITIES[slug];
+  if (city?.nearby) return city.nearby;
+  return [
+    { href: `/website-design-${slug}-tx`, label: `Website design in ${name}, TX` },
+    { href: `/google-business-profile-${slug}-tx`, label: `Google Business Profile in ${name}` },
+    { href: `/google-ads-management-${slug}-tx`, label: `Google Ads management in ${name}` },
+    { href: "/blog/local-seo-vs-regular-seo", label: "Local SEO vs. regular SEO, explained" },
   ];
 }
