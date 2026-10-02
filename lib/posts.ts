@@ -28,6 +28,65 @@ export interface Post {
 
 export const POSTS: Post[] = [
   {
+    slug: "ai-friday-automate-weekly-task",
+    title: "AI Friday: Write the Weekly Task Down Before You Automate It",
+    metaTitle: "AI Friday: How to Automate a Weekly Business Task",
+    description:
+      "An AI Friday tip for Rio Grande Valley owners: how to pick one weekly task, write it down, and hand it to an AI agent without automating the mess.",
+    excerpt:
+      "Before an AI agent can run a task for your business, somebody has to write down how the task is done today. That one page is the real first step.",
+    category: "AI Friday",
+    icon: "cpu",
+    datePublished: "2026-10-02",
+    dateModified: "2026-10-02",
+    readMinutes: 5,
+    tldr:
+      "To automate a weekly task in a small business, pick one job your team repeats every week, write down exactly how it is done today, and only then hand it to an AI agent or a custom tool. A person still checks the output until it is right every week. Skipping the write-up just makes the old mess run faster.",
+    sections: [
+      { type: "p", text: "Last AI Friday we said the first job to automate is answering the lead. This week is about the third step on that list: the office chore your team repeats every week. A report, an inbox sort, a follow-up list. It is the easiest place to waste money on AI, and the easiest place to win if you do one thing first." },
+      { type: "h2", text: "Why most business automation fails" },
+      { type: "p", text: "Business automation fails when the task was never clear to begin with. If two people on your team do the Monday report two different ways, an AI agent will pick one of them, or invent a third. The tool is not the problem. The missing instructions are." },
+      { type: "p", text: "So the first deliverable is not software. It is one page that says how the job is done right now." },
+      { type: "h2", text: "Pick the right weekly task" },
+      { type: "p", text: "A good first task for an AI agent in a Harlingen, McAllen, or Brownsville business usually looks like this:" },
+      { type: "ul", items: [
+        "Someone on the team does it every week, and it takes the same steps each time.",
+        "The inputs already live somewhere: an inbox, a spreadsheet, your lead management software, a calendar.",
+        "The output is something a person can check in a minute: a list, a draft, a short report.",
+        "Nobody will be hurt if the first draft is wrong, because a person reads it before it goes out.",
+      ]},
+      { type: "p", text: "Leave alone anything that sends money, quotes prices, or makes promises to a customer on its own. Those can come later, if ever." },
+      { type: "h2", text: "Write it down in plain language" },
+      { type: "p", text: "Sit with the person who does the task and write the steps as they do them. Not how it should work. How it works today. Cover four things:" },
+      { type: "ul", items: [
+        "Where the information comes from, and who has access to it.",
+        "The steps, in order, including the small judgment calls (\"skip it if the lead is from out of the Valley\").",
+        "What the finished result looks like, with one real example.",
+        "Who checks it, and where it goes after that.",
+      ]},
+      { type: "p", text: "If you cannot fill in those four lines, the task is not ready for AI yet. Fix the process with your team first. That costs nothing and it is usually half the value." },
+      { type: "h2", text: "Then hand it to an agent or a custom tool" },
+      { type: "p", text: "With the page written, the build is the short part. Custom AI agents can research, write, report, and run parts of your operation around your own data and tools. A small internal tool or dashboard can often ship in days. Our AI consulting work starts with exactly this map: how the work comes in, where your team's time goes, and which few tasks are worth handing off.", links: [{ text: "AI consulting", href: "/services/ai-implementation" }] },
+      { type: "p", text: "If you would rather build it yourself, that same page is what you bring to a 1-on-1 AI build session. You learn Claude Code or Codex by building the tool for your own business, and you keep what you build. No coding background needed.", links: [{ text: "1-on-1 AI build session", href: "/learn-claude-code" }] },
+      { type: "h2", text: "Keep a person on it until it is boring" },
+      { type: "p", text: "For the first few weeks, the person who used to do the task checks every result. When they stop finding things to fix, the automation is ready to run with a lighter check. If they keep finding the same problem, the page needs another line, not a new tool." },
+      { type: "h2", text: "Your Friday homework" },
+      { type: "p", text: "Pick one task your team did this week that they will do again next week. Write the four lines. If you want help turning that page into a working agent, book a call and bring the page with you.", links: [{ text: "book a call", href: "/contact" }] },
+    ],
+    faqs: [
+      { q: "What tasks can a small business automate with AI?", a: "Repeated weekly work with clear inputs and an output a person can check quickly: reports, inbox sorting, follow-up lists, and first drafts. Lead response is usually the first win; the weekly office chore comes after that." },
+      { q: "Do I need to document a process before automating it?", a: "Yes. If the steps are not written down, an AI agent will guess, and it will copy whatever inconsistency your team already has. A one-page write-up of how the task is done today is the real first step." },
+      { q: "What is a custom AI agent?", a: "A custom AI agent is a system built around your own data and tools that can research, write, report, or run a defined part of your operation. It works best on a task with written steps and a person checking the result." },
+      { q: "Can I build my own AI tool without knowing how to code?", a: "Yes. In a one-on-one build session you learn tools like Claude Code and Codex by building a real tool for your own business, and you keep everything you build." },
+    ],
+    related: [
+      { href: "/blog/ai-friday-local-business-rgv", label: "AI Friday: What to Automate First" },
+      { href: "/services/ai-implementation", label: "AI Consulting & Implementation" },
+      { href: "/learn-claude-code", label: "1-on-1 AI Build Sessions" },
+      { href: "/contact", label: "Book a Call" },
+    ],
+  },
+  {
     slug: "ai-friday-local-business-rgv",
     title: "AI Friday: What a Local Business in the RGV Should Automate First",
     metaTitle: "AI Friday: AI for Local Businesses in the RGV",
