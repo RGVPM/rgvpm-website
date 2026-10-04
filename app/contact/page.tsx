@@ -57,7 +57,7 @@ export default function ContactPage() {
                 </p>
               </div>
               <a
-                href="https://api.rgvperformancemarketing.com/widget/bookings/rgvpmdiscoverycall"
+                href="https://api.rgvperformancemarketing.com/widget/bookings/kelsey-lopez-personal-calendar-lxyj2xytm"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "var(--orange)", color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 28px", borderRadius: 4, textDecoration: "none", flexShrink: 0 }}

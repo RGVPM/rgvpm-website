@@ -16,7 +16,7 @@ export const SITE = {
     "An AI and marketing agency for local businesses. We build websites, SEO, and ads, plus the AI systems that answer calls, follow up with leads, and cut the busywork. Locally rooted. Built to scale.",
   team: "The RGV Performance Marketing Team",
   /** Booking / discovery-call URL (used as a contact action). */
-  bookingUrl: "https://api.rgvperformancemarketing.com/widget/bookings/rgvpmdiscoverycall",
+  bookingUrl: "https://api.rgvperformancemarketing.com/widget/bookings/kelsey-lopez-personal-calendar-lxyj2xytm",
 } as const;
 
 /**

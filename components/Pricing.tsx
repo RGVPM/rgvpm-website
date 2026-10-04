@@ -144,7 +144,7 @@ export default function Pricing({ asPage = false }: { asPage?: boolean }) {
         <p style={{ textAlign: "center", marginTop: 40, fontSize: 15, color: "rgba(255,255,255,0.8)" }}>
           Not sure which plan is right for you?{" "}
           <a
-            href="https://api.rgvperformancemarketing.com/widget/bookings/rgvpmdiscoverycall"
+            href="https://api.rgvperformancemarketing.com/widget/bookings/kelsey-lopez-personal-calendar-lxyj2xytm"
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: "var(--orange)", fontWeight: 700, textDecoration: "none" }}
