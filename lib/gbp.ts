@@ -77,7 +77,7 @@ export const GBP_CITIES: Record<string, CityCopy> = {
   mcallen: {
     h1: "Google Business Profile Optimization in McAllen, TX",
     heroSub: "Climb the McAllen map pack in the Valley's most competitive market. Full Google Business Profile optimization and review building.",
-    description: "Google Business Profile optimization in McAllen, TX. Map-pack visibility, review generation, and profile management for the Valley's most competitive market, from RGV Performance Marketing.",
+    description: "Google Business Profile optimization in McAllen, TX: show up in the map, earn steady reviews, and keep your profile current in the Valley's busiest market.",
     intro: { heading: "Own the Map Pack in McAllen", body: [
       "McAllen is the Valley's most competitive market, and the map pack is fiercely contested — a fully optimized, active Google Business Profile with strong reviews is what separates the businesses that get found from the ones that don't.",
       "We optimize and manage your profile to compete in McAllen: the right categories and services, a steady stream of genuine reviews, regular posts, and ongoing tracking so you climb the map pack and capture the calls.",
@@ -86,7 +86,7 @@ export const GBP_CITIES: Record<string, CityCopy> = {
   brownsville: {
     h1: "Google Business Profile Optimization in Brownsville, TX",
     heroSub: "Get found by Brownsville's growing market. Full Google Business Profile optimization that puts you in the local map pack.",
-    description: "Google Business Profile optimization in Brownsville, TX. Map-pack visibility, review generation, and profile management for a fast-growing market, from RGV Performance Marketing.",
+    description: "Google Business Profile optimization in Brownsville, TX: show up in the map, earn steady reviews, and keep your profile current in a fast-growing market.",
     intro: { heading: "Own the Map Pack in Brownsville", body: [
       "As Brownsville grows, more new residents are searching Google for local businesses every day — and the map pack is the first thing they see. An optimized profile is how you capture that rising demand early.",
       "We claim, optimize, and manage your Google Business Profile for Brownsville searches, building reviews and keeping it active so you rank in the map pack and turn the city's growth into calls and customers.",
@@ -95,7 +95,7 @@ export const GBP_CITIES: Record<string, CityCopy> = {
   edinburg: {
     h1: "Google Business Profile Optimization in Edinburg, TX",
     heroSub: "Capture Edinburg's mobile, 'near me' searchers. Full Google Business Profile optimization that ranks you in the map pack.",
-    description: "Google Business Profile optimization in Edinburg, TX. Map-pack visibility, review generation, and profile management for a young, mobile market, from RGV Performance Marketing.",
+    description: "Google Business Profile optimization in Edinburg, TX: show up in the map, earn steady reviews, and keep your profile current for a young, mobile market.",
     intro: { heading: "Own the Map Pack in Edinburg", body: [
       "With UTRGV and a young, always-mobile population, Edinburg runs on 'near me' searches — and those searches almost always end in the map pack. If you're not there, you're invisible to a huge share of local customers.",
       "We optimize and manage your Google Business Profile for Edinburg, building reviews and keeping your listing active and accurate so you show up first when nearby customers search on their phones.",
@@ -113,7 +113,7 @@ export const GBP_CITIES: Record<string, CityCopy> = {
   weslaco: {
     h1: "Google Business Profile Optimization in Weslaco, TX",
     heroSub: "Capture the mid-Valley with a fully optimized Google Business Profile that ranks you in Weslaco's local map pack.",
-    description: "Google Business Profile optimization in Weslaco, TX. Map-pack visibility, review generation, and profile management for the mid-Valley, from RGV Performance Marketing.",
+    description: "Google Business Profile optimization in Weslaco, TX: show up in the map, earn steady reviews, and keep your profile current across the mid-Valley.",
     intro: { heading: "Own the Map Pack in Weslaco", body: [
       "On the busy Expressway 83 corridor, Weslaco sees a steady stream of local and passing customers searching Google for nearby businesses — and the map pack is where those searches land.",
       "We optimize and manage your Google Business Profile for Weslaco, building reviews and keeping it active and accurate so you appear first in the map pack and turn that local traffic into calls and visits.",
@@ -131,7 +131,7 @@ export const GBP_CITIES: Record<string, CityCopy> = {
   pharr: {
     h1: "Google Business Profile Optimization in Pharr, TX",
     heroSub: "Stand out in Pharr's busy market. Full Google Business Profile optimization that ranks you in the local map pack.",
-    description: "Google Business Profile optimization in Pharr, TX. Map-pack visibility, review generation, and profile management for a busy commerce hub, from RGV Performance Marketing.",
+    description: "Google Business Profile optimization in Pharr, TX: show up in the map, earn steady reviews, and keep your profile current in a busy commerce hub.",
     intro: { heading: "Own the Map Pack in Pharr", body: [
       "As one of the Valley's busiest commerce and logistics hubs, Pharr is a competitive market where local customers and businesses alike turn to Google's map pack to find who they need.",
       "We claim, optimize, and manage your Google Business Profile for Pharr searches, building reviews and keeping your listing active so you climb the map pack and become the result customers find and call first.",
@@ -146,7 +146,7 @@ export function getGbpCity(slug: string): CityCopy | undefined {
 export function gbpCityMetadata(slug: string, name: string): Metadata {
   const city = GBP_CITIES[slug];
   const url = canonical(gbpCityPath(slug));
-  const title = `Google Business Profile Optimization in ${name}, TX | ${SITE.name}`;
+  const title = `Google Business Profile Optimization in ${name}, TX`;
   return {
     title: { absolute: title },
     description: city.description,

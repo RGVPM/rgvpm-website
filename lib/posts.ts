@@ -379,9 +379,9 @@ export const POSTS: Post[] = [
   {
     slug: "how-much-does-a-website-cost-rio-grande-valley",
     title: "How Much Does a Website Cost in the Rio Grande Valley? (2026 Guide)",
-    metaTitle: "How Much Does a Website Cost in the Rio Grande Valley? (2026)",
+    metaTitle: "How Much Does a Website Cost in the RGV? (2026)",
     description:
-      "A clear, honest breakdown of what a small-business website costs in McAllen, Harlingen, Brownsville, and across the RGV in 2026 — and what actually drives the price.",
+      "What a small-business website costs in McAllen, Harlingen, Brownsville, and across the RGV in 2026, and what actually drives the price.",
     excerpt:
       "Most RGV small-business websites land between $1,500 and $6,000 to build, plus a small monthly cost to host and maintain. Here's exactly what you're paying for — and what to avoid.",
     category: "Website Design",
@@ -435,7 +435,7 @@ export const POSTS: Post[] = [
     title: "How to Rank Higher on Google Maps in the Rio Grande Valley",
     metaTitle: "How to Rank Higher on Google Maps in the RGV (2026)",
     description:
-      "A practical guide to ranking in the Google map pack in McAllen, Harlingen, Brownsville, and across the RGV — what the ranking factors are and how to improve them.",
+      "How to rank in the Google map pack in McAllen, Harlingen, Brownsville, and across the RGV: what the ranking factors are and how to improve them.",
     excerpt:
       "Ranking in the Google map pack comes down to three things: relevance, distance, and prominence. Here's how RGV businesses can improve all three and win more local calls.",
     category: "Local SEO",
@@ -483,7 +483,7 @@ export const POSTS: Post[] = [
     title: "Local SEO vs. Regular SEO: What's the Difference?",
     metaTitle: "Local SEO vs. Regular SEO: What's the Difference? (2026)",
     description:
-      "A plain-English explanation of local SEO versus regular SEO — what each one does, how they differ, and which one a Rio Grande Valley business actually needs.",
+      "Local SEO vs. regular SEO in plain English: what each one does, how they differ, and which one a Rio Grande Valley business actually needs.",
     excerpt:
       "Regular SEO helps you rank for broad searches anywhere. Local SEO helps you rank for searches tied to your city and the map pack. For a business that serves a local area, local SEO is what drives calls.",
     category: "Local SEO",

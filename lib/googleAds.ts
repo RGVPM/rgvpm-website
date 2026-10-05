@@ -68,7 +68,7 @@ export const GOOGLE_ADS_CITIES: Record<string, CityCopy> = {
   harlingen: {
     h1: "Google Ads Management in Harlingen, TX",
     heroSub: "Get in front of Harlingen customers the moment they search. Managed Google and Meta ads that turn ad spend into booked leads.",
-    description: "Google Ads & paid advertising management in Harlingen, TX. Managed Google and Facebook ad campaigns built to generate leads, from RGV Performance Marketing.",
+    description: "Google Ads management in Harlingen, TX: Google and Facebook campaigns built to bring in calls and leads, managed by a Harlingen team.",
     intro: { heading: "Paid Ads That Work in Harlingen", body: [
       "As the commercial hub of the Valley, Harlingen is a competitive market — and paid ads are how you get instant visibility while your local SEO builds over time. Done right, they put you at the top of the page the moment a customer searches.",
       "We manage Google and Meta campaigns for Harlingen businesses with one focus: leads, not clicks. We target the right searches, write ads that convert, and manage your budget so every dollar works as hard as possible.",
@@ -77,7 +77,7 @@ export const GOOGLE_ADS_CITIES: Record<string, CityCopy> = {
   mcallen: {
     h1: "Google Ads Management in McAllen, TX",
     heroSub: "Win the Valley's most competitive market with tightly managed Google and Meta ads that turn budget into booked customers.",
-    description: "Google Ads & paid advertising management in McAllen, TX. Tightly managed Google and Facebook campaigns built for the Valley's most competitive market, from RGV Performance Marketing.",
+    description: "Google Ads management in McAllen, TX: tightly managed Google and Facebook campaigns built for the Valley's most competitive market.",
     intro: { heading: "Paid Ads That Win in McAllen", body: [
       "McAllen is the Valley's largest and most competitive market, which means clicks cost more and wasted spend adds up fast. Winning here takes tight targeting, sharp ad copy, and disciplined budget management — not a set-it-and-forget-it approach.",
       "We manage Google and Meta campaigns for McAllen businesses to maximize leads per dollar: cutting wasted spend, testing relentlessly, and scaling what works so you compete profitably in the Valley's toughest market.",
@@ -86,7 +86,7 @@ export const GOOGLE_ADS_CITIES: Record<string, CityCopy> = {
   brownsville: {
     h1: "Google Ads Management in Brownsville, TX",
     heroSub: "Capture Brownsville's growing demand the instant it searches. Managed Google and Meta ads built to generate leads now.",
-    description: "Google Ads & paid advertising management in Brownsville, TX. Managed Google and Facebook campaigns built to capture a fast-growing market, from RGV Performance Marketing.",
+    description: "Google Ads management in Brownsville, TX: managed Google and Facebook campaigns built to bring in leads from a fast-growing market.",
     intro: { heading: "Paid Ads That Capture Brownsville", body: [
       "Brownsville is growing fast, and paid ads let you capture that rising demand immediately — appearing right when new residents and businesses search for what you offer, instead of waiting months to rank.",
       "We manage Google and Meta campaigns for Brownsville businesses with a focus on real leads: the right targeting, bilingual ad copy that converts, and careful budget management so you grow alongside the city instead of overpaying for it.",
@@ -95,7 +95,7 @@ export const GOOGLE_ADS_CITIES: Record<string, CityCopy> = {
   edinburg: {
     h1: "Google Ads Management in Edinburg, TX",
     heroSub: "Reach Edinburg's always-online audience the moment they're ready to buy. Managed Google and Meta ads that produce leads.",
-    description: "Google Ads & paid advertising management in Edinburg, TX. Managed Google and Facebook campaigns targeting a young, mobile market, from RGV Performance Marketing.",
+    description: "Google Ads management in Edinburg, TX: managed Google and Facebook campaigns built to reach a young, mobile market and bring in leads.",
     intro: { heading: "Paid Ads That Reach Edinburg", body: [
       "Home to UTRGV and a young, always-online population, Edinburg is a market where the right ad in front of the right person at the right moment drives immediate action — especially on mobile and social.",
       "We manage Google and Meta campaigns for Edinburg businesses to capture that intent: targeting the searches and audiences that convert, writing ads that earn the click, and tracking every lead so you know exactly what your spend produces.",
@@ -104,7 +104,7 @@ export const GOOGLE_ADS_CITIES: Record<string, CityCopy> = {
   mission: {
     h1: "Google Ads Management in Mission, TX",
     heroSub: "Put your Mission business in front of ready-to-buy customers with managed Google and Meta ads built to generate leads.",
-    description: "Google Ads & paid advertising management in Mission, TX. Managed Google and Facebook campaigns built to generate local leads, from RGV Performance Marketing.",
+    description: "Google Ads management in Mission, TX: managed Google and Facebook campaigns built to bring in local calls and leads.",
     intro: { heading: "Paid Ads That Grow Mission Businesses", body: [
       "As Mission keeps growing, more families are searching for local services every day — and paid ads put your business in front of them at the exact moment they're ready to act.",
       "We manage Google and Meta campaigns for Mission businesses with one goal: turning ad spend into booked leads. Smart targeting, bilingual creative, and careful budget management mean every dollar is working to bring in customers.",
@@ -113,7 +113,7 @@ export const GOOGLE_ADS_CITIES: Record<string, CityCopy> = {
   weslaco: {
     h1: "Google Ads Management in Weslaco, TX",
     heroSub: "Capture local and passing demand along the Expressway 83 corridor with managed Google and Meta ads built to drive leads.",
-    description: "Google Ads & paid advertising management in Weslaco, TX. Managed Google and Facebook campaigns built to capture the mid-Valley market, from RGV Performance Marketing.",
+    description: "Google Ads management in Weslaco, TX: managed Google and Facebook campaigns built to bring in leads across the mid-Valley.",
     intro: { heading: "Paid Ads That Work in Weslaco", body: [
       "Sitting on the busy Expressway 83 corridor in the heart of the mid-Valley, Weslaco businesses have a steady flow of potential customers — and paid ads put you in front of them right when they're searching.",
       "We manage Google and Meta campaigns for Weslaco businesses to turn that visibility into leads: targeting the right searches and audiences, writing ads that convert, and managing your budget so nothing is wasted.",
@@ -122,7 +122,7 @@ export const GOOGLE_ADS_CITIES: Record<string, CityCopy> = {
   "san-benito": {
     h1: "Google Ads Management in San Benito, TX",
     heroSub: "Get more leads for less in San Benito with managed Google and Meta ads in a less crowded, lower-cost market.",
-    description: "Google Ads & paid advertising management in San Benito, TX. Managed Google and Facebook campaigns built to generate affordable local leads, from RGV Performance Marketing.",
+    description: "Google Ads management in San Benito, TX: managed Google and Facebook campaigns built to bring in local leads at a sensible cost.",
     intro: { heading: "Paid Ads That Pay Off in San Benito", body: [
       "In a smaller, less crowded market like San Benito, paid ads can deliver an excellent return — clicks often cost less than in McAllen or Brownsville, so a modest, well-managed budget can produce real leads.",
       "We manage Google and Meta campaigns for San Benito businesses to make the most of that advantage: sharp targeting, bilingual ad copy, and tight budget management so every dollar brings in customers, not wasted clicks.",
@@ -131,7 +131,7 @@ export const GOOGLE_ADS_CITIES: Record<string, CityCopy> = {
   pharr: {
     h1: "Google Ads Management in Pharr, TX",
     heroSub: "Reach Pharr's consumers and businesses the moment they search with managed Google and Meta ads built to generate leads.",
-    description: "Google Ads & paid advertising management in Pharr, TX. Managed Google and Facebook campaigns built for a busy commerce and logistics hub, from RGV Performance Marketing.",
+    description: "Google Ads management in Pharr, TX: managed Google and Facebook campaigns built for a busy commerce and logistics hub.",
     intro: { heading: "Paid Ads That Work in Pharr", body: [
       "As one of the Valley's busiest commerce and logistics hubs, Pharr has a competitive market on both the consumer and B2B side — and paid ads let you reach the right audience the instant they're searching.",
       "We manage Google and Meta campaigns for Pharr businesses with a focus on leads: targeting the searches and audiences that matter, writing ads that convert, and managing every dollar so your spend produces real customers.",
@@ -146,7 +146,7 @@ export function getGoogleAdsCity(slug: string): CityCopy | undefined {
 export function googleAdsCityMetadata(slug: string, name: string): Metadata {
   const city = GOOGLE_ADS_CITIES[slug];
   const url = canonical(googleAdsCityPath(slug));
-  const title = `Google Ads Management in ${name}, TX | ${SITE.name}`;
+  const title = `Google Ads Management in ${name}, TX | RGVPM`;
   return {
     title: { absolute: title },
     description: city.description,

@@ -139,7 +139,7 @@ export const LOCAL_SEO_CITIES: Record<string, LocalSeoCity> = {
   mcallen: {
     h1: "Local SEO Services in McAllen, TX",
     heroSub: "Out-rank the competition in the Valley's busiest market. Local SEO that puts your McAllen business in the map pack and ahead of the pack.",
-    description: "Local SEO services in McAllen, TX. Compete in the Valley's most crowded market with map-pack optimization, on-page SEO, and bilingual local content from RGV Performance Marketing.",
+    description: "Local SEO in McAllen, TX for the Valley's most crowded market: Google Maps optimization, on-page SEO, and English and Spanish content. Month to month.",
     intro: {
       heading: "Local SEO Built for McAllen Businesses",
       body: [
@@ -189,7 +189,7 @@ export const LOCAL_SEO_CITIES: Record<string, LocalSeoCity> = {
   edinburg: {
     h1: "Local SEO Services in Edinburg, TX",
     heroSub: "Reach Edinburg's always-online community. Local SEO that ranks your business for 'near me' searches and the local map pack.",
-    description: "Local SEO services in Edinburg, TX. Rank for local and 'near me' searches in a growing university city with on-page SEO, GBP optimization, and bilingual content from RGV Performance Marketing.",
+    description: "Local SEO in Edinburg, TX: rank for 'near me' searches in a growing university city with Google Maps optimization, on-page SEO, and bilingual content.",
     intro: {
       heading: "Local SEO Built for Edinburg Businesses",
       body: [
@@ -201,7 +201,7 @@ export const LOCAL_SEO_CITIES: Record<string, LocalSeoCity> = {
   mission: {
     h1: "Local SEO Services in Mission, TX",
     heroSub: "Get found by Mission customers searching for what you offer. Local SEO that ranks your business in local search and the map pack.",
-    description: "Local SEO services in Mission, TX. Rank in local search and the map pack in a growing Valley community with on-page SEO, GBP optimization, and bilingual content from RGV Performance Marketing.",
+    description: "Local SEO in Mission, TX: rank in Google Maps and local search with Google Business Profile work, on-page SEO, and English and Spanish content.",
     intro: {
       heading: "Local SEO Built for Mission Businesses",
       body: [
@@ -213,7 +213,7 @@ export const LOCAL_SEO_CITIES: Record<string, LocalSeoCity> = {
   weslaco: {
     h1: "Local SEO Services in Weslaco, TX",
     heroSub: "Win the mid-Valley market. Local SEO that ranks your Weslaco business in local search and captures customers along the Expressway 83 corridor.",
-    description: "Local SEO services in Weslaco, TX. Rank in local search and the map pack across the mid-Valley with on-page SEO, GBP optimization, and bilingual local content from RGV Performance Marketing.",
+    description: "Local SEO in Weslaco, TX: rank in Google Maps and local search across the mid-Valley with profile work, on-page SEO, and bilingual content.",
     intro: {
       heading: "Local SEO Built for Weslaco Businesses",
       body: [
@@ -225,7 +225,7 @@ export const LOCAL_SEO_CITIES: Record<string, LocalSeoCity> = {
   "san-benito": {
     h1: "Local SEO Services in San Benito, TX",
     heroSub: "Turn San Benito's word of mouth into Google searches that find you. Local SEO that ranks your business in local search and the map pack.",
-    description: "Local SEO services in San Benito, TX. Rank in local search and the map pack in a close-knit community with on-page SEO, GBP optimization, reviews, and bilingual content from RGV Performance Marketing.",
+    description: "Local SEO in San Benito, TX: rank in Google Maps and local search with Google Business Profile work, reviews, on-page SEO, and bilingual content.",
     intro: {
       heading: "Local SEO Built for San Benito Businesses",
       body: [
@@ -237,7 +237,7 @@ export const LOCAL_SEO_CITIES: Record<string, LocalSeoCity> = {
   pharr: {
     h1: "Local SEO Services in Pharr, TX",
     heroSub: "Stand out in a major commerce hub. Local SEO that ranks your Pharr business in local search and the map pack for the customers who matter.",
-    description: "Local SEO services in Pharr, TX. Rank in local search and the map pack in a busy commerce and logistics hub with on-page SEO, GBP optimization, and bilingual content from RGV Performance Marketing.",
+    description: "Local SEO in Pharr, TX: rank in Google Maps and local search in a busy trade hub with profile work, on-page SEO, and English and Spanish content.",
     intro: {
       heading: "Local SEO Built for Pharr Businesses",
       body: [
@@ -258,7 +258,7 @@ export function getLocalSeoCity(slug: string): LocalSeoCity | undefined {
 export function localSeoCityMetadata(slug: string, name: string): Metadata {
   const city = LOCAL_SEO_CITIES[slug];
   const url = canonical(localSeoCityPath(slug));
-  const title = city.metaTitle ?? `Local SEO Services in ${name}, TX | ${SITE.name}`;
+  const title = city.metaTitle ?? `Local SEO in ${name}, TX | ${SITE.name}`;
   return {
     title: { absolute: title },
     description: city.description,
