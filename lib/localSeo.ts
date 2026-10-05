@@ -183,6 +183,7 @@ export const LOCAL_SEO_CITIES: Record<string, LocalSeoCity> = {
       { href: "/local-seo-harlingen-tx", label: "Harlingen SEO services" },
       { href: "/local-seo-san-benito-tx", label: "Local SEO in San Benito" },
       { href: "/blog/how-to-rank-higher-google-maps-rio-grande-valley", label: "How to rank higher on Google Maps in the RGV" },
+      { href: "/blog/local-seo-brownsville-tx-checklist", label: "Brownsville local SEO checklist for owners" },
     ],
   },
   edinburg: {
