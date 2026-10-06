@@ -147,6 +147,43 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                   </h3>
                 );
               }
+              if (s.type === "table") {
+                return (
+                  <div key={i} style={{ overflowX: "auto", margin: "8px 0 28px", border: "1px solid var(--border)", borderRadius: 8 }}>
+                    <table style={{ width: "100%", minWidth: 640, borderCollapse: "collapse", fontSize: 14.5, lineHeight: 1.55 }}>
+                      {s.text && (
+                        <caption style={{ captionSide: "top", textAlign: "left", padding: "12px 14px", fontSize: 13, color: "var(--muted)" }}>{s.text}</caption>
+                      )}
+                      <thead>
+                        <tr>
+                          {s.headers?.map((h, j) => (
+                            <th key={j} scope="col" style={{ textAlign: "left", padding: "12px 14px", background: "var(--navy)", color: "#fff", fontWeight: 600, verticalAlign: "bottom" }}>
+                              {h}
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {s.rows?.map((row, r) => (
+                          <tr key={r} style={{ background: r % 2 ? "var(--cream)" : "#fff" }}>
+                            {row.map((cell, c) =>
+                              c === 0 ? (
+                                <th key={c} scope="row" style={{ textAlign: "left", padding: "12px 14px", color: "var(--navy)", fontWeight: 700, verticalAlign: "top", borderTop: "1px solid var(--border)" }}>
+                                  {cell}
+                                </th>
+                              ) : (
+                                <td key={c} style={{ padding: "12px 14px", color: "var(--muted)", verticalAlign: "top", borderTop: "1px solid var(--border)" }}>
+                                  {cell}
+                                </td>
+                              )
+                            )}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                );
+              }
               if (s.type === "ul") {
                 return (
                   <ul key={i} style={{ margin: "8px 0 20px", paddingLeft: 0, listStyle: "none" }}>
