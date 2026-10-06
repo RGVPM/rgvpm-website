@@ -104,7 +104,7 @@ export default function ContactPage() {
                 {[
                   { icon: "mail" as const, label: "Email", value: SITE.email, href: `mailto:${SITE.email}` },
                   { icon: "map-pin" as const, label: "Based In", value: `${SITE.city}, ${SITE.region}` },
-                  { icon: "globe" as const, label: "Serving", value: `${SITE.areaServed} & beyond` },
+                  { icon: "globe" as const, label: "Serving", value: `${SITE.areaServed} & nationwide` },
                   { icon: "bolt" as const, label: "Response Time", value: "Same business day" },
                 ].map((item, i) => {
                   const accent = i % 2 === 0 ? "var(--orange)" : "var(--teal)";

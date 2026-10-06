@@ -13,7 +13,7 @@ export const SITE = {
   /** Approx. coordinates for Harlingen, TX (service-area business — no public street address). */
   geo: { latitude: 26.1906, longitude: -97.6961 },
   description:
-    "An AI and marketing agency for local businesses. We build websites, SEO, and ads, plus the AI systems that answer calls, follow up with leads, and cut the busywork. Locally rooted. Built to scale.",
+    "An AI & marketing agency based in Harlingen, Texas, serving businesses nationwide. We build websites, SEO, and ads, plus the AI systems that answer calls, follow up with leads, and cut the busywork. Locally rooted. Built to scale.",
   team: "The RGV Performance Marketing Team",
   /** Booking / discovery-call URL (used as a contact action). */
   bookingUrl: "https://api.rgvperformancemarketing.com/widget/bookings/rgvpmdiscoverycall",
@@ -199,7 +199,9 @@ export function businessSchema() {
     areaServed: [
       ...SERVICE_AREA_CITIES.map((name) => ({ "@type": "City", name })),
       { "@type": "AdministrativeArea", name: "Rio Grande Valley" },
+      { "@type": "Country", name: "United States" },
     ],
+    slogan: "AI & Marketing Agency",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Harlingen",
@@ -262,11 +264,14 @@ export function pricingSchema() {
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": `${url}#service`,
-    name: "Digital marketing plans for Rio Grande Valley businesses",
+    name: "AI & marketing plans for small businesses",
     serviceType: "Website, local SEO, advertising and marketing automation",
     url,
     provider: { "@id": ORGANIZATION_ID },
-    areaServed: { "@type": "AdministrativeArea", name: "Rio Grande Valley" },
+    areaServed: [
+      { "@type": "AdministrativeArea", name: "Rio Grande Valley" },
+      { "@type": "Country", name: "United States" },
+    ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Monthly plans (month-to-month)",

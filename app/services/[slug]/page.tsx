@@ -74,7 +74,7 @@ export default async function ServicePage({
     serviceType: service.primaryKeyword,
     description: service.metaDescription,
     url,
-    areaServed: { "@type": "AdministrativeArea", name: SITE.areaServed },
+    areaServed: [{ "@type": "AdministrativeArea", name: SITE.areaServed }, { "@type": "Country", name: "United States" }],
     provider: { "@type": "ProfessionalService", "@id": LOCAL_BUSINESS_ID, name: SITE.name, url: SITE.url },
   };
 

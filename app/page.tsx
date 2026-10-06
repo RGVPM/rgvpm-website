@@ -34,9 +34,9 @@ export default function Home() {
 }
 
 // Keep "AI & Marketing Agency" in the title (owner's positioning call).
-const HOME_TITLE = "Harlingen Digital Marketing | RGV AI & Marketing Agency";
+const HOME_TITLE = "AI & Digital Marketing Agency | Harlingen TX & Nationwide";
 const HOME_DESCRIPTION =
-  "Harlingen digital marketing for RGV businesses: websites, local SEO, Google Ads and AI that follows up on every lead. From $397/mo, month-to-month.";
+  "AI & marketing agency in Harlingen, TX, serving businesses nationwide: websites, SEO, Google Ads and AI that follows up on every lead. From $397/mo.";
 
 export const metadata: Metadata = {
   title: { absolute: HOME_TITLE },

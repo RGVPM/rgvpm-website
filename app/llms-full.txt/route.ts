@@ -21,7 +21,7 @@ export function GET() {
   const L: string[] = [];
   L.push(`# ${SITE.name} — Full Reference`);
   L.push("");
-  L.push(`> ${SITE.description} Based in ${SITE.city}, ${SITE.region}, serving the ${SITE.areaServed} in English and Spanish. This is the expanded reference; the concise version is at ${u("/llms.txt")}.`);
+  L.push(`> ${SITE.description} Local clients across the ${SITE.areaServed}; remote clients nationwide; English and Spanish. This is the expanded reference; the concise version is at ${u("/llms.txt")}.`);
   L.push("");
   L.push("## Business details");
   L.push(`- **Name:** ${SITE.name}`);
