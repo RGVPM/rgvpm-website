@@ -395,15 +395,31 @@ export default function PricingTabs() {
         </div>
 
         {/* tab nav */}
-        <div className="mt-10 flex flex-wrap justify-center gap-3">
+        <div
+          role="tablist"
+          aria-label="Pricing categories"
+          className="mt-10 flex flex-wrap justify-center gap-3"
+          onKeyDown={(e) => {
+            if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+            e.preventDefault();
+            const i = TABS.findIndex((t) => t.id === activeTab);
+            const next = TABS[(i + (e.key === "ArrowRight" ? 1 : TABS.length - 1)) % TABS.length].id;
+            setActiveTab(next);
+            document.getElementById(`pricing-tab-${next}`)?.focus();
+          }}
+        >
           {TABS.map((tab) => {
             const active = tab.id === activeTab;
             return (
               <button
                 key={tab.id}
+                id={`pricing-tab-${tab.id}`}
                 type="button"
+                role="tab"
+                aria-selected={active}
+                aria-controls={`pricing-panel-${tab.id}`}
+                tabIndex={active ? 0 : -1}
                 onClick={() => setActiveTab(tab.id)}
-                aria-pressed={active}
                 className={`flex min-h-[44px] touch-manipulation items-center justify-center rounded-md px-5 py-2.5 text-sm font-semibold transition-colors ${
                   active
                     ? "bg-orange-500 text-white"
@@ -416,11 +432,22 @@ export default function PricingTabs() {
           })}
         </div>
 
-        {/* tab content */}
+        {/* tab content: every panel is in the server HTML (so crawlers and AI
+            engines see every plan and price); inactive ones are `hidden`. */}
         <div className="mt-12">
-          {activeTab === "websites" && <WebsitesTab />}
-          {activeTab === "social" && <SocialTab />}
-          {activeTab === "plans" && <PlansTab />}
+          {TABS.map((tab) => (
+            <div
+              key={tab.id}
+              id={`pricing-panel-${tab.id}`}
+              role="tabpanel"
+              aria-labelledby={`pricing-tab-${tab.id}`}
+              hidden={tab.id !== activeTab}
+            >
+              {tab.id === "websites" && <WebsitesTab />}
+              {tab.id === "social" && <SocialTab />}
+              {tab.id === "plans" && <PlansTab />}
+            </div>
+          ))}
         </div>
 
         {/* page footer CTA */}
