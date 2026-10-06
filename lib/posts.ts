@@ -1,9 +1,13 @@
 import type { IconName } from "@/components/Icon";
 
 export interface PostSection {
-  type: "h2" | "h3" | "p" | "ul";
+  type: "h2" | "h3" | "p" | "ul" | "table";
+  /** For "table", `text` is the table caption. */
   text?: string;
   items?: string[];
+  /** Column headers and rows for a "table" section. */
+  headers?: string[];
+  rows?: string[][];
   /** Optional inline links for a "p" section: each `text` must appear verbatim in `text`. */
   links?: { text: string; href: string }[];
 }
@@ -33,6 +37,114 @@ export interface Post {
 }
 
 export const POSTS: Post[] = [
+  {
+    slug: "how-much-does-seo-cost-rio-grande-valley",
+    title: "How Much Does SEO Cost in the Rio Grande Valley?",
+    metaTitle: "How Much Does SEO Cost? (2026)",
+    description:
+      "What SEO costs in McAllen, Harlingen, Brownsville and the RGV: monthly vs one-time vs hourly vs DIY, what each level includes, red flags, and timelines.",
+    excerpt:
+      "SEO quotes in the Valley are hard to compare because they are priced four different ways. Here is how each model works, what a fair offer includes, and what we charge.",
+    category: "Local SEO",
+    icon: "search",
+    datePublished: "2026-10-06",
+    dateModified: "2026-10-06",
+    readMinutes: 9,
+    tldr:
+      "SEO in the Rio Grande Valley is usually sold as a monthly retainer, and the price depends on how many cities and services you want to rank for, how competitive your trade is, and how much work your website and Google profile need. At RGV Performance Marketing, local SEO is $597 a month, month to month, website included.",
+    sections: [
+      { type: "p", text: "Ask three agencies in McAllen, Harlingen, or Brownsville what SEO costs and you will likely get three answers that are hard to compare: a monthly fee, a one-time project, an hourly rate. This guide lays the options side by side so you can see what you are paying for, what a fair offer includes, and when SEO is worth it for a Valley business." },
+      { type: "p", text: "We are an AI and marketing agency in Harlingen, so we also say what we charge, near the end, using only prices from our pricing page." },
+      { type: "h2", text: "How much does SEO cost in the Rio Grande Valley?" },
+      { type: "p", text: "There is no single market rate, and anyone who quotes one before asking about your business is guessing. Most Valley businesses pay for local SEO as a monthly fee, because the work never fully ends: reviews keep coming in, Google changes how your category displays, and you add services. What moves the price up or down is the amount of work, and that comes from a handful of things:" },
+      { type: "ul", items: [
+        "How many cities you want to show up in. Ranking in Harlingen alone is a smaller job than ranking in Harlingen, San Benito, Brownsville, and McAllen, because Google treats each city as its own set of results.",
+        "How many services you sell. A plumber who also does water heaters, drain cleaning, and remodels needs a page for each one people search for.",
+        "How crowded your trade is. Personal injury law, roofing, and air conditioning are contested in every Valley city. A niche trade with three competitors needs less.",
+        "Where you are starting. A fast website and a complete Google Business Profile need upkeep. A slow site with no profile needs repair first.",
+        "Whether you need Spanish. Many Valley customers search in Spanish, and good Spanish pages are written by a person who speaks it, which takes time.",
+        "Who does the work. A freelancer, a local agency, a national agency, and your own evenings all come with different costs and different follow-through.",
+      ]},
+      { type: "h2", text: "How is SEO priced? The four common models" },
+      { type: "p", text: "Almost every SEO offer you get will fit one of these four structures. The labels change from seller to seller, but the shape stays the same." },
+      { type: "table", text: "Common SEO pricing models for local businesses", headers: ["Pricing model", "How you pay", "What it usually covers", "Best fit", "Watch for"], rows: [
+        ["Monthly retainer", "A set fee each month", "Ongoing local SEO: Google profile, pages, reviews, fixes, reporting", "Businesses that want steady calls from search", "Long lock-in contracts and vague monthly reports"],
+        ["One-time project", "A single fee up front", "An audit, a cleanup, or a set of new pages", "A site that needs repair before ongoing work", "Rankings slip when nobody keeps the work up"],
+        ["Hourly", "Per hour of a consultant's time", "Advice, training, or one specific task", "Owners who will do the work and want guidance", "Open-ended bills with no clear deliverable"],
+        ["DIY tools", "A software subscription, plus your time", "Keyword data, rank tracking, site checks", "Owners with the time and patience to learn", "A tool shows the problems. Someone still has to fix them."],
+      ]},
+      { type: "p", text: "For most local service businesses the monthly retainer fits best, because local rankings respond to steady upkeep: new reviews, fresh photos, a page for the service you just added. A one-time project makes sense when the site or profile needs repair, and an hourly consultant when you plan to do the work yourself." },
+      { type: "h2", text: "What should SEO include at each level?" },
+      { type: "p", text: "A price only means something next to a list of deliverables. Here is what a fair offer usually covers at each level." },
+      { type: "h3", text: "A starting scope: one city, the basics done right" },
+      { type: "ul", items: [
+        "A complete Google Business Profile with the right primary category, services, photos, and hours.",
+        "On-page cleanup: page titles, headings, and copy that name your service and your city in plain words.",
+        "Technical fixes so Google can read the site: speed, mobile layout, broken links, indexing problems.",
+        "Your name, address, and phone number made consistent across the main directories.",
+        "A short monthly report that says what was done and what moved.",
+      ]},
+      { type: "h3", text: "A growing scope: more cities, more services" },
+      { type: "ul", items: [
+        "Everything above, plus one real page for each city and service you want to rank for.",
+        "A steady way to ask every customer for a review, and replies to every review.",
+        "Monthly content aimed at searches you already show up for but rarely get clicked on.",
+        "Spanish pages where your customers search in Spanish.",
+      ]},
+      { type: "h3", text: "A full local program: SEO plus the rest of the system" },
+      { type: "ul", items: [
+        "Everything above, plus paid ads on Google or Meta for leads while rankings build.",
+        "Follow-up by text and email so leads from search get answered fast.",
+        "Reporting tied to calls, form fills, and booked jobs, with rankings as supporting detail.",
+      ]},
+      { type: "p", text: "If a quote does not say which of these you are getting, ask. A good agency can answer in writing in a few minutes. For the Google profile side on its own, our Google Business Profile service lists what that work covers.", links: [{ text: "Google Business Profile service", href: "/services/google-business-profile" }] },
+      { type: "h2", text: "What red flags should you look for in an SEO quote?" },
+      { type: "p", text: "Cheap SEO and expensive SEO can both be bad SEO. These warning signs show up in offers everywhere, the Valley included:" },
+      { type: "ul", items: [
+        "A guaranteed #1 ranking. Nobody controls Google's results. Google's own help page on hiring an SEO says no one can guarantee a #1 ranking on Google.",
+        "A long contract with no way out. Local SEO deserves a few months, but a twelve-month lock-in mostly protects the seller. Ask what happens if you leave after month three.",
+                "They own your accounts. Your Google Business Profile, your domain, and your website should be in your name, with the agency added as a manager.",
+        "Bulk links, fake reviews, or keywords stuffed into your business name. These can get a Google profile suspended, and the cleanup costs more than the shortcut saved.",
+        "Copy-paste city pages with only the city name swapped. They look busy on a report, and Google tends to ignore them.",
+        "Reports full of rankings for words nobody searches. Ask for calls, form fills, and the searches that brought them in.",
+      ]},
+      { type: "h2", text: "How long does SEO take to work?" },
+      { type: "p", text: "If your Google profile was incomplete or your site had obvious problems, early movement in the map results often shows within 30 to 60 days of fixing them. Steadier rankings across your city and service pages usually build over 90 to 180 days. Crowded trades and more cities take longer. Anyone promising page one by a set date is guessing, or taking risks with your profile." },
+      { type: "p", text: "Google Ads runs on a different clock: ads can put you at the top of the page within days, and you pay for every click. Some businesses run ads while SEO builds. Our guide to RGV SEO and digital marketing covers the order to run those pieces in.", links: [{ text: "RGV SEO and digital marketing", href: "/blog/rgv-seo-digital-marketing" }] },
+      { type: "h2", text: "How do people in the Valley search for local businesses?" },
+      { type: "p", text: "This shapes what you should pay for. For Valley service businesses, a lot of buying starts on a phone, in Google Maps or the map box at the top of a search. Someone in Pharr looking for AC repair, or in Weslaco looking for a dentist, often picks from the businesses in that map and calls without opening a website. A complete Google profile and steady reviews are a big part of what you are buying." },
+      { type: "p", text: "Each city is also its own search. Google builds map results around where the person searching is standing, so ranking in McAllen does not get you seen by someone in Brownsville, Harlingen, or Edinburg. That is why the number of cities moves the price so much." },
+      { type: "p", text: "Then there is language. Plenty of Valley customers search in Spanish, and many local competitors publish only in English. A Spanish service page written by someone who speaks the language reaches people those competitors miss." },
+      { type: "p", text: "This is why local SEO and national SEO are priced and run so differently. For the longer explanation, read local SEO vs. regular SEO, and for the map side, our guide on how to rank higher on Google Maps in the Valley.", links: [{ text: "local SEO vs. regular SEO", href: "/blog/local-seo-vs-regular-seo" }, { text: "how to rank higher on Google Maps", href: "/blog/how-to-rank-higher-google-maps-rio-grande-valley" }] },
+      { type: "h2", text: "Is SEO worth it for a small business?" },
+      { type: "p", text: "For most local service businesses, yes, as long as three things are true: people search for what you sell in the cities you serve, you can handle more calls, and you can give it a few months. A roofer or dental office in McAllen fits easily. A business that runs almost entirely on referrals, or is already booked out, may get more from fixing its website and Google profile first." },
+      { type: "p", text: "The quickest test: search your main service and your city on your phone. If competitors show up in the map and you do not, those calls already exist and are going to someone else." },
+      { type: "h2", text: "Should you do SEO yourself or hire an agency?" },
+      { type: "p", text: "A lot of local SEO is work an owner can do: finishing the Google profile, fixing old listings, asking every customer for a review, writing a real page for your city. Our local SEO checklist for Brownsville owners walks through it step by step, and the same steps work in any Valley city. Doing it yourself costs very little money and a fair number of evenings.", links: [{ text: "local SEO checklist for Brownsville owners", href: "/blog/local-seo-brownsville-tx-checklist" }] },
+      { type: "p", text: "Hiring help makes sense when you lack the time to keep it up, when you have done the basics and still sit on page two, or when you want several cities and services covered at once. Whichever you choose, keep every account in your own name." },
+      { type: "h2", text: "What does RGV Performance Marketing charge for SEO?" },
+      { type: "p", text: "Our SEO Package is $597 a month, month to month. It includes everything in Plant the Flag, our $397 plan with a custom website built, hosted, and maintained for you plus one inbox for every lead. On top of that it adds Google Business Profile and local SEO work: city and service pages, on-page and technical cleanup, a keyword plan, monthly content, and a monthly report on what moved. We do not guarantee #1 rankings." },
+      { type: "p", text: "If you also want paid ads managed, two-way text and email, automation, and reporting, Build the Machine is $899 a month plus a one-time activation fee. Own the Market is $1,499 a month for managed ads, content, social, reputation, and hands-on monthly optimization. Ad spend on those plans is billed by Google or Meta directly. Current details are on our pricing page.", links: [{ text: "pricing page", href: "/pricing" }] },
+      { type: "p", text: "To see what the work looks like, our local SEO services page covers the process, and there are city pages for local SEO in Harlingen and local SEO in Brownsville. If you are pricing a new site at the same time, read how much a website costs in the RGV.", links: [{ text: "local SEO services", href: "/services/local-seo" }, { text: "local SEO in Harlingen", href: "/local-seo-harlingen-tx" }, { text: "local SEO in Brownsville", href: "/local-seo-brownsville-tx" }, { text: "how much a website costs in the RGV", href: "/blog/how-much-does-a-website-cost-rio-grande-valley" }] },
+      { type: "p", text: "Or book a call. We will look at where you show up today, which cities and services are worth chasing, and whether the SEO Package fits or a smaller plan would do for now.", links: [{ text: "book a call", href: "/contact" }] },
+    ],
+    faqs: [
+      { q: "How much does SEO cost per month in McAllen, Harlingen, or Brownsville?", a: "It depends on how many cities and services you want to rank for, how competitive your trade is, and the shape your website and Google profile are in. Most local businesses pay a monthly fee. At RGV Performance Marketing, the SEO Package is $597 a month, month to month, and includes a custom website plus Google Business Profile and local SEO work." },
+      { q: "Is SEO worth it for a small business?", a: "Usually, if people search for what you sell in the cities you serve, you can handle more calls, and you can give it a few months. Check by searching your main service and city on your phone. If competitors appear in the map and you do not, SEO is how you close that gap." },
+      { q: "Should I sign a long-term SEO contract?", a: "Be careful with one. Local SEO takes a few months to show results, so give any provider a fair run, but you should be able to leave if the work is not getting done. All RGV Performance Marketing plans are month to month." },
+      { q: "Can I pay for SEO once and be done?", a: "A one-time project can repair a site or set up a Google profile properly, and that alone can help. Rankings tend to slip without upkeep, though, because reviews, new pages, and fixes keep coming. Most businesses that rely on search either pay for ongoing work or do it themselves." },
+      { q: "Is local SEO cheaper than regular SEO?", a: "Often, because you compete with businesses near you instead of every site in the country. The work centers on your Google Business Profile, city and service pages, and reviews. The price still rises with each city and service you want to rank for." },
+      { q: "Can any SEO company guarantee first place on Google?", a: "No. Google's own help page on hiring an SEO says no one can guarantee a #1 ranking on Google. A good provider tells you what work they will do each month and how they will measure calls and leads." },
+    ],
+    related: [
+      { href: "/pricing", label: "See Plans & Pricing" },
+      { href: "/services/local-seo", label: "Local SEO Services" },
+      { href: "/local-seo-mcallen-tx", label: "Local SEO in McAllen" },
+      { href: "/blog/local-seo-brownsville-tx-checklist", label: "Brownsville Local SEO Checklist" },
+      { href: "/blog/how-much-does-a-website-cost-rio-grande-valley", label: "How Much Does a Website Cost?" },
+      { href: "/contact", label: "Book a Call" },
+    ],
+  },
   {
     slug: "local-seo-brownsville-tx-checklist",
     title: "Local SEO in Brownsville, TX: A Checklist You Can Run Yourself",
