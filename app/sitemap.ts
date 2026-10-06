@@ -5,77 +5,66 @@ import { citySlugs, webDesignCityPath, aiCityPath } from "@/lib/cities";
 import { localSeoCityPath, LOCAL_SEO_CITIES } from "@/lib/localSeo";
 import { googleAdsCityPath, GOOGLE_ADS_CITIES } from "@/lib/googleAds";
 import { gbpCityPath, GBP_CITIES } from "@/lib/gbp";
-import { postSlugs } from "@/lib/posts";
+import { POSTS } from "@/lib/posts";
+
+/**
+ * Last real content update for non-blog pages. Bump this by hand when page
+ * copy changes; don't use `new Date()` (a lastmod that is always "now" teaches
+ * Google to ignore it). Blog posts use their own dates from lib/posts.ts.
+ * changefreq and priority are left out on purpose: Google ignores both.
+ */
+const PAGES_LAST_MODIFIED = "2026-10-06";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPaths: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
-    { path: "/", priority: 1.0, changeFrequency: "weekly" },
-    { path: "/services", priority: 0.9, changeFrequency: "monthly" },
-    { path: "/pricing", priority: 0.9, changeFrequency: "monthly" },
+  const staticPaths = [
+    "/",
+    "/services",
+    "/pricing",
     // Paid-traffic offer page. Indexable and canonical to itself — it targets
     // "$0 upfront website" intent that /pricing doesn't. Its thank-you page is
     // noindex and deliberately absent here.
-    { path: "/website-offer", priority: 0.9, changeFrequency: "monthly" },
-    { path: "/learn-claude-code", priority: 0.8, changeFrequency: "monthly" },
-    { path: "/claude-code-templates", priority: 0.8, changeFrequency: "monthly" },
-    { path: "/about", priority: 0.6, changeFrequency: "yearly" },
-    { path: "/contact", priority: 0.7, changeFrequency: "yearly" },
-    { path: "/blog", priority: 0.5, changeFrequency: "weekly" },
+    "/website-offer",
+    "/learn-claude-code",
+    "/claude-code-templates",
+    "/about",
+    "/contact",
+    "/blog",
     // Legal pages are indexable (index, follow) so they belong here too.
-    { path: "/privacy", priority: 0.2, changeFrequency: "yearly" },
-    { path: "/terms", priority: 0.2, changeFrequency: "yearly" },
+    "/privacy",
+    "/terms",
   ];
 
-  const servicePaths = serviceSlugs.map((slug) => ({
-    path: `/services/${slug}`,
-    priority: 0.8,
-    changeFrequency: "monthly" as const,
-  }));
+  const servicePaths = serviceSlugs.map((slug) => `/services/${slug}`);
 
-  // New specialized service pages (not part of the lib/services data set).
-  const specializedServicePaths = [
-    { path: "/services/website-design", priority: 0.8, changeFrequency: "monthly" as const },
-    { path: "/services/ai-implementation", priority: 0.8, changeFrequency: "monthly" as const },
-  ];
+  // Specialized service pages (not part of the lib/services data set).
+  const specializedServicePaths = ["/services/website-design", "/services/ai-implementation"];
 
   // City landing pages for website design + AI implementation.
-  const cityPaths = citySlugs.flatMap((slug) => [
-    { path: webDesignCityPath(slug), priority: 0.7, changeFrequency: "monthly" as const },
-    { path: aiCityPath(slug), priority: 0.7, changeFrequency: "monthly" as const },
-  ]);
+  const cityPaths = citySlugs.flatMap((slug) => [webDesignCityPath(slug), aiCityPath(slug)]);
 
-  // Local SEO city landing pages.
-  const localSeoPaths = Object.keys(LOCAL_SEO_CITIES).map((slug) => ({
-    path: localSeoCityPath(slug),
-    priority: 0.8,
-    changeFrequency: "monthly" as const,
+  // Local SEO, Google Ads and Google Business Profile city landing pages.
+  const localSeoPaths = Object.keys(LOCAL_SEO_CITIES).map(localSeoCityPath);
+  const googleAdsPaths = Object.keys(GOOGLE_ADS_CITIES).map(googleAdsCityPath);
+  const gbpPaths = Object.keys(GBP_CITIES).map(gbpCityPath);
+
+  const pages = [
+    ...staticPaths,
+    ...servicePaths,
+    ...specializedServicePaths,
+    ...cityPaths,
+    ...localSeoPaths,
+    ...googleAdsPaths,
+    ...gbpPaths,
+  ].map((path) => ({
+    url: path === "/" ? SITE.url : `${SITE.url}${path}`,
+    lastModified: PAGES_LAST_MODIFIED,
   }));
 
-  // Google Ads + Google Business Profile city landing pages.
-  const googleAdsPaths = Object.keys(GOOGLE_ADS_CITIES).map((slug) => ({
-    path: googleAdsCityPath(slug),
-    priority: 0.8,
-    changeFrequency: "monthly" as const,
-  }));
-  const gbpPaths = Object.keys(GBP_CITIES).map((slug) => ({
-    path: gbpCityPath(slug),
-    priority: 0.8,
-    changeFrequency: "monthly" as const,
+  // Blog posts: the post's own modified date (falls back to published).
+  const posts = POSTS.map((p) => ({
+    url: `${SITE.url}/blog/${p.slug}`,
+    lastModified: p.dateModified || p.datePublished,
   }));
 
-  // Blog posts.
-  const postPaths = postSlugs.map((slug) => ({
-    path: `/blog/${slug}`,
-    priority: 0.6,
-    changeFrequency: "monthly" as const,
-  }));
-
-  const lastModified = new Date();
-
-  return [...staticPaths, ...servicePaths, ...specializedServicePaths, ...cityPaths, ...localSeoPaths, ...googleAdsPaths, ...gbpPaths, ...postPaths].map((entry) => ({
-    url: entry.path === "/" ? SITE.url : `${SITE.url}${entry.path}`,
-    lastModified,
-    changeFrequency: entry.changeFrequency,
-    priority: entry.priority,
-  }));
+  return [...pages, ...posts];
 }
