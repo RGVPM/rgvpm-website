@@ -3,7 +3,7 @@ import Icon from "@/components/Icon";
 import PageHero from "@/components/PageHero";
 import JsonLd from "@/components/JsonLd";
 import Script from "next/script";
-import { canonical, breadcrumbSchema, localBusinessSchema, SITE } from "@/lib/site";
+import { canonical, breadcrumbSchema, SITE, socialMeta } from "@/lib/site";
 
 const url = canonical("/contact");
 
@@ -12,13 +12,12 @@ export const metadata: Metadata = {
   description:
     "Get in touch with RGV Performance Marketing. Tell us about your business and we'll show you how to get found online and turn more searches into customers.",
   alternates: { canonical: url },
-  openGraph: {
-    type: "website",
+  ...socialMeta({
     url,
     title: `Contact ${SITE.name}`,
-    description: "Tell us about your business and we'll map out your path to more leads.",
-    siteName: SITE.name,
-  },
+    description:
+      "Tell us about your business and we'll map out your path to more leads.",
+  }),
 };
 
 export default function ContactPage() {
@@ -26,7 +25,6 @@ export default function ContactPage() {
     <>
       <JsonLd
         data={[
-          localBusinessSchema(),
           breadcrumbSchema([
             { name: "Home", path: "/" },
             { name: "Contact", path: "/contact" },
@@ -106,7 +104,7 @@ export default function ContactPage() {
                 {[
                   { icon: "mail" as const, label: "Email", value: SITE.email, href: `mailto:${SITE.email}` },
                   { icon: "map-pin" as const, label: "Based In", value: `${SITE.city}, ${SITE.region}` },
-                  { icon: "globe" as const, label: "Serving", value: `${SITE.areaServed} & beyond` },
+                  { icon: "globe" as const, label: "Serving", value: `${SITE.areaServed} & nationwide` },
                   { icon: "bolt" as const, label: "Response Time", value: "Same business day" },
                 ].map((item, i) => {
                   const accent = i % 2 === 0 ? "var(--orange)" : "var(--teal)";

@@ -4,6 +4,8 @@ import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
+import JsonLd from "@/components/JsonLd";
+import { businessSchema, websiteSchema } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: {
@@ -13,17 +15,17 @@ export const metadata: Metadata = {
   description:
     "An AI and marketing agency for local businesses. We build websites, SEO, and ads, plus the AI systems that answer calls, follow up with leads, and cut the busywork. Locally rooted. Built to scale.",
   metadataBase: new URL("https://rgvperformancemarketing.com"),
+  // No url/title/description here: pages that don't set their own openGraph
+  // inherit this, and Next fills title/description from the page itself.
+  // Twitter has only the card type for the same reason (it used to hard-code
+  // the homepage text, which every inner page then shared).
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://rgvperformancemarketing.com",
     siteName: "RGV Performance Marketing",
   },
   twitter: {
     card: "summary_large_image",
-    title: "RGV Performance Marketing | AI & Marketing Agency",
-    description:
-      "An AI and marketing agency for local businesses in the Rio Grande Valley. Websites, SEO, ads, and AI systems that answer calls and follow up for you.",
   },
   alternates: { canonical: "https://rgvperformancemarketing.com" },
   robots: {
@@ -48,6 +50,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
       </head>
       <body>
+        {/* Site-wide entity graph: the one business node and the WebSite node. */}
+        <JsonLd data={[businessSchema(), websiteSchema()]} />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-4G6Y27NLZ4"
           strategy="afterInteractive"

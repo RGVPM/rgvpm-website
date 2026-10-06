@@ -15,13 +15,13 @@ import OfferFooter from "@/components/offer/OfferFooter";
 
 import { OFFER, OFFER_FAQS, PLANS } from "@/lib/offer";
 import {
+  DEFAULT_OG_IMAGE,
   ORGANIZATION_ID,
   SERVICE_AREA_CITIES,
   SITE,
   breadcrumbSchema,
   canonical,
   faqSchema,
-  localBusinessSchema,
 } from "@/lib/site";
 
 const PATH = "/website-offer";
@@ -38,12 +38,14 @@ export const metadata: Metadata = {
     title: "$0 Upfront Website for Texas Businesses | RGV Performance Marketing",
     description:
       "Your new website, $0 upfront build fee with a qualifying 12-month plan. Website, CRM, lead capture and ongoing support from $299/month. Optional SEO from $549/month.",
+    images: [DEFAULT_OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
     title: "$0 Upfront Website for Texas Businesses | RGV Performance Marketing",
     description:
       "Your new website, $0 upfront build fee with a qualifying 12-month plan. Website, CRM, lead capture and ongoing support from $299/month.",
+    images: [DEFAULT_OG_IMAGE.url],
   },
 };
 
@@ -64,7 +66,6 @@ export default function WebsiteOfferPage() {
       <MetaPixel />
       <JsonLd
         data={[
-          localBusinessSchema(),
           serviceSchema(),
           faqSchema(OFFER_FAQS),
           breadcrumbSchema([

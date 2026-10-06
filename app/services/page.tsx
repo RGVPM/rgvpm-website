@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { canonical, breadcrumbSchema, serviceListSchema, localBusinessSchema, SITE } from "@/lib/site";
+import { canonical, breadcrumbSchema, serviceListSchema, SITE, socialMeta } from "@/lib/site";
 import PageHero from "@/components/PageHero";
 import Services from "@/components/Services";
 import Icon from "@/components/Icon";
@@ -24,19 +24,19 @@ const specialized = [
 
 const url = canonical("/services");
 
+const linkStyle = { color: "var(--orange-ink)", fontWeight: 600, textDecoration: "underline", textUnderlineOffset: 3 } as const;
+
 export const metadata: Metadata = {
   title: "Digital Marketing Services for Local Businesses",
   description:
     "Local SEO, Google Business Profile, paid advertising, SMS & email marketing, lead management, and social media — everything a local business needs to grow online.",
   alternates: { canonical: url },
-  openGraph: {
-    type: "website",
+  ...socialMeta({
     url,
     title: `Digital Marketing Services | ${SITE.name}`,
     description:
       "Everything a local business needs to get found online and turn searches into booked customers.",
-    siteName: SITE.name,
-  },
+  }),
 };
 
 export default function ServicesHub() {
@@ -58,7 +58,6 @@ export default function ServicesHub() {
             { name: "Lead Management", path: "/services/lead-management" },
             { name: "Social Media & Newsletter", path: "/services/social-media-newsletter" },
           ]),
-          localBusinessSchema(),
         ]}
       />
       <main>
@@ -99,6 +98,17 @@ export default function ServicesHub() {
                 </Link>
               ))}
             </div>
+
+            {/* Where to start: in-copy links to the core service pages. */}
+            <p style={{ maxWidth: 760, margin: "56px auto 0", fontSize: 16, color: "var(--muted)", lineHeight: 1.8, textAlign: "center" }}>
+              Not sure where to start? Most Valley businesses begin with a website that catches leads, then add{" "}
+              <Link href="/services/local-seo" style={linkStyle}>local SEO</Link> so more of the right people find them
+              on Google. <Link href="/services/paid-advertising" style={linkStyle}>Paid advertising</Link> brings in calls
+              while the organic work builds, and <Link href="/services/lead-management" style={linkStyle}>lead management</Link>{" "}
+              makes sure every call, text and form gets a fast reply. In Harlingen? See{" "}
+              <Link href="/website-design-harlingen-tx" style={linkStyle}>website design for Harlingen businesses</Link>, or
+              read <Link href="/blog" style={linkStyle}>our blog</Link> for plain-English local marketing guides.
+            </p>
           </div>
         </section>
 

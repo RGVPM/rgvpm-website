@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
 import WebDesignPage from "@/components/WebDesignPage";
 import { WEB_DESIGN, WEB_DESIGN_FAQS } from "@/lib/webDesign";
-import { canonical, breadcrumbSchema, faqSchema, SITE, LOCAL_BUSINESS_ID } from "@/lib/site";
+import { canonical, breadcrumbSchema, faqSchema, SITE, LOCAL_BUSINESS_ID, socialMeta } from "@/lib/site";
 import { cities, webDesignCityPath } from "@/lib/cities";
 
 const path = "/services/website-design";
@@ -13,13 +13,11 @@ export const metadata: Metadata = {
   description: WEB_DESIGN.metaDescription,
   keywords: WEB_DESIGN.keywordCluster,
   alternates: { canonical: url },
-  openGraph: {
-    type: "website",
+  ...socialMeta({
     url,
     title: `${WEB_DESIGN.metaTitle} | ${SITE.name}`,
     description: WEB_DESIGN.metaDescription,
-    siteName: SITE.name,
-  },
+  }),
 };
 
 const crumbs = [
@@ -35,7 +33,7 @@ const serviceSchema = {
   serviceType: WEB_DESIGN.primaryKeyword,
   description: WEB_DESIGN.metaDescription,
   url,
-  areaServed: { "@type": "AdministrativeArea", name: SITE.areaServed },
+  areaServed: [{ "@type": "AdministrativeArea", name: SITE.areaServed }, { "@type": "Country", name: "United States" }],
   provider: { "@type": "ProfessionalService", "@id": LOCAL_BUSINESS_ID, name: SITE.name, url: SITE.url },
 };
 

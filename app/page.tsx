@@ -9,13 +9,14 @@ import BlogEditorial from "@/components/home/BlogEditorial";
 import HomeFaq from "@/components/home/HomeFaq";
 import FinalCta from "@/components/home/FinalCta";
 import JsonLd from "@/components/JsonLd";
-import { localBusinessSchema, organizationSchema, websiteSchema, faqSchema, SITE } from "@/lib/site";
+import { faqSchema, socialMeta, SITE } from "@/lib/site";
 import { homeFaqs } from "@/lib/faqs";
 
 export default function Home() {
   return (
     <>
-      <JsonLd data={[localBusinessSchema(), organizationSchema(), websiteSchema(), faqSchema(homeFaqs)]} />
+      {/* Business + WebSite nodes are emitted site-wide from app/layout.tsx. */}
+      <JsonLd data={[faqSchema(homeFaqs)]} />
       <main>
         <HomeHero />
         {/* Client logo marquee — each logo links out to the client's site. */}
@@ -32,14 +33,14 @@ export default function Home() {
   );
 }
 
-const HOME_TITLE = "Harlingen AI & Marketing Agency | RGV Performance Marketing";
+// Keep "AI & Marketing Agency" in the title (owner's positioning call).
+const HOME_TITLE = "AI & Digital Marketing Agency | Harlingen TX & Nationwide";
 const HOME_DESCRIPTION =
-  "Harlingen AI & marketing agency for RGV small businesses: websites, local SEO and Google Ads that bring in calls, plus AI that follows up. Month-to-month.";
+  "AI & marketing agency in Harlingen, TX, serving businesses nationwide: websites, SEO, Google Ads and AI that follows up on every lead. From $397/mo.";
 
 export const metadata: Metadata = {
   title: { absolute: HOME_TITLE },
   description: HOME_DESCRIPTION,
   alternates: { canonical: SITE.url },
-  openGraph: { type: "website", url: SITE.url, title: HOME_TITLE, description: HOME_DESCRIPTION, siteName: SITE.name },
-  twitter: { card: "summary_large_image", title: HOME_TITLE, description: HOME_DESCRIPTION },
+  ...socialMeta({ url: SITE.url, title: HOME_TITLE, description: HOME_DESCRIPTION }),
 };

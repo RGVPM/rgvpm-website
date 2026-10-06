@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type { IconName } from "@/components/Icon";
-import { canonical, SITE, LOCAL_BUSINESS_ID, breadcrumbSchema, faqSchema, localBusinessSchema } from "@/lib/site";
+import { canonical, SITE, LOCAL_BUSINESS_ID, breadcrumbSchema, faqSchema, socialMeta } from "@/lib/site";
 import type { CityDetailsContent } from "@/components/CityDetails";
 import type { CityLink } from "@/components/CityLinks";
 
@@ -264,7 +264,7 @@ export function localSeoCityMetadata(slug: string, name: string): Metadata {
     description: city.description,
     keywords: LOCAL_SEO.keywordCluster,
     alternates: { canonical: url },
-    openGraph: { type: "website", url, title, description: city.description, siteName: SITE.name },
+    ...socialMeta({ url, title, description: city.description }),
   };
 }
 
@@ -289,7 +289,6 @@ export function localSeoCityJsonLd(slug: string, name: string) {
       areaServed: { "@type": "City", name: `${name}, TX` },
       provider: { "@type": "ProfessionalService", "@id": LOCAL_BUSINESS_ID, name: SITE.name, url: SITE.url },
     },
-    localBusinessSchema(),
     breadcrumbSchema(localSeoCityCrumbs(slug, name)),
     faqSchema(localSeoCityFaqs(slug)),
   ];
