@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
 import AiImplementationPage from "@/components/AiImplementationPage";
 import { AI_IMPL, AI_FAQS } from "@/lib/aiImplementation";
-import { canonical, breadcrumbSchema, faqSchema, SITE, LOCAL_BUSINESS_ID } from "@/lib/site";
+import { canonical, breadcrumbSchema, faqSchema, SITE, LOCAL_BUSINESS_ID, socialMeta } from "@/lib/site";
 
 const path = "/services/ai-implementation";
 const url = canonical(path);
@@ -12,13 +12,11 @@ export const metadata: Metadata = {
   description: AI_IMPL.metaDescription,
   keywords: AI_IMPL.keywordCluster,
   alternates: { canonical: url },
-  openGraph: {
-    type: "website",
+  ...socialMeta({
     url,
     title: `${AI_IMPL.metaTitle} | ${SITE.name}`,
     description: AI_IMPL.metaDescription,
-    siteName: SITE.name,
-  },
+  }),
 };
 
 const crumbs = [

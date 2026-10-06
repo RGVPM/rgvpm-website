@@ -109,17 +109,84 @@ export function canonical(path: string): string {
   return path === "/" ? SITE.url : `${SITE.url}${path}`;
 }
 
-/** LocalBusiness node reused across pages via a stable @id. */
-export const LOCAL_BUSINESS_ID = `${SITE.url}/#business`;
+/**
+ * One business entity for the whole site. Organization and ProfessionalService
+ * used to be two nodes with two @ids; they are now one multi-typed node under
+ * ORGANIZATION_ID, emitted site-wide from app/layout.tsx so every
+ * `{ "@id": ORGANIZATION_ID }` reference on any page resolves.
+ * LOCAL_BUSINESS_ID is kept as an alias so existing `provider` refs still point here.
+ */
 export const ORGANIZATION_ID = `${SITE.url}/#organization`;
+export const LOCAL_BUSINESS_ID = ORGANIZATION_ID;
 export const WEBSITE_ID = `${SITE.url}/#website`;
 
-export function localBusinessSchema() {
+/** Stable @ids for the people on /about (Person nodes are fully described there). */
+export const PERSON_DERRICK_ID = `${SITE.url}/about#derrick-tamez`;
+export const PERSON_KELSEY_ID = `${SITE.url}/about#kelsey-tamez`;
+
+/** Default share card: the output of app/opengraph-image.tsx. */
+export const DEFAULT_OG_IMAGE = {
+  url: "/opengraph-image",
+  width: 1200,
+  height: 630,
+  alt: "RGV Performance Marketing — AI-Powered Digital Marketing for Local Businesses",
+};
+
+/**
+ * Open Graph + Twitter card metadata for one page, so every page shares with
+ * its own title/description and the default image. Spread into a page's
+ * `metadata` (a page-level `openGraph` replaces the layout's, so the image
+ * has to be set here, not inherited).
+ */
+export function socialMeta({
+  url,
+  title,
+  description,
+  type = "website",
+}: {
+  url: string;
+  title: string;
+  description: string;
+  type?: "website" | "article";
+}) {
+  return {
+    openGraph: {
+      type,
+      url,
+      title,
+      description,
+      siteName: SITE.name,
+      locale: "en_US",
+      images: [DEFAULT_OG_IMAGE],
+    },
+    twitter: {
+      card: "summary_large_image" as const,
+      title,
+      description,
+      images: [DEFAULT_OG_IMAGE.url],
+    },
+  };
+}
+
+/** Short Person reference with enough data to stand on its own on any page. */
+export function founderRef() {
+  return {
+    "@type": "Person",
+    "@id": PERSON_DERRICK_ID,
+    name: FOUNDER?.name ?? "Derrick Tamez",
+    jobTitle: FOUNDER?.jobTitle,
+    url: canonical("/about"),
+  };
+}
+
+/** The single business node (Organization + ProfessionalService). Rendered once, site-wide. */
+export function businessSchema() {
   const node: Record<string, unknown> = {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "@id": LOCAL_BUSINESS_ID,
+    "@type": ["Organization", "ProfessionalService"],
+    "@id": ORGANIZATION_ID,
     name: SITE.name,
+    alternateName: "RGVPM",
     description: SITE.description,
     url: SITE.url,
     email: SITE.email,
@@ -152,54 +219,22 @@ export function localBusinessSchema() {
         closes: OPENING_HOURS.closes,
       },
     ],
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      telephone: SITE.phone,
+      email: SITE.email,
+      availableLanguage: ["English", "Spanish"],
+    },
     potentialAction: {
       "@type": "ReserveAction",
       target: SITE.bookingUrl,
       name: "Book a Free Call",
     },
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "Digital Marketing Plans",
-      itemListElement: PLANS.map((p) => ({
-        "@type": "Offer",
-        name: p.name,
-        description: p.description,
-        price: p.price,
-        priceCurrency: "USD",
-        priceSpecification: {
-          "@type": "UnitPriceSpecification",
-          price: p.price,
-          priceCurrency: "USD",
-          unitText: "MONTH",
-          billingDuration: 1,
-        },
-      })),
-    },
   };
 
   if (SOCIAL_PROFILES.length > 0) node.sameAs = SOCIAL_PROFILES;
-  if (FOUNDER) {
-    node.founder = { "@type": "Person", name: FOUNDER.name, ...(FOUNDER.jobTitle ? { jobTitle: FOUNDER.jobTitle } : {}) };
-  }
-  return node;
-}
-
-/** Organization entity — anchors the brand across the knowledge graph. */
-export function organizationSchema() {
-  const node: Record<string, unknown> = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": ORGANIZATION_ID,
-    name: SITE.name,
-    url: SITE.url,
-    logo: `${SITE.url}/logo.png`,
-    email: SITE.email,
-    telephone: SITE.phone,
-    description: SITE.description,
-    areaServed: { "@type": "AdministrativeArea", name: "Rio Grande Valley, TX" },
-  };
-  if (SOCIAL_PROFILES.length > 0) node.sameAs = SOCIAL_PROFILES;
-  if (FOUNDER) node.founder = { "@type": "Person", name: FOUNDER.name };
+  if (FOUNDER) node.founder = founderRef();
   return node;
 }
 
@@ -214,6 +249,46 @@ export function websiteSchema() {
     description: SITE.description,
     inLanguage: "en-US",
     publisher: { "@id": ORGANIZATION_ID },
+  };
+}
+
+/**
+ * Offer catalog for /pricing, built only from PLANS (the single source of
+ * truth for prices). Nothing here may introduce a price that PLANS lacks.
+ */
+export function pricingSchema() {
+  const url = canonical("/pricing");
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${url}#service`,
+    name: "Digital marketing plans for Rio Grande Valley businesses",
+    serviceType: "Website, local SEO, advertising and marketing automation",
+    url,
+    provider: { "@id": ORGANIZATION_ID },
+    areaServed: { "@type": "AdministrativeArea", name: "Rio Grande Valley" },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Monthly plans (month-to-month)",
+      itemListElement: PLANS.map((p) => ({
+        "@type": "Offer",
+        name: p.name,
+        description: p.description,
+        url,
+        price: p.price,
+        priceCurrency: "USD",
+        availability: "https://schema.org/InStock",
+        seller: { "@id": ORGANIZATION_ID },
+        priceSpecification: {
+          "@type": "UnitPriceSpecification",
+          price: p.price,
+          priceCurrency: "USD",
+          unitCode: "MON",
+          unitText: "month",
+          billingDuration: 1,
+        },
+      })),
+    },
   };
 }
 

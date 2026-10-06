@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { IconName } from "@/components/Icon";
 import type { ServiceCityPageProps } from "@/components/ServiceCityPage";
-import { canonical, SITE, LOCAL_BUSINESS_ID, breadcrumbSchema, faqSchema } from "@/lib/site";
+import { canonical, SITE, LOCAL_BUSINESS_ID, breadcrumbSchema, faqSchema, socialMeta } from "@/lib/site";
 
 export const GOOGLE_ADS = {
   eyebrow: "Paid Advertising",
@@ -152,7 +152,7 @@ export function googleAdsCityMetadata(slug: string, name: string): Metadata {
     description: city.description,
     keywords: GOOGLE_ADS.keywordCluster,
     alternates: { canonical: url },
-    openGraph: { type: "website", url, title, description: city.description, siteName: SITE.name },
+    ...socialMeta({ url, title, description: city.description }),
   };
 }
 

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { IconName } from "@/components/Icon";
 import type { ServiceCityPageProps } from "@/components/ServiceCityPage";
-import { canonical, SITE, LOCAL_BUSINESS_ID, breadcrumbSchema, faqSchema } from "@/lib/site";
+import { canonical, SITE, LOCAL_BUSINESS_ID, breadcrumbSchema, faqSchema, socialMeta } from "@/lib/site";
 
 export const GBP = {
   eyebrow: "Google Business Profile",
@@ -152,7 +152,7 @@ export function gbpCityMetadata(slug: string, name: string): Metadata {
     description: city.description,
     keywords: GBP.keywordCluster,
     alternates: { canonical: url },
-    openGraph: { type: "website", url, title, description: city.description, siteName: SITE.name },
+    ...socialMeta({ url, title, description: city.description }),
   };
 }
 

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Icon from "@/components/Icon";
 import InnerCTA from "@/components/InnerCTA";
 import JsonLd from "@/components/JsonLd";
-import { canonical, breadcrumbSchema, localBusinessSchema, SITE, SOCIAL_PROFILES } from "@/lib/site";
+import { canonical, breadcrumbSchema, SITE, SOCIAL_PROFILES, socialMeta, ORGANIZATION_ID, PERSON_DERRICK_ID, PERSON_KELSEY_ID } from "@/lib/site";
 
 const url = canonical("/about");
 const linkedinUrl = SOCIAL_PROFILES.find((u) => u.includes("linkedin"));
@@ -14,14 +14,12 @@ export const metadata: Metadata = {
   description:
     "RGV Performance Marketing is run by Derrick Tamez, MBA, and Kelsey Tamez, a husband-and-wife team in Harlingen, TX. Meet the team, see what we build for Rio Grande Valley businesses, and find out how to join us.",
   alternates: { canonical: url },
-  openGraph: {
-    type: "website",
+  ...socialMeta({
     url,
     title: `About ${SITE.name}`,
     description:
       "Meet Derrick and Kelsey Tamez, the husband-and-wife team behind RGV Performance Marketing. We're hiring.",
-    siteName: SITE.name,
-  },
+  }),
 };
 
 /**
@@ -158,19 +156,26 @@ export default function AboutPage() {
     <>
       <JsonLd
         data={[
-          localBusinessSchema(),
           breadcrumbSchema([
             { name: "Home", path: "/" },
             { name: "About", path: "/about" },
           ]),
-          ...FOUNDERS.map((f) => ({
-            "@context": "https://schema.org",
-            "@type": "Person",
-            name: f.name,
-            jobTitle: f.title,
-            worksFor: { "@type": "Organization", name: SITE.name, url: SITE.url },
-            url,
-          })),
+          ...FOUNDERS.map((f) => {
+            // Stable @ids so blog posts and the business node can reference these people.
+            const id = f.first === "Derrick" ? PERSON_DERRICK_ID : PERSON_KELSEY_ID;
+            const [name, suffix] = f.name.split(", ");
+            return {
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "@id": id,
+              name,
+              ...(suffix ? { honorificSuffix: suffix } : {}),
+              jobTitle: f.title,
+              ...(f.photo ? { image: `${SITE.url}${f.photo}` } : {}),
+              worksFor: { "@id": ORGANIZATION_ID },
+              url,
+            };
+          }),
         ]}
       />
       <main>

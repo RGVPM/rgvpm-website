@@ -9,13 +9,14 @@ import BlogEditorial from "@/components/home/BlogEditorial";
 import HomeFaq from "@/components/home/HomeFaq";
 import FinalCta from "@/components/home/FinalCta";
 import JsonLd from "@/components/JsonLd";
-import { localBusinessSchema, organizationSchema, websiteSchema, faqSchema, SITE } from "@/lib/site";
+import { faqSchema, socialMeta, SITE } from "@/lib/site";
 import { homeFaqs } from "@/lib/faqs";
 
 export default function Home() {
   return (
     <>
-      <JsonLd data={[localBusinessSchema(), organizationSchema(), websiteSchema(), faqSchema(homeFaqs)]} />
+      {/* Business + WebSite nodes are emitted site-wide from app/layout.tsx. */}
+      <JsonLd data={[faqSchema(homeFaqs)]} />
       <main>
         <HomeHero />
         {/* Client logo marquee — each logo links out to the client's site. */}
@@ -40,6 +41,5 @@ export const metadata: Metadata = {
   title: { absolute: HOME_TITLE },
   description: HOME_DESCRIPTION,
   alternates: { canonical: SITE.url },
-  openGraph: { type: "website", url: SITE.url, title: HOME_TITLE, description: HOME_DESCRIPTION, siteName: SITE.name },
-  twitter: { card: "summary_large_image", title: HOME_TITLE, description: HOME_DESCRIPTION },
+  ...socialMeta({ url: SITE.url, title: HOME_TITLE, description: HOME_DESCRIPTION }),
 };

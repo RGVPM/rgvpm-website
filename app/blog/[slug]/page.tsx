@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPost, postSlugs } from "@/lib/posts";
-import { canonical, breadcrumbSchema, faqSchema, SITE, ORGANIZATION_ID } from "@/lib/site";
+import { canonical, breadcrumbSchema, faqSchema, founderRef, socialMeta, SITE, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/site";
 import PageHero from "@/components/PageHero";
 import FaqAccordion from "@/components/FaqAccordion";
 import InnerCTA from "@/components/InnerCTA";
@@ -39,11 +39,19 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = getPost(slug);
   if (!post) return {};
   const url = canonical(`/blog/${slug}`);
+  const social = socialMeta({ url, title: post.metaTitle, description: post.description, type: "article" });
   return {
     title: { absolute: `${post.metaTitle} | ${SITE.name}` },
     description: post.description,
     alternates: { canonical: url },
-    openGraph: { type: "article", url, title: post.metaTitle, description: post.description, siteName: SITE.name },
+    ...social,
+    openGraph: {
+      ...social.openGraph,
+      type: "article",
+      publishedTime: post.datePublished,
+      modifiedTime: post.dateModified,
+      authors: [canonical("/about")],
+    },
   };
 }
 
@@ -59,9 +67,11 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     { name: post.title, path: `/blog/${slug}` },
   ];
 
+  const author = founderRef();
   const articleSchema = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
+    "@id": `${url}#article`,
     headline: post.title,
     description: post.description,
     url,
@@ -69,8 +79,10 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     dateModified: post.dateModified,
     image: `${SITE.url}/opengraph-image`,
     inLanguage: "en-US",
-    author: { "@id": ORGANIZATION_ID, name: SITE.name },
+    articleSection: post.category,
+    author,
     publisher: { "@id": ORGANIZATION_ID },
+    isPartOf: { "@id": WEBSITE_ID },
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
   };
 
@@ -88,6 +100,13 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         <article style={{ padding: "64px 0 24px", background: "#fff" }}>
           <div style={{ maxWidth: 760, margin: "0 auto", padding: "0 24px" }}>
             <div style={{ fontSize: 13, color: "var(--muted)", marginBottom: 28, display: "flex", gap: 14, flexWrap: "wrap" }}>
+              <span>
+                By{" "}
+                <Link href="/about" style={{ color: "var(--navy)", fontWeight: 600, textDecoration: "none" }}>
+                  {author.name}
+                </Link>
+              </span>
+              <span>·</span>
               <span>{new Date(post.datePublished).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" })}</span>
               <span>·</span>
               <span>{post.readMinutes} min read</span>

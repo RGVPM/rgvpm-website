@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { canonical, breadcrumbSchema, faqSchema, SITE } from "@/lib/site";
+import { canonical, breadcrumbSchema, faqSchema, SITE, socialMeta } from "@/lib/site";
 import AgentSignupForm from "@/components/AgentSignupForm";
 import { KIT_PROMISE, KIT_COURSE } from "@/lib/leadMagnet";
 
@@ -23,13 +23,12 @@ export const metadata: Metadata = {
     "A free AI agent that reviews your Gmail every morning at 8 and emails you what needs a reply. Set up in 10 minutes, no coding. Plus Claude Code templates, a cheat sheet, and a 5-day email course.",
   alternates: { canonical: url },
   keywords: ["claude code templates", "claude.md template", "claude code cheat sheet", "claude code best practices"],
-  openGraph: {
-    type: "website",
+  ...socialMeta({
     url,
     title: `Free AI Inbox Agent + Claude Code Starter Kit | ${SITE.name}`,
-    description: "A free AI agent that reviews your inbox every morning at 8. Plus Claude Code templates and a 5-day course.",
-    siteName: SITE.name,
-  },
+    description:
+      "A free AI agent that reviews your inbox every morning at 8. Plus Claude Code templates and a 5-day course.",
+  }),
 };
 
 const FAQS = [

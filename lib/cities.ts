@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { canonical, SITE, LOCAL_BUSINESS_ID, breadcrumbSchema, faqSchema, localBusinessSchema } from "@/lib/site";
+import { canonical, SITE, LOCAL_BUSINESS_ID, breadcrumbSchema, faqSchema, socialMeta } from "@/lib/site";
 import type { CityDetailsContent } from "@/components/CityDetails";
 import type { CityLink } from "@/components/CityLinks";
 import type { FaqItem } from "@/lib/webDesign";
@@ -390,7 +390,7 @@ export function webDesignCityMetadata(city: City): Metadata {
     description: city.webDesign.description,
     keywords: WEB_DESIGN.keywordCluster,
     alternates: { canonical: url },
-    openGraph: { type: "website", url, title, description: city.webDesign.description, siteName: SITE.name },
+    ...socialMeta({ url, title, description: city.webDesign.description }),
   };
 }
 
@@ -411,7 +411,6 @@ export function webDesignCityJsonLd(city: City) {
       url: canonical(webDesignCityPath(city.slug)),
       areaName: `${city.name}, TX`,
     }),
-    localBusinessSchema(),
     breadcrumbSchema(webDesignCityCrumbs(city)),
     faqSchema(webDesignCityFaqs(city)),
   ];
@@ -441,7 +440,7 @@ export function aiCityMetadata(city: City): Metadata {
     description: city.ai.description,
     keywords: AI_IMPL.keywordCluster,
     alternates: { canonical: url },
-    openGraph: { type: "website", url, title, description: city.ai.description, siteName: SITE.name },
+    ...socialMeta({ url, title, description: city.ai.description }),
   };
 }
 

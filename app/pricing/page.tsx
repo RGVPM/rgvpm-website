@@ -4,7 +4,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import FaqAccordion from "@/components/FaqAccordion";
 import InnerCTA from "@/components/InnerCTA";
 import JsonLd from "@/components/JsonLd";
-import { canonical, breadcrumbSchema, faqSchema, SITE } from "@/lib/site";
+import { canonical, breadcrumbSchema, faqSchema, pricingSchema, SITE, socialMeta } from "@/lib/site";
 
 const url = canonical("/pricing");
 
@@ -13,14 +13,12 @@ export const metadata: Metadata = {
   description:
     "Simple, transparent digital marketing pricing. Month-to-month plans from $397/mo, including a custom website and lead management. No long-term contracts, no hidden fees.",
   alternates: { canonical: url },
-  openGraph: {
-    type: "website",
+  ...socialMeta({
     url,
     title: `Pricing & Plans | ${SITE.name}`,
     description:
       "Month-to-month plans from $397/mo. Transparent pricing, no contracts, no hidden fees.",
-    siteName: SITE.name,
-  },
+  }),
 };
 
 const pricingFaqs = [
@@ -60,6 +58,7 @@ export default function PricingPage() {
             { name: "Pricing", path: "/pricing" },
           ]),
           faqSchema(pricingFaqs),
+          pricingSchema(),
         ]}
       />
       <main>

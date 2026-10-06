@@ -4,7 +4,7 @@ import JsonLd from "@/components/JsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FaqAccordion from "@/components/FaqAccordion";
 import { AI_BOOKING_URL, AI_TOOLS } from "@/lib/aiImplementation";
-import { canonical, breadcrumbSchema, faqSchema, SITE, LOCAL_BUSINESS_ID } from "@/lib/site";
+import { canonical, breadcrumbSchema, faqSchema, SITE, LOCAL_BUSINESS_ID, socialMeta } from "@/lib/site";
 
 /**
  * /learn-claude-code: one-on-one "build with me" sessions teaching business
@@ -24,13 +24,12 @@ export const metadata: Metadata = {
     "Learn Claude Code and Codex by building a real tool for your business, one-on-one. Remote or in person in the Rio Grande Valley. No coding background needed. You keep everything you build.",
   alternates: { canonical: url },
   keywords: ["learn claude code", "claude code course", "claude code training", "codex tutorial", "build ai agents", "ai coaching"],
-  openGraph: {
-    type: "website",
+  ...socialMeta({
     url,
     title: `Learn Claude Code & Codex 1-on-1 | ${SITE.name}`,
-    description: "Build a real tool for your business with AI coding agents, one-on-one. No coding background needed.",
-    siteName: SITE.name,
-  },
+    description:
+      "Build a real tool for your business with AI coding agents, one-on-one. No coding background needed.",
+  }),
 };
 
 const STEPS = [

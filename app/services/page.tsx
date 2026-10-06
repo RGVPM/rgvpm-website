@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { canonical, breadcrumbSchema, serviceListSchema, localBusinessSchema, SITE } from "@/lib/site";
+import { canonical, breadcrumbSchema, serviceListSchema, SITE, socialMeta } from "@/lib/site";
 import PageHero from "@/components/PageHero";
 import Services from "@/components/Services";
 import Icon from "@/components/Icon";
@@ -29,14 +29,12 @@ export const metadata: Metadata = {
   description:
     "Local SEO, Google Business Profile, paid advertising, SMS & email marketing, lead management, and social media — everything a local business needs to grow online.",
   alternates: { canonical: url },
-  openGraph: {
-    type: "website",
+  ...socialMeta({
     url,
     title: `Digital Marketing Services | ${SITE.name}`,
     description:
       "Everything a local business needs to get found online and turn searches into booked customers.",
-    siteName: SITE.name,
-  },
+  }),
 };
 
 export default function ServicesHub() {
@@ -58,7 +56,6 @@ export default function ServicesHub() {
             { name: "Lead Management", path: "/services/lead-management" },
             { name: "Social Media & Newsletter", path: "/services/social-media-newsletter" },
           ]),
-          localBusinessSchema(),
         ]}
       />
       <main>

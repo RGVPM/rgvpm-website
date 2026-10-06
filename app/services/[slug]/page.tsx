@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getService, services } from "@/lib/services";
-import { canonical, breadcrumbSchema, faqSchema, SITE, LOCAL_BUSINESS_ID } from "@/lib/site";
+import { canonical, breadcrumbSchema, faqSchema, SITE, LOCAL_BUSINESS_ID, socialMeta } from "@/lib/site";
 import ServiceDetail from "@/components/ServiceDetail";
 import JsonLd from "@/components/JsonLd";
 import { cities } from "@/lib/cities";
@@ -49,13 +49,11 @@ export async function generateMetadata({
     description: service.metaDescription,
     keywords: service.keywordCluster,
     alternates: { canonical: url },
-    openGraph: {
-      type: "website",
+    ...socialMeta({
       url,
       title: `${service.metaTitle} | ${SITE.name}`,
       description: service.metaDescription,
-      siteName: SITE.name,
-    },
+    }),
   };
 }
 

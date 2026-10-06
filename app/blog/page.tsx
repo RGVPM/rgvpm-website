@@ -4,7 +4,7 @@ import Icon from "@/components/Icon";
 import PageHero from "@/components/PageHero";
 import InnerCTA from "@/components/InnerCTA";
 import JsonLd from "@/components/JsonLd";
-import { canonical, breadcrumbSchema, SITE, ORGANIZATION_ID } from "@/lib/site";
+import { canonical, breadcrumbSchema, founderRef, SITE, ORGANIZATION_ID, socialMeta } from "@/lib/site";
 import { POSTS } from "@/lib/posts";
 
 const url = canonical("/blog");
@@ -14,13 +14,12 @@ export const metadata: Metadata = {
   description:
     "Practical local marketing guides for Rio Grande Valley small businesses — local SEO, Google Maps rankings, website costs, paid ads, and more.",
   alternates: { canonical: url },
-  openGraph: {
-    type: "website",
+  ...socialMeta({
     url,
     title: `Blog | ${SITE.name}`,
-    description: "Practical local marketing insights for small businesses in the Rio Grande Valley.",
-    siteName: SITE.name,
-  },
+    description:
+      "Practical local marketing insights for small businesses in the Rio Grande Valley.",
+  }),
 };
 
 const blogSchema = {
@@ -32,12 +31,13 @@ const blogSchema = {
   publisher: { "@id": ORGANIZATION_ID },
   blogPost: POSTS.map((p) => ({
     "@type": "BlogPosting",
+    "@id": `${canonical(`/blog/${p.slug}`)}#article`,
     headline: p.title,
     description: p.description,
     url: canonical(`/blog/${p.slug}`),
     datePublished: p.datePublished,
     dateModified: p.dateModified,
-    author: { "@id": ORGANIZATION_ID },
+    author: founderRef(),
   })),
 };
 
