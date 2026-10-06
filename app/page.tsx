@@ -33,9 +33,10 @@ export default function Home() {
   );
 }
 
-const HOME_TITLE = "Harlingen AI & Marketing Agency | RGV Performance Marketing";
+// Keep "AI & Marketing Agency" in the title (owner's positioning call).
+const HOME_TITLE = "Harlingen Digital Marketing | RGV AI & Marketing Agency";
 const HOME_DESCRIPTION =
-  "Harlingen AI & marketing agency for RGV small businesses: websites, local SEO and Google Ads that bring in calls, plus AI that follows up. Month-to-month.";
+  "Harlingen digital marketing for RGV businesses: websites, local SEO, Google Ads and AI that follows up on every lead. From $397/mo, month-to-month.";
 
 export const metadata: Metadata = {
   title: { absolute: HOME_TITLE },
