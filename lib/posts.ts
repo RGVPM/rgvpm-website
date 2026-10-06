@@ -19,6 +19,12 @@ export interface Post {
   datePublished: string; // ISO date
   dateModified: string; // ISO date
   readMinutes: number;
+  /**
+   * Optional callout above the Quick Answer that tells a searcher who does this
+   * work locally and where to go next (home, services, pricing). Each `links`
+   * text must appear verbatim, in order, in `text`.
+   */
+  localAnswer?: { label: string; text: string; links?: { text: string; href: string }[] };
   /** One- or two-sentence direct answer up top — optimized for AI citation. */
   tldr: string;
   sections: PostSection[];
@@ -246,7 +252,7 @@ export const POSTS: Post[] = [
     category: "Digital Marketing",
     icon: "search",
     datePublished: "2026-09-30",
-    dateModified: "2026-09-30",
+    dateModified: "2026-10-06",
     readMinutes: 8,
     tldr:
       "RGV SEO and digital marketing means getting a Valley business found in Google for the cities it actually serves — Harlingen, Brownsville, McAllen, and the towns around them — then turning that visibility into calls. Run it in this order: a fast website, a complete Google Business Profile, local SEO for each city you serve, then paid ads once the site can convert the click.",
@@ -274,7 +280,7 @@ export const POSTS: Post[] = [
         "Turn on ads after the landing page exists. Ads buy the click. The page has to earn the call.",
         "Review positions every month. Keep the pages that moved. Rewrite the ones that got impressions and no clicks. Do not add another page that says the same thing.",
       ]},
-      { type: "p", text: "Early local movement often shows in 30 to 60 days. Stronger city rankings usually take 90 to 180 days. Anyone promising page 1 by Friday is selling a risk, not a plan. If you want the Harlingen-specific version of this, the digital marketing guide walks through channels and cost in more detail.", links: [{ text: "digital marketing guide", href: "/blog/digital-marketing-harlingen-tx-guide" }] },
+      { type: "p", text: "Early local movement often shows in 30 to 60 days. Stronger city rankings usually take 90 to 180 days. Anyone promising page 1 by Friday is selling a risk, not a plan. If you want the Harlingen-specific version of this, the digital marketing guide walks through channels and cost in more detail, and the blog has the rest of our local marketing guides.", links: [{ text: "digital marketing guide", href: "/blog/digital-marketing-harlingen-tx-guide" }, { text: "the blog", href: "/blog" }] },
       { type: "h2", text: "Which searches to chase first" },
       { type: "p", text: "Start with queries you are already close on, then build the ones with no page at all. In this market that usually looks like:" },
       { type: "ul", items: [
@@ -284,9 +290,9 @@ export const POSTS: Post[] = [
       ]},
       { type: "p", text: "Local SEO in Harlingen, local SEO in Brownsville, and website design are the service pages those searches should land on. This article exists so the broader \"RGV SEO and digital marketing\" search has somewhere specific to go.", links: [{ text: "Local SEO in Harlingen", href: "/local-seo-harlingen-tx" }, { text: "local SEO in Brownsville", href: "/local-seo-brownsville-tx" }, { text: "website design", href: "/services/website-design" }] },
       { type: "h2", text: "What it costs, without the fog" },
-      { type: "p", text: "A managed program for a Valley business typically runs from a few hundred dollars a month for a website and lead system up to a full local plan. At RGV Performance Marketing the published range is $397/mo to $1,499/mo, month to month, and ad spend is separate. Website builds are quoted from the actual scope. The pricing page has the current tiers. If an agency will not show the number, that is the useful piece of information.", links: [{ text: "pricing page", href: "/pricing" }] },
+      { type: "p", text: "A managed program for a Valley business typically runs from a few hundred dollars a month for a website and lead system up to a full local plan. At RGV Performance Marketing the published range is $397/mo to $1,499/mo, month to month, and ad spend is separate. Plant the Flag ($397/mo) and the SEO Package ($597/mo) include a custom website; on Build the Machine and Own the Market, a new site is quoted separately. The pricing page has the current tiers. If an agency will not show the number, that is the useful piece of information.", links: [{ text: "pricing page", href: "/pricing" }] },
       { type: "h2", text: "How to tell if the work is real" },
-      { type: "p", text: "Ask for calls, form fills, and booked jobs, broken out by city. Impressions going up while the phone stays quiet means the snippet or the page is wrong. Rankings stuck on page 3 usually mean the city page is thin or your Google profile is incomplete. A Harlingen marketing agency that cannot show those two numbers is reporting activity, not customers." },
+      { type: "p", text: "Ask for calls, form fills, and booked jobs, broken out by city. Lead management that puts every call and form in one place makes that count easy. Impressions going up while the phone stays quiet means the snippet or the page is wrong. Rankings stuck on page 3 usually mean the city page is thin or your Google profile is incomplete. A Harlingen marketing agency that cannot show those two numbers is reporting activity, not customers.", links: [{ text: "Lead management", href: "/services/lead-management" }] },
       { type: "p", text: "If you want this run for your business, book a call and we will look at which cities you already show up for and which page is missing.", links: [{ text: "book a call", href: "/contact" }] },
     ],
     faqs: [
@@ -294,7 +300,7 @@ export const POSTS: Post[] = [
       { q: "How is this different from regular SEO?", a: "Regular SEO competes for broad searches with no city attached. RGV SEO targets searches tied to Harlingen, Brownsville, McAllen, and nearby towns, plus the Google map pack. A Valley business usually gets more calls from the local work than from a national keyword." },
       { q: "How long does SEO take in the Rio Grande Valley?", a: "Most local businesses see early movement in 30 to 60 days, with stronger city and map-pack rankings building over 90 to 180 days. Paid ads can produce leads in the first week if the landing page is ready. Rankings keep compounding only if the pages and the Google profile stay maintained." },
       { q: "Do I need a separate page for each Valley city?", a: "Yes, if you want to rank in that city. A Harlingen page does not win \"seo brownsville tx,\" and a generic homepage rarely wins \"mcallen web design.\" Each city page should describe that city and link to your other locations, not repeat the same paragraph with the name swapped." },
-      { q: "How much does digital marketing cost in the RGV?", a: "Published plans at RGV Performance Marketing run from $397 per month for a website and lead system up to $1,499 per month for a full local program, month to month. Ad spend paid to Google or Meta is separate. Website design is quoted from the scope of the build." },
+      { q: "How much does digital marketing cost in the RGV?", a: "Published plans at RGV Performance Marketing run from $397 per month for a website and lead system up to $1,499 per month for a full local program, month to month. Ad spend paid to Google or Meta is separate. The $397 and $597 plans include a custom website; on the two larger plans a new site is quoted separately." },
     ],
     related: [
       { href: "/blog/digital-marketing-harlingen-tx-guide", label: "Digital Marketing in Harlingen" },
@@ -314,10 +320,19 @@ export const POSTS: Post[] = [
     category: "Digital Marketing",
     icon: "chart",
     datePublished: "2026-06-24",
-    dateModified: "2026-09-30",
+    dateModified: "2026-10-06",
     readMinutes: 9,
+    localAnswer: {
+      label: "Who does digital marketing in Harlingen?",
+      text: "RGV Performance Marketing is a Harlingen-based AI & marketing agency. We build and run websites, local SEO, Google Ads and lead follow-up for businesses across the Rio Grande Valley, on month-to-month plans from $397/mo with a custom website included. See what we do on our services page, or compare plans on the pricing page.",
+      links: [
+        { text: "RGV Performance Marketing", href: "/" },
+        { text: "services page", href: "/services" },
+        { text: "pricing page", href: "/pricing" },
+      ],
+    },
     tldr:
-      "Digital marketing in Harlingen, TX is the mix of channels a local business uses to get found online and turn searches into customers — primarily a fast website, local SEO, an optimized Google Business Profile, and paid ads. For most Harlingen and Rio Grande Valley businesses, a managed program runs roughly $399–$1,999/mo plus ad spend, and the right approach is local-first and bilingual (English and Spanish).",
+      "Digital marketing in Harlingen, TX is the mix of channels a local business uses to get found online and turn searches into customers — primarily a fast website, local SEO, an optimized Google Business Profile, and paid ads. At RGV Performance Marketing, published plans run from $397/mo to $1,499/mo, month-to-month, with ad spend billed separately by Google or Meta, and the right approach is local-first and bilingual (English and Spanish).",
     sections: [
       { type: "p", text: "If you run a business in Harlingen, your next customer is almost certainly looking for you on Google first. They search \"near me,\" they check your reviews, they glance at your website on their phone — and in a few seconds they decide whether to call you or the competitor down the road. Digital marketing is simply the work of winning that moment. This guide breaks down what it actually involves in the Harlingen and Rio Grande Valley market, what it costs, and how to pick a partner who delivers leads instead of vanity metrics." },
       { type: "h2", text: "What does digital marketing in Harlingen actually include?" },
@@ -335,16 +350,16 @@ export const POSTS: Post[] = [
       { type: "p", text: "The Rio Grande Valley is its own market, and marketing that ignores that fails here. Customers in Harlingen, McAllen, Brownsville, and the surrounding cities search with local intent — \"marketing near me,\" \"web design near me,\" \"seo near me\" — and Google answers them with local results, not national brands. That's good news for a local business: you're not competing with the whole internet, just the handful of businesses in your city." },
       { type: "p", text: "It's also a bilingual market. A huge share of RGV customers search and buy in Spanish, yet most competitors only optimize for English. Marketing in both English and Spanish is one of the easiest ways for a Harlingen business to reach customers others are leaving on the table." },
       { type: "h2", text: "How much does digital marketing cost in Harlingen?" },
-      { type: "p", text: "Pricing varies, and a lot of agencies hide it. For a local Harlingen or RGV business, a managed digital marketing program typically runs between $399 and $1,999 per month, depending on how many channels you're running and how hands-on the management is. Website design is usually quoted separately based on scope. Paid ad spend (what you pay Google or Meta) is its own budget on top of management — most local businesses start in the $1,000–$3,000/mo range there." },
-      { type: "p", text: "At RGV Performance Marketing, plans are transparent and month-to-month — $397/mo for a website and lead system, up to $1,499/mo to fully own your local market — with no long-term contracts. You can see the full breakdown on our pricing page.", links: [{ text: "pricing page", href: "/pricing" }] },
+      { type: "p", text: "Pricing varies, and a lot of agencies hide it. What you pay depends on how many channels you're running and how hands-on the management is. Some agencies quote the website separately; on our two entry plans the website is included. Paid ad spend (what you pay Google or Meta) is its own budget on top of management, billed to you directly by the ad platform." },
+      { type: "p", text: "At RGV Performance Marketing, plans are transparent and month-to-month — $397/mo for a website and lead system, $597/mo to add local SEO and your Google Business Profile, up to $1,499/mo to fully own your local market — with no long-term contracts. You can see the full breakdown on our pricing page.", links: [{ text: "pricing page", href: "/pricing" }] },
       { type: "h2", text: "Local SEO: getting found in Harlingen and across the RGV" },
-      { type: "p", text: "Local SEO is the work of ranking in local search results and Google's map pack — the three businesses shown on the map at the top of local searches. It's driven by your Google Business Profile, online reviews, consistent business information across the web, and location-specific content on your site.", links: [{ text: "Google Business Profile", href: "/google-business-profile-harlingen-tx" }] },
+      { type: "p", text: "Local SEO is the work of ranking in local search results and Google's map pack — the three businesses shown on the map at the top of local searches. It's driven by your Google Business Profile, online reviews, consistent business information across the web, and location-specific content on your site.", links: [{ text: "Local SEO", href: "/services/local-seo" }, { text: "Google Business Profile", href: "/google-business-profile-harlingen-tx" }] },
       { type: "p", text: "It compounds: most businesses see early movement in 30–60 days and stronger rankings over 90–180 days. And it's not just Harlingen — the same playbook wins searches like \"brownsville seo,\" \"local seo brownsville,\" and \"harlingen seo,\" which is why a Valley-wide local SEO strategy beats a single-city effort. The businesses that rank in the map pack capture the calls; everyone else gets scrolled past.", links: [{ text: "brownsville seo", href: "/local-seo-brownsville-tx" }, { text: "harlingen seo", href: "/local-seo-harlingen-tx" }] },
       { type: "h2", text: "Websites that win the click (and rank)" },
       { type: "p", text: "Searches like \"website builder harlingen,\" \"website designer rgv,\" and \"rgv web design\" all point to the same need: a site that loads fast, works flawlessly on mobile, and is built to rank — not just to look pretty. A slow or outdated website quietly costs you leads every day, because visitors bounce and Google ranks you lower.", links: [{ text: "website builder harlingen", href: "/website-design-harlingen-tx" }, { text: "rgv web design", href: "/services/website-design" }] },
-      { type: "p", text: "A good local business website has on-page SEO baked in from day one, clear calls to action, lead-capture forms that actually connect to a follow-up system, and a bilingual option for the RGV market. Done right, your website becomes the hub that your SEO, ads, and Google profile all funnel customers into." },
+      { type: "p", text: "A good local business website has on-page SEO baked in from day one, clear calls to action, lead-capture forms that actually connect to a follow-up system, and a bilingual option for the RGV market. Done right, your website becomes the hub that your SEO, ads, and Google profile all funnel customers into.", links: [{ text: "follow-up system", href: "/services/lead-management" }] },
       { type: "h2", text: "Paid ads: leads now while SEO compounds" },
-      { type: "p", text: "SEO is a long game; paid ads are the fast lane. Google Ads put you at the top of the page the moment someone searches — for queries like \"adwords management weslaco\" or \"google ads management rgv\" — while Facebook and Instagram ads build demand before customers even search. Many Harlingen businesses run both: ads to generate leads this week, SEO to lower their cost per lead over time.", links: [{ text: "Google Ads", href: "/google-ads-management-harlingen-tx" }] },
+      { type: "p", text: "SEO is a long game; paid ads are the fast lane. Google Ads put you at the top of the page the moment someone searches — for queries like \"adwords management weslaco\" or \"google ads management rgv\" — while Facebook and Instagram ads build demand before customers even search. Many Harlingen businesses run both: ads to generate leads this week, SEO to lower their cost per lead over time.", links: [{ text: "paid ads", href: "/services/paid-advertising" }, { text: "Google Ads", href: "/google-ads-management-harlingen-tx" }] },
       { type: "p", text: "The key is management. Ad budgets get wasted fast without tight targeting, good ad copy, conversion tracking, and someone watching the numbers. The goal isn't clicks — it's calls, form fills, and booked appointments at a cost that makes sense for your business." },
       { type: "h2", text: "How to choose a marketing agency in Harlingen" },
       { type: "p", text: "If you're searching \"marketing agency harlingen\" or \"rgv ad agency,\" here's what actually matters when you're comparing options:" },
@@ -360,7 +375,7 @@ export const POSTS: Post[] = [
       { type: "p", text: "You don't have to do everything at once. Start with the foundation — make sure your Google Business Profile is claimed and optimized and your website is fast and mobile-friendly — then add local SEO and ads as you grow. If you'd rather have it handled for you, that's exactly what we do for local businesses across the Valley. Book a free call and we'll show you where you're losing leads and the fastest path to more customers.", links: [{ text: "that's exactly what we do", href: "/services" }, { text: "Book a free call", href: "/contact" }] },
     ],
     faqs: [
-      { q: "How much does digital marketing cost in Harlingen, TX?", a: "For a local Harlingen business, a managed digital marketing program typically runs between $399 and $1,999 per month depending on the channels and level of management, with website design quoted separately and paid ad spend (usually $1,000–$3,000/mo) billed by the ad platforms on top. Be cautious of agencies that won't share pricing — transparent, month-to-month plans are a good sign." },
+      { q: "How much does digital marketing cost in Harlingen, TX?", a: "It depends on the channels and how hands-on the management is. At RGV Performance Marketing, plans run from $397 per month (a custom website plus one inbox for every lead) and $597 per month (adds local SEO and Google Business Profile work) up to $899 and $1,499 per month for full programs with ads management, month-to-month. Ad spend is billed by Google or Meta on top. Be cautious of agencies that won't share pricing — transparent, month-to-month plans are a good sign." },
       { q: "What is the best digital marketing agency in the Rio Grande Valley?", a: "The best agency for an RGV business is one that's locally based, reports on real leads instead of vanity metrics, prices transparently with no long-term contracts, and can market in both English and Spanish. RGV Performance Marketing is a Harlingen-based, AI-powered agency built specifically for local businesses across the Rio Grande Valley, with transparent month-to-month plans." },
       { q: "How long does SEO take to work in Harlingen?", a: "Most Harlingen businesses see early local SEO movement — Google Business Profile gains and long-tail rankings — within 30 to 60 days, with stronger map-pack and city-level rankings building over 90 to 180 days. SEO compounds over time, while paid ads can generate leads within the first week if you need results faster." },
       { q: "Do I need a new website or just marketing?", a: "It depends on your current site. If it's slow, outdated, hard to use on a phone, or not built for SEO, a new website is usually the highest-leverage first step because everything else — SEO, ads, your Google profile — funnels traffic into it. If your site is already fast and modern, you may just need marketing to drive traffic to it. A quick audit will tell you which camp you're in." },
@@ -387,7 +402,7 @@ export const POSTS: Post[] = [
     category: "Website Design",
     icon: "target",
     datePublished: "2026-06-21",
-    dateModified: "2026-06-21",
+    dateModified: "2026-10-06",
     readMinutes: 7,
     tldr:
       "In the Rio Grande Valley, a professional small-business website typically costs between $1,500 and $6,000 as a one-time build, depending on the number of pages and features. Simple brochure sites sit at the low end; sites with custom design, many pages, bilingual content, or booking and e-commerce features sit higher. Expect a small ongoing cost (roughly $20–$300/mo) for hosting, maintenance, and updates.",
@@ -414,9 +429,9 @@ export const POSTS: Post[] = [
       { type: "h2", text: "Why is the cheapest option usually the most expensive?" },
       { type: "p", text: "A $300 template site that doesn't rank, loads slowly, or doesn't convert visitors into calls isn't cheap — it's a cost with no return. The goal of a business website isn't to exist; it's to bring in customers. A well-built site that ranks locally and converts pays for itself many times over, while a bargain site quietly costs you the leads you never knew you missed." },
       { type: "h2", text: "Should you pay monthly or one-time?" },
-      { type: "p", text: "Both models exist. A one-time build means you pay for the site and own it. A monthly model bundles the build with hosting, maintenance, and ongoing changes. Neither is automatically better — what matters is clarity: know exactly what's included, whether you own the site, and what happens if you leave. At RGV Performance Marketing, website design is custom-quoted based on your actual scope, and active plan clients get ongoing update requests included." },
+      { type: "p", text: "Both models exist. A one-time build means you pay for the site and own it. A monthly model bundles the build with hosting, maintenance, and ongoing changes. Neither is automatically better — what matters is clarity: know exactly what's included, whether you own the site, and what happens if you leave. At RGV Performance Marketing, the website comes with the plan: Plant the Flag ($397/mo) and the SEO Package ($597/mo) include a custom site we build, host, and keep updated, plus lead management that puts every lead in one inbox, month-to-month. On Build the Machine and Own the Market, a new site is quoted separately.", links: [{ text: "lead management", href: "/services/lead-management" }] },
       { type: "h2", text: "What should an RGV business budget?" },
-      { type: "p", text: "For most service-based local businesses in the Valley, a budget of $2,000–$5,000 for a professional, SEO-ready, mobile-first website is realistic and worth it — especially when paired with local SEO so the site actually gets found. The best move is to get a custom quote based on what your business genuinely needs, not a one-size-fits-all package price." },
+      { type: "p", text: "For most service-based local businesses in the Valley, a budget of $2,000–$5,000 for a professional, SEO-ready, mobile-first website is realistic and worth it — especially when paired with local SEO so the site actually gets found. The best move is to compare what each option actually includes (build, hosting, updates, and lead capture), not just the sticker price. If you're in Harlingen, our website design page shows how we build sites for local businesses.", links: [{ text: "website design page", href: "/website-design-harlingen-tx" }] },
     ],
     faqs: [
       { q: "How much does a website cost in McAllen or Harlingen, TX?", a: "Most professional small-business websites in the McAllen and Harlingen area cost between $1,500 and $6,000 to build, depending on the number of pages, custom design, bilingual content, and features like booking or e-commerce. Simple template sites can be cheaper, but they're rarely built to rank on Google or convert visitors into customers." },
@@ -464,7 +479,7 @@ export const POSTS: Post[] = [
       { type: "h2", text: "Publish location-relevant content" },
       { type: "p", text: "Pages and posts that mention your city, neighborhoods, and the specific services you offer help Google connect you to local searches. A page about your service in McAllen, written for McAllen customers, is far stronger than a generic page that could be about anywhere." },
       { type: "h2", text: "Be patient — and track it" },
-      { type: "p", text: "Local SEO compounds. You'll often see early movement within 30–60 days, with bigger gains building over 90–180 days. Track your map-pack position for your key searches so you can see what's working. Anyone promising an instant #1 is selling something risky." },
+      { type: "p", text: "Local SEO compounds. You'll often see early movement within 30–60 days, with bigger gains building over 90–180 days. Track your map-pack position for your key searches so you can see what's working. Anyone promising an instant #1 is selling something risky.", links: [{ text: "Local SEO", href: "/services/local-seo" }] },
     ],
     faqs: [
       { q: "How long does it take to rank on Google Maps?", a: "Most businesses see early improvement in 30–60 days after optimizing their Google Business Profile, with more significant map-pack gains building over 90–180 days. Competitive cities like McAllen take longer than smaller markets. Local SEO compounds over time, so the gains continue as long as the work continues." },
@@ -508,7 +523,7 @@ export const POSTS: Post[] = [
         "Competition: local SEO competes with nearby businesses, not the entire web — usually an easier, higher-ROI fight for a local company.",
       ]},
       { type: "h2", text: "Which one does your business need?" },
-      { type: "p", text: "If you serve customers in a specific area — a clinic in Harlingen, a contractor in Brownsville, a restaurant in McAllen — local SEO is what brings in calls and walk-ins. If you sell to people anywhere, regardless of location, regular SEO matters more. Many businesses benefit from both: local SEO to win their city now, and broader content SEO to build authority over time. The two reinforce each other." },
+      { type: "p", text: "If you serve customers in a specific area — a clinic in Harlingen, a contractor in Brownsville, a restaurant in McAllen — local SEO is what brings in calls and walk-ins. If you sell to people anywhere, regardless of location, regular SEO matters more. Many businesses benefit from both: local SEO to win their city now, and broader content SEO to build authority over time. The two reinforce each other.", links: [{ text: "local SEO", href: "/services/local-seo" }] },
     ],
     faqs: [
       { q: "Is local SEO better than regular SEO?", a: "Neither is universally better — they serve different goals. For a business that serves customers in a specific city or area, local SEO drives more calls and customers because it targets 'near me' searches and the map pack. For a business selling nationally, regular SEO matters more. A local service business usually gets the highest ROI from local SEO first." },

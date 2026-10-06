@@ -114,6 +114,16 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
               <span>{post.category}</span>
             </div>
 
+            {/* Optional "who does this locally" block — points commercial searches at the right pages. */}
+            {post.localAnswer && (
+              <div style={{ background: "#fff", border: "1px solid var(--border)", borderLeft: "4px solid var(--orange)", borderRadius: 8, padding: "20px 22px", marginBottom: 24 }}>
+                <div style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange-ink)", marginBottom: 8 }}>
+                  {post.localAnswer.label}
+                </div>
+                <p style={{ fontSize: 16, color: "var(--navy)", lineHeight: 1.7, margin: 0 }}>{renderText({ type: "p", ...post.localAnswer })}</p>
+              </div>
+            )}
+
             {/* Quick-answer callout — optimized for AI citation + featured snippets */}
             <div style={{ background: "var(--teal-dim)", borderLeft: "4px solid var(--teal)", borderRadius: 8, padding: "20px 22px", marginBottom: 36 }}>
               <div style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--teal)", marginBottom: 8 }}>
