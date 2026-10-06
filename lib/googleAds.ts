@@ -143,6 +143,17 @@ export function getGoogleAdsCity(slug: string): CityCopy | undefined {
   return GOOGLE_ADS_CITIES[slug];
 }
 
+/**
+ * Google Ads city pages that may be indexed. The rest are `noindex, follow` and
+ * left out of the sitemap until they have real local content (they were
+ * near-duplicates of each other). To re-index a city, add its slug here.
+ */
+export const GOOGLE_ADS_INDEXABLE_CITIES = new Set<string>([]);
+
+export function googleAdsCityIndexable(slug: string): boolean {
+  return GOOGLE_ADS_INDEXABLE_CITIES.has(slug);
+}
+
 export function googleAdsCityMetadata(slug: string, name: string): Metadata {
   const city = GOOGLE_ADS_CITIES[slug];
   const url = canonical(googleAdsCityPath(slug));
@@ -152,6 +163,7 @@ export function googleAdsCityMetadata(slug: string, name: string): Metadata {
     description: city.description,
     keywords: GOOGLE_ADS.keywordCluster,
     alternates: { canonical: url },
+    ...(googleAdsCityIndexable(slug) ? {} : { robots: { index: false, follow: true } }),
     ...socialMeta({ url, title, description: city.description }),
   };
 }

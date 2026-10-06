@@ -143,6 +143,17 @@ export function getGbpCity(slug: string): CityCopy | undefined {
   return GBP_CITIES[slug];
 }
 
+/**
+ * Google Business Profile city pages that may be indexed. The rest are `noindex, follow` and
+ * left out of the sitemap until they have real local content (they were
+ * near-duplicates of each other). To re-index a city, add its slug here.
+ */
+export const GBP_INDEXABLE_CITIES = new Set<string>([]);
+
+export function gbpCityIndexable(slug: string): boolean {
+  return GBP_INDEXABLE_CITIES.has(slug);
+}
+
 export function gbpCityMetadata(slug: string, name: string): Metadata {
   const city = GBP_CITIES[slug];
   const url = canonical(gbpCityPath(slug));
@@ -152,6 +163,7 @@ export function gbpCityMetadata(slug: string, name: string): Metadata {
     description: city.description,
     keywords: GBP.keywordCluster,
     alternates: { canonical: url },
+    ...(gbpCityIndexable(slug) ? {} : { robots: { index: false, follow: true } }),
     ...socialMeta({ url, title, description: city.description }),
   };
 }

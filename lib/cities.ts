@@ -432,6 +432,19 @@ export function webDesignCityLinks(city: City): CityLink[] {
 }
 
 /* ---- AI Implementation city builders ---- */
+
+/**
+ * AI Implementation city pages that may be indexed. The rest are
+ * `noindex, follow` and left out of the sitemap until they have real local
+ * content. McAllen stays indexed: it is the main AI-keyword page.
+ * To re-index a city, add its slug here.
+ */
+export const AI_INDEXABLE_CITIES = new Set<string>(["mcallen"]);
+
+export function aiCityIndexable(slug: string): boolean {
+  return AI_INDEXABLE_CITIES.has(slug);
+}
+
 export function aiCityMetadata(city: City): Metadata {
   const url = canonical(aiCityPath(city.slug));
   const title = `AI Implementation for ${city.name}, TX Businesses | ${SITE.name}`;
@@ -440,6 +453,7 @@ export function aiCityMetadata(city: City): Metadata {
     description: city.ai.description,
     keywords: AI_IMPL.keywordCluster,
     alternates: { canonical: url },
+    ...(aiCityIndexable(city.slug) ? {} : { robots: { index: false, follow: true } }),
     ...socialMeta({ url, title, description: city.ai.description }),
   };
 }
