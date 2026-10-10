@@ -38,6 +38,66 @@ export interface Post {
 
 export const POSTS: Post[] = [
   {
+    slug: "ai-friday-ai-receptionist-answer-sheet",
+    title: "AI Friday: What Your AI Receptionist Should Say, and What It Should Hand Off",
+    metaTitle: "AI Friday: Setting Up an AI Receptionist the Right Way",
+    description:
+      "An AI Friday tip for Rio Grande Valley owners: what an AI receptionist should answer, what it must hand to a person, and the one sheet to write first.",
+    excerpt:
+      "An AI receptionist is only as good as the answers you give it. Write the answer sheet and the hand-off rules before it picks up a single call.",
+    category: "AI Friday",
+    icon: "cpu",
+    datePublished: "2026-10-10",
+    dateModified: "2026-10-10",
+    readMinutes: 5,
+    tldr:
+      "An AI receptionist for a small business should answer the questions you already answer the same way every day, collect the lead's details, and book or hand the conversation to a person. It should never make up prices, promises, or appointment times. Write a one-page answer sheet and a hand-off list before you turn it on.",
+    sections: [
+      { type: "p", text: "Two AI Fridays ago we said the first job to automate is answering the lead. Last week we said to write a task down before you automate it. This week puts the two together: the page you write before an AI receptionist answers its first call in Harlingen, McAllen, or Brownsville." },
+      { type: "h2", text: "What an AI receptionist actually does" },
+      { type: "p", text: "An AI receptionist answers calls, chats, and new leads around the clock, then keeps the follow-up running on its own. That is the job. It is not a salesperson, and it is not your estimator. It is the person at the front desk who never goes home, and it only knows what you tell it." },
+      { type: "p", text: "That last part is where most setups go wrong. If nobody writes down the answers, the system fills the gaps with guesses. A guess about your hours is annoying. A guess about your price or your schedule loses the customer." },
+      { type: "h2", text: "Write the answer sheet first" },
+      { type: "p", text: "Sit down with whoever answers your phone today and list the questions they hear every week, with the answer they give. Keep it to things that are true every time:" },
+      { type: "ul", items: [
+        "Your hours, and what happens after hours.",
+        "The services you offer, in the words customers use, and the ones you do not.",
+        "The cities you cover in the Valley, and where you stop.",
+        "What a customer needs to have ready: an address, a photo, an insurance card, a time that works.",
+        "How booking works, and who confirms the appointment.",
+      ]},
+      { type: "p", text: "If the honest answer to a question is \"it depends,\" it does not go on the sheet. It goes on the hand-off list." },
+      { type: "h2", text: "Write the hand-off list second" },
+      { type: "p", text: "The hand-off list is every situation where the AI stops answering and gets a person. For most local businesses it looks like this:" },
+      { type: "ul", items: [
+        "Any question about price, a quote, or a discount.",
+        "Anything urgent, unsafe, or medical.",
+        "An upset customer, or a complaint about past work.",
+        "A request the answer sheet does not cover.",
+        "A caller who asks for a human. Every time, no argument.",
+      ]},
+      { type: "p", text: "For each one, write who gets it and how: a text to the owner, a task in your lead management software, or a booked call-back. A hand-off that lands in an inbox nobody reads is the same as a missed call." },
+      { type: "h2", text: "Connect it to what you already use" },
+      { type: "p", text: "The receptionist should write into the tools your team already opens every day: your calendar, your scheduling tool, your forms, and your lead management. If the conversation ends up somewhere new that nobody checks, you have moved the leak, not fixed it. Our AI consulting work starts by mapping how your leads come in today, then connects the receptionist and follow-up to the software you already rely on.", links: [{ text: "AI consulting", href: "/services/ai-implementation" }] },
+      { type: "h2", text: "Read the transcripts for two weeks" },
+      { type: "p", text: "Once it is live, someone reads every conversation for the first couple of weeks. Each time the AI gets something wrong, the fix is usually one new line on the answer sheet or one new item on the hand-off list. When a week goes by with nothing to fix, check it less often. Do not stop checking." },
+      { type: "h2", text: "Your Friday homework" },
+      { type: "p", text: "Write down the ten questions your phone gets most, with the answer you give, and five situations where you always want a person on the line. If you want help turning that page into a receptionist that answers and follows up for you, book a call and bring the page.", links: [{ text: "book a call", href: "/contact" }] },
+    ],
+    faqs: [
+      { q: "What is an AI receptionist?", a: "An AI receptionist answers your calls, chats, and new leads around the clock, handles the common questions you have written answers for, collects the lead's details, and books or hands the conversation to a person." },
+      { q: "Should an AI receptionist quote prices?", a: "No. Price questions belong on the hand-off list. The AI should collect the details and get a person on it, not make up a number or a promise you do not offer." },
+      { q: "Will an AI receptionist work with my calendar and lead management?", a: "In most cases, yes. It should connect to the calendar, scheduling tools, forms, and lead management software you already use, so every conversation lands where your team already looks." },
+      { q: "How do I know the AI receptionist is saying the right thing?", a: "Read the conversations for the first couple of weeks. Each mistake usually means one missing line on the answer sheet or one missing item on the hand-off list. Fix the sheet, then keep checking on a lighter schedule." },
+    ],
+    related: [
+      { href: "/blog/ai-friday-local-business-rgv", label: "AI Friday: What to Automate First" },
+      { href: "/blog/ai-friday-automate-weekly-task", label: "AI Friday: Write the Weekly Task Down First" },
+      { href: "/services/ai-implementation", label: "AI Consulting & Implementation" },
+      { href: "/contact", label: "Book a Call" },
+    ],
+  },
+  {
     slug: "how-much-does-seo-cost-rio-grande-valley",
     title: "How Much Does SEO Cost in the Rio Grande Valley?",
     metaTitle: "How Much Does SEO Cost? (2026)",
