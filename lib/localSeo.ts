@@ -102,12 +102,12 @@ export const LOCAL_SEO_CITIES: Record<string, LocalSeoCity> = {
   harlingen: {
     metaTitle: "Harlingen SEO: Local, Affordable | RGV Performance Marketing",
     h1: "Harlingen SEO & Local SEO Services",
-    heroSub: "Rank higher in Harlingen's local search results and map pack — so customers here find your business first instead of a competitor.",
+    heroSub: "Rank higher in Harlingen's local search results and map pack, so customers here find your business first instead of a competitor.",
     description: "Harlingen SEO from a Harlingen-based team. Climb Google Maps and local search on a month-to-month plan: no contract, and a ranking report every month.",
     intro: {
       heading: "SEO in Harlingen, From a Harlingen Team",
       body: [
-        "As the commercial hub of the Rio Grande Valley, Harlingen has a dense, competitive mix of healthcare, retail, and service businesses — which means more companies fighting for the same local searches you need to win.",
+        "As the commercial hub of the Rio Grande Valley, Harlingen has a dense, competitive mix of healthcare, retail, and service businesses, which means more companies fighting for the same local searches you need to win.",
         "We're based right here in Harlingen, so we know the market. We optimize your Google Business Profile, pages, and content for the exact searches your Harlingen customers are typing, so you climb the map pack and turn local searches into calls.",
       ],
     },
@@ -137,16 +137,43 @@ export const LOCAL_SEO_CITIES: Record<string, LocalSeoCity> = {
     ],
   },
   mcallen: {
-    h1: "Local SEO Services in McAllen, TX",
-    heroSub: "Out-rank the competition in the Valley's busiest market. Local SEO that puts your McAllen business in the map pack and ahead of the pack.",
+    metaTitle: "McAllen SEO & Local SEO, TX | RGV Performance Marketing",
+    h1: "McAllen SEO & Local SEO Services",
+    heroSub: "Out-rank the competition in the Valley's busiest market. Local SEO that gets your McAllen business into the Google map pack and in front of nearby customers.",
     description: "Local SEO in McAllen, TX for the Valley's most crowded market: Google Maps optimization, on-page SEO, and English and Spanish content. Month to month.",
     intro: {
       heading: "Local SEO Built for McAllen Businesses",
       body: [
-        "McAllen is the largest and most competitive market in the Rio Grande Valley — and that's exactly why local SEO matters so much here. With so many businesses competing, the ones that rank in the map pack capture the calls, and everyone else gets overlooked.",
+        "McAllen is the largest and most competitive market in the Rio Grande Valley, and that's exactly why local SEO matters so much here. With so many businesses competing, the ones that rank in the map pack capture the calls, and everyone else gets overlooked.",
         "We help McAllen businesses earn that visibility. Through Google Business Profile optimization, location-targeted content, reviews, and citations, we build the local signals that move you up the rankings in the Valley's toughest market.",
       ],
     },
+    details: {
+      heading: "What It Takes to Rank in McAllen",
+      intro: "McAllen has more businesses chasing the same searches than any other city in the Valley. Map results are packed tight, and customers come from all over Hidalgo County and across the border. This is what we plan around.",
+      points: [
+        { title: "A crowded map pack", text: "For searches like \"dentist McAllen\" or \"AC repair McAllen\", dozens of businesses sit within a few miles of each other. When distance is close to a tie, reviews, categories, photos and a complete Google Business Profile decide who makes the top three." },
+        { title: "Spanish searches from both sides of the border", text: "McAllen draws shoppers from Reynosa and Monterrey over the McAllen-Hidalgo and Anzalduas bridges, and many of them search in Spanish. Spanish service pages and a bilingual profile reach searches that most McAllen competitors skip." },
+        { title: "Edinburg, Mission and Pharr too", text: "McAllen runs right into its neighbors, and customers cross city lines without noticing. We set up service areas and pages for the nearby cities you serve, so you show up past the edge of your own zip code." },
+        { title: "One page for each service", text: "In a market this competitive, a single services page can't rank for everything. Each main service gets its own page, so Google can match you to the exact search a customer types." },
+      ],
+    },
+    faqs: [
+      { q: "How much does SEO cost in McAllen?", a: "Our local SEO work is included in month-to-month plans with no long-term contract, and every plan and price is listed on our pricing page. Our guide on what SEO costs in the Rio Grande Valley explains what you get at each level. On the first call we'll tell you which plan fits, including when a smaller one is enough." },
+      { q: "Do you work with McAllen businesses if you're based in Harlingen?", a: "Yes. We work with businesses across Hidalgo County, McAllen included. Most of the work happens remotely, and we can meet in person when that's easier. You get a report every month either way." },
+      { q: "How long does it take to rank in McAllen?", a: "McAllen is the most competitive search market in the Valley, so it usually takes longer than in a smaller city. Google Business Profile gains and less competitive searches often move in the first couple of months, while competitive city-wide searches take several months of steady work. We report progress every month so you can see what's moving." },
+      { q: "Should I run Google Ads in McAllen while SEO builds?", a: "If you need calls this month, yes. Google Ads can put you at the top of McAllen searches within days, while local SEO takes a few months to build. Many businesses run both, then lean more on SEO as rankings grow." },
+    ],
+    nearby: [
+      { href: "/website-design-mcallen-tx", label: "Web design in McAllen" },
+      { href: "/google-business-profile-mcallen-tx", label: "Google Business Profile optimization in McAllen" },
+      { href: "/google-ads-management-mcallen-tx", label: "Google Ads management in McAllen" },
+      { href: "/blog/how-much-does-seo-cost-rio-grande-valley", label: "How much SEO costs in the RGV" },
+      { href: "/blog/how-much-do-google-ads-cost-rio-grande-valley", label: "How much Google Ads cost in McAllen and Harlingen" },
+      { href: "/local-seo-edinburg-tx", label: "Local SEO in Edinburg" },
+      { href: "/local-seo-mission-tx", label: "Local SEO in Mission" },
+      { href: "/local-seo-pharr-tx", label: "Local SEO in Pharr" },
+    ],
   },
   brownsville: {
     metaTitle: "Brownsville SEO & Local SEO, TX | RGV Performance Marketing",
@@ -156,8 +183,8 @@ export const LOCAL_SEO_CITIES: Record<string, LocalSeoCity> = {
     intro: {
       heading: "Local SEO Built for Brownsville Businesses",
       body: [
-        "Brownsville is growing fast — a historic port city now expanding alongside the space and tech investment out at Boca Chica. New customers are arriving, but so is new competition searching for businesses just like yours.",
-        "Local SEO is how you stake your claim early. We optimize your Google Business Profile and pages for Brownsville searches, build local content and citations, and grow your reviews — so you capture this growth instead of watching competitors take it.",
+        "Brownsville is growing fast: a historic port city now expanding alongside the space and tech investment out at Boca Chica. New customers are arriving, and so are new competitors going after the same searches as you.",
+        "Local SEO is how you stake your claim early. We optimize your Google Business Profile and pages for Brownsville searches, build local content and citations, and grow your reviews, so you capture this growth before your competitors do.",
       ],
     },
     details: {
