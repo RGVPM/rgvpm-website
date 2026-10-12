@@ -36,9 +36,32 @@ export const cities: City[] = [
       metaTitle: "Harlingen Web Design & Builder | RGV Performance Marketing",
       h1: "Website Design in Harlingen, TX",
       heroSub:
-        "Fast, mobile-first websites for Harlingen businesses — built to rank on Google and turn local searches into booked customers.",
+        "Fast, mobile-first websites for Harlingen businesses, built to rank on Google and turn local searches into booked customers.",
       description:
         "Need a website builder in Harlingen? A local team designs, writes and launches your fast, SEO-ready site in 2–4 weeks, in English or Spanish. Free quote.",
+      details: {
+        heading: "Building a Website for the Harlingen Market",
+        intro:
+          "Harlingen sits where I-69E and I-2 meet, halfway between McAllen and Brownsville. A lot of Harlingen businesses serve the whole Valley from here, so their websites have to work for customers in all three cities. These are the things we build in for Harlingen clients.",
+        points: [
+          {
+            title: "Pages that fit how your customers decide",
+            text: "Harlingen runs on its hospitals, its schools and the contractors and shops that serve them. A medical office near Valley Baptist or Harlingen Medical Center, a home service company and a shop on Jackson Street each need different pages and a different first step. We plan your pages around the call or booking you want, then build the design around that.",
+          },
+          {
+            title: "One site that reaches the rest of the Valley",
+            text: "If you drive to McAllen, Brownsville or San Benito for work, your site should say so. We add a page for each city you actually serve, so a customer half an hour away can still find you on Google.",
+          },
+          {
+            title: "English and Spanish where it counts",
+            text: "Plenty of Harlingen customers search in Spanish, especially on their phones. We can build your main service pages in both languages so you show up for both versions of the search.",
+          },
+          {
+            title: "A team down the street",
+            text: "We're based in Harlingen. You can sit down with the people building your site, and when you need a change after launch, you already know who to call.",
+          },
+        ],
+      },
       faqs: [
         {
           q: "Is this a website builder like Wix or Squarespace?",
@@ -60,7 +83,7 @@ export const cities: City[] = [
       intro: {
         heading: "Websites Built for Harlingen Businesses",
         body: [
-          "As the commercial hub of the Rio Grande Valley, Harlingen is home to a busy, competitive mix of healthcare, retail, and service businesses — and most customers here check you out online before they ever call.",
+          "As the commercial hub of the Rio Grande Valley, Harlingen is home to a busy, competitive mix of healthcare, retail, and service businesses, and most customers here check you out online before they ever call.",
           "We're based right here in Harlingen, so we understand the local market and build websites that help you stand out in it. Every site is fast, mobile-first, and engineered to rank for the searches your Harlingen customers are actually typing.",
         ],
       },
@@ -143,7 +166,7 @@ export const cities: City[] = [
       intro: {
         heading: "Websites Built for McAllen Businesses",
         body: [
-          "McAllen is the largest and most competitive market in the Rio Grande Valley — a retail and cross-border commerce hub where customers have no shortage of options.",
+          "McAllen is the largest and most competitive market in the Rio Grande Valley: a retail and cross-border commerce hub where customers have no shortage of options.",
           "Standing out takes more than just being listed online. We build McAllen businesses fast, modern websites with SEO and lead capture built in, so you win the click and the customer instead of losing them to a competitor down the road.",
         ],
       },
@@ -167,15 +190,62 @@ export const cities: City[] = [
     slug: "brownsville",
     name: "Brownsville",
     webDesign: {
+      metaTitle: "Brownsville Website Design | RGV Performance Marketing",
       h1: "Website Design in Brownsville, TX",
       heroSub:
-        "Fast, mobile-first websites for Brownsville businesses — built to rank locally and convert a fast-growing market into customers.",
+        "Fast, mobile-first websites for Brownsville businesses, built to rank locally and turn a fast-growing market into customers.",
       description:
-        "Professional website design in Brownsville, TX. Fast, mobile-first, SEO-ready websites built for a fast-growing border city. Custom-quoted by RGV Performance Marketing.",
+        "Website design in Brownsville, TX: fast, mobile-first sites in English and Spanish, with SEO and lead forms built in. Live in 2–4 weeks. Free quote.",
+      details: {
+        heading: "Building a Website for the Brownsville Market",
+        intro:
+          "Brownsville is the Cameron County seat at the southern tip of Texas, with a working port, two college campuses and customers from both sides of the border. A website that works here plans for all of that. These are the things we build in for Brownsville clients.",
+        points: [
+          {
+            title: "English and Spanish from the start",
+            text: "Shoppers and patients from Matamoros cross the Gateway, B&M and Veterans bridges, and many Brownsville residents search in Spanish first. We can build your key pages in both languages so you show up for both searches.",
+          },
+          {
+            title: "Made for people who are new in town",
+            text: "Growth around the Port of Brownsville and the space industry at Boca Chica keeps bringing in people with no local referrals yet. A site that shows your services, service area and reviews up front gives them a reason to call you first.",
+          },
+          {
+            title: "Fast on a phone",
+            text: "Most Brownsville customers find you on a phone, often on a cellular connection. We keep pages light and put tap-to-call, directions and your hours where a thumb can reach them, then test on real phones before launch.",
+          },
+          {
+            title: "Pages for the areas you serve",
+            text: "Brownsville is spread out, from the historic downtown near the UTRGV and Texas Southmost College campuses to the newer neighborhoods along I-69E. If you also serve Los Fresnos, Port Isabel or South Padre Island, we give those areas their own content so Google knows where you work.",
+          },
+        ],
+      },
+      faqs: [
+        {
+          q: "How much does a website cost in Brownsville?",
+          a: "It depends on the number of pages, the features, and whether you need English and Spanish versions. We quote every project after a short call so you only pay for what you need. Our guide on what a website costs in the Rio Grande Valley breaks down the typical price ranges and what drives them.",
+        },
+        {
+          q: "Do you work with Brownsville businesses if you're based in Harlingen?",
+          a: "Yes. We're about half an hour up I-69E and work with businesses across Brownsville. Most of the build runs on calls and shared drafts, and we can meet in person when that's easier.",
+        },
+        {
+          q: "Will a new website help me show up on Google Maps in Brownsville?",
+          a: "It helps. A fast site with clear Brownsville service pages and your business details in schema markup backs up your Google Business Profile, and Google looks at both. Getting into the Brownsville map pack also takes Google Business Profile work and steady reviews, which our local SEO service covers.",
+        },
+      ],
+      nearby: [
+        { href: "/local-seo-brownsville-tx", label: "Brownsville SEO services" },
+        { href: "/google-business-profile-brownsville-tx", label: "Google Business Profile optimization in Brownsville" },
+        { href: "/google-ads-management-brownsville-tx", label: "Google Ads management in Brownsville" },
+        { href: "/blog/how-much-does-a-website-cost-rio-grande-valley", label: "How much a website costs in the RGV" },
+        { href: "/blog/local-seo-brownsville-tx-checklist", label: "Brownsville local SEO checklist for owners" },
+        { href: "/website-design-harlingen-tx", label: "Website design in Harlingen" },
+        { href: "/website-design-san-benito-tx", label: "Website design in San Benito" },
+      ],
       intro: {
         heading: "Websites Built for Brownsville Businesses",
         body: [
-          "Brownsville is one of the fastest-changing cities in Texas — a historic port community now growing alongside the space and tech investment out at Boca Chica.",
+          "Brownsville is one of the fastest-changing cities in Texas: a historic port community now growing alongside the space and tech investment out at Boca Chica.",
           "That growth means new customers and new competition. We build Brownsville businesses websites that load fast, work flawlessly on mobile, and rank for local searches, so you capture the opportunity instead of watching it pass by.",
         ],
       },
