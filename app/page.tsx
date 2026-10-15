@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
-import "@/components/home/home.css";
+import { Bricolage_Grotesque, Geist, Geist_Mono } from "next/font/google";
+import "@/components/home/afterglow/afterglow.css";
+import Sky from "@/components/home/afterglow/Sky";
+import NightDrive from "@/components/home/afterglow/NightDrive";
+import Motion from "@/components/home/afterglow/Motion";
 import HomeHero, { HERO_CTA_ID } from "@/components/home/HomeHero";
 import ProofStrip from "@/components/home/ProofStrip";
 import MedspaSuite from "@/components/home/MedspaSuite";
@@ -19,15 +23,30 @@ import JsonLd from "@/components/JsonLd";
 import { faqSchema, socialMeta, SITE, PLANS_FROM } from "@/lib/site";
 import { homeFaqs } from "@/lib/faqs";
 
+/* Homepage-only faces (spec §3). Instantiated here, not in layout.tsx, so
+   only "/" downloads them; every other route keeps DM Sans / Bebas.
+   Bricolage is the LCP face, so it is the only one preloaded. */
+const display = Bricolage_Grotesque({
+  subsets: ["latin"],
+  axes: ["wdth"],
+  display: "swap",
+  variable: "--font-ev-display",
+});
+const body = Geist({ subsets: ["latin"], display: "swap", variable: "--font-ev-body", preload: false });
+const mono = Geist_Mono({ subsets: ["latin"], display: "swap", variable: "--font-ev-mono", preload: false });
+
 export default function Home() {
   return (
     <>
       {/* Business + WebSite nodes are emitted site-wide from app/layout.tsx. */}
       <JsonLd data={[faqSchema(homeFaqs)]} />
-      <main className="rg-home">
+      {/* rg-home--afterglow scopes every v2 token, font and rule to "/". */}
+      <main className={`rg-home rg-home--afterglow ${display.variable} ${body.variable} ${mono.variable}`}>
+        <Sky />
         <HomeHero />
         <ProofStrip />
         <MedspaSuite />
+        <NightDrive />
         <IndustrySwitcher />
         <Capabilities />
         <Process />
@@ -45,6 +64,7 @@ export default function Home() {
           finalId={FINAL_CTA_ID}
         />
         <HomeAnalytics />
+        <Motion />
       </main>
     </>
   );

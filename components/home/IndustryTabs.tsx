@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, type KeyboardEvent, type ReactNode } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
 
 /**
  * Tab state for the industry switcher, and nothing else. The panels are
@@ -15,7 +15,14 @@ import { useRef, useState, type KeyboardEvent, type ReactNode } from "react";
  * always as tall as the tallest panel, so switching never moves the page.
  * WAI-ARIA tabs pattern: roving tabindex, arrow keys, Home/End.
  * Without JS a <noscript> rule shows every panel stacked.
+ *
+ * The tangerine pill slides between tabs by transitioning a clip-path
+ * inset on one full-size layer (composited, no layout, and the pill's round
+ * ends never stretch the way a scaleX would). Reduced motion makes it
+ * instant (afterglow.css).
  */
+const useIsoLayoutEffect = typeof window === "undefined" ? useEffect : useLayoutEffect;
+
 export default function IndustryTabs({
   tabs,
   panels,
@@ -27,6 +34,38 @@ export default function IndustryTabs({
 }) {
   const [active, setActive] = useState(0);
   const refs = useRef<(HTMLButtonElement | null)[]>([]);
+  const listRef = useRef<HTMLDivElement>(null);
+  const pillRef = useRef<HTMLSpanElement>(null);
+
+  const placePill = useCallback(() => {
+    const tab = refs.current[active];
+    const pill = pillRef.current;
+    const list = listRef.current;
+    if (!tab || !pill || !list) return;
+    const W = list.scrollWidth;
+    const H = list.scrollHeight;
+    pill.style.width = `${W}px`;
+    pill.style.height = `${H}px`;
+    const top = tab.offsetTop;
+    const left = tab.offsetLeft;
+    const right = W - left - tab.offsetWidth;
+    const bottom = H - top - tab.offsetHeight;
+    pill.style.clipPath = `inset(${top}px ${right}px ${bottom}px ${left}px round 999px)`;
+    pill.dataset.ready = "true";
+  }, [active]);
+
+  useIsoLayoutEffect(() => {
+    placePill();
+  }, [placePill]);
+
+  useEffect(() => {
+    const list = listRef.current;
+    if (!list || !("ResizeObserver" in window)) return;
+    const ro = new ResizeObserver(() => placePill());
+    ro.observe(list);
+    document.fonts?.ready.then(placePill);
+    return () => ro.disconnect();
+  }, [placePill]);
 
   const select = (i: number, focus: boolean) => {
     setActive(i);
@@ -49,37 +88,40 @@ export default function IndustryTabs({
 
   return (
     <>
-      <div role="tablist" aria-label={label} className="rg-h-tablist" onKeyDown={onKey}>
-        {tabs.map((t, i) => (
-          <button
-            key={t.id}
-            ref={(el) => {
-              refs.current[i] = el;
-            }}
-            type="button"
-            role="tab"
-            id={`ind-tab-${t.id}`}
-            aria-selected={i === active}
-            aria-controls={`ind-panel-${t.id}`}
-            tabIndex={i === active ? 0 : -1}
-            className="rg-h-tab"
-            onClick={() => i !== active && select(i, false)}
-          >
-            {t.label}
-          </button>
-        ))}
+      <div className="ev-tabrail">
+        <div role="tablist" aria-label={label} className="ev-tablist" onKeyDown={onKey} ref={listRef}>
+          <span className="ev-tab-pill" aria-hidden="true" ref={pillRef} />
+          {tabs.map((t, i) => (
+            <button
+              key={t.id}
+              ref={(el) => {
+                refs.current[i] = el;
+              }}
+              type="button"
+              role="tab"
+              id={`ind-tab-${t.id}`}
+              aria-selected={i === active}
+              aria-controls={`ind-panel-${t.id}`}
+              tabIndex={i === active ? 0 : -1}
+              className="ev-tab"
+              onClick={() => i !== active && select(i, false)}
+            >
+              {t.label}
+            </button>
+          ))}
+        </div>
       </div>
       <noscript>
-        <style>{`.rg-h-tablist{display:none!important}.rg-h-panels{gap:28px}.rg-h-panel{grid-area:auto!important}.rg-h-panel{visibility:visible!important}`}</style>
+        <style>{`.ev-tabrail{display:none!important}.ev-panels{gap:28px}.ev-panel{grid-area:auto!important;visibility:visible!important;opacity:1!important;transform:none!important}`}</style>
       </noscript>
-      <div className="rg-h-panels">
+      <div className="ev-panels">
         {panels.map((panel, i) => (
           <div
             key={tabs[i].id}
             role="tabpanel"
             id={`ind-panel-${tabs[i].id}`}
             aria-labelledby={`ind-tab-${tabs[i].id}`}
-            className="rg-h-panel"
+            className="ev-panel"
             data-active={i === active ? "true" : "false"}
             tabIndex={i === active ? 0 : -1}
           >

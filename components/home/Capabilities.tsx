@@ -1,11 +1,13 @@
-import Image from "next/image";
 import Link from "next/link";
+import { BrowserFrame } from "@/components/home/afterglow/DeviceFrame";
 import { HLink, HSection } from "@/components/home/HomePrimitives";
 
 /**
- * Section 5, the growth engine. Five parts of one system, each a whole-card
+ * Section 6, the growth engine. Five parts of one system, each a whole-card
  * link to its service page with a real starting price from PricingTabs.
- * Bento: 7+5, 5+7, then one full-width row.
+ * Asymmetric bento: 7+5, 5+7, then one full-width row. The Website cell
+ * scrolls a live client capture (desktop); the ads cell is the sunset fill
+ * with midnight text. Cards get a cursor spotlight on hover (desktop).
  */
 type Part = {
   title: string;
@@ -13,7 +15,7 @@ type Part = {
   body: string;
   tag: string;
   more: string;
-  tone?: "bone" | "navy";
+  tone?: "sunset";
 };
 
 const PARTS: Part[] = [
@@ -37,7 +39,7 @@ const PARTS: Part[] = [
     body: "Campaigns built, written and managed for you: Google or Meta on Build the Machine, both on Own the Market. You pay the platform directly, so you see every dollar of spend.",
     tag: "From $899/mo",
     more: "Paid advertising",
-    tone: "navy",
+    tone: "sunset",
   },
   {
     title: "One inbox and follow-up",
@@ -45,7 +47,6 @@ const PARTS: Part[] = [
     body: "Every form fill, call and chat lands in one inbox from day one. On Build the Machine, automated texts, emails and reminders follow up for you, and a site chatbot answers after hours.",
     tag: "Inbox from $397/mo",
     more: "Lead management",
-    tone: "bone",
   },
   {
     title: "Social & content",
@@ -59,18 +60,18 @@ const PARTS: Part[] = [
 function CardText({ part }: { part: Part }) {
   return (
     <>
-      <div className="rg-h-card-top">
-        <h3 className="rg-h-h3">{part.title}</h3>
-        <span className="rg-h-card-tag">{part.tag}</span>
+      <div className="ev-card-top">
+        <h3 className="ev-card-title">{part.title}</h3>
+        <span className="ev-card-tag">{part.tag}</span>
       </div>
-      <p className="rg-h-body">{part.body}</p>
+      <p className="ev-card-body">{part.body}</p>
     </>
   );
 }
 
 function More({ label }: { label: string }) {
   return (
-    <span className="rg-h-card-more">
+    <span className="ev-card-more">
       {label} <span aria-hidden="true">&rarr;</span>
     </span>
   );
@@ -79,60 +80,62 @@ function More({ label }: { label: string }) {
 export default function Capabilities() {
   const [website, seo, ads, inbox, social] = PARTS;
   const cls = (p: Part, extra?: string) =>
-    ["rg-h-card", p.tone && `rg-h-card--${p.tone}`, extra].filter(Boolean).join(" ");
+    ["ev-card", p.tone && `ev-card--${p.tone}`, extra].filter(Boolean).join(" ");
 
   return (
-    <HSection surface="cream" labelledBy="engine-heading">
-      <div className="rg-h-wrap">
-        <div className="rg-h-split-head rg-h-reveal">
-          <h2 id="engine-heading" className="rg-h-h2">
-            One team runs the whole <em>system</em>.
+    <HSection labelledBy="engine-heading" className="ev-engine">
+      <div className="ev-wrap">
+        <div className="ev-head">
+          <h2 id="engine-heading" className="ev-h2" data-ev-reveal="">
+            One team runs the whole <span className="ev-glow">system</span>.
           </h2>
-          <p className="rg-h-lede">
+          <p className="ev-lede ev-rise">
             Hire one company for the site and another for ads, and leads slip through the gap
             between them. We run all five pieces from one inbox and report on them together.
           </p>
         </div>
 
-        <ul className="rg-h-bento">
-          <li className="rg-h-reveal">
-            <Link href={website.href} className={cls(website, "rg-h-website")}>
-              <div className="rg-h-card-grid">
-                <div className="rg-h-card-text">
+        <ul className="ev-bento">
+          <li className="ev-bento-cell ev-bento--website">
+            <Link href={website.href} className={cls(website, "ev-card--website")}>
+              <div className="ev-card-shell">
+                <div className="ev-card-text">
                   <CardText part={website} />
                   <More label={website.more} />
                 </div>
-                <span className="rg-h-card-shot">
-                  <Image
-                    src="/work/ccl-contracting-clean.webp"
-                    alt="Detail of the CCL Contracting website we built"
-                    width={1200}
-                    height={750}
-                    sizes="(max-width: 1023px) 90vw, 400px"
+                <div className="ev-card-shot">
+                  <BrowserFrame
+                    slug="ccl-contracting"
+                    host="cclcontracting.com"
+                    alt="Full page of the CCL Contracting website we built"
+                    sizes="(max-width: 1023px) 88vw, 400px"
+                    className="ev-autoscroll"
                   />
-                </span>
+                </div>
               </div>
             </Link>
           </li>
-          {[seo, ads, inbox].map((p) => (
-            <li key={p.href} className="rg-h-reveal">
+          {[seo, ads, inbox].map((p, i) => (
+            <li key={p.href} className={`ev-bento-cell ev-bento--${["seo", "ads", "inbox"][i]}`}>
               <Link href={p.href} className={cls(p)}>
-                <CardText part={p} />
-                <More label={p.more} />
+                <div className="ev-card-shell">
+                  <CardText part={p} />
+                  <More label={p.more} />
+                </div>
               </Link>
             </li>
           ))}
-          <li className="rg-h-reveal">
-            {/* Full-width row: same title/price header as the other cards,
-                with the link right-aligned under the price. */}
-            <Link href={social.href} className={cls(social, "rg-h-card--wide")}>
-              <CardText part={social} />
-              <More label={social.more} />
+          <li className="ev-bento-cell ev-bento--social">
+            <Link href={social.href} className={cls(social, "ev-card--wide")}>
+              <div className="ev-card-shell">
+                <CardText part={social} />
+                <More label={social.more} />
+              </div>
             </Link>
           </li>
         </ul>
 
-        <div className="rg-h-bento-foot">
+        <div className="ev-bento-foot">
           <HLink href="/services">See every service</HLink>
         </div>
       </div>

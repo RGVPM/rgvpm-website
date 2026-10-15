@@ -32,6 +32,14 @@ export const CLIENTS: Client[] = [
   { name: "RGV Scalp Ink", url: "https://www.rgvscalpinkllc.com", logo: "/clients/rgv-scalp-ink.png" },
   { name: "Us To You Mobile Health", url: "https://www.ustoyoumobilehealth.com", logo: "/clients/us-to-you-mobile-health-trim.webp" },
   { name: "D'Vash Aesthetics", url: "https://www.dvashaesthetics.com", logo: "/clients/dvash-aesthetics-trim.png" },
+  // Black header wordmark from faceforwardstl.com. A white copy for dark
+  // backgrounds is in /clients/face-forward-trim-light.png.
+  { name: "Face Forward Regenerative Aesthetics", url: "https://faceforwardstl.com", logo: "/clients/face-forward-trim.png", maxHeight: 18 },
+  // Logo from the drbrainrx.com site schema (SVG), rendered to PNG.
+  { name: "DrBrainRx", url: "https://www.drbrainrx.com", logo: "/clients/drbrainrx-trim.png", maxHeight: 25 },
+  // Black wordmark from bellezadeorosalon.com. White copy for dark
+  // backgrounds: /clients/belleza-de-oro-trim-light.png.
+  { name: "Belleza De Oro Salon", url: "https://www.bellezadeorosalon.com", logo: "/clients/belleza-de-oro-trim.png", maxHeight: 30 },
   // Logo is a white-on-dark wordmark (invisible on the cream strip) and no
   // light/transparent version exists yet — renders as a Bebas text wordmark.
   // TODO(owner): drop a dark or transparent logo in /clients to swap in.

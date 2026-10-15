@@ -3,9 +3,10 @@ import type { ReactNode } from "react";
 import { SITE } from "@/lib/site";
 
 /**
- * Homepage-only building blocks (styles in components/home/home.css).
- * Kept apart from components/home/Primitives.tsx, which the /website-offer
- * components import and which must not change.
+ * Homepage-only building blocks (styles in components/home/afterglow/afterglow.css,
+ * all scoped under .rg-home--afterglow). Kept apart from
+ * components/home/Primitives.tsx, which the /website-offer components import
+ * and which must not change.
  */
 
 /**
@@ -25,12 +26,28 @@ export function bookingHref(section: string): string {
   return `${SITE.bookingUrl}?${params.toString()}`;
 }
 
+/* Phosphor icon paths (regular weight, 256 viewBox), inlined so the
+   homepage ships no icon package for two arrows. */
+const ARROW_UP_RIGHT =
+  "M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z";
+const ARROW_DOWN =
+  "M205.66,149.66l-72,72a8,8,0,0,1-11.32,0l-72-72a8,8,0,0,1,11.32-11.32L120,196.69V40a8,8,0,0,1,16,0V196.69l58.34-58.35a8,8,0,0,1,11.32,11.32Z";
+
+export function ArrowIcon({ down }: { down?: boolean }) {
+  return (
+    <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false">
+      <path d={down ? ARROW_DOWN : ARROW_UP_RIGHT} />
+    </svg>
+  );
+}
+
 type ButtonVariant = "primary" | "compact" | "ghost" | "ghostDark";
 
 /**
- * Pill button with a trailing circle. External links open in a new tab and
- * say so to screen readers. `event` is picked up by HomeAnalytics and sent
- * to GA4 on click.
+ * Island pill with a nested icon circle. Primary = tangerine fill with a
+ * midnight label (the page's one action color); ghost = sand outline.
+ * External links open in a new tab and say so to screen readers. `event`
+ * is picked up by HomeAnalytics and sent to GA4 on click.
  */
 export function HButton({
   href,
@@ -52,14 +69,21 @@ export function HButton({
   id?: string;
 }) {
   const external = /^https?:\/\//.test(href);
-  const classes = ["rg-h-btn", `rg-h-btn--${variant}`, full && "rg-h-btn--full", className]
+  const primary = variant === "primary" || variant === "compact";
+  const classes = [
+    "ev-btn",
+    primary ? "ev-btn--primary" : "ev-btn--ghost",
+    variant === "compact" && "ev-btn--sm",
+    full && "ev-btn--full",
+    className,
+  ]
     .filter(Boolean)
     .join(" ");
   const inner = (
     <>
-      <span>{children}</span>
-      <span className="rg-h-btn-icon" aria-hidden="true">
-        &rarr;
+      <span className="ev-btn-label">{children}</span>
+      <span className="ev-btn-icon">
+        <ArrowIcon down={href === "#plans"} />
       </span>
       {external && <span className="sr-only"> (opens in a new tab)</span>}
     </>
@@ -87,7 +111,7 @@ export function HButton({
   );
 }
 
-/** Inline text link with a sliding arrow. */
+/** Inline text link: sand label, gold underline that grows on hover. */
 export function HLink({
   href,
   children,
@@ -102,11 +126,11 @@ export function HLink({
   className?: string;
 }) {
   const external = /^https?:\/\//.test(href);
-  const classes = ["rg-h-link", className].filter(Boolean).join(" ");
+  const classes = ["ev-link", className].filter(Boolean).join(" ");
   const data = { "data-ev": event, "data-ev-label": eventLabel };
   const inner = (
     <>
-      {children} <span aria-hidden="true">&rarr;</span>
+      <span>{children}</span> <span aria-hidden="true">&rarr;</span>
       {external && <span className="sr-only"> (opens in a new tab)</span>}
     </>
   );
@@ -131,12 +155,12 @@ export function HLink({
   );
 }
 
-type Surface = "cream" | "bone" | "blush" | "night";
+type Surface = "sky" | "night" | "plum";
 
 /** A full-width band with the shared rhythm and a labelled region. */
 export function HSection({
   id,
-  surface = "cream",
+  surface = "sky",
   tight,
   labelledBy,
   className,
@@ -149,13 +173,7 @@ export function HSection({
   className?: string;
   children: ReactNode;
 }) {
-  const classes = [
-    "rg-h-section",
-    tight && "rg-h-section--tight",
-    `rg-h-bg-${surface}`,
-    surface === "night" && "rg-h-dark",
-    className,
-  ]
+  const classes = ["ev-section", tight && "ev-section--tight", `ev-band--${surface}`, className]
     .filter(Boolean)
     .join(" ");
   return (
@@ -165,26 +183,24 @@ export function HSection({
   );
 }
 
-/** Small mono label above a headline. Used three times on the page, no more. */
+/** Small mono label above a headline. Rationed: five on the page, no more. */
 export function HEyebrow({ children }: { children: ReactNode }) {
-  return <p className="rg-h-eyebrow">{children}</p>;
+  return <p className="ev-eyebrow">{children}</p>;
 }
 
-/** Double-bezel enclosure: a tinted tray with a porcelain (or navy) core. */
+/** Double-bezel enclosure: a hairline tray with a plum core. */
 export function BezelFrame({
-  tone = "light",
   className,
   coreClassName,
   children,
 }: {
-  tone?: "light" | "dark";
   className?: string;
   coreClassName?: string;
   children: ReactNode;
 }) {
   return (
-    <div className={["rg-h-bezel", tone === "dark" && "rg-h-bezel--dark", className].filter(Boolean).join(" ")}>
-      <div className={["rg-h-bezel-core", coreClassName].filter(Boolean).join(" ")}>{children}</div>
+    <div className={["ev-bezel", className].filter(Boolean).join(" ")}>
+      <div className={["ev-bezel-core", coreClassName].filter(Boolean).join(" ")}>{children}</div>
     </div>
   );
 }

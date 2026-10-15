@@ -1,10 +1,12 @@
-import Image from "next/image";
-import { BezelFrame, HButton, HEyebrow, HLink, HSection, bookingHref } from "@/components/home/HomePrimitives";
+import { BrowserFrame } from "@/components/home/afterglow/DeviceFrame";
+import { HButton, HEyebrow, HLink, bookingHref } from "@/components/home/HomePrimitives";
 
 /**
- * Section 3, `#medspas`. The medspa focus: the founders' real Aesthetic
- * Record background, a real aesthetics site we built, and the HIPAA BAA
- * that is live in our Terms. No outcomes, no medical claims.
+ * Section 3, `#medspas`: golden hour, close-up. The medspa focus: the
+ * founders' real Aesthetic Record background, a real aesthetics site we
+ * built (auto-scrolling inside a peach-lit arch), the four capabilities as
+ * a treatment menu, and the HIPAA BAA as a still plaque (never a seal: it
+ * must not read as a certification). No outcomes, no medical claims.
  *
  * Not shown without the client's written OK (spec decision #5): a named
  * panel for our Tacoma, WA medspa client.
@@ -34,85 +36,95 @@ const CAPABILITIES = [
 
 export default function MedspaSuite() {
   return (
-    <HSection id="medspas" surface="blush" labelledBy="medspa-heading" className="rg-h-medspa">
+    <section id="medspas" aria-labelledby="medspa-heading" className="ev-section ev-medspa">
       {/* data-chat-hold: the chat widget waits until this band is scrolled past. */}
-      <div className="rg-h-wrap" data-chat-hold="">
-        <div className="rg-h-head rg-h-reveal">
-          <HEyebrow>For medspas and aesthetic practices</HEyebrow>
-          <h2 id="medspa-heading" className="rg-h-h2">
-            Built for medspas that want a fuller <em>book</em>.
-          </h2>
-          <p className="rg-h-lede">
-            Kelsey spent five years at Aesthetic Record, a leading software platform for the
-            aesthetics industry, working with hundreds of clinic owners. Derrick helped build its
-            lead management and marketing division. Now we run the marketing side for practices
-            like yours.
-          </p>
-        </div>
-
-        <div className="rg-h-medspa-grid rg-h-reveal">
-          <a
-            href="https://www.dvashaesthetics.com"
-            target="_blank"
-            rel="noopener"
-            className="rg-h-media rg-h-medspa-shot"
-          >
-            <Image
-              src="/work/dvash-aesthetics-clean.webp"
-              alt="Homepage of the D'Vash Aesthetics website"
-              width={1200}
-              height={750}
-              sizes="(max-width: 1023px) 92vw, 680px"
-            />
-            <span className="sr-only"> (opens in a new tab)</span>
-          </a>
-
-          <BezelFrame tone="dark" className="rg-h-baa">
-            <span className="rg-h-seal" aria-hidden="true">
-              <span>
-                <span>HIPAA</span>
-                <strong>BAA</strong>
-              </span>
-            </span>
-            <h3 className="rg-h-h3">HIPAA Business Associate Addendum</h3>
-            <p>
-              It&rsquo;s part of our Terms. If you&rsquo;re a covered entity and we handle patient
-              information for you, it takes effect the day you subscribe.
+      <div className="ev-wrap ev-medspa-panel" data-chat-hold="">
+        <div className="ev-medspa-top">
+          <div className="ev-medspa-head">
+            <HEyebrow>For medspas and aesthetic practices</HEyebrow>
+            <h2 id="medspa-heading" className="ev-h2 ev-h2--soft" data-ev-reveal="">
+              Built for medspas that want a fuller <strong>book</strong>.
+            </h2>
+            <p className="ev-lede ev-rise">
+              Kelsey spent five years at Aesthetic Record, a leading software platform for the
+              aesthetics industry, working with hundreds of clinic owners. Derrick helped build its
+              lead management and marketing division. Now we run the marketing side for practices
+              like yours.
             </p>
-            <HLink href="/terms#baa">Read the addendum</HLink>
-          </BezelFrame>
-        </div>
-        <p className="rg-h-medspa-credit">
-          <a href="https://www.dvashaesthetics.com" target="_blank" rel="noopener">
-            D&rsquo;Vash Aesthetics<span className="sr-only"> (opens in a new tab)</span>
-          </a>
-          . Website by RGV Performance Marketing.
-        </p>
+          </div>
 
-        <ul className="rg-h-caps">
+          <figure className="ev-arch-scene">
+            <span className="ev-arch-glow" aria-hidden="true" />
+            <span className="ev-arch" aria-hidden="true" />
+            <a
+              href="https://www.dvashaesthetics.com"
+              target="_blank"
+              rel="noopener"
+              className="ev-arch-browser"
+              aria-label="dvashaesthetics.com: D’Vash Aesthetics website, built by us (opens in a new tab)"
+            >
+              <BrowserFrame
+                slug="dvash-aesthetics"
+                host="dvashaesthetics.com"
+                alt="Full page of the D’Vash Aesthetics website"
+                sizes="(max-width: 1023px) 88vw, 560px"
+                className="ev-autoscroll"
+              />
+            </a>
+            <figcaption className="ev-medspa-credit">
+              <a href="https://www.dvashaesthetics.com" target="_blank" rel="noopener">
+                D&rsquo;Vash Aesthetics<span className="sr-only"> (opens in a new tab)</span>
+              </a>
+              . Website by RGV Performance Marketing.
+            </figcaption>
+          </figure>
+        </div>
+
+        <ul className="ev-menu">
           {CAPABILITIES.map((c) => (
-            <li key={c.title} className="rg-h-reveal">
-              <h3 className="rg-h-h3">{c.title}</h3>
-              <p className="rg-h-body">{c.body}</p>
-              <p className="rg-h-cap-plan">{c.plan}</p>
+            <li key={c.title} className="ev-menu-item">
+              <div className="ev-menu-line">
+                <h3 className="ev-menu-title">
+                  <span className="ev-mask">
+                    <span>{c.title}</span>
+                  </span>
+                </h3>
+                <span className="ev-menu-leader" aria-hidden="true" />
+                <p className="ev-menu-plan">{c.plan}</p>
+              </div>
+              <p className="ev-menu-body">{c.body}</p>
             </li>
           ))}
         </ul>
 
-        <div className="rg-h-medspa-foot">
-          <p className="rg-h-small">
-            We keep outcome promises out of your copy, and we follow each ad platform&rsquo;s rules on before-and-after images.
-          </p>
-          <div className="rg-h-ctas">
-            <HButton href={bookingHref("medspa")} event="medspa_cta_click">
-              Book a free strategy call
-            </HButton>
-            <HLink href="#plans" event="pricing_link_click" eventLabel="medspa">
-              See the plan we recommend for medspas
-            </HLink>
+        <div className="ev-medspa-foot">
+          <div className="ev-plaque ev-rise">
+            <div className="ev-plaque-inner">
+              <p className="ev-plaque-label">HIPAA BAA</p>
+              <h3 className="ev-h3">HIPAA Business Associate Addendum</h3>
+              <p>
+                It&rsquo;s part of our Terms. If you&rsquo;re a covered entity and we handle patient
+                information for you, it takes effect the day you subscribe.
+              </p>
+              <HLink href="/terms#baa">Read the addendum</HLink>
+            </div>
+          </div>
+
+          <div className="ev-medspa-cta ev-rise">
+            <p className="ev-small">
+              We keep outcome promises out of your copy, and we follow each ad platform&rsquo;s rules on before-and-after images.
+            </p>
+            <div className="ev-ctas">
+              <HButton href={bookingHref("medspa")} event="medspa_cta_click">
+                Book a free strategy call
+              </HButton>
+              <HLink href="#plans" event="pricing_link_click" eventLabel="medspa">
+                See the plan we recommend for medspas
+              </HLink>
+            </div>
           </div>
         </div>
       </div>
-    </HSection>
+    </section>
   );
 }

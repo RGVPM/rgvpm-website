@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 
 /**
- * Mobile-only booking bar (hidden at >= 768px in home.css).
+ * Mobile-only booking bar (hidden at >= 768px in afterglow.css): a
+ * midnight glass bar with a tangerine pill that slides up with a transform.
  *
  * Shows once the hero's primary CTA has scrolled above the viewport and
  * hides again while the final CTA band is on screen, so it never doubles up
@@ -51,14 +52,14 @@ export default function StickyCta({
 
   return (
     <div
-      className="rg-h-sticky"
+      className="ev-sticky"
       role="region"
       aria-label="Book a call"
       data-visible={visible ? "true" : "false"}
       aria-hidden={visible ? undefined : true}
       inert={!visible}
     >
-      <span className="rg-h-sticky-note">
+      <span className="ev-sticky-note">
         {note.split(" \u00b7 ").map((part) => (
           <span key={part}>{part}</span>
         ))}
@@ -67,12 +68,14 @@ export default function StickyCta({
         href={href}
         target="_blank"
         rel="noopener"
-        className="rg-h-btn rg-h-btn--compact"
+        className="ev-btn ev-btn--primary ev-btn--sm"
         data-ev="sticky_cta_click"
       >
-        <span>{label}</span>
-        <span className="rg-h-btn-icon" aria-hidden="true">
-          &rarr;
+        <span className="ev-btn-label">{label}</span>
+        <span className="ev-btn-icon" aria-hidden="true">
+          <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false">
+            <path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z" />
+          </svg>
         </span>
         <span className="sr-only"> (opens in a new tab)</span>
       </a>

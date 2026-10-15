@@ -123,6 +123,10 @@ export default function Nav() {
       </a>
       <nav
         aria-label="Primary"
+        // Homepage-only "island" variant; styled in components/home/afterglow/afterglow.css.
+        // No other route gets these attributes, so no other route changes.
+        data-variant={pathname === "/" ? "island" : undefined}
+        data-scrolled={pathname === "/" && scrolled ? "" : undefined}
         style={{
           position: "fixed",
           top: 0,
