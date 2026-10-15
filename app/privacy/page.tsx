@@ -62,7 +62,7 @@ export default function PrivacyPage() {
         >
           Privacy Policy
         </h1>
-        <p style={{ ...p, color: "var(--muted)", marginBottom: 0 }}>Effective date: June 1, 2026</p>
+        <p style={{ ...p, color: "var(--muted)", marginBottom: 0 }}>Effective date: June 1, 2026 &middot; Last updated: October 14, 2026</p>
 
         <h2 style={h2}>1. Overview</h2>
         <p style={p}>
@@ -120,7 +120,18 @@ export default function PrivacyPage() {
           and we will process your request in accordance with applicable law.
         </p>
 
-        <h2 style={h2}>9. Contact</h2>
+        <h2 style={h2}>9. Health Information (HIPAA)</h2>
+        <p style={p}>
+          If you are a healthcare client covered by HIPAA and we handle protected health information
+          (PHI) on your behalf, that information is governed by the{" "}
+          <a href="/terms#baa" style={{ color: "var(--orange)" }}>
+            HIPAA Business Associate Addendum
+          </a>{" "}
+          in our Terms &amp; Conditions, which controls over this Privacy Policy as to PHI. We do not
+          share PHI with advertising or analytics platforms such as Google or Meta.
+        </p>
+
+        <h2 style={h2}>10. Contact</h2>
         <p style={p}>
           For any privacy-related questions or requests, contact us at{" "}
           <a href="mailto:info@rgvperformancemarketing.com" style={{ color: "var(--orange)" }}>
