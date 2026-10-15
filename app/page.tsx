@@ -39,7 +39,7 @@ export default function Home() {
         <FinalCta />
         <StickyCta
           href={bookingHref("sticky")}
-          note={`From $${PLANS_FROM}/mo · Month-to-month`}
+          note={`Websites from $${PLANS_FROM}/mo · Month-to-month`}
           label="Book a free call"
           heroCtaId={HERO_CTA_ID}
           finalId={FINAL_CTA_ID}

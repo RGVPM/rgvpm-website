@@ -32,6 +32,17 @@ export default function AiSection() {
             We run our own agency on tools like Claude Code and Codex. For clients, we build the
             pieces that give hours back each week.
           </p>
+          <ul className="rg-h-ai-links">
+            <li>
+              <HLink href="/services/ai-implementation">AI consulting and builds</HLink>
+            </li>
+            <li>
+              <HLink href="/learn-claude-code">Learn Claude Code 1-on-1</HLink>
+            </li>
+            <li>
+              <HLink href="/claude-code-templates">Free AI agent that reviews your inbox</HLink>
+            </li>
+          </ul>
         </div>
         <div className="rg-h-reveal">
           <ul className="rg-h-ai-rows">
@@ -41,19 +52,6 @@ export default function AiSection() {
                 <p className="rg-h-body">{r.body}</p>
               </li>
             ))}
-          </ul>
-          <ul className="rg-h-ai-links">
-            <li>
-              <HLink href="/services/ai-implementation">AI consulting and builds</HLink>
-            </li>
-            <li>
-              <HLink href="/learn-claude-code">Learn Claude Code 1-on-1</HLink>
-            </li>
-            <li>
-              <HLink href="/claude-code-templates">
-                Free: an AI agent that reviews your inbox every morning
-              </HLink>
-            </li>
           </ul>
         </div>
       </div>

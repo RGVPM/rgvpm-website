@@ -5,7 +5,14 @@ import { useRef, useState, type KeyboardEvent, type ReactNode } from "react";
 /**
  * Tab state for the industry switcher, and nothing else. The panels are
  * server-rendered and passed in, so all four are in the HTML (crawlable,
- * find-in-page safe for the active one); inactive panels carry `hidden`.
+ * find-in-page safe for the active one).
+ *
+ * Inactive panels are NOT `hidden`: Tailwind's preflight forces
+ * `[hidden]{display:none !important}`, which collapsed them and made the box
+ * change height on every switch. Instead every panel stays in one grid cell
+ * and inactive ones get `visibility: hidden` via `data-active`, which also
+ * removes them from the tab order and the accessibility tree. The box is
+ * always as tall as the tallest panel, so switching never moves the page.
  * WAI-ARIA tabs pattern: roving tabindex, arrow keys, Home/End.
  * Without JS a <noscript> rule shows every panel stacked.
  */
@@ -63,7 +70,7 @@ export default function IndustryTabs({
         ))}
       </div>
       <noscript>
-        <style>{`.rg-h-tablist{display:none!important}.rg-h-panels{gap:28px}.rg-h-panel{grid-area:auto!important}.rg-h-panel[hidden]{visibility:visible!important}`}</style>
+        <style>{`.rg-h-tablist{display:none!important}.rg-h-panels{gap:28px}.rg-h-panel{grid-area:auto!important}.rg-h-panel{visibility:visible!important}`}</style>
       </noscript>
       <div className="rg-h-panels">
         {panels.map((panel, i) => (
@@ -73,8 +80,8 @@ export default function IndustryTabs({
             id={`ind-panel-${tabs[i].id}`}
             aria-labelledby={`ind-tab-${tabs[i].id}`}
             className="rg-h-panel"
-            hidden={i !== active}
-            tabIndex={0}
+            data-active={i === active ? "true" : "false"}
+            tabIndex={i === active ? 0 : -1}
           >
             {panel}
           </div>

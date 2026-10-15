@@ -20,11 +20,11 @@ const COPY: Record<string, { fee: string; desc: string }> = {
   },
   "Build the Machine": {
     fee: "+ $399 one-time activation",
-    desc: "SEO, managed ads, two-way texting and email, automated follow-up and a monthly strategy call. Our usual pick for medspas and clinics.",
+    desc: "SEO, managed ads on Google or Meta, two-way texting and email, automated follow-up and a monthly strategy call. Our usual pick for medspas and clinics. Website not included: we quote one up front if you need it.",
   },
   "Own the Market": {
     fee: "No activation fee",
-    desc: "Ads on Google and Meta, social run for you, a dedicated strategist and strategy calls every two weeks.",
+    desc: "Everything in Build the Machine, with ads on both Google and Meta, social run for you, a dedicated strategist and strategy calls every two weeks.",
   },
 };
 
@@ -41,7 +41,7 @@ export default function PlanLadder() {
         <div className="rg-h-head rg-h-reveal">
           <HEyebrow>Plans and pricing</HEyebrow>
           <h2 id="plans-heading" className="rg-h-h2">
-            Real prices, before you ever get on a call.
+            Prices up front. No call required.
           </h2>
           <p className="rg-h-lede">
             Four plans, from a website and inbox to a full marketing team. Every plan is
@@ -92,8 +92,8 @@ export default function PlanLadder() {
           </p>
           <div className="rg-h-plans-help">
             <p>
-              Not sure which fits? Book a free call and we&rsquo;ll tell you honestly, even if
-              it&rsquo;s the cheapest plan.
+              Not sure where to start? Book a free call and we&rsquo;ll tell you which plan fits,
+              even if it&rsquo;s the cheapest one.
             </p>
             <div className="rg-h-ctas">
               <HButton href={bookingHref("plans")} variant="compact" event="plans_cta_click">
@@ -105,9 +105,9 @@ export default function PlanLadder() {
             </div>
           </div>
           <p className="rg-h-footnote">
-            Month-to-month &middot; Ad spend billed by Google or Meta directly &middot; Build the
-            Machine and Own the Market are marketing plans; a new website on those is quoted
-            separately
+            Every plan is month-to-month. Ad spend is billed by Google or Meta directly. Build the
+            Machine and Own the Market are marketing plans: if you need a new website on one of
+            them, we quote it up front, before you sign.
           </p>
         </div>
       </div>

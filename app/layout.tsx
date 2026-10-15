@@ -5,6 +5,7 @@ import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
+import ChatWidget from "@/components/ChatWidget";
 import JsonLd from "@/components/JsonLd";
 import { businessSchema, websiteSchema } from "@/lib/site";
 
@@ -57,12 +58,15 @@ const dmMono = DM_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
   display: "swap",
+  // Labels only, never above-the-fold LCP text: don't preload.
+  preload: false,
   variable: "--font-dm-mono",
 });
 const bebas = Bebas_Neue({
   subsets: ["latin"],
   weight: "400",
   display: "swap",
+  // Still preloaded: it is the H1 face on most inner pages (their LCP text).
   variable: "--font-bebas",
 });
 
@@ -84,14 +88,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             gtag('config', 'G-4G6Y27NLZ4');
           `}
         </Script>
-        <Script
-          src="https://widgets.leadconnectorhq.com/loader.js"
-          data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-          data-widget-id="6a2d06d49cb8f1e129b49b63"
-          data-source="WEB_USER"
-          // Chat bubble isn't needed for first paint; load it once the page is idle.
-          strategy="lazyOnload"
-        />
+        {/* Chat bubble isn't needed for first paint: it loads on idle, and on
+            the homepage only after the medspa band (see ChatWidget). */}
+        <ChatWidget />
         <Nav />
         <PageTransition>{children}</PageTransition>
         <Footer />

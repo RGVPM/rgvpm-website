@@ -14,6 +14,7 @@ export default function ClientMarquee({
   tone = "default",
   order,
   heading,
+  heights,
 }: {
   /** "mono" renders greyscale logos (styled by the homepage stylesheet). */
   tone?: "default" | "mono";
@@ -21,6 +22,9 @@ export default function ClientMarquee({
   order?: string[];
   /** Replaces the default heading line above the strip. */
   heading?: ReactNode;
+  /** Per-client logo heights in px (by name), overriding `maxHeight`, so a
+   *  page can balance logos by their visible area. */
+  heights?: Record<string, number>;
 } = {}) {
   if (CLIENTS.length === 0) return null;
 
@@ -59,11 +63,11 @@ export default function ClientMarquee({
         }}
       >
         <div className="rg-marquee-track" data-dir="right" style={{ ["--track-duration" as string]: "60s" }}>
-          <Pass clients={clients} />
+          <Pass clients={clients} heights={heights} />
           {/* Duplicate pass makes the loop seamless. aria-hidden + inert so a
               screen reader meets each client once, not twice. */}
           <div aria-hidden="true" inert style={{ display: "flex" }}>
-            <Pass clients={clients} />
+            <Pass clients={clients} heights={heights} />
           </div>
         </div>
       </div>
@@ -71,7 +75,7 @@ export default function ClientMarquee({
   );
 }
 
-function Pass({ clients }: { clients: Client[] }) {
+function Pass({ clients, heights }: { clients: Client[]; heights?: Record<string, number> }) {
   return (
     <div style={{ display: "flex", alignItems: "center" }}>
       {clients.map((client) => {
@@ -87,8 +91,13 @@ function Pass({ clients }: { clients: Client[] }) {
             // load late or never on some phones, leaving blank gaps. The
             // duplicate pass reuses the same URLs, so it adds no requests.
             loading="eager"
+            // Logos render at most ~180px wide (110px on phones), so the
+            // browser can pick the 128w/256w file instead of 750w, and they
+            // never compete with the hero for bandwidth.
+            sizes="(max-width: 767px) 120px, 180px"
+            fetchPriority="low"
             className="rg-logo-img"
-            style={{ ["--logo-mh" as string]: `${client.maxHeight ?? 84}px` }}
+            style={{ ["--logo-mh" as string]: `${heights?.[client.name] ?? client.maxHeight ?? 84}px` }}
           />
         ) : (
           <span className="rg-logo-word">{client.name}</span>

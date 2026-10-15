@@ -1,7 +1,10 @@
 import Image from "next/image";
 import WorkStack from "@/components/home/WorkStack";
 import { HButton, HLink, bookingHref } from "@/components/home/HomePrimitives";
-import { PLANS_FROM } from "@/lib/site";
+import { PLANS, PLANS_FROM } from "@/lib/site";
+
+/** Entry price of the first plan with ads and automated follow-up. */
+const MARKETING_FROM = PLANS.find((p) => p.name === "Build the Machine")?.price ?? 899;
 
 /**
  * Section 1, the night hero. Answers "what is this, is it for me, what does
@@ -21,10 +24,13 @@ export default function HomeHero() {
           <h1 id="hero-heading">
             <span className="rg-h-hero-eyebrow">
               <span>AI &amp; marketing agency</span>
+              <span className="sr-only">, </span>
               <span className="rg-h-sep" aria-hidden="true" />{" "}
               <span>Harlingen, TX</span>
+              <span className="sr-only">, </span>
               <span className="rg-h-sep" aria-hidden="true" />{" "}
               <span>Serving businesses nationwide</span>
+              <span className="sr-only">. </span>
             </span>{" "}
             <span className="rg-h-hero-display">
               Get found first.{" "}
@@ -63,7 +69,8 @@ export default function HomeHero() {
               <Image src="/founders/kelsey.jpg" alt="" width={72} height={72} sizes="36px" />
             </span>
             <span>
-              You&rsquo;ll talk to Derrick or Kelsey. Plans from ${PLANS_FROM}/mo, month-to-month.
+              You&rsquo;ll talk to Derrick or Kelsey. Websites from ${PLANS_FROM}/mo, full
+              marketing from ${MARKETING_FROM}/mo, all month-to-month.
             </span>
           </p>
         </div>

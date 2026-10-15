@@ -797,6 +797,30 @@ body {
   .footer-grid-responsive { grid-template-columns: 1fr !important; }
 }
 
+/* Footer "Areas we serve": collapsible on phones, always open from 768px.
+   City links get a 24px+ tap target (padding, not visual spacing change). */
+.rg-footer-city-links a { display: block; padding-block: 4px; min-height: 24px; }
+.rg-footer-areas > summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 44px;
+  margin-bottom: 0 !important;
+}
+.rg-footer-areas > summary::-webkit-details-marker { display: none; }
+.rg-footer-areas > summary::after { content: "+"; font-size: 18px; font-weight: 400; letter-spacing: 0; }
+.rg-footer-areas[open] > summary::after { content: "\2212"; }
+.rg-footer-areas[open] > summary { margin-bottom: 14px !important; }
+@supports selector(::details-content) {
+  @media (min-width: 768px) {
+    .rg-footer-areas::details-content { content-visibility: visible; display: block; }
+    .rg-footer-areas > summary { pointer-events: none; min-height: 0; margin-bottom: 14px !important; }
+    .rg-footer-areas > summary::after { content: none; }
+  }
+}
+
 /* Hero entrance animations */
 @keyframes heroFadeUp {
   from { opacity: 0; transform: translateY(24px); }

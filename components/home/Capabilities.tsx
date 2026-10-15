@@ -34,7 +34,7 @@ const PARTS: Part[] = [
   {
     title: "Google & Meta ads",
     href: "/services/paid-advertising",
-    body: "Campaigns built, written and managed for you. You pay Google or Meta directly, so you see every dollar of spend.",
+    body: "Campaigns built, written and managed for you: Google or Meta on Build the Machine, both on Own the Market. You pay the platform directly, so you see every dollar of spend.",
     tag: "From $899/mo",
     more: "Paid advertising",
     tone: "navy",
@@ -50,7 +50,7 @@ const PARTS: Part[] = [
   {
     title: "Social & content",
     href: "/services/social-media-newsletter",
-    body: "You shoot, we edit and brand a reel and a post every week, with captions and stories. Or we shoot on-site monthly and run the account for you.",
+    body: "You shoot, we edit and brand a reel and a post every week, with captions and stories. Or, for clients in the Rio Grande Valley, we shoot on-site monthly and run the account for you.",
     tag: "From $650/mo",
     more: "Social media",
   },
@@ -104,7 +104,7 @@ export default function Capabilities() {
                 </div>
                 <span className="rg-h-card-shot">
                   <Image
-                    src="/work/ccl-contracting.webp"
+                    src="/work/ccl-contracting-clean.webp"
                     alt="Detail of the CCL Contracting website we built"
                     width={1200}
                     height={750}
@@ -123,13 +123,11 @@ export default function Capabilities() {
             </li>
           ))}
           <li className="rg-h-reveal">
-            <Link href={social.href} className={cls(social)}>
-              <div className="rg-h-card-row">
-                <div>
-                  <CardText part={social} />
-                </div>
-                <More label={social.more} />
-              </div>
+            {/* Full-width row: same title/price header as the other cards,
+                with the link right-aligned under the price. */}
+            <Link href={social.href} className={cls(social, "rg-h-card--wide")}>
+              <CardText part={social} />
+              <More label={social.more} />
             </Link>
           </li>
         </ul>

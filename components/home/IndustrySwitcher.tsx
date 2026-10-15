@@ -9,7 +9,7 @@ import { INDUSTRIES, type Industry } from "@/lib/industries";
  * panels are server-rendered; IndustryTabs only owns which one shows.
  */
 function Panel({ industry }: { industry: Industry }) {
-  const { shot, thumb, logos } = industry;
+  const { shot, logos } = industry;
   return (
     <BezelFrame>
       <div className="rg-h-panel-grid">
@@ -50,14 +50,9 @@ function Panel({ industry }: { industry: Industry }) {
             )}
             <figcaption>{shot.caption}</figcaption>
           </figure>
-          {(thumb || logos) && (
+          {logos && (
             <div className="rg-h-proof-logos">
-              {thumb && (
-                <span className="rg-h-media rg-h-proof-thumb">
-                  <Image src={thumb.src} alt={thumb.alt} width={1200} height={750} sizes="132px" />
-                </span>
-              )}
-              {logos?.map((l) => (
+              {logos.map((l) => (
                 <Image key={l.src} src={l.src} alt={l.alt} width={l.width} height={l.height} sizes="160px" />
               ))}
             </div>

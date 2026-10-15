@@ -4,7 +4,7 @@ export interface Client {
   /** Client website — rendered as a real dofollow backlink (passes SEO value to them).
    *  Omit it and the logo renders as a plain, unlinked image. */
   url?: string;
-  /** Path to the logo file in /public/clients/, e.g. "/clients/ccl-contracting.png".
+  /** Path to the logo file in /public/clients/, e.g. "/clients/ccl-contracting-trim.png".
    *  If omitted, the client name renders as a text wordmark instead. */
   logo?: string;
   /** Optional per-logo max height in px (default 84) — for visually balancing
@@ -22,14 +22,16 @@ export interface Client {
  * The marquee section stays hidden until at least one client is listed.
  *
  * Example:
- *   { name: "CCL Contracting", url: "https://cclcontracting.com", logo: "/clients/ccl-contracting.png" },
+ *   { name: "CCL Contracting", url: "https://cclcontracting.com", logo: "/clients/ccl-contracting-trim.png" },
  */
+// The -trim files are the same logos with their transparent padding cut
+// off, so every logo can be sized by its visible area.
 export const CLIENTS: Client[] = [
-  { name: "CCL Contracting", url: "https://www.cclcontracting.com", logo: "/clients/ccl-contracting.png", maxHeight: 70 },
-  { name: "Premium Foam: Spray Foam Insulation", url: "https://www.cclcontracting.com/spray-foam-insulation/", logo: "/clients/premium-foam.png" },
+  { name: "CCL Contracting", url: "https://www.cclcontracting.com", logo: "/clients/ccl-contracting-trim.png", maxHeight: 70 },
+  { name: "Premium Foam: Spray Foam Insulation", url: "https://www.cclcontracting.com/spray-foam-insulation/", logo: "/clients/premium-foam-trim.png" },
   { name: "RGV Scalp Ink", url: "https://www.rgvscalpinkllc.com", logo: "/clients/rgv-scalp-ink.png" },
-  { name: "Us To You Mobile Health", url: "https://www.ustoyoumobilehealth.com", logo: "/clients/us-to-you-mobile-health.webp" },
-  { name: "D'Vash Aesthetics", url: "https://www.dvashaesthetics.com", logo: "/clients/dvash-aesthetics.png" },
+  { name: "Us To You Mobile Health", url: "https://www.ustoyoumobilehealth.com", logo: "/clients/us-to-you-mobile-health-trim.webp" },
+  { name: "D'Vash Aesthetics", url: "https://www.dvashaesthetics.com", logo: "/clients/dvash-aesthetics-trim.png" },
   // Logo is a white-on-dark wordmark (invisible on the cream strip) and no
   // light/transparent version exists yet — renders as a Bebas text wordmark.
   // TODO(owner): drop a dark or transparent logo in /clients to swap in.

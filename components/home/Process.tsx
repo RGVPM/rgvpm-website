@@ -3,7 +3,8 @@ import { HButton, HSection, bookingHref } from "@/components/home/HomePrimitives
 /**
  * Section 6, `#how-it-works`. Makes starting feel close and easy.
  * TODO(owner): confirm "as little as 8 to 10 days" and "You review it
- * before launch" are still current (spec decision #4).
+ * before launch" are still current (spec decision #4). The marketing-plan
+ * setup note deliberately gives no day count until the owner confirms one.
  */
 const STEPS = [
   {
@@ -49,13 +50,19 @@ export default function Process() {
         <div className="rg-h-effort rg-h-reveal">
           <div>
             <span className="rg-h-mono">Your part</span>
-            <p>One call and a folder of photos.</p>
+            <p>One call, your logo and photos. On ad plans, access to your Google and ad accounts.</p>
           </div>
           <div>
             <span className="rg-h-mono">Our part</span>
             <p>Design, copy, build, hosting and launch.</p>
           </div>
         </div>
+
+        <p className="rg-h-process-note rg-h-reveal">
+          On Build the Machine and Own the Market, the first stretch is setup: we connect your
+          Google profile, inbox and ad accounts, then launch your first campaign once the platform
+          approves it.
+        </p>
 
         <div className="rg-h-process-cta">
           <HButton href={bookingHref("process")} event="process_cta_click">

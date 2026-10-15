@@ -5,7 +5,7 @@
 export const homeFaqs = [
   {
     q: "Do I have to sign a long-term contract?",
-    a: "No. Every plan is month-to-month, and you can cancel any month. The only upfront cost on any plan is the one-time $399 activation fee on Build the Machine, which covers onboarding and setup.",
+    a: "No. Every plan is month-to-month. You can cancel any month with 5 business days' notice before your next billing date. The only setup fee is the one-time $399 activation on Build the Machine, which covers onboarding and setup.",
   },
   {
     q: "Is a website included?",
@@ -13,15 +13,15 @@ export const homeFaqs = [
   },
   {
     q: "Are there costs beyond the monthly price?",
-    a: "Two, and we'll name them up front. Build the Machine has a one-time $399 activation fee. If your plan includes ads, you pay Google or Meta directly for the ad spend, billed to you by the platform. Our management fee is your monthly plan price, and we help you set the right budget.",
+    a: "Up to three, and we name them up front. Build the Machine has a one-time $399 activation fee. If your plan includes ads, you pay Google or Meta directly for the ad spend, billed to you by the platform. And if you need a new website on Build the Machine or Own the Market, we quote it separately before you sign. Our management fee is your monthly plan price, and we help you set the right budget.",
   },
   {
     q: "How quickly will I see results?",
-    a: "Ads can start bringing in leads within the first week once they're live. SEO usually takes 60 to 90 days to show real traction, then builds over time. We'll give you an honest timeline for each channel before you start, and we won't promise a #1 ranking.",
+    a: "Ads can start getting clicks and inquiries soon after they're approved and live; health and beauty ads sometimes take longer to approve. SEO usually takes 60 to 90 days to show real traction, then builds over time. We'll give you a timeline for each channel before you start, and we won't promise a #1 ranking.",
   },
   {
     q: "Do you work with medspas?",
-    a: "Yes, medspas and aesthetic practices are our specialty. Kelsey spent five years at Aesthetic Record working with hundreds of clinic owners, and Derrick helped build its lead management and marketing division. We build consult-focused sites, local SEO for the treatments you offer, ads written for Google's and Meta's health and beauty policies, and follow-up that keeps patients rebooking.",
+    a: "Yes, medspas and aesthetic practices are our specialty. Kelsey spent five years at Aesthetic Record working with hundreds of clinic owners, and Derrick helped build its lead management and marketing division. We build consult-focused sites, local SEO for the treatments you offer, ads written for Google's and Meta's health and beauty policies, and one inbox for inquiries, texts and email, with reminders when it's time to rebook.",
   },
   {
     q: "Do you sign a HIPAA Business Associate Agreement?",
@@ -29,7 +29,7 @@ export const homeFaqs = [
   },
   {
     q: "Can you run ads for injectables and other aesthetic treatments?",
-    a: "Yes, within each platform's rules. Google and Meta restrict health and beauty ads: no before-and-after reveals, no promised results, no targeting minors, and the landing page has to match the ad. We write campaigns to those rules. The platforms make the final approval call.",
+    a: "Yes, within each platform's rules. Prescription treatments like Botox have extra restrictions, so we usually advertise the consult, the practice and non-prescription services, and we use brand names only where the platform allows it. Meta limits before-and-after imagery and promised results, and both platforms require the landing page to match the ad. The platforms make the final approval call.",
   },
   {
     q: 'What does "two-way SMS & email" mean?',
