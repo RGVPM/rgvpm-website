@@ -4,10 +4,12 @@ import { useEffect } from "react";
 import { heroPhones, heroPointer, heroScroll } from "./motion/hero";
 import { logoTapes } from "./motion/logos";
 import { nightDrive } from "./motion/nightDrive";
+import { skyStory } from "./motion/sky";
 import {
   aiThread,
   capabilities,
   finalSun,
+  focusReveal,
   magnetic,
   medspa,
   pauseOffscreen,
@@ -83,6 +85,7 @@ export default function Motion() {
           };
 
           heroScroll(env);
+          skyStory(env);
           heroPointer(env);
           heroPhones(env);
           logoTapes(env);
@@ -97,6 +100,7 @@ export default function Motion() {
           finalSun(env);
           magnetic(env);
           pauseOffscreen(env);
+          focusReveal(env);
 
           return () => {
             alive = false;

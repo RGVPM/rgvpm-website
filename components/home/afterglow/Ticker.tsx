@@ -1,10 +1,13 @@
 /**
- * The outlined band under the hero: the H1's two promises at billboard size,
- * one in outline, one in the sunset fill. Decorative (the H1 already says
- * it), so aria-hidden. It drifts sideways with scroll (motion/hero.ts).
+ * The outlined band under the hero: the five things we run, at billboard
+ * size, alternating outline and sunset fill. It sits just below the fold on
+ * desktop and drifts sideways with scroll (motion/hero.ts). Decorative (the
+ * same services are listed in the bento below), so aria-hidden.
  */
+const SERVICES = ["Websites", "Local SEO", "Google & Meta ads", "AI follow-up", "Social"];
+
 export default function Ticker() {
-  const items = ["Get found first", "Get booked", "Get found first", "Get booked", "Get found first"];
+  const items = [...SERVICES, ...SERVICES];
   return (
     <div className="ev-ticker" aria-hidden="true">
       <div className="ev-ticker-track">

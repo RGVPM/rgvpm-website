@@ -34,6 +34,11 @@ nav[data-variant="island"] {
   --ev-hair: rgba(255, 241, 230, 0.10);
   --ev-hair-2: rgba(255, 241, 230, 0.18);
   --ev-sunset: linear-gradient(100deg, #FFB547 0%, #FF7A1A 26%, #FF5A5F 50%, #F0449E 74%, #8B5CFF 100%);
+  /* Daylight panel (plans): ink on warm sand. ink 16.3:1, ink-2 9.1:1 and
+     ember 6.6:1 on #FFF1E6; all >= 5.5:1 on the panel's darkest stop. */
+  --ev-ink: #1A1030;
+  --ev-ink-2: #4A3B5F;
+  --ev-ember: #9A3412;
   --ev-ease: cubic-bezier(0.16, 1, 0.3, 1);
   --ev-spring: cubic-bezier(0.32, 0.72, 0, 1);
 }
@@ -43,7 +48,7 @@ nav[data-variant="island"] {
   --f-body: var(--font-ev-body), ui-sans-serif, system-ui, sans-serif;
   --f-mono: var(--font-ev-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
   --ev-gutter: clamp(16px, 3.2vw, 48px);
-  --ev-pad: clamp(80px, 9vw, 136px);
+  --ev-pad: clamp(72px, 8vw, 120px);
 
   color-scheme: dark;
   position: relative;
@@ -64,6 +69,24 @@ body:has(.rg-home--afterglow) { background: #0B0716; }
    non-positioned shared footer; lift the footer back above it. No visual
    change to the footer itself. */
 body:has(.rg-home--afterglow) > footer { position: relative; z-index: 1; }
+/* Homepage footer variant: night violet instead of the shared navy, so the
+   page doesn't end on a cool-blue band. A sunset hairline sits on top.
+   (The footer sets its navy inline, hence !important.) Inner pages keep
+   the navy footer. */
+body:has(.rg-home--afterglow) > footer {
+  background: linear-gradient(180deg, #0B0716 0%, #140C26 100%) !important;
+  border-top-color: transparent !important;
+}
+body:has(.rg-home--afterglow) > footer::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(100deg, transparent, #FFB547 20%, #FF7A1A 40%, #F0449E 65%, #8B5CFF 85%, transparent);
+  opacity: .7;
+}
 /* CSS smooth scroll fights ScrollTrigger's refresh and pin math. */
 html:has(.rg-home--afterglow) { scroll-behavior: auto; }
 /* The route wrapper's 0.3s transform would make the fixed sky and the pin
@@ -127,6 +150,48 @@ html:has(.rg-home--afterglow) { scroll-behavior: auto; }
     radial-gradient(90% 70% at 85% 105%, rgba(139,92,255,.40), transparent 62%),
     radial-gradient(70% 60% at 0% 100%, rgba(240,68,158,.22), transparent 60%),
     linear-gradient(180deg, rgba(11,7,22,.70) 0%, rgba(11,7,22,.52) 100%);
+}
+.rg-home--afterglow .ev-night,
+.rg-home--afterglow .ev-predawn { position: absolute; inset: 0; opacity: 0; will-change: opacity; }
+.rg-home--afterglow .ev-night { background: linear-gradient(180deg, rgba(5,3,12,.94) 0%, rgba(9,6,20,.9) 60%, rgba(14,8,30,.88) 100%); }
+/* Three star tiles of different sizes, so the repeat never reads as a grid. */
+.rg-home--afterglow .ev-stars,
+.rg-home--afterglow .ev-stars::after { position: absolute; inset: 0; }
+.rg-home--afterglow .ev-stars {
+  background-image:
+    radial-gradient(1.2px 1.2px at 23px 41px, rgba(255,241,230,.9), transparent 70%),
+    radial-gradient(1px 1px at 141px 97px, rgba(255,241,230,.7), transparent 70%),
+    radial-gradient(1.4px 1.4px at 211px 12px, rgba(255,201,168,.85), transparent 70%),
+    radial-gradient(1px 1px at 67px 173px, rgba(255,241,230,.6), transparent 70%),
+    radial-gradient(1.6px 1.6px at 301px 233px, rgba(255,241,230,.85), transparent 70%),
+    radial-gradient(1px 1px at 377px 59px, rgba(169,139,255,.8), transparent 70%),
+    radial-gradient(1.2px 1.2px at 431px 311px, rgba(255,241,230,.7), transparent 70%);
+  background-size: 240px 240px, 240px 240px, 240px 240px, 370px 370px, 370px 370px, 530px 530px, 530px 530px;
+}
+.rg-home--afterglow .ev-stars::after {
+  content: "";
+  background-image:
+    radial-gradient(1.8px 1.8px at 90px 60px, rgba(255,241,230,.95), transparent 70%),
+    radial-gradient(1.5px 1.5px at 250px 190px, rgba(255,201,168,.9), transparent 70%),
+    radial-gradient(1.6px 1.6px at 400px 120px, rgba(255,241,230,.9), transparent 70%);
+  background-size: 470px 470px, 470px 470px, 610px 610px;
+  opacity: .4;
+}
+.rg-home--afterglow .ev-night-orb {
+  position: absolute;
+  right: -12vw;
+  top: 30vh;
+  width: min(80vmax, 1100px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139,92,255,.30), rgba(240,68,158,.10) 40%, transparent 64%);
+  will-change: transform;
+}
+.rg-home--afterglow .ev-predawn {
+  background:
+    radial-gradient(130% 55% at 50% 112%, rgba(240,68,158,.55), rgba(255,90,95,.24) 38%, transparent 66%),
+    radial-gradient(70% 40% at 15% 100%, rgba(255,122,26,.22), transparent 70%),
+    linear-gradient(180deg, rgba(9,6,20,.55) 0%, rgba(30,12,44,.2) 55%, transparent 100%);
 }
 .rg-home--afterglow .ev-grain {
   position: absolute;
@@ -296,7 +361,9 @@ html:has(.rg-home--afterglow) { scroll-behavior: auto; }
   font-family: var(--f-display);
   font-weight: 800;
   font-variation-settings: "wdth" 84;
-  font-size: clamp(56px, 8.4vw, 132px);
+  /* Capped at 116px: .ev-wrap stops growing at 1320px, so a vw-only size
+     ran under the phone rig from ~1500px wide. */
+  font-size: clamp(56px, 8.4vw, 116px);
   line-height: 0.9;
   letter-spacing: -0.02em;
   color: var(--ev-sand);
@@ -473,6 +540,10 @@ html:has(.rg-home--afterglow) { scroll-behavior: auto; }
 .rg-home--afterglow .ev-mark img { height: var(--h, 44px); width: auto; max-width: 220px; object-fit: contain; transition: filter .45s var(--ev-ease), opacity .45s var(--ev-ease), transform .6s var(--ev-spring); }
 .rg-home--afterglow .ev-tape--a .ev-mark img { filter: brightness(0); opacity: .86; }
 .rg-home--afterglow .ev-tape--b .ev-mark img { filter: brightness(0) invert(1); opacity: .82; }
+/* Thin scripts and badges (lib/clients.ts `plate`): true colours on a sand
+   plate, always, because a silhouette of them can't be read. */
+.rg-home--afterglow .ev-tapes .ev-mark--plate::before { opacity: 1; transform: none; box-shadow: 0 10px 30px -14px rgba(11,7,22,.6); }
+.rg-home--afterglow .ev-tapes .ev-mark--plate img { filter: none; opacity: 1; }
 .rg-home--afterglow .ev-wordmark {
   font-family: var(--f-display);
   font-weight: 800;
@@ -722,15 +793,25 @@ html:has(.rg-home--afterglow) { scroll-behavior: auto; }
   .rg-home--afterglow .ev-nd-rail { padding-inline: 8vw; }
 }
 /* Pinned horizontal pan (desktop, fine pointer, motion allowed). */
+/* CSS sticky, not a ScrollTrigger pin: the stage is one screen plus the pan
+   distance tall (--ev-nd-distance, set by motion/nightDrive.ts), and the
+   pin sticks inside it. Its box never changes, so no layout shifts. The top
+   padding keeps the slides (and their outline ghost names) clear of the
+   nav island. */
+.rg-home--afterglow[data-motion="full"] .ev-nd-stage { position: relative; height: calc(max(100vh, 640px) + var(--ev-nd-distance, 0px)); }
 .rg-home--afterglow[data-motion="full"] .ev-nd-pin {
-  height: 100svh;
+  position: sticky;
+  top: 0;
+  height: 100vh;
   min-height: 640px;
-  padding: 0;
+  padding: 80px 0 0;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+.rg-home--afterglow[data-motion="full"] .ev-nd-slide { min-height: min(68vh, 640px); }
+.rg-home--afterglow[data-motion="full"] .ev-ghost { top: -2%; }
 .rg-home--afterglow[data-motion="full"] .ev-nd-track { width: max-content; overflow: visible; scroll-snap-type: none; padding-block: 6vh 2vh; perspective: 1600px; }
 .rg-home--afterglow[data-motion="full"] .ev-nd-rail { position: absolute; left: 0; right: 0; bottom: 4.5vh; }
 .rg-home--afterglow[data-motion="full"] .ev-ghost,
@@ -916,6 +997,31 @@ html:has(.rg-home--afterglow) { scroll-behavior: auto; }
 .rg-home--afterglow .ev-process-cta { margin-top: 36px; }
 
 /* ── Plans staircase ────────────────────────────────────────────────── */
+/* Daylight: the one warm sand surface on the page. Dark plan cards on sand
+   give the bottom half its contrast moment against the night sky. */
+.rg-home--afterglow .ev-plans { background: none; }
+.rg-home--afterglow .ev-plans > .ev-wrap {
+  position: relative;
+  width: calc(100% - 24px);
+  padding: clamp(36px, 5.4vw, 80px) clamp(20px, 4.6vw, 72px);
+  border-radius: clamp(28px, 4vw, 48px);
+  background:
+    radial-gradient(80% 60% at 100% 0%, rgba(255,181,71,.38), transparent 60%),
+    radial-gradient(60% 50% at 0% 100%, rgba(240,68,158,.12), transparent 70%),
+    linear-gradient(160deg, #FFF1E6 0%, #FFE3CC 60%, #FFD9B8 100%);
+  box-shadow: 0 0 0 1px rgba(255,201,168,.5), 0 80px 160px -60px rgba(255,122,26,.35), 0 60px 120px -60px rgba(0,0,0,.8);
+  color: var(--ev-ink);
+  overflow: clip;
+  isolation: isolate;
+}
+.rg-home--afterglow .ev-plans .ev-head .ev-eyebrow { color: var(--ev-ember); }
+.rg-home--afterglow .ev-plans .ev-head .ev-h2 { color: var(--ev-ink); }
+.rg-home--afterglow .ev-plans .ev-head .ev-lede,
+.rg-home--afterglow .ev-plans .ev-footnote { color: var(--ev-ink-2); }
+.rg-home--afterglow .ev-plans .ev-help { background: var(--ev-midnight); color: var(--ev-sand); }
+.rg-home--afterglow .ev-plans .ev-plan-core { color: var(--ev-sand); }
+.rg-home--afterglow .ev-plans .ev-plan-shell { box-shadow: inset 0 0 0 1px rgba(26,16,48,.12), 0 40px 80px -40px rgba(26,16,48,.55); background: rgba(26,16,48,.06); }
+.rg-home--afterglow .ev-plans .ev-plan--featured .ev-plan-shell { background: transparent; box-shadow: 0 50px 100px -40px rgba(240,68,158,.55); }
 .rg-home--afterglow .ev-ladder { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin-top: 56px; align-items: stretch; }
 .rg-home--afterglow .ev-ladder::before {
   content: "";
@@ -1099,7 +1205,7 @@ html:has(.rg-home--afterglow) { scroll-behavior: auto; }
 }
 
 /* ── Final CTA: the sun comes back ──────────────────────────────────── */
-.rg-home--afterglow .ev-final { padding-bottom: calc(var(--ev-pad) + 120px); overflow: clip; }
+.rg-home--afterglow .ev-final { padding-bottom: calc(var(--ev-pad) + 40px); overflow: clip; }
 .rg-home--afterglow .ev-final-grid { position: relative; display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(40px, 6vw, 96px); align-items: center; }
 .rg-home--afterglow .ev-final-portraits { position: relative; }
 .rg-home--afterglow .ev-final-sun {
@@ -1129,10 +1235,9 @@ html:has(.rg-home--afterglow) { scroll-behavior: auto; }
   right: 0;
   bottom: 0;
   height: 160px;
-  background: linear-gradient(180deg, rgba(11,7,22,0), var(--navy, #1A2B4A));
+  background: linear-gradient(180deg, rgba(11,7,22,0), #0B0716);
   pointer-events: none;
 }
-.rg-home--afterglow .ev-final-fade::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--ev-sunset); opacity: .8; }
 
 /* ── Sticky mobile bar ──────────────────────────────────────────────── */
 .rg-home--afterglow .ev-sticky {
@@ -1159,6 +1264,18 @@ html:has(.rg-home--afterglow) { scroll-behavior: auto; }
 .rg-home--afterglow .ev-sticky-note span:first-child { color: var(--ev-sand); font-weight: 600; }
 .rg-home--afterglow .ev-sticky .ev-btn { flex: none; }
 @media (min-width: 768px) { .rg-home--afterglow .ev-sticky { display: none; } }
+/* Phones: while the sticky bar is showing, the nav island's CTA steps
+   aside, so there is one booking button on screen, not two. visibility
+   (not display) keeps the nav's layout still and drops it from tab order. */
+@media (max-width: 767px) {
+  nav[data-variant="island"] .rg-nav-cta { transition: opacity .35s var(--ev-ease), visibility 0s linear 0s; }
+  body:has(.ev-sticky[data-visible="true"]) nav[data-variant="island"] .rg-nav-cta {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .35s var(--ev-ease), visibility 0s linear .35s;
+  }
+}
 
 /* ── Nav island (shared Nav, homepage variant only) ─────────────────── */
 nav[data-variant="island"] {
@@ -1174,7 +1291,9 @@ nav[data-variant="island"] {
   backdrop-filter: blur(14px) saturate(140%) !important;
   box-shadow: inset 0 0 0 1px var(--ev-hair-2), inset 0 1px 0 rgba(255,241,230,.06) !important;
 }
-nav[data-variant="island"][data-scrolled] { box-shadow: inset 0 0 0 1px var(--ev-hair-2), 0 20px 50px -20px rgba(0,0,0,.6) !important; }
+/* Denser glass once scrolled, so the links hold their contrast over the
+   sand plans panel too. */
+nav[data-variant="island"][data-scrolled] { background: rgba(19, 11, 34, 0.86) !important; box-shadow: inset 0 0 0 1px var(--ev-hair-2), 0 20px 50px -20px rgba(0,0,0,.6) !important; }
 nav[data-variant="island"] > span[aria-hidden="true"] { display: none; }
 nav[data-variant="island"] > .rg-container { max-width: none; padding: 8px 8px 8px 22px !important; }
 nav[data-variant="island"] img { height: 34px !important; }
@@ -1221,7 +1340,8 @@ nav[data-variant="island"] #mobile-menu ul { border-left-color: rgba(255,181,71,
 nav[data-variant="island"] #mobile-menu > a[href^="http"] { background: var(--ev-tangerine) !important; color: var(--ev-midnight) !important; box-shadow: none !important; }
 nav[data-variant="island"] :focus-visible { outline: 2px solid var(--ev-gold) !important; outline-offset: 3px; }
 @media (prefers-reduced-transparency: reduce) {
-  nav[data-variant="island"] { background: var(--ev-night) !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
+  nav[data-variant="island"],
+  nav[data-variant="island"][data-scrolled] { background: var(--ev-night) !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
   .rg-home--afterglow .ev-sticky { background: var(--ev-night); -webkit-backdrop-filter: none; backdrop-filter: none; }
 }
 @media (max-width: 1279px) {
@@ -1248,6 +1368,7 @@ nav[data-variant="island"] :focus-visible { outline: 2px solid var(--ev-gold) !i
 @keyframes ev-drift-1 { 0% { transform: translate3d(0,0,0) scale(1); } 50% { transform: translate3d(-6vw,5vh,0) scale(1.12); } 100% { transform: translate3d(4vw,-3vh,0) scale(.94); } }
 @keyframes ev-drift-2 { 0% { transform: translate3d(0,0,0) scale(1); } 50% { transform: translate3d(7vw,-4vh,0) scale(.9); } 100% { transform: translate3d(-3vw,6vh,0) scale(1.1); } }
 @keyframes ev-orb { 0% { transform: translate3d(0,0,0); } 100% { transform: translate3d(-8vw,6vh,0); } }
+@keyframes ev-twinkle { from { opacity: .12; } to { opacity: .75; } }
 
 @media (prefers-reduced-motion: no-preference) {
   .rg-home--afterglow .ev-h1-in { animation: ev-settle 1.3s var(--ev-ease) backwards; }
@@ -1281,11 +1402,39 @@ nav[data-variant="island"] :focus-visible { outline: 2px solid var(--ev-gold) !i
   .rg-home--afterglow .ev-blob--mag { animation: ev-drift-2 34s ease-in-out infinite alternate-reverse; }
   .rg-home--afterglow .ev-blob--vio { animation: ev-drift-1 38s ease-in-out infinite alternate-reverse; }
   .rg-home--afterglow .ev-ai-orb { animation: ev-orb 20s ease-in-out infinite alternate; }
+  .rg-home--afterglow .ev-stars::after { animation: ev-twinkle 4.5s ease-in-out infinite alternate; }
 }
 
 /* ═══ Responsive ═══════════════════════════════════════════════════════ */
-@media (max-width: 1023px) {
+/* Desktop and tablet: the hero grid fills the first screen, so the ticker
+   starts just below the fold instead of poking into its bottom edge. */
+@media (min-width: 768px) {
+  .rg-home--afterglow .ev-hero-grid { min-height: calc(100svh - 132px); }
+}
+/* Tablet: text and rig side by side, so the fold shows the builds, and the
+   sun sits low behind the phones instead of under the eyebrow. */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .rg-home--afterglow .ev-hero-grid { grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); gap: 28px; align-items: start; padding-top: 32px; }
+  .rg-home--afterglow .ev-sun { top: 34vh; right: -18vw; width: 66vw; }
+}
+@media (min-width: 640px) and (max-width: 1023px) {
+  .rg-home--afterglow .ev-tablist {
+    display: flex;
+    flex-wrap: nowrap;
+    max-width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    -webkit-mask: linear-gradient(90deg, #000 calc(100% - 28px), transparent);
+    mask: linear-gradient(90deg, #000 calc(100% - 28px), transparent);
+  }
+  .rg-home--afterglow .ev-tablist::-webkit-scrollbar { display: none; }
+  .rg-home--afterglow .ev-tab { flex: none; white-space: nowrap; scroll-snap-align: start; }
+}
+@media (max-width: 767px) {
   .rg-home--afterglow .ev-hero-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 1023px) {
   .rg-home--afterglow .ev-rig-wrap { width: min(72vw, 330px); margin-top: 36px; }
   .rg-home--afterglow .ev-medspa-top,
   .rg-home--afterglow .ev-medspa-foot,
@@ -1306,6 +1455,10 @@ nav[data-variant="island"] :focus-visible { outline: 2px solid var(--ev-gold) !i
   .rg-home--afterglow .ev-final-portraits { max-width: 520px; }
   .rg-home--afterglow .ev-process-head { grid-template-columns: 1fr; }
   .rg-home--afterglow .ev-numeral { justify-self: start; text-align: left; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .rg-home--afterglow .ev-rig-wrap { width: min(100%, 260px); margin-top: 0; }
+  .rg-home--afterglow .ev-rig-cap { margin-top: 18px; }
 }
 @media (max-width: 767px) {
   .rg-home--afterglow { font-size: 16px; }
@@ -1360,7 +1513,7 @@ nav[data-variant="island"] :focus-visible { outline: 2px solid var(--ev-gold) !i
   .rg-home--afterglow .ev-post-excerpt,
   .rg-home--afterglow .ev-posts li:first-child .ev-post-excerpt { display: none; }
   .rg-home--afterglow .ev-faq-a p { padding-right: 0; }
-  .rg-home--afterglow .ev-final { padding-bottom: calc(var(--ev-pad) + 80px); }
+  .rg-home--afterglow .ev-final { padding-bottom: calc(var(--ev-pad) + 24px); }
   .rg-home--afterglow .ev-portraits li:nth-child(2) { margin-top: 36px; }
   .rg-home--afterglow .ev-ctas .ev-btn--primary { max-width: 100%; }
   .rg-home--afterglow .ev-thread { margin-top: 8px; }
@@ -1382,8 +1535,8 @@ nav[data-variant="island"] :focus-visible { outline: 2px solid var(--ev-gold) !i
   .rg-home--afterglow .ev-logo-grid .ev-mark::before { display: none; }
   .rg-home--afterglow .ev-logo-grid .ev-wordmark { color: var(--ev-midnight); font-size: 20px; }
 
-  .rg-home--afterglow .ev-nd-track { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; overflow: visible; padding-inline: var(--ev-gutter); max-width: 1320px; margin-inline: auto; scroll-snap-type: none; }
-  .rg-home--afterglow .ev-nd-slide { width: auto; max-width: none; min-height: 0; grid-template-columns: 1fr; gap: 18px; }
+  .rg-home--afterglow .ev-nd-track { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; overflow: visible; padding-inline: var(--ev-gutter); max-width: 1320px; margin-inline: auto; scroll-snap-type: none; }
+  .rg-home--afterglow .ev-nd-slide { width: auto; max-width: 100%; min-width: 0; min-height: 0; grid-template-columns: minmax(0, 1fr); gap: 18px; }
   .rg-home--afterglow .ev-laptop { display: block; }
   .rg-home--afterglow .ev-phone--mini,
   .rg-home--afterglow .ev-ghost,
@@ -1407,5 +1560,5 @@ nav[data-variant="island"] :focus-visible { outline: 2px solid var(--ev-gold) !i
 }
 @media (prefers-reduced-motion: reduce) and (max-width: 767px) {
   .rg-home--afterglow .ev-logo-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .rg-home--afterglow .ev-nd-track { grid-template-columns: 1fr; }
+  .rg-home--afterglow .ev-nd-track { grid-template-columns: minmax(0, 1fr); }
 }

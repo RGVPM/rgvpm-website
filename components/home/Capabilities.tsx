@@ -105,9 +105,9 @@ export default function Capabilities() {
                 </div>
                 <div className="ev-card-shot">
                   <BrowserFrame
-                    slug="ccl-contracting"
-                    host="cclcontracting.com"
-                    alt="Full page of the CCL Contracting website we built"
+                    slug="macs-dove-hunts"
+                    host="macsdovehunts.com"
+                    alt="Full page of the Mac’s Dove Hunts website we built"
                     sizes="(max-width: 1023px) 88vw, 400px"
                     className="ev-autoscroll"
                   />

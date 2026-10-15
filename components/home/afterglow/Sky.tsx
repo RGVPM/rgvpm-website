@@ -3,7 +3,8 @@
  * overlay, plus one grain layer. Purely decorative (aria-hidden), rendered
  * on the server so it paints with the first frame. The bloom and blob drift
  * are CSS; the sun sinking and the dusk rolling in are scrubbed by GSAP
- * (components/home/afterglow/motion/hero.ts).
+ * (components/home/afterglow/motion/hero.ts), and night, stars and the
+ * pre-dawn band by motion/sky.ts.
  */
 export default function Sky() {
   return (
@@ -21,6 +22,13 @@ export default function Sky() {
         </div>
       </div>
       <div className="ev-dusk" />
+      {/* Night and pre-dawn carry the colour story through the lower half
+          (scrubbed by motion/sky.ts; hidden with reduced motion). */}
+      <div className="ev-night">
+        <div className="ev-stars" />
+        <div className="ev-night-orb" />
+      </div>
+      <div className="ev-predawn" />
       <div className="ev-grain" />
     </div>
   );

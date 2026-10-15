@@ -40,13 +40,15 @@ export const WORK: WorkSlide[] = [
     industry: "Scalp micropigmentation",
     line: "A dark, editorial studio site with a consultation button in every section.",
   },
+  // NeuroMotion replaced Premium Foam (cclcontracting.com/spray-foam-insulation),
+  // which put CCL on two slides in a row. Our build; the site credits us.
   {
-    slug: "premium-foam",
-    name: "Premium Foam",
-    url: "https://www.cclcontracting.com/spray-foam-insulation/",
-    host: "cclcontracting.com/spray-foam-insulation",
-    industry: "Spray foam insulation",
-    line: "Seven foam systems, each explained plainly, with an estimate request up front.",
+    slug: "neuromotion-rehab",
+    name: "NeuroMotion Rehabilitation",
+    url: "https://neuromotionrehabilitation.com",
+    host: "neuromotionrehabilitation.com",
+    industry: "Occupational therapy",
+    line: "A clinic site that introduces the therapist first, with an evaluation button in the header.",
   },
   // Slide 4 is CCL, not Mac's Dove Hunts: the Mac's mobile capture shows the
   // live site's own clipped "Guaranteed" heading, and a re-capture with

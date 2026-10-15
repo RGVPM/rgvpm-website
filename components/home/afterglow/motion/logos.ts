@@ -34,6 +34,6 @@ export function logoTapes({ gsap, ScrollTrigger, root, desktop }: Env) {
   });
 
   const st = { trigger: section, start: "top 92%", once: true };
-  gsap.from(root.querySelector(".ev-tape--a"), { xPercent: -14, autoAlpha: 0, duration: 1.5, ease: "expo.out", scrollTrigger: st });
-  gsap.from(root.querySelector(".ev-tape--b"), { xPercent: 14, autoAlpha: 0, duration: 1.5, delay: 0.08, ease: "expo.out", scrollTrigger: { ...st } });
+  gsap.from(root.querySelector(".ev-tape--a"), { xPercent: -14, opacity: 0, duration: 1.5, ease: "expo.out", scrollTrigger: st });
+  gsap.from(root.querySelector(".ev-tape--b"), { xPercent: 14, opacity: 0, duration: 1.5, delay: 0.08, ease: "expo.out", scrollTrigger: { ...st } });
 }

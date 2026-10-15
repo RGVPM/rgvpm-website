@@ -10,6 +10,10 @@ export interface Client {
   /** Optional per-logo max height in px (default 84) — for visually balancing
    *  logos that read larger/smaller than the rest. */
   maxHeight?: number;
+  /** Thin scripts, soft-alpha marks and detailed badges turn to mush as a
+   *  one-colour silhouette on the homepage tapes. `plate: true` shows the
+   *  logo in its true colours on a small sand plate there instead. */
+  plate?: boolean;
 }
 
 /**
@@ -50,10 +54,10 @@ export const CLIENTS: Client[] = [
   { name: "V&S Painting & More", url: "https://vspaintingaustin.com", logo: "/clients/vs-painting.png", maxHeight: 60 },
   { name: "STX Swing Doctor", url: "https://www.stxswingdoctor.com", logo: "/clients/stx-swing-doctor.png", maxHeight: 94 },
   // Recolored navy from the champagne original so it reads on the cream strip.
-  { name: "The Spa Business Coach", logo: "/clients/the-spa-business-coach.png", maxHeight: 70 },
+  { name: "The Spa Business Coach", logo: "/clients/the-spa-business-coach.png", maxHeight: 70, plate: true },
   // No website yet (Instagram only), so it renders unlinked.
-  { name: "Tsukie Coffee", logo: "/clients/tsukie-coffee.png", maxHeight: 96 },
-  { name: "Glammed Up Aesthetics", logo: "/clients/glammed-up-aesthetics.png", maxHeight: 76 },
+  { name: "Tsukie Coffee", logo: "/clients/tsukie-coffee.png", maxHeight: 96, plate: true },
+  { name: "Glammed Up Aesthetics", logo: "/clients/glammed-up-aesthetics.png", maxHeight: 76, plate: true },
   { name: "EZ Clean Express", url: "https://www.ezcleanexpress.com", logo: "/clients/ez-clean-express.png", maxHeight: 80 },
   // laferiacoop.com doesn't resolve yet, so the logo renders unlinked.
   { name: "La Feria Co-op Gin & Supply", logo: "/clients/la-feria-coop.png", maxHeight: 84 },

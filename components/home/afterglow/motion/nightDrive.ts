@@ -3,7 +3,7 @@ import { q, type Env } from "./types";
 
 /**
  * Signature moment 6, "Night Drive" (#work).
- * Desktop: pattern F, a pinned horizontal pan. Each site's desktop capture
+ * Desktop: pattern F, a sticky (CSS-pinned) horizontal pan. Each site's desktop capture
  * scrolls its full length inside the laptop while its slide crosses the
  * screen, the phone scrolls to 85%, the devices swing in 3D and the client
  * name passes behind in outline type. Index chips + a progress line follow
@@ -25,8 +25,12 @@ export function nightDrive(env: Env) {
   else strip(env, section, track, slides, chips, setActive);
 }
 
-function eagerImages(section: HTMLElement, sel: string) {
-  q<HTMLImageElement>(section, sel).forEach((img) => {
+/** Promote one slide's captures from lazy to eager (lazy loading can't see
+ *  slides parked off to the right of the panning track). */
+function eagerSlide(slide: HTMLElement | undefined) {
+  if (!slide || slide.dataset.eager) return;
+  slide.dataset.eager = "true";
+  q<HTMLImageElement>(slide, ".ev-laptop img, .ev-phone--mini img").forEach((img) => {
     if (img.loading === "lazy") img.loading = "eager";
   });
 }
@@ -39,18 +43,33 @@ function pinned(
   chips: HTMLAnchorElement[],
   setActive: (i: number) => void,
 ) {
+  const stage = section.querySelector<HTMLElement>(".ev-nd-stage")!;
   const pin = section.querySelector<HTMLElement>(".ev-nd-pin")!;
-  const distance = () => Math.max(0, track.scrollWidth - window.innerWidth);
+  const distance = () => Math.max(0, Math.round(track.scrollWidth - window.innerWidth));
 
-  // Load the captures before the pan reaches them (lazy loading can't see
-  // slides parked off to the right of a pinned track).
+  // No ScrollTrigger pin: .ev-nd-pin is position: sticky inside .ev-nd-stage,
+  // which is one screen plus the pan distance tall (CSS reads --ev-nd-distance).
+  // Sticky never changes the pinned element's box, so the pin can't record
+  // layout shifts on the way in or out. The distance is re-measured before
+  // every ScrollTrigger refresh.
+  const size = () => stage.style.setProperty("--ev-nd-distance", `${distance()}px`);
+  size();
+  ScrollTrigger.addEventListener("refreshInit", size);
+  onCleanup(() => {
+    ScrollTrigger.removeEventListener("refreshInit", size);
+    stage.style.removeProperty("--ev-nd-distance");
+  });
+
+  // Captures load progressively: slides 1 and 2 when the section nears,
+  // then the next slide whenever one becomes active.
   ScrollTrigger.create({
     trigger: section,
     start: "top bottom+=60%",
     once: true,
     onEnter: () => {
-      eagerImages(section, ".ev-laptop img, .ev-phone--mini img");
-      const first = section.querySelector<HTMLImageElement>(".ev-laptop img");
+      eagerSlide(slides[0]);
+      eagerSlide(slides[1]);
+      const first = slides[0]?.querySelector<HTMLImageElement>(".ev-laptop img");
       first?.decode().then(() => ScrollTrigger.refresh()).catch(() => {});
     },
   });
@@ -59,12 +78,10 @@ function pinned(
     x: () => -distance(),
     ease: "none",
     scrollTrigger: {
-      trigger: pin,
+      trigger: stage,
       start: "top top",
       end: () => "+=" + distance(),
-      pin: true,
       scrub: 1,
-      anticipatePin: 1,
       invalidateOnRefresh: true,
     },
   });
@@ -81,7 +98,7 @@ function pinned(
     gsap.fromTo(slide.querySelector(".ev-ghost"), { xPercent: 14 }, { xPercent: -22, ease: "none", scrollTrigger: { ...st, start: "left right", end: "right left" } });
     gsap.from(slide.querySelector(".ev-nd-copy"), {
       x: 120,
-      autoAlpha: 0,
+      opacity: 0,
       ease: "none",
       scrollTrigger: { containerAnimation: pan, trigger: slide, start: "left 95%", end: "left 40%", scrub: true },
     });
@@ -90,7 +107,11 @@ function pinned(
       trigger: slide,
       start: "left center",
       end: "right center",
-      onToggle: (s) => s.isActive && setActive(i),
+      onToggle: (s) => {
+        if (!s.isActive) return;
+        setActive(i);
+        eagerSlide(slides[i + 1]);
+      },
     });
   });
 
@@ -100,7 +121,7 @@ function pinned(
     {
       scaleX: 1,
       ease: "none",
-      scrollTrigger: { trigger: pin, start: "top top", end: () => "+=" + distance(), scrub: true },
+      scrollTrigger: { trigger: stage, start: "top top", end: () => "+=" + distance(), scrub: true },
     },
   );
 

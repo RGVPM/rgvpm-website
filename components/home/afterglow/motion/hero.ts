@@ -24,7 +24,7 @@ export function heroScroll({ gsap, root, desktop }: Env) {
     scrollTrigger: { trigger: "#work", start: "top bottom", end: "top top", scrub: true },
   });
   gsap.to(root.querySelector(".ev-ticker-track"), {
-    xPercent: -28,
+    xPercent: -12,
     ease: "none",
     scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: 0.6 },
   });

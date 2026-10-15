@@ -28,6 +28,7 @@ const SITES = [
   ['macs-dove-hunts', 'https://www.macsdovehunts.com'],
   ['rgv-scalp-ink', 'https://www.rgvscalpinkllc.com'],
   ['us-to-you-mobile-health', 'https://www.ustoyoumobilehealth.com'],
+  ['neuromotion-rehab', 'https://neuromotionrehabilitation.com'],
 ];
 const HIDE = `
 iframe[src*="leadconnector"], iframe[src*="msgsndr"], iframe[src*="chat"], iframe[id*="chat"],

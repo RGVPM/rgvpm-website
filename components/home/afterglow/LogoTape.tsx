@@ -56,6 +56,8 @@ const HEIGHTS: Record<string, number> = {
   "Tsukie Coffee": 70,
   "EZ Clean Express": 56,
   "La Feria Co-op Gin & Supply": 62,
+  // Mac's Dove Hunts has no logo file yet (text wordmark). Add its height
+  // here and its size to DIMS when a logo is added.
 };
 
 /* Intrinsic sizes of the logo files, so every <img> reserves its box. */
@@ -88,25 +90,28 @@ function pick(names: string[]): Client[] {
 function Mark({ client, hidden }: { client: Client; hidden?: boolean }) {
   const h = HEIGHTS[client.name] ?? 44;
   const [w, ht] = DIMS[client.name] ?? [400, 200];
-  // next/image: some source PNGs are large (one is 620 KB); this serves a
-  // resized WebP sized for a ~220px-wide mark.
+  // next/image: some source PNGs are large (one is 620 KB). sizes is the
+  // mark's real rendered width (height x aspect, capped by the 220px CSS
+  // max-width), so each logo is fetched at about 2x its display size.
+  const cssW = Math.min(220, Math.ceil((h * w) / ht));
   const body = client.logo ? (
     <Image
       src={client.logo}
       alt={hidden ? "" : `${client.name} logo`}
       width={w}
       height={ht}
-      sizes="220px"
+      sizes={`${cssW}px`}
       loading="lazy"
       style={{ ["--h" as string]: `${h}px` }}
     />
   ) : (
     <span className="ev-wordmark">{client.name}</span>
   );
+  const markCls = client.plate && client.logo ? "ev-mark ev-mark--plate" : "ev-mark";
   if (client.url) {
     return (
       <a
-        className="ev-mark"
+        className={markCls}
         href={client.url}
         target="_blank"
         rel="noopener"
@@ -117,7 +122,7 @@ function Mark({ client, hidden }: { client: Client; hidden?: boolean }) {
       </a>
     );
   }
-  return <span className="ev-mark">{body}</span>;
+  return <span className={markCls}>{body}</span>;
 }
 
 function Track({ list }: { list: Client[] }) {

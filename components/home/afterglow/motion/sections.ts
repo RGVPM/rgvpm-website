@@ -30,14 +30,14 @@ export function revealHeadings({ gsap, SplitText, root }: Env) {
 export function rises({ gsap, ScrollTrigger, root }: Env) {
   const els = q(root, ".ev-rise");
   if (!els.length) return;
-  gsap.set(els, { y: 28, autoAlpha: 0 });
+  gsap.set(els, { y: 28, opacity: 0 });
   ScrollTrigger.batch(els, {
     start: "top 88%",
     once: true,
     onEnter: (batch) =>
       gsap.to(batch, {
         y: 0,
-        autoAlpha: 1,
+        opacity: 1,
         duration: (batch[0] as HTMLElement)?.classList.contains("ev-rise--slow") ? 1.3 : 1.1,
         ease: "expo.out",
         stagger: 0.07,
@@ -77,7 +77,7 @@ export function medspa({ gsap, ScrollTrigger, root, desktop }: Env) {
     });
     gsap.from(q(menu, ".ev-menu-plan, .ev-menu-body"), {
       y: 14,
-      autoAlpha: 0,
+      opacity: 0,
       duration: 1,
       ease: "power3.out",
       stagger: 0.06,
@@ -111,11 +111,11 @@ export function capabilities({ gsap, ScrollTrigger, root, desktop, onCleanup }: 
   const bento = root.querySelector<HTMLElement>(".ev-bento");
   if (!bento) return;
   const cells = q(bento, ".ev-bento-cell");
-  gsap.set(cells, { y: 48, autoAlpha: 0 });
+  gsap.set(cells, { y: 48, opacity: 0 });
   ScrollTrigger.batch(cells, {
     start: "top 90%",
     once: true,
-    onEnter: (batch) => gsap.to(batch, { y: 0, autoAlpha: 1, duration: 1.2, ease: "expo.out", stagger: 0.06, overwrite: true }),
+    onEnter: (batch) => gsap.to(batch, { y: 0, opacity: 1, duration: 1.2, ease: "expo.out", stagger: 0.06, overwrite: true }),
   });
   if (!desktop) return;
   scrollingScreens({ gsap, ScrollTrigger, scope: bento });
@@ -131,33 +131,40 @@ export function capabilities({ gsap, ScrollTrigger, root, desktop, onCleanup }: 
 }
 
 /** Process: the sunset line draws itself and lights each step on arrival. */
-export function processLine({ gsap, root, desktop }: Env) {
+export function processLine({ gsap, root, desktop, onCleanup }: Env) {
   const wrap = root.querySelector<HTMLElement>(".ev-steps-wrap");
   if (!wrap) return;
   const steps = q(wrap, ".ev-step");
-  const horizontal = window.matchMedia("(min-width: 768px)").matches;
   const lit = (p: number) =>
     steps.forEach((s, i) => s.classList.toggle("is-lit", p >= (steps.length > 1 ? i / (steps.length - 1) : 0) - 0.001));
-  steps.forEach((s) => s.classList.remove("is-lit"));
-  gsap.fromTo(
-    wrap.querySelector(".ev-track-fill"),
-    horizontal ? { scaleX: 0 } : { scaleY: 0 },
-    {
-      ...(horizontal ? { scaleX: 1 } : { scaleY: 1 }),
-      ease: "none",
-      scrollTrigger: {
-        trigger: wrap,
-        start: desktop ? "top 75%" : "top 80%",
-        end: desktop ? "bottom 55%" : "bottom 60%",
-        scrub: true,
-        onUpdate: (s) => lit(s.progress),
-        onLeaveBack: () => steps.forEach((s) => s.classList.remove("is-lit")),
+  // The track runs across at >= 768px and down below it. The orchestrator
+  // only rebuilds at 1024px, so this tween gets its own matchMedia and is
+  // rebuilt on the right axis when a tablet rotates across 768.
+  const axis = gsap.matchMedia();
+  axis.add({ h: "(min-width: 768px)" }, (ctx) => {
+    const horizontal = !!(ctx.conditions as Record<string, boolean>).h;
+    steps.forEach((s) => s.classList.remove("is-lit"));
+    gsap.fromTo(
+      wrap.querySelector(".ev-track-fill"),
+      horizontal ? { scaleX: 0, scaleY: 1 } : { scaleY: 0, scaleX: 1 },
+      {
+        ...(horizontal ? { scaleX: 1 } : { scaleY: 1 }),
+        ease: "none",
+        scrollTrigger: {
+          trigger: wrap,
+          start: desktop ? "top 75%" : "top 80%",
+          end: desktop ? "bottom 55%" : "bottom 60%",
+          scrub: true,
+          onUpdate: (s) => lit(s.progress),
+          onLeaveBack: () => steps.forEach((s) => s.classList.remove("is-lit")),
+        },
       },
-    },
-  );
+    );
+  });
+  onCleanup(() => axis.revert());
   gsap.from(steps, {
     y: 30,
-    autoAlpha: 0,
+    opacity: 0,
     duration: 1.1,
     ease: "expo.out",
     stagger: 0.1,
@@ -171,7 +178,7 @@ export function plans({ gsap, root, desktop }: Env) {
   const ladder = root.querySelector<HTMLElement>(".ev-ladder");
   if (!ladder) return;
   const st = { trigger: ladder, start: "top 82%", once: true };
-  gsap.from(q(ladder, ".ev-plan"), { y: desktop ? 140 : 60, autoAlpha: 0, duration: 1.4, ease: "expo.out", stagger: 0.12, scrollTrigger: st });
+  gsap.from(q(ladder, ".ev-plan"), { y: desktop ? 140 : 60, opacity: 0, duration: 1.4, ease: "expo.out", stagger: 0.12, scrollTrigger: st });
   gsap.from(q(ladder, ".ev-price-num"), { yPercent: 105, duration: 1.2, ease: "expo.out", stagger: 0.12, delay: 0.25, scrollTrigger: { ...st } });
 }
 
@@ -179,10 +186,10 @@ export function plans({ gsap, root, desktop }: Env) {
 export function aiThread({ gsap, root }: Env) {
   const thread = root.querySelector<HTMLElement>(".ev-thread");
   if (!thread) return;
-  gsap.from(thread, { y: 40, autoAlpha: 0, duration: 1.2, ease: "expo.out", scrollTrigger: { trigger: thread, start: "top 85%", once: true } });
+  gsap.from(thread, { y: 40, opacity: 0, duration: 1.2, ease: "expo.out", scrollTrigger: { trigger: thread, start: "top 85%", once: true } });
   gsap.from(q(thread, ".ev-bubble"), {
     y: 12,
-    autoAlpha: 0,
+    opacity: 0,
     duration: 0.7,
     ease: "power3.out",
     stagger: 0.35,
@@ -232,6 +239,33 @@ export function magnetic({ gsap, root, desktop, onCleanup }: Env) {
       btn.removeEventListener("pointerleave", leave);
     });
   });
+}
+
+/** Elements that wait for their entrance at opacity 0 (never visibility:
+ *  hidden, so they stay focusable and in the accessibility tree). */
+const ENTRANCES =
+  ".ev-rise, .ev-bento-cell, .ev-plan, .ev-step, .ev-nd-copy, .ev-thread, .ev-bubble, .ev-menu-plan, .ev-menu-body, .ev-tape--a, .ev-tape--b";
+
+/** Keyboard safety net: when focus lands inside an element that hasn't
+ *  made its entrance yet, finish the entrance at once. The browser already
+ *  scrolls the focused element into view; this makes sure it is visible
+ *  when it gets there. Scrubbed tweens are left alone (the scroll position
+ *  drives them, and the focus scroll puts them at their visible state). */
+export function focusReveal({ gsap, root, onCleanup }: Env) {
+  const onFocusIn = (e: FocusEvent) => {
+    let el = (e.target as Element | null)?.closest?.(ENTRANCES) ?? null;
+    while (el && root.contains(el)) {
+      gsap.getTweensOf(el).forEach((t) => {
+        if (!t.scrollTrigger || !t.scrollTrigger.vars.scrub) t.progress(1);
+      });
+      if (el.matches(".ev-rise, .ev-bento-cell") && Number(getComputedStyle(el).opacity) < 1) {
+        gsap.set(el, { opacity: 1, y: 0 });
+      }
+      el = el.parentElement?.closest(ENTRANCES) ?? null;
+    }
+  };
+  root.addEventListener("focusin", onFocusIn);
+  onCleanup(() => root.removeEventListener("focusin", onFocusIn));
 }
 
 /** CSS loops (halo, tape sheen, plan ring, orb) pause while off screen. */
