@@ -67,7 +67,7 @@
      shades of the same hue clear it, and are used for labels, links and
      other small type. Large display type and buttons keep the brand
      orange, where the 3:1 large-text threshold applies. */
-  --orange-ink: #B54B0C;      /* on white 5.3:1, on cream 4.8:1 */
+  --orange-ink: #A8450B;      /* on cream 5.44:1, on bone 4.98:1 (was #B54B0C) */
   --orange-on-dark: #F5833D;  /* on navy — 5.5:1 */
 
   /* Display type */
@@ -84,6 +84,79 @@
   --fs-body: 16.5px;
   --fs-small: 13.5px;
   --fs-label: 11px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Font aliases. next/font (app/layout.tsx) self-hosts the three
+   families under hashed names and exposes them as --font-bebas,
+   --font-dm-sans and --font-dm-mono on <html>. Everything on the
+   site reads these aliases, never a literal family name, so the
+   hashed names always match. The literal names stay as a last
+   fallback only.
+   ───────────────────────────────────────────────────────────── */
+:root {
+  --font-display: var(--font-bebas), 'Bebas Neue', sans-serif;
+  --font-body: var(--font-dm-sans), 'DM Sans', system-ui, sans-serif;
+  --font-mono: var(--font-dm-mono), 'DM Mono', ui-monospace, monospace;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   "Quiet Confidence" tokens (homepage redesign, 2026-10).
+   Additive: nothing above is redefined except --orange-ink, so
+   inner pages keep their look. Used by components/home/home.css.
+   ───────────────────────────────────────────────────────────── */
+:root {
+  /* Surfaces */
+  --night: #0E1A2E;          /* hero + final CTA band. white 17.4:1 */
+  --navy-deep: #15233D;      /* gradient stop under --night */
+  --bone: #EFEAE2;           /* alternate light band. navy 11.8:1 */
+  --porcelain: #FCFBF9;      /* card fill on cream */
+  --blush: #F3E6DF;          /* medspa band only. navy ~11.5:1 */
+
+  /* Text */
+  --ink-soft: #4E5D78;       /* secondary text on light. cream 6.06, bone 5.55 */
+  --on-dark: #F7F4EF;        /* text on night/navy. 15.9:1 */
+  --on-dark-soft: #B9C2D3;   /* secondary text on night. 9.7:1 */
+
+  /* Accent: --orange stays the large-CTA fill. Smaller buttons and every
+     hover state use --orange-deep (white label 4.94:1). Hover goes darker,
+     never lighter. */
+  --orange-deep: #C2490C;
+  --success: #1F7A6F;        /* ticks / included. cream 4.70:1 */
+
+  /* Lines */
+  --hairline: rgba(26, 43, 74, 0.10);
+  --hairline-dark: rgba(247, 244, 239, 0.10);
+
+  /* Type scale */
+  --fs-hero-2: clamp(40px, 5.6vw, 76px);
+  --fs-h2-2: clamp(32px, 3.8vw, 54px);
+  --fs-h3-2: clamp(20px, 1.8vw, 24px);
+  --fs-lede: clamp(18px, 1.4vw, 20px);
+  --fs-body-2: 17px;
+  --fs-small-2: 14px;
+  --fs-label-2: 11.5px;
+  --fs-numeral: clamp(56px, 7vw, 112px);
+
+  /* Layout + rhythm */
+  --container-wide: 1240px;
+  --section-y-lux: clamp(88px, 10vw, 152px);
+  --section-y-tight-lux: clamp(48px, 5vw, 72px);
+  --s11: 168px;
+
+  /* Shape */
+  --r-card: 20px;
+  --r-media: 14px;
+  --r-input: 12px;
+
+  /* Elevation */
+  --shadow-lux-1: 0 1px 1px rgba(14, 26, 46, 0.04), 0 8px 24px -12px rgba(14, 26, 46, 0.10);
+  --shadow-lux-2: 0 2px 4px rgba(14, 26, 46, 0.04), 0 24px 60px -24px rgba(14, 26, 46, 0.22);
+  --shadow-lux-3: 0 40px 100px -40px rgba(14, 26, 46, 0.45);
+  --shadow-cta: 0 10px 30px -10px rgba(232, 98, 26, 0.50), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+
+  /* Motion */
+  --ease-lux: cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 html { scroll-behavior: smooth; }
@@ -112,7 +185,7 @@ html { scroll-behavior: smooth; }
   opacity: 0.55;
 }
 .rg-display {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: var(--font-display);
   letter-spacing: 0.02em;
   line-height: 0.92;
   text-wrap: balance;
@@ -149,6 +222,9 @@ html { scroll-behavior: smooth; }
   transition: transform var(--t-med) var(--ease);
 }
 .rg-navlink:hover { color: var(--orange-ink) !important; }
+/* Nav booking pill: hover goes darker, never lighter. */
+.rg-nav-cta:hover { background: #A63E0A !important; }
+.rg-nav-cta:focus-visible { border-radius: var(--r-pill); }
 .rg-navlink:hover .rg-navlink-rule { transform: scaleX(1); }
 
 /* Solutions dropdown rows */
@@ -519,7 +595,7 @@ summary:focus-visible {
 }
 
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-body);
   background: var(--cream);
   color: var(--navy);
   overflow-x: hidden;
@@ -721,6 +797,30 @@ body {
   .footer-grid-responsive { grid-template-columns: 1fr !important; }
 }
 
+/* Footer "Areas we serve": collapsible on phones, always open from 768px.
+   City links get a 24px+ tap target (padding, not visual spacing change). */
+.rg-footer-city-links a { display: block; padding-block: 4px; min-height: 24px; }
+.rg-footer-areas > summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 44px;
+  margin-bottom: 0 !important;
+}
+.rg-footer-areas > summary::-webkit-details-marker { display: none; }
+.rg-footer-areas > summary::after { content: "+"; font-size: 18px; font-weight: 400; letter-spacing: 0; }
+.rg-footer-areas[open] > summary::after { content: "\2212"; }
+.rg-footer-areas[open] > summary { margin-bottom: 14px !important; }
+@supports selector(::details-content) {
+  @media (min-width: 768px) {
+    .rg-footer-areas::details-content { content-visibility: visible; display: block; }
+    .rg-footer-areas > summary { pointer-events: none; min-height: 0; margin-bottom: 14px !important; }
+    .rg-footer-areas > summary::after { content: none; }
+  }
+}
+
 /* Hero entrance animations */
 @keyframes heroFadeUp {
   from { opacity: 0; transform: translateY(24px); }
@@ -739,12 +839,17 @@ body {
   animation: heroSlideRight 0.85s cubic-bezier(0.2, 0.7, 0.2, 1) 0.2s both;
 }
 /* Page transition (route change) */
-@keyframes pageFadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Transform only: the route wrapper used to start at opacity 0, which
+   held back the first paint of every page's LCP text. Fill mode is
+   `backwards`, not `both`, so no transform is left on the wrapper once
+   the entrance ends (a lingering transform would trap position:fixed
+   children such as the homepage's sticky CTA bar). */
+@keyframes pageRise {
+  from { transform: translateY(8px); }
+  to { transform: translateY(0); }
 }
 .page-transition {
-  animation: pageFadeIn 0.3s ease-out both;
+  animation: pageRise 0.3s var(--ease-out) backwards;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -810,7 +915,7 @@ body {
   object-fit: contain;
 }
 .rg-logo-word {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: var(--font-display);
   font-size: 26px;
   letter-spacing: 0.05em;
   color: var(--navy);
@@ -1303,7 +1408,7 @@ body:has(.lp-root) > footer {
 .lp-flow-node--end { background: var(--navy); color: #fff; border-color: var(--navy); }
 .lp-flow-body { padding-top: 11px; }
 .lp-flow-title {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: var(--font-display);
   letter-spacing: 0.02em;
   font-size: clamp(22px, 2.4vw, 30px);
   color: var(--navy);
@@ -1402,7 +1507,7 @@ body:has(.lp-root) > footer {
   color: var(--orange-on-dark);
 }
 .lp-plan-badge-zero {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: var(--font-display);
   font-size: 26px;
   letter-spacing: 0.02em;
   line-height: 1;
@@ -1523,7 +1628,7 @@ body:has(.lp-root) > footer {
   border-radius: var(--r-sm);
 }
 .lp-compare-price {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: var(--font-display);
   font-size: 30px;
   letter-spacing: 0.02em;
   color: var(--navy);
@@ -1686,7 +1791,7 @@ body:has(.lp-root) > footer {
   margin-bottom: var(--s5);
 }
 .lp-pillar-title {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: var(--font-display);
   letter-spacing: 0.02em;
   font-size: 26px;
   color: var(--navy);
@@ -1716,7 +1821,7 @@ body:has(.lp-root) > footer {
   margin-bottom: var(--s4);
 }
 .lp-step-title {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: var(--font-display);
   letter-spacing: 0.02em;
   font-size: 28px;
   color: var(--navy);
@@ -1873,7 +1978,7 @@ body:has(.lp-root) > footer {
 }
 .lp-ty-num { display: block; font-size: 28px; line-height: 1; color: var(--orange); margin-bottom: 12px; }
 .lp-ty-steps h2 {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: var(--font-display);
   letter-spacing: 0.02em;
   font-size: 23px;
   color: #fff;

@@ -26,7 +26,7 @@ export default function NotFound() {
         <p style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: 12, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange-ink)", margin: "0 0 12px" }}>
           404
         </p>
-        <h1 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(40px,6vw,72px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1, margin: "0 0 16px" }}>
+        <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(40px,6vw,72px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1, margin: "0 0 16px" }}>
           Page Not Found
         </h1>
         <p style={{ fontSize: 17, color: "var(--muted)", lineHeight: 1.7, margin: "0 0 32px" }}>

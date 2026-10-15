@@ -12,7 +12,7 @@ export default function InnerCTA({
       <div style={{ position: "absolute", inset: 0, opacity: 0.06, backgroundImage: "repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)", backgroundSize: "20px 20px" }} />
       <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px", position: "relative", zIndex: 2 }}>
         <div style={{ textAlign: "center", maxWidth: 680, margin: "0 auto" }}>
-          <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(36px,5vw,60px)", color: "#fff", letterSpacing: "0.03em", lineHeight: 1.0, marginBottom: 18 }}>
+          <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(36px,5vw,60px)", color: "#fff", letterSpacing: "0.03em", lineHeight: 1.0, marginBottom: 18 }}>
             {heading}
           </h2>
           <p style={{ fontSize: 17, color: "rgba(255,255,255,0.85)", lineHeight: 1.65, marginBottom: 36 }}>

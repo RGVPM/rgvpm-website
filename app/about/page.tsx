@@ -121,7 +121,7 @@ function Portrait({ f }: { f: Founder }) {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            fontFamily: "'Bebas Neue', sans-serif",
+            fontFamily: "var(--font-display)",
             fontSize: "clamp(96px, 14vw, 170px)",
             letterSpacing: "0.04em",
             color: "rgba(247,244,239,0.14)",
@@ -140,7 +140,7 @@ function Portrait({ f }: { f: Founder }) {
           background: "linear-gradient(to top, rgba(8,14,26,0.92), transparent)",
         }}
       >
-        <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 28, letterSpacing: "0.04em", color: "#fff", lineHeight: 1 }}>
+        <div style={{ fontFamily: "var(--font-display)", fontSize: 28, letterSpacing: "0.04em", color: "#fff", lineHeight: 1 }}>
           {f.name}
         </div>
         <div style={{ fontFamily: mono, fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange-on-dark)", marginTop: 8 }}>
@@ -372,7 +372,7 @@ export default function AboutPage() {
         {/* ── What we do ───────────────────────────────────────── */}
         <section style={{ padding: "88px 0", background: "#fff" }}>
           <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 24px" }}>
-            <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "0 0 24px" }}>
+            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "0 0 24px" }}>
               What We Do
             </h2>
             <p style={{ fontSize: 16.5, color: "var(--muted)", lineHeight: 1.75, marginBottom: 18 }}>
@@ -391,7 +391,7 @@ export default function AboutPage() {
         <section style={{ padding: "88px 0", background: "var(--cream)" }}>
           <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
             <div style={{ textAlign: "center", maxWidth: 640, margin: "0 auto 56px" }}>
-              <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: 0 }}>
+              <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: 0 }}>
                 How We Work
               </h2>
             </div>
@@ -425,7 +425,7 @@ export default function AboutPage() {
                 { num: "956", label: "Locally rooted, broadly serving" },
               ].map((m) => (
                 <div key={m.label} style={{ textAlign: "center" }}>
-                  <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 44, color: "var(--orange)", letterSpacing: "0.04em" }}>{m.num}</div>
+                  <div style={{ fontFamily: "var(--font-display)", fontSize: 44, color: "var(--orange)", letterSpacing: "0.04em" }}>{m.num}</div>
                   <div style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", marginTop: 4 }}>{m.label}</div>
                 </div>
               ))}
@@ -436,7 +436,7 @@ export default function AboutPage() {
         {/* ── Explore services ─────────────────────────────────── */}
         <section style={{ padding: "72px 0", background: "#fff", textAlign: "center" }}>
           <div style={{ maxWidth: 700, margin: "0 auto", padding: "0 24px" }}>
-            <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(28px,3vw,40px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.05, marginBottom: 16 }}>
+            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px,3vw,40px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.05, marginBottom: 16 }}>
               See How We Can Help
             </h2>
             <p style={{ fontSize: 16, color: "var(--muted)", lineHeight: 1.65, marginBottom: 28 }}>

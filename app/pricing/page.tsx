@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 const pricingFaqs = [
   {
     q: "Do I have to sign a long-term contract?",
-    a: "No. All plans are month-to-month. We believe in earning your business every month, not locking you in. The only upfront cost anywhere is the one-time activation fee on Build the Machine, which covers onboarding, setup, and getting everything configured.",
+    a: "No. All plans are month-to-month. We believe in earning your business every month, not locking you in. The only setup fee is the one-time activation fee on Build the Machine, which covers onboarding, setup, and getting everything configured. If you need a new website on Build the Machine or Own the Market, we quote it up front, before you sign.",
   },
   {
     q: "Is website design included in the price?",
@@ -73,11 +73,12 @@ export default function PricingPage() {
         <section style={{ padding: "88px 0", background: "var(--cream)" }}>
           <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
             <div style={{ textAlign: "center", maxWidth: 640, margin: "0 auto 48px" }}>
-              <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange)", background: "var(--orange-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--orange)" }}>
+              <span style={{ display: "inline-block", fontFamily: "var(--font-mono)", fontSize: 11.5, fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--ink-soft)" }}>
                 Pricing FAQ
               </span>
-              <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 0" }}>
-                Questions About Pricing
+              {/* Same heading style as the homepage: DM Sans 600, mixed case. */}
+              <h2 style={{ fontFamily: "var(--font-body)", fontWeight: 600, fontSize: "clamp(32px,3.8vw,48px)", letterSpacing: "-0.035em", color: "var(--navy)", lineHeight: 1.06, margin: "16px 0 0" }}>
+                Questions about pricing
               </h2>
             </div>
             <FaqAccordion items={pricingFaqs} />

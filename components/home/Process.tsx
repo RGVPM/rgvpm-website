@@ -1,73 +1,85 @@
-import { Section } from "@/components/home/Primitives";
+import { HButton, HSection, bookingHref } from "@/components/home/HomePrimitives";
 
 /**
- * "New website in 8 to 10 days" as a horizontal three-step rail.
- *
- * The rail is a plain rule with three markers, no scroll listener, no JS.
- * Under 900px the steps stack and the rail turns vertical (globals.css,
- * `.rg-steps`).
+ * Section 7, `#how-it-works`. Makes starting feel close and easy. A sunset
+ * line draws itself under the three steps as you scroll, and each step
+ * lights up when the line reaches it (motion/sections.ts); with reduced
+ * motion the line is drawn and every step is lit.
+ * TODO(owner): confirm "as little as 8 to 10 days" and "You review it
+ * before launch" are still current (spec decision #4). The marketing-plan
+ * setup note deliberately gives no day count until the owner confirms one.
  */
 const STEPS = [
   {
-    num: "01",
-    days: "Days 1 to 2",
+    when: "Days 1 to 2",
     title: "Kickoff",
-    text: "A short call to learn your business. Then we gather your photos, services, and anything else the site needs.",
+    body: "We learn your services, your area and the customers you want more of. You send your logo and photos.",
   },
   {
-    num: "02",
-    days: "Days 3 to 7",
-    title: "Design & Build",
-    text: "We design the pages, write the copy, and build the whole site mobile-first. You see it before it goes anywhere.",
+    when: "Days 3 to 7",
+    title: "Design and build",
+    body: "We write, design and build the site, then connect your forms and inbox. You review it before launch.",
   },
   {
-    num: "03",
-    days: "Days 8 to 10",
+    when: "Days 8 to 10",
     title: "Launch",
-    text: "One round of revisions, final polish, and your site goes live. After that we keep it updated and growing.",
+    body: "We connect your domain and Google profile, go live, and start the monthly work your plan covers.",
   },
 ];
 
-const mono = "var(--font-dm-mono), ui-monospace, monospace";
-
 export default function Process() {
   return (
-    <Section id="how-it-works" background="var(--cream)" labelledBy="process-heading">
-      <div className="rg-container">
-        <div className="rg-process-head">
-          <h2
-            id="process-heading"
-            className="rg-display"
-            style={{ fontSize: "var(--fs-h2)", color: "var(--navy)", margin: 0 }}
-          >
-            A New Website In As Little As
-            <span style={{ color: "var(--orange)" }}> 8 to 10 Days.</span>
+    <HSection id="how-it-works" labelledBy="process-heading" className="ev-process">
+      <div className="ev-wrap">
+        <div className="ev-process-head">
+          <h2 id="process-heading" className="ev-h2" data-ev-reveal="">
+            Your new site, live in as little as 8 to 10 <strong>days</strong>.
           </h2>
-          <p style={{ fontSize: 17, lineHeight: 1.7, color: "var(--muted)", margin: 0, maxWidth: "40ch" }}>
-            No six-month onboarding. We design it, build it, and launch it fast, then keep it working
-            for you.
+          <p className="ev-numeral ev-rise" aria-hidden="true">
+            <span className="ev-numeral-num">8-10</span>
+            <small>Days to launch</small>
           </p>
         </div>
 
-        <ol className="rg-steps">
-          {STEPS.map((s) => (
-            <li key={s.num} className="rg-step rg-reveal">
-              <span className="rg-step-marker rg-display" aria-hidden="true">
-                {s.num}
-              </span>
-              <p style={{ fontFamily: mono, fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange-ink)", margin: 0 }}>
-                {s.days}
-              </p>
-              <h3 className="rg-display" style={{ fontSize: "clamp(28px, 2.6vw, 36px)", color: "var(--navy)", margin: "var(--s2) 0 var(--s3)" }}>
-                {s.title}
-              </h3>
-              <p style={{ fontSize: 15.5, lineHeight: 1.7, color: "var(--muted)", margin: 0, maxWidth: "36ch" }}>
-                {s.text}
-              </p>
-            </li>
-          ))}
-        </ol>
+        <div className="ev-steps-wrap">
+          <span className="ev-track" aria-hidden="true">
+            <span className="ev-track-fill" />
+          </span>
+          <ol className="ev-steps">
+            {STEPS.map((s) => (
+              <li key={s.title} className="ev-step">
+                <span className="ev-step-dot" aria-hidden="true" />
+                <span className="ev-step-when">{s.when}</span>
+                <h3 className="ev-h3">{s.title}</h3>
+                <p className="ev-body">{s.body}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+
+        <div className="ev-effort ev-rise">
+          <div>
+            <span className="ev-effort-k">Your part</span>
+            <p>One call, your logo and photos. On ad plans, access to your Google and ad accounts.</p>
+          </div>
+          <div>
+            <span className="ev-effort-k">Our part</span>
+            <p>Design, copy, build, hosting and launch.</p>
+          </div>
+        </div>
+
+        <p className="ev-process-note ev-rise">
+          On Build the Machine and Own the Market, the first stretch is setup: we connect your
+          Google profile, inbox and ad accounts, then launch your first campaign once the platform
+          approves it.
+        </p>
+
+        <div className="ev-process-cta">
+          <HButton href={bookingHref("process")} event="process_cta_click">
+            Book a free strategy call
+          </HButton>
+        </div>
       </div>
-    </Section>
+    </HSection>
   );
 }

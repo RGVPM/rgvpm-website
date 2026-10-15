@@ -1,173 +1,91 @@
-import WorkStack from "@/components/home/WorkStack";
-import { SITE } from "@/lib/site";
+import Image from "next/image";
+import HeroRig from "@/components/home/afterglow/HeroRig";
+import Ticker from "@/components/home/afterglow/Ticker";
+import { HButton, HLink, bookingHref } from "@/components/home/HomePrimitives";
+import { PLANS, PLANS_FROM } from "@/lib/site";
+
+/** Entry price of the first plan with ads and automated follow-up. */
+const MARKETING_FROM = PLANS.find((p) => p.name === "Build the Machine")?.price ?? 899;
 
 /**
- * Homepage hero.
+ * Section 1, golden hour. Answers "what is this, is it for me, what does it
+ * cost" in one screen, with two live client sites on the right.
  *
- * Server component by design: nothing here needs state, so no client JS
- * ships for the hero and the headline is the LCP text in the initial HTML.
- * Every animation is CSS (`hero-animate`, `rg-stack-*` in globals.css) and
- * touches only transform / opacity, so none of it can shift layout.
- *
- * Two columns: message left, real client sites right, collapsing to a
- * single stack at 1024px. The background is deliberately plain navy. No
- * grid texture, no glow blooms: the work on the right is the visual.
+ * Server component. The single H1 carries the positioning line (keyword,
+ * place, nationwide) as a mono label plus the display line. The display
+ * lines are painted at full opacity on the first frame (LCP text); their
+ * settle-in is a CSS transform only, and the scroll drift is GSAP.
  */
+export const HERO_CTA_ID = "hero-cta";
 
 export default function HomeHero() {
-  const proof = [
-    "Local team in Harlingen",
-    "50+ live client sites",
-    "AI consulting & builds",
-  ];
-
   return (
-    <section
-      aria-labelledby="hero-heading"
-      style={{
-        background: "linear-gradient(180deg, var(--navy) 0%, #15233D 100%)",
-        position: "relative",
-        overflow: "hidden",
-        // The sticky nav is ~80px and overlays the hero, so the top padding
-        // has to clear it plus breathing room; the bottom needs less.
-        paddingTop: "clamp(120px, 14vh, 152px)",
-        paddingBottom: "clamp(64px, 8vh, 96px)",
-      }}
-    >
-      <div className="rg-container" style={{ position: "relative" }}>
-        <div className="rg-hero-grid">
-          {/* ── Message ─────────────────────────────────────────── */}
-          <div className="rg-hero-msg">
-            <p
-              className="hero-animate rg-label"
-              style={{ color: "var(--orange-on-dark)", margin: "0 0 var(--s5)", animationDelay: "0s" }}
-            >
-              Harlingen, TX &middot; AI &amp; Marketing Agency
-            </p>
-            <h1
-              id="hero-heading"
-              className="rg-display"
-              style={{
-                fontSize: "var(--fs-hero)",
-                color: "#fff",
-                margin: "0 0 var(--s5)",
-                letterSpacing: "0.012em",
-                lineHeight: 0.94,
-              }}
-            >
-              <span className="hero-animate" style={{ display: "block", animationDelay: "0.05s" }}>
-                Your Competitor
-              </span>
-              <span className="hero-animate" style={{ display: "block", animationDelay: "0.12s" }}>
-                Isn&rsquo;t Better.
-              </span>
-              <span
-                className="hero-animate"
-                style={{ display: "block", color: "var(--orange)", animationDelay: "0.19s" }}
-              >
-                They Just Show Up First.
-              </span>
-            </h1>
-
-            <p
-              className="hero-animate rg-hero-lede"
-              style={{
-                fontSize: 18,
-                fontWeight: 400,
-                color: "rgba(255,255,255,0.78)",
-                lineHeight: 1.6,
-                maxWidth: "44ch",
-                margin: "0 0 var(--s6)",
-                animationDelay: "0.27s",
-              }}
-            >
-              We&rsquo;re an AI and marketing agency. We get you found on Google, then build the
-              AI that answers your calls, follows up with every lead, and takes the busywork off
-              your plate.
-            </p>
-
-            <div
-              className="hero-animate rg-hero-actions"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "var(--s5)",
-                flexWrap: "wrap",
-                marginBottom: "var(--s7)",
-                animationDelay: "0.36s",
-              }}
-            >
-              {/*
-                Primary CTA goes to the discovery-call booking flow, the
-                strongest conversion destination currently live.
-              */}
-              <a
-                href={SITE.bookingUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rg-btn rg-hero-cta"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 10,
-                  background: "var(--orange)",
-                  color: "#fff",
-                  fontWeight: 700,
-                  // 19px clears WCAG's large-text threshold, so white on the
-                  // brand orange passes at 3:1 without altering it.
-                  fontSize: 19,
-                  lineHeight: 1,
-                  padding: "19px 26px",
-                  borderRadius: "var(--r-hero-sm)",
-                  textDecoration: "none",
-                  boxShadow: "var(--shadow-orange)",
-                  transition:
-                    "transform var(--t-fast) var(--ease), box-shadow var(--t-med) var(--ease)",
-                }}
-              >
-                Book with us!{" "}
-                <span aria-hidden="true" className="rg-hero-cta-arrow">
-                  →
+    <section aria-labelledby="hero-heading" className="ev-hero">
+      <div className="ev-wrap ev-hero-grid">
+        <div className="ev-hero-copy">
+          <h1 id="hero-heading" className="ev-h1">
+            <span className="ev-hero-eyebrow">
+              <span>AI &amp; marketing agency</span>
+              <span className="sr-only">, </span>
+              <span className="ev-sep" aria-hidden="true" />{" "}
+              <span>Harlingen, TX</span>
+              <span className="sr-only">, </span>
+              <span className="ev-sep ev-sep-2" aria-hidden="true" />{" "}
+              <span className="ev-eb-last">Serving businesses nationwide</span>
+              <span className="sr-only">. </span>
+            </span>{" "}
+            <span className="ev-h1-display">
+              {/* Outer span: GSAP scroll drift. Inner span: the CSS settle-in.
+                  Kept apart so GSAP never reads a mid-intro transform. */}
+              <span className="ev-h1-line">
+                <span className="ev-h1-in">Get found first.</span>
+              </span>{" "}
+              <span className="ev-h1-line">
+                <span className="ev-h1-in">
+                  Get <span className="ev-glow">booked</span>.
                 </span>
-              </a>
+              </span>
+            </span>
+          </h1>
 
-              <a href="/pricing" className="rg-hero-secondary">
-                See plans and pricing
-              </a>
-            </div>
+          <p className="ev-hero-lede ev-hero-after">
+            We build your website, get you found on Google, run your ads, and set up AI that
+            follows up with new inquiries. One team, month-to-month, with a specialty in medspas.
+          </p>
 
-            <ul
-              className="hero-animate rg-hero-proof"
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                alignItems: "center",
-                gap: "8px 0",
-                listStyle: "none",
-                margin: 0,
-                padding: 0,
-                fontFamily: "var(--font-dm-mono), ui-monospace, monospace",
-                fontSize: 11.5,
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                color: "rgba(255,255,255,0.56)",
-                animationDelay: "0.44s",
-              }}
+          <div className="ev-ctas ev-hero-ctas ev-hero-after">
+            <HButton id={HERO_CTA_ID} href={bookingHref("hero")} event="hero_cta_click">
+              Book a free strategy call
+            </HButton>
+            <HButton
+              href="#plans"
+              variant="ghostDark"
+              className="ev-only-desktop"
+              event="pricing_link_click"
+              eventLabel="hero"
             >
-              {proof.map((item) => (
-                <li key={item} className="rg-hero-proof-item">
-                  {item}
-                </li>
-              ))}
-            </ul>
+              See plans and pricing
+            </HButton>
           </div>
 
-          {/* ── Real work ───────────────────────────────────────── */}
-          <div className="rg-hero-visual">
-            <WorkStack />
-          </div>
+          <p className="ev-hero-micro ev-hero-after">
+            <span className="ev-faces" aria-hidden="true">
+              <Image src="/founders/derrick.jpg" alt="" width={76} height={76} sizes="38px" />
+              <Image src="/founders/kelsey.jpg" alt="" width={76} height={76} sizes="38px" />
+            </span>
+            <span>
+              You&rsquo;ll talk to Derrick or Kelsey. Websites from ${PLANS_FROM}/mo, full
+              marketing from ${MARKETING_FROM}/mo, all month-to-month.{" "}
+              <HLink href="#plans" className="ev-only-mobile" event="pricing_link_click" eventLabel="hero">
+                See plans and pricing
+              </HLink>
+            </span>
+          </p>
         </div>
+
+        <HeroRig />
       </div>
+      <Ticker />
     </section>
   );
 }

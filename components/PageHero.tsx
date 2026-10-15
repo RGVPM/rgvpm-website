@@ -33,7 +33,7 @@ export default function PageHero({
         <span style={{ display: "inline-flex", alignItems: "center", gap: 8, fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: accent, background: accent === "var(--teal)" ? "var(--teal-dim)" : "rgba(232,98,26,0.15)", padding: "6px 14px", borderRadius: 2, borderLeft: `2px solid ${accent}` }}>
           {eyebrow}
         </span>
-        <h1 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(40px,5vw,68px)", lineHeight: 0.98, color: "#fff", letterSpacing: "0.02em", margin: "18px 0 18px", maxWidth: 820 }}>
+        <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(40px,5vw,68px)", lineHeight: 0.98, color: "#fff", letterSpacing: "0.02em", margin: "18px 0 18px", maxWidth: 820 }}>
           {title}
         </h1>
         {subtitle && (

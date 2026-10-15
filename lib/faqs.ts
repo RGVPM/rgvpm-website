@@ -1,36 +1,42 @@
 // Homepage FAQ content. Kept in a plain module (not the "use client" FAQ
 // component) so server components can import it for FAQPage JSON-LD.
+// Also feeds /llms.txt and /llms-full.txt. Ordered the way buyers raise
+// objections. Every fact matches components/PricingTabs.tsx and /terms#baa.
 export const homeFaqs = [
   {
     q: "Do I have to sign a long-term contract?",
-    a: "No. All plans are month-to-month. We believe in earning your business every month — not locking you in. The only upfront cost is the one-time activation fee on the Build the Machine plan, which covers onboarding, setup, and getting everything configured.",
+    a: "No. Every plan is month-to-month. You can cancel any month with 5 business days' notice before your next billing date. The only setup fee is the one-time $399 activation on Build the Machine, which covers onboarding and setup.",
   },
   {
-    q: "Is website design included in the plans?",
-    a: "Yes, on Plant the Flag and the SEO Package. Both include a custom website we build, host, and keep updated, with no separate build fee. Build the Machine and Own the Market are marketing plans; if you need a new site on one of those, we quote it separately based on what you need.",
+    q: "Is a website included?",
+    a: "Yes, on Plant the Flag ($397/mo) and the SEO Package ($597/mo). Both include a custom website we build, host and keep updated, with no separate build fee. Build the Machine and Own the Market are marketing plans. If you need a new site on one of those, we quote it separately.",
   },
   {
-    q: "How does the newsletter work?",
-    a: "Every month, you tell us the topic — a promotion, a seasonal update, a service spotlight, whatever makes sense for your business. We write it, design it, and send it to your customer list. You stay top of mind without lifting a finger.",
-  },
-  {
-    q: "What's the social media planner tool?",
-    a: "It's a scheduling tool included with every plan that lets you (or your team) plan and schedule posts across your social platforms from one place. On the Own the Market plan, we manage and post the content for you. On our other plans, you have the tool to do it yourself whenever you want.",
-  },
-  {
-    q: "What does \"two-way SMS & email\" mean?",
-    a: "It means you can have real back-and-forth conversations with leads and customers via text and email — all from one inbox. When someone texts your business number or replies to an email, you see it and can respond. On Build the Machine and up, you can also send broadcast campaigns — promos, announcements, and follow-ups — to your entire list at once.",
-  },
-  {
-    q: "Does ad spend come out of the monthly fee?",
-    a: "No. Ad management is included in your plan, but the actual spend (what you pay Google or Meta to run your ads) is a separate budget billed directly to you by the platform. We help you set the right budget and manage every dollar of it — you just fund the account.",
+    q: "Are there costs beyond the monthly price?",
+    a: "Up to three, and we name them up front. Build the Machine has a one-time $399 activation fee. If your plan includes ads, you pay Google or Meta directly for the ad spend, billed to you by the platform. And if you need a new website on Build the Machine or Own the Market, we quote it separately before you sign. Our management fee is your monthly plan price, and we help you set the right budget.",
   },
   {
     q: "How quickly will I see results?",
-    a: "Paid ads can generate leads within the first week. SEO takes 60–90 days to show meaningful traction but compounds over time. GBP optimization and reputation management often show results within 30 days. We'll give you honest timelines for every channel from day one.",
+    a: "Ads can start getting clicks and inquiries soon after they're approved and live; health and beauty ads sometimes take longer to approve. SEO usually takes 60 to 90 days to show real traction, then builds over time. We'll give you a timeline for each channel before you start, and we won't promise a #1 ranking.",
+  },
+  {
+    q: "Do you work with medspas?",
+    a: "Yes, medspas and aesthetic practices are our specialty. Kelsey spent five years at Aesthetic Record working with hundreds of clinic owners, and Derrick helped build its lead management and marketing division. We build consult-focused sites, local SEO for the treatments you offer, ads written for Google's and Meta's health and beauty policies, and one inbox for inquiries, texts and email, with reminders when it's time to rebook.",
+  },
+  {
+    q: "Do you sign a HIPAA Business Associate Agreement?",
+    a: "Yes. Our Terms include a HIPAA Business Associate Addendum. If you're a covered entity or business associate and we handle protected health information for you, it takes effect when you subscribe. You can read it at rgvperformancemarketing.com/terms#baa.",
+  },
+  {
+    q: "Can you run ads for injectables and other aesthetic treatments?",
+    a: "Yes, within each platform's rules. Prescription treatments like Botox have extra restrictions, so we usually advertise the consult, the practice and non-prescription services, and we use brand names only where the platform allows it. Meta limits before-and-after imagery and promised results, and both platforms require the landing page to match the ad. The platforms make the final approval call.",
+  },
+  {
+    q: 'What does "two-way SMS & email" mean?',
+    a: "You can have real back-and-forth conversations with leads and customers by text and email, all from one inbox. When someone texts your business number or replies to an email, you see it and can answer. On Build the Machine and up, you can also send broadcast campaigns, like promos and announcements, to your whole list.",
   },
   {
     q: "What kinds of businesses do you work with?",
-    a: "We work with service-based local businesses across industries — home services, salons, contractors, restaurants, retail, healthcare, auto services, and professional services. If you serve customers locally and need more of them finding you online, we can help.",
+    a: "Medspas and aesthetic practices, clinics and wellness businesses, contractors and home services, salons, restaurants, retail and professional services. We're based in Harlingen, Texas and work with businesses nationwide. If your customers find you online, we can help.",
   },
 ];

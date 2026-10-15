@@ -135,7 +135,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             {post.sections.map((s, i) => {
               if (s.type === "h2") {
                 return (
-                  <h2 key={i} style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(26px,3vw,38px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.1, margin: "40px 0 16px" }}>
+                  <h2 key={i} style={{ fontFamily: "var(--font-display)", fontSize: "clamp(26px,3vw,38px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.1, margin: "40px 0 16px" }}>
                     {s.text}
                   </h2>
                 );
@@ -208,7 +208,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
           <div style={{ maxWidth: 760, margin: "0 auto", padding: "0 24px" }}>
             {post.faqs.length > 0 && (
               <>
-                <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(26px,3vw,38px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.1, marginBottom: 28 }}>
+                <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(26px,3vw,38px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.1, marginBottom: 28 }}>
                   Frequently Asked Questions
                 </h2>
                 <FaqAccordion items={post.faqs} />

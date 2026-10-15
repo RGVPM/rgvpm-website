@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { CLIENTS } from "@/lib/clients";
+import type { ReactNode } from "react";
+import { CLIENTS, type Client } from "@/lib/clients";
 
 /**
  * Transparent, card-less marquee of client logos — sits directly on its
@@ -9,11 +10,36 @@ import { CLIENTS } from "@/lib/clients";
  * Each logo is a real dofollow link out to the client's live site — a
  * small backlink for them, and proof for the visitor that the work exists.
  */
-export default function ClientMarquee() {
+export default function ClientMarquee({
+  tone = "default",
+  order,
+  heading,
+  heights,
+}: {
+  /** "mono" renders greyscale logos (styled by the homepage stylesheet). */
+  tone?: "default" | "mono";
+  /** Client names to lead with, in this order; everyone else follows. */
+  order?: string[];
+  /** Replaces the default heading line above the strip. */
+  heading?: ReactNode;
+  /** Per-client logo heights in px (by name), overriding `maxHeight`, so a
+   *  page can balance logos by their visible area. */
+  heights?: Record<string, number>;
+} = {}) {
   if (CLIENTS.length === 0) return null;
 
+  const clients = order
+    ? [
+        ...order
+          .map((name) => CLIENTS.find((c) => c.name === name))
+          .filter((c): c is Client => Boolean(c)),
+        ...CLIENTS.filter((c) => !order.includes(c.name)),
+      ]
+    : CLIENTS;
+
   return (
-    <div>
+    <div className={tone === "mono" ? "rg-marquee--mono" : undefined}>
+      {heading ?? (
       <p
         style={{
           fontFamily: "var(--font-dm-mono), monospace",
@@ -27,6 +53,7 @@ export default function ClientMarquee() {
       >
         Trusted by 50+ businesses<span className="rg-hide-sm"> across Texas and beyond</span>
       </p>
+      )}
       <div
         className="rg-scroller"
         style={{
@@ -36,11 +63,11 @@ export default function ClientMarquee() {
         }}
       >
         <div className="rg-marquee-track" data-dir="right" style={{ ["--track-duration" as string]: "60s" }}>
-          <Pass />
+          <Pass clients={clients} heights={heights} />
           {/* Duplicate pass makes the loop seamless. aria-hidden + inert so a
               screen reader meets each client once, not twice. */}
           <div aria-hidden="true" inert style={{ display: "flex" }}>
-            <Pass />
+            <Pass clients={clients} heights={heights} />
           </div>
         </div>
       </div>
@@ -48,10 +75,10 @@ export default function ClientMarquee() {
   );
 }
 
-function Pass() {
+function Pass({ clients, heights }: { clients: Client[]; heights?: Record<string, number> }) {
   return (
     <div style={{ display: "flex", alignItems: "center" }}>
-      {CLIENTS.map((client) => {
+      {clients.map((client) => {
         const inner = client.logo ? (
           <Image
             src={client.logo}
@@ -61,10 +88,16 @@ function Pass() {
             // next/image won't optimize SVG; serve those files as-is.
             unoptimized={client.logo.endsWith(".svg")}
             // Eager: lazy images inside a transformed, overflow-hidden track
-            // load late or never on some phones, leaving blank gaps.
+            // load late or never on some phones, leaving blank gaps. The
+            // duplicate pass reuses the same URLs, so it adds no requests.
             loading="eager"
+            // Logos render at most ~180px wide (110px on phones), so the
+            // browser can pick the 128w/256w file instead of 750w, and they
+            // never compete with the hero for bandwidth.
+            sizes="(max-width: 767px) 120px, 180px"
+            fetchPriority="low"
             className="rg-logo-img"
-            style={{ ["--logo-mh" as string]: `${client.maxHeight ?? 84}px` }}
+            style={{ ["--logo-mh" as string]: `${heights?.[client.name] ?? client.maxHeight ?? 84}px` }}
           />
         ) : (
           <span className="rg-logo-word">{client.name}</span>
@@ -77,7 +110,7 @@ function Pass() {
             href={client.url}
             target="_blank"
             rel="noopener"
-            aria-label={`${client.name} — visit their website (opens in a new tab)`}
+            aria-label={`${client.name}, visit their website (opens in a new tab)`}
             className="rg-logo-cell"
           >
             {inner}

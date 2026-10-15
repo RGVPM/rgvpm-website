@@ -16,7 +16,7 @@ const wrap: React.CSSProperties = {
 };
 
 const h2: React.CSSProperties = {
-  fontFamily: "'Bebas Neue', sans-serif",
+  fontFamily: "var(--font-display)",
   fontSize: 28,
   letterSpacing: "0.03em",
   color: "var(--navy)",
@@ -25,7 +25,7 @@ const h2: React.CSSProperties = {
 };
 
 const p: React.CSSProperties = {
-  fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
+  fontFamily: "var(--font-body)",
   fontSize: 16,
   lineHeight: 1.7,
   color: "var(--navy)",
@@ -52,7 +52,7 @@ export default function TermsPage() {
 
         <h1
           style={{
-            fontFamily: "'Bebas Neue', sans-serif",
+            fontFamily: "var(--font-display)",
             fontSize: "clamp(40px, 6vw, 60px)",
             letterSpacing: "0.02em",
             color: "var(--navy)",

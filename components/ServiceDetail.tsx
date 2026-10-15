@@ -38,7 +38,7 @@ export default function ServiceDetail({ service, cityLinks }: { service: Service
           <div style={{ width: 56, height: 56, borderRadius: 12, background: "var(--orange-wash)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--orange)", marginBottom: 24 }}>
             <Icon name={service.icon} size={28} color="var(--orange)" />
           </div>
-          <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, marginBottom: 24 }}>
+          <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, marginBottom: 24 }}>
             {service.whatItIs.heading}
           </h2>
           {service.whatItIs.body.map((p, i) => (
@@ -54,7 +54,7 @@ export default function ServiceDetail({ service, cityLinks }: { service: Service
             <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--teal)", background: "var(--teal-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--teal)" }}>
               Our Process
             </span>
-            <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 16px" }}>
+            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 16px" }}>
               {service.howWeDoIt.heading}
             </h2>
             <p style={{ fontSize: 16, color: "var(--muted)", lineHeight: 1.65 }}>{service.howWeDoIt.intro}</p>
@@ -64,7 +64,7 @@ export default function ServiceDetail({ service, cityLinks }: { service: Service
               const accent = stepAccents[i % stepAccents.length];
               return (
                 <div key={step.title} style={{ background: "#fff", border: "1px solid var(--border)", borderLeft: `4px solid ${accent}`, borderRadius: 10, padding: "28px 26px", position: "relative" }}>
-                  <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 22, color: accent, letterSpacing: "0.04em", marginBottom: 10 }}>
+                  <div style={{ fontFamily: "var(--font-display)", fontSize: 22, color: accent, letterSpacing: "0.04em", marginBottom: 10 }}>
                     {String(i + 1).padStart(2, "0")}
                   </div>
                   <h3 style={{ fontSize: 17, fontWeight: 700, color: "var(--navy)", marginBottom: 8 }}>{step.title}</h3>
@@ -84,7 +84,7 @@ export default function ServiceDetail({ service, cityLinks }: { service: Service
               <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange)", background: "var(--orange-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--orange)" }}>
                 The Right Fit
               </span>
-              <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 18px" }}>
+              <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 18px" }}>
                 {service.whoItsFor.heading}
               </h2>
               <p style={{ fontSize: 16, color: "var(--muted)", lineHeight: 1.7 }}>{service.whoItsFor.intro}</p>
@@ -108,7 +108,7 @@ export default function ServiceDetail({ service, cityLinks }: { service: Service
             <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange)", background: "var(--orange-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--orange)" }}>
               FAQ
             </span>
-            <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 0" }}>
+            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 0" }}>
               {service.shortName} Questions, Answered
             </h2>
           </div>
