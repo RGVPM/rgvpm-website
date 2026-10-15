@@ -47,7 +47,7 @@ export default function ContactPage() {
           <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
             <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 20 }}>
               <div>
-                <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 30, letterSpacing: "0.03em", color: "#fff", lineHeight: 1.05 }}>
+                <div style={{ fontFamily: "var(--font-display)", fontSize: 30, letterSpacing: "0.03em", color: "#fff", lineHeight: 1.05 }}>
                   Prefer to talk? Book a free discovery call
                 </div>
                 <p style={{ fontSize: 14, color: "rgba(255,255,255,0.65)", lineHeight: 1.6, marginTop: 6, maxWidth: 560 }}>
@@ -71,7 +71,7 @@ export default function ContactPage() {
             <div style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 56, alignItems: "start" }} className="why-grid-responsive">
               {/* Form */}
               <div style={{ background: "#fff", border: "1px solid var(--border)", borderTop: "4px solid var(--orange)", borderRadius: 12, padding: "36px 32px" }}>
-                <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 30, letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, marginBottom: 8 }}>
+                <h2 style={{ fontFamily: "var(--font-display)", fontSize: 30, letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, marginBottom: 8 }}>
                   Send Us a Message
                 </h2>
                 <p style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.6, marginBottom: 24 }}>
@@ -98,7 +98,7 @@ export default function ContactPage() {
 
               {/* Contact info */}
               <div>
-                <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 30, letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, marginBottom: 24 }}>
+                <h2 style={{ fontFamily: "var(--font-display)", fontSize: 30, letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, marginBottom: 24 }}>
                   Other Ways to Reach Us
                 </h2>
                 {[

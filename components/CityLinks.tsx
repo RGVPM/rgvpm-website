@@ -32,7 +32,7 @@ export default function CityLinks({
           <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--teal)", background: "var(--teal-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--teal)" }}>
             {eyebrow}
           </span>
-          <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(28px,3.2vw,40px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.05, margin: "12px 0 0" }}>
+          <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px,3.2vw,40px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.05, margin: "12px 0 0" }}>
             {heading}
           </h2>
           {intro && <p style={{ fontSize: 15.5, color: "var(--muted)", lineHeight: 1.65, marginTop: 14 }}>{intro}</p>}

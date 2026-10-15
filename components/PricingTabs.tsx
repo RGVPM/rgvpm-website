@@ -3,7 +3,7 @@
 import { useState, type ReactNode } from "react";
 
 const BOOKING = "https://api.rgvperformancemarketing.com/widget/bookings/rgvpmdiscoverycall";
-const bebas = { fontFamily: "'Bebas Neue', sans-serif" } as const;
+const bebas = { fontFamily: "var(--font-display)" } as const;
 
 type TabId = "websites" | "social" | "plans";
 
@@ -383,7 +383,7 @@ export default function PricingTabs() {
         {/* page header */}
         <div className="mx-auto mt-10 max-w-2xl text-center">
           <div className="inline-block rounded-md border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-widest text-orange-500">
-            // PLANS &amp; PRICING
+            {"// PLANS & PRICING"}
           </div>
           <h1 className="mx-auto mt-4 text-5xl uppercase leading-none tracking-wide text-white md:text-6xl" style={bebas}>
             Digital Marketing Pricing &amp; Plans

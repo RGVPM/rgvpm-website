@@ -43,7 +43,7 @@ export default function ServiceCityPage(p: ServiceCityPageProps) {
       {/* City-specific intro */}
       <section style={{ padding: "72px 0 8px", background: "#fff" }}>
         <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 24px" }}>
-          <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(28px,3.2vw,42px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.05, marginBottom: 20 }}>
+          <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px,3.2vw,42px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.05, marginBottom: 20 }}>
             {p.cityIntro.heading}
           </h2>
           {p.cityIntro.body.map((para, i) => (
@@ -62,7 +62,7 @@ export default function ServiceCityPage(p: ServiceCityPageProps) {
             <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange)", background: "var(--orange-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--orange)" }}>
               What&apos;s Included
             </span>
-            <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 16px" }}>
+            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 16px" }}>
               {p.includedHeading}
             </h2>
             <p style={{ fontSize: 16, color: "var(--muted)", lineHeight: 1.65 }}>{p.includedSub}</p>
@@ -88,7 +88,7 @@ export default function ServiceCityPage(p: ServiceCityPageProps) {
             <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--teal)", background: "var(--teal-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--teal)" }}>
               How It Works
             </span>
-            <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 0" }}>
+            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 0" }}>
               {p.stepsHeading}
             </h2>
           </div>
@@ -97,7 +97,7 @@ export default function ServiceCityPage(p: ServiceCityPageProps) {
               const accent = stepAccents[i % stepAccents.length];
               return (
                 <div key={step.title} style={{ background: "var(--cream)", border: "1px solid var(--border)", borderLeft: `4px solid ${accent}`, borderRadius: 10, padding: "28px 26px" }}>
-                  <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 22, color: accent, letterSpacing: "0.04em", marginBottom: 10 }}>
+                  <div style={{ fontFamily: "var(--font-display)", fontSize: 22, color: accent, letterSpacing: "0.04em", marginBottom: 10 }}>
                     {String(i + 1).padStart(2, "0")}
                   </div>
                   <h3 style={{ fontSize: 17, fontWeight: 700, color: "var(--navy)", marginBottom: 8 }}>{step.title}</h3>
@@ -117,7 +117,7 @@ export default function ServiceCityPage(p: ServiceCityPageProps) {
               <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange)", background: "var(--orange-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--orange)" }}>
                 The Right Fit
               </span>
-              <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 18px" }}>
+              <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 18px" }}>
                 {p.who.heading}
               </h2>
               <p style={{ fontSize: 16, color: "var(--muted)", lineHeight: 1.7 }}>{p.who.intro}</p>
@@ -141,7 +141,7 @@ export default function ServiceCityPage(p: ServiceCityPageProps) {
             <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange)", background: "var(--orange-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--orange)" }}>
               FAQ
             </span>
-            <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 0" }}>
+            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 0" }}>
               {p.faqHeading}
             </h2>
           </div>
@@ -156,7 +156,7 @@ export default function ServiceCityPage(p: ServiceCityPageProps) {
             <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--teal)", background: "var(--teal-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--teal)" }}>
               Keep Exploring
             </span>
-            <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,44px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 0" }}>
+            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(30px,3.5vw,44px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 0" }}>
               Related Services
             </h2>
           </div>

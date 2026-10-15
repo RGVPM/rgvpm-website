@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Bebas_Neue, DM_Mono, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -41,14 +42,33 @@ export const metadata: Metadata = {
   },
 };
 
+/* Self-hosted through next/font: no render-blocking Google Fonts CSS, and
+   size-adjusted fallbacks keep the swap from shifting layout. Each family
+   is exposed as a CSS variable on <html>; globals.css maps them to the
+   --font-display / --font-body / --font-mono aliases the site uses. */
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  axes: ["opsz"],
+  style: ["normal", "italic"],
+  display: "swap",
+  variable: "--font-dm-sans",
+});
+const dmMono = DM_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+  variable: "--font-dm-mono",
+});
+const bebas = Bebas_Neue({
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+  variable: "--font-bebas",
+});
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
-      </head>
+    <html lang="en" className={`${dmSans.variable} ${dmMono.variable} ${bebas.variable}`}>
       <body>
         {/* Site-wide entity graph: the one business node and the WebSite node. */}
         <JsonLd data={[businessSchema(), websiteSchema()]} />
@@ -69,7 +89,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
           data-widget-id="6a2d06d49cb8f1e129b49b63"
           data-source="WEB_USER"
-          strategy="afterInteractive"
+          // Chat bubble isn't needed for first paint; load it once the page is idle.
+          strategy="lazyOnload"
         />
         <Nav />
         <PageTransition>{children}</PageTransition>

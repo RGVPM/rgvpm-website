@@ -96,13 +96,63 @@ export const STRIPE_LINKS = {
   ownTheMarket: "https://buy.stripe.com/aFa3cv1Qo7Gu29sf3P7Zu0j",
 } as const;
 
-/** The monthly plans — single source of truth for pricing schema and llms.txt. */
-export const PLANS = [
-  { name: "Plant the Flag", price: 397, description: "A custom website built, hosted, and maintained for you, plus one inbox for every lead." },
-  { name: "SEO Package", price: 597, description: "Everything in Plant the Flag, plus Google Business Profile and local SEO work so more of the right people find you." },
-  { name: "Build the Machine", price: 899, description: "A full growth engine: SEO, paid ads management, two-way SMS & email, automation, and reporting." },
-  { name: "Own the Market", price: 1499, description: "Dominate locally: managed ads, content, social, reputation, and hands-on monthly optimization." },
+/**
+ * The monthly plans — single source of truth for pricing schema and llms.txt.
+ *
+ * `activationFee` and `checkoutUrl` feed the homepage plan ladder.
+ * Keep in sync with components/PricingTabs.tsx (the live /pricing source).
+ */
+export const PLANS: readonly {
+  name: string;
+  price: number;
+  description: string;
+  activationFee?: number;
+  checkoutUrl?: string;
+}[] = [
+  {
+    name: "Plant the Flag",
+    price: 397,
+    description: "A custom website built, hosted, and maintained for you, plus one inbox for every lead.",
+    checkoutUrl: "https://buy.stripe.com/7sY9ATeDa4ui3dwg7T7Zu0F",
+  },
+  {
+    name: "SEO Package",
+    price: 597,
+    description: "Everything in Plant the Flag, plus Google Business Profile and local SEO work so more of the right people find you.",
+    checkoutUrl: "https://buy.stripe.com/fZu9ATgLi0e28xQbRD7Zu0G",
+  },
+  {
+    name: "Build the Machine",
+    price: 899,
+    description: "A full growth engine: SEO, paid ads management, two-way SMS & email, automation, and reporting.",
+    activationFee: 399,
+    checkoutUrl: "https://api.rgvperformancemarketing.com/payment-link/6a25cba371a0aa761e46375b",
+  },
+  {
+    name: "Own the Market",
+    price: 1499,
+    description: "Dominate locally: managed ads, content, social, reputation, and hands-on monthly optimization.",
+    checkoutUrl: "https://api.rgvperformancemarketing.com/payment-link/6abb6ded694b1c53da8ce2dc",
+  },
+];
+
+/** Standalone social plans (Social Media tab on /pricing).
+ *  Keep in sync with components/PricingTabs.tsx (the live /pricing source). */
+export const SOCIAL_PLANS = [
+  {
+    name: "Content Crew",
+    price: 650,
+    checkoutUrl: "https://api.rgvperformancemarketing.com/payment-link/6a2506c903b17c94f5714f73",
+  },
+  {
+    name: "Full Service Social",
+    price: 1250,
+    checkoutUrl: "https://api.rgvperformancemarketing.com/payment-link/6a25076203b17c94f5714f74",
+  },
 ] as const;
+
+/** Lowest monthly price across the plans, for "from $X/mo" copy. */
+export const PLANS_FROM = Math.min(...PLANS.map((p) => p.price));
 
 /** Absolute canonical URL for a given path ("/" or "/services/local-seo"). */
 export function canonical(path: string): string {

@@ -72,7 +72,7 @@ export default function Pricing({ asPage = false }: { asPage?: boolean }) {
           <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange)", background: "rgba(232,98,26,0.2)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--orange)" }}>
             Plans & Pricing
           </span>
-          <Heading style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(36px,4vw,54px)", letterSpacing: "0.03em", color: "#fff", lineHeight: 1.0, margin: "12px 0 16px" }}>
+          <Heading style={{ fontFamily: "var(--font-display)", fontSize: "clamp(36px,4vw,54px)", letterSpacing: "0.03em", color: "#fff", lineHeight: 1.0, margin: "12px 0 16px" }}>
             {asPage ? "Digital Marketing Pricing & Plans" : "Pick Your Plan. Start Growing."}
           </Heading>
           <p style={{ fontSize: 17, color: "rgba(255,255,255,0.55)", lineHeight: 1.65 }}>
@@ -97,14 +97,14 @@ export default function Pricing({ asPage = false }: { asPage?: boolean }) {
               <div style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: plan.featured ? "rgba(255,255,255,0.75)" : plan.accent, marginBottom: 20 }}>
                 {plan.tier}
               </div>
-              <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 30, letterSpacing: "0.04em", color: "#fff", marginBottom: 6 }}>
+              <div style={{ fontFamily: "var(--font-display)", fontSize: 30, letterSpacing: "0.04em", color: "#fff", marginBottom: 6 }}>
                 {plan.name}
               </div>
               <div style={{ fontSize: 13, color: plan.featured ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0.55)", lineHeight: 1.55, marginBottom: 24 }}>
                 {plan.tagline}
               </div>
               <div style={{ display: "flex", alignItems: "baseline", gap: 3, marginBottom: 4 }}>
-                <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 54, color: "#fff", letterSpacing: "0.02em", lineHeight: 1 }}>
+                <span style={{ fontFamily: "var(--font-display)", fontSize: 54, color: "#fff", letterSpacing: "0.02em", lineHeight: 1 }}>
                   {plan.price}
                 </span>
                 <span style={{ fontSize: 15, color: "rgba(255,255,255,0.55)" }}>/mo</span>

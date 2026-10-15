@@ -1,95 +1,77 @@
 import Image from "next/image";
 
 /**
- * Hero visual: three real client websites, stacked.
+ * Hero visual: three real client websites we built, each a link to the live
+ * site. D'Vash Aesthetics sits in front so a medspa owner sees their world
+ * first; the trades and health sites behind it tell everyone else "and yours."
  *
- * Replaces the illustrative dashboard. Every card is an actual screenshot
- * of a site we designed that is live today, and every card is a real link
- * to it, so the hero shows proof rather than decoration. Server component:
- * the only motion is a CSS entrance (see `.rg-stack-*` in globals.css).
+ * Desktop: a soft Z-cascade. Tablet: the front frame alone, flat.
+ * Mobile: a horizontal scroll-snap strip. Only the front image loads
+ * eagerly at high priority; the other two are lazy.
  *
- * Screenshots are 1200x750 (16:10) in /public/work. All three are above
- * the fold on desktop and the browser picks whichever paints first as the
- * LCP element, so every card loads with priority.
+ * The D'Vash screenshot is a copy with the site's review pop-up removed
+ * (public/work/dvash-aesthetics-clean.webp).
  */
-const SITES = [
+const FRAMES = [
   {
+    layer: "front",
+    rotate: "-3deg",
+    name: "D’Vash Aesthetics",
+    url: "https://www.dvashaesthetics.com",
+    caption: "dvashaesthetics.com",
+    src: "/work/dvash-aesthetics-clean.webp",
+  },
+  {
+    layer: "mid",
+    rotate: "2deg",
     name: "Premium Foam",
     url: "https://www.cclcontracting.com/spray-foam-insulation/",
-    city: "Rio Grande Valley",
-    screenshot: "/work/premium-foam.webp",
+    src: "/work/premium-foam.webp",
   },
   {
+    layer: "back",
+    rotate: "-1deg",
     name: "Us To You Mobile Health",
     url: "https://www.ustoyoumobilehealth.com",
-    city: "San Antonio, TX",
-    screenshot: "/work/us-to-you-mobile-health.webp",
-  },
-  {
-    name: "Mac's Dove Hunts",
-    url: "https://www.macsdovehunts.com",
-    city: "Mercedes, TX",
-    screenshot: "/work/macs-dove-hunts.webp",
+    src: "/work/us-to-you-mobile-health.webp",
   },
 ] as const;
 
-const [front, mid, back] = SITES;
-
-const mono = "var(--font-dm-mono), ui-monospace, monospace";
-
-function Card({ site, layer }: { site: (typeof SITES)[number]; layer: "front" | "mid" | "back" }) {
-  return (
-    <div className={`rg-stack-card rg-stack-card--${layer}`}>
-      <a
-        href={site.url}
-        target="_blank"
-        rel="noopener"
-        className="rg-stack-frame"
-        aria-label={`${site.name} website, designed by us (opens in a new tab)`}
-      >
-        <Image
-          src={site.screenshot}
-          alt={`Homepage of ${site.name}`}
-          width={1200}
-          height={750}
-          priority
-          sizes="(max-width: 1023px) 92vw, 42vw"
-          style={{ display: "block", width: "100%", height: "auto" }}
-        />
-      </a>
-      {layer === "front" && (
-        <p
-          className="rg-stack-caption"
-          style={{
-            fontFamily: mono,
-            fontSize: 11,
-            letterSpacing: "0.12em",
-            textTransform: "uppercase",
-            color: "rgba(247,244,239,0.6)",
-            margin: "12px 0 0",
-            display: "flex",
-            alignItems: "center",
-            gap: 12,
-          }}
-        >
-          <span>{site.name}</span>
-          <span
-            aria-hidden="true"
-            style={{ width: 1, height: 11, background: "rgba(247,244,239,0.28)" }}
-          />
-          <span>{site.city}</span>
-        </p>
-      )}
-    </div>
-  );
-}
-
 export default function WorkStack() {
   return (
-    <div className="rg-stack" aria-label="Three websites we designed for Rio Grande Valley businesses">
-      <Card site={back} layer="back" />
-      <Card site={mid} layer="mid" />
-      <Card site={front} layer="front" />
+    <div className="rg-h-stack" role="group" aria-label="Websites we built for clients">
+      {FRAMES.map((f) => {
+        const front = f.layer === "front";
+        return (
+          <div
+            key={f.layer}
+            className={`rg-h-frame rg-h-frame--${f.layer}`}
+            style={{ ["--r" as string]: f.rotate }}
+          >
+            <a
+              href={f.url}
+              target="_blank"
+              rel="noopener"
+              className="rg-h-frame-link"
+              aria-label={`${f.name} website, built by us (opens in a new tab)`}
+            >
+              <span className="rg-h-frame-core">
+                <Image
+                  src={f.src}
+                  alt={`Homepage of the ${f.name} website`}
+                  width={1200}
+                  height={750}
+                  sizes="(max-width: 767px) 82vw, (max-width: 1023px) 640px, 520px"
+                  {...(front
+                    ? { loading: "eager" as const, fetchPriority: "high" as const }
+                    : { loading: "lazy" as const })}
+                />
+              </span>
+            </a>
+            {"caption" in f && <p className="rg-h-frame-caption">{f.caption}</p>}
+          </div>
+        );
+      })}
     </div>
   );
 }

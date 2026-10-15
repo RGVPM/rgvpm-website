@@ -26,6 +26,8 @@ const SOLUTIONS = [
 ];
 
 const NAV_LINKS: NavItem[] = [
+  // Points at the homepage medspa band until /medspa-marketing exists.
+  { label: "Medspas", href: "/#medspas" },
   { label: "Solutions", href: "/services", children: SOLUTIONS },
   {
     label: "AI",
@@ -37,7 +39,7 @@ const NAV_LINKS: NavItem[] = [
   },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
-  { label: "Blogs", href: "/blog" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -369,26 +371,27 @@ export default function Nav() {
               href={SITE.bookingUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden xl:inline-flex rg-btn"
+              className="hidden xl:inline-flex rg-btn rg-nav-cta"
               style={{
                 alignItems: "center",
                 gap: 8,
-                background: "var(--orange)",
+                // Compact label, so the deeper orange: white on it is 4.94:1.
+                background: "var(--orange-deep)",
                 color: "#fff",
                 fontWeight: 700,
-                // 19px clears WCAG's 18.66px large-text threshold, so white on
-                // the brand orange passes at 3:1 without altering the colour.
-                fontSize: 19,
-                padding: "11px 22px",
+                fontSize: 15.5,
+                minHeight: 46,
+                padding: "0 22px",
                 whiteSpace: "nowrap",
-                borderRadius: "var(--r-sm)",
+                borderRadius: "var(--r-pill)",
                 textDecoration: "none",
-                boxShadow: "var(--shadow-orange)",
+                boxShadow: "0 8px 22px -12px rgba(194,73,12,0.6), inset 0 1px 0 rgba(255,255,255,0.14)",
                 transition:
                   "background var(--t-fast) var(--ease), transform var(--t-fast) var(--ease), box-shadow var(--t-med) var(--ease)",
               }}
             >
-              Book with us!
+              Book a free call
+              <span className="sr-only"> (opens in a new tab)</span>
             </a>
 
             <button
@@ -522,17 +525,18 @@ export default function Nav() {
               gap: 8,
               marginTop: "var(--s6)",
               minHeight: 56,
-              background: "var(--orange)",
+              background: "var(--orange-deep)",
               color: "#fff",
               fontWeight: 700,
               fontSize: 16,
-              borderRadius: "var(--r-sm)",
+              borderRadius: "var(--r-pill)",
               textDecoration: "none",
               boxShadow: "var(--shadow-orange)",
               textAlign: "center",
             }}
           >
-            Book with us! <span aria-hidden="true">→</span>
+            Book a free call <span aria-hidden="true">→</span>
+            <span className="sr-only"> (opens in a new tab)</span>
           </a>
           <a
             href={`tel:${SITE.phone}`}

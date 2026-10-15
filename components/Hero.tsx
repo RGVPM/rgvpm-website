@@ -22,7 +22,7 @@ function StatValue({ stat, duration = 1500 }: { stat: Stat; duration?: number })
   const started = useRef(false);
 
   const numberStyle: React.CSSProperties = {
-    fontFamily: "'Bebas Neue', sans-serif",
+    fontFamily: "var(--font-display)",
     fontSize: 32,
     color: "var(--orange)",
     letterSpacing: "0.04em",
@@ -35,6 +35,8 @@ function StatValue({ stat, duration = 1500 }: { stat: Stat; duration?: number })
     if (!el) return;
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      // One-off sync from a media query read on mount; not a render loop.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setValue(stat.target);
       return;
     }
@@ -122,7 +124,7 @@ export default function Hero() {
               </span>
             </div>
             <h1 style={{
-              fontFamily: "'Bebas Neue', sans-serif",
+              fontFamily: "var(--font-display)",
               fontSize: "clamp(50px, 6vw, 84px)", lineHeight: 0.95,
               color: "#fff", letterSpacing: "0.02em", marginBottom: 24,
             }}>

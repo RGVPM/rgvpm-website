@@ -1,15 +1,22 @@
 import type { Metadata } from "next";
-import HomeHero from "@/components/home/HomeHero";
-import { IndustryStrip } from "@/components/Sections";
+import "@/components/home/home.css";
+import HomeHero, { HERO_CTA_ID } from "@/components/home/HomeHero";
+import ProofStrip from "@/components/home/ProofStrip";
+import MedspaSuite from "@/components/home/MedspaSuite";
+import IndustrySwitcher from "@/components/home/IndustrySwitcher";
 import Capabilities from "@/components/home/Capabilities";
-import AiSection from "@/components/home/AiSection";
 import Process from "@/components/home/Process";
-import SocialFollow from "@/components/home/SocialFollow";
+import PlanLadder from "@/components/home/PlanLadder";
+import RiskReversal from "@/components/home/RiskReversal";
+import AiSection from "@/components/home/AiSection";
 import BlogEditorial from "@/components/home/BlogEditorial";
 import HomeFaq from "@/components/home/HomeFaq";
-import FinalCta from "@/components/home/FinalCta";
+import FinalCta, { FINAL_CTA_ID } from "@/components/home/FinalCta";
+import StickyCta from "@/components/home/StickyCta";
+import HomeAnalytics from "@/components/home/HomeAnalytics";
+import { bookingHref } from "@/components/home/HomePrimitives";
 import JsonLd from "@/components/JsonLd";
-import { faqSchema, socialMeta, SITE } from "@/lib/site";
+import { faqSchema, socialMeta, SITE, PLANS_FROM } from "@/lib/site";
 import { homeFaqs } from "@/lib/faqs";
 
 export default function Home() {
@@ -17,17 +24,27 @@ export default function Home() {
     <>
       {/* Business + WebSite nodes are emitted site-wide from app/layout.tsx. */}
       <JsonLd data={[faqSchema(homeFaqs)]} />
-      <main>
+      <main className="rg-home">
         <HomeHero />
-        {/* Client logo marquee — each logo links out to the client's site. */}
-        <IndustryStrip />
+        <ProofStrip />
+        <MedspaSuite />
+        <IndustrySwitcher />
         <Capabilities />
-        <AiSection />
         <Process />
-        <SocialFollow />
+        <PlanLadder />
+        <RiskReversal />
+        <AiSection />
         <BlogEditorial />
         <HomeFaq />
         <FinalCta />
+        <StickyCta
+          href={bookingHref("sticky")}
+          note={`From $${PLANS_FROM}/mo · Month-to-month`}
+          label="Book a free call"
+          heroCtaId={HERO_CTA_ID}
+          finalId={FINAL_CTA_ID}
+        />
+        <HomeAnalytics />
       </main>
     </>
   );

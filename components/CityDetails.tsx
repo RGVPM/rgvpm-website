@@ -16,7 +16,7 @@ export default function CityDetails({ heading, intro, points }: CityDetailsConte
     <section style={{ padding: "72px 0 88px", background: "#fff" }}>
       <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
         <div style={{ maxWidth: 820, margin: "0 auto 40px" }}>
-          <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(28px,3.2vw,42px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.05, marginBottom: 16 }}>
+          <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px,3.2vw,42px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.05, marginBottom: 16 }}>
             {heading}
           </h2>
           <p style={{ fontSize: 16.5, color: "var(--muted)", lineHeight: 1.75 }}>{intro}</p>
