@@ -164,7 +164,11 @@ export default function Pricing({ asPage = false }: { asPage?: boolean }) {
           <a href="/terms" style={{ color: "rgba(255,255,255,0.55)" }}>
             Terms &amp; Conditions
           </a>
-          .
+          , including the{" "}
+          <a href="/terms#baa" style={{ color: "rgba(255,255,255,0.55)" }}>
+            HIPAA Business Associate Addendum
+          </a>{" "}
+          for healthcare clients.
         </p>
       </div>
     </section>
