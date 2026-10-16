@@ -38,6 +38,56 @@ export interface Post {
 
 export const POSTS: Post[] = [
   {
+    slug: "ai-friday-build-or-hire-ai-tool",
+    title: "AI Friday: Build Your Own AI Tool, or Have Someone Build It?",
+    metaTitle: "AI Friday: Build an AI Tool or Hire It Built?",
+    description:
+      "An AI Friday tip for Rio Grande Valley owners: when to learn Claude Code and build your own AI tool, and when to have it built for you.",
+    excerpt:
+      "Some owners should learn to build their own AI tools. Others should hand the job off. Three questions help you decide before you spend a week on the wrong path.",
+    category: "AI Friday",
+    icon: "cpu",
+    datePublished: "2026-10-16",
+    dateModified: "2026-10-16",
+    readMinutes: 5,
+    tldr:
+      "If a tool is small, changes often, and only your team uses it, learning to build it yourself with an AI coding agent like Claude Code can pay off. If it touches calls, leads, or other software you rely on, and you need it running soon, have it built for you. Either way, write down what the tool must do before anyone starts.",
+    sections: [
+      { type: "p", text: "Three AI Fridays ago we said to automate the lead answer first. Since then we covered the weekly task and the AI receptionist. This week answers the question that comes next: once you know the job, who builds it? You, with an AI coding agent beside you, or someone who does it for a living." },
+      { type: "h2", text: "AI coding agents changed who can build" },
+      { type: "p", text: "Tools like Claude Code and Codex write and run software from plain-English instructions. That puts a custom dashboard, a small internal app, or a simple report within reach of an owner with no coding background. We teach this one-on-one: you build a real tool for your own business, from an empty folder to a live link, and you keep everything you build." },
+      { type: "p", text: "That does not mean everyone should. Building takes your time, and your time is already the scarcest thing in a Valley business. So ask three questions first." },
+      { type: "h2", text: "Question 1: Is the tool small and only for your team?" },
+      { type: "p", text: "An internal dashboard, a quote sheet, a tracker for jobs in Harlingen or McAllen: these are good first builds. If it breaks on a Tuesday, your team shrugs and you fix it. The stakes are low and the learning is real. The more a tool touches customers directly, the stronger the case for having it built and watched by someone else." },
+      { type: "h2", text: "Question 2: Will it need to change a lot?" },
+      { type: "p", text: "If you expect to tweak the tool every month as the business changes, knowing how to build is worth more than any single tool. You stop paying in waiting time every time a rule changes. If the tool is set-and-forget, you only need it built once." },
+      { type: "h2", text: "Question 3: Does it connect to calls, leads, or software you rely on?" },
+      { type: "p", text: "This is where we tell most owners to hand it off. An AI receptionist, missed-call capture, and lead follow-up all have to plug into your calendar, scheduling tools, forms, and lead management software, and they have to work around the clock. That is integration work, and a mistake costs you a lead you never knew you lost." },
+      { type: "h2", text: "A simple way to split it" },
+      { type: "ul", items: [
+        "Build it yourself: internal tools, dashboards, reports, and small apps your team uses, where you want to keep changing things.",
+        "Have it built for you: anything that answers customers, follows up with leads, or has to run reliably without you watching.",
+        "Do both: have the lead-facing system built, then learn to build the small tools around it.",
+      ]},
+      { type: "p", text: "Whichever way you go, the hard part is not the code. It is knowing exactly what the tool should do, which is why we keep starting with a written page. Our AI consulting work starts by mapping how your leads come in and where your team's time goes, so the first build goes where it pays off.", links: [{ text: "AI consulting", href: "/services/ai-implementation" }] },
+      { type: "h2", text: "Your Friday homework" },
+      { type: "p", text: "List the three tools you wish your business had. Next to each, answer the three questions: small and internal, changing often, and connected to leads or calls. Then book a call and bring the list, and we will tell you which to build with us beside you and which to build for you.", links: [{ text: "book a call", href: "/contact" }] },
+    ],
+    faqs: [
+      { q: "Can I build an AI tool for my business without coding experience?", a: "Yes. In one-on-one build sessions you learn Claude Code and Codex by building a real tool for your own business, from an empty folder to a live link. No coding background is needed, and you keep everything you build." },
+      { q: "What should a small business build itself and what should it hire out?", a: "Build small internal tools you will keep changing, like dashboards and reports. Hire out anything that answers customers, follows up with leads, or connects to your calendar, forms, and lead management software and has to run reliably." },
+      { q: "Which AI tools do you work with?", a: "We work with AI coding agents and models including Claude Code, Codex, Hermes, Orca, and Grokbot, and pick the right one for the job rather than forcing one system on you." },
+      { q: "Do I still need to write down what the tool should do?", a: "Yes. Whether you build it or we do, a one-page description of what the tool does and where it hands off to a person is the step that decides whether it works." },
+    ],
+    related: [
+      { href: "/blog/ai-friday-local-business-rgv", label: "AI Friday: What to Automate First" },
+      { href: "/blog/ai-friday-ai-receptionist-answer-sheet", label: "AI Friday: AI Receptionist Answer Sheet" },
+      { href: "/learn-claude-code", label: "Learn Claude Code 1-on-1" },
+      { href: "/services/ai-implementation", label: "AI Consulting & Implementation" },
+      { href: "/contact", label: "Book a Call" },
+    ],
+  },
+  {
     slug: "how-much-do-google-ads-cost-rio-grande-valley",
     title: "How Much Do Google Ads Cost for a McAllen or Harlingen Business?",
     metaTitle: "How Much Do Google Ads Cost in the RGV?",
