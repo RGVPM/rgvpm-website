@@ -5,6 +5,7 @@ import { googleAdsCityPath } from "@/lib/googleAds";
 import { gbpCityPath } from "@/lib/gbp";
 import { homeFaqs } from "@/lib/faqs";
 import { POSTS } from "@/lib/posts";
+import { DIGITAL_MARKETING_CITIES, digitalMarketingCityPath } from "@/lib/digitalMarketing";
 
 /**
  * /llms.txt — a Markdown brief for AI assistants and answer engines
@@ -86,6 +87,9 @@ export function GET() {
   lines.push("");
 
   lines.push("## City service areas");
+  for (const c of Object.values(DIGITAL_MARKETING_CITIES)) {
+    lines.push(`- [Digital Marketing in ${c.name}, TX](${u(digitalMarketingCityPath(c.slug))}): full-service program (website, local SEO, Google Business Profile, ads, lead follow-up, AI) with month-to-month plans`);
+  }
   for (const slug of citySlugs) {
     const name = slug.split("-").map((w) => w[0].toUpperCase() + w.slice(1)).join(" ");
     lines.push(`- [Local SEO in ${name}, TX](${u(localSeoCityPath(slug))})`);
