@@ -38,6 +38,57 @@ export interface Post {
 
 export const POSTS: Post[] = [
   {
+    slug: "ai-friday-after-launch-checkup",
+    title: "AI Friday: The Weekly Check-Up Your AI Setup Needs After Launch",
+    metaTitle: "AI Friday: How to Check Your AI Setup After Launch",
+    description:
+      "An AI Friday tip for Rio Grande Valley owners: the short weekly check that keeps an AI receptionist or follow-up system working after it goes live.",
+    excerpt:
+      "Going live is the middle of an AI project, not the end. Here is the ten-minute weekly check that catches missed handoffs and stale answers before a lead does.",
+    category: "AI Friday",
+    icon: "cpu",
+    datePublished: "2026-10-23",
+    dateModified: "2026-10-23",
+    readMinutes: 5,
+    tldr:
+      "After an AI receptionist or lead follow-up system goes live, spend ten minutes each week reading real conversations, checking that every handoff reached a person, and updating anything that changed in your business. Most setups are live within one to three weeks, and the weeks after launch are where they get good.",
+    sections: [
+      { type: "p", text: "Four AI Fridays ago we said to automate the lead answer first. Since then we covered the weekly task, the receptionist answer sheet, and whether to build or hire. This week is about the part nobody puts on the schedule: what happens after it goes live." },
+      { type: "h2", text: "Live is not the same as finished" },
+      { type: "p", text: "When we build an AI system, the last of our three steps is monitor and optimize. We watch performance, refine the workflows, and expand as the business grows. That step exists because a business never stands still. Hours change, a service gets added, a crew in Brownsville is booked out for two weeks. An AI that was right on launch day can quietly be wrong a month later." },
+      { type: "p", text: "Most automations go live within one to three weeks, depending on scope. So the first month of real use is where you learn what the setup missed. You can do that check yourself, and it takes about ten minutes." },
+      { type: "h2", text: "The ten-minute weekly check" },
+      { type: "ul", items: [
+        "Read five real conversations. Pick calls, chats, or texts at random, not just the good ones. Would you have answered the same way?",
+        "Check every handoff. Each time the AI passed someone to your team, did a person actually pick it up, and how fast?",
+        "Look for the question it could not answer. If customers keep asking something that is not on your answer sheet, add it.",
+        "Check what changed this week. New hours, a closed day, a new service, a price you do not want quoted by an AI. Update the sheet the same day.",
+        "Count the missed leads. Any lead that came in and got no reply is the one to fix first.",
+      ]},
+      { type: "h2", text: "Why the handoff check matters most" },
+      { type: "p", text: "An AI receptionist is built to answer what it can and hand the rest to a person. If the handoff lands in an inbox nobody checks, you have swapped a missed call for a polite missed call. Following one handoff from start to finish, all the way to a human reply, tells you more than any dashboard." },
+      { type: "p", text: "It also tells you whether the system is connected properly to the software you already use, like your calendar, forms, and lead management tools. Those connections are where small breaks hide." },
+      { type: "h2", text: "Fix the sheet, not the symptom" },
+      { type: "p", text: "When the AI gives a bad answer, the cause is almost always the page it was given, not the technology. Add the missing answer, tighten a vague one, or move the topic to a person. Then test the same question again. That small loop, repeated weekly, is what optimizing means in practice." },
+      { type: "p", text: "If you would rather not run the loop yourself, that is part of how we work. Our AI consulting and implementation work includes watching the system after it goes live and adjusting it as your business changes.", links: [{ text: "AI consulting and implementation", href: "/services/ai-implementation" }] },
+      { type: "h2", text: "Your Friday homework" },
+      { type: "p", text: "Put ten minutes on your calendar for next Friday. Read five conversations, follow one handoff to the end, and write down one thing that changed in your business this week. If you do not have an AI system yet, or you have one nobody is checking, book a call and we will look at it with you.", links: [{ text: "book a call", href: "/contact" }] },
+    ],
+    faqs: [
+      { q: "How long does it take to set up AI for a small business?", a: "Most automations go live within one to three weeks, depending on scope and complexity. We start with the highest-impact wins, like instant lead follow-up and missed-call capture, then expand from there." },
+      { q: "What should I check after my AI receptionist goes live?", a: "Read a handful of real conversations, follow each handoff to a person, add answers to questions it could not handle, and update anything that changed in your business, like hours or services." },
+      { q: "Does the AI need ongoing attention after launch?", a: "Yes. Businesses change, so the answers and workflows need regular refinement. Monitoring and optimizing is the third step of how we build AI systems." },
+      { q: "Will an AI system work with the software I already use?", a: "In most cases, yes. We integrate with existing lead management software, calendars, scheduling tools, forms, and lead sources, so the system fits how you already work." },
+    ],
+    related: [
+      { href: "/blog/ai-friday-local-business-rgv", label: "AI Friday: What to Automate First" },
+      { href: "/blog/ai-friday-ai-receptionist-answer-sheet", label: "AI Friday: AI Receptionist Answer Sheet" },
+      { href: "/blog/ai-friday-build-or-hire-ai-tool", label: "AI Friday: Build It or Hire It Built?" },
+      { href: "/services/ai-implementation", label: "AI Consulting & Implementation" },
+      { href: "/contact", label: "Book a Call" },
+    ],
+  },
+  {
     slug: "google-business-profile-checklist-rio-grande-valley",
     title: "Google Business Profile Checklist for RGV Businesses",
     metaTitle: "Google Business Profile Checklist for RGV Businesses",
