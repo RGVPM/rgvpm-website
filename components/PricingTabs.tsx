@@ -327,7 +327,7 @@ function PlansTab() {
           tier="// Full Service"
           name="Own the Market"
           description="Dominate your category. Full-service execution across every channel with a dedicated strategist in your corner."
-          price="$1,499"
+          price="$2,000"
           priceSuffix="/mo"
           priceNote="No activation fee"
           features={[
@@ -340,8 +340,8 @@ function PlansTab() {
             "Bi-weekly strategy calls",
             "Priority support",
           ]}
-          ctaLabel="Get Started →"
-          ctaHref="https://api.rgvperformancemarketing.com/payment-link/6abb6ded694b1c53da8ce2dc"
+          ctaLabel="Book a Call →"
+          ctaHref={BOOKING}
         />
       </div>
 
