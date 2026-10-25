@@ -2,7 +2,7 @@
 
 import { useState, type ReactNode } from "react";
 
-const BOOKING = "https://api.rgvperformancemarketing.com/widget/bookings/rgvpmdiscoverycall";
+const BOOKING = "https://api.rgvperformancemarketing.com/widget/bookings/kelsey-lopez-personal-calendar-lxyj2xytm";
 const bebas = { fontFamily: "'Bebas Neue', sans-serif" } as const;
 
 type TabId = "websites" | "social" | "plans";
