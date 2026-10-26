@@ -6,6 +6,13 @@ const nextConfig: NextConfig = {
   // cross-origin dev resources and the client never hydrates, leaving the page
   // visible but non-interactive on those devices.
   allowedDevOrigins: ["192.168.1.233"],
+  async rewrites() {
+    return [
+      // VBS Hair Show VIP offer (Oct 2026): a self-contained HTML page in
+      // public/, served at a clean URL. Built in rgv-marketing vip-landing-v3.
+      { source: "/vbs-offer", destination: "/vbs-offer.html" },
+    ];
+  },
   async redirects() {
     return [
       // /results was retired (Sept 2026). Google had it indexed, and the
