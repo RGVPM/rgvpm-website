@@ -5,6 +5,17 @@ import { useState, type ReactNode } from "react";
 const BOOKING = "https://api.rgvperformancemarketing.com/widget/bookings/rgvpmdiscoverycall";
 const bebas = { fontFamily: "'Bebas Neue', sans-serif" } as const;
 
+/**
+ * The public /pricing page shows starting prices and sends every card to a
+ * booking call. The unlisted /plans/start page (sent after a call) shows the
+ * same cards with their checkout links. A card with no checkout link books a
+ * call in both modes.
+ */
+const ctaFor = (priv: boolean, checkout?: string) =>
+  priv && checkout
+    ? { ctaLabel: "Get Started →", ctaHref: checkout }
+    : { ctaLabel: "Book a Call →", ctaHref: BOOKING };
+
 type TabId = "websites" | "social" | "plans";
 
 const TABS: { id: TabId; label: string }[] = [
@@ -23,6 +34,8 @@ interface CardProps {
   name: string;
   description: string;
   price: string;
+  /** Show "Starts at" above the price (public page). */
+  fromPrice?: boolean;
   priceSuffix?: string;
   priceNote: string;
   savings?: string;
@@ -48,6 +61,7 @@ function Card({
   name,
   description,
   price,
+  fromPrice = false,
   priceSuffix,
   priceNote,
   savings,
@@ -91,6 +105,14 @@ function Card({
       </p>
 
       <div className="mb-6">
+        {fromPrice && (
+          <div
+            className={`mb-1.5 text-[11px] uppercase tracking-[0.14em] ${highlighted ? "text-white/80" : "text-slate-400"}`}
+            style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+          >
+            Starts at
+          </div>
+        )}
         <div className="flex items-baseline gap-1.5">
           <span className="text-5xl leading-none text-white" style={bebas}>
             {price}
@@ -155,7 +177,7 @@ function Card({
 
 /* ------------------------------ tab bodies ------------------------------ */
 
-function WebsitesTab() {
+function WebsitesTab({ priv }: { priv: boolean }) {
   return (
     <div className="mx-auto grid max-w-5xl gap-6 lg:grid-cols-2">
       <Card
@@ -163,6 +185,7 @@ function WebsitesTab() {
         tier="// Site + leads"
         name="Plant the Flag"
         description="A site that actually catches jobs, plus the CRM."
+        fromPrice={!priv}
         price="$397"
         priceSuffix="/mo"
         priceNote="month-to-month"
@@ -175,13 +198,13 @@ function WebsitesTab() {
           "Mobile-first and bilingual if you need it",
           "We keep it live and patched so you don't babysit WordPress",
         ]}
-        ctaLabel="Get Started →"
-        ctaHref="https://buy.stripe.com/7sY9ATeDa4ui3dwg7T7Zu0F"
+        {...ctaFor(priv, "https://buy.stripe.com/7sY9ATeDa4ui3dwg7T7Zu0F")}
       />
       <Card
         tier="// Get found"
         name="SEO Package"
         description="Plant the Flag, then we work Google so more of the right people find you. No #1 ranking guarantee."
+        fromPrice={!priv}
         price="$597"
         priceSuffix="/mo"
         priceNote="month-to-month"
@@ -194,14 +217,13 @@ function WebsitesTab() {
           "Monthly content that targets real Search Console queries",
           "Monthly report: what moved, what we're doing next",
         ]}
-        ctaLabel="Get Started →"
-        ctaHref="https://buy.stripe.com/fZu9ATgLi0e28xQbRD7Zu0G"
+        {...ctaFor(priv, "https://buy.stripe.com/fZu9ATgLi0e28xQbRD7Zu0G")}
       />
     </div>
   );
 }
 
-function SocialTab() {
+function SocialTab({ priv }: { priv: boolean }) {
   const rows: { label: string; cells: Cell[] }[] = [
     { label: "Content calendar", cells: ["✓", "✓"] },
     { label: "Reels per week", cells: ["1", "2"] },
@@ -229,6 +251,7 @@ function SocialTab() {
           highlighted
           name="Content Crew"
           description="You shoot — we make it look pro."
+          fromPrice={!priv}
           price="$650"
           priceSuffix="/mo"
           priceNote="month-to-month"
@@ -240,13 +263,13 @@ function SocialTab() {
             "Your branding & logo applied",
             "You stay in control of posting",
           ]}
-          ctaLabel="Get Started →"
-          ctaHref="https://api.rgvperformancemarketing.com/payment-link/6a2506c903b17c94f5714f73"
+          {...ctaFor(priv, "https://api.rgvperformancemarketing.com/payment-link/6a2506c903b17c94f5714f73")}
         />
         <Card
           tier="// Full Service"
           name="Full Service Social"
           description="We run your social like an in-house team."
+          fromPrice={!priv}
           price="$1,250"
           priceSuffix="/mo"
           priceNote="month-to-month"
@@ -258,8 +281,7 @@ function SocialTab() {
             "We post + manage your account",
             "DMs & lead messages routed to your CRM",
           ]}
-          ctaLabel="Get Started →"
-          ctaHref="https://api.rgvperformancemarketing.com/payment-link/6a25076203b17c94f5714f74"
+          {...ctaFor(priv, "https://api.rgvperformancemarketing.com/payment-link/6a25076203b17c94f5714f74")}
         />
       </div>
 
@@ -291,7 +313,7 @@ function SocialTab() {
   );
 }
 
-function PlansTab() {
+function PlansTab({ priv }: { priv: boolean }) {
   return (
     <div className="mx-auto max-w-5xl">
       <div className="mb-7 rounded-md border border-slate-700 bg-slate-800/40 p-4 text-center text-sm text-slate-300">
@@ -305,6 +327,7 @@ function PlansTab() {
           highlighted
           name="Build the Machine"
           description="A full digital growth engine running 24/7 — SEO, ads, automation, and lead management all working together."
+          fromPrice={!priv}
           price="$899"
           priceSuffix="/mo"
           priceNote="+ $399 one-time activation fee"
@@ -320,13 +343,13 @@ function PlansTab() {
             "Website chatbot that answers after hours",
             "Monthly strategy call",
           ]}
-          ctaLabel="Get Started →"
-          ctaHref="https://api.rgvperformancemarketing.com/payment-link/6a25cba371a0aa761e46375b"
+          {...ctaFor(priv, "https://api.rgvperformancemarketing.com/payment-link/6a25cba371a0aa761e46375b")}
         />
         <Card
           tier="// Full Service"
           name="Own the Market"
           description="Dominate your category. Full-service execution across every channel with a dedicated strategist in your corner."
+          fromPrice={!priv}
           price="$2,000"
           priceSuffix="/mo"
           priceNote="No activation fee"
@@ -340,8 +363,7 @@ function PlansTab() {
             "Bi-weekly strategy calls",
             "Priority support",
           ]}
-          ctaLabel="Book a Call →"
-          ctaHref={BOOKING}
+          {...ctaFor(priv)}
         />
       </div>
 
@@ -356,7 +378,8 @@ function PlansTab() {
 
 /* ------------------------------- main --------------------------------- */
 
-export default function PricingTabs() {
+export default function PricingTabs({ mode = "public" }: { mode?: "public" | "private" }) {
+  const priv = mode === "private";
   const [activeTab, setActiveTab] = useState<TabId>("plans");
 
   return (
@@ -386,11 +409,12 @@ export default function PricingTabs() {
             // PLANS &amp; PRICING
           </div>
           <h1 className="mx-auto mt-4 text-5xl uppercase leading-none tracking-wide text-white md:text-6xl" style={bebas}>
-            Digital Marketing Pricing &amp; Plans
+            {priv ? "Your Plan Options" : "Digital Marketing Pricing & Plans"}
           </h1>
           <p className="mt-4 text-base leading-relaxed text-slate-400">
-            Transparent pricing. No long-term contracts. No hidden fees. Pick a single service or bundle everything for
-            the best value.
+            {priv
+              ? "Pick the plan we talked about and check out below. Month-to-month, cancel anytime."
+              : "Clear starting prices. No long-term contracts. No hidden fees. Book a quick call and we'll put together the right plan for your business."}
           </p>
         </div>
 
@@ -443,9 +467,9 @@ export default function PricingTabs() {
               aria-labelledby={`pricing-tab-${tab.id}`}
               hidden={tab.id !== activeTab}
             >
-              {tab.id === "websites" && <WebsitesTab />}
-              {tab.id === "social" && <SocialTab />}
-              {tab.id === "plans" && <PlansTab />}
+              {tab.id === "websites" && <WebsitesTab priv={priv} />}
+              {tab.id === "social" && <SocialTab priv={priv} />}
+              {tab.id === "plans" && <PlansTab priv={priv} />}
             </div>
           ))}
         </div>
