@@ -24,15 +24,15 @@ export const metadata: Metadata = {
 const pricingFaqs = [
   {
     q: "Do I have to sign a long-term contract?",
-    a: "No. All plans are month-to-month. We believe in earning your business every month, not locking you in. The only upfront cost anywhere is the one-time activation fee on Build the Machine, which covers onboarding, setup, and getting everything configured.",
+    a: "No. All plans are month-to-month. We believe in earning your business every month, not locking you in. The only upfront costs are the one-time $499 build fee on Plant the Flag and the SEO Package, and the one-time activation fee on Build the Machine, which covers onboarding, setup, and getting everything configured.",
   },
   {
     q: "Is website design included in the price?",
-    a: "Yes, on Plant the Flag and the SEO Package. Both include a custom website we build, host, and keep updated, with no separate build fee. Build the Machine and Own the Market are marketing plans; if you need a new site on one of those, we quote it separately based on what you need.",
+    a: "Yes, on Plant the Flag and the SEO Package. Both include a custom website we build, host, and keep updated, for a one-time $499 build fee. Build the Machine and Own the Market are marketing plans; if you need a new site on one of those, we quote it separately based on what you need.",
   },
   {
     q: "What is the activation fee?",
-    a: "Build the Machine includes a one-time $399 activation fee that covers onboarding, account setup, and configuring your systems. Plant the Flag, the SEO Package, and Own the Market have no activation fee. After activation, you simply pay the flat monthly rate.",
+    a: "Build the Machine includes a one-time $399 activation fee that covers onboarding, account setup, and configuring your systems. Own the Market has no activation fee. Plant the Flag and the SEO Package have a one-time $499 build fee instead. After activation, you simply pay the flat monthly rate.",
   },
   {
     q: "Does ad spend come out of the monthly fee?",
