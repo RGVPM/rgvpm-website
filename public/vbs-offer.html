@@ -357,20 +357,22 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 @media (max-width:900px){.stack .clip{width:180px}}
 @media (max-width:480px){.stack{height:360px}.stack .clip{width:128px}.stack .clip .cap small{display:none}.stack .clip .rec{display:none}.stack .clip:nth-child(1){top:90px}.stack .clip:nth-child(4){top:100px}.clip.v .cap b{font-size:1rem}}
 
-/* 3 video cards: left, center (front), right */
-.stack .clip{width:230px}
-.stack .clip:nth-child(1){left:0;right:auto;top:120px;--r:-8deg;z-index:1}
-.stack .clip:nth-child(2){left:50%;right:auto;margin-left:-115px!important;top:10px;--r:0deg;z-index:3}
-.stack .clip:nth-child(3){left:auto;right:0;top:140px;--r:8deg;z-index:2}
-.stack .clip:nth-child(3) .cap{left:auto;right:16px;text-align:right}
-.stack .clip:nth-child(1) .cap,.stack .clip:nth-child(2) .cap{left:16px;right:auto;text-align:left}
-@media (max-width:900px){.stack .clip{width:200px}.stack .clip:nth-child(2){margin-left:-100px!important}}
-@media (max-width:480px){.stack .clip{width:150px}.stack .clip:nth-child(2){margin-left:-75px!important}.stack .clip:nth-child(1){top:80px}.stack .clip:nth-child(3){top:96px}}
+/* 4 video cards: fanned, second card in front */
+.stack .clip{width:200px}
+.stack .clip:nth-child(1){left:0;right:auto;margin:0!important;top:130px;--r:-9deg;z-index:1}
+.stack .clip:nth-child(2){left:21%;right:auto;margin:0!important;top:16px;--r:-3deg;z-index:4}
+.stack .clip:nth-child(3){left:auto;right:19%;margin:0!important;top:56px;--r:4deg;z-index:3}
+.stack .clip:nth-child(4){left:auto;right:0;margin:0!important;top:160px;--r:10deg;z-index:2}
+.stack .clip .cap{left:16px;right:auto;text-align:left}
+.stack .clip:nth-child(3) .cap,.stack .clip:nth-child(4) .cap{left:auto;right:16px;text-align:right}
+@media (max-width:900px){.stack .clip{width:180px}}
+@media (max-width:480px){.stack .clip{width:128px}.stack .clip:nth-child(1){top:90px}.stack .clip:nth-child(4){top:100px}}
 @media (max-width:760px){
-  .mini .clip{width:122px}
-  .mini .clip:nth-child(1){left:2%;right:auto;top:38px;--r:-8deg;z-index:1}
-  .mini .clip:nth-child(2){left:50%;right:auto;margin-left:-61px!important;top:0;--r:0deg;z-index:3}
-  .mini .clip:nth-child(3){left:auto;right:2%;top:46px;--r:8deg;z-index:2}
+  .mini .clip{width:104px}
+  .mini .clip:nth-child(1){left:0;right:auto;top:40px;--r:-9deg;z-index:1}
+  .mini .clip:nth-child(2){left:23%;right:auto;margin-left:0!important;top:4px;--r:-3deg;z-index:4}
+  .mini .clip:nth-child(3){left:auto;right:23%;top:14px;--r:4deg;z-index:3}
+  .mini .clip:nth-child(4){left:auto;right:0;top:46px;--r:10deg;z-index:2}
 }
 
 /* sticky mobile cta */
@@ -414,6 +416,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       <div class="clip v"><video muted loop playsinline preload="none" poster="/vbs-media/hunter-group.jpg" data-src="/vbs-media/hunter-group.mp4"></video><span class="rec">REC</span><div class="cap"><b>Hunter Group</b></div></div>
       <div class="clip v"><video muted loop playsinline preload="none" poster="/vbs-media/glammed-up.jpg" data-src="/vbs-media/glammed-up.mp4"></video><span class="rec">REC</span><div class="cap"><b>Glammed Up</b></div></div>
       <div class="clip v"><video muted loop playsinline preload="none" poster="/vbs-media/neuromotion.jpg" data-src="/vbs-media/neuromotion.mp4"></video><span class="rec">REC</span><div class="cap"><b>NeuroMotion</b></div></div>
+      <div class="clip v"><video muted loop playsinline preload="none" poster="/vbs-media/us-to-you.jpg" data-src="/vbs-media/us-to-you.mp4"></video><span class="rec">REC</span><div class="cap"><b>Us To You</b></div></div>
       <div class="sticker"><s>$899</s><b>Free</b><small>video shoot</small></div>
     </div>
     <div class="row">
@@ -453,6 +456,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
         <div class="clip v"><video muted loop playsinline preload="none" poster="/vbs-media/hunter-group.jpg" data-src="/vbs-media/hunter-group.mp4"></video><span class="rec">REC</span><div class="cap"><b>Hunter Group</b><small>Event recap</small></div></div>
         <div class="clip v"><video muted loop playsinline preload="none" poster="/vbs-media/glammed-up.jpg" data-src="/vbs-media/glammed-up.mp4"></video><span class="rec">REC</span><div class="cap"><b>Glammed Up</b><small>Med spa</small></div></div>
         <div class="clip v"><video muted loop playsinline preload="none" poster="/vbs-media/neuromotion.jpg" data-src="/vbs-media/neuromotion.mp4"></video><span class="rec">REC</span><div class="cap"><b>NeuroMotion</b><small>Physical therapy</small></div></div>
+        <div class="clip v"><video muted loop playsinline preload="none" poster="/vbs-media/us-to-you.jpg" data-src="/vbs-media/us-to-you.mp4"></video><span class="rec">REC</span><div class="cap"><b>Us To You</b><small>Event recap</small></div></div>
       </div>
     </div>
     <div class="flow">
