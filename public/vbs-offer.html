@@ -375,6 +375,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   .mini .clip:nth-child(4){left:auto;right:0;top:46px;--r:10deg;z-index:2}
 }
 
+/* phones: the hero already shows the video cards, so skip the second set */
+@media (max-width:760px){.reel .stack{display:none}.reel .reel-grid{gap:0}}
+
 /* sticky mobile cta */
 .stick{position:fixed;left:12px;right:12px;bottom:12px;z-index:20;display:none;align-items:center;justify-content:space-between;gap:12px;background:var(--ink);color:#fff;border:1px solid var(--hair-d);border-radius:999px;padding:8px 8px 8px 20px;box-shadow:0 20px 40px -10px rgba(0,0,0,.5);transform:translateY(140%);transition:transform .3s ease}
 .stick.on{transform:none}
