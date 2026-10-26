@@ -3,9 +3,14 @@ import Icon from "@/components/Icon";
 import PageHero from "@/components/PageHero";
 import JsonLd from "@/components/JsonLd";
 import Script from "next/script";
-import { canonical, breadcrumbSchema, SITE, socialMeta } from "@/lib/site";
+import { canonical, breadcrumbSchema, SITE, socialMeta, GOOGLE_REVIEW_URL, SERVICE_AREA_CITIES } from "@/lib/site";
 
 const url = canonical("/contact");
+
+// A city map, not the business listing: as a service-area business the
+// listing has no public street address to pin.
+const MAP_EMBED =
+  "https://www.google.com/maps?q=Harlingen,+TX&z=10&output=embed";
 
 export const metadata: Metadata = {
   title: "Contact — Get a Free Marketing Consultation",
@@ -124,6 +129,17 @@ export default function ContactPage() {
                     </div>
                   );
                 })}
+                <div style={{ marginTop: 28, background: "#fff", border: "1px solid var(--border)", borderLeft: "4px solid var(--teal)", borderRadius: 12, padding: "22px 24px" }}>
+                  <div style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--teal)", marginBottom: 8 }}>
+                    {"// Already a client?"}
+                  </div>
+                  <p style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.6, marginBottom: 14 }}>
+                    If we&apos;ve helped your business, a quick Google review helps other Valley owners find us. It takes about 30 seconds.
+                  </p>
+                  <a href={GOOGLE_REVIEW_URL} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", background: "var(--navy)", color: "#fff", fontWeight: 700, fontSize: 14, padding: "11px 22px", borderRadius: 4, textDecoration: "none" }}>
+                    Leave Us a Google Review →
+                  </a>
+                </div>
                 <div style={{ marginTop: 28, background: "var(--navy)", borderRadius: 12, padding: "26px 24px" }}>
                   <div style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--orange)", marginBottom: 10 }}>
                     {"// Prefer to skip ahead?"}
@@ -137,6 +153,23 @@ export default function ContactPage() {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+        <section style={{ padding: "0 0 88px", background: "var(--cream)" }}>
+          <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
+            <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 30, letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, marginBottom: 8 }}>
+              Based in Harlingen, Serving the Whole Valley
+            </h2>
+            <p style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.6, marginBottom: 20, maxWidth: 720 }}>
+              We serve businesses in {SERVICE_AREA_CITIES.join(", ")} and across the Rio Grande Valley, and we work with clients nationwide.
+            </p>
+            <iframe
+              src={MAP_EMBED}
+              title={`${SITE.name} on Google Maps`}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              style={{ width: "100%", height: 380, border: "1px solid var(--border)", borderRadius: 12, display: "block" }}
+            />
           </div>
         </section>
       </main>

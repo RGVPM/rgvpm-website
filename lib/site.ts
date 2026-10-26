@@ -52,6 +52,14 @@ export const SOCIAL_PROFILES: string[] = [
 ];
 
 /**
+ * Where "Leave us a Google review" links point. This is the Google Business
+ * Profile link from SOCIAL_PROFILES, which opens the listing with its
+ * "Write a review" button. TODO(owner): swap in the direct review link from
+ * business.google.com > "Ask for reviews" so the review box opens straight away.
+ */
+export const GOOGLE_REVIEW_URL = "https://share.google/P2QVUDKeJlWeX0QGX";
+
+/**
  * The three profiles we actively point people at, in display order, with the
  * handle to show. Kept separate from SOCIAL_PROFILES because that list also
  * carries the Google Business Profile — right for schema `sameAs`, wrong for
