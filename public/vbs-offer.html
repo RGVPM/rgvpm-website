@@ -378,6 +378,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 /* phones: the hero already shows the video cards, so skip the second set */
 @media (max-width:760px){.reel .stack{display:none}.reel .reel-grid{gap:0}}
 
+.clip.nocap .cap{display:none}
+
 /* sticky mobile cta */
 .stick{position:fixed;left:12px;right:12px;bottom:12px;z-index:20;display:none;align-items:center;justify-content:space-between;gap:12px;background:var(--ink);color:#fff;border:1px solid var(--hair-d);border-radius:999px;padding:8px 8px 8px 20px;box-shadow:0 20px 40px -10px rgba(0,0,0,.5);transform:translateY(140%);transition:transform .3s ease}
 .stick.on{transform:none}
@@ -416,8 +418,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       </div>
     </div>
     <div class="mini" aria-hidden="true">
-      <div class="clip v"><video muted loop playsinline preload="none" poster="/vbs-media/valley-hair-show.jpg" data-src="/vbs-media/valley-hair-show.mp4"></video><span class="rec">REC</span><div class="cap"><b>RGVPM</b></div></div>
       <div class="clip v"><video muted loop playsinline preload="none" poster="/vbs-media/glammed-up.jpg" data-src="/vbs-media/glammed-up.mp4"></video><span class="rec">REC</span><div class="cap"><b>Glammed Up</b></div></div>
+      <div class="clip v nocap"><video muted loop playsinline preload="none" poster="/vbs-media/valley-hair-show.jpg" data-src="/vbs-media/valley-hair-show.mp4"></video><span class="rec">REC</span><div class="cap"><b>RGVPM</b></div></div>
       <div class="clip v"><video muted loop playsinline preload="none" poster="/vbs-media/neuromotion.jpg" data-src="/vbs-media/neuromotion.mp4"></video><span class="rec">REC</span><div class="cap"><b>NeuroMotion</b></div></div>
       <div class="clip v"><video muted loop playsinline preload="none" poster="/vbs-media/us-to-you.jpg" data-src="/vbs-media/us-to-you.mp4"></video><span class="rec">REC</span><div class="cap"><b>Us To You</b></div></div>
       <div class="sticker"><s>$899</s><b>Free</b><small>video shoot</small></div>
@@ -456,8 +458,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
         </div>
       </div>
       <div class="stack" aria-hidden="true">
-        <div class="clip v"><video muted loop playsinline preload="none" poster="/vbs-media/valley-hair-show.jpg" data-src="/vbs-media/valley-hair-show.mp4"></video><span class="rec">REC</span><div class="cap"><b>RGVPM</b><small>Valley Hair Show</small></div></div>
         <div class="clip v"><video muted loop playsinline preload="none" poster="/vbs-media/glammed-up.jpg" data-src="/vbs-media/glammed-up.mp4"></video><span class="rec">REC</span><div class="cap"><b>Glammed Up</b><small>Med spa</small></div></div>
+        <div class="clip v nocap"><video muted loop playsinline preload="none" poster="/vbs-media/valley-hair-show.jpg" data-src="/vbs-media/valley-hair-show.mp4"></video><span class="rec">REC</span><div class="cap"><b>RGVPM</b><small>Valley Hair Show</small></div></div>
         <div class="clip v"><video muted loop playsinline preload="none" poster="/vbs-media/neuromotion.jpg" data-src="/vbs-media/neuromotion.mp4"></video><span class="rec">REC</span><div class="cap"><b>NeuroMotion</b><small>Physical therapy</small></div></div>
         <div class="clip v"><video muted loop playsinline preload="none" poster="/vbs-media/us-to-you.jpg" data-src="/vbs-media/us-to-you.mp4"></video><span class="rec">REC</span><div class="cap"><b>Us To You</b><small>Event recap</small></div></div>
       </div>
