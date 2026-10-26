@@ -165,7 +165,7 @@ function WebsitesTab() {
         description="A site that actually catches jobs, plus the CRM."
         price="$397"
         priceSuffix="/mo"
-        priceNote="month-to-month"
+        priceNote="+ $499 one-time build fee · month-to-month"
         features={[
           "Custom site, not a template",
           "Hosting, SSL, backups, security",
@@ -184,7 +184,7 @@ function WebsitesTab() {
         description="Plant the Flag, then we work Google so more of the right people find you. No #1 ranking guarantee."
         price="$597"
         priceSuffix="/mo"
-        priceNote="month-to-month"
+        priceNote="+ $499 one-time build fee · month-to-month"
         features={[
           "Everything in Plant the Flag",
           "Google Business Profile built out (photos, categories, posts)",

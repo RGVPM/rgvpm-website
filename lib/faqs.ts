@@ -3,11 +3,11 @@
 export const homeFaqs = [
   {
     q: "Do I have to sign a long-term contract?",
-    a: "No. All plans are month-to-month. We believe in earning your business every month — not locking you in. The only upfront cost is the one-time activation fee on the Build the Machine plan, which covers onboarding, setup, and getting everything configured.",
+    a: "No. All plans are month-to-month. We believe in earning your business every month — not locking you in. The only upfront costs are the one-time $499 build fee on Plant the Flag and the SEO Package, and the one-time activation fee on the Build the Machine plan, which covers onboarding, setup, and getting everything configured.",
   },
   {
     q: "Is website design included in the plans?",
-    a: "Yes, on Plant the Flag and the SEO Package. Both include a custom website we build, host, and keep updated, with no separate build fee. Build the Machine and Own the Market are marketing plans; if you need a new site on one of those, we quote it separately based on what you need.",
+    a: "Yes, on Plant the Flag and the SEO Package. Both include a custom website we build, host, and keep updated, for a one-time $499 build fee. Build the Machine and Own the Market are marketing plans; if you need a new site on one of those, we quote it separately based on what you need.",
   },
   {
     q: "How does the newsletter work?",
