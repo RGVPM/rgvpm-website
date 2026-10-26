@@ -58,10 +58,10 @@ export default function Footer() {
             {
               title: "Plans",
               links: [
-                { label: "Plant the Flag — $397/mo", href: "/pricing" },
-                { label: "SEO Package — $597/mo", href: "/pricing" },
-                { label: "Build the Machine — $899/mo", href: "/pricing" },
-                { label: "Own the Market — $2,000/mo", href: "/pricing" },
+                { label: "Plant the Flag — from $397/mo", href: "/pricing" },
+                { label: "SEO Package — from $597/mo", href: "/pricing" },
+                { label: "Build the Machine — from $899/mo", href: "/pricing" },
+                { label: "Own the Market — from $2,000/mo", href: "/pricing" },
               ],
             },
             {
