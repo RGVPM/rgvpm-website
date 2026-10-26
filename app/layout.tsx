@@ -3,6 +3,7 @@ import Script from "next/script";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import MobileCtaBar from "@/components/MobileCtaBar";
 import PageTransition from "@/components/PageTransition";
 import JsonLd from "@/components/JsonLd";
 import { businessSchema, websiteSchema } from "@/lib/site";
@@ -74,6 +75,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Nav />
         <PageTransition>{children}</PageTransition>
         <Footer />
+        <MobileCtaBar />
       </body>
     </html>
   );
