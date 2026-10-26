@@ -1,8 +1,11 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
+import Script from "next/script";
 
 const BOOKING = "https://api.rgvperformancemarketing.com/widget/bookings/rgvpmdiscoverycall";
+/** GHL "Pricing Page - Website" form, opened in a modal from the website plan cards. */
+const WEBSITE_FORM_ID = "BCE39ompMur5IBUOLxJM";
 const bebas = { fontFamily: "'Bebas Neue', sans-serif" } as const;
 
 /**
@@ -177,7 +180,11 @@ function Card({
 
 /* ------------------------------ tab bodies ------------------------------ */
 
-function WebsitesTab({ priv }: { priv: boolean }) {
+function WebsitesTab({ priv, onForm }: { priv: boolean; onForm: () => void }) {
+  // Public page: website plans open the lead form instead of booking a call.
+  const websiteCta = (checkout: string) =>
+    priv ? ctaFor(priv, checkout) : { ctaLabel: "Get Started →", onCta: onForm };
+
   return (
     <div className="mx-auto grid max-w-5xl gap-6 lg:grid-cols-2">
       <Card
@@ -198,7 +205,7 @@ function WebsitesTab({ priv }: { priv: boolean }) {
           "Mobile-first and bilingual if you need it",
           "We keep it live and patched so you don't babysit WordPress",
         ]}
-        {...ctaFor(priv, "https://buy.stripe.com/7sY9ATeDa4ui3dwg7T7Zu0F")}
+        {...websiteCta("https://buy.stripe.com/7sY9ATeDa4ui3dwg7T7Zu0F")}
       />
       <Card
         tier="// Get found"
@@ -217,7 +224,7 @@ function WebsitesTab({ priv }: { priv: boolean }) {
           "Monthly content that targets real Search Console queries",
           "Monthly report: what moved, what we're doing next",
         ]}
-        {...ctaFor(priv, "https://buy.stripe.com/fZu9ATgLi0e28xQbRD7Zu0G")}
+        {...websiteCta("https://buy.stripe.com/fZu9ATgLi0e28xQbRD7Zu0G")}
       />
     </div>
   );
@@ -380,6 +387,7 @@ function PlansTab({ priv }: { priv: boolean }) {
 
 export default function PricingTabs({ mode = "public" }: { mode?: "public" | "private" }) {
   const priv = mode === "private";
+  const [formOpen, setFormOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<TabId>("plans");
 
   return (
@@ -467,7 +475,7 @@ export default function PricingTabs({ mode = "public" }: { mode?: "public" | "pr
               aria-labelledby={`pricing-tab-${tab.id}`}
               hidden={tab.id !== activeTab}
             >
-              {tab.id === "websites" && <WebsitesTab priv={priv} />}
+              {tab.id === "websites" && <WebsitesTab priv={priv} onForm={() => setFormOpen(true)} />}
               {tab.id === "social" && <SocialTab priv={priv} />}
               {tab.id === "plans" && <PlansTab priv={priv} />}
             </div>
@@ -488,6 +496,64 @@ export default function PricingTabs({ mode = "public" }: { mode?: "public" | "pr
         </div>
       </div>
 
+      {formOpen && <WebsiteFormModal onClose={() => setFormOpen(false)} />}
     </section>
+  );
+}
+
+/* --------------------------- website form modal --------------------------- */
+
+function WebsiteFormModal({ onClose }: { onClose: () => void }) {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    document.addEventListener("keydown", onKey);
+    const overflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = overflow;
+    };
+  }, [onClose]);
+
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label="Get started with a website plan"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 p-4"
+      onClick={onClose}
+    >
+      <div
+        className="relative max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-xl bg-white"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Close"
+          className="absolute right-2 top-2 z-10 flex h-9 w-9 items-center justify-center rounded-full text-2xl leading-none text-slate-500 hover:bg-slate-100 hover:text-slate-800"
+        >
+          ×
+        </button>
+        <iframe
+          src={`https://api.rgvperformancemarketing.com/widget/form/${WEBSITE_FORM_ID}`}
+          style={{ width: "100%", height: 526, border: "none", borderRadius: 8 }}
+          id={`inline-${WEBSITE_FORM_ID}`}
+          data-layout="{'id':'INLINE'}"
+          data-trigger-type="alwaysShow"
+          data-trigger-value=""
+          data-activation-type="alwaysActivated"
+          data-activation-value=""
+          data-deactivation-type="neverDeactivate"
+          data-deactivation-value=""
+          data-form-name="Pricing Page - Website"
+          data-height="526"
+          data-layout-iframe-id={`inline-${WEBSITE_FORM_ID}`}
+          data-form-id={WEBSITE_FORM_ID}
+          title="Pricing Page - Website"
+        />
+      </div>
+      <Script src="https://api.rgvperformancemarketing.com/js/form_embed.js" strategy="afterInteractive" />
+    </div>
   );
 }
