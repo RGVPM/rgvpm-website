@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, type ReactNode } from "react";
+import { createPortal } from "react-dom";
 import Script from "next/script";
 
 const BOOKING = "https://api.rgvperformancemarketing.com/widget/bookings/rgvpmdiscoverycall";
@@ -503,6 +504,8 @@ export default function PricingTabs({ mode = "public" }: { mode?: "public" | "pr
 
 /* --------------------------- website form modal --------------------------- */
 
+// Portaled to <body>: the layout's .page-transition wrapper has a transform,
+// which would otherwise make `position: fixed` relative to the whole page.
 function WebsiteFormModal({ onClose }: { onClose: () => void }) {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
@@ -515,7 +518,7 @@ function WebsiteFormModal({ onClose }: { onClose: () => void }) {
     };
   }, [onClose]);
 
-  return (
+  return createPortal(
     <div
       role="dialog"
       aria-modal="true"
@@ -554,6 +557,7 @@ function WebsiteFormModal({ onClose }: { onClose: () => void }) {
         />
       </div>
       <Script src="https://api.rgvperformancemarketing.com/js/form_embed.js" strategy="afterInteractive" />
-    </div>
+    </div>,
+    document.body,
   );
 }
