@@ -10,27 +10,29 @@ const url = canonical("/about");
 const linkedinUrl = SOCIAL_PROFILES.find((u) => u.includes("linkedin"));
 
 export const metadata: Metadata = {
-  title: "Meet the Team — Derrick & Kelsey Tamez",
+  title: "Meet the Team",
   description:
-    "RGV Performance Marketing is run by Derrick Tamez, MBA, and Kelsey Tamez, a husband-and-wife team in Harlingen, TX. Meet the team, see what we build for Rio Grande Valley businesses, and find out how to join us.",
+    "Meet the RGV Performance Marketing team in Harlingen, TX: founder and CEO Derrick Tamez, MBA, co-founder Kelsey Tamez, and Director of Marketing Anthony Lopez. See who builds and runs your marketing, and how to join us.",
   alternates: { canonical: url },
   ...socialMeta({
     url,
     title: `About ${SITE.name}`,
     description:
-      "Meet Derrick and Kelsey Tamez, the husband-and-wife team behind RGV Performance Marketing. We're hiring.",
+      "Meet the leadership and team behind RGV Performance Marketing in Harlingen, TX. We're hiring.",
   }),
 };
 
 /**
- * Founder profiles. Photos live in /public/founders/ (4:5 portrait, at
- * least 900px wide). Leave `photo` undefined and the card renders a navy
- * panel with the founder's initials instead, so the page never shows a
- * broken image while a photo is pending.
- *
- * Both bios were written with the founders.
+ * Team profiles, grouped like an org chart: LEADERSHIP renders as full
+ * alternating rows, TEAM as a card grid below it. Add new hires to TEAM.
+ * Photos live in /public/founders/ (4:5 portrait, at least 900px wide).
+ * Leave `photo` undefined and the card renders a navy panel with the
+ * person's initials instead, so the page never shows a broken image while
+ * a photo is pending.
  */
 type Founder = {
+  /** Schema.org @id, stable so other pages can reference this person. */
+  id: string;
   first: string;
   name: string;
   title: string;
@@ -40,8 +42,9 @@ type Founder = {
   bio: string[];
 };
 
-const FOUNDERS: Founder[] = [
+const LEADERSHIP: Founder[] = [
   {
+    id: PERSON_DERRICK_ID,
     first: "Derrick",
     name: "Derrick Tamez, MBA",
     title: "Founder & CEO",
@@ -62,6 +65,7 @@ const FOUNDERS: Founder[] = [
     ],
   },
   {
+    id: PERSON_KELSEY_ID,
     first: "Kelsey",
     name: "Kelsey Tamez",
     title: "Co-Founder & Operations Director",
@@ -76,6 +80,26 @@ const FOUNDERS: Founder[] = [
       "Kelsey graduated from the University of Texas at San Antonio with a degree in early childhood education, a field that teaches you how to meet people where they are, explain things clearly, and build routines that hold up under pressure. She brought all of that into business.",
       "She spent five years at Aesthetic Record as a Senior Account Manager, working with hundreds of clinic owners and staff as they set up their software, trained their teams, and grew their practices. Day after day she watched which setups worked and which ones fell apart, and she developed an eye for the most effective way to organize a business so it runs smoothly from the start.",
       "At RGV Performance Marketing, Kelsey runs onboarding, client communication, and delivery. When a new client comes on, she is the one mapping out how their systems should fit together, keeping the timeline honest, and making sure nothing gets lost between kickoff and launch. Clients get her directly, not a handoff.",
+    ],
+  },
+];
+
+const TEAM: Founder[] = [
+  {
+    id: `${SITE.url}/about#anthony-lopez`,
+    first: "Anthony",
+    name: "Anthony Lopez",
+    title: "Director of Marketing",
+    initials: "AL",
+    facts: [
+      "UTRGV alumnus",
+      "6 years in the beauty industry",
+      "Marketing & social media",
+      "Sales & operations growth",
+    ],
+    bio: [
+      "Anthony is a UTRGV alumnus who spent six years in the Valley's beauty industry at Valley Beauty Supply. He worked across marketing and social media there, and helped grow the company's sales and operations.",
+      "As Director of Marketing, Anthony leads marketing and social media strategy for our clients. Beauty and aesthetics businesses get someone who has worked inside their industry, not just marketed to it.",
     ],
   },
 ];
@@ -160,14 +184,12 @@ export default function AboutPage() {
             { name: "Home", path: "/" },
             { name: "About", path: "/about" },
           ]),
-          ...FOUNDERS.map((f) => {
-            // Stable @ids so blog posts and the business node can reference these people.
-            const id = f.first === "Derrick" ? PERSON_DERRICK_ID : PERSON_KELSEY_ID;
+          ...[...LEADERSHIP, ...TEAM].map((f) => {
             const [name, suffix] = f.name.split(", ");
             return {
               "@context": "https://schema.org",
               "@type": "Person",
-              "@id": id,
+              "@id": f.id,
               name,
               ...(suffix ? { honorificSuffix: suffix } : {}),
               jobTitle: f.title,
@@ -198,7 +220,7 @@ export default function AboutPage() {
                 className="rg-display"
                 style={{ fontSize: "var(--fs-hero)", color: "var(--navy)", margin: 0, lineHeight: 0.96 }}
               >
-                Small Team. Serious Systems.
+                Real People. Serious Systems.
                 <span style={{ display: "block", color: "var(--orange)" }}>Built in the Rio Grande Valley.</span>
               </h1>
               <p
@@ -210,13 +232,17 @@ export default function AboutPage() {
                   margin: "var(--s5) 0 0",
                 }}
               >
-                We&rsquo;re a husband-and-wife AI and marketing agency in Harlingen, Texas. We build
-                websites, local search, ads, and the AI systems behind them, then run it all so the
-                owner doesn&rsquo;t have to. And we&rsquo;re growing.
+                We&rsquo;re an AI and marketing agency in Harlingen, Texas. We build websites, local
+                search, ads, and the AI systems behind them, then run it all so the owner
+                doesn&rsquo;t have to. Meet the people doing the work.
               </p>
             </div>
 
-            {FOUNDERS.map((f, i) => (
+            <h2 className="rg-label" style={{ color: "var(--orange-ink)", margin: "var(--s9) 0 0" }}>
+              Leadership
+            </h2>
+
+            {LEADERSHIP.map((f, i) => (
               <div
                 key={f.name}
                 className="why-grid-responsive"
@@ -225,7 +251,7 @@ export default function AboutPage() {
                   gridTemplateColumns: i % 2 === 0 ? "0.42fr 0.58fr" : "0.58fr 0.42fr",
                   gap: "clamp(32px, 5vw, 72px)",
                   alignItems: "center",
-                  marginTop: i === 0 ? "var(--s9)" : "var(--s8)",
+                  marginTop: i === 0 ? "var(--s6)" : "var(--s8)",
                   paddingTop: i === 0 ? 0 : "var(--s8)",
                   borderTop: i === 0 ? "none" : "1px solid var(--border)",
                 }}
@@ -290,6 +316,64 @@ export default function AboutPage() {
               </div>
             ))}
 
+            {/* ── Team: card grid, grows as we hire ───────────────── */}
+            <div style={{ marginTop: "var(--s9)", paddingTop: "var(--s8)", borderTop: "1px solid var(--border)" }}>
+              <h2 className="rg-label" style={{ color: "var(--orange-ink)", margin: 0 }}>
+                The Team
+              </h2>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 300px), 1fr))",
+                  gap: "clamp(24px, 3vw, 40px)",
+                  marginTop: "var(--s6)",
+                }}
+              >
+                {TEAM.map((f) => (
+                  <article key={f.name}>
+                    <Portrait f={f} />
+                    <ul
+                      style={{
+                        listStyle: "none",
+                        margin: "var(--s5) 0 0",
+                        padding: 0,
+                        display: "flex",
+                        flexWrap: "wrap",
+                        gap: 8,
+                      }}
+                    >
+                      {f.facts.map((fact) => (
+                        <li
+                          key={fact}
+                          style={{
+                            fontFamily: mono,
+                            fontSize: 10.5,
+                            letterSpacing: "0.06em",
+                            textTransform: "uppercase",
+                            color: "var(--navy)",
+                            background: "#fff",
+                            border: "1px solid var(--border)",
+                            borderRadius: "var(--r-pill)",
+                            padding: "6px 11px",
+                          }}
+                        >
+                          {fact}
+                        </li>
+                      ))}
+                    </ul>
+                    {f.bio.map((para, j) => (
+                      <p
+                        key={j}
+                        style={{ fontSize: 15.5, lineHeight: 1.7, color: "var(--muted)", margin: j === 0 ? "var(--s4) 0 0" : "var(--s3) 0 0" }}
+                      >
+                        {para}
+                      </p>
+                    ))}
+                  </article>
+                ))}
+              </div>
+            </div>
+
             {linkedinUrl && (
               <p style={{ margin: "var(--s7) 0 0", fontSize: 15, color: "var(--muted)" }}>
                 Want the longer version?{" "}
@@ -323,7 +407,7 @@ export default function AboutPage() {
                   <span style={{ display: "block", color: "var(--orange)" }}>Come Build With Us.</span>
                 </h2>
                 <p style={{ fontSize: 17, lineHeight: 1.7, color: "rgba(255,255,255,0.74)", maxWidth: "52ch", margin: "var(--s5) 0 0" }}>
-                  We&rsquo;re adding to the team this week. If you&rsquo;re in the Valley, you care
+                  We&rsquo;re still adding to the team. If you&rsquo;re in the Valley, you care
                   about local businesses, and you&rsquo;re good at what you do, we want to hear
                   from you. Tell us what you&rsquo;d bring and why. No cover-letter formality
                   required.
