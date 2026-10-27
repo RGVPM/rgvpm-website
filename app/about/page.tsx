@@ -98,8 +98,9 @@ const TEAM: Founder[] = [
       "Sales & operations growth",
     ],
     bio: [
-      "Anthony is a UTRGV alumnus who spent six years in the Valley's beauty industry at Valley Beauty Supply. He worked across marketing and social media there, and helped grow the company's sales and operations.",
-      "As Director of Marketing, Anthony leads marketing and social media strategy for our clients. Beauty and aesthetics businesses get someone who has worked inside their industry, not just marketed to it.",
+      "Anthony graduated from UTRGV and spent the next six years in the Valley's beauty industry at Valley Beauty Supply. He handled marketing and social media there, and helped grow the company's sales and operations along the way.",
+      "That mix is what he brings to our clients. He knows what gets a customer's attention online, and he knows what has to happen behind the counter to turn that attention into sales.",
+      "As Director of Marketing, Anthony leads marketing and social media strategy for our clients. Salons, med spas, and aesthetics businesses get someone who has already sold to their customers.",
     ],
   },
 ];
