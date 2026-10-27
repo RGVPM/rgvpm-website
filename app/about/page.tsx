@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import Icon from "@/components/Icon";
 import InnerCTA from "@/components/InnerCTA";
 import JsonLd from "@/components/JsonLd";
+import TeamGrid, { type TeamMember } from "@/components/TeamGrid";
 import { canonical, breadcrumbSchema, SITE, SOCIAL_PROFILES, socialMeta, ORGANIZATION_ID, PERSON_DERRICK_ID, PERSON_KELSEY_ID } from "@/lib/site";
 
 const url = canonical("/about");
@@ -23,26 +23,11 @@ export const metadata: Metadata = {
 };
 
 /**
- * Team profiles, grouped like an org chart: LEADERSHIP renders as full
- * alternating rows, TEAM as a card grid below it. Add new hires to TEAM.
+ * Team profiles, grouped like an org chart. Every card is the same size;
+ * the bio opens on click (components/TeamGrid). Add new hires to TEAM.
  * Photos live in /public/founders/ (4:5 portrait, at least 900px wide).
- * Leave `photo` undefined and the card renders a navy panel with the
- * person's initials instead, so the page never shows a broken image while
- * a photo is pending.
  */
-type Founder = {
-  /** Schema.org @id, stable so other pages can reference this person. */
-  id: string;
-  first: string;
-  name: string;
-  title: string;
-  initials: string;
-  photo?: string;
-  facts: string[];
-  bio: string[];
-};
-
-const LEADERSHIP: Founder[] = [
+const LEADERSHIP: TeamMember[] = [
   {
     id: PERSON_DERRICK_ID,
     first: "Derrick",
@@ -84,7 +69,7 @@ const LEADERSHIP: Founder[] = [
   },
 ];
 
-const TEAM: Founder[] = [
+const TEAM: TeamMember[] = [
   {
     id: `${SITE.url}/about#anthony-lopez`,
     first: "Anthony",
@@ -114,68 +99,6 @@ const values = [
 ];
 
 const mono = "var(--font-dm-mono), ui-monospace, monospace";
-
-function Portrait({ f }: { f: Founder }) {
-  return (
-    <div
-      style={{
-        position: "relative",
-        aspectRatio: "4 / 5",
-        borderRadius: "var(--r-lg)",
-        overflow: "hidden",
-        background: "linear-gradient(160deg, #243658 0%, #1A2B4A 100%)",
-        border: "1px solid var(--border)",
-        boxShadow: "0 30px 60px -30px rgba(26,43,74,0.45)",
-      }}
-    >
-      {f.photo ? (
-        <Image
-          src={f.photo}
-          alt={`${f.name}, ${f.title} of ${SITE.name}`}
-          fill
-          sizes="(max-width: 900px) 92vw, 420px"
-          style={{ objectFit: "cover" }}
-          priority
-        />
-      ) : (
-        <div
-          aria-label={`${f.name} portrait`}
-          role="img"
-          style={{
-            position: "absolute",
-            inset: 0,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontFamily: "'Bebas Neue', sans-serif",
-            fontSize: "clamp(96px, 14vw, 170px)",
-            letterSpacing: "0.04em",
-            color: "rgba(247,244,239,0.14)",
-          }}
-        >
-          {f.initials}
-        </div>
-      )}
-      <div
-        style={{
-          position: "absolute",
-          left: 0,
-          right: 0,
-          bottom: 0,
-          padding: "40px 22px 20px",
-          background: "linear-gradient(to top, rgba(8,14,26,0.92), transparent)",
-        }}
-      >
-        <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 28, letterSpacing: "0.04em", color: "#fff", lineHeight: 1 }}>
-          {f.name}
-        </div>
-        <div style={{ fontFamily: mono, fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange-on-dark)", marginTop: 8 }}>
-          {f.title}
-        </div>
-      </div>
-    </div>
-  );
-}
 
 export default function AboutPage() {
   return (
@@ -240,141 +163,12 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <h2 className="rg-label" style={{ color: "var(--orange-ink)", margin: "var(--s9) 0 0" }}>
-              Leadership
-            </h2>
-
-            {LEADERSHIP.map((f, i) => (
-              <div
-                key={f.name}
-                className="why-grid-responsive"
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: i % 2 === 0 ? "0.42fr 0.58fr" : "0.58fr 0.42fr",
-                  gap: "clamp(32px, 5vw, 72px)",
-                  alignItems: "center",
-                  marginTop: i === 0 ? "var(--s6)" : "var(--s8)",
-                  paddingTop: i === 0 ? 0 : "var(--s8)",
-                  borderTop: i === 0 ? "none" : "1px solid var(--border)",
-                }}
-              >
-                <div className="rg-founder-photo" style={{ order: i % 2 === 0 ? 0 : 1 }}>
-                  <Portrait f={f} />
-                </div>
-                <div>
-                  <h2
-                    className="rg-display"
-                    style={{ fontSize: "clamp(32px, 3.4vw, 46px)", color: "var(--navy)", margin: 0 }}
-                  >
-                    {f.name}
-                  </h2>
-                  <p style={{ fontFamily: mono, fontSize: 11.5, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange-ink)", margin: "10px 0 0" }}>
-                    {f.title}
-                  </p>
-                  <ul
-                    style={{
-                      listStyle: "none",
-                      margin: "var(--s5) 0 0",
-                      padding: 0,
-                      display: "flex",
-                      flexWrap: "wrap",
-                      gap: 8,
-                    }}
-                  >
-                    {f.facts.map((fact) => (
-                      <li
-                        key={fact}
-                        style={{
-                          fontFamily: mono,
-                          fontSize: 11,
-                          letterSpacing: "0.06em",
-                          textTransform: "uppercase",
-                          color: "var(--navy)",
-                          background: "#fff",
-                          border: "1px solid var(--border)",
-                          borderRadius: "var(--r-pill)",
-                          padding: "7px 12px",
-                        }}
-                      >
-                        {fact}
-                      </li>
-                    ))}
-                  </ul>
-                  {f.bio.map((para, j) => (
-                    <p
-                      key={j}
-                      style={{
-                        fontSize: 16.5,
-                        lineHeight: 1.75,
-                        color: "var(--muted)",
-                        margin: j === 0 ? "var(--s5) 0 0" : "var(--s4) 0 0",
-                        maxWidth: "62ch",
-                      }}
-                    >
-                      {para}
-                    </p>
-                  ))}
-                </div>
-              </div>
-            ))}
-
-            {/* ── Team: card grid, grows as we hire ───────────────── */}
-            <div style={{ marginTop: "var(--s9)", paddingTop: "var(--s8)", borderTop: "1px solid var(--border)" }}>
-              <h2 className="rg-label" style={{ color: "var(--orange-ink)", margin: 0 }}>
-                The Team
-              </h2>
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 300px), 1fr))",
-                  gap: "clamp(24px, 3vw, 40px)",
-                  marginTop: "var(--s6)",
-                }}
-              >
-                {TEAM.map((f) => (
-                  <article key={f.name}>
-                    <Portrait f={f} />
-                    <ul
-                      style={{
-                        listStyle: "none",
-                        margin: "var(--s5) 0 0",
-                        padding: 0,
-                        display: "flex",
-                        flexWrap: "wrap",
-                        gap: 8,
-                      }}
-                    >
-                      {f.facts.map((fact) => (
-                        <li
-                          key={fact}
-                          style={{
-                            fontFamily: mono,
-                            fontSize: 10.5,
-                            letterSpacing: "0.06em",
-                            textTransform: "uppercase",
-                            color: "var(--navy)",
-                            background: "#fff",
-                            border: "1px solid var(--border)",
-                            borderRadius: "var(--r-pill)",
-                            padding: "6px 11px",
-                          }}
-                        >
-                          {fact}
-                        </li>
-                      ))}
-                    </ul>
-                    {f.bio.map((para, j) => (
-                      <p
-                        key={j}
-                        style={{ fontSize: 15.5, lineHeight: 1.7, color: "var(--muted)", margin: j === 0 ? "var(--s4) 0 0" : "var(--s3) 0 0" }}
-                      >
-                        {para}
-                      </p>
-                    ))}
-                  </article>
-                ))}
-              </div>
-            </div>
+            <TeamGrid
+              groups={[
+                { label: "Leadership", members: LEADERSHIP },
+                { label: "The Team", members: TEAM },
+              ]}
+            />
 
             {linkedinUrl && (
               <p style={{ margin: "var(--s7) 0 0", fontSize: 15, color: "var(--muted)" }}>
