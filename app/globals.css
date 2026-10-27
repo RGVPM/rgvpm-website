@@ -931,6 +931,8 @@ body {
 .rg-team-dialog {
   width: min(880px, calc(100vw - 32px));
   max-height: calc(100vh - 48px);
+  /* The global reset zeroes margins; auto restores the browser's centering. */
+  margin: auto;
   padding: 0;
   border: 0;
   border-radius: var(--r-lg);
