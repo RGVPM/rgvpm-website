@@ -91,6 +91,7 @@ const TEAM: Founder[] = [
     name: "Anthony Lopez",
     title: "Director of Marketing",
     initials: "AL",
+    photo: "/founders/anthony.jpg",
     facts: [
       "UTRGV alumnus",
       "6 years in the beauty industry",
