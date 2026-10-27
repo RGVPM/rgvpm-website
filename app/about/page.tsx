@@ -166,7 +166,7 @@ export default function AboutPage() {
             <TeamGrid
               groups={[
                 { label: "Leadership", members: LEADERSHIP },
-                { label: "The Team", members: TEAM },
+                { label: "Sales & Marketing", members: TEAM },
               ]}
             />
 
