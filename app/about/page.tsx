@@ -12,7 +12,7 @@ const linkedinUrl = SOCIAL_PROFILES.find((u) => u.includes("linkedin"));
 export const metadata: Metadata = {
   title: "Meet the Team",
   description:
-    "Meet the RGV Performance Marketing team in Harlingen, TX: founder and CEO Derrick Tamez, MBA, co-founder Kelsey Tamez, and Director of Marketing Anthony Lopez. See who builds and runs your marketing, and how to join us.",
+    "Meet the RGV Performance Marketing team in Harlingen, TX: founder and CEO Derrick Tamez, MBA, co-founder Kelsey Tamez, Director of Marketing Anthony Lopez, and Client Success Coach Shaye Arenas. See who builds and runs your marketing, and how to join us.",
   alternates: { canonical: url },
   ...socialMeta({
     url,
@@ -24,7 +24,8 @@ export const metadata: Metadata = {
 
 /**
  * Team profiles, grouped like an org chart. Every card is the same size;
- * the bio opens on click (components/TeamGrid). Add new hires to TEAM.
+ * the bio opens on click (components/TeamGrid). Add new hires to their
+ * department array, or add a new array and group for a new department.
  * Photos live in /public/founders/ (4:5 portrait, at least 900px wide).
  */
 const LEADERSHIP: TeamMember[] = [
@@ -69,7 +70,7 @@ const LEADERSHIP: TeamMember[] = [
   },
 ];
 
-const TEAM: TeamMember[] = [
+const SALES_MARKETING: TeamMember[] = [
   {
     id: `${SITE.url}/about#anthony-lopez`,
     first: "Anthony",
@@ -87,6 +88,26 @@ const TEAM: TeamMember[] = [
       "Anthony graduated from UTRGV and spent the next six years in the Valley's beauty industry at Valley Beauty Supply. He handled marketing and social media there, and helped grow the company's sales and operations along the way.",
       "That mix is what he brings to our clients. He knows what gets a customer's attention online, and he knows what has to happen behind the counter to turn that attention into sales.",
       "As Director of Marketing, Anthony leads marketing and social media strategy for our clients. Salons, med spas, and aesthetics businesses get someone who has already sold to their customers.",
+    ],
+  },
+];
+
+const CLIENT_SUCCESS: TeamMember[] = [
+  {
+    id: `${SITE.url}/about#shaye-arenas`,
+    first: "Shaye",
+    name: "Shaye Arenas",
+    title: "Client Success Coach",
+    initials: "SA",
+    facts: [
+      "Computer science degree",
+      "CRM specialist",
+      "Experience across industries",
+    ],
+    bio: [
+      "Shaye earned her degree in computer science, and she puts it to work on the systems that keep client accounts running. As our CRM specialist, she knows how leads, pipelines, automations, and follow-ups fit together, and how to keep them clean.",
+      "She has worked with businesses across a wide range of industries, so she is quick to learn how a new client operates and what they need from their CRM.",
+      "As Client Success Coach, Shaye helps clients get the most out of the systems we build: answering questions, walking them through their inbox and pipeline, and making sure the tools actually get used.",
     ],
   },
 ];
@@ -109,7 +130,7 @@ export default function AboutPage() {
             { name: "Home", path: "/" },
             { name: "About", path: "/about" },
           ]),
-          ...[...LEADERSHIP, ...TEAM].map((f) => {
+          ...[...LEADERSHIP, ...SALES_MARKETING, ...CLIENT_SUCCESS].map((f) => {
             const [name, suffix] = f.name.split(", ");
             return {
               "@context": "https://schema.org",
@@ -166,7 +187,8 @@ export default function AboutPage() {
             <TeamGrid
               groups={[
                 { label: "Leadership", members: LEADERSHIP },
-                { label: "Sales & Marketing", members: TEAM },
+                { label: "Sales & Marketing", members: SALES_MARKETING },
+                { label: "Client Success", members: CLIENT_SUCCESS },
               ]}
             />
 
