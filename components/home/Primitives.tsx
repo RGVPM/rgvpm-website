@@ -91,7 +91,7 @@ const buttonBase: CSSProperties = {
   fontSize: 15,
   lineHeight: 1,
   padding: "16px 28px",
-  borderRadius: "var(--r-sm)",
+  borderRadius: "var(--r-pill)",
   textDecoration: "none",
   transition:
     "background var(--t-fast) var(--ease), color var(--t-fast) var(--ease), transform var(--t-fast) var(--ease), box-shadow var(--t-med) var(--ease), border-color var(--t-fast) var(--ease)",

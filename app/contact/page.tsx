@@ -58,7 +58,7 @@ export default function ContactPage() {
                 href="https://api.rgvperformancemarketing.com/widget/bookings/rgvpmdiscoverycall"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "var(--blue)", color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 28px", borderRadius: 4, textDecoration: "none", flexShrink: 0 }}
+                style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "var(--blue)", color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 28px", borderRadius: "var(--r-pill)", textDecoration: "none", flexShrink: 0 }}
               >
                 Book a Free Call →
               </a>

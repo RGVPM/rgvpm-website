@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import { OFFER_LINKS } from "@/lib/offer";
 import { SITE, SERVICE_AREA_CITIES } from "@/lib/site";
+import BrandMark from "@/components/BrandMark";
 
 /**
  * The landing page's own footer.
@@ -25,14 +25,7 @@ export default function OfferFooter() {
       <div className="rg-container">
         <div className="lp-footer-top">
           <div>
-            <Image
-              src="/logo.png"
-              alt="RGV Performance Marketing"
-              width={200}
-              height={44}
-              sizes="200px"
-              style={{ height: 44, width: "auto" }}
-            />
+            <BrandMark size={56} tone="dark" />
             <p className="lp-footer-blurb">
               Websites, lead management and SEO for Texas businesses. Based in {SITE.city},{" "}
               {SITE.region}.

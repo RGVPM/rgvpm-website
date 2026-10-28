@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { OFFER_LINKS } from "@/lib/offer";
+import BrandMark from "@/components/BrandMark";
 
 /**
  * Landing-page chrome.
@@ -55,16 +55,7 @@ export function OfferTopBar() {
         }}
       >
         <Link href="/" aria-label="RGV Performance Marketing — home" style={{ display: "flex", flexShrink: 0 }}>
-          <Image
-            src="/logo.png"
-            alt="RGV Performance Marketing"
-            height={40}
-            width={200}
-            sizes="200px"
-            priority
-            className="lp-logo"
-            style={{ height: 40, width: "auto" }}
-          />
+          <span className="lp-logo"><BrandMark size={46} priority /></span>
         </Link>
 
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>

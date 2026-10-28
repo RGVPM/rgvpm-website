@@ -1,9 +1,9 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { SITE } from "@/lib/site";
+import BrandMark from "@/components/BrandMark";
 
 type NavItem = { label: string; href: string; children?: { label: string; href: string }[] };
 
@@ -169,15 +169,7 @@ export default function Nav() {
             aria-label="RGV Performance Marketing — home"
             style={{ display: "flex", flexShrink: 0 }}
           >
-            <Image
-              src="/logo.png"
-              alt="RGV Performance Marketing"
-              height={44}
-              width={220}
-              sizes="220px"
-              priority
-              style={{ height: 44, width: "auto" }}
-            />
+            <BrandMark size={52} priority />
           </Link>
 
           {/* Desktop nav switches in at xl, not lg: the assessment CTA is a
@@ -377,11 +369,11 @@ export default function Nav() {
                 color: "#fff",
                 fontWeight: 700,
                 // 19px clears WCAG's 18.66px large-text threshold, so white on
-                // the brand orange passes at 3:1 without altering the colour.
+                // the brand blue passes at 3:1 without altering the colour.
                 fontSize: 19,
                 padding: "11px 22px",
                 whiteSpace: "nowrap",
-                borderRadius: "var(--r-sm)",
+                borderRadius: "var(--r-pill)",
                 textDecoration: "none",
                 boxShadow: "var(--shadow-blue)",
                 transition:
@@ -526,7 +518,7 @@ export default function Nav() {
               color: "#fff",
               fontWeight: 700,
               fontSize: 16,
-              borderRadius: "var(--r-sm)",
+              borderRadius: "var(--r-pill)",
               textDecoration: "none",
               boxShadow: "var(--shadow-blue)",
               textAlign: "center",

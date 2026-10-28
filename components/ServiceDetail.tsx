@@ -23,10 +23,10 @@ export default function ServiceDetail({ service, cityLinks }: { service: Service
         ]}
       >
         <div style={{ display: "flex", gap: 14, flexWrap: "wrap", marginTop: 32 }}>
-          <Link href="/pricing" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "var(--blue)", color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 28px", borderRadius: 4, textDecoration: "none" }}>
+          <Link href="/pricing" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "var(--blue)", color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 28px", borderRadius: "var(--r-pill)", textDecoration: "none" }}>
             View Plans →
           </Link>
-          <Link href="/contact" style={{ display: "inline-flex", alignItems: "center", background: "rgba(255,255,255,0.1)", color: "#fff", fontWeight: 600, fontSize: 15, padding: "14px 28px", borderRadius: 4, textDecoration: "none", border: "1px solid rgba(255,255,255,0.25)" }}>
+          <Link href="/contact" style={{ display: "inline-flex", alignItems: "center", background: "rgba(255,255,255,0.1)", color: "#fff", fontWeight: 600, fontSize: 15, padding: "14px 28px", borderRadius: "var(--r-pill)", textDecoration: "none", border: "1px solid rgba(255,255,255,0.25)" }}>
             Talk to Us
           </Link>
         </div>

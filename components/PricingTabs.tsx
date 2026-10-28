@@ -135,7 +135,7 @@ function Card({
         <button
           type="button"
           onClick={onCta}
-          className={`mt-auto flex items-center justify-center rounded-md px-4 py-3 text-sm font-bold transition-colors ${cta}`}
+          className={`mt-auto flex items-center justify-center rounded-full px-4 py-3 text-sm font-bold transition-colors ${cta}`}
         >
           {ctaLabel}
         </button>
@@ -144,7 +144,7 @@ function Card({
           href={ctaHref}
           target="_blank"
           rel="noopener noreferrer"
-          className={`mt-auto flex items-center justify-center rounded-md px-4 py-3 text-sm font-bold transition-colors ${cta}`}
+          className={`mt-auto flex items-center justify-center rounded-full px-4 py-3 text-sm font-bold transition-colors ${cta}`}
         >
           {ctaLabel}
         </a>
@@ -420,7 +420,7 @@ export default function PricingTabs() {
                 aria-controls={`pricing-panel-${tab.id}`}
                 tabIndex={active ? 0 : -1}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex min-h-[44px] touch-manipulation items-center justify-center rounded-md px-5 py-2.5 text-sm font-semibold transition-colors ${
+                className={`flex min-h-[44px] touch-manipulation items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold transition-colors ${
                   active
                     ? "bg-(--blue) text-white"
                     : "border border-slate-700 bg-slate-800/40 text-slate-300 hover:border-(--blue)/50 hover:text-white"
@@ -457,7 +457,7 @@ export default function PricingTabs() {
             href={BOOKING}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-md bg-(--blue) px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-(--blue-deep)"
+            className="inline-flex items-center justify-center rounded-full bg-(--blue) px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-(--blue-deep)"
           >
             Book a Free Discovery Call →
           </a>

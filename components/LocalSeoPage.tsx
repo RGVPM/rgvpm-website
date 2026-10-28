@@ -36,10 +36,10 @@ export default function LocalSeoPage({ eyebrow, h1, heroSub, crumbs, cityIntro, 
     <main>
       <PageHero eyebrow={eyebrow} title={h1} subtitle={heroSub} crumbs={crumbs}>
         <div style={{ display: "flex", gap: 14, flexWrap: "wrap", marginTop: 32 }}>
-          <Link href="/contact" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "var(--blue)", color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 28px", borderRadius: 4, textDecoration: "none" }}>
+          <Link href="/contact" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "var(--blue)", color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 28px", borderRadius: "var(--r-pill)", textDecoration: "none" }}>
             Get a Free Ranking Review →
           </Link>
-          <Link href="/pricing" style={{ display: "inline-flex", alignItems: "center", background: "rgba(255,255,255,0.1)", color: "#fff", fontWeight: 600, fontSize: 15, padding: "14px 28px", borderRadius: 4, textDecoration: "none", border: "1px solid rgba(255,255,255,0.25)" }}>
+          <Link href="/pricing" style={{ display: "inline-flex", alignItems: "center", background: "rgba(255,255,255,0.1)", color: "#fff", fontWeight: 600, fontSize: 15, padding: "14px 28px", borderRadius: "var(--r-pill)", textDecoration: "none", border: "1px solid rgba(255,255,255,0.25)" }}>
             View Plans
           </Link>
         </div>

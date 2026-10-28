@@ -31,10 +31,10 @@ export default function ServiceCityPage(p: ServiceCityPageProps) {
     <main>
       <PageHero eyebrow={p.eyebrow} title={p.h1} subtitle={p.heroSub} crumbs={p.crumbs}>
         <div style={{ display: "flex", gap: 14, flexWrap: "wrap", marginTop: 32 }}>
-          <Link href={p.primaryCta.href} style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "var(--blue)", color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 28px", borderRadius: 4, textDecoration: "none" }}>
+          <Link href={p.primaryCta.href} style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "var(--blue)", color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 28px", borderRadius: "var(--r-pill)", textDecoration: "none" }}>
             {p.primaryCta.label}
           </Link>
-          <Link href="/pricing" style={{ display: "inline-flex", alignItems: "center", background: "rgba(255,255,255,0.1)", color: "#fff", fontWeight: 600, fontSize: 15, padding: "14px 28px", borderRadius: 4, textDecoration: "none", border: "1px solid rgba(255,255,255,0.25)" }}>
+          <Link href="/pricing" style={{ display: "inline-flex", alignItems: "center", background: "rgba(255,255,255,0.1)", color: "#fff", fontWeight: 600, fontSize: 15, padding: "14px 28px", borderRadius: "var(--r-pill)", textDecoration: "none", border: "1px solid rgba(255,255,255,0.25)" }}>
             View Plans
           </Link>
         </div>

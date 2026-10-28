@@ -222,7 +222,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
               </div>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
                 {post.related.map((r) => (
-                  <Link key={r.href} href={r.href} style={{ fontSize: 14, fontWeight: 600, color: "var(--navy)", background: "#fff", border: "1px solid var(--border)", borderRadius: 6, padding: "10px 16px", textDecoration: "none" }}>
+                  <Link key={r.href} href={r.href} style={{ fontSize: 14, fontWeight: 600, color: "var(--navy)", background: "#fff", border: "1px solid var(--border)", borderRadius: "var(--r-pill)", padding: "10px 16px", textDecoration: "none" }}>
                     {r.label} →
                   </Link>
                 ))}
