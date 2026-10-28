@@ -65,7 +65,7 @@ function Card({ site, layer }: { site: (typeof SITES)[number]; layer: "front" | 
             fontSize: 11,
             letterSpacing: "0.12em",
             textTransform: "uppercase",
-            color: "rgba(247,244,239,0.6)",
+            color: "rgba(253,248,236,0.9)",
             margin: "12px 0 0",
             display: "flex",
             alignItems: "center",
@@ -75,7 +75,7 @@ function Card({ site, layer }: { site: (typeof SITES)[number]; layer: "front" | 
           <span>{site.name}</span>
           <span
             aria-hidden="true"
-            style={{ width: 1, height: 11, background: "rgba(247,244,239,0.28)" }}
+            style={{ width: 1, height: 11, background: "rgba(253,248,236,0.5)" }}
           />
           <span>{site.city}</span>
         </p>

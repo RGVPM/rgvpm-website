@@ -43,7 +43,7 @@ export default function BlogEditorial() {
             style={{
               fontSize: 14,
               fontWeight: 700,
-              color: "var(--orange-ink)",
+              color: "var(--blue-ink)",
               textDecoration: "none",
               whiteSpace: "nowrap",
             }}
@@ -88,7 +88,7 @@ export default function BlogEditorial() {
                 top: "-30%",
                 width: "70%",
                 aspectRatio: "1",
-                background: "radial-gradient(circle, rgba(232,98,26,0.22) 0%, transparent 66%)",
+                background: "radial-gradient(circle, rgba(11,140,235,0.22) 0%, transparent 66%)",
                 pointerEvents: "none",
               }}
             />
@@ -102,14 +102,14 @@ export default function BlogEditorial() {
                   fontSize: 10.5,
                   letterSpacing: "0.12em",
                   textTransform: "uppercase",
-                  color: "var(--orange-on-dark)",
+                  color: "var(--blue-on-dark)",
                   marginBottom: "var(--s5)",
                 }}
               >
                 <span
                   style={{
-                    background: "rgba(232,98,26,0.16)",
-                    border: "1px solid rgba(232,98,26,0.35)",
+                    background: "rgba(11,140,235,0.16)",
+                    border: "1px solid rgba(11,140,235,0.35)",
                     borderRadius: "var(--r-pill)",
                     padding: "6px 12px",
                   }}
@@ -148,7 +148,7 @@ export default function BlogEditorial() {
                 position: "relative",
                 fontSize: 13.5,
                 fontWeight: 700,
-                color: "var(--orange-on-dark)",
+                color: "var(--blue-on-dark)",
               }}
             >
               Read the guide <span aria-hidden="true">→</span>
@@ -188,7 +188,7 @@ export default function BlogEditorial() {
                     flexShrink: 0,
                   }}
                 >
-                  <Icon name={p.icon} size={20} color="var(--orange)" />
+                  <Icon name={p.icon} size={20} color="var(--blue)" />
                 </span>
                 <span style={{ minWidth: 0 }}>
                   <span

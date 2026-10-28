@@ -41,7 +41,7 @@ export default function Process() {
             style={{ fontSize: "var(--fs-h2)", color: "var(--navy)", margin: 0 }}
           >
             A New Website In As Little As
-            <span style={{ color: "var(--orange)" }}> 8 to 10 Days.</span>
+            <span style={{ color: "var(--blue)" }}> 8 to 10 Days.</span>
           </h2>
           <p style={{ fontSize: 17, lineHeight: 1.7, color: "var(--muted)", margin: 0, maxWidth: "40ch" }}>
             No six-month onboarding. We design it, build it, and launch it fast, then keep it working
@@ -55,7 +55,7 @@ export default function Process() {
               <span className="rg-step-marker rg-display" aria-hidden="true">
                 {s.num}
               </span>
-              <p style={{ fontFamily: mono, fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange-ink)", margin: 0 }}>
+              <p style={{ fontFamily: mono, fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--blue-ink)", margin: 0 }}>
                 {s.days}
               </p>
               <h3 className="rg-display" style={{ fontSize: "clamp(28px, 2.6vw, 36px)", color: "var(--navy)", margin: "var(--s2) 0 var(--s3)" }}>

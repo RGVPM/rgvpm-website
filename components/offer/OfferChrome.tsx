@@ -25,7 +25,7 @@ export function OfferTopBar() {
   return (
     <header
       style={{
-        background: "rgba(247,244,239,0.94)",
+        background: "rgba(253,248,236,0.94)",
         backdropFilter: "blur(14px) saturate(1.2)",
         WebkitBackdropFilter: "blur(14px) saturate(1.2)",
         borderBottom: "1px solid var(--border)",
@@ -41,7 +41,7 @@ export function OfferTopBar() {
           bottom: -1,
           height: 2,
           background:
-            "linear-gradient(90deg, transparent, rgba(232,98,26,0.55) 30%, var(--orange) 50%, rgba(232,98,26,0.55) 70%, transparent)",
+            "linear-gradient(90deg, transparent, rgba(11,140,235,0.55) 30%, var(--blue) 50%, rgba(11,140,235,0.55) 70%, transparent)",
         }}
       />
       <div

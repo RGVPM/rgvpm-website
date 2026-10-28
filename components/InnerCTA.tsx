@@ -8,7 +8,7 @@ export default function InnerCTA({
   text?: string;
 }) {
   return (
-    <section style={{ padding: "88px 0", background: "var(--orange)", position: "relative", overflow: "hidden" }}>
+    <section style={{ padding: "88px 0", background: "var(--blue)", position: "relative", overflow: "hidden" }}>
       <div style={{ position: "absolute", inset: 0, opacity: 0.06, backgroundImage: "repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)", backgroundSize: "20px 20px" }} />
       <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px", position: "relative", zIndex: 2 }}>
         <div style={{ textAlign: "center", maxWidth: 680, margin: "0 auto" }}>

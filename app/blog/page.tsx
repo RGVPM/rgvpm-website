@@ -41,7 +41,7 @@ const blogSchema = {
   })),
 };
 
-const cardAccents = ["var(--orange)", "var(--teal)", "#6E86B8"];
+const cardAccents = ["var(--blue)", "var(--orange)", "var(--navy)"];
 
 export default function BlogPage() {
   return (
@@ -60,7 +60,7 @@ export default function BlogPage() {
           eyebrow="Blog"
           title="Local Marketing, Made Practical"
           subtitle="Straight-talking guides to help Rio Grande Valley businesses get found online and turn searches into customers."
-          accent="var(--teal)"
+          accent="var(--orange)"
           crumbs={[{ name: "Home", path: "/" }, { name: "Blog", path: "/blog" }]}
         />
 

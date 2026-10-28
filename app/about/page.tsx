@@ -158,7 +158,7 @@ export default function AboutPage() {
         >
           <div className="rg-container">
             <div style={{ maxWidth: 780 }}>
-              <p className="rg-label" style={{ color: "var(--orange-ink)", margin: "0 0 var(--s4)" }}>
+              <p className="rg-label" style={{ color: "var(--blue-ink)", margin: "0 0 var(--s4)" }}>
                 Meet the Team
               </p>
               <h1
@@ -167,7 +167,7 @@ export default function AboutPage() {
                 style={{ fontSize: "var(--fs-hero)", color: "var(--navy)", margin: 0, lineHeight: 0.96 }}
               >
                 Real People. Serious Systems.
-                <span style={{ display: "block", color: "var(--orange)" }}>Built in the Rio Grande Valley.</span>
+                <span style={{ display: "block", color: "var(--blue)" }}>Built in the Rio Grande Valley.</span>
               </h1>
               <p
                 style={{
@@ -195,7 +195,7 @@ export default function AboutPage() {
             {linkedinUrl && (
               <p style={{ margin: "var(--s7) 0 0", fontSize: 15, color: "var(--muted)" }}>
                 Want the longer version?{" "}
-                <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" style={{ color: "var(--navy)", fontWeight: 600, textDecoration: "underline", textUnderlineOffset: 5, textDecorationColor: "var(--orange)" }}>
+                <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" style={{ color: "var(--navy)", fontWeight: 600, textDecoration: "underline", textUnderlineOffset: 5, textDecorationColor: "var(--blue)" }}>
                   Follow us on LinkedIn
                 </a>
                 , where we post the client breakdowns.
@@ -217,12 +217,12 @@ export default function AboutPage() {
               }}
             >
               <div>
-                <p className="rg-label" style={{ color: "var(--orange-on-dark)", margin: "0 0 var(--s4)" }}>
+                <p className="rg-label" style={{ color: "var(--blue-on-dark)", margin: "0 0 var(--s4)" }}>
                   We&rsquo;re Hiring
                 </p>
                 <h2 id="hiring-heading" className="rg-display" style={{ fontSize: "var(--fs-h2)", color: "#fff", margin: 0 }}>
                   The Team Is Growing.
-                  <span style={{ display: "block", color: "var(--orange)" }}>Come Build With Us.</span>
+                  <span style={{ display: "block", color: "var(--blue)" }}>Come Build With Us.</span>
                 </h2>
                 <p style={{ fontSize: 17, lineHeight: 1.7, color: "rgba(255,255,255,0.74)", maxWidth: "52ch", margin: "var(--s5) 0 0" }}>
                   We&rsquo;re still adding to the team. If you&rsquo;re in the Valley, you care
@@ -250,7 +250,7 @@ export default function AboutPage() {
                     alignItems: "center",
                     gap: 10,
                     marginTop: "var(--s4)",
-                    background: "var(--orange)",
+                    background: "var(--blue)",
                     color: "#fff",
                     fontWeight: 700,
                     fontSize: 17,
@@ -258,7 +258,7 @@ export default function AboutPage() {
                     padding: "16px 22px",
                     borderRadius: "var(--r-hero-sm)",
                     textDecoration: "none",
-                    boxShadow: "var(--shadow-orange)",
+                    boxShadow: "var(--shadow-blue)",
                   }}
                 >
                   Email Us About Joining
@@ -299,7 +299,7 @@ export default function AboutPage() {
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 20 }} className="svc-grid-responsive">
               {values.map((v, i) => {
-                const accent = i % 2 === 0 ? "var(--orange)" : "var(--teal)";
+                const accent = i % 2 === 0 ? "var(--blue)" : "var(--orange)";
                 return (
                   <div key={v.title} style={{ background: "#fff", border: "1px solid var(--border)", borderLeft: `4px solid ${accent}`, borderRadius: 10, padding: "28px 26px", display: "flex", gap: 18 }}>
                     <div style={{ width: 48, height: 48, borderRadius: 10, background: "var(--cream)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
@@ -327,7 +327,7 @@ export default function AboutPage() {
                 { num: "956", label: "Locally rooted, broadly serving" },
               ].map((m) => (
                 <div key={m.label} style={{ textAlign: "center" }}>
-                  <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 44, color: "var(--orange)", letterSpacing: "0.04em" }}>{m.num}</div>
+                  <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 44, color: "var(--blue)", letterSpacing: "0.04em" }}>{m.num}</div>
                   <div style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", marginTop: 4 }}>{m.label}</div>
                 </div>
               ))}

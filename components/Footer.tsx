@@ -27,8 +27,8 @@ export default function Footer() {
             </p>
             <address style={{ fontSize: 13, color: "rgba(255,255,255,0.55)", lineHeight: 1.9, fontStyle: "normal" }}>
               <div>📍 Harlingen, TX</div>
-              <div>📞 <a href="tel:+19567939152" style={{ color: "var(--orange-on-dark)", textDecoration: "none" }}>(956) 793-9152</a></div>
-              <div style={{ wordBreak: "break-word" }}>✉️ <a href="mailto:info@rgvperformancemarketing.com" style={{ color: "var(--orange-on-dark)", textDecoration: "none" }}>info@rgvperformancemarketing.com</a></div>
+              <div>📞 <a href="tel:+19567939152" style={{ color: "var(--blue-on-dark)", textDecoration: "none" }}>(956) 793-9152</a></div>
+              <div style={{ wordBreak: "break-word" }}>✉️ <a href="mailto:info@rgvperformancemarketing.com" style={{ color: "var(--blue-on-dark)", textDecoration: "none" }}>info@rgvperformancemarketing.com</a></div>
             </address>
             {SOCIAL_PROFILES.length > 0 && (
               <div style={{ display: "flex", gap: 16, marginTop: 18 }}>

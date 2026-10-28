@@ -22,7 +22,7 @@ export function Label({
   return (
     <span
       className="rg-label"
-      style={{ color: color ?? (tone === "dark" ? "var(--orange-on-dark)" : "var(--orange-ink)") }}
+      style={{ color: color ?? (tone === "dark" ? "var(--blue-on-dark)" : "var(--blue-ink)") }}
     >
       {children}
     </span>
@@ -97,28 +97,28 @@ const buttonBase: CSSProperties = {
     "background var(--t-fast) var(--ease), color var(--t-fast) var(--ease), transform var(--t-fast) var(--ease), box-shadow var(--t-med) var(--ease), border-color var(--t-fast) var(--ease)",
 };
 
-export type ButtonVariant = "primary" | "onDark" | "onOrange" | "ghostDark" | "ghostLight";
+export type ButtonVariant = "primary" | "onDark" | "onBlue" | "ghostDark" | "ghostLight";
 
 const variants: Record<ButtonVariant, CSSProperties> = {
   primary: {
-    background: "var(--orange)",
+    background: "var(--blue)",
     color: "#fff",
-    boxShadow: "var(--shadow-orange)",
+    boxShadow: "var(--shadow-blue)",
   },
   onDark: {
-    background: "var(--orange)",
+    background: "var(--blue)",
     color: "#fff",
-    boxShadow: "var(--shadow-orange)",
+    boxShadow: "var(--shadow-blue)",
   },
-  onOrange: {
-    background: "#fff",
+  onBlue: {
+    background: "var(--cream)",
     color: "var(--navy)",
-    boxShadow: "0 14px 34px -14px rgba(0,0,0,0.5)",
+    boxShadow: "0 14px 34px -14px rgba(16,34,63,0.55)",
   },
   ghostDark: {
     background: "rgba(255,255,255,0.06)",
     color: "#fff",
-    border: "1px solid rgba(255,255,255,0.24)",
+    border: "1px solid rgba(255,255,255,0.5)",
   },
   ghostLight: {
     background: "transparent",

@@ -53,16 +53,16 @@ export default function ClaudeCodeTemplatesPage() {
       <main>
         <section
           aria-labelledby="kit-heading"
-          style={{ background: "linear-gradient(180deg, var(--navy) 0%, #15233D 100%)", paddingTop: "clamp(112px, 13vh, 144px)", paddingBottom: "clamp(64px, 8vh, 96px)" }}
+          style={{ background: "linear-gradient(180deg, var(--navy) 0%, #0C1B33 100%)", paddingTop: "clamp(112px, 13vh, 144px)", paddingBottom: "clamp(64px, 8vh, 96px)" }}
         >
           <div className="rg-container">
             <Breadcrumbs items={crumbs} dark inHero />
             <div className="rg-kit-hero">
               <div>
-                <p className="rg-label" style={{ color: "var(--orange-on-dark)", margin: "var(--s4) 0 var(--s5)" }}>Free AI Agent</p>
+                <p className="rg-label" style={{ color: "var(--blue-on-dark)", margin: "var(--s4) 0 var(--s5)" }}>Free AI Agent</p>
                 <h1 id="kit-heading" className="rg-display" style={{ fontSize: "var(--fs-hero)", color: "#fff", margin: 0, lineHeight: 0.96 }}>
                   Wake Up to an Inbox
-                  <span style={{ display: "block", color: "var(--orange)" }}>That&rsquo;s Already Sorted.</span>
+                  <span style={{ display: "block", color: "var(--blue)" }}>That&rsquo;s Already Sorted.</span>
                 </h1>
                 <p style={{ fontSize: 18, lineHeight: 1.6, color: "rgba(255,255,255,0.78)", maxWidth: "46ch", margin: "var(--s5) 0 0", textWrap: "pretty" }}>
                   A free AI agent that reviews your Gmail every morning at 8 and emails you what needs a
@@ -79,7 +79,7 @@ export default function ClaudeCodeTemplatesPage() {
               </div>
 
               <div className="rg-kit-card" id="get-the-kit">
-                <p style={{ fontFamily: mono, fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange-ink)", margin: 0 }}>Get the agent</p>
+                <p style={{ fontFamily: mono, fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--blue-ink)", margin: 0 }}>Get the agent</p>
                 <h2 style={{ fontSize: 22, fontWeight: 700, color: "var(--navy)", lineHeight: 1.25, margin: "8px 0 14px" }}>
                   Join the AI Builder newsletter and get the agent free.
                 </h2>
@@ -137,7 +137,7 @@ export default function ClaudeCodeTemplatesPage() {
             {FAQS.map((f) => (
               <details key={f.q} className="rg-faq" style={{ borderBottom: "1px solid var(--border)" }}>
                 <summary style={{ display: "flex", justifyContent: "space-between", gap: 16, padding: "18px 0", cursor: "pointer", fontSize: 16.5, fontWeight: 600, color: "var(--navy)", listStyle: "none" }}>
-                  {f.q} <span aria-hidden="true" style={{ color: "var(--orange)" }}>+</span>
+                  {f.q} <span aria-hidden="true" style={{ color: "var(--blue)" }}>+</span>
                 </summary>
                 <p style={{ fontSize: 15, lineHeight: 1.7, color: "var(--muted)", margin: "0 0 18px" }}>{f.a}</p>
               </details>

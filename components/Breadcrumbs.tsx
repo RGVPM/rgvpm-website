@@ -49,7 +49,7 @@ export default function Breadcrumbs({
                 <Link href={item.path} style={{ color: linkColor, textDecoration: "none" }}>
                   {item.name}
                 </Link>
-                <span style={{ color: "var(--orange)" }}>/</span>
+                <span style={{ color: "var(--blue)" }}>/</span>
               </>
             )}
           </li>

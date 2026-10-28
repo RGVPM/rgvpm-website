@@ -27,7 +27,7 @@ export default function AiSection() {
     <section
       id="ai"
       aria-labelledby="ai-heading"
-      style={{ background: "linear-gradient(180deg, #15233D 0%, var(--navy) 100%)", paddingBlock: "var(--section-y)" }}
+      style={{ background: "linear-gradient(180deg, #0C1B33 0%, var(--navy) 100%)", paddingBlock: "var(--section-y)" }}
     >
       <div className="rg-container">
         <div>
@@ -36,7 +36,7 @@ export default function AiSection() {
             <div className="rg-ai-head">
             <h2 id="ai-heading" className="rg-display" style={{ fontSize: "var(--fs-h2)", color: "#fff", margin: 0 }}>
               We Run on AI.
-              <span style={{ display: "block", color: "var(--orange)" }}>Now Build It With Us.</span>
+              <span style={{ display: "block", color: "var(--blue)" }}>Now Build It With Us.</span>
             </h2>
             <p style={{ fontSize: 17, lineHeight: 1.7, color: "rgba(255,255,255,0.74)", margin: 0, maxWidth: "54ch", textWrap: "pretty" }}>
               We build real software with Claude Code and Codex every day. We&rsquo;ll build it for
@@ -48,7 +48,7 @@ export default function AiSection() {
               {BUILDS.map((b) => (
                 <li key={b.title} className="rg-ai-build">
                   <span className="rg-ai-icon" aria-hidden="true">
-                    <Icon name={b.icon} size={18} color="var(--orange-on-dark)" />
+                    <Icon name={b.icon} size={18} color="var(--blue-on-dark)" />
                   </span>
                   <span>
                     <h3 style={{ fontSize: 17, fontWeight: 700, color: "#fff", lineHeight: 1.3, margin: 0 }}>{b.title}</h3>
@@ -75,7 +75,7 @@ export default function AiSection() {
                   display: "inline-flex",
                   alignItems: "center",
                   gap: 10,
-                  background: "var(--orange)",
+                  background: "var(--blue)",
                   color: "#fff",
                   fontWeight: 700,
                   fontSize: 17,
@@ -83,7 +83,7 @@ export default function AiSection() {
                   padding: "17px 24px",
                   borderRadius: "var(--r-hero-sm)",
                   textDecoration: "none",
-                  boxShadow: "var(--shadow-orange)",
+                  boxShadow: "var(--shadow-blue)",
                   transition: "transform var(--t-fast) var(--ease), box-shadow var(--t-med) var(--ease)",
                 }}
               >
@@ -94,7 +94,7 @@ export default function AiSection() {
               </Link>
             </div>
             <p style={{ margin: "var(--s5) 0 0", fontSize: 14.5, color: "rgba(255,255,255,0.66)" }}>
-              <span style={{ fontFamily: "var(--font-dm-mono), ui-monospace, monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange-on-dark)", marginRight: 10 }}>Free</span>
+              <span style={{ fontFamily: "var(--font-dm-mono), ui-monospace, monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--blue-on-dark)", marginRight: 10 }}>Free</span>
               <Link href="/claude-code-templates" style={{ color: "#fff", fontWeight: 600, textUnderlineOffset: 4 }}>
                 AI agent that reviews your inbox every morning
               </Link>

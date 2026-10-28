@@ -6,7 +6,8 @@
 - Fonts: Bebas Neue (Google, loaded in layout head), DM Sans + DM Mono (next/font/google)
 
 ## Brand
-- Orange: #E8621A | Navy: #1A2B4A | Cream: #F7F4EF
+- Blue: #0B8CEB (CTAs, links, highlights) | Navy: #10223F (text, dark bands) | Cream: #FDF8EC (canvas) | Orange: #F26B1D (accent only: checks, rules)
+- Small text uses the ink shades in globals.css (--blue-ink, --blue-on-dark, --orange-ink)
 - Logo: /public/logo.png (transparent PNG)
 - All client-facing output attributed to "The RGV Performance Marketing Team"
 

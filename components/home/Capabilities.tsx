@@ -74,10 +74,10 @@ const CELLS: {
 ];
 
 const TONE: Record<Tone, { bg: string; border: string; title: string; text: string; kicker: string; iconBg: string; iconColor: string }> = {
-  navy: { bg: "var(--navy)", border: "var(--navy)", title: "#fff", text: "rgba(255,255,255,0.72)", kicker: "var(--orange-on-dark)", iconBg: "rgba(255,255,255,0.08)", iconColor: "#fff" },
-  orange: { bg: "var(--orange)", border: "var(--orange)", title: "#fff", text: "rgba(255,255,255,0.9)", kicker: "rgba(255,255,255,0.85)", iconBg: "rgba(255,255,255,0.16)", iconColor: "#fff" },
-  white: { bg: "#fff", border: "var(--border)", title: "var(--navy)", text: "var(--muted)", kicker: "var(--orange-ink)", iconBg: "var(--cream)", iconColor: "var(--orange)" },
-  cream: { bg: "var(--cream)", border: "var(--border)", title: "var(--navy)", text: "var(--muted)", kicker: "var(--orange-ink)", iconBg: "#fff", iconColor: "var(--orange)" },
+  navy: { bg: "var(--navy)", border: "var(--navy)", title: "#fff", text: "rgba(255,255,255,0.72)", kicker: "var(--blue-on-dark)", iconBg: "rgba(255,255,255,0.08)", iconColor: "#fff" },
+  orange: { bg: "var(--blue)", border: "var(--blue)", title: "#fff", text: "rgba(255,255,255,0.9)", kicker: "rgba(255,255,255,0.85)", iconBg: "rgba(255,255,255,0.16)", iconColor: "#fff" },
+  white: { bg: "#fff", border: "var(--border)", title: "var(--navy)", text: "var(--muted)", kicker: "var(--blue-ink)", iconBg: "var(--cream)", iconColor: "var(--blue)" },
+  cream: { bg: "var(--cream)", border: "var(--border)", title: "var(--navy)", text: "var(--muted)", kicker: "var(--blue-ink)", iconBg: "#fff", iconColor: "var(--blue)" },
 };
 
 const mono = "var(--font-dm-mono), ui-monospace, monospace";
@@ -93,7 +93,7 @@ export default function Capabilities() {
             style={{ fontSize: "var(--fs-h2)", color: "var(--navy)", margin: 0 }}
           >
             One Growth Engine.
-            <span style={{ color: "var(--orange)" }}> Not Five Vendors.</span>
+            <span style={{ color: "var(--blue)" }}> Not Five Vendors.</span>
           </h2>
           <p style={{ fontSize: 17, lineHeight: 1.7, color: "var(--muted)", margin: "var(--s5) 0 0", maxWidth: "58ch" }}>
             The site earns the traffic, the ads amplify it, and lead management makes sure nothing
@@ -135,7 +135,7 @@ export default function Capabilities() {
                     <p style={{ fontSize: 15, lineHeight: 1.65, color: t.text, margin: "var(--s3) 0 0", maxWidth: "46ch" }}>
                       {c.text}
                     </p>
-                    <span className="rg-bento-more" style={{ color: c.tone === "white" || c.tone === "cream" ? "var(--orange-ink)" : "#fff" }}>
+                    <span className="rg-bento-more" style={{ color: c.tone === "white" || c.tone === "cream" ? "var(--blue-ink)" : "#fff" }}>
                       {c.cta} <span aria-hidden="true">→</span>
                     </span>
                   </div>
@@ -159,7 +159,7 @@ export default function Capabilities() {
 
         <Link
           href="/services"
-          style={{ display: "inline-flex", alignItems: "center", gap: 8, marginTop: "var(--s6)", fontSize: 15, fontWeight: 700, color: "var(--orange-ink)", textDecoration: "none" }}
+          style={{ display: "inline-flex", alignItems: "center", gap: 8, marginTop: "var(--s6)", fontSize: 15, fontWeight: 700, color: "var(--blue-ink)", textDecoration: "none" }}
         >
           See every service we offer <span aria-hidden="true">→</span>
         </Link>

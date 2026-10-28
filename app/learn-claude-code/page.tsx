@@ -95,16 +95,16 @@ export default function LearnClaudeCodePage() {
         {/* ── Hero ─────────────────────────────────────────────────── */}
         <section
           aria-labelledby="lcc-heading"
-          style={{ background: "linear-gradient(180deg, var(--navy) 0%, #15233D 100%)", paddingTop: "clamp(112px, 13vh, 144px)", paddingBottom: "clamp(64px, 8vh, 96px)" }}
+          style={{ background: "linear-gradient(180deg, var(--navy) 0%, #0C1B33 100%)", paddingTop: "clamp(112px, 13vh, 144px)", paddingBottom: "clamp(64px, 8vh, 96px)" }}
         >
           <div className="rg-container">
             <Breadcrumbs items={crumbs} dark inHero />
-            <p className="rg-label" style={{ color: "var(--orange-on-dark)", margin: "var(--s4) 0 var(--s5)" }}>
+            <p className="rg-label" style={{ color: "var(--blue-on-dark)", margin: "var(--s4) 0 var(--s5)" }}>
               1-on-1 AI Build Sessions
             </p>
             <h1 id="lcc-heading" className="rg-display" style={{ fontSize: "var(--fs-hero)", color: "#fff", margin: 0, lineHeight: 0.96 }}>
               Learn Claude Code &amp; Codex
-              <span style={{ display: "block", color: "var(--orange)" }}>By Building Something Real.</span>
+              <span style={{ display: "block", color: "var(--blue)" }}>By Building Something Real.</span>
             </h1>
             <p style={{ fontSize: 18, lineHeight: 1.6, color: "rgba(255,255,255,0.78)", maxWidth: "52ch", margin: "var(--s5) 0 0", textWrap: "pretty" }}>
               Sit down with Derrick and build a working tool for your business, from an empty folder to
@@ -116,7 +116,7 @@ export default function LearnClaudeCodePage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rg-hero-cta"
-                style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "var(--orange)", color: "#fff", fontWeight: 700, fontSize: 18, lineHeight: 1, padding: "18px 26px", borderRadius: "var(--r-hero-sm)", textDecoration: "none", boxShadow: "var(--shadow-orange)" }}
+                style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "var(--blue)", color: "#fff", fontWeight: 700, fontSize: 18, lineHeight: 1, padding: "18px 26px", borderRadius: "var(--r-hero-sm)", textDecoration: "none", boxShadow: "var(--shadow-blue)" }}
               >
                 Book a build session <span aria-hidden="true">→</span>
               </a>
@@ -176,7 +176,7 @@ export default function LearnClaudeCodePage() {
                 <ul style={{ listStyle: "none", margin: "var(--s5) 0 0", padding: 0 }}>
                   {col.items.map((it) => (
                     <li key={it} style={{ display: "flex", gap: 12, alignItems: "baseline", padding: "12px 0", borderTop: "1px solid var(--border)", fontSize: 16, lineHeight: 1.5, color: "var(--navy)" }}>
-                      <span aria-hidden="true" style={{ color: "var(--orange)", fontWeight: 700 }}>✓</span>
+                      <span aria-hidden="true" style={{ color: "var(--blue)", fontWeight: 700 }}>✓</span>
                       {it}
                     </li>
                   ))}
@@ -207,7 +207,7 @@ export default function LearnClaudeCodePage() {
           <div className="rg-container rg-bwm">
             <div>
               <h2 className="rg-display" style={{ fontSize: "clamp(30px, 3.4vw, 44px)", color: "#fff", margin: 0 }}>
-                Not Ready for a Session? <span style={{ color: "var(--orange)" }}>Start Free.</span>
+                Not Ready for a Session? <span style={{ color: "var(--blue)" }}>Start Free.</span>
               </h2>
               <p style={{ fontSize: 16.5, lineHeight: 1.7, color: "rgba(255,255,255,0.74)", margin: "14px 0 0", maxWidth: "50ch" }}>
                 Get a free AI agent that reviews your inbox every morning, plus our Claude Code starter
@@ -215,7 +215,7 @@ export default function LearnClaudeCodePage() {
               </p>
             </div>
             <div>
-              <Link href="/claude-code-templates" className="rg-hero-cta" style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "var(--orange)", color: "#fff", fontWeight: 700, fontSize: 17, lineHeight: 1, padding: "17px 24px", borderRadius: "var(--r-hero-sm)", textDecoration: "none", boxShadow: "var(--shadow-orange)" }}>
+              <Link href="/claude-code-templates" className="rg-hero-cta" style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "var(--blue)", color: "#fff", fontWeight: 700, fontSize: 17, lineHeight: 1, padding: "17px 24px", borderRadius: "var(--r-hero-sm)", textDecoration: "none", boxShadow: "var(--shadow-blue)" }}>
                 Get the free agent <span aria-hidden="true">→</span>
               </Link>
             </div>
@@ -231,7 +231,7 @@ export default function LearnClaudeCodePage() {
         </section>
 
         {/* ── Close ────────────────────────────────────────────────── */}
-        <section style={{ background: "linear-gradient(180deg, var(--navy) 0%, #15233D 100%)", paddingBlock: "var(--section-y)" }}>
+        <section style={{ background: "linear-gradient(180deg, var(--navy) 0%, #0C1B33 100%)", paddingBlock: "var(--section-y)" }}>
           <div className="rg-container" style={{ textAlign: "center" }}>
             <h2 className="rg-display" style={{ fontSize: "clamp(40px, 5.4vw, 76px)", color: "#fff", margin: "0 auto var(--s5)", maxWidth: "15ch" }}>
               Build Your First AI Tool This Week.
@@ -240,7 +240,7 @@ export default function LearnClaudeCodePage() {
               Tell us what you want to build. We&rsquo;ll set up a session around it.
             </p>
             <div className="rg-cta-actions" style={{ display: "flex", gap: "var(--s4)", justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}>
-              <a href={AI_BOOKING_URL} target="_blank" rel="noopener noreferrer" className="rg-hero-cta" style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "var(--orange)", color: "#fff", fontWeight: 700, fontSize: 17, lineHeight: 1, padding: "18px 28px", borderRadius: "var(--r-hero-sm)", textDecoration: "none", boxShadow: "var(--shadow-orange)" }}>
+              <a href={AI_BOOKING_URL} target="_blank" rel="noopener noreferrer" className="rg-hero-cta" style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "var(--blue)", color: "#fff", fontWeight: 700, fontSize: 17, lineHeight: 1, padding: "18px 28px", borderRadius: "var(--r-hero-sm)", textDecoration: "none", boxShadow: "var(--shadow-blue)" }}>
                 Book a build session <span aria-hidden="true">→</span>
               </a>
               <Link href="/services/ai-implementation" className="rg-hero-secondary">See all AI consulting</Link>

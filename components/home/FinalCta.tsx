@@ -23,7 +23,7 @@ export default function FinalCta() {
     <section
       aria-labelledby="final-cta-heading"
       style={{
-        background: "linear-gradient(180deg, var(--navy) 0%, #15233D 100%)",
+        background: "linear-gradient(180deg, var(--blue) 0%, #0A82DD 100%)",
         paddingBlock: "var(--section-y)",
       }}
     >
@@ -37,8 +37,8 @@ export default function FinalCta() {
                 height: 64,
                 borderRadius: "50%",
                 overflow: "hidden",
-                border: "3px solid var(--navy)",
-                boxShadow: "0 0 0 1px rgba(255,255,255,0.18)",
+                border: "3px solid var(--blue)",
+                boxShadow: "0 0 0 1px rgba(253,248,236,0.5)",
                 marginLeft: i === 0 ? 0 : -14,
                 position: "relative",
                 display: "block",
@@ -48,18 +48,18 @@ export default function FinalCta() {
             </span>
           ))}
         </div>
-        <p style={{ fontSize: 14, color: "rgba(255,255,255,0.6)", margin: "0 0 var(--s5)" }}>
+        <p style={{ fontSize: 14, color: "rgba(253,248,236,0.9)", margin: "0 0 var(--s5)" }}>
           You&rsquo;ll talk to Derrick and Kelsey directly.
         </p>
 
         <h2
           id="final-cta-heading"
           className="rg-display"
-          style={{ fontSize: "clamp(42px, 6vw, 88px)", color: "#fff", margin: "0 auto var(--s5)", maxWidth: "16ch" }}
+          style={{ fontSize: "clamp(42px, 6vw, 88px)", color: "var(--cream)", margin: "0 auto var(--s5)", maxWidth: "16ch" }}
         >
           Ready to Grow Your Business?
         </h2>
-        <p style={{ fontSize: 17, color: "rgba(255,255,255,0.7)", lineHeight: 1.7, margin: "0 auto var(--s7)", maxWidth: "50ch" }}>
+        <p style={{ fontSize: 17, color: "rgba(253,248,236,0.94)", lineHeight: 1.7, margin: "0 auto var(--s7)", maxWidth: "50ch" }}>
           Tell us what you&rsquo;re trying to grow. We&rsquo;ll map out the plan on a quick call and can
           have your new site live in as little as 8 to 10 days.
         </p>
@@ -68,7 +68,7 @@ export default function FinalCta() {
           className="rg-cta-actions"
           style={{ display: "flex", gap: "var(--s3)", justifyContent: "center", flexWrap: "wrap", marginBottom: "var(--s7)" }}
         >
-          <Button href={SITE.bookingUrl} variant="onDark" style={{ padding: "18px 34px", fontSize: 16 }}>
+          <Button href={SITE.bookingUrl} variant="onBlue" style={{ padding: "18px 34px", fontSize: 16 }}>
             Book with us! <span aria-hidden="true">→</span>
           </Button>
           <Button href="/pricing" variant="ghostDark" style={{ padding: "18px 34px", fontSize: 16 }}>
@@ -86,7 +86,7 @@ export default function FinalCta() {
           style={{
             marginTop: "var(--s7)",
             paddingTop: "var(--s6)",
-            borderTop: "1px solid rgba(255,255,255,0.12)",
+            borderTop: "1px solid rgba(253,248,236,0.3)",
             display: "flex",
             justifyContent: "center",
             flexWrap: "wrap",
@@ -94,13 +94,13 @@ export default function FinalCta() {
             fontSize: 14,
           }}
         >
-          <a href={`tel:${SITE.phone}`} style={{ color: "rgba(255,255,255,0.78)", textDecoration: "none", fontWeight: 600 }}>
+          <a href={`tel:${SITE.phone}`} style={{ color: "var(--cream)", textDecoration: "none", fontWeight: 600 }}>
             {SITE.phoneHuman}
           </a>
-          <a href={`mailto:${SITE.email}`} style={{ color: "rgba(255,255,255,0.78)", textDecoration: "none", fontWeight: 600 }}>
+          <a href={`mailto:${SITE.email}`} style={{ color: "var(--cream)", textDecoration: "none", fontWeight: 600 }}>
             {SITE.email}
           </a>
-          <Link href="/contact" style={{ color: "var(--orange-on-dark)", textDecoration: "none", fontWeight: 700 }}>
+          <Link href="/contact" style={{ color: "var(--navy)", textDecoration: "none", fontWeight: 700 }}>
             Contact us <span aria-hidden="true">→</span>
           </Link>
         </div>

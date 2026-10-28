@@ -79,7 +79,7 @@ export default function ThankYouPage() {
               aspectRatio: "1",
               transform: "translateX(-50%)",
               background:
-                "radial-gradient(circle, rgba(232,98,26,0.22) 0%, rgba(232,98,26,0.05) 44%, transparent 68%)",
+                "radial-gradient(circle, rgba(11,140,235,0.22) 0%, rgba(11,140,235,0.05) 44%, transparent 68%)",
               pointerEvents: "none",
             }}
           />

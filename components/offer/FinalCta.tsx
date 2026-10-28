@@ -17,7 +17,7 @@ export default function FinalCta() {
     <section
       aria-labelledby="final-cta-heading"
       style={{
-        background: "var(--orange)",
+        background: "var(--blue)",
         position: "relative",
         overflow: "hidden",
         paddingBlock: "var(--section-y)",
@@ -32,7 +32,7 @@ export default function FinalCta() {
           bottom: "-40%",
           width: "46%",
           aspectRatio: "1",
-          background: "radial-gradient(circle, rgba(26,43,74,0.24) 0%, transparent 68%)",
+          background: "radial-gradient(circle, rgba(16,34,63,0.24) 0%, transparent 68%)",
           pointerEvents: "none",
         }}
       />

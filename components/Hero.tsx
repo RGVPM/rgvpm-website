@@ -24,7 +24,7 @@ function StatValue({ stat, duration = 1500 }: { stat: Stat; duration?: number })
   const numberStyle: React.CSSProperties = {
     fontFamily: "'Bebas Neue', sans-serif",
     fontSize: 32,
-    color: "var(--orange)",
+    color: "var(--blue)",
     letterSpacing: "0.04em",
   };
 
@@ -101,7 +101,7 @@ export default function Hero() {
       <div style={{
         position: "absolute", right: -100, top: -100, width: 700, height: 700,
         borderRadius: "50%",
-        background: "radial-gradient(circle, rgba(232,98,26,0.15) 0%, transparent 65%)",
+        background: "radial-gradient(circle, rgba(11,140,235,0.15) 0%, transparent 65%)",
         pointerEvents: "none",
       }} />
 
@@ -115,8 +115,8 @@ export default function Hero() {
                 display: "inline-flex", alignItems: "center", gap: 8,
                 fontFamily: "var(--font-dm-mono), monospace", fontSize: 11,
                 letterSpacing: "0.12em", textTransform: "uppercase",
-                color: "var(--orange)", background: "rgba(232,98,26,0.15)",
-                padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--orange)",
+                color: "var(--blue)", background: "rgba(11,140,235,0.15)",
+                padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--blue)",
               }}>
                 AI-Powered Digital Marketing
               </span>
@@ -129,7 +129,7 @@ export default function Hero() {
               <span className="hero-animate" style={{ display: "block", animationDelay: "0.15s" }}>
                 More Leads.
               </span>
-              <span className="hero-animate" style={{ display: "block", color: "var(--orange)", animationDelay: "0.25s" }}>
+              <span className="hero-animate" style={{ display: "block", color: "var(--blue)", animationDelay: "0.25s" }}>
                 More Customers.
               </span>
               <span className="hero-animate" style={{ display: "block", animationDelay: "0.35s" }}>
@@ -140,7 +140,7 @@ export default function Hero() {
               We build the digital systems that grow your business — websites, SEO, ads, lead management, and more. Straightforward plans, real results.
             </p>
             <div className="hero-animate" style={{ display: "flex", gap: 14, flexWrap: "wrap", marginBottom: 48, animationDelay: "0.55s" }}>
-              <a href="https://api.rgvperformancemarketing.com/widget/bookings/rgvpmdiscoverycall" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "var(--orange)", color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 28px", borderRadius: 4, textDecoration: "none" }}>
+              <a href="https://api.rgvperformancemarketing.com/widget/bookings/rgvpmdiscoverycall" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "var(--blue)", color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 28px", borderRadius: 4, textDecoration: "none" }}>
                 Book a Free Call →
               </a>
               <a href="/pricing" style={{ display: "inline-flex", alignItems: "center", background: "rgba(255,255,255,0.1)", color: "#fff", fontWeight: 600, fontSize: 15, padding: "14px 28px", borderRadius: 4, textDecoration: "none", border: "1px solid rgba(255,255,255,0.25)" }}>
@@ -160,13 +160,13 @@ export default function Hero() {
           {/* Right card */}
           <div className="hidden lg:block hero-card-animate">
             <div style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 14, padding: 28, backdropFilter: "blur(8px)" }}>
-              <div style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--orange)", marginBottom: 18 }}>
+              <div style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--blue)", marginBottom: 18 }}>
                 {"// What we handle"}
               </div>
               {services.map((svc) => (
                 <div key={svc.name} style={{ display: "flex", alignItems: "center", gap: 12, padding: "13px 14px", borderRadius: 8, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.07)", marginBottom: 8 }}>
-                  <div style={{ width: 34, height: 34, borderRadius: 7, background: "var(--orange-dim)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                    <Icon name={svc.icon} size={17} color="var(--orange)" />
+                  <div style={{ width: 34, height: 34, borderRadius: 7, background: "var(--blue-dim)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                    <Icon name={svc.icon} size={17} color="var(--blue)" />
                   </div>
                   <div>
                     <div style={{ fontSize: 13, fontWeight: 600, color: "#fff" }}>{svc.name}</div>

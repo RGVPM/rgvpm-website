@@ -10,8 +10,9 @@ import { SITE } from "@/lib/site";
  * touches only transform / opacity, so none of it can shift layout.
  *
  * Two columns: message left, real client sites right, collapsing to a
- * single stack at 1024px. The background is deliberately plain navy. No
- * grid texture, no glow blooms: the work on the right is the visual.
+ * single stack at 1024px. The background is the brand's bright blue with
+ * cream type and a navy accent line, matching the social graphics. No grid
+ * texture, no glow blooms: the work on the right is the visual.
  */
 
 export default function HomeHero() {
@@ -25,7 +26,7 @@ export default function HomeHero() {
     <section
       aria-labelledby="hero-heading"
       style={{
-        background: "linear-gradient(180deg, var(--navy) 0%, #15233D 100%)",
+        background: "linear-gradient(180deg, var(--blue) 0%, #0A82DD 100%)",
         position: "relative",
         overflow: "hidden",
         // The sticky nav is ~80px and overlays the hero, so the top padding
@@ -40,7 +41,7 @@ export default function HomeHero() {
           <div className="rg-hero-msg">
             <p
               className="hero-animate rg-label"
-              style={{ color: "var(--orange-on-dark)", margin: "0 0 var(--s5)", animationDelay: "0s" }}
+              style={{ color: "var(--cream)", margin: "0 0 var(--s5)", animationDelay: "0s" }}
             >
               Harlingen, TX &middot; AI &amp; Marketing Agency
             </p>
@@ -49,7 +50,7 @@ export default function HomeHero() {
               className="rg-display"
               style={{
                 fontSize: "var(--fs-hero)",
-                color: "#fff",
+                color: "var(--cream)",
                 margin: "0 0 var(--s5)",
                 letterSpacing: "0.012em",
                 lineHeight: 0.94,
@@ -63,7 +64,7 @@ export default function HomeHero() {
               </span>
               <span
                 className="hero-animate"
-                style={{ display: "block", color: "var(--orange)", animationDelay: "0.19s" }}
+                style={{ display: "block", color: "var(--navy)", animationDelay: "0.19s" }}
               >
                 They Just Show Up First.
               </span>
@@ -74,7 +75,7 @@ export default function HomeHero() {
               style={{
                 fontSize: 18,
                 fontWeight: 400,
-                color: "rgba(255,255,255,0.78)",
+                color: "rgba(253,248,236,0.94)",
                 lineHeight: 1.6,
                 maxWidth: "44ch",
                 margin: "0 0 var(--s6)",
@@ -110,17 +111,17 @@ export default function HomeHero() {
                   display: "inline-flex",
                   alignItems: "center",
                   gap: 10,
-                  background: "var(--orange)",
-                  color: "#fff",
+                  background: "var(--cream)",
+                  color: "var(--navy)",
                   fontWeight: 700,
-                  // 19px clears WCAG's large-text threshold, so white on the
-                  // brand orange passes at 3:1 without altering it.
+                  // Cream on the blue hero, like the "Swipe" pill in the
+                  // social graphics; navy on cream is 15:1.
                   fontSize: 19,
                   lineHeight: 1,
                   padding: "19px 26px",
                   borderRadius: "var(--r-hero-sm)",
                   textDecoration: "none",
-                  boxShadow: "var(--shadow-orange)",
+                  boxShadow: "0 14px 34px -14px rgba(16,34,63,0.55)",
                   transition:
                     "transform var(--t-fast) var(--ease), box-shadow var(--t-med) var(--ease)",
                 }}
@@ -150,7 +151,7 @@ export default function HomeHero() {
                 fontSize: 11.5,
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
-                color: "rgba(255,255,255,0.56)",
+                color: "rgba(253,248,236,0.82)",
                 animationDelay: "0.44s",
               }}
             >
