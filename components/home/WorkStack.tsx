@@ -14,10 +14,10 @@ import Image from "next/image";
  */
 const SITES = [
   {
-    name: "Premium Foam",
-    url: "https://www.cclcontracting.com/spray-foam-insulation/",
-    city: "Rio Grande Valley",
-    screenshot: "/work/premium-foam.webp",
+    name: "Belleza De Oro",
+    url: "https://www.bellezadeorosalon.com",
+    city: "Edinburg, TX",
+    screenshot: "/work/belleza-de-oro.webp",
   },
   {
     name: "Us To You Mobile Health",
@@ -26,10 +26,10 @@ const SITES = [
     screenshot: "/work/us-to-you-mobile-health.webp",
   },
   {
-    name: "Mac's Dove Hunts",
-    url: "https://www.macsdovehunts.com",
-    city: "Mercedes, TX",
-    screenshot: "/work/macs-dove-hunts.webp",
+    name: "D'Vash Aesthetics",
+    url: "https://www.dvashaesthetics.com",
+    city: "Harlingen, TX",
+    screenshot: "/work/dvash-aesthetics.webp",
   },
 ] as const;
 
