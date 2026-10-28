@@ -904,6 +904,72 @@ body {
   border-color: var(--orange);
   background: rgba(232,98,26,0.16);
 }
+/* ── Meet the team (components/TeamGrid) ── */
+.rg-team-grid {
+  list-style: none;
+  margin: var(--s5) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr));
+  gap: clamp(24px, 3vw, 36px);
+}
+.rg-team-card {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+.rg-team-card:hover,
+.rg-team-card:focus-visible { transform: translateY(-4px); }
+.rg-team-card:focus-visible { outline: 2px solid var(--orange); outline-offset: 6px; border-radius: var(--r-lg); }
+.rg-team-card:hover .rg-team-more,
+.rg-team-card:focus-visible .rg-team-more { color: var(--orange-ink); }
+.rg-team-dialog {
+  width: min(880px, calc(100vw - 32px));
+  max-height: calc(100vh - 48px);
+  /* The global reset zeroes margins; auto restores the browser's centering. */
+  margin: auto;
+  padding: 0;
+  border: 0;
+  border-radius: var(--r-lg);
+  background: #fff;
+  box-shadow: 0 40px 80px -30px rgba(8,14,26,0.6);
+}
+.rg-team-dialog::backdrop { background: rgba(8,14,26,0.72); }
+.rg-team-dialog-body {
+  position: relative;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: var(--s6);
+  padding: var(--s6);
+}
+.rg-team-dialog-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--muted);
+  cursor: pointer;
+}
+.rg-team-dialog-close:hover { background: var(--cream); color: var(--navy); }
+@media (max-width: 700px) {
+  .rg-team-dialog-body { grid-template-columns: 1fr; padding: var(--s5); }
+  .rg-team-dialog-photo { max-width: 200px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rg-team-card, .rg-team-card:hover { transform: none; }
+}
+
 @media (max-width: 900px) {
   /* Founder rows alternate photo/text on desktop; stacked, the photo always leads. */
   .rg-founder-photo { order: 0 !important; }

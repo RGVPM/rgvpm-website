@@ -1,47 +1,36 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import Icon from "@/components/Icon";
 import InnerCTA from "@/components/InnerCTA";
 import JsonLd from "@/components/JsonLd";
+import TeamGrid, { type TeamMember } from "@/components/TeamGrid";
 import { canonical, breadcrumbSchema, SITE, SOCIAL_PROFILES, socialMeta, ORGANIZATION_ID, PERSON_DERRICK_ID, PERSON_KELSEY_ID } from "@/lib/site";
 
 const url = canonical("/about");
 const linkedinUrl = SOCIAL_PROFILES.find((u) => u.includes("linkedin"));
 
 export const metadata: Metadata = {
-  title: "Meet the Team — Derrick & Kelsey Tamez",
+  title: "Meet the Team",
   description:
-    "RGV Performance Marketing is run by Derrick Tamez, MBA, and Kelsey Tamez, a husband-and-wife team in Harlingen, TX. Meet the team, see what we build for Rio Grande Valley businesses, and find out how to join us.",
+    "Meet the RGV Performance Marketing team in Harlingen, TX: founder and CEO Derrick Tamez, MBA, co-founder Kelsey Tamez, Director of Marketing Anthony Lopez, and Client Success Coach Shaye Arenas. See who builds and runs your marketing, and how to join us.",
   alternates: { canonical: url },
   ...socialMeta({
     url,
     title: `About ${SITE.name}`,
     description:
-      "Meet Derrick and Kelsey Tamez, the husband-and-wife team behind RGV Performance Marketing. We're hiring.",
+      "Meet the leadership and team behind RGV Performance Marketing in Harlingen, TX. We're hiring.",
   }),
 };
 
 /**
- * Founder profiles. Photos live in /public/founders/ (4:5 portrait, at
- * least 900px wide). Leave `photo` undefined and the card renders a navy
- * panel with the founder's initials instead, so the page never shows a
- * broken image while a photo is pending.
- *
- * Both bios were written with the founders.
+ * Team profiles, grouped like an org chart. Every card is the same size;
+ * the bio opens on click (components/TeamGrid). Add new hires to their
+ * department array, or add a new array and group for a new department.
+ * Photos live in /public/founders/ (4:5 portrait, at least 900px wide).
  */
-type Founder = {
-  first: string;
-  name: string;
-  title: string;
-  initials: string;
-  photo?: string;
-  facts: string[];
-  bio: string[];
-};
-
-const FOUNDERS: Founder[] = [
+const LEADERSHIP: TeamMember[] = [
   {
+    id: PERSON_DERRICK_ID,
     first: "Derrick",
     name: "Derrick Tamez, MBA",
     title: "Founder & CEO",
@@ -62,6 +51,7 @@ const FOUNDERS: Founder[] = [
     ],
   },
   {
+    id: PERSON_KELSEY_ID,
     first: "Kelsey",
     name: "Kelsey Tamez",
     title: "Co-Founder & Operations Director",
@@ -80,6 +70,48 @@ const FOUNDERS: Founder[] = [
   },
 ];
 
+const SALES_MARKETING: TeamMember[] = [
+  {
+    id: `${SITE.url}/about#anthony-lopez`,
+    first: "Anthony",
+    name: "Anthony Lopez",
+    title: "Director of Marketing",
+    initials: "AL",
+    photo: "/founders/anthony.jpg",
+    facts: [
+      "UTRGV alumnus",
+      "6 years in the beauty industry",
+      "Marketing & social media",
+      "Sales & operations growth",
+    ],
+    bio: [
+      "Anthony graduated from UTRGV and spent the next six years in the Valley's beauty industry at Valley Beauty Supply. He handled marketing and social media there, and helped grow the company's sales and operations along the way.",
+      "That mix is what he brings to our clients. He knows what gets a customer's attention online, and he knows what has to happen behind the counter to turn that attention into sales.",
+      "As Director of Marketing, Anthony leads marketing and social media strategy for our clients. Salons, med spas, and aesthetics businesses get someone who has already sold to their customers.",
+    ],
+  },
+];
+
+const CLIENT_SUCCESS: TeamMember[] = [
+  {
+    id: `${SITE.url}/about#shaye-arenas`,
+    first: "Shaye",
+    name: "Shaye Arenas",
+    title: "Client Success Coach",
+    initials: "SA",
+    facts: [
+      "Computer science degree",
+      "CRM specialist",
+      "Experience across industries",
+    ],
+    bio: [
+      "Shaye earned her degree in computer science, and she puts it to work on the systems that keep client accounts running. As our CRM specialist, she knows how leads, pipelines, automations, and follow-ups fit together, and how to keep them clean.",
+      "She has worked with businesses across a wide range of industries, so she is quick to learn how a new client operates and what they need from their CRM.",
+      "As Client Success Coach, Shaye helps clients get the most out of the systems we build: answering questions, walking them through their inbox and pipeline, and making sure the tools actually get used.",
+    ],
+  },
+];
+
 const values = [
   { icon: "cpu" as const, title: "AI-Powered, Human-Led", text: "We use modern AI tools to move faster and smarter, but every strategy and decision is led by people who care about your results." },
   { icon: "chart" as const, title: "Results Over Vanity", text: "We report on leads, calls, and booked appointments, the numbers that actually grow a business, not impressions and likes." },
@@ -88,68 +120,6 @@ const values = [
 ];
 
 const mono = "var(--font-dm-mono), ui-monospace, monospace";
-
-function Portrait({ f }: { f: Founder }) {
-  return (
-    <div
-      style={{
-        position: "relative",
-        aspectRatio: "4 / 5",
-        borderRadius: "var(--r-lg)",
-        overflow: "hidden",
-        background: "linear-gradient(160deg, #243658 0%, #1A2B4A 100%)",
-        border: "1px solid var(--border)",
-        boxShadow: "0 30px 60px -30px rgba(26,43,74,0.45)",
-      }}
-    >
-      {f.photo ? (
-        <Image
-          src={f.photo}
-          alt={`${f.name}, ${f.title} of ${SITE.name}`}
-          fill
-          sizes="(max-width: 900px) 92vw, 420px"
-          style={{ objectFit: "cover" }}
-          priority
-        />
-      ) : (
-        <div
-          aria-label={`${f.name} portrait`}
-          role="img"
-          style={{
-            position: "absolute",
-            inset: 0,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontFamily: "'Bebas Neue', sans-serif",
-            fontSize: "clamp(96px, 14vw, 170px)",
-            letterSpacing: "0.04em",
-            color: "rgba(247,244,239,0.14)",
-          }}
-        >
-          {f.initials}
-        </div>
-      )}
-      <div
-        style={{
-          position: "absolute",
-          left: 0,
-          right: 0,
-          bottom: 0,
-          padding: "40px 22px 20px",
-          background: "linear-gradient(to top, rgba(8,14,26,0.92), transparent)",
-        }}
-      >
-        <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 28, letterSpacing: "0.04em", color: "#fff", lineHeight: 1 }}>
-          {f.name}
-        </div>
-        <div style={{ fontFamily: mono, fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange-on-dark)", marginTop: 8 }}>
-          {f.title}
-        </div>
-      </div>
-    </div>
-  );
-}
 
 export default function AboutPage() {
   return (
@@ -160,14 +130,12 @@ export default function AboutPage() {
             { name: "Home", path: "/" },
             { name: "About", path: "/about" },
           ]),
-          ...FOUNDERS.map((f) => {
-            // Stable @ids so blog posts and the business node can reference these people.
-            const id = f.first === "Derrick" ? PERSON_DERRICK_ID : PERSON_KELSEY_ID;
+          ...[...LEADERSHIP, ...SALES_MARKETING, ...CLIENT_SUCCESS].map((f) => {
             const [name, suffix] = f.name.split(", ");
             return {
               "@context": "https://schema.org",
               "@type": "Person",
-              "@id": id,
+              "@id": f.id,
               name,
               ...(suffix ? { honorificSuffix: suffix } : {}),
               jobTitle: f.title,
@@ -198,7 +166,7 @@ export default function AboutPage() {
                 className="rg-display"
                 style={{ fontSize: "var(--fs-hero)", color: "var(--navy)", margin: 0, lineHeight: 0.96 }}
               >
-                Small Team. Serious Systems.
+                Real People. Serious Systems.
                 <span style={{ display: "block", color: "var(--orange)" }}>Built in the Rio Grande Valley.</span>
               </h1>
               <p
@@ -210,85 +178,19 @@ export default function AboutPage() {
                   margin: "var(--s5) 0 0",
                 }}
               >
-                We&rsquo;re a husband-and-wife AI and marketing agency in Harlingen, Texas. We build
-                websites, local search, ads, and the AI systems behind them, then run it all so the
-                owner doesn&rsquo;t have to. And we&rsquo;re growing.
+                We&rsquo;re an AI and marketing agency in Harlingen, Texas. We build websites, local
+                search, ads, and the AI systems behind them, then run it all so the owner
+                doesn&rsquo;t have to. Meet the people doing the work.
               </p>
             </div>
 
-            {FOUNDERS.map((f, i) => (
-              <div
-                key={f.name}
-                className="why-grid-responsive"
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: i % 2 === 0 ? "0.42fr 0.58fr" : "0.58fr 0.42fr",
-                  gap: "clamp(32px, 5vw, 72px)",
-                  alignItems: "center",
-                  marginTop: i === 0 ? "var(--s9)" : "var(--s8)",
-                  paddingTop: i === 0 ? 0 : "var(--s8)",
-                  borderTop: i === 0 ? "none" : "1px solid var(--border)",
-                }}
-              >
-                <div className="rg-founder-photo" style={{ order: i % 2 === 0 ? 0 : 1 }}>
-                  <Portrait f={f} />
-                </div>
-                <div>
-                  <h2
-                    className="rg-display"
-                    style={{ fontSize: "clamp(32px, 3.4vw, 46px)", color: "var(--navy)", margin: 0 }}
-                  >
-                    {f.name}
-                  </h2>
-                  <p style={{ fontFamily: mono, fontSize: 11.5, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange-ink)", margin: "10px 0 0" }}>
-                    {f.title}
-                  </p>
-                  <ul
-                    style={{
-                      listStyle: "none",
-                      margin: "var(--s5) 0 0",
-                      padding: 0,
-                      display: "flex",
-                      flexWrap: "wrap",
-                      gap: 8,
-                    }}
-                  >
-                    {f.facts.map((fact) => (
-                      <li
-                        key={fact}
-                        style={{
-                          fontFamily: mono,
-                          fontSize: 11,
-                          letterSpacing: "0.06em",
-                          textTransform: "uppercase",
-                          color: "var(--navy)",
-                          background: "#fff",
-                          border: "1px solid var(--border)",
-                          borderRadius: "var(--r-pill)",
-                          padding: "7px 12px",
-                        }}
-                      >
-                        {fact}
-                      </li>
-                    ))}
-                  </ul>
-                  {f.bio.map((para, j) => (
-                    <p
-                      key={j}
-                      style={{
-                        fontSize: 16.5,
-                        lineHeight: 1.75,
-                        color: "var(--muted)",
-                        margin: j === 0 ? "var(--s5) 0 0" : "var(--s4) 0 0",
-                        maxWidth: "62ch",
-                      }}
-                    >
-                      {para}
-                    </p>
-                  ))}
-                </div>
-              </div>
-            ))}
+            <TeamGrid
+              groups={[
+                { label: "Leadership", members: LEADERSHIP },
+                { label: "Sales & Marketing", members: SALES_MARKETING },
+                { label: "Client Success", members: CLIENT_SUCCESS },
+              ]}
+            />
 
             {linkedinUrl && (
               <p style={{ margin: "var(--s7) 0 0", fontSize: 15, color: "var(--muted)" }}>
@@ -323,7 +225,7 @@ export default function AboutPage() {
                   <span style={{ display: "block", color: "var(--orange)" }}>Come Build With Us.</span>
                 </h2>
                 <p style={{ fontSize: 17, lineHeight: 1.7, color: "rgba(255,255,255,0.74)", maxWidth: "52ch", margin: "var(--s5) 0 0" }}>
-                  We&rsquo;re adding to the team this week. If you&rsquo;re in the Valley, you care
+                  We&rsquo;re still adding to the team. If you&rsquo;re in the Valley, you care
                   about local businesses, and you&rsquo;re good at what you do, we want to hear
                   from you. Tell us what you&rsquo;d bring and why. No cover-letter formality
                   required.
