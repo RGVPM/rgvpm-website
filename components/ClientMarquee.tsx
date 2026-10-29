@@ -9,8 +9,8 @@ import { CLIENTS, CREDENTIALS, type Client, type Credential } from "@/lib/client
  *
  * Each client logo is a real dofollow link out to the client's live site —
  * a small backlink for them, and proof for the visitor that the work
- * exists. Training logos are spread through the row, each tagged
- * ("Trained with" / "Learned from") so they never read as clients.
+ * exists. Logos from the team's AI training (MasterClass Executive) are
+ * spread through the row; the label above names the program.
  */
 export default function ClientMarquee() {
   if (CLIENTS.length === 0) return null;
@@ -19,7 +19,7 @@ export default function ClientMarquee() {
     <div>
       <p className="rg-marquee-label">
         Trusted by 50+ businesses
-        <span className="rg-hide-sm"> &middot; Trained with Chicago Booth, OpenAI &amp; MasterClass</span>
+        <span className="rg-hide-sm"> &middot; MasterClass Executive with Chicago Booth &amp; OpenAI</span>
       </p>
       <div className="rg-marquee-capsule">
         <div
@@ -67,7 +67,6 @@ function Pass() {
           const c = item.credential;
           return (
             <span key={c.name} className="rg-logo-cell rg-logo-cell--cred">
-              <span className="rg-cred-tag">{c.tag}</span>
               <Image
                 src={c.logo}
                 alt={`${c.name} logo`}

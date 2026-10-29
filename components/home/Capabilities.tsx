@@ -86,7 +86,7 @@ export default function Capabilities() {
   return (
     <Section background="#fff" labelledBy="capabilities-heading">
       <div className="rg-container">
-        <div style={{ maxWidth: 720 }}>
+        <div className="rg-reveal" style={{ maxWidth: 720 }}>
           <h2
             id="capabilities-heading"
             className="rg-display"
@@ -114,6 +114,7 @@ export default function Capabilities() {
                   <div className="rg-bento-copy">
                     <span
                       aria-hidden="true"
+                      className="rg-bento-icon"
                       style={{
                         display: "inline-flex",
                         alignItems: "center",

@@ -22,6 +22,7 @@ export default function FinalCta() {
   return (
     <section
       aria-labelledby="final-cta-heading"
+      className="rg-glow-band"
       style={{
         background: "linear-gradient(180deg, var(--blue) 0%, #0A82DD 100%)",
         paddingBlock: "var(--section-y)",
@@ -32,6 +33,7 @@ export default function FinalCta() {
           {FOUNDERS.map((f, i) => (
             <span
               key={f.src}
+              className="rg-founder"
               style={{
                 width: 64,
                 height: 64,

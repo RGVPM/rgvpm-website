@@ -326,7 +326,7 @@ html { scroll-behavior: smooth; }
   color: #fff;
   font-size: 21px;
   letter-spacing: 0.06em;
-  box-shadow: 0 0 0 6px var(--cream);
+  box-shadow: 0 0 0 6px #fff;
 }
 
 /* ── AI tool chips (Build with me) ─────────────────────────────── */
@@ -881,19 +881,6 @@ body {
   font-size: 24px;
   letter-spacing: 0.05em;
   color: var(--navy);
-  white-space: nowrap;
-}
-/* "Trained with" tag on the credential logos: the blue pill from the graphics */
-.rg-cred-tag {
-  font-family: var(--font-dm-mono), ui-monospace, monospace;
-  font-size: 9.5px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  line-height: 1;
-  color: var(--cream);
-  background: var(--blue);
-  padding: 5px 10px;
-  border-radius: 999px;
   white-space: nowrap;
 }
 /* SVG marks have no intrinsic size, so the height is set outright. */
@@ -2238,4 +2225,140 @@ body:has(.lp-root) > footer {
   .lp-final-primary:hover,
   .lp-final-secondary:hover,
   .lp-topbar-cta:hover { transform: none !important; }
+}
+
+/* ── Motion layer: playful, never in the way ─────────────────────
+   Everything here is decoration on top of content that is already
+   visible, and all of it sits behind prefers-reduced-motion. Scroll-
+   linked pieces use animation-timeline (no JS); where a browser lacks
+   it they simply don't run.
+   ─────────────────────────────────────────────────────────────── */
+
+/* Soft light drifting across the blue bands (hero, final CTA) */
+.rg-glow-band { position: relative; overflow: hidden; isolation: isolate; }
+.rg-glow-band::before,
+.rg-glow-band::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(10px);
+}
+.rg-glow-band::before {
+  width: 640px; height: 640px;
+  left: -180px; top: -260px;
+  background: radial-gradient(circle, rgba(253,248,236,0.22), transparent 65%);
+}
+.rg-glow-band::after {
+  width: 560px; height: 560px;
+  right: -160px; bottom: -280px;
+  background: radial-gradient(circle, rgba(16,34,63,0.28), transparent 65%);
+}
+
+/* Orange sparkles around the phones */
+.rg-sparkle {
+  position: absolute;
+  z-index: 5;
+  color: var(--orange);
+  line-height: 1;
+  pointer-events: none;
+  text-shadow: 0 2px 10px rgba(16,34,63,0.25);
+}
+.rg-sparkle--1 { left: 10%; top: 2%;  font-size: 22px; }
+.rg-sparkle--2 { right: 4%; top: 4%;  font-size: 16px; color: var(--cream); }
+.rg-sparkle--3 { right: 14%; bottom: 4%; font-size: 26px; }
+
+/* Brand badge: spins once on hover */
+.rg-brandmark img { transition: transform 0.9s cubic-bezier(0.34, 1.56, 0.64, 1); }
+a:hover > .rg-brandmark img,
+.rg-brandmark:hover img { transform: rotate(360deg); }
+
+/* Button arrows nudge forward on hover */
+.rg-btn span[aria-hidden="true"] { display: inline-block; transition: transform var(--t-med) var(--ease); }
+.rg-btn:hover span[aria-hidden="true"] { transform: translateX(4px); }
+
+/* Problem cards lift; capability icons wiggle */
+.rg-problem { transition: transform var(--t-med) var(--ease), box-shadow var(--t-med) var(--ease); }
+.rg-problem:hover { transform: translateY(-4px); box-shadow: 0 24px 50px -30px rgba(16,34,63,0.45); }
+
+@keyframes rgFloat   { 0%, 100% { translate: 0 0; } 50% { translate: 0 -10px; } }
+@keyframes rgTwinkle { 0%, 100% { opacity: 0.25; scale: 0.7; rotate: 0deg; } 50% { opacity: 1; scale: 1.15; rotate: 45deg; } }
+@keyframes rgDrift   { 0%, 100% { translate: 0 0; } 50% { translate: 60px 40px; } }
+@keyframes rgPulse   { 0% { box-shadow: 0 0 0 0 rgba(253,248,236,0.55); } 70%, 100% { box-shadow: 0 0 0 16px rgba(253,248,236,0); } }
+@keyframes rgPop     { 0% { scale: 0; rotate: -30deg; } 70% { scale: 1.18; } 100% { scale: 1; rotate: 0deg; } }
+@keyframes rgDraw    { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes rgDrawY   { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes rgWiggle  { 0%, 100% { rotate: 0deg; } 25% { rotate: -9deg; } 75% { rotate: 9deg; } }
+@keyframes rgBadgeIn { from { opacity: 0; rotate: -120deg; scale: 0.6; } to { opacity: 1; rotate: 0deg; scale: 1; } }
+
+@media (prefers-reduced-motion: no-preference) {
+  .rg-glow-band::before { animation: rgDrift 16s ease-in-out infinite; }
+  .rg-glow-band::after  { animation: rgDrift 20s ease-in-out infinite reverse; }
+
+  /* Phones bob gently, each on its own beat (translate composes with the tilt) */
+  .rg-phone-frame { animation: rgFloat 6s ease-in-out infinite; }
+  .rg-phone--1 .rg-phone-frame { animation-duration: 7s;   animation-delay: -1s; }
+  .rg-phone--2 .rg-phone-frame { animation-duration: 6s;   animation-delay: -3s; }
+  .rg-phone--3 .rg-phone-frame { animation-duration: 6.6s; animation-delay: -0.5s; }
+  .rg-phone--4 .rg-phone-frame { animation-duration: 7.4s; animation-delay: -2.2s; }
+
+  .rg-sparkle { animation: rgTwinkle 3.2s ease-in-out infinite; }
+  .rg-sparkle--2 { animation-delay: -1.1s; animation-duration: 2.6s; }
+  .rg-sparkle--3 { animation-delay: -2s;   animation-duration: 3.8s; }
+
+  /* The main hero button breathes so the eye finds it */
+  .rg-hero-actions .rg-hero-cta { animation: rgPulse 2.6s ease-out 1.6s infinite; }
+  .rg-hero-actions .rg-hero-cta:hover { animation: none; }
+
+  .rg-brandmark img { animation: rgBadgeIn 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+
+  .rg-founder { animation: rgFloat 4.5s ease-in-out infinite; }
+  .rg-founder + .rg-founder { animation-delay: -2.2s; }
+
+  .rg-bento-cell:hover .rg-bento-icon { animation: rgWiggle 0.5s ease-in-out; }
+
+  @supports (animation-timeline: view()) {
+    /* Problem cards: the orange rule draws in, then the check pops */
+    .rg-handled { border-top-color: transparent; position: relative; }
+    .rg-handled::before {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; top: -2px;
+      height: 2px;
+      background: var(--orange);
+      transform-origin: left;
+      animation: rgDraw linear both;
+      animation-timeline: view();
+      animation-range: entry 20% cover 40%;
+    }
+    .rg-handled-check {
+      animation: rgPop linear both;
+      animation-timeline: view();
+      animation-range: entry 35% cover 45%;
+    }
+
+    /* Process rail draws left to right as it scrolls into view */
+    .rg-steps::before {
+      transform-origin: left;
+      animation: rgDraw linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 45%;
+    }
+    /* Under 900px the rail is vertical, so it draws top to bottom */
+    @media (max-width: 900px) {
+      .rg-steps::before { transform-origin: top; animation-name: rgDrawY; animation-range: entry 0% cover 60%; }
+    }
+    .rg-step-marker {
+      animation: rgPop linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 30%;
+    }
+
+    /* Bento and problem cards rise in a little staggered */
+    .rg-bento > li:nth-child(2), .rg-problems > li:nth-child(2) { animation-range: entry 10% cover 26%; }
+    .rg-bento > li:nth-child(3) { animation-range: entry 4% cover 20%; }
+    .rg-bento > li:nth-child(4), .rg-problems > li:nth-child(4) { animation-range: entry 10% cover 26%; }
+    .rg-bento > li:nth-child(5) { animation-range: entry 16% cover 32%; }
+  }
 }

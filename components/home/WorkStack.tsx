@@ -69,6 +69,10 @@ export default function WorkStack() {
             </a>
           </div>
         ))}
+        {/* Orange sparkles from the brand graphics, twinkling around the phones */}
+        <span className="rg-sparkle rg-sparkle--1" aria-hidden="true">✦</span>
+        <span className="rg-sparkle rg-sparkle--2" aria-hidden="true">✦</span>
+        <span className="rg-sparkle rg-sparkle--3" aria-hidden="true">✦</span>
       </div>
       <p
         style={{

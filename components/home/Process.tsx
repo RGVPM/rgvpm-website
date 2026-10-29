@@ -34,7 +34,7 @@ export default function Process() {
   return (
     <Section id="how-it-works" background="#fff" labelledBy="process-heading">
       <div className="rg-container">
-        <div className="rg-process-head">
+        <div className="rg-process-head rg-reveal">
           <h2
             id="process-heading"
             className="rg-display"

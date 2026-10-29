@@ -19,12 +19,13 @@ export default function HomeHero() {
   const proof = [
     "Local team in Harlingen",
     "50+ live client sites",
-    "Follow-up that runs itself",
+    "Follow-up on autopilot",
   ];
 
   return (
     <section
       aria-labelledby="hero-heading"
+      className="rg-glow-band"
       style={{
         background: "linear-gradient(180deg, var(--blue) 0%, #0A82DD 100%)",
         position: "relative",

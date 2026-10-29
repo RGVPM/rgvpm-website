@@ -37,16 +37,18 @@ export default function ProblemsSolved() {
   return (
     <Section id="busywork" background="var(--cream)" labelledBy="busywork-heading">
       <div className="rg-container">
-        <Label>Less busywork</Label>
-        <SectionHeading id="busywork-heading">
-          The Busywork, Handled.
-          <br />
-          <span style={{ color: "var(--blue)" }}>You Stay With Your Clients.</span>
-        </SectionHeading>
-        <Lede>
-          Most of what slips through the cracks is the same few jobs. We set them up to run on
-          their own, then keep an eye on them for you.
-        </Lede>
+        <div className="rg-reveal">
+          <Label>Less busywork</Label>
+          <SectionHeading id="busywork-heading">
+            The Busywork, Handled.
+            <br />
+            <span style={{ color: "var(--blue)" }}>You Stay With Your Clients.</span>
+          </SectionHeading>
+          <Lede>
+            Most of what slips through the cracks is the same few jobs. We set them up to run on
+            their own, then keep an eye on them for you.
+          </Lede>
+        </div>
 
         <ul className="rg-problems">
           {PROBLEMS.map((p, i) => (
@@ -72,7 +74,7 @@ export default function ProblemsSolved() {
           ))}
         </ul>
 
-        <div className="rg-problems-foot">
+        <div className="rg-problems-foot rg-reveal">
           <p style={{ fontSize: 15, lineHeight: 1.6, color: "var(--muted)", margin: 0, maxWidth: "52ch" }}>
             Behind the scenes it&rsquo;s AI and automation we build and run for you. You
             don&rsquo;t have to learn any of it.
