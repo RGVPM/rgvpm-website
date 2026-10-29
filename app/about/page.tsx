@@ -154,7 +154,7 @@ export default function AboutPage() {
           eyebrow="Meet the team"
           title={
             <>
-              Real People. Serious Systems.
+              Your Marketing Team, Minus the Payroll.
               <br />
               <span style={{ color: "var(--navy)" }}>Rooted in the Valley. Working Nationwide.</span>
             </>
