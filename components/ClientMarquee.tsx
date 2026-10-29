@@ -1,26 +1,22 @@
 import Image from "next/image";
-import { CLIENTS, CREDENTIALS, type Client, type Credential } from "@/lib/clients";
+import { CLIENTS } from "@/lib/clients";
 
 /**
- * Client + training logo marquee, set in a navy-outlined capsule like the
- * "We handle it" cards in the social graphics. Logos keep their own
- * colors; small orange dots separate them. Renders nothing
- * until at least one client is added in lib/clients.ts.
+ * Client logo marquee, set in a navy-outlined capsule like the "We handle
+ * it" cards in the social graphics. Logos keep their own colors; small
+ * orange dots separate them. Renders nothing until at least one client is
+ * added in lib/clients.ts.
  *
- * Each client logo is a real dofollow link out to the client's live site —
- * a small backlink for them, and proof for the visitor that the work
- * exists. Logos from the team's AI training (MasterClass Executive) are
- * spread through the row; the label above names the program.
+ * Each logo is a real dofollow link out to the client's live site — a
+ * small backlink for them, and proof for the visitor that the work exists.
+ * Clients only: training credentials live in the team bios on /about.
  */
 export default function ClientMarquee() {
   if (CLIENTS.length === 0) return null;
 
   return (
     <div>
-      <p className="rg-marquee-label">
-        Trusted by 150+ businesses
-        <span className="rg-hide-sm"> &middot; MasterClass Executive with Chicago Booth &amp; OpenAI</span>
-      </p>
+      <p className="rg-marquee-label">Trusted by 150+ businesses</p>
       <div className="rg-marquee-capsule">
         <div
           className="rg-scroller"
@@ -30,62 +26,24 @@ export default function ClientMarquee() {
             WebkitMaskImage: "linear-gradient(to right, transparent, #000 7%, #000 93%, transparent)",
           }}
         >
-          <div className="rg-marquee-track" data-dir="right" style={{ ["--track-duration" as string]: "70s" }}>
+          <div className="rg-marquee-track" data-dir="right" style={{ ["--track-duration" as string]: "60s" }}>
             <Pass />
             {/* Duplicate pass makes the loop seamless. aria-hidden + inert so a
-                screen reader meets each logo once, not twice. */}
+                screen reader meets each client once, not twice. */}
             <div aria-hidden="true" inert style={{ display: "flex" }}>
               <Pass />
             </div>
           </div>
         </div>
       </div>
-      <p className="rg-marquee-note">
-        Learned from <strong>Mark Cuban</strong>, <strong>Indra Nooyi</strong>,{" "}
-        <strong>Paul Krugman</strong> and Nobel-winning Chicago Booth faculty.
-      </p>
     </div>
   );
-}
-
-type Item = { kind: "client"; client: Client } | { kind: "credential"; credential: Credential };
-
-/** Clients in order, with one training logo dropped in every few clients. */
-function items(): Item[] {
-  const out: Item[] = [];
-  const every = Math.max(1, Math.ceil(CLIENTS.length / CREDENTIALS.length));
-  CLIENTS.forEach((client, i) => {
-    if (i % every === 0 && CREDENTIALS[i / every]) {
-      out.push({ kind: "credential", credential: CREDENTIALS[i / every] });
-    }
-    out.push({ kind: "client", client });
-  });
-  return out;
 }
 
 function Pass() {
   return (
     <div style={{ display: "flex", alignItems: "center" }}>
-      {items().map((item) => {
-        if (item.kind === "credential") {
-          const c = item.credential;
-          return (
-            <span key={c.name} className="rg-logo-cell rg-logo-cell--cred">
-              <Image
-                src={c.logo}
-                alt={`${c.name} logo`}
-                height={120}
-                width={360}
-                unoptimized
-                loading="eager"
-                className="rg-logo-img"
-                style={{ ["--logo-mh" as string]: `${c.maxHeight ?? 46}px` }}
-              />
-            </span>
-          );
-        }
-
-        const client = item.client;
+      {CLIENTS.map((client) => {
         const inner = client.logo ? (
           <Image
             src={client.logo}

@@ -178,66 +178,93 @@ html { scroll-behavior: smooth; }
   border: 0;
 }
 
-/* ── Services bento ──────────────────────────────────────────────
-   3 columns, websites spans two. Cells lift on hover; the arrow slides.
+/* ── Services as "the hats" ────────────────────────────────────
+   Six matching cards from the social carousel: blue HAT pill, display
+   title, blue subline, orange rule. Cards lift on hover; the arrow slides.
    ─────────────────────────────────────────────────────────────── */
-.rg-bento {
+.rg-hats-kicker {
+  margin: 0;
+  font-size: clamp(18px, 1.8vw, 22px);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--blue-ink);
+}
+.rg-hats {
   list-style: none;
   margin: var(--s8) 0 0;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--s4);
+  gap: var(--s5);
 }
-.rg-bento > li { display: flex; }
-.rg-bento-wide { grid-column: span 2; }
-.rg-bento-cell {
-  position: relative;
+.rg-hats > li { display: flex; }
+.rg-hat {
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   width: 100%;
-  overflow: hidden;
-  border: 1px solid;
-  border-radius: var(--r-lg);
+  padding: clamp(24px, 2.4vw, 32px);
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
   text-decoration: none;
   transition: transform var(--t-med) var(--ease), box-shadow var(--t-med) var(--ease), border-color var(--t-med) var(--ease);
 }
-.rg-bento-cell:hover,
-.rg-bento-cell:focus-visible {
-  transform: translateY(-4px);
-  box-shadow: 0 24px 50px -28px rgba(16,34,63,0.45);
+.rg-hat:hover,
+.rg-hat:focus-visible {
+  transform: translateY(-5px);
+  border-color: var(--navy);
+  box-shadow: 0 26px 50px -30px rgba(16,34,63,0.5);
 }
-.rg-bento-white:hover, .rg-bento-cream:hover { border-color: rgba(11,140,235,0.45) !important; }
-.rg-bento-copy {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  padding: clamp(24px, 2.6vw, 34px);
-  min-height: 300px;
+.rg-hat-pill {
+  font-family: var(--font-dm-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1;
+  color: var(--cream);
+  background: var(--blue);
+  padding: 7px 13px;
+  border-radius: 999px;
 }
-.rg-bento-wide .rg-bento-copy { max-width: 54%; }
-.rg-bento-more {
+.rg-hat-title {
+  margin: var(--s4) 0 0;
+  font-size: clamp(28px, 2.4vw, 34px);
+  color: var(--navy);
+}
+.rg-hat-sub {
+  margin: 6px 0 0;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--blue-ink);
+}
+.rg-hat-rule {
+  display: block;
+  width: 56px;
+  height: 2px;
+  margin: var(--s5) 0;
+  background: var(--orange);
+  transition: width var(--t-slow) var(--ease);
+}
+.rg-hat:hover .rg-hat-rule { width: 100%; }
+.rg-hat-text {
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.rg-hat-more {
   margin-top: auto;
   padding-top: var(--s5);
   font-size: 14px;
   font-weight: 700;
+  color: var(--blue-ink);
 }
-.rg-bento-more span { display: inline-block; transition: transform var(--t-med) var(--ease); }
-.rg-bento-cell:hover .rg-bento-more span { transform: translateX(4px); }
-/* Real client site, bleeding off the bottom-right of the websites cell */
-.rg-bento-shot {
-  position: absolute;
-  right: -5%;
-  bottom: -16%;
-  width: 56%;
-  border-radius: var(--r-md);
-  overflow: hidden;
-  border: 1px solid rgba(253,248,236,0.22);
-  box-shadow: 0 30px 60px -24px rgba(4,9,20,0.8);
-  transform: rotate(-3deg);
-  transition: transform var(--t-slow) var(--ease);
-}
-.rg-bento-cell:hover .rg-bento-shot { transform: rotate(-3deg) translateY(-8px); }
+.rg-hat-more span { display: inline-block; transition: transform var(--t-med) var(--ease); }
+.rg-hat:hover .rg-hat-more span { transform: translateX(4px); }
+@media (max-width: 1023px) { .rg-hats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px)  { .rg-hats { grid-template-columns: 1fr; } }
 
 /* ── Homepage AI section ─────────────────────────────────────────
    Heading stacked over the intro, then six offers in two rows of three
@@ -472,12 +499,6 @@ html { scroll-behavior: smooth; }
 }
 
 @media (max-width: 900px) {
-  .rg-bento { grid-template-columns: 1fr; }
-  .rg-bento-wide { grid-column: auto; }
-  .rg-bento-wide .rg-bento-copy { max-width: none; padding-bottom: 0; min-height: 0; }
-  .rg-bento-wide .rg-bento-cell { flex-direction: column; }
-  .rg-bento-shot { position: relative; right: auto; bottom: auto; width: 86%; margin: var(--s5) 0 -24px auto; }
-  .rg-bento-copy { min-height: 0; }
   .rg-process-head { grid-template-columns: 1fr; }
   .rg-steps { grid-template-columns: 1fr; gap: var(--s7); padding-left: 76px; }
   .rg-steps::before { left: 26px; right: auto; top: 0; bottom: 0; width: 2px; height: auto;
@@ -487,9 +508,8 @@ html { scroll-behavior: smooth; }
   .rg-reassure li + li::before { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .rg-bento-cell, .rg-bento-shot, .rg-bento-more span { transition: none !important; }
-  .rg-bento-cell:hover { transform: none; }
-  .rg-bento-cell:hover .rg-bento-shot { transform: rotate(-3deg); }
+  .rg-hat, .rg-hat-rule, .rg-hat-more span { transition: none !important; }
+  .rg-hat:hover { transform: none; }
 }
 
 /* Focus ring — visible on every interactive element, both themes */
@@ -831,16 +851,6 @@ body {
   width: fit-content;
   border-bottom: 1.5px solid var(--blue);
 }
-.rg-marquee-note {
-  margin: 20px auto 0;
-  max-width: 80ch;
-  text-align: center;
-  font-size: 15px;
-  line-height: 1.6;
-  font-style: italic;
-  color: var(--muted);
-}
-.rg-marquee-note strong { font-style: normal; font-weight: 700; color: var(--navy); }
 .rg-marquee-capsule {
   background: #fff;
   border: 1.5px solid var(--navy);
@@ -893,8 +903,6 @@ body {
   color: var(--navy);
   white-space: nowrap;
 }
-/* SVG marks have no intrinsic size, so the height is set outright. */
-.rg-logo-cell--cred .rg-logo-img { height: var(--logo-mh); max-width: none; }
 @media (max-width: 640px) {
   .rg-hide-sm { display: none; }
   .rg-logo-strip { padding: 36px 0 !important; }
@@ -902,7 +910,6 @@ body {
   .rg-marquee-capsule { border-radius: 28px; }
   .rg-logo-cell { padding: 0 26px; height: 84px; gap: 6px; }
   .rg-logo-img { max-width: 150px; max-height: calc(var(--logo-mh, 66px) * 0.72); }
-  .rg-logo-cell--cred .rg-logo-img { height: calc(var(--logo-mh) * 0.72); }
   .rg-logo-word { font-size: 19px; }
 }
 
@@ -2326,7 +2333,7 @@ a:hover > .rg-brandmark img,
   .rg-founder { animation: rgFloat 4.5s ease-in-out infinite; }
   .rg-founder + .rg-founder { animation-delay: -2.2s; }
 
-  .rg-bento-cell:hover .rg-bento-icon { animation: rgWiggle 0.5s ease-in-out; }
+  .rg-hat:hover .rg-hat-pill { animation: rgWiggle 0.5s ease-in-out; }
 
   @supports (animation-timeline: view()) {
     /* Problem cards: the orange rule draws in, then the check pops */
@@ -2365,10 +2372,8 @@ a:hover > .rg-brandmark img,
       animation-range: entry 10% cover 30%;
     }
 
-    /* Bento and problem cards rise in a little staggered */
-    .rg-bento > li:nth-child(2), .rg-problems > li:nth-child(2) { animation-range: entry 10% cover 26%; }
-    .rg-bento > li:nth-child(3) { animation-range: entry 4% cover 20%; }
-    .rg-bento > li:nth-child(4), .rg-problems > li:nth-child(4) { animation-range: entry 10% cover 26%; }
-    .rg-bento > li:nth-child(5) { animation-range: entry 16% cover 32%; }
+    /* Hat and problem cards rise in a little staggered */
+    .rg-hats > li:nth-child(3n+2), .rg-problems > li:nth-child(2n) { animation-range: entry 10% cover 26%; }
+    .rg-hats > li:nth-child(3n+3) { animation-range: entry 16% cover 32%; }
   }
 }

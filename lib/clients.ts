@@ -48,29 +48,3 @@ export const CLIENTS: Client[] = [
   // laferiacoop.com doesn't resolve yet, so the logo renders unlinked.
   { name: "La Feria Co-op Gin & Supply", logo: "/clients/la-feria-coop.png", maxHeight: 84 },
 ];
-
-export interface Credential {
-  /** Organization name (alt text). */
-  name: string;
-  /** Logo in /public/credentials/. */
-  logo: string;
-  /** Optional per-logo max height in px (default 46). */
-  maxHeight?: number;
-}
-
-/**
- * MasterClass Executive, the AI-era certificate program Chicago Booth
- * built with OpenAI, plus companies whose founders teach in it (Mati
- * Staniszewski of ElevenLabs, Grant Lee of Gamma). They ride in the same
- * marquee as the client logos; the marquee label names the program.
- * Logos are the organizations' official marks (Wikimedia, the
- * ElevenLabs brand page, Gamma's docs site), shown to name the training,
- * not to imply a partnership.
- */
-export const CREDENTIALS: Credential[] = [
-  { name: "The University of Chicago Booth School of Business", logo: "/credentials/chicago-booth.svg", maxHeight: 44 },
-  { name: "ElevenLabs", logo: "/credentials/elevenlabs.svg", maxHeight: 24 },
-  { name: "OpenAI", logo: "/credentials/openai.svg", maxHeight: 30 },
-  { name: "Gamma", logo: "/credentials/gamma.svg", maxHeight: 28 },
-  { name: "MasterClass", logo: "/credentials/masterclass.svg", maxHeight: 48 },
-];
