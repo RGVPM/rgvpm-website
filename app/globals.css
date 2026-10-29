@@ -817,7 +817,7 @@ body {
 .rg-scroller:has(:focus-visible) .rg-marquee-track { animation-play-state: paused; }
 
 /* Client logo strip: a navy-outlined capsule (the "We handle it" card
-   shape from the social graphics) with logos in one ink. Per-logo height
+   shape from the social graphics). Per-logo height
    comes in as --logo-mh so it can be scaled down on small screens. */
 .rg-marquee-label {
   font-family: var(--font-dm-mono), ui-monospace, monospace;
@@ -870,14 +870,10 @@ body {
   max-width: 220px;
   max-height: var(--logo-mh, 66px);
   object-fit: contain;
-  filter: grayscale(1) contrast(1.05);
-  opacity: 0.72;
-  transition: filter var(--t-med) var(--ease), opacity var(--t-med) var(--ease), transform var(--t-med) var(--ease);
+  transition: transform var(--t-med) var(--ease);
 }
 .rg-logo-cell:hover .rg-logo-img,
 .rg-logo-cell:focus-visible .rg-logo-img {
-  filter: none;
-  opacity: 1;
   transform: translateY(-2px);
 }
 .rg-logo-word {
@@ -885,7 +881,6 @@ body {
   font-size: 24px;
   letter-spacing: 0.05em;
   color: var(--navy);
-  opacity: 0.72;
   white-space: nowrap;
 }
 /* "Trained with" tag on the credential logos: the blue pill from the graphics */
@@ -902,7 +897,7 @@ body {
   white-space: nowrap;
 }
 /* SVG marks have no intrinsic size, so the height is set outright. */
-.rg-logo-cell--cred .rg-logo-img { opacity: 0.85; height: var(--logo-mh); max-width: none; }
+.rg-logo-cell--cred .rg-logo-img { height: var(--logo-mh); max-width: none; }
 @media (max-width: 640px) {
   .rg-hide-sm { display: none; }
   .rg-logo-strip { padding: 36px 0 !important; }

@@ -3,9 +3,8 @@ import { CLIENTS, CREDENTIALS, type Client, type Credential } from "@/lib/client
 
 /**
  * Client + training logo marquee, set in a navy-outlined capsule like the
- * "We handle it" cards in the social graphics. Logos sit in one ink
- * (grayscale) so a dozen brand colors read as one calm row, and come back
- * to full color on hover. Small orange dots separate them. Renders nothing
+ * "We handle it" cards in the social graphics. Logos keep their own
+ * colors; small orange dots separate them. Renders nothing
  * until at least one client is added in lib/clients.ts.
  *
  * Each client logo is a real dofollow link out to the client's live site —
