@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 const pricingFaqs = [
   {
     q: "How does your pricing work?",
-    a: "Every plan starts with a website: Plant the Flag, $397/mo with no build fee. It includes your lead inbox and automatic follow-up by text and email. From there you add only the jobs you want handed off: Local SEO & Google Profile ($397/mo), Content Crew ($647/mo) or Full Service Social ($1,497/mo), and Ads Management ($497/mo). Or pick a bundle: Build the Machine ($997/mo) or Own the Market ($2,497/mo), which cost less than the same pieces bought separately.",
+    a: "Every plan starts with a website: Plant the Flag, $397/mo. It includes your lead inbox and automatic follow-up by text and email. From there you add only the jobs you want handed off: Local SEO & Google Profile ($397/mo), Content Crew ($647/mo) or Full Service Social ($1,497/mo), and Ads Management ($497/mo). Or pick a bundle: Build the Machine ($997/mo) or Own the Market ($2,497/mo), which cost less than the same pieces bought separately.",
   },
   {
     q: "Is text and email follow-up included?",
@@ -32,11 +32,11 @@ const pricingFaqs = [
   },
   {
     q: "Do I have to sign a long-term contract?",
-    a: "No. All plans and add-ons are month-to-month. We believe in earning your business every month, not locking you in. There's no build fee, no setup fee and no activation fee. You just pay the monthly price.",
+    a: "No. All plans and add-ons are month-to-month. We believe in earning your business every month, not locking you in. The only upfront cost is a one-time $399 build fee if you get the website on its own, and it's waived as soon as you add anything else.",
   },
   {
-    q: "Are there any setup or activation fees?",
-    a: "No. There's no build fee, setup fee or activation fee on any plan, including the website. You pay the flat monthly rate and that's it.",
+    q: "Is there a build fee?",
+    a: "Only if you get the website on its own: a one-time $399 build fee that covers designing and building your site. Add any add-on, or pick Build the Machine or Own the Market, and the build fee is waived. There are no setup or activation fees on anything.",
   },
   {
     q: "What do the bundles save me?",
@@ -86,7 +86,7 @@ export default function PricingPage() {
           <ul className="rg-about-proof">
             <li>From $397/mo</li>
             <li>No contracts</li>
-            <li>No setup fees</li>
+            <li>$0 build fee with any add-on</li>
             <li>Ad spend billed by Google &amp; Meta</li>
           </ul>
         </PageHero>

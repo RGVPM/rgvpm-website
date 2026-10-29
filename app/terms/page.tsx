@@ -108,10 +108,10 @@ export default function TermsPage() {
           cancellation mid-cycle. By subscribing, you acknowledge and accept this no-refund policy.
         </p>
 
-        <h2 style={h2}>6. Activation Fees</h2>
+        <h2 style={h2}>6. Build Fees</h2>
         <p style={p}>
-          Certain plans include a one-time activation fee that covers onboarding, account setup, and
-          configuration. <strong>Activation fees are non-refundable</strong> under all circumstances.
+          The website plan, when purchased on its own, includes a one-time build fee that covers design,
+          build, and setup. <strong>Build fees are non-refundable</strong> under all circumstances.
         </p>
 
         <h2 style={h2}>7. Cancellation Policy</h2>

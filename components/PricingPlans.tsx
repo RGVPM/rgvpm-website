@@ -11,7 +11,8 @@ const BOOKING = "https://api.rgvperformancemarketing.com/widget/bookings/rgvpmdi
  * BASE / ADDONS / BUNDLES below, so the "save $X" lines and the builder's
  * math stay right when a number changes.
  */
-const BASE = { name: "Plant the Flag", price: 397 };
+/** The build fee applies to the website on its own; any add-on or bundle waives it. */
+const BASE = { name: "Plant the Flag", price: 397, buildFee: 399 };
 
 type AddonId = "seo" | "content" | "social" | "ads";
 
@@ -232,7 +233,16 @@ function Builder() {
           {money(best.price)}
           <span>/mo</span>
         </p>
-        <p className="rg-build-total-note">No build fee · no setup fee · month-to-month</p>
+        <p className="rg-build-total-note">
+          {picked.length === 0
+            ? `+ ${money(BASE.buildFee)} one-time build fee · month-to-month`
+            : "Build fee waived · no setup fee · month-to-month"}
+        </p>
+        {picked.length === 0 && (
+          <p className="rg-build-applied">
+            <strong>Add anything and the {money(BASE.buildFee)} build fee is waived.</strong> Tick any add-on above.
+          </p>
+        )}
         {bundled && (
           <p className="rg-build-applied">
             <strong>Bundle price applied.</strong> Your picks fit {best.name}, so you pay {money(listTotal - best.price)} less
@@ -429,7 +439,7 @@ export default function PricingPlans() {
             hats={["Web Designer", "Lead Inbox", "Follow-Up Specialist"]}
             description="A site that actually catches jobs, plus one inbox for every lead and follow-up that runs itself."
             price={BASE.price}
-            priceNote="No build fee · month-to-month"
+            priceNote={`+ ${money(BASE.buildFee)} one-time build fee · $0 with any add-on`}
             features={[
               "Custom site, not a template",
               "Hosting, SSL, backups, security",
