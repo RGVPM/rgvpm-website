@@ -120,7 +120,7 @@ export default function ServicesHub() {
                   <p className="rg-hat-sub">+ we&rsquo;ll tell you what to hand off first</p>
                   <span className="rg-hat-rule" aria-hidden="true" />
                   <p className="rg-hat-text">
-                    A quick call with Derrick or Kelsey. We look at where leads are slipping and
+                    A quick call with our team. We look at where leads are slipping and
                     which hat would free up the most of your week.
                   </p>
                   <span className="rg-hat-more">

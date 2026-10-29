@@ -156,7 +156,7 @@ export default function AboutPage() {
             <>
               Real People. Serious Systems.
               <br />
-              <span style={{ color: "var(--navy)" }}>Built in the Rio Grande Valley.</span>
+              <span style={{ color: "var(--navy)" }}>Rooted in the Valley. Working Nationwide.</span>
             </>
           }
           subtitle="We're based in Harlingen, Texas, and work with businesses across the U.S. We build your website, Google, ads and follow-up, then run all of it so you don't have to. Here's who does the work."
@@ -176,10 +176,10 @@ export default function AboutPage() {
             <div className="rg-reveal" style={{ maxWidth: 720 }}>
               <span className="rg-pill">The people</span>
               <h2 id="team-heading" className="rg-display rg-svc-h2">
-                You&rsquo;ll Know Us <span style={{ color: "var(--blue)" }}>By Name.</span>
+                The Team Behind <span style={{ color: "var(--blue)" }}>Your Growth.</span>
               </h2>
               <p className="rg-svc-body">
-                No account managers you never meet. Tap anyone below to read their story.
+                The people who build and run your marketing. Tap anyone below to read their story.
               </p>
             </div>
 
