@@ -5,9 +5,12 @@ import { SITE } from "@/lib/site";
 export default function InnerCTA({
   heading = "Ready to Grow Your Business?",
   text = "Tell us what you're trying to grow. We'll map out the plan on a quick call and can have your new site live in as little as 8 to 10 days.",
+  hidePricingLink = false,
 }: {
   heading?: string;
   text?: string;
+  /** On /pricing itself, a "View Plans" button would just reload the page. */
+  hidePricingLink?: boolean;
 }) {
   return (
     <section
@@ -23,9 +26,11 @@ export default function InnerCTA({
           <a href={SITE.bookingUrl} target="_blank" rel="noopener noreferrer" className="rg-btn rg-cta-cream">
             Book with us! <span aria-hidden="true">→</span>
           </a>
-          <Link href="/pricing" className="rg-btn rg-cta-ghost">
-            View Plans &amp; Pricing
-          </Link>
+          {!hidePricingLink && (
+            <Link href="/pricing" className="rg-btn rg-cta-ghost">
+              View Plans &amp; Pricing
+            </Link>
+          )}
         </div>
         <ul className="rg-reassure" style={{ marginTop: "var(--s6)" }}>
           <li>Month-to-month, cancel anytime</li>
