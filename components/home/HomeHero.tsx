@@ -6,7 +6,7 @@ import { SITE } from "@/lib/site";
  *
  * Server component by design: nothing here needs state, so no client JS
  * ships for the hero and the headline is the LCP text in the initial HTML.
- * Every animation is CSS (`hero-animate`, `rg-stack-*` in globals.css) and
+ * Every animation is CSS (`hero-animate`, `rg-phone*` in globals.css) and
  * touches only transform / opacity, so none of it can shift layout.
  *
  * Two columns: message left, real client sites right, collapsing to a
