@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Icon from "@/components/Icon";
+import PageHero from "@/components/PageHero";
 import InnerCTA from "@/components/InnerCTA";
 import JsonLd from "@/components/JsonLd";
 import TeamGrid, { type TeamMember } from "@/components/TeamGrid";
@@ -149,40 +149,37 @@ export default function AboutPage() {
         ]}
       />
       <main>
-        {/* ── Meet the team: the first thing on the page ─────────── */}
-        <section
-          aria-labelledby="about-heading"
-          style={{
-            background: "var(--cream)",
-            paddingTop: "clamp(120px, 14vh, 152px)",
-            paddingBottom: "clamp(72px, 8vh, 110px)",
-          }}
+        <PageHero
+          tone="blue"
+          eyebrow="Meet the team"
+          title={
+            <>
+              Real People. Serious Systems.
+              <br />
+              <span style={{ color: "var(--navy)" }}>Built in the Rio Grande Valley.</span>
+            </>
+          }
+          subtitle="We're based in Harlingen, Texas, and work with businesses across the U.S. We build your website, Google, ads and follow-up, then run all of it so you don't have to. Here's who does the work."
+          crumbs={[{ name: "Home", path: "/" }, { name: "About", path: "/about" }]}
         >
+          <ul className="rg-about-proof">
+            <li>150+ businesses served</li>
+            <li>Live in 8 to 10 days</li>
+            <li>English &amp; Spanish</li>
+            <li>Month-to-month</li>
+          </ul>
+        </PageHero>
+
+        {/* ── The team ─────────────────────────────────────────── */}
+        <section aria-labelledby="team-heading" className="rg-svc-band" style={{ background: "#fff" }}>
           <div className="rg-container">
-            <div style={{ maxWidth: 780 }}>
-              <p className="rg-label" style={{ color: "var(--blue-ink)", margin: "0 0 var(--s4)" }}>
-                Meet the Team
-              </p>
-              <h1
-                id="about-heading"
-                className="rg-display"
-                style={{ fontSize: "var(--fs-hero)", color: "var(--navy)", margin: 0, lineHeight: 0.96 }}
-              >
-                Real People. Serious Systems.
-                <span style={{ display: "block", color: "var(--blue)" }}>Built in the Rio Grande Valley.</span>
-              </h1>
-              <p
-                style={{
-                  fontSize: 18,
-                  lineHeight: 1.6,
-                  color: "var(--muted)",
-                  maxWidth: "52ch",
-                  margin: "var(--s5) 0 0",
-                }}
-              >
-                We&rsquo;re an AI and marketing agency in Harlingen, Texas. We build websites, local
-                search, ads, and the AI systems behind them, then run it all so the owner
-                doesn&rsquo;t have to. Meet the people doing the work.
+            <div className="rg-reveal" style={{ maxWidth: 720 }}>
+              <span className="rg-pill">The people</span>
+              <h2 id="team-heading" className="rg-display rg-svc-h2">
+                You&rsquo;ll Know Us <span style={{ color: "var(--blue)" }}>By Name.</span>
+              </h2>
+              <p className="rg-svc-body">
+                No account managers you never meet. Tap anyone below to read their story.
               </p>
             </div>
 
@@ -197,7 +194,7 @@ export default function AboutPage() {
             {linkedinUrl && (
               <p style={{ margin: "var(--s7) 0 0", fontSize: 15, color: "var(--muted)" }}>
                 Want the longer version?{" "}
-                <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" style={{ color: "var(--navy)", fontWeight: 600, textDecoration: "underline", textUnderlineOffset: 5, textDecorationColor: "var(--blue)" }}>
+                <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="rg-text-link">
                   Follow us on LinkedIn
                 </a>
                 , where we post the client breakdowns.
@@ -206,153 +203,75 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* ── Why we started ───────────────────────────────────── */}
+        <section className="rg-svc-band" style={{ background: "var(--cream)" }}>
+          <div className="rg-container rg-svc-split">
+            <div className="rg-reveal">
+              <span className="rg-pill">Why we started</span>
+              <h2 className="rg-display rg-svc-h2">
+                Owners Wear Too Many Hats.
+                <span style={{ display: "block", color: "var(--blue)" }}>We Take Some Off.</span>
+              </h2>
+              <p className="rg-svc-body">
+                Most small businesses are invisible online. Not because the work isn&apos;t good, but
+                because nobody built them a system to get found. The owner is busy running the
+                business, marketing falls to the bottom of the list, and the competitor down the
+                street who simply shows up first wins the customer.
+              </p>
+              <p className="rg-svc-body">
+                That is the gap we close. We build the website, the Google Business Profile, the
+                local search presence, the ads and the follow-up, then run all of it for you.
+                Modern AI tools let a small team deliver what used to take one three times our
+                size, at prices a local business can actually afford.
+              </p>
+              <p className="rg-svc-body" style={{ margin: 0 }}>
+                <Link href="/services" className="rg-text-link">See the hats we wear</Link>
+              </p>
+            </div>
+            <aside className="rg-svc-card rg-reveal" aria-label="How we work">
+              <p className="rg-svc-card-kicker">How we work</p>
+              <ul className="rg-values">
+                {values.map((v) => (
+                  <li key={v.title}>
+                    <span className="rg-handled-check" aria-hidden="true">✓</span>
+                    <div>
+                      <h3>{v.title}</h3>
+                      <p>{v.text}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </aside>
+          </div>
+        </section>
+
         {/* ── We're hiring ─────────────────────────────────────── */}
-        <section aria-labelledby="hiring-heading" style={{ background: "var(--navy)", padding: "clamp(64px, 7vw, 96px) 0" }}>
+        <section aria-labelledby="hiring-heading" className="rg-svc-band" style={{ background: "#fff" }}>
           <div className="rg-container">
-            <div
-              className="why-grid-responsive"
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1.2fr 0.8fr",
-                gap: "clamp(32px, 5vw, 72px)",
-                alignItems: "center",
-              }}
-            >
+            <div className="rg-hiring rg-reveal">
               <div>
-                <p className="rg-label" style={{ color: "var(--blue-on-dark)", margin: "0 0 var(--s4)" }}>
-                  We&rsquo;re Hiring
-                </p>
-                <h2 id="hiring-heading" className="rg-display" style={{ fontSize: "var(--fs-h2)", color: "#fff", margin: 0 }}>
+                <span className="rg-pill rg-pill--orange">We&rsquo;re hiring</span>
+                <h2 id="hiring-heading" className="rg-display rg-svc-h2" style={{ color: "var(--cream)" }}>
                   The Team Is Growing.
-                  <span style={{ display: "block", color: "var(--blue)" }}>Come Build With Us.</span>
+                  <span style={{ display: "block", color: "var(--blue-on-dark)" }}>Come Build With Us.</span>
                 </h2>
-                <p style={{ fontSize: 17, lineHeight: 1.7, color: "rgba(255,255,255,0.74)", maxWidth: "52ch", margin: "var(--s5) 0 0" }}>
-                  We&rsquo;re still adding to the team. If you&rsquo;re in the Valley, you care
-                  about local businesses, and you&rsquo;re good at what you do, we want to hear
-                  from you. Tell us what you&rsquo;d bring and why. No cover-letter formality
-                  required.
+                <p style={{ fontSize: 17, lineHeight: 1.7, color: "rgba(253,248,236,0.82)", maxWidth: "52ch", margin: 0 }}>
+                  If you&rsquo;re in the Valley, you care about local businesses, and you&rsquo;re
+                  good at what you do, we want to hear from you. Tell us what you&rsquo;d bring and
+                  why. No cover-letter formality required.
                 </p>
               </div>
-              <div
-                style={{
-                  background: "rgba(255,255,255,0.05)",
-                  border: "1px solid rgba(255,255,255,0.14)",
-                  borderRadius: "var(--r-md)",
-                  padding: "var(--s6)",
-                }}
-              >
-                <p style={{ fontFamily: mono, fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.55)", margin: 0 }}>
-                  How to reach us
-                </p>
+              <div>
                 <a
                   href={`mailto:${SITE.email}?subject=${encodeURIComponent("I'd like to join the RGVPM team")}`}
-                  className="rg-btn rg-hero-cta"
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: 10,
-                    marginTop: "var(--s4)",
-                    background: "var(--blue)",
-                    color: "#fff",
-                    fontWeight: 700,
-                    fontSize: 17,
-                    lineHeight: 1,
-                    padding: "16px 22px",
-                    borderRadius: "var(--r-hero-sm)",
-                    textDecoration: "none",
-                    boxShadow: "var(--shadow-blue)",
-                  }}
+                  className="rg-btn rg-cta-cream"
                 >
-                  Email Us About Joining
+                  Email us about joining <span aria-hidden="true">→</span>
                 </a>
-                <p style={{ fontFamily: mono, fontSize: 12, color: "rgba(255,255,255,0.6)", margin: "var(--s4) 0 0", wordBreak: "break-all" }}>
+                <p style={{ fontFamily: mono, fontSize: 12, color: "rgba(253,248,236,0.65)", margin: "var(--s4) 0 0", wordBreak: "break-all" }}>
                   {SITE.email}
                 </p>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ── What we do ───────────────────────────────────────── */}
-        <section style={{ padding: "88px 0", background: "#fff" }}>
-          <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 24px" }}>
-            <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "0 0 24px" }}>
-              What We Do
-            </h2>
-            <p style={{ fontSize: 16.5, color: "var(--muted)", lineHeight: 1.75, marginBottom: 18 }}>
-              Most small businesses are invisible online. Not because the work isn&apos;t good, but because nobody built them a system to get found. The owner is busy running the business, marketing falls to the bottom of the list, and the competitor down the street who simply shows up first wins the customer.
-            </p>
-            <p style={{ fontSize: 16.5, color: "var(--muted)", lineHeight: 1.75, marginBottom: 18 }}>
-              That is the gap we close. We build the website, the Google Business Profile, the local search presence, the ads, and the follow-up system, then run all of it for you. A new site goes live in as little as 8 to 10 days, and from there we keep it growing.
-            </p>
-            <p style={{ fontSize: 16.5, color: "var(--muted)", lineHeight: 1.75 }}>
-              Modern AI tools plus hands-on strategy let us deliver what used to take a team three times our size, at prices a local business can actually afford. Straightforward plans, real reporting, no long-term contracts.
-            </p>
-          </div>
-        </section>
-
-        {/* ── Values ───────────────────────────────────────────── */}
-        <section style={{ padding: "88px 0", background: "var(--cream)" }}>
-          <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
-            <div style={{ textAlign: "center", maxWidth: 640, margin: "0 auto 56px" }}>
-              <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: 0 }}>
-                How We Work
-              </h2>
-            </div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 20 }} className="svc-grid-responsive">
-              {values.map((v, i) => {
-                const accent = i % 2 === 0 ? "var(--blue)" : "var(--orange)";
-                return (
-                  <div key={v.title} style={{ background: "#fff", border: "1px solid var(--border)", borderLeft: `4px solid ${accent}`, borderRadius: 10, padding: "28px 26px", display: "flex", gap: 18 }}>
-                    <div style={{ width: 48, height: 48, borderRadius: 10, background: "var(--cream)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                      <Icon name={v.icon} size={24} color={accent} />
-                    </div>
-                    <div>
-                      <h3 style={{ fontSize: 17, fontWeight: 700, color: "var(--navy)", marginBottom: 8 }}>{v.title}</h3>
-                      <p style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.65 }}>{v.text}</p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* ── Stats ────────────────────────────────────────────── */}
-        <section style={{ padding: "72px 0", background: "var(--navy)" }}>
-          <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 24 }} className="svc-grid-responsive">
-              {[
-                { num: "8-10 Days", label: "New website, kickoff to launch" },
-                { num: "50+", label: "Live client sites" },
-                { num: "EN+ES", label: "Bilingual content available" },
-                { num: "956", label: "Locally rooted, broadly serving" },
-              ].map((m) => (
-                <div key={m.label} style={{ textAlign: "center" }}>
-                  <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 44, color: "var(--blue)", letterSpacing: "0.04em" }}>{m.num}</div>
-                  <div style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", marginTop: 4 }}>{m.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── Explore services ─────────────────────────────────── */}
-        <section style={{ padding: "72px 0", background: "#fff", textAlign: "center" }}>
-          <div style={{ maxWidth: 700, margin: "0 auto", padding: "0 24px" }}>
-            <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(28px,3vw,40px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.05, marginBottom: 16 }}>
-              See How We Can Help
-            </h2>
-            <p style={{ fontSize: 16, color: "var(--muted)", lineHeight: 1.65, marginBottom: 28 }}>
-              Explore the services that make up your growth engine, or jump straight to plans and pricing.
-            </p>
-            <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
-              <Link href="/services" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "var(--navy)", color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 28px", borderRadius: 4, textDecoration: "none" }}>
-                Explore Services →
-              </Link>
-              <Link href="/pricing" style={{ display: "inline-flex", alignItems: "center", background: "var(--cream-dark)", color: "var(--navy)", fontWeight: 600, fontSize: 15, padding: "14px 28px", borderRadius: 4, textDecoration: "none" }}>
-                View Pricing
-              </Link>
             </div>
           </div>
         </section>

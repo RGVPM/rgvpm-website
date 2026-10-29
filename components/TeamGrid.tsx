@@ -147,21 +147,26 @@ function MemberCard({ m, priority }: { m: TeamMember; priority?: boolean }) {
   );
 }
 
+/**
+ * Groups sit side by side on a 4-column track, each spanning as many columns
+ * as it has people, so small departments share a row instead of leaving one
+ * card alone on each line. Under 900px the track drops to 2 columns.
+ */
 export default function TeamGrid({ groups }: { groups: { label: string; members: TeamMember[] }[] }) {
   return (
-    <>
+    <div className="rg-team-groups">
       {groups.map((g, gi) => (
-        <div key={g.label} style={{ marginTop: gi === 0 ? "var(--s8)" : "var(--s7)" }}>
+        <div key={g.label} className="rg-team-group" style={{ ["--span" as string]: Math.min(g.members.length, 4), ["--span-sm" as string]: Math.min(g.members.length, 2) }}>
           <h2 className="rg-label" style={{ color: "var(--blue-ink)", margin: 0 }}>
             {g.label}
           </h2>
-          <ul className="rg-team-grid">
+          <ul className="rg-team-grid" style={{ ["--cols" as string]: Math.min(g.members.length, 4) }}>
             {g.members.map((m) => (
               <MemberCard key={m.id} m={m} priority={gi === 0} />
             ))}
           </ul>
         </div>
       ))}
-    </>
+    </div>
   );
 }

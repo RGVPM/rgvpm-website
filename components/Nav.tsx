@@ -14,6 +14,7 @@ type NavItem = { label: string; href: string; children?: { label: string; href: 
  * take `children` if a submenu is ever needed again.
  */
 const NAV_LINKS: NavItem[] = [
+  { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },

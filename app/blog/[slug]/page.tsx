@@ -91,9 +91,9 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
       <JsonLd data={[articleSchema, breadcrumbSchema(crumbs), ...(post.faqs.length ? [faqSchema(post.faqs)] : [])]} />
       <main>
         <PageHero
+          tone="blue"
           eyebrow={post.category}
           title={post.title}
-          accent="var(--orange)"
           crumbs={crumbs}
         />
 

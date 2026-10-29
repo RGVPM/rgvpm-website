@@ -83,8 +83,8 @@ export default function HomeHero() {
                 animationDelay: "0.27s",
               }}
             >
-              Your website, Google, ads and follow-up, run by one local team. More people find
-              you, more of them book, and you get your evenings back.
+              Your website, Google, ads and follow-up, run by one team. More people find you,
+              more of them book, and you get your evenings back.
             </p>
 
             <div
