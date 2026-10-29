@@ -10,7 +10,7 @@ import { CLIENTS, CREDENTIALS, type Client, type Credential } from "@/lib/client
  * Each client logo is a real dofollow link out to the client's live site —
  * a small backlink for them, and proof for the visitor that the work
  * exists. Training logos are spread through the row, each tagged
- * "Trained with" so they never read as clients.
+ * ("Trained with" / "Learned from") so they never read as clients.
  */
 export default function ClientMarquee() {
   if (CLIENTS.length === 0) return null;
@@ -67,7 +67,7 @@ function Pass() {
           const c = item.credential;
           return (
             <span key={c.name} className="rg-logo-cell rg-logo-cell--cred">
-              <span className="rg-cred-tag">Trained with</span>
+              <span className="rg-cred-tag">{c.tag}</span>
               <Image
                 src={c.logo}
                 alt={`${c.name} logo`}
