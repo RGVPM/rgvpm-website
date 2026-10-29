@@ -43,7 +43,7 @@ export default function PrivacyPage() {
       <div style={wrap}>
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" style={{ fontSize: 13, color: "var(--muted)", marginBottom: 28 }}>
-          <Link href="/" style={{ color: "var(--orange)", textDecoration: "none", fontWeight: 600 }}>
+          <Link href="/" style={{ color: "var(--blue)", textDecoration: "none", fontWeight: 600 }}>
             Home
           </Link>
           <span style={{ margin: "0 8px" }}>/</span>
@@ -114,7 +114,7 @@ export default function PrivacyPage() {
         <h2 style={h2}>8. Your Right to Deletion</h2>
         <p style={p}>
           You have the right to request deletion of your personal data. To do so, email us at{" "}
-          <a href="mailto:info@rgvperformancemarketing.com" style={{ color: "var(--orange)" }}>
+          <a href="mailto:info@rgvperformancemarketing.com" style={{ color: "var(--blue)" }}>
             info@rgvperformancemarketing.com
           </a>{" "}
           and we will process your request in accordance with applicable law.
@@ -124,7 +124,7 @@ export default function PrivacyPage() {
         <p style={p}>
           If you are a healthcare client covered by HIPAA and we handle protected health information
           (PHI) on your behalf, that information is governed by the{" "}
-          <a href="/terms#baa" style={{ color: "var(--orange)" }}>
+          <a href="/terms#baa" style={{ color: "var(--blue)" }}>
             HIPAA Business Associate Addendum
           </a>{" "}
           in our Terms &amp; Conditions, which controls over this Privacy Policy as to PHI. We do not
@@ -134,7 +134,7 @@ export default function PrivacyPage() {
         <h2 style={h2}>10. Contact</h2>
         <p style={p}>
           For any privacy-related questions or requests, contact us at{" "}
-          <a href="mailto:info@rgvperformancemarketing.com" style={{ color: "var(--orange)" }}>
+          <a href="mailto:info@rgvperformancemarketing.com" style={{ color: "var(--blue)" }}>
             info@rgvperformancemarketing.com
           </a>
           .

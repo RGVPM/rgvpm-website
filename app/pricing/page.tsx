@@ -63,7 +63,7 @@ export default function PricingPage() {
       />
       <main>
         {/* flow-root keeps the breadcrumb's bottom margin inside this navy band; without it the margin collapsed through and showed a cream stripe. */}
-        <div style={{ background: "#0f1c33", paddingTop: 100, display: "flow-root" }}>
+        <div style={{ background: "var(--navy)", paddingTop: 100, display: "flow-root" }}>
           <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
             <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Pricing", path: "/pricing" }]} dark inHero />
           </div>
@@ -73,7 +73,7 @@ export default function PricingPage() {
         <section style={{ padding: "88px 0", background: "var(--cream)" }}>
           <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
             <div style={{ textAlign: "center", maxWidth: 640, margin: "0 auto 48px" }}>
-              <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange)", background: "var(--orange-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--orange)" }}>
+              <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--blue)", background: "var(--blue-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--blue)" }}>
                 Pricing FAQ
               </span>
               <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 0" }}>

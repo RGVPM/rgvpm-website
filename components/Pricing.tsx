@@ -17,7 +17,7 @@ const plans = [
     ],
     href: "https://buy.stripe.com/28E00jcv2gd03dw1cZ7Zu0h",
     featured: false,
-    accent: "var(--teal)",
+    accent: "var(--orange)",
   },
   {
     tier: "// Most Popular",
@@ -38,7 +38,7 @@ const plans = [
     ],
     href: "https://buy.stripe.com/5kQaEXfHed0O3dwdZL7Zu0i",
     featured: true,
-    accent: "var(--orange)",
+    accent: "var(--blue)",
   },
   {
     tier: "// Full Service",
@@ -58,7 +58,7 @@ const plans = [
     ],
     href: "https://buy.stripe.com/aFa3cv1Qo7Gu29sf3P7Zu0j",
     featured: false,
-    accent: "#6E86B8",
+    accent: "var(--navy)",
   },
 ];
 
@@ -69,7 +69,7 @@ export default function Pricing({ asPage = false }: { asPage?: boolean }) {
       <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
         {/* Header */}
         <div style={{ textAlign: "center", maxWidth: 640, margin: "0 auto 64px" }}>
-          <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange)", background: "rgba(232,98,26,0.2)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--orange)" }}>
+          <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--blue)", background: "rgba(11,140,235,0.2)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--blue)" }}>
             Plans & Pricing
           </span>
           <Heading style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(36px,4vw,54px)", letterSpacing: "0.03em", color: "#fff", lineHeight: 1.0, margin: "12px 0 16px" }}>
@@ -87,9 +87,9 @@ export default function Pricing({ asPage = false }: { asPage?: boolean }) {
               key={plan.name}
               style={{
                 borderRadius: 12, padding: "32px 28px 36px",
-                border: plan.featured ? "1px solid var(--orange)" : "1px solid rgba(255,255,255,0.1)",
+                border: plan.featured ? "1px solid var(--blue)" : "1px solid rgba(255,255,255,0.1)",
                 borderTop: `4px solid ${plan.accent}`,
-                background: plan.featured ? "var(--orange)" : "rgba(255,255,255,0.05)",
+                background: plan.featured ? "var(--blue)" : "rgba(255,255,255,0.05)",
                 display: "flex", flexDirection: "column",
                 transition: "transform 0.25s, box-shadow 0.25s",
               }}
@@ -131,7 +131,7 @@ export default function Pricing({ asPage = false }: { asPage?: boolean }) {
                   fontFamily: "var(--font-dm-sans), sans-serif", fontWeight: 700, fontSize: 14,
                   textDecoration: "none", transition: "all 0.2s",
                   background: plan.featured ? "#fff" : "transparent",
-                  color: plan.featured ? "var(--orange)" : "#fff",
+                  color: plan.featured ? "var(--blue)" : "#fff",
                   border: plan.featured ? "1.5px solid #fff" : "1.5px solid rgba(255,255,255,0.3)",
                 }}
               >
@@ -147,7 +147,7 @@ export default function Pricing({ asPage = false }: { asPage?: boolean }) {
             href="https://api.rgvperformancemarketing.com/widget/bookings/rgvpmdiscoverycall"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ color: "var(--orange)", fontWeight: 700, textDecoration: "none" }}
+            style={{ color: "var(--blue)", fontWeight: 700, textDecoration: "none" }}
           >
             Book a free discovery call →
           </a>

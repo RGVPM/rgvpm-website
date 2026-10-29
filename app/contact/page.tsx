@@ -58,7 +58,7 @@ export default function ContactPage() {
                 href="https://api.rgvperformancemarketing.com/widget/bookings/rgvpmdiscoverycall"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "var(--orange)", color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 28px", borderRadius: 4, textDecoration: "none", flexShrink: 0 }}
+                style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "var(--blue)", color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 28px", borderRadius: "var(--r-pill)", textDecoration: "none", flexShrink: 0 }}
               >
                 Book a Free Call →
               </a>
@@ -70,7 +70,7 @@ export default function ContactPage() {
           <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
             <div style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 56, alignItems: "start" }} className="why-grid-responsive">
               {/* Form */}
-              <div style={{ background: "#fff", border: "1px solid var(--border)", borderTop: "4px solid var(--orange)", borderRadius: 12, padding: "36px 32px" }}>
+              <div style={{ background: "#fff", border: "1px solid var(--border)", borderTop: "4px solid var(--blue)", borderRadius: 12, padding: "36px 32px" }}>
                 <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 30, letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, marginBottom: 8 }}>
                   Send Us a Message
                 </h2>
@@ -107,7 +107,7 @@ export default function ContactPage() {
                   { icon: "globe" as const, label: "Serving", value: `${SITE.areaServed} & nationwide` },
                   { icon: "bolt" as const, label: "Response Time", value: "Same business day" },
                 ].map((item, i) => {
-                  const accent = i % 2 === 0 ? "var(--orange)" : "var(--teal)";
+                  const accent = i % 2 === 0 ? "var(--blue)" : "var(--orange)";
                   return (
                     <div key={item.label} style={{ display: "flex", gap: 16, alignItems: "center", padding: "18px 0", borderBottom: "1px solid var(--border)" }}>
                       <div style={{ width: 44, height: 44, borderRadius: 10, background: "#fff", border: "1px solid var(--border)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
@@ -125,7 +125,7 @@ export default function ContactPage() {
                   );
                 })}
                 <div style={{ marginTop: 28, background: "var(--navy)", borderRadius: 12, padding: "26px 24px" }}>
-                  <div style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--orange)", marginBottom: 10 }}>
+                  <div style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--blue)", marginBottom: 10 }}>
                     {"// Prefer to skip ahead?"}
                   </div>
                   <p style={{ fontSize: 14, color: "rgba(255,255,255,0.7)", lineHeight: 1.6, marginBottom: 16 }}>

@@ -24,7 +24,7 @@ const specialized = [
 
 const url = canonical("/services");
 
-const linkStyle = { color: "var(--orange-ink)", fontWeight: 600, textDecoration: "underline", textUnderlineOffset: 3 } as const;
+const linkStyle = { color: "var(--blue-ink)", fontWeight: 600, textDecoration: "underline", textUnderlineOffset: 3 } as const;
 
 export const metadata: Metadata = {
   title: "Digital Marketing Services for Local Businesses",
@@ -74,7 +74,7 @@ export default function ServicesHub() {
         <section style={{ padding: "0 0 96px", background: "var(--cream)" }}>
           <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
             <div style={{ textAlign: "center", maxWidth: 640, margin: "0 auto 48px" }}>
-              <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--teal)", background: "var(--teal-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--teal)" }}>
+              <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange-ink)", background: "var(--orange-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--orange)" }}>
                 Specialized Services
               </span>
               <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 0" }}>
@@ -87,14 +87,14 @@ export default function ServicesHub() {
                   key={svc.href}
                   href={svc.href}
                   className="svc-card"
-                  style={{ background: "#fff", border: "1px solid var(--border)", borderTop: "4px solid var(--orange)", borderRadius: 10, padding: 32, textDecoration: "none", color: "inherit", display: "block" }}
+                  style={{ background: "#fff", border: "1px solid var(--border)", borderTop: "4px solid var(--blue)", borderRadius: 10, padding: 32, textDecoration: "none", color: "inherit", display: "block" }}
                 >
-                  <div style={{ width: 52, height: 52, borderRadius: 12, background: "var(--orange-wash)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--orange)", marginBottom: 16 }}>
-                    <Icon name={svc.icon} size={26} color="var(--orange)" />
+                  <div style={{ width: 52, height: 52, borderRadius: 12, background: "var(--blue-wash)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--blue)", marginBottom: 16 }}>
+                    <Icon name={svc.icon} size={26} color="var(--blue)" />
                   </div>
                   <h3 style={{ fontSize: 19, fontWeight: 700, color: "var(--navy)", marginBottom: 8 }}>{svc.title}</h3>
                   <p style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.65 }}>{svc.text}</p>
-                  <div style={{ marginTop: 16, fontSize: 13, fontWeight: 700, color: "var(--orange)" }}>Learn more →</div>
+                  <div style={{ marginTop: 16, fontSize: 13, fontWeight: 700, color: "var(--blue)" }}>Learn more →</div>
                 </Link>
               ))}
             </div>

@@ -2,45 +2,37 @@ import Image from "next/image";
 import { CLIENTS } from "@/lib/clients";
 
 /**
- * Transparent, card-less marquee of client logos — sits directly on its
- * parent section background. Renders nothing until at least one client is
+ * Client logo marquee, set in a navy-outlined capsule like the "We handle
+ * it" cards in the social graphics. Logos keep their own colors; small
+ * orange dots separate them. Renders nothing until at least one client is
  * added in lib/clients.ts.
  *
  * Each logo is a real dofollow link out to the client's live site — a
  * small backlink for them, and proof for the visitor that the work exists.
+ * Clients only: training credentials live in the team bios on /about.
  */
 export default function ClientMarquee() {
   if (CLIENTS.length === 0) return null;
 
   return (
     <div>
-      <p
-        style={{
-          fontFamily: "var(--font-dm-mono), monospace",
-          fontSize: 11,
-          letterSpacing: "0.12em",
-          textTransform: "uppercase",
-          color: "var(--muted)",
-          textAlign: "center",
-          marginBottom: 28,
-        }}
-      >
-        Trusted by 50+ businesses<span className="rg-hide-sm"> across Texas and beyond</span>
-      </p>
-      <div
-        className="rg-scroller"
-        style={{
-          overflow: "hidden",
-          maskImage: "linear-gradient(to right, transparent, #000 8%, #000 92%, transparent)",
-          WebkitMaskImage: "linear-gradient(to right, transparent, #000 8%, #000 92%, transparent)",
-        }}
-      >
-        <div className="rg-marquee-track" data-dir="right" style={{ ["--track-duration" as string]: "60s" }}>
-          <Pass />
-          {/* Duplicate pass makes the loop seamless. aria-hidden + inert so a
-              screen reader meets each client once, not twice. */}
-          <div aria-hidden="true" inert style={{ display: "flex" }}>
+      <p className="rg-marquee-label">Trusted by 150+ businesses across the U.S.</p>
+      <div className="rg-marquee-capsule">
+        <div
+          className="rg-scroller"
+          style={{
+            overflow: "hidden",
+            maskImage: "linear-gradient(to right, transparent, #000 7%, #000 93%, transparent)",
+            WebkitMaskImage: "linear-gradient(to right, transparent, #000 7%, #000 93%, transparent)",
+          }}
+        >
+          <div className="rg-marquee-track" data-dir="right" style={{ ["--track-duration" as string]: "60s" }}>
             <Pass />
+            {/* Duplicate pass makes the loop seamless. aria-hidden + inert so a
+                screen reader meets each client once, not twice. */}
+            <div aria-hidden="true" inert style={{ display: "flex" }}>
+              <Pass />
+            </div>
           </div>
         </div>
       </div>
@@ -64,7 +56,7 @@ function Pass() {
             // load late or never on some phones, leaving blank gaps.
             loading="eager"
             className="rg-logo-img"
-            style={{ ["--logo-mh" as string]: `${client.maxHeight ?? 84}px` }}
+            style={{ ["--logo-mh" as string]: `${Math.round((client.maxHeight ?? 84) * 0.78)}px` }}
           />
         ) : (
           <span className="rg-logo-word">{client.name}</span>

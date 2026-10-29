@@ -1,165 +1,109 @@
 import Link from "next/link";
-import Image from "next/image";
-import Icon from "@/components/Icon";
 import { Section } from "@/components/home/Primitives";
 
 /**
- * What we run for a client, as a five-cell bento grid.
+ * What we run for a client, told as "the hats" from the social carousel:
+ * every job an owner is expected to do, and the one we take off them.
+ * Six matching cards (blue HAT pill, display title, blue subline, orange
+ * rule), so the section reads as one idea instead of five card styles.
  *
- * Every cell is a real link into the services tree, so the homepage keeps
- * its internal links. The two feature cells carry real proof rather than
- * decoration: a screenshot of a site we built and launched, and our own
- * #1 Google ranking for "seo harlingen" (Semrush, Sept 2026).
+ * Every card is a real link into the services tree, so the homepage keeps
+ * its internal links. The SEO card carries our own #1 Google ranking for
+ * "seo harlingen" (Semrush, Sept 2026).
  *
- * Desktop: 3 columns, websites spans two. Stacks to one column under 900px.
+ * Desktop: 3 columns. 2 under 1024px, 1 under 640px.
  */
-type Tone = "navy" | "orange" | "white" | "cream";
-
-const CELLS: {
-  tone: Tone;
-  span?: 2;
-  icon: Parameters<typeof Icon>[0]["name"];
-  kicker: string;
-  title: string;
+const HATS: {
+  hat: string;
+  sub: string;
   text: string;
   href: string;
   cta: string;
 }[] = [
   {
-    tone: "navy",
-    span: 2,
-    icon: "globe",
-    kicker: "Websites",
-    title: "A site that actually catches jobs.",
-    text: "Custom-built, mobile-first, and live in 8 to 10 days. We host it, patch it, and keep it updated so you never babysit it.",
+    hat: "Web Designer",
+    sub: "+ website & portfolio",
+    text: "Custom websites and portfolios, live in 8 to 10 days. We host it, update it and keep the Book button where customers see it.",
     href: "/services/website-design",
     cta: "Website design",
   },
   {
-    tone: "orange",
-    icon: "target",
-    kicker: "Local SEO",
-    title: "Show up first on Google.",
-    text: "Our own site ranks #1 for “seo harlingen.” We run the same playbook for your business, your city, and your services.",
+    hat: "SEO Specialist",
+    sub: "+ Google & AI search",
+    text: "Local SEO and your Google Business Profile, so you show up first. Our own site ranks #1 for “seo harlingen.”",
     href: "/services/local-seo",
     cta: "Local SEO",
   },
   {
-    tone: "white",
-    icon: "megaphone",
-    kicker: "Paid ads",
-    title: "Google and Meta ads that pay for themselves.",
-    text: "We build, run, and tune the campaigns. You see what every dollar brought in.",
-    href: "/services/paid-advertising",
-    cta: "Paid advertising",
-  },
-  {
-    tone: "cream",
-    icon: "chat",
-    kicker: "Lead management",
-    title: "Every lead in one inbox.",
-    text: "Calls, forms, texts, and emails in one place, with missed-call text-back and follow-ups that run on their own.",
+    hat: "Retention Specialist",
+    sub: "+ lead management",
+    text: "Every lead in one inbox, with follow-up, reminders and rebooking texts that bring clients back.",
     href: "/services/lead-management",
     cta: "Lead management",
   },
   {
-    tone: "white",
-    icon: "users",
-    kicker: "Social & email",
-    title: "Content that keeps you top of mind.",
-    text: "Edited reels, branded posts, and a monthly newsletter, so past customers remember who to call.",
+    hat: "Page Designer",
+    sub: "+ events, specials & services",
+    text: "A landing page for every event, special and new service, branded to you, so it doesn’t get buried in your feed.",
+    href: "/services/website-design",
+    cta: "Landing pages",
+  },
+  {
+    hat: "Social Media Manager",
+    sub: "+ content creator",
+    text: "Content shoots, edited reels, branded posts and a monthly newsletter, so past clients remember who to call.",
     href: "/services/social-media-newsletter",
     cta: "Social & newsletters",
   },
+  {
+    hat: "Ads Manager",
+    sub: "+ Google & Meta ads",
+    text: "We build, run and tune the campaigns. You see what every dollar brought in.",
+    href: "/services/paid-advertising",
+    cta: "Paid advertising",
+  },
 ];
-
-const TONE: Record<Tone, { bg: string; border: string; title: string; text: string; kicker: string; iconBg: string; iconColor: string }> = {
-  navy: { bg: "var(--navy)", border: "var(--navy)", title: "#fff", text: "rgba(255,255,255,0.72)", kicker: "var(--orange-on-dark)", iconBg: "rgba(255,255,255,0.08)", iconColor: "#fff" },
-  orange: { bg: "var(--orange)", border: "var(--orange)", title: "#fff", text: "rgba(255,255,255,0.9)", kicker: "rgba(255,255,255,0.85)", iconBg: "rgba(255,255,255,0.16)", iconColor: "#fff" },
-  white: { bg: "#fff", border: "var(--border)", title: "var(--navy)", text: "var(--muted)", kicker: "var(--orange-ink)", iconBg: "var(--cream)", iconColor: "var(--orange)" },
-  cream: { bg: "var(--cream)", border: "var(--border)", title: "var(--navy)", text: "var(--muted)", kicker: "var(--orange-ink)", iconBg: "#fff", iconColor: "var(--orange)" },
-};
-
-const mono = "var(--font-dm-mono), ui-monospace, monospace";
 
 export default function Capabilities() {
   return (
     <Section background="#fff" labelledBy="capabilities-heading">
       <div className="rg-container">
-        <div style={{ maxWidth: 720 }}>
+        <div className="rg-reveal" style={{ maxWidth: 760 }}>
+          <p className="rg-hats-kicker">As a business owner, you&rsquo;re expected to be a&hellip;</p>
           <h2
             id="capabilities-heading"
             className="rg-display"
-            style={{ fontSize: "var(--fs-h2)", color: "var(--navy)", margin: 0 }}
+            style={{ fontSize: "var(--fs-h2)", color: "var(--navy)", margin: "var(--s3) 0 0" }}
           >
-            One Growth Engine.
-            <span style={{ color: "var(--orange)" }}> Not Five Vendors.</span>
+            Six Jobs You Didn&rsquo;t Sign Up For.
+            <span style={{ color: "var(--blue)" }}> We&rsquo;ll Wear the Hats.</span>
           </h2>
           <p style={{ fontSize: 17, lineHeight: 1.7, color: "var(--muted)", margin: "var(--s5) 0 0", maxWidth: "58ch" }}>
-            The site earns the traffic, the ads amplify it, and lead management makes sure nothing
-            falls through. One team runs all of it.
+            One team runs your website, Google, follow-up, content and ads, so you can get back to
+            your clients.
           </p>
         </div>
 
-        <ul className="rg-bento">
-          {CELLS.map((c) => {
-            const t = TONE[c.tone];
-            return (
-              <li key={c.href} className={`rg-reveal${c.span ? " rg-bento-wide" : ""}`}>
-                <Link
-                  href={c.href}
-                  className={`rg-bento-cell rg-bento-${c.tone}`}
-                  style={{ background: t.bg, borderColor: t.border }}
-                >
-                  <div className="rg-bento-copy">
-                    <span
-                      aria-hidden="true"
-                      style={{
-                        display: "inline-flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        width: 44,
-                        height: 44,
-                        borderRadius: "var(--r-sm)",
-                        background: t.iconBg,
-                      }}
-                    >
-                      <Icon name={c.icon} size={21} color={t.iconColor} />
-                    </span>
-                    <p style={{ fontFamily: mono, fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: t.kicker, margin: "var(--s5) 0 0" }}>
-                      {c.kicker}
-                    </p>
-                    <h3 style={{ fontSize: c.span ? "clamp(24px, 2.4vw, 32px)" : 21, fontWeight: 700, lineHeight: 1.2, color: t.title, margin: "var(--s2) 0 0", letterSpacing: "-0.01em" }}>
-                      {c.title}
-                    </h3>
-                    <p style={{ fontSize: 15, lineHeight: 1.65, color: t.text, margin: "var(--s3) 0 0", maxWidth: "46ch" }}>
-                      {c.text}
-                    </p>
-                    <span className="rg-bento-more" style={{ color: c.tone === "white" || c.tone === "cream" ? "var(--orange-ink)" : "#fff" }}>
-                      {c.cta} <span aria-hidden="true">→</span>
-                    </span>
-                  </div>
-                  {c.span && (
-                    <div className="rg-bento-shot" aria-hidden="true">
-                      <Image
-                        src="/work/dvash-aesthetics.webp"
-                        alt=""
-                        width={1200}
-                        height={750}
-                        sizes="(max-width: 900px) 90vw, 420px"
-                        style={{ display: "block", width: "100%", height: "auto" }}
-                      />
-                    </div>
-                  )}
-                </Link>
-              </li>
-            );
-          })}
+        <ul className="rg-hats">
+          {HATS.map((h, i) => (
+            <li key={h.hat} className="rg-reveal">
+              <Link href={h.href} className="rg-hat">
+                <span className="rg-hat-pill">Hat {String(i + 1).padStart(2, "0")}</span>
+                <h3 className="rg-display rg-hat-title">{h.hat}</h3>
+                <p className="rg-hat-sub">{h.sub}</p>
+                <span className="rg-hat-rule" aria-hidden="true" />
+                <p className="rg-hat-text">{h.text}</p>
+                <span className="rg-hat-more">
+                  {h.cta} <span aria-hidden="true">→</span>
+                </span>
+              </Link>
+            </li>
+          ))}
         </ul>
 
         <Link
           href="/services"
-          style={{ display: "inline-flex", alignItems: "center", gap: 8, marginTop: "var(--s6)", fontSize: 15, fontWeight: 700, color: "var(--orange-ink)", textDecoration: "none" }}
+          style={{ display: "inline-flex", alignItems: "center", gap: 8, marginTop: "var(--s6)", fontSize: 15, fontWeight: 700, color: "var(--blue-ink)", textDecoration: "none" }}
         >
           See every service we offer <span aria-hidden="true">→</span>
         </Link>

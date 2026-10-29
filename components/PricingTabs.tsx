@@ -58,18 +58,18 @@ function Card({
   ctaHref,
   onCta,
   highlighted = false,
-  checkClass = "text-orange-500",
+  checkClass = "text-(--orange)",
   stacked = false,
   featureGrid = false,
   priceExtra,
 }: CardProps) {
   const cardClasses = highlighted
-    ? `bg-orange-500 border border-orange-400 shadow-2xl${stacked ? "" : " lg:-mt-4 lg:mb-4"}`
+    ? `bg-(--blue-deep) border border-(--blue) shadow-2xl${stacked ? "" : " lg:-mt-4 lg:mb-4"}`
     : "bg-slate-800/40 border border-slate-700";
 
   const cta = highlighted
-    ? "bg-white text-orange-600 hover:bg-orange-50"
-    : "border border-slate-600 text-white hover:border-orange-500 hover:text-orange-400";
+    ? "bg-white text-(--blue-ink) hover:bg-(--blue-wash)"
+    : "border border-slate-600 text-white hover:border-(--blue) hover:text-(--blue-on-dark)";
 
   return (
     <div className={`flex flex-col rounded-xl p-7 transition-colors ${cardClasses}`}>
@@ -135,7 +135,7 @@ function Card({
         <button
           type="button"
           onClick={onCta}
-          className={`mt-auto flex items-center justify-center rounded-md px-4 py-3 text-sm font-bold transition-colors ${cta}`}
+          className={`mt-auto flex items-center justify-center rounded-full px-4 py-3 text-sm font-bold transition-colors ${cta}`}
         >
           {ctaLabel}
         </button>
@@ -144,7 +144,7 @@ function Card({
           href={ctaHref}
           target="_blank"
           rel="noopener noreferrer"
-          className={`mt-auto flex items-center justify-center rounded-md px-4 py-3 text-sm font-bold transition-colors ${cta}`}
+          className={`mt-auto flex items-center justify-center rounded-full px-4 py-3 text-sm font-bold transition-colors ${cta}`}
         >
           {ctaLabel}
         </a>
@@ -215,9 +215,9 @@ function SocialTab() {
   ];
 
   const renderCell = (c: Cell) => {
-    if (typeof c === "object") return <span className="font-bold text-orange-500">{c.t}</span>;
+    if (typeof c === "object") return <span className="font-bold text-(--blue-on-dark)">{c.t}</span>;
     if (c === "—") return <span className="text-slate-600">—</span>;
-    if (c === "✓") return <span className="font-bold text-orange-500">✓</span>;
+    if (c === "✓") return <span className="font-bold text-(--orange)">✓</span>;
     return <span className="text-slate-300">{c}</span>;
   };
 
@@ -269,7 +269,7 @@ function SocialTab() {
           <thead>
             <tr className="border-b border-slate-700 bg-slate-800/40">
               <th className="p-4 text-left font-semibold text-slate-400">Compare plans</th>
-              <th className="p-4 text-center font-semibold text-orange-500">Content Crew</th>
+              <th className="p-4 text-center font-semibold text-(--blue-on-dark)">Content Crew</th>
               <th className="p-4 text-center font-semibold text-white">Full Service Social</th>
             </tr>
           </thead>
@@ -360,21 +360,21 @@ export default function PricingTabs() {
   const [activeTab, setActiveTab] = useState<TabId>("plans");
 
   return (
-    <section className="bg-[#0f1c33] pb-24 pt-2">
+    <section className="bg-(--navy) pb-24 pt-2">
 
       <div className="mx-auto max-w-6xl px-6">
         {/* top banner */}
         <div className="rounded-md border border-slate-700 bg-slate-800/40 p-4 text-sm leading-relaxed text-slate-300">
           Want one specific service? Pick from{" "}
-          <button type="button" onClick={() => setActiveTab("websites")} className="font-semibold text-orange-500 underline underline-offset-2 hover:text-orange-400">
+          <button type="button" onClick={() => setActiveTab("websites")} className="font-semibold text-(--blue-on-dark) underline underline-offset-2 hover:text-white">
             Websites
           </button>
           {" "}or{" "}
-          <button type="button" onClick={() => setActiveTab("social")} className="font-semibold text-orange-500 underline underline-offset-2 hover:text-orange-400">
+          <button type="button" onClick={() => setActiveTab("social")} className="font-semibold text-(--blue-on-dark) underline underline-offset-2 hover:text-white">
             Social Media
           </button>
           . Want everything bundled at a discount? See{" "}
-          <button type="button" onClick={() => setActiveTab("plans")} className="font-semibold text-orange-500 underline underline-offset-2 hover:text-orange-400">
+          <button type="button" onClick={() => setActiveTab("plans")} className="font-semibold text-(--blue-on-dark) underline underline-offset-2 hover:text-white">
             Marketing Plans
           </button>
           .
@@ -382,7 +382,7 @@ export default function PricingTabs() {
 
         {/* page header */}
         <div className="mx-auto mt-10 max-w-2xl text-center">
-          <div className="inline-block rounded-md border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-widest text-orange-500">
+          <div className="inline-block rounded-md border border-(--blue)/30 bg-(--blue)/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-widest text-(--blue-on-dark)">
             // PLANS &amp; PRICING
           </div>
           <h1 className="mx-auto mt-4 text-5xl uppercase leading-none tracking-wide text-white md:text-6xl" style={bebas}>
@@ -420,10 +420,10 @@ export default function PricingTabs() {
                 aria-controls={`pricing-panel-${tab.id}`}
                 tabIndex={active ? 0 : -1}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex min-h-[44px] touch-manipulation items-center justify-center rounded-md px-5 py-2.5 text-sm font-semibold transition-colors ${
+                className={`flex min-h-[44px] touch-manipulation items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold transition-colors ${
                   active
-                    ? "bg-orange-500 text-white"
-                    : "border border-slate-700 bg-slate-800/40 text-slate-300 hover:border-orange-500/50 hover:text-white"
+                    ? "bg-(--blue) text-white"
+                    : "border border-slate-700 bg-slate-800/40 text-slate-300 hover:border-(--blue)/50 hover:text-white"
                 }`}
               >
                 {tab.label}
@@ -457,7 +457,7 @@ export default function PricingTabs() {
             href={BOOKING}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-md bg-orange-500 px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-orange-600"
+            className="inline-flex items-center justify-center rounded-full bg-(--blue) px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-(--blue-deep)"
           >
             Book a Free Discovery Call →
           </a>

@@ -4,7 +4,7 @@ import PageHero from "@/components/PageHero";
 import FaqAccordion from "@/components/FaqAccordion";
 import InnerCTA from "@/components/InnerCTA";
 
-const stepAccents = ["var(--orange)", "var(--teal)", "#6E86B8"];
+const stepAccents = ["var(--blue)", "var(--orange)", "var(--navy)"];
 
 export interface ServiceCityPageProps {
   eyebrow: string;
@@ -31,10 +31,10 @@ export default function ServiceCityPage(p: ServiceCityPageProps) {
     <main>
       <PageHero eyebrow={p.eyebrow} title={p.h1} subtitle={p.heroSub} crumbs={p.crumbs}>
         <div style={{ display: "flex", gap: 14, flexWrap: "wrap", marginTop: 32 }}>
-          <Link href={p.primaryCta.href} style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "var(--orange)", color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 28px", borderRadius: 4, textDecoration: "none" }}>
+          <Link href={p.primaryCta.href} style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "var(--blue)", color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 28px", borderRadius: "var(--r-pill)", textDecoration: "none" }}>
             {p.primaryCta.label}
           </Link>
-          <Link href="/pricing" style={{ display: "inline-flex", alignItems: "center", background: "rgba(255,255,255,0.1)", color: "#fff", fontWeight: 600, fontSize: 15, padding: "14px 28px", borderRadius: 4, textDecoration: "none", border: "1px solid rgba(255,255,255,0.25)" }}>
+          <Link href="/pricing" style={{ display: "inline-flex", alignItems: "center", background: "rgba(255,255,255,0.1)", color: "#fff", fontWeight: 600, fontSize: 15, padding: "14px 28px", borderRadius: "var(--r-pill)", textDecoration: "none", border: "1px solid rgba(255,255,255,0.25)" }}>
             View Plans
           </Link>
         </div>
@@ -49,7 +49,7 @@ export default function ServiceCityPage(p: ServiceCityPageProps) {
           {p.cityIntro.body.map((para, i) => (
             <p key={i} style={{ fontSize: 16.5, color: "var(--muted)", lineHeight: 1.75, marginBottom: 18 }}>{para}</p>
           ))}
-          <Link href={p.backToMainHref} style={{ display: "inline-flex", fontSize: 14, fontWeight: 700, color: "var(--orange)", textDecoration: "none" }}>
+          <Link href={p.backToMainHref} style={{ display: "inline-flex", fontSize: 14, fontWeight: 700, color: "var(--blue)", textDecoration: "none" }}>
             {p.backToMainLabel}
           </Link>
         </div>
@@ -59,7 +59,7 @@ export default function ServiceCityPage(p: ServiceCityPageProps) {
       <section style={{ padding: "88px 0", background: "var(--cream)" }}>
         <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
           <div style={{ textAlign: "center", maxWidth: 640, margin: "0 auto 56px" }}>
-            <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange)", background: "var(--orange-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--orange)" }}>
+            <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--blue)", background: "var(--blue-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--blue)" }}>
               What&apos;s Included
             </span>
             <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 16px" }}>
@@ -70,8 +70,8 @@ export default function ServiceCityPage(p: ServiceCityPageProps) {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20 }} className="svc-grid-responsive">
             {p.included.map((item) => (
               <div key={item.title} style={{ background: "#fff", border: "1px solid var(--border)", borderRadius: 10, padding: 28 }}>
-                <div style={{ width: 46, height: 46, borderRadius: 10, background: "var(--orange-wash)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--orange)", marginBottom: 14 }}>
-                  <Icon name={item.icon} size={23} color="var(--orange)" />
+                <div style={{ width: 46, height: 46, borderRadius: 10, background: "var(--blue-wash)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--blue)", marginBottom: 14 }}>
+                  <Icon name={item.icon} size={23} color="var(--blue)" />
                 </div>
                 <h3 style={{ fontSize: 16, fontWeight: 700, color: "var(--navy)", marginBottom: 8 }}>{item.title}</h3>
                 <p style={{ fontSize: 13.5, color: "var(--muted)", lineHeight: 1.65 }}>{item.text}</p>
@@ -85,7 +85,7 @@ export default function ServiceCityPage(p: ServiceCityPageProps) {
       <section style={{ padding: "88px 0", background: "#fff" }}>
         <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
           <div style={{ textAlign: "center", maxWidth: 640, margin: "0 auto 56px" }}>
-            <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--teal)", background: "var(--teal-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--teal)" }}>
+            <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange-ink)", background: "var(--orange-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--orange)" }}>
               How It Works
             </span>
             <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 0" }}>
@@ -114,7 +114,7 @@ export default function ServiceCityPage(p: ServiceCityPageProps) {
         <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }} className="why-grid-responsive">
             <div>
-              <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange)", background: "var(--orange-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--orange)" }}>
+              <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--blue)", background: "var(--blue-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--blue)" }}>
                 The Right Fit
               </span>
               <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 18px" }}>
@@ -125,7 +125,7 @@ export default function ServiceCityPage(p: ServiceCityPageProps) {
             <div>
               {p.who.bullets.map((b) => (
                 <div key={b} style={{ display: "flex", gap: 14, alignItems: "flex-start", padding: "16px 0", borderBottom: "1px solid var(--border)" }}>
-                  <span style={{ width: 24, height: 24, borderRadius: "50%", flexShrink: 0, background: "var(--teal-dim)", color: "var(--teal)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, fontWeight: 700, marginTop: 1 }}>✓</span>
+                  <span style={{ width: 24, height: 24, borderRadius: "50%", flexShrink: 0, background: "var(--orange)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, fontWeight: 700, marginTop: 1 }}>✓</span>
                   <span style={{ fontSize: 15, color: "var(--navy)", lineHeight: 1.55 }}>{b}</span>
                 </div>
               ))}
@@ -138,7 +138,7 @@ export default function ServiceCityPage(p: ServiceCityPageProps) {
       <section style={{ padding: "88px 0", background: "#fff" }}>
         <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
           <div style={{ textAlign: "center", maxWidth: 640, margin: "0 auto 48px" }}>
-            <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange)", background: "var(--orange-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--orange)" }}>
+            <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--blue)", background: "var(--blue-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--blue)" }}>
               FAQ
             </span>
             <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 0" }}>
@@ -153,7 +153,7 @@ export default function ServiceCityPage(p: ServiceCityPageProps) {
       <section style={{ padding: "88px 0", background: "var(--cream)" }}>
         <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
           <div style={{ textAlign: "center", maxWidth: 640, margin: "0 auto 48px" }}>
-            <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--teal)", background: "var(--teal-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--teal)" }}>
+            <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange-ink)", background: "var(--orange-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--orange)" }}>
               Keep Exploring
             </span>
             <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,44px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 0" }}>

@@ -9,7 +9,7 @@ export default function FAQ() {
     <section id="faq" style={{ padding: "96px 0", background: "var(--cream)" }}>
       <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
         <div style={{ textAlign: "center", maxWidth: 640, margin: "0 auto 64px" }}>
-          <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange)", background: "var(--orange-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--orange)" }}>
+          <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--blue)", background: "var(--blue-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--blue)" }}>
             FAQ
           </span>
           <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(36px,4vw,54px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 16px" }}>
@@ -27,14 +27,14 @@ export default function FAQ() {
                   width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center",
                   gap: 16, padding: "22px 0", cursor: "pointer",
                   background: "none", border: "none", textAlign: "left",
-                  fontSize: 16, fontWeight: 600, color: open === i ? "var(--orange)" : "var(--navy)",
+                  fontSize: 16, fontWeight: 600, color: open === i ? "var(--blue)" : "var(--navy)",
                   transition: "color 0.2s", fontFamily: "var(--font-dm-sans), sans-serif",
                 }}
               >
                 {faq.q}
                 <span style={{
                   width: 26, height: 26, borderRadius: "50%", flexShrink: 0,
-                  background: open === i ? "var(--orange)" : "var(--cream-dark)",
+                  background: open === i ? "var(--blue)" : "var(--cream-dark)",
                   color: open === i ? "#fff" : "var(--navy)",
                   display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16,
                   transform: open === i ? "rotate(45deg)" : "none",

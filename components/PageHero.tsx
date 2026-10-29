@@ -5,7 +5,7 @@ export default function PageHero({
   eyebrow,
   title,
   subtitle,
-  accent = "var(--orange)",
+  accent = "var(--blue)",
   crumbs,
   children,
 }: {
@@ -25,12 +25,12 @@ export default function PageHero({
       }} />
       <div style={{
         position: "absolute", right: -120, top: -120, width: 560, height: 560, borderRadius: "50%",
-        background: `radial-gradient(circle, ${accent === "var(--teal)" ? "rgba(42,157,143,0.16)" : "rgba(232,98,26,0.14)"} 0%, transparent 65%)`,
+        background: `radial-gradient(circle, ${accent === "var(--orange)" ? "rgba(242,107,29,0.16)" : "rgba(11,140,235,0.14)"} 0%, transparent 65%)`,
         pointerEvents: "none",
       }} />
       <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px", position: "relative", zIndex: 2 }}>
         {crumbs && <Breadcrumbs items={crumbs} dark inHero />}
-        <span style={{ display: "inline-flex", alignItems: "center", gap: 8, fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: accent, background: accent === "var(--teal)" ? "var(--teal-dim)" : "rgba(232,98,26,0.15)", padding: "6px 14px", borderRadius: 2, borderLeft: `2px solid ${accent}` }}>
+        <span style={{ display: "inline-flex", alignItems: "center", gap: 8, fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: accent, background: accent === "var(--orange)" ? "var(--orange-dim)" : "rgba(11,140,235,0.15)", padding: "6px 14px", borderRadius: 2, borderLeft: `2px solid ${accent}` }}>
           {eyebrow}
         </span>
         <h1 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(40px,5vw,68px)", lineHeight: 0.98, color: "#fff", letterSpacing: "0.02em", margin: "18px 0 18px", maxWidth: 820 }}>

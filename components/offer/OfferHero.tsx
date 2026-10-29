@@ -38,7 +38,7 @@ export default function OfferHero() {
           width: "62%",
           aspectRatio: "1",
           background:
-            "radial-gradient(circle, rgba(232,98,26,0.24) 0%, rgba(232,98,26,0.06) 42%, transparent 68%)",
+            "radial-gradient(circle, rgba(11,140,235,0.24) 0%, rgba(11,140,235,0.06) 42%, transparent 68%)",
           pointerEvents: "none",
         }}
       />
@@ -50,7 +50,7 @@ export default function OfferHero() {
           bottom: "-32%",
           width: "46%",
           aspectRatio: "1",
-          background: "radial-gradient(circle, rgba(90,132,200,0.16) 0%, transparent 66%)",
+          background: "radial-gradient(circle, rgba(11,140,235,0.16) 0%, transparent 66%)",
           pointerEvents: "none",
         }}
       />
@@ -63,7 +63,7 @@ export default function OfferHero() {
           bottom: 0,
           height: 1,
           background:
-            "linear-gradient(90deg, transparent, rgba(255,255,255,0.16) 22%, rgba(232,98,26,0.5) 50%, rgba(255,255,255,0.16) 78%, transparent)",
+            "linear-gradient(90deg, transparent, rgba(255,255,255,0.16) 22%, rgba(11,140,235,0.5) 50%, rgba(255,255,255,0.16) 78%, transparent)",
         }}
       />
 
@@ -73,7 +73,7 @@ export default function OfferHero() {
           <div className="rg-hero-msg">
             <p
               className="hero-animate rg-label"
-              style={{ color: "var(--orange-on-dark)", margin: "0 0 var(--s5)", animationDelay: "0.05s" }}
+              style={{ color: "var(--blue-on-dark)", margin: "0 0 var(--s5)", animationDelay: "0.05s" }}
             >
               Built for Texas Businesses
             </p>
@@ -88,7 +88,7 @@ export default function OfferHero() {
               </span>
               <span
                 className="hero-animate"
-                style={{ display: "block", color: "var(--orange)", animationDelay: "0.21s" }}
+                style={{ display: "block", color: "var(--blue)", animationDelay: "0.21s" }}
               >
                 $0 Upfront.
               </span>
@@ -137,7 +137,7 @@ export default function OfferHero() {
                   display: "inline-flex",
                   alignItems: "center",
                   gap: 10,
-                  background: "var(--orange)",
+                  background: "var(--blue)",
                   color: "#fff",
                   fontWeight: 700,
                   fontSize: 19,
@@ -145,7 +145,7 @@ export default function OfferHero() {
                   padding: "19px 28px",
                   borderRadius: "var(--r-hero-sm)",
                   textDecoration: "none",
-                  boxShadow: "var(--shadow-orange)",
+                  boxShadow: "var(--shadow-blue)",
                   transition: "transform var(--t-fast) var(--ease), box-shadow var(--t-med) var(--ease)",
                 }}
               >
@@ -216,10 +216,10 @@ export default function OfferHero() {
 function CheckMark() {
   return (
     <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false" style={{ flexShrink: 0 }}>
-      <circle cx="8" cy="8" r="7.25" stroke="rgba(232,98,26,0.5)" strokeWidth="1.5" />
+      <circle cx="8" cy="8" r="7.25" stroke="rgba(11,140,235,0.5)" strokeWidth="1.5" />
       <path
         d="M4.9 8.2 6.9 10.2 11.1 6"
-        stroke="var(--orange-on-dark)"
+        stroke="var(--blue-on-dark)"
         strokeWidth="1.7"
         strokeLinecap="round"
         strokeLinejoin="round"

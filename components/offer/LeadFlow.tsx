@@ -39,7 +39,7 @@ export default function LeadFlow() {
               <span style={{ display: "block", opacity: 0.58 }}>
                 Your website shouldn&rsquo;t just sit there.
               </span>
-              <span style={{ display: "block", color: "var(--orange)" }}>
+              <span style={{ display: "block", color: "var(--blue)" }}>
                 It should catch leads.
               </span>
             </h2>
@@ -63,7 +63,7 @@ export default function LeadFlow() {
                 margin: "var(--s5) 0 0",
                 maxWidth: "42ch",
                 paddingLeft: "var(--s4)",
-                borderLeft: "3px solid var(--orange)",
+                borderLeft: "3px solid var(--blue)",
               }}
             >
               Every inquiry from your website can flow directly into your lead management system,

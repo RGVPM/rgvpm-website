@@ -20,7 +20,7 @@ function renderText(s: PostSection) {
     if (at === -1) return;
     out.push(rest.slice(0, at));
     out.push(
-      <Link key={i} href={l.href} style={{ color: "var(--orange)", fontWeight: 600, textDecoration: "underline", textUnderlineOffset: 3 }}>
+      <Link key={i} href={l.href} style={{ color: "var(--blue)", fontWeight: 600, textDecoration: "underline", textUnderlineOffset: 3 }}>
         {l.text}
       </Link>
     );
@@ -93,7 +93,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         <PageHero
           eyebrow={post.category}
           title={post.title}
-          accent="var(--teal)"
+          accent="var(--orange)"
           crumbs={crumbs}
         />
 
@@ -116,8 +116,8 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
             {/* Optional "who does this locally" block — points commercial searches at the right pages. */}
             {post.localAnswer && (
-              <div style={{ background: "#fff", border: "1px solid var(--border)", borderLeft: "4px solid var(--orange)", borderRadius: 8, padding: "20px 22px", marginBottom: 24 }}>
-                <div style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange-ink)", marginBottom: 8 }}>
+              <div style={{ background: "#fff", border: "1px solid var(--border)", borderLeft: "4px solid var(--blue)", borderRadius: 8, padding: "20px 22px", marginBottom: 24 }}>
+                <div style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--blue-ink)", marginBottom: 8 }}>
                   {post.localAnswer.label}
                 </div>
                 <p style={{ fontSize: 16, color: "var(--navy)", lineHeight: 1.7, margin: 0 }}>{renderText({ type: "p", ...post.localAnswer })}</p>
@@ -125,8 +125,8 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             )}
 
             {/* Quick-answer callout — optimized for AI citation + featured snippets */}
-            <div style={{ background: "var(--teal-dim)", borderLeft: "4px solid var(--teal)", borderRadius: 8, padding: "20px 22px", marginBottom: 36 }}>
-              <div style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--teal)", marginBottom: 8 }}>
+            <div style={{ background: "var(--orange-dim)", borderLeft: "4px solid var(--orange)", borderRadius: 8, padding: "20px 22px", marginBottom: 36 }}>
+              <div style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange-ink)", marginBottom: 8 }}>
                 Quick Answer
               </div>
               <p style={{ fontSize: 16, color: "var(--navy)", lineHeight: 1.7, margin: 0 }}>{post.tldr}</p>
@@ -189,7 +189,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                   <ul key={i} style={{ margin: "8px 0 20px", paddingLeft: 0, listStyle: "none" }}>
                     {s.items?.map((it, j) => (
                       <li key={j} style={{ display: "flex", gap: 12, alignItems: "flex-start", marginBottom: 12 }}>
-                        <span style={{ color: "var(--orange)", fontWeight: 700, marginTop: 1, flexShrink: 0 }}>▸</span>
+                        <span style={{ color: "var(--blue)", fontWeight: 700, marginTop: 1, flexShrink: 0 }}>▸</span>
                         <span style={{ fontSize: 16, color: "var(--muted)", lineHeight: 1.7 }}>{it}</span>
                       </li>
                     ))}
@@ -222,7 +222,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
               </div>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
                 {post.related.map((r) => (
-                  <Link key={r.href} href={r.href} style={{ fontSize: 14, fontWeight: 600, color: "var(--navy)", background: "#fff", border: "1px solid var(--border)", borderRadius: 6, padding: "10px 16px", textDecoration: "none" }}>
+                  <Link key={r.href} href={r.href} style={{ fontSize: 14, fontWeight: 600, color: "var(--navy)", background: "#fff", border: "1px solid var(--border)", borderRadius: "var(--r-pill)", padding: "10px 16px", textDecoration: "none" }}>
                     {r.label} →
                   </Link>
                 ))}

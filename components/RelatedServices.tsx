@@ -2,7 +2,7 @@ import Link from "next/link";
 import Icon from "@/components/Icon";
 import { getService } from "@/lib/services";
 
-const accents = ["var(--orange)", "var(--teal)", "#6E86B8"];
+const accents = ["var(--blue)", "var(--orange)", "var(--navy)"];
 
 export default function RelatedServices({ slugs }: { slugs: string[] }) {
   const related = slugs.map(getService).filter(Boolean);
@@ -12,7 +12,7 @@ export default function RelatedServices({ slugs }: { slugs: string[] }) {
     <section style={{ padding: "88px 0", background: "var(--cream)" }}>
       <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
         <div style={{ textAlign: "center", maxWidth: 640, margin: "0 auto 48px" }}>
-          <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--teal)", background: "var(--teal-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--teal)" }}>
+          <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange-ink)", background: "var(--orange-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--orange)" }}>
             Keep Exploring
           </span>
           <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,44px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 0" }}>

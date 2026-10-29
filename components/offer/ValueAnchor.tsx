@@ -31,7 +31,7 @@ export default function ValueAnchor() {
           top: "-30%",
           width: "48%",
           aspectRatio: "1",
-          background: "radial-gradient(circle, rgba(232,98,26,0.18) 0%, transparent 66%)",
+          background: "radial-gradient(circle, rgba(11,140,235,0.18) 0%, transparent 66%)",
           pointerEvents: "none",
         }}
       />
@@ -46,7 +46,7 @@ export default function ValueAnchor() {
               style={{ fontSize: "var(--fs-h2)", color: "#fff", margin: "var(--s4) 0 0" }}
             >
               <span style={{ display: "block" }}>Get the website now.</span>
-              <span style={{ display: "block", color: "var(--orange)" }}>Grow with us monthly.</span>
+              <span style={{ display: "block", color: "var(--blue)" }}>Grow with us monthly.</span>
             </h2>
             <p
               style={{

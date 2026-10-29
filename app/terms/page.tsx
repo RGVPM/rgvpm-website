@@ -43,7 +43,7 @@ export default function TermsPage() {
       <div style={wrap}>
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" style={{ fontSize: 13, color: "var(--muted)", marginBottom: 28 }}>
-          <Link href="/" style={{ color: "var(--orange)", textDecoration: "none", fontWeight: 600 }}>
+          <Link href="/" style={{ color: "var(--blue)", textDecoration: "none", fontWeight: 600 }}>
             Home
           </Link>
           <span style={{ margin: "0 8px" }}>/</span>
@@ -73,7 +73,7 @@ export default function TermsPage() {
           &ldquo;our&rdquo;), based in Harlingen, Texas, to you (&ldquo;Client&rdquo; or
           &ldquo;you&rdquo;). By engaging our services or subscribing to a plan, you agree to be
           bound by these Terms, including the{" "}
-          <a href="#baa" style={{ color: "var(--orange)" }}>
+          <a href="#baa" style={{ color: "var(--blue)" }}>
             HIPAA Business Associate Addendum
           </a>{" "}
           in Section 14 where it applies to you.
@@ -119,7 +119,7 @@ export default function TermsPage() {
         <ul style={{ paddingLeft: 22, marginBottom: 14 }}>
           <li style={li}>
             To begin cancellation, you must send a cancellation request via email to{" "}
-            <a href="mailto:info@rgvperformancemarketing.com" style={{ color: "var(--orange)" }}>
+            <a href="mailto:info@rgvperformancemarketing.com" style={{ color: "var(--blue)" }}>
               info@rgvperformancemarketing.com
             </a>
             .
@@ -412,7 +412,7 @@ export default function TermsPage() {
           </li>
           <li style={li}>
             If you need a countersigned copy of this Addendum for your records, email{" "}
-            <a href="mailto:info@rgvperformancemarketing.com" style={{ color: "var(--orange)" }}>
+            <a href="mailto:info@rgvperformancemarketing.com" style={{ color: "var(--blue)" }}>
               info@rgvperformancemarketing.com
             </a>
             . Notices under this Addendum should be sent to the same address.
@@ -422,7 +422,7 @@ export default function TermsPage() {
         <h2 style={h2}>15. Contact</h2>
         <p style={p}>
           Questions about these Terms? Contact us at{" "}
-          <a href="mailto:info@rgvperformancemarketing.com" style={{ color: "var(--orange)" }}>
+          <a href="mailto:info@rgvperformancemarketing.com" style={{ color: "var(--blue)" }}>
             info@rgvperformancemarketing.com
           </a>
           .

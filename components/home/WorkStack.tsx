@@ -1,95 +1,99 @@
+import { Fragment } from "react";
 import Image from "next/image";
 
 /**
- * Hero visual: three real client websites, stacked.
+ * Hero visual: four real client websites, shown on phones.
  *
- * Replaces the illustrative dashboard. Every card is an actual screenshot
- * of a site we designed that is live today, and every card is a real link
- * to it, so the hero shows proof rather than decoration. Server component:
- * the only motion is a CSS entrance (see `.rg-stack-*` in globals.css).
+ * Every phone is an actual mobile screenshot of a site we designed that is
+ * live today, and every phone links to it, so the hero shows proof rather
+ * than decoration. Server component: the only motion is a CSS entrance
+ * (see `.rg-phone*` in globals.css).
  *
- * Screenshots are 1200x750 (16:10) in /public/work. All three are above
- * the fold on desktop and the browser picks whichever paints first as the
- * LCP element, so every card loads with priority.
+ * Screenshots are 585x1266 (a 390x844 phone screen at 1.5x) in
+ * /public/work/phone. All four are above the fold on desktop, so every
+ * phone loads with priority.
  */
 const SITES = [
   {
-    name: "Premium Foam",
-    url: "https://www.cclcontracting.com/spray-foam-insulation/",
-    city: "Rio Grande Valley",
-    screenshot: "/work/premium-foam.webp",
+    name: "NeuroMotion Rehabilitation",
+    short: "NeuroMotion",
+    url: "https://neuromotionrehabilitation.com",
+    screenshot: "/work/phone/neuromotion.webp",
+  },
+  {
+    name: "Belleza De Oro",
+    short: "Belleza De Oro",
+    url: "https://www.bellezadeorosalon.com",
+    screenshot: "/work/phone/belleza.webp",
+  },
+  {
+    name: "Glammed Up Aesthetics",
+    short: "Glammed Up",
+    url: "https://glammedupaesthetics.com",
+    screenshot: "/work/phone/glammedup.webp",
   },
   {
     name: "Us To You Mobile Health",
+    short: "Us To You",
     url: "https://www.ustoyoumobilehealth.com",
-    city: "San Antonio, TX",
-    screenshot: "/work/us-to-you-mobile-health.webp",
-  },
-  {
-    name: "Mac's Dove Hunts",
-    url: "https://www.macsdovehunts.com",
-    city: "Mercedes, TX",
-    screenshot: "/work/macs-dove-hunts.webp",
+    screenshot: "/work/phone/ustoyou.webp",
   },
 ] as const;
 
-const [front, mid, back] = SITES;
-
 const mono = "var(--font-dm-mono), ui-monospace, monospace";
-
-function Card({ site, layer }: { site: (typeof SITES)[number]; layer: "front" | "mid" | "back" }) {
-  return (
-    <div className={`rg-stack-card rg-stack-card--${layer}`}>
-      <a
-        href={site.url}
-        target="_blank"
-        rel="noopener"
-        className="rg-stack-frame"
-        aria-label={`${site.name} website, designed by us (opens in a new tab)`}
-      >
-        <Image
-          src={site.screenshot}
-          alt={`Homepage of ${site.name}`}
-          width={1200}
-          height={750}
-          priority
-          sizes="(max-width: 1023px) 92vw, 42vw"
-          style={{ display: "block", width: "100%", height: "auto" }}
-        />
-      </a>
-      {layer === "front" && (
-        <p
-          className="rg-stack-caption"
-          style={{
-            fontFamily: mono,
-            fontSize: 11,
-            letterSpacing: "0.12em",
-            textTransform: "uppercase",
-            color: "rgba(247,244,239,0.6)",
-            margin: "12px 0 0",
-            display: "flex",
-            alignItems: "center",
-            gap: 12,
-          }}
-        >
-          <span>{site.name}</span>
-          <span
-            aria-hidden="true"
-            style={{ width: 1, height: 11, background: "rgba(247,244,239,0.28)" }}
-          />
-          <span>{site.city}</span>
-        </p>
-      )}
-    </div>
-  );
-}
 
 export default function WorkStack() {
   return (
-    <div className="rg-stack" aria-label="Three websites we designed for Rio Grande Valley businesses">
-      <Card site={back} layer="back" />
-      <Card site={mid} layer="mid" />
-      <Card site={front} layer="front" />
+    <div>
+      <div className="rg-phones" aria-label="Four websites we designed for our clients">
+        {SITES.map((site, i) => (
+          <div key={site.url} className={`rg-phone rg-phone--${i + 1}`}>
+            <a
+              href={site.url}
+              target="_blank"
+              rel="noopener"
+              className="rg-phone-frame"
+              aria-label={`${site.name} website, designed by us (opens in a new tab)`}
+            >
+              <span className="rg-phone-screen">
+                <Image
+                  src={site.screenshot}
+                  alt={`${site.name} on a phone`}
+                  width={585}
+                  height={1266}
+                  priority
+                  sizes="(max-width: 1023px) 34vw, 17vw"
+                  style={{ display: "block", width: "100%", height: "auto" }}
+                />
+              </span>
+              <span className="rg-phone-island" aria-hidden="true" />
+            </a>
+          </div>
+        ))}
+        {/* Orange sparkles from the brand graphics, twinkling around the phones */}
+        <span className="rg-sparkle rg-sparkle--1" aria-hidden="true">✦</span>
+        <span className="rg-sparkle rg-sparkle--2" aria-hidden="true">✦</span>
+        <span className="rg-sparkle rg-sparkle--3" aria-hidden="true">✦</span>
+      </div>
+      <p
+        style={{
+          fontFamily: mono,
+          fontSize: 11,
+          letterSpacing: "0.12em",
+          textTransform: "uppercase",
+          color: "rgba(253,248,236,0.9)",
+          margin: "18px 0 0",
+          textAlign: "center",
+          lineHeight: 1.8,
+        }}
+      >
+        {SITES.map((s, i) => (
+          <Fragment key={s.url}>
+            {i > 0 && " · "}
+            <span style={{ whiteSpace: "nowrap" }}>{s.short}</span>
+          </Fragment>
+        ))}
+      </p>
     </div>
   );
 }

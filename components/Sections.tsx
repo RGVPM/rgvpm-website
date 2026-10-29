@@ -3,7 +3,7 @@ import ClientMarquee from "@/components/ClientMarquee";
 
 export function IndustryStrip() {
   return (
-    <section className="rg-logo-strip" style={{ padding: "60px 0", background: "var(--cream-dark)" }}>
+    <section className="rg-logo-strip" style={{ padding: "52px 0 60px", background: "var(--cream)" }}>
       <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
         <ClientMarquee />
       </div>
@@ -13,15 +13,15 @@ export function IndustryStrip() {
 
 export function HowItWorks() {
   const steps = [
-    { num: "01", icon: "target" as const, accent: "var(--orange)", title: "Diagnose", text: "We audit your current digital presence — website, Google profile, competitors — and pinpoint exactly where you're losing leads and visibility." },
-    { num: "02", icon: "wrench" as const, accent: "var(--teal)", title: "Build", text: "We set up your growth engine: GBP optimization, NAP consistency, lead capture, automated follow-up, newsletters, and ad campaigns — all in one coordinated push." },
+    { num: "01", icon: "target" as const, accent: "var(--blue)", title: "Diagnose", text: "We audit your current digital presence — website, Google profile, competitors — and pinpoint exactly where you're losing leads and visibility." },
+    { num: "02", icon: "wrench" as const, accent: "var(--orange)", title: "Build", text: "We set up your growth engine: GBP optimization, NAP consistency, lead capture, automated follow-up, newsletters, and ad campaigns — all in one coordinated push." },
     { num: "03", icon: "chart" as const, accent: "var(--navy)", title: "Grow", text: "We execute, optimize, and report every month. You see exactly what's working, what we're improving, and how every dollar is performing." },
   ];
   return (
     <section id="how-it-works" style={{ padding: "96px 0", background: "#fff" }}>
       <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
         <div style={{ textAlign: "center", maxWidth: 640, margin: "0 auto 64px" }}>
-          <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange)", background: "var(--orange-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--orange)" }}>The Process</span>
+          <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--blue)", background: "var(--blue-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--blue)" }}>The Process</span>
           <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(36px,4vw,54px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 16px" }}>Simple &amp; Fast</h2>
           <p style={{ fontSize: 17, color: "var(--muted)", lineHeight: 1.65 }}>We don&apos;t do 6-month onboarding. Most clients are up and running within two weeks.</p>
         </div>
@@ -54,11 +54,11 @@ export function WhyUs() {
       <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center" }} className="why-grid-responsive">
           <div>
-            <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange)", background: "var(--orange-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--orange)" }}>Why Us</span>
+            <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--blue)", background: "var(--blue-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--blue)" }}>Why Us</span>
             <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(36px,4vw,54px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 36px", textAlign: "left" }}>Built Different.<br />Built to Deliver.</h2>
             {points.map((p) => (
               <div key={p.title} style={{ display: "flex", gap: 18, marginBottom: 28, paddingBottom: 28, borderBottom: "1px solid var(--border)" }}>
-                <div style={{ width: 44, height: 44, borderRadius: 8, background: "var(--orange-dim)", border: "1px solid rgba(232,98,26,0.2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}><Icon name={p.icon} size={20} color="var(--orange)" /></div>
+                <div style={{ width: 44, height: 44, borderRadius: 8, background: "var(--blue-dim)", border: "1px solid rgba(11,140,235,0.2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}><Icon name={p.icon} size={20} color="var(--blue)" /></div>
                 <div>
                   <div style={{ fontSize: 16, fontWeight: 700, color: "var(--navy)", marginBottom: 5 }}>{p.title}</div>
                   <div style={{ fontSize: 13, color: "var(--muted)", lineHeight: 1.65 }}>{p.text}</div>
@@ -67,7 +67,7 @@ export function WhyUs() {
             ))}
           </div>
           <div style={{ background: "var(--navy)", borderRadius: 12, padding: 36, position: "relative" }}>
-            <div style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--orange)", marginBottom: 18 }}>{"// Our approach"}</div>
+            <div style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--blue)", marginBottom: 18 }}>{"// Our approach"}</div>
             <div style={{ fontSize: 18, fontWeight: 300, fontStyle: "italic", color: "rgba(255,255,255,0.8)", lineHeight: 1.65, marginBottom: 28 }}>
               &ldquo;Most small businesses are <strong style={{ color: "#fff", fontStyle: "normal", fontWeight: 700 }}>invisible online</strong> — not because their product isn&apos;t good, but because nobody built them a system to get found. That&apos;s the gap we exist to close.&rdquo;
             </div>
@@ -79,12 +79,12 @@ export function WhyUs() {
                 { num: "AI", label: "Powered tools & systems" },
               ].map((m) => (
                 <div key={m.num}>
-                  <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 34, color: "var(--orange)" }}>{m.num}</div>
+                  <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 34, color: "var(--blue)" }}>{m.num}</div>
                   <div style={{ fontSize: 11, color: "rgba(255,255,255,0.45)", marginTop: 2 }}>{m.label}</div>
                 </div>
               ))}
             </div>
-            <div style={{ position: "absolute", bottom: -20, right: -20, background: "var(--orange)", borderRadius: 8, padding: "16px 20px", boxShadow: "0 12px 36px rgba(232,98,26,0.3)" }}>
+            <div style={{ position: "absolute", bottom: -20, right: -20, background: "var(--blue)", borderRadius: 8, padding: "16px 20px", boxShadow: "0 12px 36px rgba(11,140,235,0.3)" }}>
               <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 28, color: "#fff" }}>956</div>
               <div style={{ fontSize: 11, color: "rgba(255,255,255,0.8)" }}>Locally rooted</div>
             </div>
@@ -97,7 +97,7 @@ export function WhyUs() {
 
 export function CTA() {
   return (
-    <section style={{ padding: "96px 0", background: "var(--orange)", position: "relative", overflow: "hidden" }}>
+    <section style={{ padding: "96px 0", background: "var(--blue)", position: "relative", overflow: "hidden" }}>
       <div style={{ position: "absolute", inset: 0, opacity: 0.06, backgroundImage: "repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)", backgroundSize: "20px 20px" }} />
       <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px", position: "relative", zIndex: 2 }}>
         <div style={{ textAlign: "center", maxWidth: 680, margin: "0 auto" }}>

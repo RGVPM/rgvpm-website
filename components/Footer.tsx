@@ -1,10 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
 import { cities, webDesignCityPath, aiCityPath } from "@/lib/cities";
 import { localSeoCityPath } from "@/lib/localSeo";
 import { googleAdsCityPath } from "@/lib/googleAds";
 import { gbpCityPath } from "@/lib/gbp";
 import { SOCIAL_PROFILES } from "@/lib/site";
+import BrandMark from "@/components/BrandMark";
 
 function socialLabel(url: string): string {
   if (url.includes("instagram")) return "Instagram";
@@ -21,14 +21,14 @@ export default function Footer() {
       <div className="rg-container">
         <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: 40, marginBottom: "var(--s9)" }} className="footer-grid-responsive">
           <div>
-            <Image src="/logo.png" alt="RGV Performance Marketing" width={200} height={47} sizes="200px" style={{ height: 47, width: "auto", marginBottom: 16 }} />
+            <div style={{ marginBottom: 18 }}><BrandMark size={64} tone="dark" /></div>
             <p style={{ fontSize: 13, color: "rgba(255,255,255,0.62)", lineHeight: 1.7, maxWidth: 260, marginBottom: 20 }}>
               An AI and marketing agency for local businesses. Websites, SEO, ads, and AI systems that answer calls and follow up for you. Locally rooted. Built to scale.
             </p>
             <address style={{ fontSize: 13, color: "rgba(255,255,255,0.55)", lineHeight: 1.9, fontStyle: "normal" }}>
               <div>📍 Harlingen, TX</div>
-              <div>📞 <a href="tel:+19567939152" style={{ color: "var(--orange-on-dark)", textDecoration: "none" }}>(956) 793-9152</a></div>
-              <div style={{ wordBreak: "break-word" }}>✉️ <a href="mailto:info@rgvperformancemarketing.com" style={{ color: "var(--orange-on-dark)", textDecoration: "none" }}>info@rgvperformancemarketing.com</a></div>
+              <div>📞 <a href="tel:+19567939152" style={{ color: "var(--blue-on-dark)", textDecoration: "none" }}>(956) 793-9152</a></div>
+              <div style={{ wordBreak: "break-word" }}>✉️ <a href="mailto:info@rgvperformancemarketing.com" style={{ color: "var(--blue-on-dark)", textDecoration: "none" }}>info@rgvperformancemarketing.com</a></div>
             </address>
             {SOCIAL_PROFILES.length > 0 && (
               <div style={{ display: "flex", gap: 16, marginTop: 18 }}>

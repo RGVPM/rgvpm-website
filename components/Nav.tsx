@@ -1,9 +1,9 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { SITE } from "@/lib/site";
+import BrandMark from "@/components/BrandMark";
 
 type NavItem = { label: string; href: string; children?: { label: string; href: string }[] };
 
@@ -131,11 +131,11 @@ export default function Nav() {
           // the logo is navy-filled with an orange stroke, so over the navy
           // hero the fill would disappear. Integration with the hero comes
           // from the shared orange hairline below, not from transparency.
-          background: "rgba(247,244,239,0.94)",
+          background: "rgba(253,248,236,0.985)",
           backdropFilter: "blur(14px) saturate(1.2)",
           WebkitBackdropFilter: "blur(14px) saturate(1.2)",
           borderBottom: "1px solid var(--border)",
-          boxShadow: scrolled ? "0 6px 28px -14px rgba(26,43,74,0.35)" : "none",
+          boxShadow: scrolled ? "0 6px 28px -14px rgba(16,34,63,0.35)" : "none",
           transition: "box-shadow var(--t-med) var(--ease)",
         }}
       >
@@ -149,7 +149,7 @@ export default function Nav() {
             bottom: -1,
             height: 2,
             background:
-              "linear-gradient(90deg, transparent, rgba(232,98,26,0.55) 30%, var(--orange) 50%, rgba(232,98,26,0.55) 70%, transparent)",
+              "linear-gradient(90deg, transparent, rgba(11,140,235,0.55) 30%, var(--blue) 50%, rgba(11,140,235,0.55) 70%, transparent)",
             opacity: scrolled ? 0 : 1,
             transition: "opacity var(--t-med) var(--ease)",
           }}
@@ -169,15 +169,7 @@ export default function Nav() {
             aria-label="RGV Performance Marketing — home"
             style={{ display: "flex", flexShrink: 0 }}
           >
-            <Image
-              src="/logo.png"
-              alt="RGV Performance Marketing"
-              height={44}
-              width={220}
-              sizes="220px"
-              priority
-              style={{ height: 44, width: "auto" }}
-            />
+            <BrandMark size={52} priority />
           </Link>
 
           {/* Desktop nav switches in at xl, not lg: the assessment CTA is a
@@ -194,7 +186,7 @@ export default function Nav() {
                 position: "relative" as const,
                 fontSize: 14.5,
                 fontWeight: active ? 700 : 500,
-                color: active ? "var(--orange-ink)" : "var(--muted)",
+                color: active ? "var(--blue-ink)" : "var(--muted)",
                 textDecoration: "none",
                 paddingBlock: 6,
                 transition: "color var(--t-fast) var(--ease)",
@@ -264,7 +256,7 @@ export default function Nav() {
                       font: "inherit",
                       fontSize: 14.5,
                       fontWeight: active ? 700 : 500,
-                      color: active ? "var(--orange-ink)" : "var(--muted)",
+                      color: active ? "var(--blue-ink)" : "var(--muted)",
                     }}
                   >
                     {item.label}
@@ -329,7 +321,7 @@ export default function Nav() {
                         fontWeight: 700,
                         letterSpacing: "0.04em",
                         textTransform: "uppercase",
-                        color: "var(--orange-ink)",
+                        color: "var(--blue-ink)",
                         textDecoration: "none",
                       }}
                     >
@@ -350,7 +342,7 @@ export default function Nav() {
                           borderRadius: "var(--r-sm)",
                           fontSize: 14,
                           fontWeight: pathname === child.href ? 700 : 500,
-                          color: pathname === child.href ? "var(--orange-ink)" : "var(--navy)",
+                          color: pathname === child.href ? "var(--blue-ink)" : "var(--navy)",
                           textDecoration: "none",
                           whiteSpace: "nowrap",
                         }}
@@ -373,17 +365,17 @@ export default function Nav() {
               style={{
                 alignItems: "center",
                 gap: 8,
-                background: "var(--orange)",
+                background: "var(--blue)",
                 color: "#fff",
                 fontWeight: 700,
                 // 19px clears WCAG's 18.66px large-text threshold, so white on
-                // the brand orange passes at 3:1 without altering the colour.
+                // the brand blue passes at 3:1 without altering the colour.
                 fontSize: 19,
                 padding: "11px 22px",
                 whiteSpace: "nowrap",
-                borderRadius: "var(--r-sm)",
+                borderRadius: "var(--r-pill)",
                 textDecoration: "none",
-                boxShadow: "var(--shadow-orange)",
+                boxShadow: "var(--shadow-blue)",
                 transition:
                   "background var(--t-fast) var(--ease), transform var(--t-fast) var(--ease), box-shadow var(--t-med) var(--ease)",
               }}
@@ -463,7 +455,7 @@ export default function Nav() {
                     borderBottom: item.children ? "none" : "1px solid var(--border)",
                     fontSize: 17,
                     fontWeight: active ? 700 : 500,
-                    color: active ? "var(--orange-ink)" : "var(--navy)",
+                    color: active ? "var(--blue-ink)" : "var(--navy)",
                     textDecoration: "none",
                   }}
                 >
@@ -482,7 +474,7 @@ export default function Nav() {
                       margin: "0 0 var(--s2)",
                       padding: "0 0 var(--s3) var(--s4)",
                       borderBottom: "1px solid var(--border)",
-                      borderLeft: "2px solid rgba(232,98,26,0.28)",
+                      borderLeft: "2px solid rgba(11,140,235,0.28)",
                     }}
                   >
                     {item.children.map((child) => (
@@ -497,7 +489,7 @@ export default function Nav() {
                             minHeight: 46,
                             fontSize: 15,
                             fontWeight: pathname === child.href ? 700 : 400,
-                            color: pathname === child.href ? "var(--orange-ink)" : "var(--muted)",
+                            color: pathname === child.href ? "var(--blue-ink)" : "var(--muted)",
                             textDecoration: "none",
                           }}
                         >
@@ -522,13 +514,13 @@ export default function Nav() {
               gap: 8,
               marginTop: "var(--s6)",
               minHeight: 56,
-              background: "var(--orange)",
+              background: "var(--blue)",
               color: "#fff",
               fontWeight: 700,
               fontSize: 16,
-              borderRadius: "var(--r-sm)",
+              borderRadius: "var(--r-pill)",
               textDecoration: "none",
-              boxShadow: "var(--shadow-orange)",
+              boxShadow: "var(--shadow-blue)",
               textAlign: "center",
             }}
           >

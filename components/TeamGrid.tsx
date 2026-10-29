@@ -34,7 +34,7 @@ function Portrait({ m, priority }: { m: TeamMember; priority?: boolean }) {
         aspectRatio: "4 / 5",
         borderRadius: "var(--r-lg)",
         overflow: "hidden",
-        background: "linear-gradient(160deg, #243658 0%, #1A2B4A 100%)",
+        background: "linear-gradient(160deg, #1A3157 0%, #10223F 100%)",
         border: "1px solid var(--border)",
       }}
     >
@@ -59,7 +59,7 @@ function Portrait({ m, priority }: { m: TeamMember; priority?: boolean }) {
             fontFamily: bebas,
             fontSize: 110,
             letterSpacing: "0.04em",
-            color: "rgba(247,244,239,0.14)",
+            color: "rgba(253,248,236,0.14)",
           }}
         >
           {m.initials}
@@ -86,7 +86,7 @@ function MemberCard({ m, priority }: { m: TeamMember; priority?: boolean }) {
         <span style={{ display: "block", fontFamily: bebas, fontSize: 26, letterSpacing: "0.04em", color: "var(--navy)", lineHeight: 1, marginTop: 16 }}>
           {m.name}
         </span>
-        <span style={{ display: "block", fontFamily: mono, fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange-ink)", marginTop: 8 }}>
+        <span style={{ display: "block", fontFamily: mono, fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--blue-ink)", marginTop: 8 }}>
           {m.title}
         </span>
         <span className="rg-team-more" style={{ display: "inline-block", fontSize: 14, fontWeight: 600, color: "var(--navy)", marginTop: 12 }}>
@@ -112,7 +112,7 @@ function MemberCard({ m, priority }: { m: TeamMember; priority?: boolean }) {
             <h3 id={`${m.first.toLowerCase()}-bio-name`} className="rg-display" style={{ fontSize: "clamp(30px, 3vw, 40px)", color: "var(--navy)", margin: 0 }}>
               {m.name}
             </h3>
-            <p style={{ fontFamily: mono, fontSize: 11.5, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange-ink)", margin: "10px 0 0" }}>
+            <p style={{ fontFamily: mono, fontSize: 11.5, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--blue-ink)", margin: "10px 0 0" }}>
               {m.title}
             </p>
             <ul style={{ listStyle: "none", margin: "var(--s5) 0 0", padding: 0, display: "flex", flexWrap: "wrap", gap: 8 }}>
@@ -152,7 +152,7 @@ export default function TeamGrid({ groups }: { groups: { label: string; members:
     <>
       {groups.map((g, gi) => (
         <div key={g.label} style={{ marginTop: gi === 0 ? "var(--s8)" : "var(--s7)" }}>
-          <h2 className="rg-label" style={{ color: "var(--orange-ink)", margin: 0 }}>
+          <h2 className="rg-label" style={{ color: "var(--blue-ink)", margin: 0 }}>
             {g.label}
           </h2>
           <ul className="rg-team-grid">

@@ -83,7 +83,7 @@ export default function AgentSignupForm() {
         type="submit"
         disabled={status === "sending"}
         className="rg-hero-cta"
-        style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 10, background: "var(--orange)", color: "#fff", fontWeight: 700, fontSize: 17, lineHeight: 1, padding: "18px 24px", borderRadius: "var(--r-hero-sm)", border: "none", cursor: status === "sending" ? "wait" : "pointer", boxShadow: "var(--shadow-orange)", opacity: status === "sending" ? 0.75 : 1 }}
+        style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 10, background: "var(--blue)", color: "#fff", fontWeight: 700, fontSize: 17, lineHeight: 1, padding: "18px 24px", borderRadius: "var(--r-hero-sm)", border: "none", cursor: status === "sending" ? "wait" : "pointer", boxShadow: "var(--shadow-blue)", opacity: status === "sending" ? 0.75 : 1 }}
       >
         {status === "sending" ? "Sending..." : <>Send me the free agent <span aria-hidden="true">→</span></>}
       </button>

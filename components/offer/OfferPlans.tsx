@@ -180,12 +180,12 @@ function Tick({ featured }: { featured: boolean }) {
         cx="8"
         cy="8"
         r="7.25"
-        stroke={featured ? "rgba(232,98,26,0.55)" : "rgba(232,98,26,0.35)"}
+        stroke={featured ? "rgba(11,140,235,0.55)" : "rgba(11,140,235,0.35)"}
         strokeWidth="1.4"
       />
       <path
         d="M4.9 8.2 6.9 10.2 11.1 6"
-        stroke={featured ? "var(--orange-on-dark)" : "var(--orange)"}
+        stroke={featured ? "var(--blue-on-dark)" : "var(--blue)"}
         strokeWidth="1.7"
         strokeLinecap="round"
         strokeLinejoin="round"

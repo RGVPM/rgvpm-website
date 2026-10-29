@@ -4,7 +4,7 @@ export interface CityDetailsContent {
   points: { title: string; text: string }[];
 }
 
-const accents = ["var(--orange)", "var(--teal)", "#6E86B8", "var(--orange)"];
+const accents = ["var(--blue)", "var(--orange)", "var(--navy)", "var(--blue)"];
 
 /**
  * City-specific "what's different about this market" section for location

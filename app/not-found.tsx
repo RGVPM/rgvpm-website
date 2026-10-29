@@ -23,7 +23,7 @@ export default function NotFound() {
   return (
     <main style={{ background: "var(--cream)", padding: "160px 0 120px" }}>
       <div style={{ maxWidth: 760, margin: "0 auto", padding: "0 24px", textAlign: "center" }}>
-        <p style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: 12, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange-ink)", margin: "0 0 12px" }}>
+        <p style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: 12, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--blue-ink)", margin: "0 0 12px" }}>
           404
         </p>
         <h1 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(40px,6vw,72px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1, margin: "0 0 16px" }}>
@@ -37,7 +37,7 @@ export default function NotFound() {
             <Link
               key={l.href}
               href={l.href}
-              style={{ fontSize: 14, fontWeight: 600, color: "var(--navy)", background: "#fff", border: "1px solid var(--border)", borderRadius: 6, padding: "10px 16px", textDecoration: "none" }}
+              style={{ fontSize: 14, fontWeight: 600, color: "var(--navy)", background: "#fff", border: "1px solid var(--border)", borderRadius: "var(--r-pill)", padding: "10px 16px", textDecoration: "none" }}
             >
               {l.label} →
             </Link>

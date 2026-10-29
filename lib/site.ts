@@ -192,7 +192,7 @@ export function businessSchema() {
     email: SITE.email,
     telephone: SITE.phone,
     image: `${SITE.url}/logo.png`,
-    logo: `${SITE.url}/logo.png`,
+    logo: `${SITE.url}/brand/rgvpm-badge.png`,
     priceRange: "$$",
     currenciesAccepted: "USD",
     knowsLanguage: ["en", "es"],

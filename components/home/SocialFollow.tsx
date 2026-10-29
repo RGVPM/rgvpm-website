@@ -63,7 +63,7 @@ export default function SocialFollow() {
     <section
       aria-labelledby="social-heading"
       style={{
-        background: "linear-gradient(180deg, #15233D 0%, var(--navy) 100%)",
+        background: "linear-gradient(180deg, #0C1B33 0%, var(--navy) 100%)",
         paddingBlock: "var(--section-y)",
       }}
     >
@@ -111,7 +111,7 @@ export default function SocialFollow() {
                 alignItems: "center",
                 gap: 10,
                 marginTop: "var(--s6)",
-                background: "var(--orange)",
+                background: "var(--blue)",
                 color: "#fff",
                 fontWeight: 700,
                 fontSize: 18,
@@ -119,7 +119,7 @@ export default function SocialFollow() {
                 padding: "17px 24px",
                 borderRadius: "var(--r-hero-sm)",
                 textDecoration: "none",
-                boxShadow: "var(--shadow-orange)",
+                boxShadow: "var(--shadow-blue)",
                 transition:
                   "transform var(--t-fast) var(--ease), box-shadow var(--t-med) var(--ease)",
               }}
@@ -165,8 +165,8 @@ export default function SocialFollow() {
                   gap: "var(--s4)",
                   padding: "var(--s5) var(--s5)",
                   borderRadius: "var(--r-md)",
-                  border: "1px solid rgba(232,98,26,0.45)",
-                  background: "rgba(232,98,26,0.09)",
+                  border: "1px solid rgba(11,140,235,0.45)",
+                  background: "rgba(11,140,235,0.09)",
                   textDecoration: "none",
                 }}
               >
@@ -181,8 +181,8 @@ export default function SocialFollow() {
                     width: 58,
                     height: 58,
                     borderRadius: "var(--r-sm)",
-                    background: "var(--orange)",
-                    border: "1px solid var(--orange)",
+                    background: "var(--blue)",
+                    border: "1px solid var(--blue)",
                     color: "#fff",
                   }}
                 >
@@ -207,7 +207,7 @@ export default function SocialFollow() {
                 <span
                   aria-hidden="true"
                   className="rg-social-arrow"
-                  style={{ marginLeft: "auto", color: "var(--orange-on-dark)", fontSize: 17 }}
+                  style={{ marginLeft: "auto", color: "var(--blue-on-dark)", fontSize: 17 }}
                 >
                   →
                 </span>
@@ -279,7 +279,7 @@ export default function SocialFollow() {
                   <span
                     aria-hidden="true"
                     className="rg-social-arrow"
-                    style={{ marginLeft: "auto", color: "var(--orange-on-dark)", fontSize: 15 }}
+                    style={{ marginLeft: "auto", color: "var(--blue-on-dark)", fontSize: 15 }}
                   >
                     →
                   </span>
