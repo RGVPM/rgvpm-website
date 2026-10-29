@@ -831,6 +831,16 @@ body {
   width: fit-content;
   border-bottom: 1.5px solid var(--blue);
 }
+.rg-marquee-note {
+  margin: 20px auto 0;
+  max-width: 80ch;
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.6;
+  font-style: italic;
+  color: var(--muted);
+}
+.rg-marquee-note strong { font-style: normal; font-weight: 700; color: var(--navy); }
 .rg-marquee-capsule {
   background: #fff;
   border: 1.5px solid var(--navy);

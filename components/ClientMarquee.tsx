@@ -40,6 +40,10 @@ export default function ClientMarquee() {
           </div>
         </div>
       </div>
+      <p className="rg-marquee-note">
+        Learned from <strong>Mark Cuban</strong>, <strong>Indra Nooyi</strong>,{" "}
+        <strong>Paul Krugman</strong> and Nobel-winning Chicago Booth faculty.
+      </p>
     </div>
   );
 }
