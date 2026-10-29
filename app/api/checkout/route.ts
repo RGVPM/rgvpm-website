@@ -12,15 +12,15 @@ import { SITE } from "@/lib/site";
  * already exist, then to the booking page, so the button never dead-ends.
  */
 type Plan = "site" | "machine" | "market";
-type Addon = "seo" | "content" | "social" | "ads" | "followup";
+type Addon = "seo" | "content" | "social" | "ads";
 
-const ADDONS: Addon[] = ["seo", "content", "social", "ads", "followup"];
+const ADDONS: Addon[] = ["seo", "content", "social", "ads"];
 
 /** Add-ons a bundle already includes (so they're never billed twice). */
 const COVERED: Record<Plan, Addon[]> = {
   site: [],
   machine: ["seo", "content"],
-  market: ["seo", "content", "social", "ads", "followup"],
+  market: ["seo", "content", "social", "ads"],
 };
 
 const PRICE_ENV: Record<Plan | Addon, string> = {
@@ -31,7 +31,6 @@ const PRICE_ENV: Record<Plan | Addon, string> = {
   content: "STRIPE_PRICE_CONTENT",
   social: "STRIPE_PRICE_SOCIAL",
   ads: "STRIPE_PRICE_ADS",
-  followup: "STRIPE_PRICE_FOLLOWUP",
 };
 
 /** Payment links that work today, for the picks they match exactly. */

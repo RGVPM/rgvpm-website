@@ -59,9 +59,9 @@ export default function Footer() {
               title: "Plans",
               links: [
                 { label: "Website — $397/mo", href: "/pricing" },
-                { label: "Add-ons — from $200/mo", href: "/pricing" },
-                { label: "Build the Machine — $899/mo", href: "/pricing" },
-                { label: "Own the Market — $2,000/mo", href: "/pricing" },
+                { label: "Add-ons — from $400/mo", href: "/pricing" },
+                { label: "Build the Machine — $999/mo", href: "/pricing" },
+                { label: "Own the Market — $2,500/mo", href: "/pricing" },
               ],
             },
             {

@@ -19,7 +19,7 @@ export const homeFaqs = [
   },
   {
     q: "What does \"two-way SMS & email\" mean?",
-    a: "It means you can have real back-and-forth conversations with leads and customers via text and email — all from one inbox. When someone texts your business number or replies to an email, you see it and can respond. With the Follow-Up & Automation add-on or Own the Market, you can also send broadcast campaigns — promos, announcements, and follow-ups — to your entire list at once.",
+    a: "It means you can have real back-and-forth conversations with leads and customers via text and email — all from one inbox. When someone texts your business number or replies to an email, you see it and can respond. Every website plan also lets you send broadcast campaigns — promos, announcements, and follow-ups — to your entire list at once.",
   },
   {
     q: "Does ad spend come out of the monthly fee?",

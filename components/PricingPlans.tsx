@@ -13,13 +13,13 @@ const BOOKING = "https://api.rgvperformancemarketing.com/widget/bookings/rgvpmdi
  */
 const BASE = { name: "Plant the Flag", price: 397 };
 
-type AddonId = "seo" | "content" | "social" | "ads" | "followup";
+type AddonId = "seo" | "content" | "social" | "ads";
 
 const ADDONS: { id: AddonId; name: string; price: number; text: string }[] = [
   {
     id: "seo",
     name: "Local SEO & Google Profile",
-    price: 200,
+    price: 400,
     text: "Google Business Profile built out, city and service pages, monthly content and a report.",
   },
   {
@@ -31,20 +31,14 @@ const ADDONS: { id: AddonId; name: string; price: number; text: string }[] = [
   {
     id: "social",
     name: "Full Service Social",
-    price: 1250,
+    price: 1500,
     text: "2 reels and 1 post a week, unlimited stories, a monthly shoot. We post and answer DMs.",
   },
   {
     id: "ads",
     name: "Ads Management",
-    price: 300,
+    price: 500,
     text: "Google or Meta ads built and run for you. You fund the ad spend.",
-  },
-  {
-    id: "followup",
-    name: "Follow-Up & Automation",
-    price: 200,
-    text: "Missed-call text back, email and text campaigns, reminders and an after-hours chatbot.",
   },
 ];
 
@@ -52,8 +46,8 @@ const addonPrice = (id: AddonId) => ADDONS.find((a) => a.id === id)!.price;
 
 /** Bundles include the website, so `covers` is the add-ons on top of it. */
 const BUNDLES = {
-  machine: { name: "Build the Machine", price: 899, covers: ["seo", "content"] as AddonId[] },
-  market: { name: "Own the Market", price: 2000, covers: ["seo", "social", "ads", "followup"] as AddonId[] },
+  machine: { name: "Build the Machine", price: 999, covers: ["seo", "content"] as AddonId[] },
+  market: { name: "Own the Market", price: 2500, covers: ["seo", "social", "ads"] as AddonId[] },
 };
 
 const aLaCarte = (ids: AddonId[]) => BASE.price + ids.reduce((sum, id) => sum + addonPrice(id), 0);
@@ -61,7 +55,7 @@ const savings = (b: { price: number; covers: AddonId[] }) => aLaCarte(b.covers) 
 
 const money = (n: number) => `$${n.toLocaleString("en-US")}`;
 
-/** "$899" + "/mo" -> "about $30 a day", so the monthly number feels as small as it is. */
+/** "$999" + "/mo" -> "about $33 a day", so the monthly number feels as small as it is. */
 const perDay = (n: number) => `About $${Math.round((n * 12) / 365)} a day`;
 
 /* ----------------------------- shared card ----------------------------- */
@@ -77,7 +71,7 @@ interface CardProps {
   ctaHref: string;
   /** The recommended plan: navy card, orange pill, blue button. */
   highlighted?: boolean;
-  /** Short line pinned to the top corner, e.g. "Save $348/mo". */
+  /** Short line pinned to the top corner, e.g. "Save $448/mo". */
   ribbon?: string;
   /** The hats this plan takes off the owner (the homepage hats). */
   hats?: string[];
@@ -179,7 +173,7 @@ const addonName = (id: AddonId) => ADDONS.find((a) => a.id === id)!.name;
 /**
  * Tick add-ons, see the monthly total, with the bundle price applied when
  * the picks fit one. Below the total, the one add-on that's the best deal
- * to add next ("Add Local SEO and your total drops to $899"), when adding
+ * to add next ("Add Content Crew for just +$202/mo"), when adding
  * it unlocks a bundle and so costs well under its own price.
  */
 function Builder() {
@@ -366,8 +360,8 @@ export default function PricingPlans() {
             <p className="rg-vs-kicker">Build the Machine</p>
             <p className="rg-display rg-vs-num">{money(machine.price)}<span>/mo</span></p>
             <p className="rg-vs-text">
-              A whole team wearing six hats: your website, lead inbox, SEO, Google profile, video
-              editing and design. No payroll, no contract, no setup fee.
+              A whole team wearing seven hats: your website, lead inbox, follow-up, SEO, Google
+              profile, video editing and design. No payroll, no contract, no setup fee.
             </p>
           </div>
         </div>
@@ -386,13 +380,13 @@ export default function PricingPlans() {
             ribbon={`Save ${money(savings(machine))}/mo`}
             tier="Most popular"
             name={machine.name}
-            hats={["Web Designer", "Lead Inbox", "SEO Specialist", "Google Profile Manager", "Content Editor", "Social Designer"]}
+            hats={["Web Designer", "Lead Inbox", "Follow-Up Specialist", "SEO Specialist", "Google Profile Manager", "Content Editor", "Social Designer"]}
             description="Your website, local SEO and Content Crew in one plan. Get found on Google and look the part on social."
             price={machine.price}
             priceNote="No setup fee · month-to-month"
             features={[
               "Custom website, built, hosted and kept updated",
-              "Every call, form and chat in one lead inbox",
+              "Every call, form and chat in one lead inbox, with follow-up on autopilot",
               "Google Business Profile built out and kept active",
               "Local SEO: city and service pages, on-page cleanup, monthly content",
               "Content Crew: you shoot, we edit 1 reel and 1 branded creative a week, plus stories",
@@ -405,7 +399,7 @@ export default function PricingPlans() {
             ribbon={`Save ${money(savings(market))}/mo`}
             tier="Full service"
             name={market.name}
-            hats={["Ads Manager", "Follow-Up Specialist", "Social Media Manager", "DM Inbox", "Dedicated Strategist"]}
+            hats={["Ads Manager", "Social Media Manager", "DM Inbox", "Dedicated Strategist"]}
             extraHats
             description="Every add-on, run for you, with a dedicated strategist. For businesses ready to lead their market."
             price={market.price}
@@ -413,7 +407,6 @@ export default function PricingPlans() {
             features={[
               "Everything in Build the Machine",
               "Ads managed on Google and Meta (you fund the spend)",
-              "Follow-up on autopilot: missed-call text back, email and text campaigns, reminders, after-hours chatbot",
               "Full Service Social: 2 reels and 1 post a week, unlimited stories, we post and answer DMs",
               "Monthly on-site content shoot (local clients)",
               "Dedicated account strategist and calls every two weeks",
@@ -433,8 +426,8 @@ export default function PricingPlans() {
           <Card
             tier="Start here"
             name={BASE.name}
-            hats={["Web Designer", "Lead Inbox"]}
-            description="A site that actually catches jobs, plus one inbox for every lead."
+            hats={["Web Designer", "Lead Inbox", "Follow-Up Specialist"]}
+            description="A site that actually catches jobs, plus one inbox for every lead and follow-up that runs itself."
             price={BASE.price}
             priceNote="No build fee · month-to-month"
             features={[
@@ -443,6 +436,7 @@ export default function PricingPlans() {
               "Unlimited standard updates (hours, photos, copy, services)",
               "Every form fill, call, and chat lands in one inbox",
               "Instant ping when a new lead comes in, text and email back from your phone",
+              "Follow-up on autopilot: missed-call text back, email and text campaigns, appointment reminders",
               "Mobile-first and bilingual if you need it",
               "We keep it live and patched so you don't babysit WordPress",
             ]}
