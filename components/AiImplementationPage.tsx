@@ -21,7 +21,7 @@ const bookButton: React.CSSProperties = {
   fontWeight: 700,
   fontSize: 15,
   padding: "14px 28px",
-  borderRadius: 4,
+  borderRadius: "var(--r-pill)",
   textDecoration: "none",
 };
 
@@ -39,12 +39,12 @@ export interface AiImplementationPageProps {
 export default function AiImplementationPage({ eyebrow, h1, heroSub, crumbs, cityIntro, backToMain }: AiImplementationPageProps) {
   return (
     <main>
-      <PageHero eyebrow={eyebrow} title={h1} subtitle={heroSub} accent="var(--orange)" crumbs={crumbs}>
+      <PageHero tone="blue" eyebrow={eyebrow} title={h1} subtitle={heroSub} crumbs={crumbs}>
         <div style={{ display: "flex", gap: 14, flexWrap: "wrap", marginTop: 32 }}>
-          <a href={AI_BOOKING_URL} target="_blank" rel="noopener noreferrer" style={{ ...bookButton, background: "var(--blue)", color: "#fff" }}>
+          <a href={AI_BOOKING_URL} target="_blank" rel="noopener noreferrer" style={{ ...bookButton, background: "var(--cream)", color: "var(--navy)" }}>
             Book an AI Strategy Call →
           </a>
-          <Link href="/contact" style={{ ...bookButton, background: "rgba(255,255,255,0.1)", color: "#fff", fontWeight: 600, border: "1px solid rgba(255,255,255,0.25)" }}>
+          <Link href="/contact" style={{ ...bookButton, background: "rgba(255,255,255,0.12)", color: "#fff", fontWeight: 600, border: "1px solid rgba(253,248,236,0.6)" }}>
             Talk to Us
           </Link>
         </div>
@@ -73,7 +73,7 @@ export default function AiImplementationPage({ eyebrow, h1, heroSub, crumbs, cit
       <section style={{ padding: "88px 0", background: "var(--cream)" }}>
         <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
           <div style={{ textAlign: "center", maxWidth: 640, margin: "0 auto 56px" }}>
-            <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--blue)", background: "var(--blue-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--blue)" }}>
+            <span className="rg-pill">
               What We Do
             </span>
             <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 16px" }}>
@@ -85,8 +85,8 @@ export default function AiImplementationPage({ eyebrow, h1, heroSub, crumbs, cit
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20 }} className="svc-grid-responsive">
             {AI_WHAT_WE_DO.map((item) => (
-              <div key={item.title} style={{ background: "#fff", border: "1px solid var(--border)", borderRadius: 10, padding: 28 }}>
-                <div style={{ width: 46, height: 46, borderRadius: 10, background: "var(--blue-wash)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--blue)", marginBottom: 14 }}>
+              <div key={item.title} style={{ background: "#fff", border: "1px solid var(--border)", borderRadius: "var(--r-xl)", padding: 28 }}>
+                <div style={{ width: 46, height: 46, borderRadius: "var(--r-xl)", background: "var(--blue-wash)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--blue)", marginBottom: 14 }}>
                   <Icon name={item.icon} size={23} color="var(--blue)" />
                 </div>
                 <h3 style={{ fontSize: 16, fontWeight: 700, color: "var(--navy)", marginBottom: 8 }}>{item.title}</h3>
@@ -125,7 +125,7 @@ export default function AiImplementationPage({ eyebrow, h1, heroSub, crumbs, cit
       <section style={{ padding: "88px 0", background: "#fff" }}>
         <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
           <div style={{ textAlign: "center", maxWidth: 640, margin: "0 auto 56px" }}>
-            <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange-ink)", background: "var(--orange-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--orange)" }}>
+            <span className="rg-pill">
               How It Works
             </span>
             <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 0" }}>
@@ -134,10 +134,9 @@ export default function AiImplementationPage({ eyebrow, h1, heroSub, crumbs, cit
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20 }} className="steps-grid-responsive">
             {AI_STEPS.map((step, i) => {
-              const accent = stepAccents[i % stepAccents.length];
               return (
-                <div key={step.title} style={{ background: "var(--cream)", border: "1px solid var(--border)", borderLeft: `4px solid ${accent}`, borderRadius: 10, padding: "28px 26px" }}>
-                  <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 22, color: accent, letterSpacing: "0.04em", marginBottom: 10 }}>
+                <div key={step.title} style={{ background: "var(--cream)", border: "1px solid var(--border)", borderRadius: "var(--r-xl)", padding: "28px 26px" }}>
+                  <div className="rg-step-dot rg-display">
                     {String(i + 1).padStart(2, "0")}
                   </div>
                   <h3 style={{ fontSize: 17, fontWeight: 700, color: "var(--navy)", marginBottom: 8 }}>{step.title}</h3>
@@ -154,7 +153,7 @@ export default function AiImplementationPage({ eyebrow, h1, heroSub, crumbs, cit
         <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }} className="why-grid-responsive">
             <div>
-              <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--blue)", background: "var(--blue-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--blue)" }}>
+              <span className="rg-pill">
                 The Right Fit
               </span>
               <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 18px" }}>
@@ -196,7 +195,7 @@ export default function AiImplementationPage({ eyebrow, h1, heroSub, crumbs, cit
       <section style={{ padding: "88px 0", background: "#fff" }}>
         <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
           <div style={{ textAlign: "center", maxWidth: 640, margin: "0 auto 48px" }}>
-            <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--blue)", background: "var(--blue-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--blue)" }}>
+            <span className="rg-pill">
               FAQ
             </span>
             <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 0" }}>
@@ -211,7 +210,7 @@ export default function AiImplementationPage({ eyebrow, h1, heroSub, crumbs, cit
       <section style={{ padding: "88px 0", background: "var(--cream)" }}>
         <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
           <div style={{ textAlign: "center", maxWidth: 640, margin: "0 auto 48px" }}>
-            <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange-ink)", background: "var(--orange-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--orange)" }}>
+            <span className="rg-pill">
               Keep Exploring
             </span>
             <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,44px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 0" }}>
@@ -222,8 +221,8 @@ export default function AiImplementationPage({ eyebrow, h1, heroSub, crumbs, cit
             {AI_RELATED.map((rel, i) => {
               const accent = stepAccents[i % stepAccents.length];
               return (
-                <Link key={rel.href} href={rel.href} className="svc-card" style={{ background: "#fff", border: "1px solid var(--border)", borderRadius: 10, padding: 28, textDecoration: "none", color: "inherit", display: "block" }}>
-                  <div style={{ width: 46, height: 46, borderRadius: 10, background: "var(--cream)", display: "flex", alignItems: "center", justifyContent: "center", color: accent, marginBottom: 14 }}>
+                <Link key={rel.href} href={rel.href} className="svc-card" style={{ background: "#fff", border: "1px solid var(--border)", borderRadius: "var(--r-xl)", padding: 28, textDecoration: "none", color: "inherit", display: "block" }}>
+                  <div style={{ width: 46, height: 46, borderRadius: "var(--r-xl)", background: "var(--cream)", display: "flex", alignItems: "center", justifyContent: "center", color: accent, marginBottom: 14 }}>
                     <Icon name={rel.icon} size={23} color={accent} />
                   </div>
                   <h3 style={{ fontSize: 16, fontWeight: 700, color: "var(--navy)", marginBottom: 8 }}>{rel.title}</h3>

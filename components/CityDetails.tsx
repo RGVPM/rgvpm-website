@@ -4,7 +4,6 @@ export interface CityDetailsContent {
   points: { title: string; text: string }[];
 }
 
-const accents = ["var(--blue)", "var(--orange)", "var(--navy)", "var(--blue)"];
 
 /**
  * City-specific "what's different about this market" section for location
@@ -22,8 +21,8 @@ export default function CityDetails({ heading, intro, points }: CityDetailsConte
           <p style={{ fontSize: 16.5, color: "var(--muted)", lineHeight: 1.75 }}>{intro}</p>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 20 }} className="svc-grid-responsive">
-          {points.map((p, i) => (
-            <div key={p.title} style={{ background: "var(--cream)", border: "1px solid var(--border)", borderLeft: `4px solid ${accents[i % accents.length]}`, borderRadius: 10, padding: "26px 26px" }}>
+          {points.map((p) => (
+            <div key={p.title} style={{ background: "var(--cream)", border: "1px solid var(--border)", borderRadius: "var(--r-xl)", padding: "26px 26px" }}>
               <h3 style={{ fontSize: 17, fontWeight: 700, color: "var(--navy)", marginBottom: 8 }}>{p.title}</h3>
               <p style={{ fontSize: 14.5, color: "var(--muted)", lineHeight: 1.7 }}>{p.text}</p>
             </div>

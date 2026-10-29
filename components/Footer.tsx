@@ -50,9 +50,9 @@ export default function Footer() {
                 { label: "Google Business Profile", href: "/services/google-business-profile" },
                 { label: "Local SEO", href: "/services/local-seo" },
                 { label: "Paid Advertising", href: "/services/paid-advertising" },
-                { label: "SMS & Email Marketing", href: "/services/sms-email-marketing" },
-                { label: "Lead Management", href: "/services/lead-management" },
+                { label: "Lead Management, SMS & Email", href: "/services/lead-management" },
                 { label: "Social Media & Newsletter", href: "/services/social-media-newsletter" },
+                { label: "Learn Claude Code 1-on-1", href: "/learn-claude-code" },
               ],
             },
             {

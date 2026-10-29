@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import Icon from "@/components/Icon";
+import BlogIndex from "@/components/BlogIndex";
 import PageHero from "@/components/PageHero";
 import InnerCTA from "@/components/InnerCTA";
 import JsonLd from "@/components/JsonLd";
@@ -41,8 +40,6 @@ const blogSchema = {
   })),
 };
 
-const cardAccents = ["var(--blue)", "var(--orange)", "var(--navy)"];
-
 export default function BlogPage() {
   return (
     <>
@@ -57,43 +54,37 @@ export default function BlogPage() {
       />
       <main>
         <PageHero
+          tone="blue"
           eyebrow="Blog"
-          title="Local Marketing, Made Practical"
-          subtitle="Straight-talking guides to help Rio Grande Valley businesses get found online and turn searches into customers."
-          accent="var(--orange)"
+          title={
+            <>
+              Marketing Made Practical.
+              <br />
+              <span style={{ color: "var(--navy)" }}>No Jargon Required.</span>
+            </>
+          }
+          subtitle="Plain-English guides on getting found on Google, what marketing really costs, and putting AI to work in your business."
           crumbs={[{ name: "Home", path: "/" }, { name: "Blog", path: "/blog" }]}
         />
 
-        {/* Article list */}
-        <section style={{ padding: "80px 0 88px", background: "var(--cream)" }}>
-          <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 24 }} className="svc-grid-responsive">
-              {POSTS.map((p, i) => {
-                const accent = cardAccents[i % cardAccents.length];
-                return (
-                  <Link
-                    key={p.slug}
-                    href={`/blog/${p.slug}`}
-                    className="svc-card"
-                    style={{ background: "#fff", border: "1px solid var(--border)", borderTop: `4px solid ${accent}`, borderRadius: 10, padding: 28, textDecoration: "none", color: "inherit", display: "flex", flexDirection: "column" }}
-                  >
-                    <div style={{ width: 46, height: 46, borderRadius: 10, background: "var(--cream)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 16 }}>
-                      <Icon name={p.icon} size={23} color={accent} />
-                    </div>
-                    <div style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", color: accent, marginBottom: 10 }}>
-                      {p.category} · {p.readMinutes} min
-                    </div>
-                    <h2 style={{ fontSize: 18, fontWeight: 700, color: "var(--navy)", lineHeight: 1.3, marginBottom: 10 }}>{p.title}</h2>
-                    <p style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.6, marginBottom: 16 }}>{p.excerpt}</p>
-                    <div style={{ marginTop: "auto", fontSize: 13, fontWeight: 700, color: accent }}>Read the guide →</div>
-                  </Link>
-                );
-              })}
-            </div>
+        <section className="rg-svc-band" style={{ background: "#fff" }}>
+          <div className="rg-container">
+            <BlogIndex
+              posts={[...POSTS]
+                .sort((a, b) => b.datePublished.localeCompare(a.datePublished))
+                .map((p) => ({
+                  slug: p.slug,
+                  title: p.title,
+                  excerpt: p.excerpt,
+                  category: p.category,
+                  readMinutes: p.readMinutes,
+                  date: p.datePublished,
+                }))}
+            />
           </div>
         </section>
 
-        <InnerCTA heading="Don't Wait on a Blog Post" text="You don't need to read a guide to start growing. Pick a plan and we'll build your growth engine for you." />
+        <InnerCTA heading="Rather Have Us Do It?" text="You don't need to read a guide to start growing. Book a quick call and we'll tell you which hat to hand off first." />
       </main>
     </>
   );

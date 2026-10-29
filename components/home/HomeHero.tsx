@@ -83,9 +83,8 @@ export default function HomeHero() {
                 animationDelay: "0.27s",
               }}
             >
-              We get you found on Google, then make sure every lead gets a fast reply and every
-              client comes back. The follow-up and busywork run on their own, so you can stay
-              with your clients.
+              Your website, Google, ads and follow-up, run by one team. More people find you,
+              more of them book, and you get your evenings back.
             </p>
 
             <div

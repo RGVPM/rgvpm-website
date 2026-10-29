@@ -19,7 +19,7 @@ export default function Breadcrumbs({
   dark?: boolean;
   inHero?: boolean;
 }) {
-  const linkColor = dark ? "rgba(255,255,255,0.6)" : "var(--muted)";
+  const linkColor = dark ? "rgba(255,255,255,0.85)" : "var(--muted)";
   const currentColor = dark ? "#fff" : "var(--navy)";
 
   const list = (

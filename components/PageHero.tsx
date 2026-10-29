@@ -1,11 +1,20 @@
 import type { ReactNode } from "react";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 
+/**
+ * Inner-page header.
+ *
+ * `tone="blue"` is the homepage hero's look (bright blue band, cream type,
+ * drifting glow, a HAT pill for the eyebrow) and is what every service page
+ * uses. `tone="navy"` is the older dark header, still used by pages that
+ * haven't moved to the new look yet.
+ */
 export default function PageHero({
   eyebrow,
   title,
   subtitle,
   accent = "var(--blue)",
+  tone = "navy",
   crumbs,
   children,
 }: {
@@ -13,9 +22,47 @@ export default function PageHero({
   title: ReactNode;
   subtitle?: string;
   accent?: string;
+  tone?: "navy" | "blue";
   crumbs?: Crumb[];
   children?: ReactNode;
 }) {
+  if (tone === "blue") {
+    return (
+      <section
+        className="rg-glow-band"
+        style={{
+          background: "linear-gradient(180deg, var(--blue) 0%, #0A82DD 100%)",
+          paddingTop: "clamp(112px, 13vh, 140px)",
+          paddingBottom: "clamp(64px, 8vh, 88px)",
+        }}
+      >
+        <div className="rg-container" style={{ position: "relative" }}>
+          {crumbs && <Breadcrumbs items={crumbs} dark inHero />}
+          <span className="rg-pill rg-pill--cream hero-animate">{eyebrow}</span>
+          <h1
+            className="rg-display hero-animate"
+            style={{ fontSize: "clamp(42px,5.4vw,72px)", lineHeight: 0.95, color: "var(--cream)", margin: "18px 0 20px", maxWidth: 880, animationDelay: "0.06s" }}
+          >
+            {title}
+          </h1>
+          {subtitle && (
+            <p
+              className="hero-animate"
+              style={{ fontSize: 18, color: "rgba(253,248,236,0.94)", lineHeight: 1.65, maxWidth: 640, margin: 0, animationDelay: "0.14s" }}
+            >
+              {subtitle}
+            </p>
+          )}
+          {children && (
+            <div className="hero-animate" style={{ animationDelay: "0.22s" }}>
+              {children}
+            </div>
+          )}
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section style={{ background: "var(--navy)", position: "relative", overflow: "hidden", paddingTop: 104, paddingBottom: 72 }}>
       <div style={{

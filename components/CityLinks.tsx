@@ -29,7 +29,7 @@ export default function CityLinks({
     <section style={{ padding: "72px 0", background }}>
       <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
         <div style={{ textAlign: "center", maxWidth: 640, margin: "0 auto 32px" }}>
-          <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange-ink)", background: "var(--orange-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--orange)" }}>
+          <span className="rg-pill">
             {eyebrow}
           </span>
           <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(28px,3.2vw,40px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.05, margin: "12px 0 0" }}>

@@ -29,6 +29,12 @@ export interface Service {
   faqs: ServiceFAQ[];
   /** slugs of related services */
   related: string[];
+  /** The "hat" we wear for the owner (the homepage hats cards). */
+  hat: string;
+  /** Plain-English "what you get", shown as checked cards on the page. */
+  includes: string[];
+  /** Cheapest plan that includes this service. */
+  startsAt: { plan: string; price: string; note?: string };
 }
 
 export const services: Service[] = [
@@ -123,6 +129,15 @@ export const services: Service[] = [
       },
     ],
     related: ["google-business-profile", "paid-advertising", "social-media-newsletter"],
+    hat: "SEO Specialist",
+    includes: [
+      "A keyword plan vs. the competitors you're losing to",
+      "City & service pages that match real searches",
+      "On-page and technical cleanup",
+      "Monthly content and local link building",
+      "Monthly report: what moved, what's next",
+    ],
+    startsAt: { plan: "SEO Package", price: "$597/mo", note: "plus a $499 one-time build fee" },
   },
   {
     slug: "google-business-profile",
@@ -214,6 +229,15 @@ export const services: Service[] = [
       },
     ],
     related: ["local-seo", "lead-management", "paid-advertising"],
+    hat: "Google Profile Manager",
+    includes: [
+      "Full profile setup & optimization",
+      "Business info fixed everywhere online",
+      "Automatic review requests",
+      "Regular posts and fresh photos",
+      "Ongoing monitoring",
+    ],
+    startsAt: { plan: "SEO Package", price: "$597/mo", note: "plus a $499 one-time build fee" },
   },
   {
     slug: "paid-advertising",
@@ -304,113 +328,32 @@ export const services: Service[] = [
         a: "It varies by industry and how competitive your local market is. We'll recommend a starting budget based on your goals and the cost of leads in your area, then scale up the campaigns that prove they convert. The aim is always profitable growth, not spending for the sake of it.",
       },
     ],
-    related: ["local-seo", "lead-management", "sms-email-marketing"],
-  },
-  {
-    slug: "sms-email-marketing",
-    icon: "chat",
-    shortName: "SMS & Email Marketing",
-    cardTitle: "Two-Way SMS & Email Marketing",
-    cardText:
-      "Reach your customers where they actually read — text and email. Respond to inquiries from one inbox and blast promos, announcements, and follow-ups to your list.",
-    cardFeatures: [
-      "Two-way SMS & email inbox",
-      "Broadcast campaigns to your list",
-      "Automated follow-up sequences",
+    related: ["local-seo", "lead-management", "social-media-newsletter"],
+    hat: "Ads Manager",
+    includes: [
+      "Google Search ads",
+      "Meta (Facebook & Instagram) ads",
+      "Call & form tracking from day one",
+      "Retargeting people who visited",
+      "Reports on leads and cost per lead",
     ],
-    metaTitle: "Two-Way SMS & Email Marketing for Local Business",
-    metaDescription:
-      "Reach customers where they read — text and email. Two-way inbox, broadcast campaigns, and automated follow-up sequences from RGV Performance Marketing.",
-    primaryKeyword: "SMS and email marketing",
-    keywordCluster: [
-      "SMS and email marketing",
-      "business text message marketing",
-      "two-way SMS marketing",
-      "email marketing for local business",
-      "automated follow-up campaigns",
-    ],
-    eyebrow: "SMS & Email Marketing",
-    h1: "Reach Customers Where They Actually Read",
-    heroSub:
-      "Texts get opened. Emails get read. We give you a single inbox to have real conversations with leads, plus broadcast campaigns and automated follow-ups that keep customers coming back.",
-    whatItIs: {
-      heading: "What is two-way SMS & email marketing?",
-      body: [
-        "Two-way SMS and email marketing lets your business have real back-and-forth conversations with leads and customers over text and email — all from one inbox. When someone texts your business number or replies to an email, you see it and respond, instead of messages getting lost across personal phones and inboxes.",
-        "On top of conversations, it includes broadcast campaigns — promos, announcements, and seasonal offers sent to your whole list at once — and automated follow-up sequences that nurture every new lead without you lifting a finger. It's the most direct, highest-open-rate way to stay in front of the customers you already have.",
-      ],
-    },
-    howWeDoIt: {
-      heading: "How we set it up",
-      intro: "We build a communication system your team can run from one place:",
-      steps: [
-        {
-          title: "Unified two-way inbox",
-          text: "We set up a single inbox where text and email conversations live together, so no inquiry slips through the cracks and anyone on your team can respond.",
-        },
-        {
-          title: "List building & segmentation",
-          text: "We help you collect and organize your customer list so the right message reaches the right people — new leads, past customers, and VIPs.",
-        },
-        {
-          title: "Broadcast campaigns",
-          text: "We write and send promos, announcements, and offers to your list on a schedule that keeps you top of mind without becoming noise.",
-        },
-        {
-          title: "Automated follow-up sequences",
-          text: "We build sequences that text and email new leads automatically the moment they come in — responding instantly while interest is highest.",
-        },
-      ],
-    },
-    whoItsFor: {
-      heading: "Who this is for",
-      intro: "SMS and email marketing is a fit if you:",
-      bullets: [
-        "Have a list of past customers you're not staying in touch with",
-        "Lose leads because nobody replies fast enough",
-        "Run promotions or seasonal offers worth announcing",
-        "Want repeat business without paying for an ad every time",
-      ],
-    },
-    faqs: [
-      {
-        q: "What does \"two-way SMS\" actually mean?",
-        a: "It means you can have real back-and-forth text conversations with leads and customers from your business number, all in one inbox. When someone texts you, you see it and reply — just like a normal conversation, but organized so nothing gets lost and anyone on your team can pick it up.",
-      },
-      {
-        q: "Can I send promotions to my whole customer list?",
-        a: "Yes. Broadcast campaigns let you send promos, announcements, and follow-ups to your entire list at once over text and email. This feature is included on Build the Machine and up. We help you write the messages and schedule them so you stay top of mind without overwhelming your customers.",
-      },
-      {
-        q: "Is text message marketing allowed under the rules?",
-        a: "Yes, when done correctly. We set up your messaging to follow consent and opt-out requirements, so you're texting customers who've agreed to hear from you and can easily opt out. Doing it the right way also keeps your messages from being flagged as spam, which protects your deliverability.",
-      },
-      {
-        q: "What's the difference between this and the newsletter?",
-        a: "The newsletter is a planned monthly piece of content sent to your email list. Two-way SMS and email marketing is the broader communication system — real-time conversations, broadcast blasts, and automated follow-up. Many clients use both: the newsletter for steady value, broadcasts and automations for timely offers and fast lead response.",
-      },
-      {
-        q: "Will automated follow-up feel impersonal to customers?",
-        a: "Not when it's written well. We craft sequences that sound like your business and respond fast while interest is high — which customers actually appreciate. The automation handles timing and consistency; the messages still read like they came from a real person who cares about the customer.",
-      },
-    ],
-    related: ["lead-management", "social-media-newsletter", "paid-advertising"],
+    startsAt: { plan: "Build the Machine", price: "$899/mo", note: "ad spend is billed by Google and Meta directly" },
   },
   {
     slug: "lead-management",
     icon: "settings",
     shortName: "Lead Management",
-    cardTitle: "Lead Management & Automation",
+    cardTitle: "Lead Management, SMS & Email",
     cardText:
-      "Never lose a lead again. We build pipelines that capture every inquiry, respond instantly, and nurture prospects until they book.",
+      "Every call, form, text and email in one inbox. Instant replies, two-way texting, follow-ups and promos that bring clients back.",
     cardFeatures: [
-      "Lead pipeline dashboard",
-      "Automated SMS + email follow-up",
-      "Appointment scheduling automation",
+      "One inbox for calls, forms, texts & email",
+      "Two-way SMS + automated follow-up",
+      "Broadcast promos & booking reminders",
     ],
-    metaTitle: "Lead Management & Marketing Automation",
+    metaTitle: "Lead Management, SMS & Email Marketing",
     metaDescription:
-      "Never lose a lead again. We build lead pipelines that capture every inquiry, respond instantly, and nurture prospects until they book. RGV Performance Marketing.",
+      "Never lose a lead again. One inbox for calls, forms, texts and email, two-way SMS, instant follow-up, broadcast campaigns and booking reminders.",
     primaryKeyword: "lead management",
     keywordCluster: [
       "lead management",
@@ -418,16 +361,21 @@ export const services: Service[] = [
       "lead nurturing automation",
       "lead pipeline software",
       "appointment scheduling automation",
+      "SMS and email marketing",
+      "two-way SMS marketing",
+      "business text message marketing",
+      "email marketing for local business",
     ],
     eyebrow: "Lead Management",
     h1: "Never Lose Another Lead",
     heroSub:
-      "Most local businesses lose leads simply because nobody followed up fast enough. We build the pipeline that captures every inquiry, responds in seconds, and nurtures prospects until they book.",
+      "Most local businesses lose leads simply because nobody followed up fast enough. We put every call, form, text and email in one inbox, reply in seconds, and keep clients coming back with texts and emails that sound like you.",
     whatItIs: {
-      heading: "What is lead management?",
+      heading: "What is lead management with SMS & email?",
       body: [
         "Lead management is the system that captures every inquiry your marketing generates and moves it toward a booked appointment — automatically. Instead of leads landing in scattered inboxes, voicemails, and sticky notes, every prospect enters one organized pipeline where nothing falls through the cracks.",
         "Paired with marketing automation, it means new leads get an instant response, follow-ups happen on schedule without anyone remembering to send them, and appointments get booked while interest is still hot. Speed-to-lead is one of the biggest predictors of whether an inquiry turns into a customer, and automation is how you win it every time.",
+        "It also covers two-way texting and email. When someone texts your business number or replies to an email, it lands in the same inbox and anyone on your team can answer. On top of that, broadcast campaigns send promos, announcements and seasonal offers to your whole list, the most direct way to bring past clients back.",
       ],
     },
     howWeDoIt: {
@@ -436,20 +384,20 @@ export const services: Service[] = [
         "We connect your lead sources into one system and automate the busywork that usually kills conversion:",
       steps: [
         {
-          title: "Capture every lead in one pipeline",
-          text: "We funnel inquiries from your forms, calls, ads, and profile into a single dashboard so you can see every prospect and exactly where they stand.",
+          title: "Every lead in one inbox",
+          text: "Calls, forms, ads, texts and emails all land in one place, with a pipeline that shows where every prospect stands. Anyone on your team can pick up a conversation.",
         },
         {
-          title: "Instant automated response",
-          text: "The moment a lead comes in, automated text and email reach out — answering fast while your business is still top of mind and beating slower competitors.",
+          title: "Instant reply by text & email",
+          text: "The moment a lead comes in, a text and email go out, answering fast while your business is still top of mind and before a slower competitor gets there.",
         },
         {
-          title: "Nurture sequences",
-          text: "Prospects who don't book right away get a thoughtful follow-up sequence that keeps your business in front of them until the timing is right.",
+          title: "Follow-ups & broadcast campaigns",
+          text: "Prospects who don't book right away get a follow-up sequence, and your whole list gets promos, announcements and seasonal offers on a schedule that never becomes noise.",
         },
         {
-          title: "Appointment scheduling automation",
-          text: "We automate booking so qualified leads can schedule themselves, with reminders that cut no-shows and keep your calendar full.",
+          title: "Booking & reminders",
+          text: "Qualified leads book themselves into your calendar, and automatic reminders cut no-shows and keep the schedule full.",
         },
       ],
     },
@@ -461,6 +409,7 @@ export const services: Service[] = [
         "Juggle leads across texts, emails, voicemails, and forms",
         "Spend money on ads or SEO and want to convert more of what comes in",
         "Deal with no-shows or a calendar that's harder to fill than it should be",
+        "Have a list of past clients you're not staying in touch with",
       ],
     },
     faqs: [
@@ -481,11 +430,32 @@ export const services: Service[] = [
         a: "No — it makes your team far more effective. Automation handles the repetitive, time-sensitive work: instant replies, scheduled follow-ups, reminders. Your people focus on the conversations that actually need a human, instead of losing leads to tasks that should have happened automatically.",
       },
       {
-        q: "How is this different from SMS & email marketing?",
-        a: "SMS and email marketing is about communicating with your list — conversations and broadcasts. Lead management is the system underneath it: capturing every inquiry, organizing it in a pipeline, and automating the follow-up and booking that turn a lead into a customer. They work hand in hand, and both are included from Build the Machine up.",
+        q: "What does \"two-way SMS\" actually mean?",
+        a: "It means you can have real back-and-forth text conversations with leads and customers from your business number, all in one inbox. When someone texts you, you see it and reply — just like a normal conversation, but organized so nothing gets lost and anyone on your team can pick it up.",
+      },
+      {
+        q: "Can I send promotions to my whole customer list?",
+        a: "Yes. Broadcast campaigns let you send promos, announcements, and follow-ups to your entire list at once over text and email. This feature is included on Build the Machine and up. We help you write the messages and schedule them so you stay top of mind without overwhelming your customers.",
+      },
+      {
+        q: "Is text message marketing allowed under the rules?",
+        a: "Yes, when done correctly. We set up your messaging to follow consent and opt-out requirements, so you're texting customers who've agreed to hear from you and can easily opt out. Doing it the right way also keeps your messages from being flagged as spam, which protects your deliverability.",
+      },
+      {
+        q: "What's the difference between this and the newsletter?",
+        a: "The newsletter is a planned monthly piece of content sent to your email list. Lead management with two-way SMS and email is the broader communication system — real-time conversations, broadcast blasts, and automated follow-up. Many clients use both: the newsletter for steady value, broadcasts and automations for timely offers and fast lead response.",
       },
     ],
-    related: ["sms-email-marketing", "paid-advertising", "google-business-profile"],
+    related: ["paid-advertising", "social-media-newsletter", "google-business-profile"],
+    hat: "Retention Specialist",
+    includes: [
+      "One inbox for calls, forms, texts & email",
+      "Instant reply to every new lead",
+      "Two-way texting from your business number",
+      "Follow-ups, promos & rebooking texts",
+      "Online booking with reminders",
+    ],
+    startsAt: { plan: "Plant the Flag", price: "$397/mo", note: "one lead inbox; full automation on Build the Machine" },
   },
   {
     slug: "social-media-newsletter",
@@ -575,7 +545,16 @@ export const services: Service[] = [
         a: "The newsletter is a planned, designed monthly piece focused on giving your customers something worth reading. Email and SMS broadcasts are timely, promotional sends — a flash sale or an announcement. They complement each other: the newsletter builds steady goodwill, broadcasts drive immediate action.",
       },
     ],
-    related: ["sms-email-marketing", "local-seo", "google-business-profile"],
+    related: ["lead-management", "local-seo", "google-business-profile"],
+    hat: "Social Media Manager",
+    includes: [
+      "Monthly content calendar & captions",
+      "1 edited reel every week",
+      "1 branded post every week",
+      "Stories made from your content",
+      "Your branding on everything",
+    ],
+    startsAt: { plan: "Content Crew", price: "$650/mo", note: "we edit, you shoot" },
   },
 ];
 

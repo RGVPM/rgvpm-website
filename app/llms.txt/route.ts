@@ -22,8 +22,7 @@ const SERVICES: { name: string; path: string; summary: string }[] = [
   { name: "Local SEO", path: "/services/local-seo", summary: "On-page optimization, local content, and citation building to rank in your city and service area." },
   { name: "Google Business Profile", path: "/services/google-business-profile", summary: "GBP optimization, reviews, and map-pack visibility." },
   { name: "Paid Advertising", path: "/services/paid-advertising", summary: "Google and Meta ad campaigns managed to produce real leads." },
-  { name: "SMS & Email Marketing", path: "/services/sms-email-marketing", summary: "Two-way SMS and email plus broadcast campaigns from one inbox." },
-  { name: "Lead Management", path: "/services/lead-management", summary: "Capture, respond to, and convert more of your leads automatically." },
+  { name: "Lead Management, SMS & Email", path: "/services/lead-management", summary: "One inbox for calls, forms, texts and email: instant replies, two-way SMS, follow-up sequences, broadcast campaigns and booking reminders." },
   { name: "Social Media & Newsletter", path: "/services/social-media-newsletter", summary: "Consistent, bilingual content and a done-for-you monthly newsletter." },
 ];
 

@@ -4,8 +4,9 @@ import { Button } from "@/components/home/Primitives";
 import { SITE } from "@/lib/site";
 
 /**
- * Closing section. Plain navy like the hero, with the founders' faces so the
- * last thing a visitor sees is who they'd actually be talking to.
+ * Closing section. Blue like the hero, with the team's faces so the last
+ * thing a visitor sees is real people. Add a photo here when a new team
+ * member's headshot is ready.
  *
  * One dominant CTA, same label as the nav and hero ("Book with us!"), with
  * pricing, phone, and email as secondary paths. No countdowns, no
@@ -14,6 +15,7 @@ import { SITE } from "@/lib/site";
 const REASSURANCE = ["Month-to-month, cancel anytime", "New site live in 8 to 10 days", "No long-term contracts"];
 
 const FOUNDERS = [
+  { src: "/founders/anthony.jpg", alt: "Anthony Lopez" },
   { src: "/founders/derrick.jpg", alt: "Derrick Tamez" },
   { src: "/founders/kelsey.jpg", alt: "Kelsey Tamez" },
 ];
@@ -51,7 +53,7 @@ export default function FinalCta() {
           ))}
         </div>
         <p style={{ fontSize: 14, color: "rgba(253,248,236,0.9)", margin: "0 0 var(--s5)" }}>
-          You&rsquo;ll talk to Derrick and Kelsey directly.
+          A real person on our team, not a call center.
         </p>
 
         <h2
