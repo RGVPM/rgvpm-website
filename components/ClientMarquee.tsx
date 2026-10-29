@@ -16,7 +16,7 @@ export default function ClientMarquee() {
 
   return (
     <div>
-      <p className="rg-marquee-label">Trusted by 150+ businesses</p>
+      <p className="rg-marquee-label">Trusted by 150+ businesses across the U.S.</p>
       <div className="rg-marquee-capsule">
         <div
           className="rg-scroller"

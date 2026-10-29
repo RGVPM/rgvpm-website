@@ -17,9 +17,9 @@ import { SITE } from "@/lib/site";
 
 export default function HomeHero() {
   const proof = [
-    "Local team in Harlingen",
-    "50+ live client sites",
-    "Follow-up on autopilot",
+    "150+ businesses served",
+    "Live in 8 to 10 days",
+    "No long-term contracts",
   ];
 
   return (

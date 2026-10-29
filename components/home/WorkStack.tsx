@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Image from "next/image";
 
 /**
@@ -87,10 +88,10 @@ export default function WorkStack() {
         }}
       >
         {SITES.map((s, i) => (
-          <span key={s.url} style={{ whiteSpace: "nowrap" }}>
+          <Fragment key={s.url}>
             {i > 0 && " · "}
-            {s.short}
-          </span>
+            <span style={{ whiteSpace: "nowrap" }}>{s.short}</span>
+          </Fragment>
         ))}
       </p>
     </div>
