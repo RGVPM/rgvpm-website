@@ -3,11 +3,11 @@
 export const homeFaqs = [
   {
     q: "Do I have to sign a long-term contract?",
-    a: "No. All plans are month-to-month. We believe in earning your business every month — not locking you in. The only upfront cost is the one-time $499 build fee when you start with our Plant the Flag website on its own. Our bundles, Build the Machine and Own the Market, have no build or setup fee.",
+    a: "No. All plans are month-to-month. We believe in earning your business every month — not locking you in. There's no build fee, setup fee or activation fee. You just pay the monthly price.",
   },
   {
     q: "Is website design included in the plans?",
-    a: "Yes. Every plan starts with a custom website we build, host, and keep updated. On its own, Plant the Flag is $397/mo plus a one-time $499 build fee. Build the Machine and Own the Market include the website with no build fee.",
+    a: "Yes. Every plan starts with a custom website we build, host, and keep updated. On its own, Plant the Flag is $397/mo with no build fee, and Build the Machine and Own the Market include the website.",
   },
   {
     q: "How does the newsletter work?",

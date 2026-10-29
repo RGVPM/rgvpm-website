@@ -5,8 +5,7 @@ import { SITE } from "@/lib/site";
  * GET /api/checkout?plan=site|machine|market&add=seo,ads
  *
  * Self-serve signup: turns the pricing page's picks into a Stripe Checkout
- * session (monthly subscription, plus the one-time build fee on the
- * website-only plan) and redirects there. Price IDs come from env vars,
+ * session (a monthly subscription) and redirects there. Price IDs come from env vars,
  * one per plan and add-on, so prices are changed in Stripe, not here.
  *
  * Until those env vars are set, it falls back to the payment links that
@@ -24,9 +23,8 @@ const COVERED: Record<Plan, Addon[]> = {
   market: ["seo", "content", "social", "ads", "followup"],
 };
 
-const PRICE_ENV: Record<Plan | Addon | "buildFee", string> = {
+const PRICE_ENV: Record<Plan | Addon, string> = {
   site: "STRIPE_PRICE_SITE",
-  buildFee: "STRIPE_PRICE_BUILD_FEE",
   machine: "STRIPE_PRICE_MACHINE",
   market: "STRIPE_PRICE_MARKET",
   seo: "STRIPE_PRICE_SEO",
@@ -53,7 +51,7 @@ export async function GET(req: NextRequest) {
   const addons = picked.includes("social") ? picked.filter((a) => a !== "content") : picked;
 
   const key = process.env.STRIPE_SECRET_KEY;
-  const items = [plan, ...addons, ...(plan === "site" ? (["buildFee"] as const) : [])].map((k) => process.env[PRICE_ENV[k]]);
+  const items = [plan, ...addons].map((k) => process.env[PRICE_ENV[k]]);
 
   if (!key || items.some((id) => !id)) {
     const link = addons.length === 0 ? FALLBACK_LINKS[plan] : undefined;

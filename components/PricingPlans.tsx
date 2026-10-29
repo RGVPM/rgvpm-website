@@ -11,7 +11,7 @@ const BOOKING = "https://api.rgvperformancemarketing.com/widget/bookings/rgvpmdi
  * BASE / ADDONS / BUNDLES below, so the "save $X" lines and the builder's
  * math stay right when a number changes.
  */
-const BASE = { name: "Plant the Flag", price: 397, buildFee: 499 };
+const BASE = { name: "Plant the Flag", price: 397 };
 
 type AddonId = "seo" | "content" | "social" | "ads" | "followup";
 
@@ -150,41 +150,60 @@ function SectionHead({ pill, title, text }: { pill: string; title: string; text:
 
 /* ---------------------------- add-on builder ---------------------------- */
 
+type Route = { plan: "site" | keyof typeof BUNDLES; name: string; price: number; extras: AddonId[] };
+
 /**
- * Tick add-ons, see the monthly total. When a bundle (plus any add-ons it
- * doesn't cover) would cost less than the picks bought one by one, say so.
- * Content Crew and Full Service Social are either/or.
+ * The cheapest way to buy a set of picks: the website plus each add-on, or a
+ * bundle plus whatever it doesn't cover. Own the Market's Full Service Social
+ * covers a Content Crew pick too. Checkout always uses this route.
  */
-function Builder() {
-  const [picked, setPicked] = useState<AddonId[]>([]);
-
-  const toggle = (id: AddonId) =>
-    setPicked((cur) => {
-      if (cur.includes(id)) return cur.filter((x) => x !== id);
-      const rival = id === "content" ? "social" : id === "social" ? "content" : null;
-      return [...cur.filter((x) => x !== rival), id];
-    });
-
-  const listTotal = aLaCarte(picked);
-
-  // Checkout always takes the cheapest route to the same picks: a bundle plus
-  // whatever it doesn't cover, when that beats buying the pieces one by one.
-  // Own the Market's Full Service Social covers a Content Crew pick too.
-  let best: { plan: "site" | keyof typeof BUNDLES; name: string; price: number; extras: AddonId[] } = {
-    plan: "site",
-    name: BASE.name,
-    price: listTotal,
-    extras: picked,
-  };
+function bestRoute(picked: AddonId[]): Route {
+  let best: Route = { plan: "site", name: BASE.name, price: aLaCarte(picked), extras: picked };
   for (const [id, b] of Object.entries(BUNDLES) as [keyof typeof BUNDLES, (typeof BUNDLES)[keyof typeof BUNDLES]][]) {
     const covered = (a: AddonId) => b.covers.includes(a) || (a === "content" && b.covers.includes("social"));
     const extras = picked.filter((a) => !covered(a));
     const price = b.price + extras.reduce((sum, a) => sum + addonPrice(a), 0);
     if (price < best.price) best = { plan: id, name: b.name, price, extras };
   }
+  return best;
+}
+
+/** Content Crew and Full Service Social are either/or: picking one drops the other. */
+function withAddon(cur: AddonId[], id: AddonId): AddonId[] {
+  const rival = id === "content" ? "social" : id === "social" ? "content" : null;
+  return [...cur.filter((x) => x !== rival), id];
+}
+
+const addonName = (id: AddonId) => ADDONS.find((a) => a.id === id)!.name;
+
+/**
+ * Tick add-ons, see the monthly total, with the bundle price applied when
+ * the picks fit one. Below the total, the one add-on that's the best deal
+ * to add next ("Add Local SEO and your total drops to $899"), when adding
+ * it unlocks a bundle and so costs well under its own price.
+ */
+function Builder() {
+  const [picked, setPicked] = useState<AddonId[]>([]);
+  const toggle = (id: AddonId) => setPicked((cur) => (cur.includes(id) ? cur.filter((x) => x !== id) : withAddon(cur, id)));
+
+  const listTotal = aLaCarte(picked);
+  const best = bestRoute(picked);
   const bundled = best.plan !== "site";
-  const extrasNames = best.extras.map((a) => ADDONS.find((x) => x.id === a)!.name);
   const checkout = `/api/checkout?plan=${best.plan}${best.extras.length ? `&add=${best.extras.join(",")}` : ""}`;
+
+  // Best next add-on: the biggest gap between what it normally costs and what
+  // it actually adds to the total. Downgrading social isn't an upsell, so skip it.
+  let upsell: { id: AddonId; delta: number; normal: number; route: Route } | null = null;
+  for (const a of ADDONS) {
+    if (picked.includes(a.id) || (a.id === "content" && picked.includes("social"))) continue;
+    const next = withAddon(picked, a.id);
+    const route = bestRoute(next);
+    const delta = route.price - best.price;
+    const normal = aLaCarte(next) - listTotal;
+    if (normal - delta >= 100 && (!upsell || normal - delta > upsell.normal - upsell.delta)) {
+      upsell = { id: a.id, delta, normal, route };
+    }
+  }
 
   return (
     <div className="rg-build">
@@ -211,7 +230,7 @@ function Builder() {
       <div className="rg-build-total" aria-live="polite">
         <p className="rg-build-total-label">
           {bundled
-            ? `${best.name}${extrasNames.length ? ` + ${extrasNames.join(" + ")}` : ""}`
+            ? `${best.name}${best.extras.length ? ` + ${best.extras.map(addonName).join(" + ")}` : ""}`
             : `Your website${picked.length > 0 ? ` + ${picked.length} add-on${picked.length === 1 ? "" : "s"}` : ""}`}
         </p>
         <p className="rg-display rg-build-total-num">
@@ -219,14 +238,39 @@ function Builder() {
           {money(best.price)}
           <span>/mo</span>
         </p>
-        <p className="rg-build-total-note">
-          {bundled ? "No build fee · month-to-month" : `+ ${money(BASE.buildFee)} one-time build fee · month-to-month`}
-        </p>
+        <p className="rg-build-total-note">No build fee · no setup fee · month-to-month</p>
         {bundled && (
-          <p className="rg-build-nudge">
-            <strong>Bundle price applied.</strong> Your picks fit {best.name}: {money(listTotal - best.price)} less a
-            month, and no {money(BASE.buildFee)} build fee.
+          <p className="rg-build-applied">
+            <strong>Bundle price applied.</strong> Your picks fit {best.name}, so you pay {money(listTotal - best.price)} less
+            every month.
           </p>
+        )}
+        {upsell && (
+          <div className="rg-build-nudge">
+            <p>
+              {upsell.delta < 0 ? (
+                <>
+                  <strong>Add {addonName(upsell.id)} and pay less.</strong> Your total drops to{" "}
+                  {money(upsell.route.price)}/mo with {upsell.route.name}. It&rsquo;s free, and you save{" "}
+                  {money(-upsell.delta)} a month.
+                </>
+              ) : upsell.delta === 0 ? (
+                <>
+                  <strong>Get {addonName(upsell.id)} free.</strong> It&rsquo;s included in {upsell.route.name} at the same{" "}
+                  {money(upsell.route.price)}/mo you&rsquo;d pay now.
+                </>
+              ) : (
+                <>
+                  <strong>Add {addonName(upsell.id)} for just +{money(upsell.delta)}/mo</strong>, not the usual +
+                  {money(upsell.normal)}. It unlocks {upsell.route.name} pricing and saves you{" "}
+                  {money(upsell.normal - upsell.delta)} a month.
+                </>
+              )}
+            </p>
+            <button type="button" className="rg-build-nudge-btn" onClick={() => setPicked((cur) => withAddon(cur, upsell.id))}>
+              Add it <span aria-hidden="true">+</span>
+            </button>
+          </div>
         )}
       </div>
 
@@ -334,7 +378,7 @@ export default function PricingPlans() {
         <SectionHead
           pill="Bundle & save"
           title="Two Bundles. Website Included."
-          text="Each bundle costs less than buying the same pieces one by one, and neither has a build or setup fee."
+          text="Each bundle costs less than buying the same pieces one by one. No build fee, no setup fee, cancel anytime."
         />
         <div className="rg-plan-grid">
           <Card
@@ -345,7 +389,7 @@ export default function PricingPlans() {
             hats={["Web Designer", "Lead Inbox", "SEO Specialist", "Google Profile Manager", "Content Editor", "Social Designer"]}
             description="Your website, local SEO and Content Crew in one plan. Get found on Google and look the part on social."
             price={machine.price}
-            priceNote="No build fee · no setup fee · month-to-month"
+            priceNote="No setup fee · month-to-month"
             features={[
               "Custom website, built, hosted and kept updated",
               "Every call, form and chat in one lead inbox",
@@ -365,7 +409,7 @@ export default function PricingPlans() {
             extraHats
             description="Every add-on, run for you, with a dedicated strategist. For businesses ready to lead their market."
             price={market.price}
-            priceNote="No build fee · no setup fee · ad spend billed by Google & Meta"
+            priceNote="No setup fee · ad spend billed by Google & Meta"
             features={[
               "Everything in Build the Machine",
               "Ads managed on Google and Meta (you fund the spend)",
@@ -392,7 +436,7 @@ export default function PricingPlans() {
             hats={["Web Designer", "Lead Inbox"]}
             description="A site that actually catches jobs, plus one inbox for every lead."
             price={BASE.price}
-            priceNote={`+ ${money(BASE.buildFee)} one-time build fee · month-to-month`}
+            priceNote="No build fee · month-to-month"
             features={[
               "Custom site, not a template",
               "Hosting, SSL, backups, security",
