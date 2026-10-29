@@ -18,7 +18,7 @@ export default function ClientMarquee() {
   return (
     <div>
       <p className="rg-marquee-label">
-        Trusted by 50+ businesses
+        Trusted by 150+ businesses
         <span className="rg-hide-sm"> &middot; MasterClass Executive with Chicago Booth &amp; OpenAI</span>
       </p>
       <div className="rg-marquee-capsule">
