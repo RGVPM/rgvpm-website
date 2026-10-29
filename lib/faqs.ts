@@ -3,11 +3,11 @@
 export const homeFaqs = [
   {
     q: "Do I have to sign a long-term contract?",
-    a: "No. All plans are month-to-month. We believe in earning your business every month — not locking you in. There's no build fee, setup fee or activation fee. You just pay the monthly price.",
+    a: "No. All plans are month-to-month. We believe in earning your business every month — not locking you in. The only upfront cost is a one-time $399 build fee if you get the website on its own, and it's waived when you add anything else.",
   },
   {
     q: "Is website design included in the plans?",
-    a: "Yes. Every plan starts with a custom website we build, host, and keep updated. On its own, Plant the Flag is $397/mo with no build fee, and Build the Machine and Own the Market include the website.",
+    a: "Yes. Every plan starts with a custom website we build, host, and keep updated. On its own, Plant the Flag is $397/mo plus a one-time $399 build fee, waived when you add any add-on. Build the Machine and Own the Market include the website with no build fee.",
   },
   {
     q: "How does the newsletter work?",
@@ -19,7 +19,7 @@ export const homeFaqs = [
   },
   {
     q: "What does \"two-way SMS & email\" mean?",
-    a: "It means you can have real back-and-forth conversations with leads and customers via text and email — all from one inbox. When someone texts your business number or replies to an email, you see it and can respond. With the Follow-Up & Automation add-on or Own the Market, you can also send broadcast campaigns — promos, announcements, and follow-ups — to your entire list at once.",
+    a: "It means you can have real back-and-forth conversations with leads and customers via text and email — all from one inbox. When someone texts your business number or replies to an email, you see it and can respond. Every website plan also lets you send broadcast campaigns — promos, announcements, and follow-ups — to your entire list at once.",
   },
   {
     q: "Does ad spend come out of the monthly fee?",
