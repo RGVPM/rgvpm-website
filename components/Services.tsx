@@ -14,7 +14,7 @@ export default function Services() {
     <section id="services" style={{ padding: "96px 0", background: "var(--cream)" }}>
       <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
         <div style={{ textAlign: "center", maxWidth: 640, margin: "0 auto 64px" }}>
-          <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--blue)", background: "var(--blue-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--blue)" }}>
+          <span className="rg-pill">
             What We Do
           </span>
           <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(36px,4vw,54px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 16px" }}>

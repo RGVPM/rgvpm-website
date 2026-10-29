@@ -69,7 +69,7 @@ export default function Pricing({ asPage = false }: { asPage?: boolean }) {
       <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
         {/* Header */}
         <div style={{ textAlign: "center", maxWidth: 640, margin: "0 auto 64px" }}>
-          <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--blue)", background: "rgba(11,140,235,0.2)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--blue)" }}>
+          <span className="rg-pill">
             Plans & Pricing
           </span>
           <Heading style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(36px,4vw,54px)", letterSpacing: "0.03em", color: "#fff", lineHeight: 1.0, margin: "12px 0 16px" }}>

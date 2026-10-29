@@ -26,6 +26,10 @@ const nextConfig: NextConfig = {
       // Lead-magnet setup page removed Sept 2026 (kit is now sent by email).
       // Google still had it queued and was reporting it as a 404.
       { source: "/claude-code-templates/kit", destination: "/claude-code-templates", permanent: true },
+      // SMS & Email Marketing merged into Lead Management (Oct 2026): the
+      // two pages described the same product. The permanent redirect passes
+      // the old page's ranking to the merged one.
+      { source: "/services/sms-email-marketing", destination: "/services/lead-management", permanent: true },
     ];
   },
 };

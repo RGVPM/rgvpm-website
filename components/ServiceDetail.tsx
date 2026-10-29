@@ -1,19 +1,25 @@
 import Link from "next/link";
 import type { Service } from "@/lib/services";
-import Icon from "@/components/Icon";
+import { SITE } from "@/lib/site";
 import PageHero from "@/components/PageHero";
 import FaqAccordion from "@/components/FaqAccordion";
 import RelatedServices from "@/components/RelatedServices";
 import InnerCTA from "@/components/InnerCTA";
 import CityLinks, { type CityLink } from "@/components/CityLinks";
 
-const stepAccents = ["var(--blue)", "var(--orange)", "var(--navy)", "var(--navy)"];
-
+/**
+ * One template for every /services/[slug] page, in the homepage's language:
+ * a blue hero with the service's HAT pill, then what you get (checked list
+ * plus the starting price), how it works (the 01-02-03 rail), who it's for,
+ * FAQ, city links, related hats, and the booking band.
+ */
 export default function ServiceDetail({ service, cityLinks }: { service: Service; cityLinks?: { heading: string; intro?: string; links: CityLink[] } }) {
+  const steps = service.howWeDoIt.steps;
   return (
     <main>
       <PageHero
-        eyebrow={service.eyebrow}
+        tone="blue"
+        eyebrow={`Hat · ${service.hat}`}
         title={service.h1}
         subtitle={service.heroSub}
         crumbs={[
@@ -22,95 +28,95 @@ export default function ServiceDetail({ service, cityLinks }: { service: Service
           { name: service.shortName, path: `/services/${service.slug}` },
         ]}
       >
-        <div style={{ display: "flex", gap: 14, flexWrap: "wrap", marginTop: 32 }}>
-          <Link href="/pricing" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "var(--blue)", color: "#fff", fontWeight: 700, fontSize: 15, padding: "14px 28px", borderRadius: "var(--r-pill)", textDecoration: "none" }}>
-            View Plans →
-          </Link>
-          <Link href="/contact" style={{ display: "inline-flex", alignItems: "center", background: "rgba(255,255,255,0.1)", color: "#fff", fontWeight: 600, fontSize: 15, padding: "14px 28px", borderRadius: "var(--r-pill)", textDecoration: "none", border: "1px solid rgba(255,255,255,0.25)" }}>
-            Talk to Us
+        <div className="rg-hero-actions" style={{ display: "flex", alignItems: "center", gap: "var(--s5)", flexWrap: "wrap", marginTop: 32 }}>
+          <a href={SITE.bookingUrl} target="_blank" rel="noopener noreferrer" className="rg-btn rg-hero-cta rg-cta-cream">
+            Book with us! <span aria-hidden="true">→</span>
+          </a>
+          <Link href="/pricing" className="rg-hero-secondary">
+            See plans and pricing
           </Link>
         </div>
       </PageHero>
 
-      {/* What it is */}
-      <section style={{ padding: "88px 0", background: "#fff" }}>
-        <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 24px" }}>
-          <div style={{ width: 56, height: 56, borderRadius: 12, background: "var(--blue-wash)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--blue)", marginBottom: 24 }}>
-            <Icon name={service.icon} size={28} color="var(--blue)" />
+      {/* What you get */}
+      <section className="rg-svc-band" style={{ background: "#fff" }}>
+        <div className="rg-container rg-svc-split">
+          <div className="rg-reveal">
+            <span className="rg-pill">What it is</span>
+            <h2 className="rg-display rg-svc-h2">{service.whatItIs.heading}</h2>
+            {service.whatItIs.body.map((p, i) => (
+              <p key={i} className="rg-svc-body">{p}</p>
+            ))}
           </div>
-          <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, marginBottom: 24 }}>
-            {service.whatItIs.heading}
-          </h2>
-          {service.whatItIs.body.map((p, i) => (
-            <p key={i} style={{ fontSize: 16.5, color: "var(--muted)", lineHeight: 1.75, marginBottom: 18 }}>{p}</p>
-          ))}
+          <aside className="rg-svc-card rg-reveal" aria-label="What you get">
+            <p className="rg-svc-card-kicker">What you get</p>
+            <ul className="rg-check-list">
+              {service.includes.map((item) => (
+                <li key={item}>
+                  <span className="rg-handled-check" aria-hidden="true">✓</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <div className="rg-svc-price">
+              <p className="rg-svc-price-label">Starts with {service.startsAt.plan}</p>
+              <p className="rg-display rg-svc-price-num">{service.startsAt.price}</p>
+              {service.startsAt.note && <p className="rg-svc-price-note">{service.startsAt.note}</p>}
+              <Link href="/pricing" className="rg-text-link">Compare plans</Link>
+            </div>
+          </aside>
         </div>
       </section>
 
-      {/* How we do it */}
-      <section style={{ padding: "88px 0", background: "var(--cream)" }}>
-        <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
-          <div style={{ textAlign: "center", maxWidth: 640, margin: "0 auto 56px" }}>
-            <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--orange-ink)", background: "var(--orange-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--orange)" }}>
-              Our Process
-            </span>
-            <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 16px" }}>
-              {service.howWeDoIt.heading}
-            </h2>
-            <p style={{ fontSize: 16, color: "var(--muted)", lineHeight: 1.65 }}>{service.howWeDoIt.intro}</p>
+      {/* How it works */}
+      <section className="rg-svc-band" style={{ background: "var(--cream)" }}>
+        <div className="rg-container">
+          <div className="rg-process-head rg-reveal">
+            <div>
+              <span className="rg-pill">How it works</span>
+              <h2 className="rg-display rg-svc-h2">{service.howWeDoIt.heading}</h2>
+            </div>
+            <p className="rg-svc-body" style={{ margin: 0, maxWidth: "40ch" }}>{service.howWeDoIt.intro}</p>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: `repeat(${service.howWeDoIt.steps.length > 3 ? 2 : service.howWeDoIt.steps.length},1fr)`, gap: 20 }} className="svc-grid-responsive">
-            {service.howWeDoIt.steps.map((step, i) => {
-              const accent = stepAccents[i % stepAccents.length];
-              return (
-                <div key={step.title} style={{ background: "#fff", border: "1px solid var(--border)", borderLeft: `4px solid ${accent}`, borderRadius: 10, padding: "28px 26px", position: "relative" }}>
-                  <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 22, color: accent, letterSpacing: "0.04em", marginBottom: 10 }}>
-                    {String(i + 1).padStart(2, "0")}
-                  </div>
-                  <h3 style={{ fontSize: 17, fontWeight: 700, color: "var(--navy)", marginBottom: 8 }}>{step.title}</h3>
-                  <p style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.65 }}>{step.text}</p>
-                </div>
-              );
-            })}
-          </div>
+          <ol className={`rg-steps rg-steps--cream${steps.length === 4 ? " rg-steps--4" : ""}`}>
+            {steps.map((s, i) => (
+              <li key={s.title} className="rg-step rg-reveal">
+                <span className="rg-step-marker rg-display" aria-hidden="true">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 style={{ fontSize: 19, fontWeight: 700, lineHeight: 1.3, color: "var(--navy)", margin: "0 0 var(--s3)" }}>{s.title}</h3>
+                <p style={{ fontSize: 15, lineHeight: 1.65, color: "var(--muted)", margin: 0 }}>{s.text}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
       {/* Who it's for */}
-      <section style={{ padding: "88px 0", background: "#fff" }}>
-        <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }} className="why-grid-responsive">
-            <div>
-              <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--blue)", background: "var(--blue-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--blue)" }}>
-                The Right Fit
-              </span>
-              <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 18px" }}>
-                {service.whoItsFor.heading}
-              </h2>
-              <p style={{ fontSize: 16, color: "var(--muted)", lineHeight: 1.7 }}>{service.whoItsFor.intro}</p>
-            </div>
-            <div>
-              {service.whoItsFor.bullets.map((b) => (
-                <div key={b} style={{ display: "flex", gap: 14, alignItems: "flex-start", padding: "16px 0", borderBottom: "1px solid var(--border)" }}>
-                  <span style={{ width: 24, height: 24, borderRadius: "50%", flexShrink: 0, background: "var(--orange)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, fontWeight: 700, marginTop: 1 }}>✓</span>
-                  <span style={{ fontSize: 15, color: "var(--navy)", lineHeight: 1.55 }}>{b}</span>
-                </div>
-              ))}
-            </div>
+      <section className="rg-svc-band" style={{ background: "#fff" }}>
+        <div className="rg-container">
+          <div className="rg-reveal" style={{ maxWidth: 720 }}>
+            <span className="rg-pill">The right fit</span>
+            <h2 className="rg-display rg-svc-h2">{service.whoItsFor.heading}</h2>
+            <p className="rg-svc-body">{service.whoItsFor.intro}</p>
           </div>
+          <ul className="rg-fit-grid">
+            {service.whoItsFor.bullets.map((b) => (
+              <li key={b} className="rg-fit rg-reveal">
+                <span className="rg-handled-check" aria-hidden="true">✓</span>
+                {b}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
       {/* FAQ */}
-      <section style={{ padding: "88px 0", background: "var(--cream)" }}>
-        <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
-          <div style={{ textAlign: "center", maxWidth: 640, margin: "0 auto 48px" }}>
-            <span style={{ display: "inline-flex", fontFamily: "var(--font-dm-mono), monospace", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--blue)", background: "var(--blue-dim)", padding: "6px 14px", borderRadius: 2, borderLeft: "2px solid var(--blue)" }}>
-              FAQ
-            </span>
-            <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 0" }}>
-              {service.shortName} Questions, Answered
-            </h2>
+      <section className="rg-svc-band" style={{ background: "var(--cream)" }}>
+        <div className="rg-container">
+          <div className="rg-reveal" style={{ textAlign: "center", maxWidth: 640, margin: "0 auto 40px" }}>
+            <span className="rg-pill">FAQ</span>
+            <h2 className="rg-display rg-svc-h2">{service.shortName} Questions, Answered</h2>
           </div>
           <FaqAccordion items={service.faqs} />
         </div>

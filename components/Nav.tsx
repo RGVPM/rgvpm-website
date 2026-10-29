@@ -8,36 +8,16 @@ import BrandMark from "@/components/BrandMark";
 type NavItem = { label: string; href: string; children?: { label: string; href: string }[] };
 
 /**
- * Every href below resolves to a page that already exists — the eight
- * solution links are the real /services routes. "Industries", "Results",
- * and "Case Studies" are deliberately absent: none has a destination yet,
- * and a nav that leads somewhere empty costs more trust than a shorter
- * nav does.
+ * A short, flat menu. Every service is one click away on the /services hub,
+ * and each service page is still linked from the footer, the homepage and
+ * the hub, so a dropdown adds choice without adding reach. Items can still
+ * take `children` if a submenu is ever needed again.
  */
-const SOLUTIONS = [
-  { label: "Website Design", href: "/services/website-design" },
-  { label: "Local SEO", href: "/services/local-seo" },
-  { label: "Google Business Profile", href: "/services/google-business-profile" },
-  { label: "Paid Advertising", href: "/services/paid-advertising" },
-  { label: "Lead Management", href: "/services/lead-management" },
-  { label: "AI Consulting & Builds", href: "/services/ai-implementation" },
-  { label: "SMS & Email Marketing", href: "/services/sms-email-marketing" },
-  { label: "Social Media & Newsletters", href: "/services/social-media-newsletter" },
-];
-
 const NAV_LINKS: NavItem[] = [
-  { label: "Solutions", href: "/services", children: SOLUTIONS },
-  {
-    label: "AI",
-    href: "/services/ai-implementation",
-    children: [
-      { label: "AI Consulting & Builds", href: "/services/ai-implementation" },
-      { label: "Learn Claude Code 1-on-1", href: "/learn-claude-code" },
-    ],
-  },
+  { label: "Services", href: "/services" },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
-  { label: "Blogs", href: "/blog" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -172,12 +152,11 @@ export default function Nav() {
             <BrandMark size={52} priority />
           </Link>
 
-          {/* Desktop nav switches in at xl, not lg: the assessment CTA is a
-              long label, and at 1024px the row would have to crowd or wrap.
-              Between lg and xl the (fully featured) mobile menu takes over. */}
+          {/* Desktop nav from lg up: five short links and the CTA fit a
+              1024px row. Below that the mobile menu takes over. */}
           <div
             ref={menuRef}
-            className="hidden xl:flex"
+            className="hidden lg:flex"
             style={{ alignItems: "center", gap: 28 }}
           >
             {NAV_LINKS.map((item) => {
@@ -361,7 +340,7 @@ export default function Nav() {
               href={SITE.bookingUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden xl:inline-flex rg-btn"
+              className="hidden lg:inline-flex rg-btn"
               style={{
                 alignItems: "center",
                 gap: 8,
@@ -384,7 +363,7 @@ export default function Nav() {
             </a>
 
             <button
-              className="flex xl:hidden"
+              className="flex lg:hidden"
               onClick={() => setOpen((v) => !v)}
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}

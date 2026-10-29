@@ -1,32 +1,37 @@
 import Link from "next/link";
+import { SITE } from "@/lib/site";
 
+/** Booking band at the foot of inner pages, matching the homepage's final CTA. */
 export default function InnerCTA({
   heading = "Ready to Grow Your Business?",
-  text = "Pick your plan and we can have your new site live in as little as 8 to 10 days. No long-term commitment required.",
+  text = "Tell us what you're trying to grow. We'll map out the plan on a quick call and can have your new site live in as little as 8 to 10 days.",
 }: {
   heading?: string;
   text?: string;
 }) {
   return (
-    <section style={{ padding: "88px 0", background: "var(--blue)", position: "relative", overflow: "hidden" }}>
-      <div style={{ position: "absolute", inset: 0, opacity: 0.06, backgroundImage: "repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)", backgroundSize: "20px 20px" }} />
-      <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px", position: "relative", zIndex: 2 }}>
-        <div style={{ textAlign: "center", maxWidth: 680, margin: "0 auto" }}>
-          <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(36px,5vw,60px)", color: "#fff", letterSpacing: "0.03em", lineHeight: 1.0, marginBottom: 18 }}>
-            {heading}
-          </h2>
-          <p style={{ fontSize: 17, color: "rgba(255,255,255,0.85)", lineHeight: 1.65, marginBottom: 36 }}>
-            {text}
-          </p>
-          <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
-            <Link href="/pricing" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "#fff", color: "var(--navy)", fontWeight: 700, fontSize: 15, padding: "14px 28px", borderRadius: 4, textDecoration: "none" }}>
-              View Plans →
-            </Link>
-            <Link href="/contact" style={{ display: "inline-flex", alignItems: "center", background: "rgba(255,255,255,0.15)", color: "#fff", fontWeight: 600, fontSize: 15, padding: "14px 28px", borderRadius: 4, textDecoration: "none", border: "2px solid rgba(255,255,255,0.35)" }}>
-              Contact Us
-            </Link>
-          </div>
+    <section
+      className="rg-glow-band"
+      style={{ background: "linear-gradient(180deg, var(--blue) 0%, #0A82DD 100%)", paddingBlock: "var(--section-y)" }}
+    >
+      <div className="rg-container" style={{ textAlign: "center", maxWidth: 760 }}>
+        <h2 className="rg-display rg-reveal" style={{ fontSize: "clamp(40px,5.4vw,76px)", color: "var(--cream)", margin: "0 0 var(--s5)" }}>
+          {heading}
+        </h2>
+        <p style={{ fontSize: 17, color: "rgba(253,248,236,0.94)", lineHeight: 1.7, margin: "0 auto var(--s7)", maxWidth: "52ch" }}>{text}</p>
+        <div className="rg-cta-actions" style={{ display: "flex", gap: "var(--s3)", justifyContent: "center", flexWrap: "wrap" }}>
+          <a href={SITE.bookingUrl} target="_blank" rel="noopener noreferrer" className="rg-btn rg-cta-cream">
+            Book with us! <span aria-hidden="true">→</span>
+          </a>
+          <Link href="/pricing" className="rg-btn rg-cta-ghost">
+            View Plans &amp; Pricing
+          </Link>
         </div>
+        <ul className="rg-reassure" style={{ marginTop: "var(--s6)" }}>
+          <li>Month-to-month, cancel anytime</li>
+          <li>New site live in 8 to 10 days</li>
+          <li>No long-term contracts</li>
+        </ul>
       </div>
     </section>
   );

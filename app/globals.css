@@ -264,6 +264,7 @@ html { scroll-behavior: smooth; }
 .rg-hat-more span { display: inline-block; transition: transform var(--t-med) var(--ease); }
 .rg-hat:hover .rg-hat-more span { transform: translateX(4px); }
 @media (max-width: 1023px) { .rg-hats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 1023px) { .rg-hats-span2 { grid-column: auto; } }
 @media (max-width: 640px)  { .rg-hats { grid-template-columns: 1fr; } }
 
 /* ── Homepage AI section ─────────────────────────────────────────
@@ -2376,4 +2377,144 @@ a:hover > .rg-brandmark img,
     .rg-hats > li:nth-child(3n+2), .rg-problems > li:nth-child(2n) { animation-range: entry 10% cover 26%; }
     .rg-hats > li:nth-child(3n+3) { animation-range: entry 16% cover 32%; }
   }
+}
+
+/* ── Inner pages: service template + hub ─────────────────────────
+   The homepage's language carried to every service page: blue HAT pills,
+   cream cards, orange checks, pill buttons.
+   ─────────────────────────────────────────────────────────────── */
+.rg-pill {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-dm-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  line-height: 1;
+  color: var(--cream);
+  background: var(--blue);
+  padding: 7px 13px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.rg-pill--cream { color: var(--navy); background: var(--cream); }
+
+.rg-cta-cream,
+.rg-cta-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  padding: 18px 30px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform var(--t-fast) var(--ease), box-shadow var(--t-med) var(--ease), background var(--t-fast) var(--ease);
+}
+.rg-cta-cream { background: var(--cream); color: var(--navy); box-shadow: 0 14px 34px -14px rgba(16,34,63,0.55); }
+.rg-cta-cream:hover { background: #fff; }
+.rg-cta-ghost { background: rgba(255,255,255,0.08); color: #fff; border: 1px solid rgba(255,255,255,0.5); }
+.rg-cta-ghost:hover { background: rgba(255,255,255,0.16); }
+
+.rg-svc-band { padding-block: var(--section-y); }
+.rg-svc-h2 {
+  font-size: clamp(34px, 4vw, 54px);
+  color: var(--navy);
+  margin: var(--s4) 0 var(--s5);
+}
+.rg-svc-body { font-size: 16.5px; line-height: 1.75; color: var(--muted); margin: 0 0 var(--s4); }
+
+.rg-svc-split {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(32px, 5vw, 80px);
+  align-items: start;
+}
+.rg-svc-card {
+  background: var(--cream);
+  border: 1.5px solid var(--navy);
+  border-radius: var(--r-xl);
+  padding: clamp(24px, 2.6vw, 36px);
+  box-shadow: 0 30px 60px -40px rgba(16,34,63,0.45);
+}
+.rg-svc-card-kicker {
+  margin: 0 0 var(--s4);
+  font-family: var(--font-dm-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--blue-ink);
+}
+.rg-check-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.rg-check-list li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--navy);
+}
+.rg-check-list .rg-handled-check,
+.rg-fit .rg-handled-check { width: 28px; height: 28px; font-size: 14px; }
+.rg-svc-price {
+  margin-top: var(--s5);
+  padding-top: var(--s5);
+  border-top: 2px solid var(--orange);
+}
+.rg-svc-price-label { margin: 0; font-size: 14px; font-weight: 600; color: var(--muted); }
+.rg-svc-price-num { margin: 4px 0 0; font-size: clamp(40px, 4vw, 54px); color: var(--navy); }
+.rg-svc-price-note { margin: 2px 0 var(--s4); font-size: 13.5px; color: var(--muted); }
+
+/* Steps rail on a cream band: markers ring in cream, not white */
+.rg-steps--cream .rg-step-marker { box-shadow: 0 0 0 6px var(--cream); }
+
+.rg-fit-grid {
+  list-style: none;
+  margin: var(--s6) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s4);
+}
+.rg-fit {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: var(--s5);
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--navy);
+}
+
+.rg-hat-from { margin: var(--s4) 0 0; font-size: 14px; font-weight: 700; color: var(--navy); }
+.rg-hat--navy { background: var(--navy); border-color: var(--navy); }
+.rg-hats-span2 { grid-column: span 2; }
+.rg-hat--navy .rg-hat-title { color: var(--cream); }
+.rg-hat--navy .rg-hat-sub,
+.rg-hat--navy .rg-hat-more { color: var(--blue-on-dark); }
+.rg-hat--navy .rg-hat-text { color: rgba(253,248,236,0.8); }
+.rg-hat--navy .rg-hat-pill { background: var(--orange); color: #fff; }
+
+@media (max-width: 900px) {
+  .rg-svc-split { grid-template-columns: 1fr; }
+  .rg-fit-grid { grid-template-columns: 1fr; }
+}
+/* Step numbers on the website, AI and city pages: navy dots like the rail */
+.rg-step-dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 14px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--cream);
+  font-size: 18px;
+  letter-spacing: 0.04em;
 }
