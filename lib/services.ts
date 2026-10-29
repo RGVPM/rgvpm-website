@@ -137,7 +137,7 @@ export const services: Service[] = [
       "Monthly content and local link building",
       "Monthly report: what moved, what's next",
     ],
-    startsAt: { plan: "the Local SEO & Google Profile add-on", price: "$400/mo", note: "on top of your $397/mo website, or included in Build the Machine ($999/mo)" },
+    startsAt: { plan: "the Local SEO & Google Profile add-on", price: "$397/mo", note: "on top of your $397/mo website, or included in Build the Machine ($997/mo)" },
   },
   {
     slug: "google-business-profile",
@@ -237,7 +237,7 @@ export const services: Service[] = [
       "Regular posts and fresh photos",
       "Ongoing monitoring",
     ],
-    startsAt: { plan: "the Local SEO & Google Profile add-on", price: "$400/mo", note: "on top of your $397/mo website, or included in Build the Machine ($999/mo)" },
+    startsAt: { plan: "the Local SEO & Google Profile add-on", price: "$397/mo", note: "on top of your $397/mo website, or included in Build the Machine ($997/mo)" },
   },
   {
     slug: "paid-advertising",
@@ -337,7 +337,7 @@ export const services: Service[] = [
       "Retargeting people who visited",
       "Reports on leads and cost per lead",
     ],
-    startsAt: { plan: "the Ads Management add-on", price: "$500/mo", note: "on top of your $397/mo website; ad spend is billed by Google and Meta directly" },
+    startsAt: { plan: "the Ads Management add-on", price: "$497/mo", note: "on top of your $397/mo website; ad spend is billed by Google and Meta directly" },
   },
   {
     slug: "lead-management",
@@ -554,7 +554,7 @@ export const services: Service[] = [
       "Stories made from your content",
       "Your branding on everything",
     ],
-    startsAt: { plan: "Content Crew", price: "$650/mo", note: "we edit, you shoot; also included in Build the Machine ($999/mo)" },
+    startsAt: { plan: "Content Crew", price: "$647/mo", note: "we edit, you shoot; also included in Build the Machine ($997/mo)" },
   },
 ];
 

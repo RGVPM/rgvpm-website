@@ -19,25 +19,25 @@ const ADDONS: { id: AddonId; name: string; price: number; text: string }[] = [
   {
     id: "seo",
     name: "Local SEO & Google Profile",
-    price: 400,
+    price: 397,
     text: "Google Business Profile built out, city and service pages, monthly content and a report.",
   },
   {
     id: "content",
     name: "Content Crew",
-    price: 650,
+    price: 647,
     text: "You shoot, we edit: 1 reel and 1 branded creative a week, plus stories. You post.",
   },
   {
     id: "social",
     name: "Full Service Social",
-    price: 1500,
+    price: 1497,
     text: "2 reels and 1 post a week, unlimited stories, a monthly shoot. We post and answer DMs.",
   },
   {
     id: "ads",
     name: "Ads Management",
-    price: 500,
+    price: 497,
     text: "Google or Meta ads built and run for you. You fund the ad spend.",
   },
 ];
@@ -46,8 +46,8 @@ const addonPrice = (id: AddonId) => ADDONS.find((a) => a.id === id)!.price;
 
 /** Bundles include the website, so `covers` is the add-ons on top of it. */
 const BUNDLES = {
-  machine: { name: "Build the Machine", price: 999, covers: ["seo", "content"] as AddonId[] },
-  market: { name: "Own the Market", price: 2500, covers: ["seo", "social", "ads"] as AddonId[] },
+  machine: { name: "Build the Machine", price: 997, covers: ["seo", "content"] as AddonId[] },
+  market: { name: "Own the Market", price: 2497, covers: ["seo", "social", "ads"] as AddonId[] },
 };
 
 const aLaCarte = (ids: AddonId[]) => BASE.price + ids.reduce((sum, id) => sum + addonPrice(id), 0);
@@ -55,7 +55,7 @@ const savings = (b: { price: number; covers: AddonId[] }) => aLaCarte(b.covers) 
 
 const money = (n: number) => `$${n.toLocaleString("en-US")}`;
 
-/** "$999" + "/mo" -> "about $33 a day", so the monthly number feels as small as it is. */
+/** "$997" + "/mo" -> "about $33 a day", so the monthly number feels as small as it is. */
 const perDay = (n: number) => `About $${Math.round((n * 12) / 365)} a day`;
 
 /* ----------------------------- shared card ----------------------------- */
@@ -71,7 +71,7 @@ interface CardProps {
   ctaHref: string;
   /** The recommended plan: navy card, orange pill, blue button. */
   highlighted?: boolean;
-  /** Short line pinned to the top corner, e.g. "Save $448/mo". */
+  /** Short line pinned to the top corner, e.g. "Save $444/mo". */
   ribbon?: string;
   /** The hats this plan takes off the owner (the homepage hats). */
   hats?: string[];
@@ -173,7 +173,7 @@ const addonName = (id: AddonId) => ADDONS.find((a) => a.id === id)!.name;
 /**
  * Tick add-ons, see the monthly total, with the bundle price applied when
  * the picks fit one. Below the total, the one add-on that's the best deal
- * to add next ("Add Content Crew for just +$202/mo"), when adding
+ * to add next ("Add Content Crew for just +$203/mo"), when adding
  * it unlocks a bundle and so costs well under its own price.
  */
 function Builder() {

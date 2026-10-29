@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 const pricingFaqs = [
   {
     q: "How does your pricing work?",
-    a: "Every plan starts with a website: Plant the Flag, $397/mo with no build fee. It includes your lead inbox and automatic follow-up by text and email. From there you add only the jobs you want handed off: Local SEO & Google Profile ($400/mo), Content Crew ($650/mo) or Full Service Social ($1,500/mo), and Ads Management ($500/mo). Or pick a bundle: Build the Machine ($999/mo) or Own the Market ($2,500/mo), which cost less than the same pieces bought separately.",
+    a: "Every plan starts with a website: Plant the Flag, $397/mo with no build fee. It includes your lead inbox and automatic follow-up by text and email. From there you add only the jobs you want handed off: Local SEO & Google Profile ($397/mo), Content Crew ($647/mo) or Full Service Social ($1,497/mo), and Ads Management ($497/mo). Or pick a bundle: Build the Machine ($997/mo) or Own the Market ($2,497/mo), which cost less than the same pieces bought separately.",
   },
   {
     q: "Is text and email follow-up included?",
@@ -40,7 +40,7 @@ const pricingFaqs = [
   },
   {
     q: "What do the bundles save me?",
-    a: "Build the Machine is your website, Local SEO & Google Profile and Content Crew. Bought separately that's $1,447/mo; bundled it's $999/mo, a $448 monthly saving. Own the Market adds Full Service Social, ads on Google and Meta and a dedicated strategist for $2,500/mo, about $297 less than the pieces on their own.",
+    a: "Build the Machine is your website, Local SEO & Google Profile and Content Crew. Bought separately that's $1,441/mo; bundled it's $997/mo, a $444 monthly saving. Own the Market adds Full Service Social, ads on Google and Meta and a dedicated strategist for $2,497/mo, about $291 less than the pieces on their own.",
   },
   {
     q: "Does ad spend come out of the monthly fee?",

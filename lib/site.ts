@@ -99,12 +99,12 @@ export const STRIPE_LINKS = {
 /** The monthly plans and add-ons — single source of truth for pricing schema and llms.txt. */
 export const PLANS = [
   { name: "Plant the Flag (website)", price: 397, description: "A custom website built, hosted, and maintained for you, plus one inbox for every lead and automatic text and email follow-up. No build fee. Every add-on builds on this." },
-  { name: "Local SEO & Google Profile add-on", price: 400, description: "Google Business Profile built out, city and service pages, on-page cleanup, monthly content and a monthly report." },
-  { name: "Content Crew add-on", price: 650, description: "You shoot, we edit: 1 reel and 1 branded creative a week, plus stories. Also sold on its own." },
-  { name: "Full Service Social add-on", price: 1500, description: "2 reels and 1 post a week, unlimited stories, a monthly on-site shoot; we post and answer DMs. Also sold on its own." },
-  { name: "Ads Management add-on", price: 500, description: "Google or Meta ads built and managed for you. Ad spend is billed by Google and Meta directly." },
-  { name: "Build the Machine (bundle)", price: 999, description: "Website + Local SEO & Google Profile + Content Crew. Saves $448/mo versus buying them separately." },
-  { name: "Own the Market (bundle)", price: 2500, description: "Website + every add-on (SEO, Full Service Social, ads on Google and Meta) plus a dedicated strategist." },
+  { name: "Local SEO & Google Profile add-on", price: 397, description: "Google Business Profile built out, city and service pages, on-page cleanup, monthly content and a monthly report." },
+  { name: "Content Crew add-on", price: 647, description: "You shoot, we edit: 1 reel and 1 branded creative a week, plus stories. Also sold on its own." },
+  { name: "Full Service Social add-on", price: 1497, description: "2 reels and 1 post a week, unlimited stories, a monthly on-site shoot; we post and answer DMs. Also sold on its own." },
+  { name: "Ads Management add-on", price: 497, description: "Google or Meta ads built and managed for you. Ad spend is billed by Google and Meta directly." },
+  { name: "Build the Machine (bundle)", price: 997, description: "Website + Local SEO & Google Profile + Content Crew. Saves $444/mo versus buying them separately." },
+  { name: "Own the Market (bundle)", price: 2497, description: "Website + every add-on (SEO, Full Service Social, ads on Google and Meta) plus a dedicated strategist." },
 ] as const;
 
 /** Absolute canonical URL for a given path ("/" or "/services/local-seo"). */
