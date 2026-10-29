@@ -3,7 +3,6 @@
 import { useState, type ReactNode } from "react";
 
 const BOOKING = "https://api.rgvperformancemarketing.com/widget/bookings/rgvpmdiscoverycall";
-const bebas = { fontFamily: "'Bebas Neue', sans-serif" } as const;
 
 type TabId = "websites" | "social" | "plans";
 
@@ -19,136 +18,77 @@ type Cell = string | { t: string; hl: true };
 
 interface CardProps {
   tier: string;
-  tierClass?: string;
   name: string;
   description: string;
   price: string;
   priceSuffix?: string;
   priceNote: string;
-  savings?: string;
-  subNote?: string;
   features: string[];
   note?: string;
   ctaLabel: string;
-  ctaHref?: string;
-  onCta?: () => void;
+  ctaHref: string;
+  /** The recommended plan in its tab: navy card, orange pill, blue button. */
   highlighted?: boolean;
-  checkClass?: string;
-  /** Skip the column-grid lift; use for stacked full-width rows. */
-  stacked?: boolean;
-  /** Two-column feature list on sm+ — better for full-width cards. */
-  featureGrid?: boolean;
-  /** Extra price-block content (e.g. strikethrough build-fee promo). */
-  priceExtra?: ReactNode;
+  /** The hats this plan takes off the owner (the homepage hats). */
+  hats?: string[];
+  /** Hats are added on top of the previous plan's. */
+  extraHats?: boolean;
 }
 
-function Card({
-  tier,
-  tierClass = "text-slate-400",
-  name,
-  description,
-  price,
-  priceSuffix,
-  priceNote,
-  savings,
-  subNote,
-  features,
-  note,
-  ctaLabel,
-  ctaHref,
-  onCta,
-  highlighted = false,
-  checkClass = "text-(--orange)",
-  stacked = false,
-  featureGrid = false,
-  priceExtra,
-}: CardProps) {
-  const cardClasses = highlighted
-    ? `bg-(--blue-deep) border border-(--blue) shadow-2xl${stacked ? "" : " lg:-mt-4 lg:mb-4"}`
-    : "bg-slate-800/40 border border-slate-700";
+/** "$899" + "/mo" -> "about $30 a day", so the monthly number feels as small as it is. */
+function perDay(price: string, suffix?: string) {
+  if (suffix !== "/mo") return null;
+  const n = Number(price.replace(/[^0-9.]/g, ""));
+  return n ? `About $${Math.round((n * 12) / 365)} a day` : null;
+}
 
-  const cta = highlighted
-    ? "bg-white text-(--blue-ink) hover:bg-(--blue-wash)"
-    : "border border-slate-600 text-white hover:border-(--blue) hover:text-(--blue-on-dark)";
-
+/**
+ * One plan card. Plain plans are white with a navy outline; the highlighted
+ * plan is the navy card, lifted on desktop. Styles live in globals.css
+ * (`.rg-plan*`).
+ */
+function Card({ tier, name, description, price, priceSuffix, priceNote, features, note, ctaLabel, ctaHref, highlighted = false, hats, extraHats }: CardProps) {
+  const daily = perDay(price, priceSuffix);
   return (
-    <div className={`flex flex-col rounded-xl p-7 transition-colors ${cardClasses}`}>
-      <div
-        className={`mb-5 text-[11px] font-medium uppercase tracking-[0.14em] ${
-          highlighted ? "text-white/80" : tierClass
-        }`}
-        style={{ fontFamily: "var(--font-dm-mono), monospace" }}
-      >
-        {tier}
+    <div className={`rg-plan${highlighted ? " rg-plan--hl" : ""}`}>
+      <span className={`rg-pill${highlighted ? " rg-pill--orange" : ""}`}>{tier}</span>
+      <h3 className="rg-display rg-plan-name">{name}</h3>
+      <p className="rg-plan-desc">{description}</p>
+
+      <div className="rg-plan-price">
+        <span className="rg-display rg-plan-num">{price}</span>
+        {priceSuffix && <span className="rg-plan-suffix">{priceSuffix}</span>}
       </div>
+      {daily && <p className="rg-plan-daily">{daily}</p>}
+      <p className="rg-plan-note">{priceNote}</p>
 
-      <h3 className="mb-2 text-3xl tracking-wide text-white" style={bebas}>
-        {name}
-      </h3>
-
-      <p className={`mb-6 text-sm leading-relaxed ${highlighted ? "text-white/90" : "text-slate-400"}`}>
-        {description}
-      </p>
-
-      <div className="mb-6">
-        <div className="flex items-baseline gap-1.5">
-          <span className="text-5xl leading-none text-white" style={bebas}>
-            {price}
-          </span>
-          {priceSuffix && (
-            <span className={`text-sm ${highlighted ? "text-white/80" : "text-slate-400"}`}>{priceSuffix}</span>
-          )}
+      {hats && (
+        <div className="rg-plan-hats">
+          <p className="rg-plan-hats-label">
+            {hats.length} {hats.length === 1 ? "hat" : "hats"} off your plate{extraHats ? " (on top of the plan before)" : ""}
+          </p>
+          <ul>
+            {hats.map((h) => (
+              <li key={h}>{h}</li>
+            ))}
+          </ul>
         </div>
-        {savings && (
-          <div className={`mt-1.5 text-xs font-semibold ${highlighted ? "text-emerald-100" : "text-emerald-400"}`}>
-            {savings}
-          </div>
-        )}
-        {priceExtra}
-        <div className={`mt-1.5 text-xs ${highlighted ? "text-white/75" : "text-slate-500"}`}>{priceNote}</div>
-        {subNote && (
-          <div className={`mt-1 text-[11px] ${highlighted ? "text-white/60" : "text-slate-600"}`}>{subNote}</div>
-        )}
-      </div>
+      )}
 
-      <div className={`mb-6 h-px ${highlighted ? "bg-white/20" : "bg-slate-700"}`} />
-
-      <ul className={`mb-6 flex-1 ${featureGrid ? "grid gap-3 sm:grid-cols-2" : "space-y-3"}`}>
+      <ul className="rg-plan-list">
         {features.map((f) => (
-          <li
-            key={f}
-            className={`flex items-start gap-2.5 text-sm leading-snug ${
-              highlighted ? "text-white" : "text-slate-300"
-            }`}
-          >
-            <span className={`mt-px flex-shrink-0 font-bold ${highlighted ? "text-white/90" : checkClass}`}>✓</span>
+          <li key={f}>
+            <span className="rg-plan-check" aria-hidden="true">✓</span>
             {f}
           </li>
         ))}
       </ul>
 
-      {note && (
-        <p className={`mb-5 text-xs italic ${highlighted ? "text-white/80" : "text-slate-400"}`}>{note}</p>
-      )}
+      {note && <p className="rg-plan-note" style={{ fontStyle: "italic" }}>{note}</p>}
 
-      {onCta ? (
-        <button
-          type="button"
-          onClick={onCta}
-          className={`mt-auto flex items-center justify-center rounded-full px-4 py-3 text-sm font-bold transition-colors ${cta}`}
-        >
-          {ctaLabel}
-        </button>
-      ) : (
-        <a
-          href={ctaHref}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`mt-auto flex items-center justify-center rounded-full px-4 py-3 text-sm font-bold transition-colors ${cta}`}
-        >
-          {ctaLabel}
-        </a>
-      )}
+      <a href={ctaHref} target="_blank" rel="noopener noreferrer" className="rg-btn rg-plan-cta">
+        {ctaLabel}
+      </a>
     </div>
   );
 }
@@ -157,11 +97,12 @@ function Card({
 
 function WebsitesTab() {
   return (
-    <div className="mx-auto grid max-w-5xl gap-6 lg:grid-cols-2">
+    <div className="rg-plan-grid">
       <Card
         highlighted
-        tier="// Site + leads"
+        tier="Site + leads"
         name="Plant the Flag"
+        hats={["Web Designer", "Lead Inbox"]}
         description="A site that actually catches jobs, plus the CRM."
         price="$397"
         priceSuffix="/mo"
@@ -179,8 +120,10 @@ function WebsitesTab() {
         ctaHref="https://buy.stripe.com/7sY9ATeDa4ui3dwg7T7Zu0F"
       />
       <Card
-        tier="// Get found"
+        tier="Get found"
         name="SEO Package"
+        hats={["SEO Specialist", "Google Profile Manager"]}
+        extraHats
         description="Plant the Flag, then we work Google so more of the right people find you. No #1 ranking guarantee."
         price="$597"
         priceSuffix="/mo"
@@ -215,19 +158,20 @@ function SocialTab() {
   ];
 
   const renderCell = (c: Cell) => {
-    if (typeof c === "object") return <span className="font-bold text-(--blue-on-dark)">{c.t}</span>;
-    if (c === "—") return <span className="text-slate-600">—</span>;
-    if (c === "✓") return <span className="font-bold text-(--orange)">✓</span>;
-    return <span className="text-slate-300">{c}</span>;
+    if (typeof c === "object") return <strong style={{ color: "var(--blue-ink)" }}>{c.t}</strong>;
+    if (c === "—") return <span style={{ color: "var(--muted)" }}>—</span>;
+    if (c === "✓") return <span className="rg-plan-check" aria-label="Included">✓</span>;
+    return <span>{c}</span>;
   };
 
   return (
-    <div className="mx-auto max-w-5xl">
-      <div className="grid gap-6 lg:grid-cols-2">
+    <div>
+      <div className="rg-plan-grid">
         <Card
-          tier="// Most Popular"
+          tier="Most popular"
           highlighted
           name="Content Crew"
+          hats={["Content Editor", "Social Designer"]}
           description="You shoot — we make it look pro."
           price="$650"
           priceSuffix="/mo"
@@ -244,8 +188,10 @@ function SocialTab() {
           ctaHref="https://api.rgvperformancemarketing.com/payment-link/6a2506c903b17c94f5714f73"
         />
         <Card
-          tier="// Full Service"
+          tier="Full service"
           name="Full Service Social"
+          hats={["Social Media Manager", "DM Inbox"]}
+          extraHats
           description="We run your social like an in-house team."
           price="$1,250"
           priceSuffix="/mo"
@@ -264,23 +210,21 @@ function SocialTab() {
       </div>
 
       {/* comparison table */}
-      <div className="mt-10 overflow-x-auto rounded-xl border border-slate-700">
-        <table className="w-full min-w-[480px] border-collapse text-sm">
+      <div className="rg-compare">
+        <table>
           <thead>
-            <tr className="border-b border-slate-700 bg-slate-800/40">
-              <th className="p-4 text-left font-semibold text-slate-400">Compare plans</th>
-              <th className="p-4 text-center font-semibold text-(--blue-on-dark)">Content Crew</th>
-              <th className="p-4 text-center font-semibold text-white">Full Service Social</th>
+            <tr>
+              <th scope="col">Compare plans</th>
+              <th scope="col">Content Crew</th>
+              <th scope="col">Full Service Social</th>
             </tr>
           </thead>
           <tbody>
-            {rows.map((row, i) => (
-              <tr key={row.label} className={i % 2 ? "bg-slate-800/20" : ""}>
-                <td className="border-t border-slate-800 p-4 font-medium text-slate-300">{row.label}</td>
+            {rows.map((row) => (
+              <tr key={row.label}>
+                <th scope="row">{row.label}</th>
                 {row.cells.map((c, j) => (
-                  <td key={j} className="border-t border-slate-800 p-4 text-center">
-                    {renderCell(c)}
-                  </td>
+                  <td key={j}>{renderCell(c)}</td>
                 ))}
               </tr>
             ))}
@@ -293,17 +237,18 @@ function SocialTab() {
 
 function PlansTab() {
   return (
-    <div className="mx-auto max-w-5xl">
-      <div className="mb-7 rounded-md border border-slate-700 bg-slate-800/40 p-4 text-center text-sm text-slate-300">
-        💰 Bundle &amp; save. These plans combine work from our other tabs at a discount, with one team coordinating
-        everything.
-      </div>
+    <div>
+      <p className="rg-plan-banner">
+        <strong>Bundle &amp; save.</strong> These plans combine work from the other tabs at a discount, with one team
+        coordinating everything.
+      </p>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="rg-plan-grid">
         <Card
-          tier="// Most Popular"
+          tier="Most popular"
           highlighted
           name="Build the Machine"
+          hats={["SEO Specialist", "Google Profile Manager", "Ads Manager", "Retention Specialist", "Content Editor", "Email & SMS Writer"]}
           description="A full digital growth engine running 24/7 — SEO, ads, automation, and lead management all working together."
           price="$899"
           priceSuffix="/mo"
@@ -324,8 +269,10 @@ function PlansTab() {
           ctaHref="https://api.rgvperformancemarketing.com/payment-link/6a25cba371a0aa761e46375b"
         />
         <Card
-          tier="// Full Service"
+          tier="Full service"
           name="Own the Market"
+          hats={["Social Media Manager", "Content Shoots", "DM Inbox", "Dedicated Strategist"]}
+          extraHats
           description="Dominate your category. Full-service execution across every channel with a dedicated strategist in your corner."
           price="$2,000"
           priceSuffix="/mo"
@@ -345,7 +292,7 @@ function PlansTab() {
         />
       </div>
 
-      <p className="mt-6 text-center text-sm text-slate-400">
+      <p className="rg-plan-fine">
         All plans are month-to-month. Build the Machine has a one-time activation fee; Own the Market has none. On both
         plans, ad spend is billed by Google and Meta (you fund the spend). Website design is quoted separately on these
         plans, or see the Websites tab for plans that include one.
@@ -360,45 +307,44 @@ export default function PricingTabs() {
   const [activeTab, setActiveTab] = useState<TabId>("plans");
 
   return (
-    <section className="bg-(--navy) pb-24 pt-2">
-
-      <div className="mx-auto max-w-6xl px-6">
-        {/* top banner */}
-        <div className="rounded-md border border-slate-700 bg-slate-800/40 p-4 text-sm leading-relaxed text-slate-300">
-          Want one specific service? Pick from{" "}
-          <button type="button" onClick={() => setActiveTab("websites")} className="font-semibold text-(--blue-on-dark) underline underline-offset-2 hover:text-white">
-            Websites
-          </button>
-          {" "}or{" "}
-          <button type="button" onClick={() => setActiveTab("social")} className="font-semibold text-(--blue-on-dark) underline underline-offset-2 hover:text-white">
-            Social Media
-          </button>
-          . Want everything bundled at a discount? See{" "}
-          <button type="button" onClick={() => setActiveTab("plans")} className="font-semibold text-(--blue-on-dark) underline underline-offset-2 hover:text-white">
-            Marketing Plans
-          </button>
-          .
-        </div>
-
-        {/* page header */}
-        <div className="mx-auto mt-10 max-w-2xl text-center">
-          <div className="inline-block rounded-md border border-(--blue)/30 bg-(--blue)/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-widest text-(--blue-on-dark)">
-            // PLANS &amp; PRICING
+    <section className="rg-svc-band" style={{ background: "#fff" }}>
+      <div className="rg-container">
+        <div className="rg-vs rg-reveal" aria-label="What one marketing hire costs, compared with Build the Machine">
+          <div className="rg-vs-side">
+            <p className="rg-vs-kicker">Hire one marketing person</p>
+            <p className="rg-display rg-vs-num rg-vs-num--old">$6,560<span>/mo</span></p>
+            <p className="rg-vs-text">
+              Median salary alone, before taxes, benefits and software. And it&rsquo;s one person
+              wearing one or two hats.
+            </p>
           </div>
-          <h1 className="mx-auto mt-4 text-5xl uppercase leading-none tracking-wide text-white md:text-6xl" style={bebas}>
-            Digital Marketing Pricing &amp; Plans
-          </h1>
-          <p className="mt-4 text-base leading-relaxed text-slate-400">
-            Transparent pricing. No long-term contracts. No hidden fees. Pick a single service or bundle everything for
-            the best value.
-          </p>
+          <span className="rg-vs-badge rg-display" aria-hidden="true">vs</span>
+          <div className="rg-vs-side rg-vs-side--us">
+            <p className="rg-vs-kicker">Build the Machine</p>
+            <p className="rg-display rg-vs-num">$899<span>/mo</span></p>
+            <p className="rg-vs-text">
+              A whole team wearing six hats: SEO, Google, ads, follow-up, content and email.
+              No payroll, no contract.
+            </p>
+          </div>
         </div>
+        <p className="rg-vs-source">
+          Salary: U.S. median pay for marketing specialists, $78,760 a year (Bureau of Labor Statistics, May 2025).
+        </p>
+
+        <p className="rg-plan-intro">
+          Want one service? Pick{" "}
+          <button type="button" onClick={() => setActiveTab("websites")}>Websites</button> or{" "}
+          <button type="button" onClick={() => setActiveTab("social")}>Social Media</button>. Want everything bundled at
+          a discount? See <button type="button" onClick={() => setActiveTab("plans")}>Marketing Plans</button>.
+        </p>
 
         {/* tab nav */}
         <div
           role="tablist"
           aria-label="Pricing categories"
-          className="mt-10 flex flex-wrap justify-center gap-3"
+          className="rg-blog-filters"
+          style={{ justifyContent: "center", margin: "var(--s5) 0 0" }}
           onKeyDown={(e) => {
             if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
             e.preventDefault();
@@ -420,11 +366,7 @@ export default function PricingTabs() {
                 aria-controls={`pricing-panel-${tab.id}`}
                 tabIndex={active ? 0 : -1}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex min-h-[44px] touch-manipulation items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold transition-colors ${
-                  active
-                    ? "bg-(--blue) text-white"
-                    : "border border-slate-700 bg-slate-800/40 text-slate-300 hover:border-(--blue)/50 hover:text-white"
-                }`}
+                className="rg-blog-filter rg-plan-tab"
               >
                 {tab.label}
               </button>
@@ -434,7 +376,7 @@ export default function PricingTabs() {
 
         {/* tab content: every panel is in the server HTML (so crawlers and AI
             engines see every plan and price); inactive ones are `hidden`. */}
-        <div className="mt-12">
+        <div style={{ marginTop: "var(--s7)" }}>
           {TABS.map((tab) => (
             <div
               key={tab.id}
@@ -450,18 +392,12 @@ export default function PricingTabs() {
           ))}
         </div>
 
-        {/* page footer CTA */}
-        <div className="mt-16 border-t border-slate-800 pt-12 text-center">
-          <p className="mb-5 text-lg text-slate-300">Not sure which option is right for you?</p>
-          <a
-            href={BOOKING}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-full bg-(--blue) px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-(--blue-deep)"
-          >
-            Book a Free Discovery Call →
+        <p className="rg-plan-fine" style={{ marginTop: "var(--s7)" }}>
+          Not sure which option is right for you?{" "}
+          <a href={BOOKING} target="_blank" rel="noopener noreferrer" className="rg-text-link">
+            Book a free discovery call
           </a>
-        </div>
+        </p>
       </div>
 
     </section>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import PricingTabs from "@/components/PricingTabs";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import PageHero from "@/components/PageHero";
 import FaqAccordion from "@/components/FaqAccordion";
 import InnerCTA from "@/components/InnerCTA";
 import JsonLd from "@/components/JsonLd";
@@ -62,29 +62,38 @@ export default function PricingPage() {
         ]}
       />
       <main>
-        {/* flow-root keeps the breadcrumb's bottom margin inside this navy band; without it the margin collapsed through and showed a cream stripe. */}
-        <div style={{ background: "var(--navy)", paddingTop: 100, display: "flow-root" }}>
-          <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
-            <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Pricing", path: "/pricing" }]} dark inHero />
-          </div>
-        </div>
+        <PageHero
+          tone="blue"
+          eyebrow="Digital marketing pricing & plans"
+          title={
+            <>
+              A Whole Marketing Team.
+              <br />
+              <span style={{ color: "var(--navy)" }}>For Less Than One Hire.</span>
+            </>
+          }
+          subtitle="Websites, Google, ads, follow-up and content, done for you, month-to-month. Transparent pricing, no long-term contracts and no hidden fees."
+          crumbs={[{ name: "Home", path: "/" }, { name: "Pricing", path: "/pricing" }]}
+        >
+          <ul className="rg-about-proof">
+            <li>From $397/mo</li>
+            <li>No contracts</li>
+            <li>Ad spend billed by Google &amp; Meta</li>
+          </ul>
+        </PageHero>
         <PricingTabs />
 
         <section style={{ padding: "88px 0", background: "var(--cream)" }}>
           <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
             <div style={{ textAlign: "center", maxWidth: 640, margin: "0 auto 48px" }}>
-              <span className="rg-pill">
-                Pricing FAQ
-              </span>
-              <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(30px,3.5vw,46px)", letterSpacing: "0.03em", color: "var(--navy)", lineHeight: 1.0, margin: "12px 0 0" }}>
-                Questions About Pricing
-              </h2>
+              <span className="rg-pill">Pricing FAQ</span>
+              <h2 className="rg-display rg-svc-h2">Questions About Pricing</h2>
             </div>
             <FaqAccordion items={pricingFaqs} />
           </div>
         </section>
 
-        <InnerCTA />
+        <InnerCTA heading="Not Sure Which Plan?" text="Book a quick call. We'll look at where leads are slipping and tell you which plan fits, with no pressure to buy." hidePricingLink />
       </main>
     </>
   );
