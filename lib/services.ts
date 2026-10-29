@@ -137,7 +137,7 @@ export const services: Service[] = [
       "Monthly content and local link building",
       "Monthly report: what moved, what's next",
     ],
-    startsAt: { plan: "SEO Package", price: "$597/mo", note: "plus a $499 one-time build fee" },
+    startsAt: { plan: "the Local SEO & Google Profile add-on", price: "$200/mo", note: "on top of your $397/mo website, or included in Build the Machine ($899/mo)" },
   },
   {
     slug: "google-business-profile",
@@ -237,7 +237,7 @@ export const services: Service[] = [
       "Regular posts and fresh photos",
       "Ongoing monitoring",
     ],
-    startsAt: { plan: "SEO Package", price: "$597/mo", note: "plus a $499 one-time build fee" },
+    startsAt: { plan: "the Local SEO & Google Profile add-on", price: "$200/mo", note: "on top of your $397/mo website, or included in Build the Machine ($899/mo)" },
   },
   {
     slug: "paid-advertising",
@@ -337,7 +337,7 @@ export const services: Service[] = [
       "Retargeting people who visited",
       "Reports on leads and cost per lead",
     ],
-    startsAt: { plan: "Build the Machine", price: "$899/mo", note: "ad spend is billed by Google and Meta directly" },
+    startsAt: { plan: "the Ads Management add-on", price: "$300/mo", note: "on top of your $397/mo website; ad spend is billed by Google and Meta directly" },
   },
   {
     slug: "lead-management",
@@ -435,7 +435,7 @@ export const services: Service[] = [
       },
       {
         q: "Can I send promotions to my whole customer list?",
-        a: "Yes. Broadcast campaigns let you send promos, announcements, and follow-ups to your entire list at once over text and email. This feature is included on Build the Machine and up. We help you write the messages and schedule them so you stay top of mind without overwhelming your customers.",
+        a: "Yes. Broadcast campaigns let you send promos, announcements, and follow-ups to your entire list at once over text and email. This is part of the Follow-Up & Automation add-on, and included in Own the Market. We help you write the messages and schedule them so you stay top of mind without overwhelming your customers.",
       },
       {
         q: "Is text message marketing allowed under the rules?",
@@ -455,7 +455,7 @@ export const services: Service[] = [
       "Follow-ups, promos & rebooking texts",
       "Online booking with reminders",
     ],
-    startsAt: { plan: "Plant the Flag", price: "$397/mo", note: "one lead inbox; full automation on Build the Machine" },
+    startsAt: { plan: "Plant the Flag", price: "$397/mo", note: "lead inbox included; Follow-Up & Automation add-on is $200/mo" },
   },
   {
     slug: "social-media-newsletter",
@@ -554,7 +554,7 @@ export const services: Service[] = [
       "Stories made from your content",
       "Your branding on everything",
     ],
-    startsAt: { plan: "Content Crew", price: "$650/mo", note: "we edit, you shoot" },
+    startsAt: { plan: "Content Crew", price: "$650/mo", note: "we edit, you shoot; also included in Build the Machine ($899/mo)" },
   },
 ];
 
