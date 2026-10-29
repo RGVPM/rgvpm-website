@@ -32,7 +32,7 @@ const mono = "var(--font-dm-mono), ui-monospace, monospace";
 
 export default function Process() {
   return (
-    <Section id="how-it-works" background="var(--cream)" labelledBy="process-heading">
+    <Section id="how-it-works" background="#fff" labelledBy="process-heading">
       <div className="rg-container">
         <div className="rg-process-head">
           <h2

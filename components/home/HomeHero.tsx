@@ -19,7 +19,7 @@ export default function HomeHero() {
   const proof = [
     "Local team in Harlingen",
     "50+ live client sites",
-    "AI consulting & builds",
+    "Follow-up that runs itself",
   ];
 
   return (
@@ -82,9 +82,9 @@ export default function HomeHero() {
                 animationDelay: "0.27s",
               }}
             >
-              We&rsquo;re an AI and marketing agency. We get you found on Google, then build the
-              AI that answers your calls, follows up with every lead, and takes the busywork off
-              your plate.
+              We get you found on Google, then make sure every lead gets a fast reply and every
+              client comes back. The follow-up and busywork run on their own, so you can stay
+              with your clients.
             </p>
 
             <div
