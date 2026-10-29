@@ -3,11 +3,11 @@
 export const homeFaqs = [
   {
     q: "Do I have to sign a long-term contract?",
-    a: "No. All plans are month-to-month. We believe in earning your business every month — not locking you in. The only upfront costs are the one-time $499 build fee on Plant the Flag and the SEO Package, and the one-time activation fee on the Build the Machine plan, which covers onboarding, setup, and getting everything configured.",
+    a: "No. All plans are month-to-month. We believe in earning your business every month — not locking you in. The only upfront cost is the one-time $499 build fee when you start with our Plant the Flag website on its own. Our bundles, Build the Machine and Own the Market, have no build or setup fee.",
   },
   {
     q: "Is website design included in the plans?",
-    a: "Yes, on Plant the Flag and the SEO Package. Both include a custom website we build, host, and keep updated, for a one-time $499 build fee. Build the Machine and Own the Market are marketing plans; if you need a new site on one of those, we quote it separately based on what you need.",
+    a: "Yes. Every plan starts with a custom website we build, host, and keep updated. On its own, Plant the Flag is $397/mo plus a one-time $499 build fee. Build the Machine and Own the Market include the website with no build fee.",
   },
   {
     q: "How does the newsletter work?",
@@ -19,11 +19,11 @@ export const homeFaqs = [
   },
   {
     q: "What does \"two-way SMS & email\" mean?",
-    a: "It means you can have real back-and-forth conversations with leads and customers via text and email — all from one inbox. When someone texts your business number or replies to an email, you see it and can respond. On Build the Machine and up, you can also send broadcast campaigns — promos, announcements, and follow-ups — to your entire list at once.",
+    a: "It means you can have real back-and-forth conversations with leads and customers via text and email — all from one inbox. When someone texts your business number or replies to an email, you see it and can respond. With the Follow-Up & Automation add-on or Own the Market, you can also send broadcast campaigns — promos, announcements, and follow-ups — to your entire list at once.",
   },
   {
     q: "Does ad spend come out of the monthly fee?",
-    a: "No. Ad management is included in your plan, but the actual spend (what you pay Google or Meta to run your ads) is a separate budget billed directly to you by the platform. We help you set the right budget and manage every dollar of it — you just fund the account.",
+    a: "No. Ads Management (an add-on, or included in Own the Market) covers running your campaigns, but the actual spend (what you pay Google or Meta to run your ads) is a separate budget billed directly to you by the platform. We help you set the right budget and manage every dollar of it — you just fund the account.",
   },
   {
     q: "How quickly will I see results?",

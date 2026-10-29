@@ -2633,7 +2633,7 @@ a:hover > .rg-brandmark img,
 @media (max-width: 1023px) { .rg-blog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 640px)  { .rg-blog-grid { grid-template-columns: 1fr; } }
 
-/* ── Pricing (components/PricingTabs) ── */
+/* ── Pricing (components/PricingPlans) ── */
 .rg-plan-intro { margin: 0 auto; max-width: 64ch; text-align: center; font-size: 16px; line-height: 1.7; color: var(--muted); }
 .rg-plan-intro button {
   font: inherit; font-weight: 700; color: var(--navy); background: none; border: 0; padding: 0; cursor: pointer;
@@ -2720,9 +2720,85 @@ a:hover > .rg-brandmark img,
 .rg-compare td { text-align: center; padding: 14px 16px; }
 .rg-compare tbody tr:nth-child(even) { background: var(--cream); }
 .rg-compare .rg-plan-check { margin: 0 auto; }
+.rg-plan-head { max-width: 680px; margin: var(--s9) auto var(--s7); text-align: center; }
+.rg-plan-head p { margin: var(--s4) auto 0; max-width: 56ch; font-size: 16px; line-height: 1.7; color: var(--muted); }
+.rg-plan-grid--build { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
+@media (min-width: 1024px) { .rg-plan-grid--build { margin-bottom: var(--s5); } }
+
+/* Add-on builder: tick the hats, watch the monthly total */
+.rg-build {
+  display: flex; flex-direction: column; height: 100%;
+  padding: clamp(22px, 2.6vw, 34px);
+  background: var(--cream);
+  border: 1.5px solid var(--navy);
+  border-radius: var(--r-xl);
+}
+.rg-build-kicker {
+  margin: 0 0 var(--s4);
+  font-family: var(--font-dm-mono), ui-monospace, monospace;
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--blue-ink);
+}
+.rg-build-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.rg-addon {
+  position: relative;
+  display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: start;
+  padding: 14px 16px;
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-lg);
+  cursor: pointer;
+  transition: border-color var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease);
+}
+.rg-addon:hover { border-color: var(--blue); }
+.rg-addon.is-on { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(11,140,235,0.16); }
+.rg-addon input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.rg-addon input:focus-visible ~ .rg-addon-box { outline: 2px solid var(--blue); outline-offset: 2px; }
+.rg-addon-box {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; margin-top: 1px;
+  border: 1.5px solid var(--navy); border-radius: 7px;
+  color: transparent; font-size: 13px; font-weight: 700;
+  transition: background var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+}
+.rg-addon.is-on .rg-addon-box { background: var(--blue); border-color: var(--blue); color: #fff; }
+.rg-addon-body { display: grid; gap: 3px; }
+.rg-addon-name { font-size: 15.5px; font-weight: 700; color: var(--navy); }
+.rg-addon-text { font-size: 13.5px; line-height: 1.5; color: var(--muted); }
+.rg-addon-price { font-size: 14.5px; font-weight: 700; color: var(--blue-ink); white-space: nowrap; }
+.rg-build-total { margin-top: var(--s5); padding-top: var(--s5); border-top: 2px solid var(--orange); flex: 1; }
+.rg-build-total-label { margin: 0; font-size: 14px; font-weight: 600; color: var(--muted); }
+.rg-build-total-num { margin: 6px 0 4px; font-size: clamp(48px, 4.4vw, 60px); line-height: 0.95; color: var(--navy); }
+.rg-build-total-num span { font-family: var(--font-dm-sans), sans-serif; font-size: 16px; font-weight: 600; color: var(--muted); margin-left: 4px; }
+.rg-build-total-note { margin: 0; font-size: 13.5px; color: var(--muted); }
+.rg-build-total-num s {
+  margin-right: 12px;
+  font-size: 0.55em;
+  color: var(--muted);
+  text-decoration-color: var(--orange);
+  text-decoration-thickness: 3px;
+}
+.rg-build-fine { margin: 10px 0 0; text-align: center; font-size: 12.5px; color: var(--muted); }
+.rg-build-nudge {
+  margin: var(--s4) 0 0;
+  padding: 12px 16px;
+  font-size: 14.5px; line-height: 1.55; color: var(--navy);
+  background: #FFF1E6;
+  border: 1px solid rgba(242,107,29,0.35);
+  border-radius: var(--r-md);
+}
+.rg-build-nudge strong { color: var(--orange-ink); }
+.rg-build-cta { gap: 8px; margin-top: var(--s5); background: var(--navy); color: var(--cream); }
+.rg-build-cta:hover { background: var(--blue); border-color: var(--blue); color: #fff; }
+
 @media (max-width: 900px) {
-  .rg-plan-grid { grid-template-columns: 1fr; }
+  .rg-plan-grid, .rg-plan-grid--build { grid-template-columns: 1fr; }
   .rg-plan-banner { border-radius: var(--r-lg); }
+  .rg-plan-head { margin-top: var(--s8); }
+}
+@media (max-width: 480px) {
+  .rg-addon { grid-template-columns: auto 1fr; }
+  .rg-addon-price { grid-column: 2; }
 }
 
 /* ── Contact page ── */

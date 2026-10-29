@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import PricingTabs from "@/components/PricingTabs";
+import PricingPlans from "@/components/PricingPlans";
 import PageHero from "@/components/PageHero";
 import FaqAccordion from "@/components/FaqAccordion";
 import InnerCTA from "@/components/InnerCTA";
@@ -23,28 +23,32 @@ export const metadata: Metadata = {
 
 const pricingFaqs = [
   {
+    q: "How does your pricing work?",
+    a: "Every plan starts with a website: Plant the Flag, $397/mo plus a one-time $499 build fee. From there you add only the jobs you want handed off: Local SEO & Google Profile ($200/mo), Content Crew ($650/mo) or Full Service Social ($1,250/mo), Ads Management ($300/mo), and Follow-Up & Automation ($200/mo). Or pick a bundle: Build the Machine ($899/mo) or Own the Market ($2,000/mo), which cost less than the same pieces bought separately.",
+  },
+  {
     q: "Do I have to sign a long-term contract?",
-    a: "No. All plans are month-to-month. We believe in earning your business every month, not locking you in. The only upfront costs are the one-time $499 build fee on Plant the Flag and the SEO Package, and the one-time activation fee on Build the Machine, which covers onboarding, setup, and getting everything configured.",
+    a: "No. All plans and add-ons are month-to-month. We believe in earning your business every month, not locking you in. The only upfront cost is the one-time $499 build fee on Plant the Flag. The bundles have no build or setup fee.",
   },
   {
-    q: "Is website design included in the price?",
-    a: "Yes, on Plant the Flag and the SEO Package. Both include a custom website we build, host, and keep updated, for a one-time $499 build fee. Build the Machine and Own the Market are marketing plans; if you need a new site on one of those, we quote it separately based on what you need.",
+    q: "Are there any setup or activation fees?",
+    a: "Only one: the one-time $499 build fee when you start with Plant the Flag on its own. Build the Machine and Own the Market include your website with no build fee and no setup fee. After that, you simply pay the flat monthly rate.",
   },
   {
-    q: "What is the activation fee?",
-    a: "Build the Machine includes a one-time $399 activation fee that covers onboarding, account setup, and configuring your systems. Own the Market has no activation fee. Plant the Flag and the SEO Package have a one-time $499 build fee instead. After activation, you simply pay the flat monthly rate.",
+    q: "What do the bundles save me?",
+    a: "Build the Machine is your website, Local SEO & Google Profile and Content Crew. Bought separately that's $1,247/mo; bundled it's $899/mo, a $348 monthly saving, and you skip the $499 build fee. Own the Market adds Full Service Social, ads on Google and Meta, follow-up and automation and a dedicated strategist for $2,000/mo, about $347 less than the pieces on their own.",
   },
   {
     q: "Does ad spend come out of the monthly fee?",
-    a: "No. On Build the Machine and Own the Market, ad management is included, but you fund the ad spend: Google and Meta bill you directly, and we manage the campaigns. Plant the Flag and the SEO Package do not include ads.",
+    a: "No. The Ads Management add-on and Own the Market cover running your campaigns, but you fund the ad spend: Google and Meta bill you directly, and we manage every dollar of it.",
   },
   {
-    q: "Can I upgrade or downgrade my plan?",
-    a: "Yes. Because every plan is month-to-month, you can move up or down as your needs change. Many clients start with Plant the Flag to get a website and lead system in place, then add the SEO Package or a marketing plan as they're ready to scale.",
+    q: "Can I add or drop add-ons later?",
+    a: "Yes. Because everything is month-to-month, you can add or drop an add-on, or move to a bundle, as your needs change. Many clients start with the website to get a lead system in place, then add SEO or content when they're ready to grow.",
   },
   {
-    q: "Which plan is right for my business?",
-    a: "Plant the Flag is ideal if you need a website that catches leads and one inbox to manage them. The SEO Package adds Google Business Profile and local SEO work so more of the right people find you. Build the Machine adds ads, automation, and social content for businesses ready to actively grow. Own the Market is full-service execution with a dedicated strategist. If you're unsure, contact us and we'll recommend the right fit.",
+    q: "Can I get social media without a website from you?",
+    a: "Yes. Content Crew and Full Service Social also work on their own, so you can keep your current website and just hand off your social media.",
   },
 ];
 
@@ -72,16 +76,17 @@ export default function PricingPage() {
               <span style={{ color: "var(--navy)" }}>For Less Than One Hire.</span>
             </>
           }
-          subtitle="Websites, Google, ads, follow-up and content, done for you, month-to-month. Transparent pricing, no long-term contracts and no hidden fees."
+          subtitle="Start with a website, add the jobs you want handed off, or bundle and save. Month-to-month, no long-term contracts and no hidden fees."
           crumbs={[{ name: "Home", path: "/" }, { name: "Pricing", path: "/pricing" }]}
         >
           <ul className="rg-about-proof">
             <li>From $397/mo</li>
             <li>No contracts</li>
+            <li>No setup fee on bundles</li>
             <li>Ad spend billed by Google &amp; Meta</li>
           </ul>
         </PageHero>
-        <PricingTabs />
+        <PricingPlans />
 
         <section style={{ padding: "88px 0", background: "var(--cream)" }}>
           <div style={{ maxWidth: 1140, margin: "0 auto", padding: "0 24px" }}>
