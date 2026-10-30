@@ -38,6 +38,59 @@ export interface Post {
 
 export const POSTS: Post[] = [
   {
+    slug: "ai-friday-first-consult-prep",
+    title: "AI Friday: What to Bring to Your First AI Consult",
+    metaTitle: "AI Friday: What to Bring to Your First AI Consult",
+    description:
+      "An AI Friday tip for Rio Grande Valley owners: the four things to gather before an AI consult so the first hour finds where AI pays off in your business.",
+    excerpt:
+      "The first step of any AI project is mapping how leads come in and where time gets lost. Here is the short list to bring so that hour is spent on answers.",
+    category: "AI Friday",
+    icon: "cpu",
+    datePublished: "2026-10-30",
+    dateModified: "2026-10-30",
+    readMinutes: 5,
+    tldr:
+      "Before an AI consult, bring four things: a list of where your leads come from, a note of where each one waits for a reply, the one chore your team repeats every week, and the tools you already use. That is enough to map where AI will actually help and where it will not.",
+    sections: [
+      { type: "p", text: "Over the last five AI Fridays we covered what to automate first, how to write a weekly task down, the receptionist answer sheet, build or hire, and the weekly check after launch. This week goes back to the very start: the first conversation, before anything is built." },
+      { type: "h2", text: "What happens in a first consult" },
+      { type: "p", text: "The first of our three steps is consult and audit. We sit down with you, map how leads come in and where time gets lost, and pick the few places where AI will actually move the needle. Plain answers, no hype. You get more out of that hour if you arrive with a few facts already written down. None of it needs to be polished." },
+      { type: "h2", text: "The four things to bring" },
+      { type: "ul", items: [
+        "Where your leads come from. Phone calls, website forms, texts, Google, Facebook, Instagram, referrals. List every door, even the small ones.",
+        "Where each lead waits. For each door, who sees it first, and how long can it sit? The missed call while the crew is on a job in Brownsville is the classic spot.",
+        "One chore your team repeats every week. A report, an inbox sort, a follow-up list. If you can describe the steps out loud, we can start from there.",
+        "The tools you already use. Your calendar, scheduling tool, website forms, lead sources, and lead management software. Most setups connect to what you already run.",
+      ]},
+      { type: "h2", text: "Why the waiting list matters most" },
+      { type: "p", text: "Most owners expect the consult to be about technology. It is mostly about waiting. A lead that waits a day for a reply is the easiest problem to see. That is why the highest-impact wins we start with are instant lead follow-up and missed-call capture, and why the AI Friday that started this series said to automate the lead answer first.", links: [{ text: "automate the lead answer first", href: "/blog/ai-friday-local-business-rgv" }] },
+      { type: "h2", text: "What you do not need to bring" },
+      { type: "ul", items: [
+        "A coding background. Our one-on-one sessions need none, and the consult does not either.",
+        "A tool already picked. We choose the right tool for the job and your budget, not one system for everyone.",
+        "A finished process. If two people on your team do the same job two ways, that is worth finding out in the room.",
+      ]},
+      { type: "h2", text: "What comes out of it" },
+      { type: "p", text: "You leave with a short list: the few places AI fits, and the ones to leave alone for now. From there you can build it yourself with us beside you, or have it built and connected to your tools. Most automations go live within one to three weeks, depending on scope." },
+      { type: "h2", text: "Your Friday homework" },
+      { type: "p", text: "Open a note on your phone and write the four lists. Fifteen minutes is plenty. If you want to turn the notes into a plan, see how our AI consulting and implementation works, or book a call and bring them with you.", links: [{ text: "AI consulting and implementation", href: "/services/ai-implementation" }, { text: "book a call", href: "/contact" }] },
+    ],
+    faqs: [
+      { q: "What should I prepare for an AI consultation?", a: "Bring a list of where your leads come from, where each one waits for a reply, one chore your team repeats every week, and the tools you already use. Rough notes are enough." },
+      { q: "Do I need to be tech-savvy to book an AI consult?", a: "No. We handle the setup, the integrations, and the ongoing management. You just tell us how your business runs." },
+      { q: "What happens after the first consult?", a: "You get a short list of where AI fits in your business. From there you can build with us one-on-one or have the automation built for you. Most automations go live within one to three weeks." },
+      { q: "Will AI work with the software I already use?", a: "In most cases, yes. We integrate with existing lead management software, calendars, scheduling tools, forms, and lead sources." },
+    ],
+    related: [
+      { href: "/blog/ai-friday-local-business-rgv", label: "AI Friday: What to Automate First" },
+      { href: "/blog/ai-friday-automate-weekly-task", label: "AI Friday: Write the Weekly Task Down First" },
+      { href: "/blog/ai-friday-after-launch-checkup", label: "AI Friday: The After-Launch Check-Up" },
+      { href: "/services/ai-implementation", label: "AI Consulting & Implementation" },
+      { href: "/contact", label: "Book a Call" },
+    ],
+  },
+  {
     slug: "ai-workflow-automation-examples-mcallen",
     title: "AI Workflow Automation in McAllen: 6 Examples for Local Businesses",
     metaTitle: "AI Workflow Automation in McAllen, TX: 6 Examples",
