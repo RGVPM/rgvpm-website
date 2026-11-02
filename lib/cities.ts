@@ -155,6 +155,7 @@ export const cities: City[] = [
         },
       ],
       nearby: [
+        { href: "/digital-marketing-mcallen-tx", label: "Digital marketing in McAllen" },
         { href: "/local-seo-mcallen-tx", label: "Local SEO in McAllen" },
         { href: "/google-business-profile-mcallen-tx", label: "Google Business Profile optimization in McAllen" },
         { href: "/google-ads-management-mcallen-tx", label: "Google Ads management in McAllen" },
@@ -234,6 +235,7 @@ export const cities: City[] = [
         },
       ],
       nearby: [
+        { href: "/digital-marketing-brownsville-tx", label: "Digital marketing in Brownsville" },
         { href: "/local-seo-brownsville-tx", label: "Brownsville SEO services" },
         { href: "/google-business-profile-brownsville-tx", label: "Google Business Profile optimization in Brownsville" },
         { href: "/google-ads-management-brownsville-tx", label: "Google Ads management in Brownsville" },

@@ -5,6 +5,7 @@ import { citySlugs, webDesignCityPath, aiCityPath, aiCityIndexable } from "@/lib
 import { localSeoCityPath, LOCAL_SEO_CITIES } from "@/lib/localSeo";
 import { googleAdsCityPath, googleAdsCityIndexable, GOOGLE_ADS_CITIES } from "@/lib/googleAds";
 import { gbpCityPath, gbpCityIndexable, GBP_CITIES } from "@/lib/gbp";
+import { digitalMarketingCityPath, digitalMarketingCitySlugs } from "@/lib/digitalMarketing";
 import { POSTS } from "@/lib/posts";
 
 /**
@@ -64,11 +65,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: PAGES_LAST_MODIFIED,
   }));
 
+  // Full-service digital marketing city pages (added 2026-10-19).
+  const digitalMarketingPages = digitalMarketingCitySlugs.map((slug) => ({
+    url: `${SITE.url}${digitalMarketingCityPath(slug)}`,
+    lastModified: "2026-10-19",
+  }));
+
   // Blog posts: the post's own modified date (falls back to published).
   const posts = POSTS.map((p) => ({
     url: `${SITE.url}/blog/${p.slug}`,
     lastModified: p.dateModified || p.datePublished,
   }));
 
-  return [...pages, ...posts];
+  return [...pages, ...digitalMarketingPages, ...posts];
 }

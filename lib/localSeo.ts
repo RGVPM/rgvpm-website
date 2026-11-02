@@ -165,6 +165,7 @@ export const LOCAL_SEO_CITIES: Record<string, LocalSeoCity> = {
       { q: "Should I run Google Ads in McAllen while SEO builds?", a: "If you need calls this month, yes. Google Ads can put you at the top of McAllen searches within days, while local SEO takes a few months to build. Many businesses run both, then lean more on SEO as rankings grow." },
     ],
     nearby: [
+      { href: "/digital-marketing-mcallen-tx", label: "Digital marketing in McAllen" },
       { href: "/website-design-mcallen-tx", label: "Web design in McAllen" },
       { href: "/google-business-profile-mcallen-tx", label: "Google Business Profile optimization in McAllen" },
       { href: "/google-ads-management-mcallen-tx", label: "Google Ads management in McAllen" },
@@ -204,6 +205,7 @@ export const LOCAL_SEO_CITIES: Record<string, LocalSeoCity> = {
       { q: "Should I run ads in Brownsville while SEO builds?", a: "If you need calls this month, yes. Google Ads can put you at the top of Brownsville searches within days, while local SEO takes a few months to build. Many businesses run both, then lean more on SEO as rankings grow and the cost per lead drops." },
     ],
     nearby: [
+      { href: "/digital-marketing-brownsville-tx", label: "Digital marketing in Brownsville" },
       { href: "/google-business-profile-brownsville-tx", label: "Google Business Profile optimization in Brownsville" },
       { href: "/website-design-brownsville-tx", label: "Website design in Brownsville" },
       { href: "/google-ads-management-brownsville-tx", label: "Google Ads management in Brownsville" },
