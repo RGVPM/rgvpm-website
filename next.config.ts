@@ -11,6 +11,9 @@ const nextConfig: NextConfig = {
       // VBS Hair Show VIP offer (Oct 2026): a self-contained HTML page in
       // public/, served at a clean URL. Built in rgv-marketing vip-landing-v3.
       { source: "/vbs-offer", destination: "/vbs-offer.html" },
+      // "One team, one bill" page for practices (Nov 2026), sent to past
+      // medspa clients nationwide. Built in rgv-marketing practice-landing.
+      { source: "/practices", destination: "/practices.html" },
     ];
   },
   async redirects() {
