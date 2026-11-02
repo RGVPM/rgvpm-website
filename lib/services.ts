@@ -1,4 +1,8 @@
 import type { IconName } from "@/components/Icon";
+import type { PLANS } from "@/lib/site";
+
+/** A plan name exactly as it appears in PLANS, so prices are always read from lib/site.ts. */
+export type PlanName = (typeof PLANS)[number]["name"];
 
 export interface ServiceFAQ {
   q: string;
@@ -35,6 +39,10 @@ export interface Service {
   includes: string[];
   /** Cheapest plan that includes this service. */
   startsAt: { plan: string; price: string; note?: string };
+  /** Which plan fits whom. Prices are looked up from PLANS, never typed here. */
+  planFit?: { heading: string; intro: string; rows: { plan: PlanName; fit: string }[] };
+  /** Guides and pages that go deeper on this service. */
+  reading?: { href: string; label: string }[];
 }
 
 export const services: Service[] = [
@@ -44,7 +52,7 @@ export const services: Service[] = [
     shortName: "Local SEO",
     cardTitle: "Local SEO",
     cardText:
-      "Rank higher in Google searches for your city and service area. We handle on-page optimization, content, and link building so you get found — and stay found.",
+      "Rank higher in Google searches for your city and service area. We handle on-page optimization, content, and link building so you get found and stay found.",
     cardFeatures: [
       "On-page SEO & keyword targeting",
       "Local content creation",
@@ -68,8 +76,10 @@ export const services: Service[] = [
     whatItIs: {
       heading: "What is local SEO?",
       body: [
-        "Local SEO is the practice of optimizing your website and online presence so your business ranks in local search results — the map pack, the \"near me\" searches, and the city-and-service queries your customers actually type. It's how a service business shows up before the competition when it matters most.",
-        "As a local SEO company, we focus on the signals Google uses to rank local businesses: relevant on-page content, consistent business information across the web, genuine reviews, and authoritative links. Done right, local search optimization compounds — the traffic keeps growing long after the work is done.",
+        "Local SEO is the practice of optimizing your website and online presence so your business ranks in local search results: the map pack, the \"near me\" searches, and the city-and-service queries your customers actually type. It's how a service business shows up before the competition when it matters most.",
+        "As a local SEO company, we focus on the signals Google uses to rank local businesses: relevant on-page content, consistent business information across the web, genuine reviews, and authoritative links. Done right, local search optimization compounds, and the traffic keeps growing long after the work is done.",
+        "In the Rio Grande Valley, local SEO also means covering more than one city. Someone searching in McAllen and someone searching in Harlingen see different map results for the same service, and plenty of them search in Spanish. We build a page for each service and each city you actually serve, in English and Spanish where it fits, so Google can match you to the right search in the right place.",
+        "Local SEO is also how AI answers find you. When someone asks ChatGPT, Google's AI Overviews or Perplexity for a business like yours nearby, those tools lean on the same signals: clear service pages, consistent business details and reviews. The work that helps you rank on Google helps you get named in AI answers too.",
       ],
     },
     howWeDoIt: {
@@ -79,7 +89,7 @@ export const services: Service[] = [
       steps: [
         {
           title: "Keyword & competitor research",
-          text: "We map the searches your customers use and study who currently ranks for them — so we target terms you can realistically win and that actually drive booked work.",
+          text: "We map the searches your customers use and study who currently ranks for them, so we target terms you can realistically win and that actually drive booked work.",
         },
         {
           title: "On-page optimization",
@@ -113,19 +123,27 @@ export const services: Service[] = [
       },
       {
         q: "What's the difference between local SEO and regular SEO?",
-        a: "Local SEO focuses on ranking for searches tied to a place — \"plumber in Harlingen\" or \"med spa near me\" — and on the Google map pack. Regular SEO targets broader, non-geographic terms. For a business that serves customers in a defined area, local search optimization is where nearly all the high-intent traffic lives.",
+        a: "Local SEO focuses on ranking for searches tied to a place, like \"plumber in Harlingen\" or \"med spa near me\", and on the Google map pack. Regular SEO targets broader, non-geographic terms. For a business that serves customers in a defined area, local search optimization is where nearly all the high-intent traffic lives.",
       },
       {
         q: "Do you guarantee first-page rankings?",
         a: "No reputable local SEO company can guarantee a specific ranking, because Google's algorithm isn't ours to control. What we guarantee is a disciplined process, honest reporting, and steady, measurable progress on the keywords that drive booked work for your business.",
       },
       {
-        q: "Is website design included in local SEO?",
-        a: "Website design is a separate service on all of our plans. We optimize the site you have, and if you need a new or rebuilt site, we'll quote that separately so your plan pricing stays clean and predictable.",
+        q: "Do I need a website from you to get local SEO?",
+        a: "Yes. Local SEO & Google Profile is an add-on to Plant the Flag, the website we build, host and maintain for you. That gives us control of the titles, pages, speed and schema that local rankings depend on. Adding Local SEO also waives the one-time $399 build fee on the website.",
+      },
+      {
+        q: "What will I see in the monthly report?",
+        a: "A plain-English summary of what we worked on that month, how your priority searches and your Google profile are trending, and what we're doing next. No jargon, and you can ask us about any line in it.",
       },
       {
         q: "Can you do local SEO in both English and Spanish?",
         a: "Yes. Bilingual content is available on every plan, which is a real advantage in the Rio Grande Valley and other bilingual markets. Ranking for Spanish-language searches often means far less competition and a customer base your competitors are ignoring.",
+      },
+      {
+        q: "Can I cancel local SEO if it isn't working for me?",
+        a: "Yes. Every plan and add-on is month-to-month, so you can drop Local SEO & Google Profile at any time. We would rather earn your business every month with honest reporting than lock you into a contract.",
       },
     ],
     related: ["google-business-profile", "paid-advertising", "social-media-newsletter"],
@@ -138,6 +156,21 @@ export const services: Service[] = [
       "Monthly report: what moved, what's next",
     ],
     startsAt: { plan: "the Local SEO & Google Profile add-on", price: "$397/mo", note: "on top of your $397/mo website, or included in Build the Machine ($997/mo)" },
+    planFit: {
+      heading: "Which plan fits",
+      intro: "Local SEO is an add-on to your website, or part of a bundle. Here is how to pick.",
+      rows: [
+        { plan: "Local SEO & Google Profile add-on", fit: "The usual pick. Added to your website, it covers your Google Business Profile, city and service pages, on-page cleanup, monthly content and a monthly report." },
+        { plan: "Build the Machine (bundle)", fit: "Local SEO plus Content Crew, so your Google profile and social feeds get fresh reels and posts every week. Pick this if you also want social handled." },
+        { plan: "Own the Market (bundle)", fit: "Local SEO, ads on Google and Meta, Full Service Social and a dedicated strategist. For businesses competing in several cities at once." },
+      ],
+    },
+    reading: [
+      { href: "/blog/how-much-does-seo-cost-rio-grande-valley", label: "How much does SEO cost in the RGV?" },
+      { href: "/blog/local-seo-vs-regular-seo", label: "Local SEO vs. regular SEO" },
+      { href: "/blog/how-to-rank-higher-google-maps-rio-grande-valley", label: "How to rank higher on Google Maps" },
+      { href: "/blog/local-seo-brownsville-tx-checklist", label: "Brownsville local SEO checklist" },
+    ],
   },
   {
     slug: "google-business-profile",
@@ -169,8 +202,9 @@ export const services: Service[] = [
     whatItIs: {
       heading: "What is Google Business Profile optimization?",
       body: [
-        "Your Google Business Profile is the listing that appears in Google Maps and the local \"map pack\" — the three businesses Google features above the regular results. For local service businesses, this single listing often drives more calls and direction requests than the website itself.",
+        "Your Google Business Profile is the listing that appears in Google Maps and the local \"map pack\", the three businesses Google features above the regular results. For local service businesses, this single listing often drives more calls and direction requests than the website itself.",
         "Google Business Profile optimization means filling out every field correctly, choosing the right categories, posting regularly, generating a steady flow of reviews, and keeping your name, address, and phone number perfectly consistent everywhere they appear online. These are the signals that decide who wins the map pack.",
+        "For a service-area business in the Valley, the profile also tells Google which cities you cover. If you drive to customers instead of having them come to you, you can hide your street address and list the cities you serve, such as Harlingen, McAllen and Brownsville. Getting that setting right matters, because a wrong pin or service area can show your listing in the wrong place.",
       ],
     },
     howWeDoIt: {
@@ -180,7 +214,7 @@ export const services: Service[] = [
       steps: [
         {
           title: "Full profile setup & optimization",
-          text: "We complete and optimize every section — categories, services, attributes, hours, photos, and description — so Google has every reason to rank you and customers have every reason to choose you.",
+          text: "We complete and optimize every section (categories, services, attributes, hours, photos, and description) so Google has every reason to rank you and customers have every reason to choose you.",
         },
         {
           title: "NAP audit & citation cleanup",
@@ -188,7 +222,7 @@ export const services: Service[] = [
         },
         {
           title: "Review generation automation",
-          text: "We set up automated review requests so happy customers leave reviews consistently — the single strongest lever for both ranking and trust.",
+          text: "We set up automated review requests so happy customers leave reviews consistently. Reviews are one of the strongest levers for both ranking and trust.",
         },
         {
           title: "Ongoing posts & monitoring",
@@ -217,7 +251,7 @@ export const services: Service[] = [
       },
       {
         q: "Why does NAP consistency matter?",
-        a: "NAP stands for Name, Address, and Phone number. When these differ across directories — an old suite number, a former phone line — Google loses confidence in which information is correct, and your ranking suffers. We audit and standardize your NAP everywhere it appears so the signals all point the same direction.",
+        a: "NAP stands for Name, Address, and Phone number. When these differ across directories, like an old suite number or a former phone line, Google loses confidence in which information is correct, and your ranking suffers. We audit and standardize your NAP everywhere it appears so the signals all point the same direction.",
       },
       {
         q: "Can you fix a suspended or duplicate listing?",
@@ -225,7 +259,15 @@ export const services: Service[] = [
       },
       {
         q: "Is Google Business Profile optimization a one-time job?",
-        a: "Initial optimization is a one-time setup, but profiles perform best with ongoing attention — fresh posts, new photos, a steady review flow, and monitoring for changes. That's why it's built into our monthly plans rather than sold as a single project.",
+        a: "Initial optimization is a one-time setup, but profiles perform best with ongoing attention: fresh posts, new photos, a steady review flow, and monitoring for changes. That's why it's part of the monthly Local SEO & Google Profile add-on rather than sold as a single project.",
+      },
+      {
+        q: "Can I show up in the map pack in a city where I don't have an office?",
+        a: "It's harder, and anyone who promises it is guessing. Google weighs distance, relevance and prominence, so map results favor businesses close to the searcher. Setting your service area correctly, earning reviews that mention the cities you serve, and having a page on your website for each city all help. Those city pages also help you show up in the regular results below the map.",
+      },
+      {
+        q: "How soon will profile changes show results?",
+        a: "Google Business Profile fixes often show results within 30 days, faster than most SEO work. Reviews and regular posts keep building on that over the following months, and we report what moved every month.",
       },
     ],
     related: ["local-seo", "lead-management", "paid-advertising"],
@@ -238,6 +280,20 @@ export const services: Service[] = [
       "Ongoing monitoring",
     ],
     startsAt: { plan: "the Local SEO & Google Profile add-on", price: "$397/mo", note: "on top of your $397/mo website, or included in Build the Machine ($997/mo)" },
+    planFit: {
+      heading: "Which plan fits",
+      intro: "Your Google profile is managed as part of the Local SEO & Google Profile add-on, or inside a bundle.",
+      rows: [
+        { plan: "Local SEO & Google Profile add-on", fit: "Profile setup and management, review requests, posts and photos, plus the city and service pages that back the profile up. Added to your website." },
+        { plan: "Build the Machine (bundle)", fit: "Everything above plus Content Crew, so your profile gets fresh photos and posts from the reels we edit each week." },
+        { plan: "Own the Market (bundle)", fit: "Everything above plus ads on Google and Meta, Full Service Social with a monthly on-site shoot, and a dedicated strategist." },
+      ],
+    },
+    reading: [
+      { href: "/blog/google-business-profile-checklist-rio-grande-valley", label: "Google Business Profile checklist for RGV businesses" },
+      { href: "/blog/how-to-rank-higher-google-maps-rio-grande-valley", label: "How to rank higher on Google Maps" },
+      { href: "/services/local-seo", label: "Local SEO services" },
+    ],
   },
   {
     slug: "paid-advertising",
@@ -245,7 +301,7 @@ export const services: Service[] = [
     shortName: "Paid Advertising",
     cardTitle: "Paid Advertising",
     cardText:
-      "Google and Meta campaigns built for ROI — not just impressions. We track every lead and optimize constantly.",
+      "Google and Meta campaigns built for ROI, not just impressions. We track every lead and optimize constantly.",
     cardFeatures: [
       "Google Search & Display Ads",
       "Facebook & Instagram Ads",
@@ -253,7 +309,7 @@ export const services: Service[] = [
     ],
     metaTitle: "Paid Advertising: Google & Meta Ads Management",
     metaDescription:
-      "ROI-focused Google and Facebook ads management for local businesses. We build, track, and optimize campaigns around leads — not vanity metrics.",
+      "ROI-focused Google and Facebook ads management for local businesses. We build, track, and optimize campaigns around leads, not vanity metrics.",
     primaryKeyword: "paid advertising management",
     keywordCluster: [
       "paid advertising management",
@@ -269,8 +325,9 @@ export const services: Service[] = [
     whatItIs: {
       heading: "What is paid advertising management?",
       body: [
-        "Paid advertising management is the build, tracking, and ongoing optimization of your ad campaigns on platforms like Google Search, Google Display, Facebook, and Instagram. It's how you put your business in front of high-intent customers immediately — without waiting for SEO to compound.",
-        "The difference between ads that drain a budget and ads that print leads is management. We set up conversion tracking from day one, write and test creative, tune targeting, and cut what isn't working — so your spend concentrates on the campaigns that actually book appointments.",
+        "Paid advertising management is the build, tracking, and ongoing optimization of your ad campaigns on platforms like Google Search, Google Display, Facebook, and Instagram. It's how you put your business in front of high-intent customers right away, without waiting for SEO to compound.",
+        "The difference between ads that drain a budget and ads that print leads is management. We set up conversion tracking from day one, write and test creative, tune targeting, and cut what isn't working, so your spend concentrates on the campaigns that actually book appointments.",
+        "Ads only pay off when the page and the follow-up are ready. A click that lands on a slow page, or a lead that waits hours for a reply, is money spent for nothing. That's why ads run on top of your website plan: the landing page, the call and form tracking, and the lead inbox that replies to every new lead in seconds are already in place before the first dollar is spent.",
       ],
     },
     howWeDoIt: {
@@ -284,7 +341,7 @@ export const services: Service[] = [
         },
         {
           title: "Campaign build & creative",
-          text: "We build Google Search, Display, Facebook, and Instagram campaigns with copy and creative written to convert — not just to look good.",
+          text: "We build Google Search, Display, Facebook, and Instagram campaigns with copy and creative written to convert, not just to look good.",
         },
         {
           title: "Retargeting",
@@ -292,7 +349,7 @@ export const services: Service[] = [
         },
         {
           title: "Constant optimization",
-          text: "We watch the numbers continuously, shift budget to winners, pause losers, and report on leads, calls, and cost per result — never just impressions.",
+          text: "We watch the numbers continuously, shift budget to winners, pause losers, and report on leads, calls, and cost per result, never just impressions.",
         },
       ],
     },
@@ -309,7 +366,7 @@ export const services: Service[] = [
     faqs: [
       {
         q: "Does my ad spend come out of the monthly fee?",
-        a: "No. Ad management is included in your plan, but the actual spend — what you pay Google or Meta to run the ads — is a separate budget billed directly to you by the platform. We help you set the right budget and manage every dollar of it; you fund the account.",
+        a: "No. The Ads Management add-on (or Own the Market) covers building and running your campaigns. The ad spend itself, what you pay Google or Meta to show the ads, is a separate budget the platform bills to you directly. We help you set the right budget and manage every dollar of it; you fund the account.",
       },
       {
         q: "How quickly will paid ads generate leads?",
@@ -317,15 +374,23 @@ export const services: Service[] = [
       },
       {
         q: "Should I run Google Ads or Facebook Ads?",
-        a: "It depends on your business. Google Ads capture people actively searching for what you offer, which usually means higher intent. Facebook and Instagram ads are powerful for awareness, retargeting, and visual offers. We recommend the right mix based on your goals, and our higher plans run both together.",
+        a: "It depends on your business. Google Ads capture people actively searching for what you offer, which usually means higher intent. Facebook and Instagram ads are powerful for awareness, retargeting, and visual offers. We recommend the right mix based on your goals. The Ads Management add-on runs Google or Meta; Own the Market runs both together.",
       },
       {
         q: "How do you measure whether the ads are working?",
-        a: "We track conversions — leads, calls, and form fills — not vanity metrics like impressions or clicks alone. You get reporting that shows how many leads each campaign produced and what they cost, so you always know the return on your spend.",
+        a: "We track conversions (leads, calls, and form fills), not vanity metrics like impressions or clicks alone. You get reporting that shows how many leads each campaign produced and what they cost, so you always know the return on your spend.",
       },
       {
         q: "What's a realistic ad budget to start with?",
         a: "It varies by industry and how competitive your local market is. We'll recommend a starting budget based on your goals and the cost of leads in your area, then scale up the campaigns that prove they convert. The aim is always profitable growth, not spending for the sake of it.",
+      },
+      {
+        q: "Can you run ads in Spanish?",
+        a: "Yes. Bilingual content is available on every plan, and in the Rio Grande Valley a Spanish ad and landing page can reach customers your competitors' English-only ads miss. We'll tell you where Spanish is worth testing for your business.",
+      },
+      {
+        q: "Can I start with ads and add SEO later?",
+        a: "Yes. Everything is month-to-month, so many businesses start with ads for leads now and add Local SEO & Google Profile later, so over time more of their leads come from free search results instead of paid clicks.",
       },
     ],
     related: ["local-seo", "lead-management", "social-media-newsletter"],
@@ -338,6 +403,20 @@ export const services: Service[] = [
       "Reports on leads and cost per lead",
     ],
     startsAt: { plan: "the Ads Management add-on", price: "$497/mo", note: "on top of your $397/mo website; ad spend is billed by Google and Meta directly" },
+    planFit: {
+      heading: "Which plan fits",
+      intro: "Ads are an add-on to your website, or part of Own the Market. Ad spend is always billed by Google or Meta directly.",
+      rows: [
+        { plan: "Plant the Flag (website)", fit: "The base every ads client needs: a fast landing page, call and form tracking, and a lead inbox that texts every new lead back." },
+        { plan: "Ads Management add-on", fit: "Google or Meta ads built and managed for you on top of your website, with reports on leads and cost per lead." },
+        { plan: "Own the Market (bundle)", fit: "Ads on Google and Meta together, plus Local SEO, Full Service Social and a dedicated strategist." },
+      ],
+    },
+    reading: [
+      { href: "/blog/how-much-do-google-ads-cost-rio-grande-valley", label: "How much do Google Ads cost in the RGV?" },
+      { href: "/services/lead-management", label: "Lead management and follow-up" },
+      { href: "/services/local-seo", label: "Local SEO services" },
+    ],
   },
   {
     slug: "lead-management",
@@ -373,9 +452,10 @@ export const services: Service[] = [
     whatItIs: {
       heading: "What is lead management with SMS & email?",
       body: [
-        "Lead management is the system that captures every inquiry your marketing generates and moves it toward a booked appointment — automatically. Instead of leads landing in scattered inboxes, voicemails, and sticky notes, every prospect enters one organized pipeline where nothing falls through the cracks.",
+        "Lead management is the system that captures every inquiry your marketing generates and moves it toward a booked appointment, automatically. Instead of leads landing in scattered inboxes, voicemails, and sticky notes, every prospect enters one organized pipeline where nothing falls through the cracks.",
         "Paired with marketing automation, it means new leads get an instant response, follow-ups happen on schedule without anyone remembering to send them, and appointments get booked while interest is still hot. Speed-to-lead is one of the biggest predictors of whether an inquiry turns into a customer, and automation is how you win it every time.",
         "It also covers two-way texting and email. When someone texts your business number or replies to an email, it lands in the same inbox and anyone on your team can answer. On top of that, broadcast campaigns send promos, announcements and seasonal offers to your whole list, the most direct way to bring past clients back.",
+        "Missed calls are covered too. If you can't pick up, the caller gets a text back automatically, so the conversation keeps going instead of the lead calling the next business on the list. For a busy owner on a job site, that one feature keeps leads from slipping away.",
       ],
     },
     howWeDoIt: {
@@ -415,11 +495,11 @@ export const services: Service[] = [
     faqs: [
       {
         q: "Why does speed-to-lead matter so much?",
-        a: "Because the business that responds first usually wins the customer. Inquiries go cold fast, and prospects often contact several businesses at once. Automated instant response means you reach every lead within seconds — while their interest is highest and before a competitor gets there — without anyone on your team having to drop what they're doing.",
+        a: "Because the business that responds first usually wins the customer. Inquiries go cold fast, and prospects often contact several businesses at once. Automated instant response means you reach every lead within seconds, while their interest is highest and before a competitor gets there, without anyone on your team having to drop what they're doing.",
       },
       {
         q: "What does the lead pipeline dashboard show me?",
-        a: "It gives you one view of every lead and exactly where each one stands — new, contacted, booked, or won. Instead of inquiries scattered across inboxes and voicemails, you see the full picture at a glance, so nothing gets forgotten and you know precisely what your marketing is producing.",
+        a: "It gives you one view of every lead and exactly where each one stands: new, contacted, booked, or won. Instead of inquiries scattered across inboxes and voicemails, you see the full picture at a glance, so nothing gets forgotten and you know precisely what your marketing is producing.",
       },
       {
         q: "Can it book appointments automatically?",
@@ -427,11 +507,11 @@ export const services: Service[] = [
       },
       {
         q: "Will this replace my team?",
-        a: "No — it makes your team far more effective. Automation handles the repetitive, time-sensitive work: instant replies, scheduled follow-ups, reminders. Your people focus on the conversations that actually need a human, instead of losing leads to tasks that should have happened automatically.",
+        a: "No. It makes your team far more effective. Automation handles the repetitive, time-sensitive work: instant replies, scheduled follow-ups, reminders. Your people focus on the conversations that actually need a human, instead of losing leads to tasks that should have happened automatically.",
       },
       {
         q: "What does \"two-way SMS\" actually mean?",
-        a: "It means you can have real back-and-forth text conversations with leads and customers from your business number, all in one inbox. When someone texts you, you see it and reply — just like a normal conversation, but organized so nothing gets lost and anyone on your team can pick it up.",
+        a: "It means you can have real back-and-forth text conversations with leads and customers from your business number, all in one inbox. When someone texts you, you see it and reply, just like a normal conversation, but organized so nothing gets lost and anyone on your team can pick it up.",
       },
       {
         q: "Can I send promotions to my whole customer list?",
@@ -443,7 +523,15 @@ export const services: Service[] = [
       },
       {
         q: "What's the difference between this and the newsletter?",
-        a: "The newsletter is a planned monthly piece of content sent to your email list. Lead management with two-way SMS and email is the broader communication system — real-time conversations, broadcast blasts, and automated follow-up. Many clients use both: the newsletter for steady value, broadcasts and automations for timely offers and fast lead response.",
+        a: "The newsletter is a planned monthly piece of content sent to your email list. Lead management with two-way SMS and email is the broader communication system: real-time conversations, broadcast blasts, and automated follow-up. Many clients use both: the newsletter for steady value, broadcasts and automations for timely offers and fast lead response.",
+      },
+      {
+        q: "What happens when I miss a call?",
+        a: "The caller gets an automatic text back from your business number, so they know you saw the call and can reply by text. The conversation lands in the same inbox as everything else, and anyone on your team can pick it up.",
+      },
+      {
+        q: "Do I have to buy lead management separately?",
+        a: "No. The lead inbox and automatic text and email follow-up come with every website plan, starting with Plant the Flag. Every add-on and bundle builds on top of it.",
       },
     ],
     related: ["paid-advertising", "social-media-newsletter", "google-business-profile"],
@@ -456,6 +544,20 @@ export const services: Service[] = [
       "Online booking with reminders",
     ],
     startsAt: { plan: "Plant the Flag", price: "$397/mo", note: "lead inbox and automatic text & email follow-up included" },
+    planFit: {
+      heading: "Which plan fits",
+      intro: "Lead management comes with every website plan. The add-ons bring in more leads for it to catch.",
+      rows: [
+        { plan: "Plant the Flag (website)", fit: "Everything on this page: one inbox, instant replies, missed-call text back, two-way texting, campaigns and booking reminders, on a website we build and host." },
+        { plan: "Ads Management add-on", fit: "A natural pair. Every lead from your Google or Meta ads lands in the same inbox and gets an instant reply." },
+        { plan: "Build the Machine (bundle)", fit: "The website and lead inbox plus Local SEO & Google Profile and Content Crew, for more people finding you and reaching out." },
+      ],
+    },
+    reading: [
+      { href: "/services/ai-implementation", label: "AI implementation for small business" },
+      { href: "/blog/ai-friday-ai-receptionist-answer-sheet", label: "AI receptionist answer sheet" },
+      { href: "/services/paid-advertising", label: "Paid advertising management" },
+    ],
   },
   {
     slug: "social-media-newsletter",
@@ -463,7 +565,7 @@ export const services: Service[] = [
     shortName: "Social Media & Newsletter",
     cardTitle: "Social Media & Newsletter",
     cardText:
-      "Stay top of mind with consistent social content and a monthly newsletter your customers actually want to read. You pick the topics — we handle the rest.",
+      "Stay top of mind with consistent social content and a monthly newsletter your customers actually want to read. You pick the topics, we handle the rest.",
     cardFeatures: [
       "Social media planner & scheduler",
       "Monthly newsletter (you pick the topic)",

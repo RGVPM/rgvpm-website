@@ -2513,6 +2513,9 @@ a:hover > .rg-brandmark img,
 .rg-hat--navy .rg-hat-text { color: rgba(253,248,236,0.8); }
 .rg-hat--navy .rg-hat-pill { background: var(--orange); color: #fff; }
 
+/* Service pages: "Which plan fits" cards, three across */
+.rg-plan-fit { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
 @media (max-width: 900px) {
   .rg-svc-split { grid-template-columns: 1fr; }
   .rg-fit-grid { grid-template-columns: 1fr; }
