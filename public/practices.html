@@ -542,7 +542,7 @@ footer a:hover{color:var(--on-dark)}
       <article class="plan rv d2"><div class="core">
         <h3>Own the Market</h3>
         <p class="for">We run all of it.</p>
-        <div class="amt-big"><strong data-base="2497">$2,497</strong><span>/mo</span></div>
+        <div class="amt-big"><strong data-base="1497">$1,497</strong><span>/mo</span></div>
         <p class="sub">Replaces your whole agency pile</p>
         <ul>
           <li><svg><use href="#check"/></svg>Everything in Build the Machine</li>
@@ -551,7 +551,7 @@ footer a:hover{color:var(--on-dark)}
           <li><svg><use href="#check"/></svg>A dedicated strategist</li>
           <li class="emr-li"><svg><use href="#check"/></svg>EMR account management</li>
         </ul>
-        <a class="btn" href="/api/checkout?plan=market">Own the market</a>
+        <a class="btn" href="https://api.rgvperformancemarketing.com/widget/bookings/rgvpmdiscoverycall" target="_blank" rel="noopener">Book a call</a>
       </div></article>
     </div>
     <div class="dots" id="dots" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
@@ -647,7 +647,7 @@ footer a:hover{color:var(--on-dark)}
   var money = function(n){ return "$" + Math.round(n).toLocaleString("en-US"); };
 
   /* Prices mirror rgvperformancemarketing.com/pricing. */
-  var P = {site:397, seo:397, social:1497, ads:497, emr:249, machine:997, market:2497, buildFee:399};
+  var P = {site:397, seo:397, social:1497, ads:497, emr:249, machine:997, market:1497, buildFee:399};
 
   // Plan cards: dots follow the swipe on phones; start on the featured plan.
   var plans = document.getElementById("plans"), dots = document.querySelectorAll("#dots i"), cards = plans.querySelectorAll(".plan");
@@ -680,12 +680,13 @@ footer a:hover{color:var(--on-dark)}
     // Follow-up tools come with every website, so they only add the base.
     var any = on.site || on.seo || on.social || on.ads || on.tools;
     var extras = [], total = 0, name = "";
-    if (on.seo && on.social && on.ads){ total = P.market; name = "Own the Market"; }
-    else if (any){
+    if (any){
       total = P.site; name = "Plant the Flag";
       if (on.seo){ total += P.seo; extras.push("Local SEO"); }
       if (on.social){ total += P.social; extras.push("Full Service Social"); }
       if (on.ads){ total += P.ads; extras.push("Ads Management"); }
+      // Own the Market covers all of it, so use it whenever it costs less.
+      if (P.market < total){ total = P.market; name = "Own the Market"; extras = []; }
     }
     if (on.emr){ total += P.emr; extras.push("EMR management"); }
     return {total:total, label:[name].concat(extras).filter(Boolean).join(" + ")};
