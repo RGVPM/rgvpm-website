@@ -163,7 +163,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
           </header>
 
           <div className="rg-acover">
-            <PostCover slug={post.slug} category={post.category} sizes="(max-width: 1239px) 100vw, 1180px" priority />
+            <PostCover slug={post.slug} category={post.category} sizes="(max-width: 980px) 100vw, 920px" priority />
           </div>
 
           <div className="rg-alayout">
