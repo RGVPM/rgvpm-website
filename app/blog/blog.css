@@ -173,10 +173,11 @@
 .rg-acover {
   overflow: hidden;
   max-width: 1180px;
-  aspect-ratio: 3 / 1;
+  aspect-ratio: 5 / 2;
   margin-inline: auto;
   border-radius: var(--r-xl);
 }
+.rg-acover .rg-cover { object-position: 50% 35%; }
 
 /* ── Article body ── */
 .rg-alayout {
