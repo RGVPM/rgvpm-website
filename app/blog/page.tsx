@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import BlogIndex from "@/components/BlogIndex";
-import PageHero from "@/components/PageHero";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import InnerCTA from "@/components/InnerCTA";
 import JsonLd from "@/components/JsonLd";
 import { canonical, breadcrumbSchema, founderRef, SITE, ORGANIZATION_ID, socialMeta } from "@/lib/site";
@@ -53,36 +53,30 @@ export default function BlogPage() {
         ]}
       />
       <main>
-        <PageHero
-          tone="blue"
-          eyebrow="Blog"
-          title={
-            <>
-              Marketing Made Practical.
-              <br />
-              <span style={{ color: "var(--navy)" }}>No Jargon Required.</span>
-            </>
-          }
-          subtitle="Plain-English guides on getting found on Google, what marketing really costs, and putting AI to work in your business."
-          crumbs={[{ name: "Home", path: "/" }, { name: "Blog", path: "/blog" }]}
-        />
+        <div className="rg-container">
+          <header className="rg-bmast">
+            <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Blog", path: "/blog" }]} inHero />
+            <h1 className="rg-bmast-title">
+              Marketing made practical. <em>No jargon required.</em>
+            </h1>
+            <p className="rg-bmast-text">
+              Plain-English guides on getting found on Google, what marketing really costs, and putting AI to work in your business.
+            </p>
+          </header>
 
-        <section className="rg-svc-band" style={{ background: "#fff" }}>
-          <div className="rg-container">
-            <BlogIndex
-              posts={[...POSTS]
-                .sort((a, b) => b.datePublished.localeCompare(a.datePublished))
-                .map((p) => ({
-                  slug: p.slug,
-                  title: p.title,
-                  excerpt: p.excerpt,
-                  category: p.category,
-                  readMinutes: p.readMinutes,
-                  date: p.datePublished,
-                }))}
-            />
-          </div>
-        </section>
+          <BlogIndex
+            posts={[...POSTS]
+              .sort((a, b) => b.datePublished.localeCompare(a.datePublished))
+              .map((p) => ({
+                slug: p.slug,
+                title: p.title,
+                excerpt: p.excerpt,
+                category: p.category,
+                readMinutes: p.readMinutes,
+                date: p.datePublished,
+              }))}
+          />
+        </div>
 
         <InnerCTA heading="Rather Have Us Do It?" text="You don't need to read a guide to start growing. Book a quick call and we'll tell you which hat to hand off first." />
       </main>
