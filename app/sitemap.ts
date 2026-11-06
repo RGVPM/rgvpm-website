@@ -13,7 +13,7 @@ import { POSTS } from "@/lib/posts";
  * Google to ignore it). Blog posts use their own dates from lib/posts.ts.
  * changefreq and priority are left out on purpose: Google ignores both.
  */
-const PAGES_LAST_MODIFIED = "2026-10-06";
+const PAGES_LAST_MODIFIED = "2026-11-06";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPaths = [
