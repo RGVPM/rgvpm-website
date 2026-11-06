@@ -264,7 +264,6 @@ html { scroll-behavior: smooth; }
 .rg-hat-more span { display: inline-block; transition: transform var(--t-med) var(--ease); }
 .rg-hat:hover .rg-hat-more span { transform: translateX(4px); }
 @media (max-width: 1023px) { .rg-hats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 1023px) { .rg-hats-span2 { grid-column: auto; } }
 @media (max-width: 640px)  { .rg-hats { grid-template-columns: 1fr; } }
 
 /* ── Homepage AI section ─────────────────────────────────────────
@@ -2506,7 +2505,6 @@ a:hover > .rg-brandmark img,
 
 .rg-hat-from { margin: var(--s4) 0 0; font-size: 14px; font-weight: 700; color: var(--navy); }
 .rg-hat--navy { background: var(--navy); border-color: var(--navy); }
-.rg-hats-span2 { grid-column: span 2; }
 .rg-hat--navy .rg-hat-title { color: var(--cream); }
 .rg-hat--navy .rg-hat-sub,
 .rg-hat--navy .rg-hat-more { color: var(--blue-on-dark); }
