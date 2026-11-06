@@ -440,13 +440,13 @@ footer a:hover{color:var(--on-dark)}
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0114 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></div>
         <h3>Google &amp; SEO</h3>
         <p>Show up when clients search near you.</p>
-        <div class="pr">+$397/mo</div>
+        <div class="pr">+$297/mo</div>
       </article></div>
       <div class="shell rv d2"><article class="tile">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10.5 9.5v5l4-2.5z"/></svg></div>
         <h3>Social media</h3>
         <p>Reels and posts every week. We can post and answer DMs.</p>
-        <div class="pr">From +$647/mo</div>
+        <div class="pr">From +$297/mo</div>
       </article></div>
       <div class="shell rv"><article class="tile">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div>
@@ -528,17 +528,17 @@ footer a:hover{color:var(--on-dark)}
       <article class="plan hot rv d1">
         <span class="tag mono">Best value</span>
         <div class="core">
-        <h3>Build the Machine</h3>
-        <p class="for">Get found and stay in the feed.</p>
-        <div class="amt-big"><strong data-base="997">$997</strong><span>/mo</span></div>
-        <p class="sub">Saves $444/mo · no build fee</p>
+        <h3>Get Found</h3>
+        <p class="for">Show up on Google and stay in the feed.</p>
+        <div class="amt-big"><strong data-base="991">$991</strong><span>/mo</span></div>
+        <p class="sub">No build fee</p>
         <ul>
           <li><svg><use href="#check"/></svg>Everything in Plant the Flag</li>
           <li><svg><use href="#check"/></svg>Local SEO &amp; Google profile</li>
           <li><svg><use href="#check"/></svg>Weekly reel + branded post, edited by us</li>
           <li class="emr-li"><svg><use href="#check"/></svg>EMR account management</li>
         </ul>
-        <a class="btn btn-blue" href="/api/checkout?plan=machine">Build the machine <span class="ar"><svg><use href="#arrow"/></svg></span></a>
+        <a class="btn btn-blue" href="/api/checkout?plan=site&amp;add=seo,content">Get found <span class="ar"><svg><use href="#arrow"/></svg></span></a>
       </div></article>
       <article class="plan rv d2"><div class="core">
         <h3>Own the Market</h3>
@@ -546,7 +546,7 @@ footer a:hover{color:var(--on-dark)}
         <div class="amt-big"><strong data-base="1497">$1,497</strong><span>/mo</span></div>
         <p class="sub">Replaces your whole agency pile</p>
         <ul>
-          <li><svg><use href="#check"/></svg>Everything in Build the Machine</li>
+          <li><svg><use href="#check"/></svg>Everything in Get Found</li>
           <li><svg><use href="#check"/></svg>Full service social: we film, post and answer DMs</li>
           <li><svg><use href="#check"/></svg>Google or Meta ads managed</li>
           <li><svg><use href="#check"/></svg>A dedicated strategist</li>
@@ -591,7 +591,7 @@ footer a:hover{color:var(--on-dark)}
       <details class="q"><summary>Do you work outside Texas?<span class="pm"></span></summary><p>Yes. We're based in Harlingen, Texas and work with practices across the U.S. Everything runs remotely. The monthly on-site shoot in full service social is for South Texas; everywhere else, your team films and we handle the rest.</p></details>
       <details class="q"><summary>Is there a contract?<span class="pm"></span></summary><p>No. Every plan is month-to-month. We earn the next month by doing the work this month.</p></details>
       <details class="q"><summary>What does EMR management include?<span class="pm"></span></summary><p>A monthly call to go over your account, plus direct support from our team when you need a change or something isn't working. $249 a month, added to any plan.</p></details>
-      <details class="q"><summary>Are there setup fees?<span class="pm"></span></summary><p>Only a $399 build fee if you get the website on its own. Add anything else or pick a bundle and it's waived.</p></details>
+      <details class="q"><summary>Are there setup fees?<span class="pm"></span></summary><p>Only a $399 build fee if you get the website on its own. Add anything else and it's waived.</p></details>
       <details class="q"><summary>Can I keep an agency I like?<span class="pm"></span></summary><p>Of course. Pick only the pieces you need. If your social person is great, keep them and let us handle the website, Google and EMR.</p></details>
     </div>
   </div>
@@ -646,8 +646,8 @@ footer a:hover{color:var(--on-dark)}
 
   var money = function(n){ return "$" + Math.round(n).toLocaleString("en-US"); };
 
-  /* Prices mirror rgvperformancemarketing.com/pricing. */
-  var P = {site:397, seo:397, social:1497, ads:497, emr:249, machine:997, market:1497, buildFee:399};
+  /* Prices mirror rgvperformancemarketing.com/pricing. Own the Market is a special for this page only. */
+  var P = {site:397, seo:297, social:1497, ads:497, emr:249, market:1497, buildFee:399};
 
   var plans = document.getElementById("plans");
 

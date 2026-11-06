@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 const pricingFaqs = [
   {
     q: "How does your pricing work?",
-    a: "Every plan starts with a website: Plant the Flag, $397/mo. It includes your lead inbox and automatic follow-up by text and email. From there you add only the jobs you want handed off: Local SEO & Google Profile ($397/mo), Content Crew ($647/mo) or Full Service Social ($1,497/mo), and Ads Management ($497/mo). Or pick a bundle: Build the Machine ($997/mo) or Own the Market ($2,497/mo), which cost less than the same pieces bought separately.",
+    a: "Every plan starts with a website: Plant the Flag, $397/mo. It includes your lead inbox and automatic follow-up by text and email. From there you add only the jobs you want handed off: Local SEO & Google Profile ($297/mo), Content Crew ($297/mo) or Full Service Social ($1,497/mo), and Ads Management ($497/mo).",
   },
   {
     q: "Is text and email follow-up included?",
@@ -36,19 +36,19 @@ const pricingFaqs = [
   },
   {
     q: "Is there a build fee?",
-    a: "Only if you get the website on its own: a one-time $399 build fee that covers designing and building your site. Add any add-on, or pick Build the Machine or Own the Market, and the build fee is waived. There are no setup or activation fees on anything.",
+    a: "Only if you get the website on its own: a one-time $399 build fee that covers designing and building your site. Add any add-on and the build fee is waived. There are no setup or activation fees on anything.",
   },
   {
-    q: "What do the bundles save me?",
-    a: "Build the Machine is your website, Local SEO & Google Profile and Content Crew. Bought separately that's $1,441/mo; bundled it's $997/mo, a $444 monthly saving. Own the Market adds Full Service Social, ads on Google and Meta and a dedicated strategist for $2,497/mo, about $291 less than the pieces on their own.",
+    q: "I'm on Build the Machine or Own the Market. Does anything change?",
+    a: "No. We no longer offer those bundles to new clients, but your plan and your price stay the same.",
   },
   {
     q: "Does ad spend come out of the monthly fee?",
-    a: "No. The Ads Management add-on and Own the Market cover running your campaigns, but you fund the ad spend: Google and Meta bill you directly, and we manage every dollar of it.",
+    a: "No. The Ads Management add-on covers running your campaigns, but you fund the ad spend: Google and Meta bill you directly, and we manage every dollar of it.",
   },
   {
     q: "Can I add or drop add-ons later?",
-    a: "Yes. Because everything is month-to-month, you can add or drop an add-on, or move to a bundle, as your needs change. Many clients start with the website to get a lead system in place, then add SEO or content when they're ready to grow.",
+    a: "Yes. Because everything is month-to-month, you can add or drop an add-on as your needs change. Many clients start with the website to get a lead system in place, then add SEO or content when they're ready to grow.",
   },
   {
     q: "Can I get social media without a website from you?",
@@ -80,7 +80,7 @@ export default function PricingPage() {
               <span style={{ color: "var(--navy)" }}>For Less Than One Hire.</span>
             </>
           }
-          subtitle="Start with a website, add the jobs you want handed off, or bundle and save. Month-to-month, no long-term contracts and no hidden fees."
+          subtitle="Start with a website and add only the jobs you want handed off. Month-to-month, no long-term contracts and no hidden fees."
           crumbs={[{ name: "Home", path: "/" }, { name: "Pricing", path: "/pricing" }]}
         >
           <ul className="rg-about-proof">

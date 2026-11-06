@@ -137,7 +137,7 @@ export const services: Service[] = [
       "Monthly content and local link building",
       "Monthly report: what moved, what's next",
     ],
-    startsAt: { plan: "the Local SEO & Google Profile add-on", price: "$397/mo", note: "on top of your $397/mo website, or included in Build the Machine ($997/mo)" },
+    startsAt: { plan: "the Local SEO & Google Profile add-on", price: "$297/mo", note: "on top of your $397/mo website" },
   },
   {
     slug: "google-business-profile",
@@ -237,7 +237,7 @@ export const services: Service[] = [
       "Regular posts and fresh photos",
       "Ongoing monitoring",
     ],
-    startsAt: { plan: "the Local SEO & Google Profile add-on", price: "$397/mo", note: "on top of your $397/mo website, or included in Build the Machine ($997/mo)" },
+    startsAt: { plan: "the Local SEO & Google Profile add-on", price: "$297/mo", note: "on top of your $397/mo website" },
   },
   {
     slug: "paid-advertising",
@@ -488,7 +488,7 @@ export const services: Service[] = [
       heading: "What is social media & newsletter marketing?",
       body: [
         "Social media and newsletter marketing is how you stay visible to the customers you already have between purchases. Most businesses don't lose customers because they did bad work — they lose them because they faded from memory. Consistent content keeps your business in front of your audience so you're the first name they think of when they need you again.",
-        "Our service combines a social media planner — a tool to plan and schedule posts across your platforms from one place — with a done-for-you monthly newsletter. You choose the topic each month; we write, design, and send it. On the Own the Market plan, we manage and post your social content for you, too.",
+        "Our service combines a social media planner — a tool to plan and schedule posts across your platforms from one place — with a done-for-you monthly newsletter. You choose the topic each month; we write, design, and send it. With the Full Service Social add-on, we manage and post your social content for you, too.",
       ],
     },
     howWeDoIt: {
@@ -505,7 +505,7 @@ export const services: Service[] = [
         },
         {
           title: "Managed social content",
-          text: "On the Own the Market plan, we create and post your social content for you, including reels and shorts, so your brand stays consistently visible.",
+          text: "With the Full Service Social add-on, we create and post your social content for you, including reels and shorts, so your brand stays consistently visible.",
         },
         {
           title: "Bilingual content",
@@ -530,11 +530,11 @@ export const services: Service[] = [
       },
       {
         q: "What's the social media planner tool?",
-        a: "It's a scheduling tool included with every plan that lets you or your team plan and schedule posts across your social platforms from one place. On the Own the Market plan, we manage and post the content for you. On the other plans, you have the tool to do it yourself whenever you want.",
+        a: "It's a scheduling tool included with every plan that lets you or your team plan and schedule posts across your social platforms from one place. With the Full Service Social add-on, we manage and post the content for you. On the other plans, you have the tool to do it yourself whenever you want.",
       },
       {
         q: "Do you create the social media content for me?",
-        a: "On the Own the Market plan, yes — we create and post your content for you, including reels and shorts. On our other plans, you get the planner tool to schedule your own posts. We'll recommend the right level based on how hands-on you want to be.",
+        a: "With the Full Service Social add-on, yes — we create and post your content for you, including reels and shorts. On our other plans, you get the planner tool to schedule your own posts. We'll recommend the right level based on how hands-on you want to be.",
       },
       {
         q: "Can you produce content in Spanish?",
@@ -554,7 +554,7 @@ export const services: Service[] = [
       "Stories made from your content",
       "Your branding on everything",
     ],
-    startsAt: { plan: "Content Crew", price: "$647/mo", note: "we edit, you shoot; also included in Build the Machine ($997/mo)" },
+    startsAt: { plan: "Content Crew", price: "$297/mo", note: "we edit, you shoot" },
   },
 ];
 
