@@ -59,7 +59,7 @@ export const MEDSPA_CLIENTS = [
 export const MEDSPA_FAQS = [
   { q: "What does a medspa marketing agency do?", a: "It brings in new clients and helps keep your schedule full. We build and host your website, manage your Google presence and SEO, produce social content, run Google and Meta ads, and handle follow-up so inquiries get answered." },
   { q: "Do you work with medspas outside Texas?", a: "Yes. We're based in Harlingen, Texas and work with practices across the U.S. Everything runs remotely. The monthly on-site shoot in full service social is for South Texas; everywhere else, your team films and we handle the rest." },
-  { q: "How much does medspa marketing cost?", a: "Plans start at $397 a month, and you can add SEO, social and ads or choose a bundle. Ad spend is billed directly by Google or Meta. Every plan and add-on is listed on our pricing page." },
+  { q: "How much does medspa marketing cost?", a: "Plans start at $397 a month, and you add only what you need, like SEO, social and ads. Ad spend is billed directly by Google or Meta. Every plan and add-on is listed on our pricing page." },
   { q: "Is there a contract?", a: "No. Every plan is month-to-month. We earn the next month by doing the work this month." },
   { q: "What does EMR account management include?", a: "A monthly call to go over your account, plus direct support from our team when you need a change or something isn't working." },
   { q: "How long does medspa SEO take?", a: "Local SEO typically takes 60 to 90 days to show meaningful traction and keeps building from there. No honest agency can guarantee a specific ranking." },
