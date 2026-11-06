@@ -247,6 +247,7 @@ export function websiteSchema() {
     "@id": WEBSITE_ID,
     url: SITE.url,
     name: SITE.name,
+    alternateName: "RGVPM",
     description: SITE.description,
     inLanguage: "en-US",
     publisher: { "@id": ORGANIZATION_ID },

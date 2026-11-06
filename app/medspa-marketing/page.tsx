@@ -127,7 +127,7 @@ export default function MedspaMarketingPage() {
               <div className="medspa-compare-row medspa-compare-head" aria-hidden="true">
                 <span />
                 <span>Most agencies</span>
-                <span>RGV Performance Marketing</span>
+                <span>RGVPM</span>
               </div>
               {MEDSPA_COMPARE.map((row) => (
                 <div key={row.label} className="medspa-compare-row">
