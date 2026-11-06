@@ -41,6 +41,13 @@ const HATS: Hat[] = [
     href: "/services/ai-implementation",
     cta: "AI consulting & builds",
   },
+  {
+    hat: "Medspa Marketer",
+    sub: "+ one team for your practice",
+    text: "Your website, Google, social, ads and EMR account, run by one team on one bill, for medspas across the U.S.",
+    href: "/medspa-marketing",
+    cta: "Medspa marketing",
+  },
 ];
 
 const url = canonical("/services");
