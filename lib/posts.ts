@@ -38,6 +38,66 @@ export interface Post {
 
 export const POSTS: Post[] = [
   {
+    slug: "ai-friday-medspa-after-hours",
+    title: "AI Friday: How a Medspa Can Answer Consult Requests After Hours",
+    metaTitle: "AI Friday: Answer Medspa Consult Requests After Hours",
+    description:
+      "An AI Friday guide for medspa owners: what AI can answer after hours, what must go to your team, and how to keep consult requests from going cold.",
+    excerpt:
+      "Your front desk goes home, but people keep looking up treatments. Here is what AI can handle at night and what should always wait for your team.",
+    category: "AI Friday",
+    icon: "cpu",
+    datePublished: "2026-11-06",
+    dateModified: "2026-11-06",
+    readMinutes: 5,
+    tldr:
+      "A medspa can use AI to reply to consult requests right away, answer questions that have the same answer every time, and share a booking link after the front desk goes home. It should never give medical advice, say whether someone is a candidate for a treatment, or make up a price. Those go to your team.",
+    sections: [
+      { type: "p", text: "This AI Friday is for medspa owners. Your front desk closes, but the questions keep coming. Someone reads about a treatment after the kids are asleep, fills out your form, and waits until morning. By then they may have booked somewhere else. AI can cover that gap, as long as you decide exactly what it is allowed to say." },
+      { type: "h2", text: "What AI can handle after hours" },
+      { type: "p", text: "Give AI the questions that have the same answer every time. If your front desk could answer it without checking a chart, it is a good place to start:" },
+      { type: "ul", items: [
+        "A reply by text and email the moment a request comes in.",
+        "Your hours, location and parking.",
+        "The treatments you offer, in the words clients use, and the ones you do not.",
+        "How a consult works, including how long it takes and what to bring.",
+        "A link to book a consult, or a note that your team will call in the morning.",
+      ]},
+      { type: "h2", text: "What always goes to your team" },
+      { type: "p", text: "The rule is simple: if the honest answer depends on the person, AI collects the details and hands it off. That covers:" },
+      { type: "ul", items: [
+        "Whether someone is a good candidate for a treatment.",
+        "Side effects, a reaction, or how a treatment is healing. If it sounds urgent, the AI should share the contact you set for urgent concerns and stop there.",
+        "What results someone can expect. AI should never promise an outcome.",
+        "Any question about price, a quote, or a discount.",
+        "An upset client, or a complaint about a past visit.",
+        "A client who asks for a person. Every time, no argument.",
+      ]},
+      { type: "p", text: "For each one, write down who gets it and how. A hand-off that sits in an inbox nobody checks is no better than no reply at all." },
+      { type: "h2", text: "Be careful with client information" },
+      { type: "p", text: "A consult request can include health details, so treat it that way. Have the AI ask only for what your team needs to follow up: a name, a phone number, the treatment they are asking about, and a good time to call. Before you choose a tool, ask the company how it handles protected health information and whether it will sign a business associate agreement. Have whoever handles your compliance review the setup before it goes live." },
+      { type: "h2", text: "Connect it to what your team already uses" },
+      { type: "p", text: "Every conversation should land where your team already works: your calendar, your forms, and your lead management software. If bookings live in your EMR, find out whether the AI can connect to it or should send people to your booking link. If replies end up somewhere new that nobody opens, you have only moved the problem." },
+      { type: "h2", text: "Read every conversation for two weeks" },
+      { type: "p", text: "Once it is live, have someone read each conversation for the first couple of weeks. When the AI gets something wrong, the fix is usually one new line on your answer sheet or one new item on your hand-off list. We walked through how to write both in our AI receptionist guide.", links: [{ text: "AI receptionist guide", href: "/blog/ai-friday-ai-receptionist-answer-sheet" }] },
+      { type: "h2", text: "Your Friday homework" },
+      { type: "p", text: "Tonight, after you close, fill out your own website form and time how long it takes to get a reply. Then write down the ten questions your front desk answers most and five situations where you always want a person. If you want help turning that into a working setup, see how our AI consulting and implementation works, read how we run medspa marketing, or book a call.", links: [{ text: "AI consulting and implementation", href: "/services/ai-implementation" }, { text: "medspa marketing", href: "/medspa-marketing" }, { text: "book a call", href: "/contact" }] },
+    ],
+    faqs: [
+      { q: "Can AI answer medspa consult requests after hours?", a: "Yes. AI can reply right away by text and email, answer questions that have the same answer every time, and share a booking link. Anything that depends on the person should go to your team." },
+      { q: "Should AI give medical advice for a medspa?", a: "No. AI should not give medical advice or say whether someone is a candidate for a treatment. It should collect the details and hand the conversation to your team." },
+      { q: "Should a medspa's AI quote prices?", a: "No. Price questions belong on the hand-off list. The AI should collect the details and get a person on it, not make up a number or a promise you do not offer." },
+      { q: "How long does it take to set up?", a: "Most automations go live within one to three weeks, depending on scope. Write your answer sheet and hand-off list first, because they decide what the AI is allowed to say." },
+    ],
+    related: [
+      { href: "/blog/ai-friday-ai-receptionist-answer-sheet", label: "AI Friday: What Your AI Receptionist Should Say" },
+      { href: "/blog/ai-friday-first-consult-prep", label: "AI Friday: What to Bring to Your First AI Consult" },
+      { href: "/medspa-marketing", label: "Medspa Marketing" },
+      { href: "/services/ai-implementation", label: "AI Consulting & Implementation" },
+      { href: "/contact", label: "Book a Call" },
+    ],
+  },
+  {
     slug: "ai-friday-first-consult-prep",
     title: "AI Friday: What to Bring to Your First AI Consult",
     metaTitle: "AI Friday: What to Bring to Your First AI Consult",
