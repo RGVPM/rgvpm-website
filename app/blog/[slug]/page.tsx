@@ -145,8 +145,9 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
       <ReadingProgress targetId="article" />
       <main>
         <article id="article">
+          <div className="rg-ahero">
           <header className="rg-ahead">
-            <Breadcrumbs items={crumbs.slice(0, 2)} inHero />
+            <Breadcrumbs items={crumbs.slice(0, 2)} dark inHero />
             <p className="rg-kicker">{post.category}</p>
             <h1 className="rg-ahead-title">{post.title}</h1>
             <p className="rg-ahead-deck">{post.excerpt}</p>
@@ -164,6 +165,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
           <div className="rg-acover">
             <PostCover slug={post.slug} category={post.category} sizes="(max-width: 980px) 100vw, 920px" priority />
+          </div>
           </div>
 
           <div className="rg-alayout">
