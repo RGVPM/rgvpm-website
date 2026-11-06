@@ -10,6 +10,8 @@ import {
   MEDSPA,
   MEDSPA_INTRO,
   MEDSPA_SERVICES,
+  MEDSPA_COMPARE,
+  MEDSPA_PRICING,
   MEDSPA_DIFFERENCES,
   MEDSPA_STEPS,
   MEDSPA_CLIENTS,
@@ -112,6 +114,66 @@ export default function MedspaMarketingPage() {
               </p>
               <Link href="/about" className="rg-hero-secondary" style={{ display: "inline-block", marginTop: 20 }}>Meet the team</Link>
             </div>
+          </div>
+        </section>
+
+        <section className="rg-svc-band" style={{ background: "#fff" }}>
+          <div className="rg-container" style={{ maxWidth: 960 }}>
+            <div style={{ maxWidth: 640, marginBottom: 32 }}>
+              <span className="rg-pill">Why Us</span>
+              <h2 className="rg-display rg-svc-h2">Most Medspa Agencies vs. Us</h2>
+            </div>
+            <div className="medspa-compare">
+              <div className="medspa-compare-row medspa-compare-head" aria-hidden="true">
+                <span />
+                <span>Most agencies</span>
+                <span>RGV Performance Marketing</span>
+              </div>
+              {MEDSPA_COMPARE.map((row) => (
+                <div key={row.label} className="medspa-compare-row">
+                  <h3>{row.label}</h3>
+                  <p className="medspa-compare-them"><span>Most agencies: </span>{row.them}</p>
+                  <p className="medspa-compare-us"><span>With us: </span>{row.us}</p>
+                </div>
+              ))}
+            </div>
+            <p style={{ fontSize: 13, color: "var(--muted)", lineHeight: 1.6, marginTop: 16 }}>
+              Based on what medspa agencies showed on their public websites in November 2026. Every agency is different, so ask before you sign.
+            </p>
+          </div>
+        </section>
+
+        <section id="pricing" className="rg-svc-band" style={{ background: "var(--cream)" }}>
+          <div className="rg-container" style={{ maxWidth: 960 }}>
+            <div style={{ maxWidth: 640, marginBottom: 32 }}>
+              <span className="rg-pill">Pricing</span>
+              <h2 className="rg-display rg-svc-h2">What It Costs, Before You Call</h2>
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }} className="why-grid-responsive">
+              <div style={{ background: "var(--navy)", borderRadius: "var(--r-xl)", padding: 32 }}>
+                <h3 style={{ fontSize: 16, fontWeight: 700, color: "var(--cream)" }}>{MEDSPA_PRICING.base.name}</h3>
+                <p className="rg-display" style={{ fontSize: 56, lineHeight: 1, color: "var(--cream)", margin: "12px 0" }}>
+                  {MEDSPA_PRICING.base.price}<span style={{ fontSize: 22 }}>/mo</span>
+                </p>
+                <p style={{ fontSize: 15, color: "rgba(253,248,236,0.86)", lineHeight: 1.65 }}>{MEDSPA_PRICING.base.text}</p>
+                <p style={{ fontSize: 14, color: "rgba(253,248,236,0.86)", lineHeight: 1.6, marginTop: 12 }}>{MEDSPA_PRICING.baseNote}</p>
+              </div>
+              <div style={{ background: "#fff", border: "1px solid var(--border)", borderRadius: "var(--r-xl)", padding: "20px 28px" }}>
+                <h3 style={{ fontSize: 16, fontWeight: 700, color: "var(--navy)", padding: "8px 0" }}>Add only what you need</h3>
+                <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
+                  {MEDSPA_PRICING.addons.map((a) => (
+                    <li key={a.name} style={{ display: "flex", justifyContent: "space-between", gap: 16, padding: "12px 0", borderTop: "1px solid var(--border)", fontSize: 15, color: "var(--navy)" }}>
+                      <span>{a.name}</span>
+                      <strong style={{ whiteSpace: "nowrap" }}>{a.price}</strong>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <p style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.65, marginTop: 20, maxWidth: "70ch" }}>{MEDSPA_PRICING.note}</p>
+            <Link href="/pricing" style={{ display: "inline-block", marginTop: 12, fontSize: 15, fontWeight: 700, color: "var(--blue-ink)", textDecoration: "none" }}>
+              Build your plan <span aria-hidden="true">→</span>
+            </Link>
           </div>
         </section>
 
