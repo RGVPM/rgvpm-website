@@ -5,6 +5,10 @@
  * Sources and licenses are listed in docs/blog-cover-photos.md.
  */
 export const POST_IMAGES: Record<string, { alt: string; line: string }> = {
+  "ai-friday-medspa-after-hours": {
+    alt: "A woman resting on a treatment table with warm lights glowing behind her.",
+    line: "Keep consult requests from going cold overnight",
+  },
   "ai-friday-first-consult-prep": {
     alt: "A woman holding an open jar of face cream against a tan background.",
     line: "Map how consult requests reach your medspa",

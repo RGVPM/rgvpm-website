@@ -4,6 +4,7 @@ Stock photos found through Openverse, filtered to CC0 or public domain. No credi
 
 | Post | Source | License | Original page |
 |---|---|---|---|
+| `ai-friday-medspa-after-hours` | stocksnap | CC0 | https://stocksnap.io/photo/woman-massage-ZRYMMTHIUP |
 | `ai-friday-first-consult-prep` | stocksnap | CC0 | https://stocksnap.io/photo/woman-skin-VEP8AYJMNI |
 | `ai-workflow-automation-examples-mcallen` | stocksnap | CC0 | https://stocksnap.io/photo/woman-massage-U2PRCV7BEQ |
 | `ai-friday-after-launch-checkup` | rawpixel | CC0 | https://www.rawpixel.com/image/5916074/photo-image-paper-public-domain-hand |
