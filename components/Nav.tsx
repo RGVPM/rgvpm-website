@@ -16,6 +16,7 @@ type NavItem = { label: string; href: string; children?: { label: string; href: 
 const NAV_LINKS: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
+  { label: "Medspas", href: "/medspa-marketing" },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
