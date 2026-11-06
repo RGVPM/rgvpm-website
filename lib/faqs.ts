@@ -7,7 +7,7 @@ export const homeFaqs = [
   },
   {
     q: "Is website design included in the plans?",
-    a: "Yes. Every plan starts with a custom website we build, host, and keep updated. On its own, Plant the Flag is $397/mo plus a one-time $399 build fee, waived when you add any add-on. Build the Machine and Own the Market include the website with no build fee.",
+    a: "Yes. Every plan starts with a custom website we build, host, and keep updated. On its own, Plant the Flag is $397/mo plus a one-time $399 build fee, waived when you add any add-on.",
   },
   {
     q: "How does the newsletter work?",
@@ -15,7 +15,7 @@ export const homeFaqs = [
   },
   {
     q: "What's the social media planner tool?",
-    a: "It's a scheduling tool included with every plan that lets you (or your team) plan and schedule posts across your social platforms from one place. On the Own the Market plan, we manage and post the content for you. On our other plans, you have the tool to do it yourself whenever you want.",
+    a: "It's a scheduling tool included with every plan that lets you (or your team) plan and schedule posts across your social platforms from one place. With the Full Service Social add-on, we manage and post the content for you. On our other plans, you have the tool to do it yourself whenever you want.",
   },
   {
     q: "What does \"two-way SMS & email\" mean?",
@@ -23,7 +23,7 @@ export const homeFaqs = [
   },
   {
     q: "Does ad spend come out of the monthly fee?",
-    a: "No. Ads Management (an add-on, or included in Own the Market) covers running your campaigns, but the actual spend (what you pay Google or Meta to run your ads) is a separate budget billed directly to you by the platform. We help you set the right budget and manage every dollar of it — you just fund the account.",
+    a: "No. The Ads Management add-on covers running your campaigns, but the actual spend (what you pay Google or Meta to run your ads) is a separate budget billed directly to you by the platform. We help you set the right budget and manage every dollar of it — you just fund the account.",
   },
   {
     q: "How quickly will I see results?",

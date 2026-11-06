@@ -65,9 +65,9 @@ export function GET() {
   lines.push("");
 
   lines.push("## Pricing");
-  lines.push("Transparent, month-to-month pricing (USD): a website base, add-ons on top, or two discounted bundles. No long-term contracts. Paid ad spend is billed by the ad platforms on top of management.");
+  lines.push("Transparent, month-to-month pricing (USD): a website base with add-ons on top. No long-term contracts. Paid ad spend is billed by the ad platforms on top of management.");
   for (const p of PLANS) lines.push(`- **${p.name} — $${p.price.toLocaleString()}/mo:** ${p.description}`);
-  lines.push("Every plan starts with the Plant the Flag website. On its own it has a one-time $399 build fee, which is waived when any add-on or bundle is added. Build the Machine and Own the Market include the website with no build or setup fee. All plans and add-ons are month-to-month.");
+  lines.push("Every plan starts with the Plant the Flag website. On its own it has a one-time $399 build fee, which is waived when any add-on is added. All plans and add-ons are month-to-month.");
   lines.push(`- Details: [Pricing & Plans](${u("/pricing")})`);
   lines.push("");
 
