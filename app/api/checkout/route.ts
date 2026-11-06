@@ -2,63 +2,51 @@ import { NextResponse, type NextRequest } from "next/server";
 import { SITE } from "@/lib/site";
 
 /**
- * GET /api/checkout?plan=site|machine|market&add=seo,ads
+ * GET /api/checkout?plan=site&add=seo,ads
  *
  * Self-serve signup: turns the pricing page's picks into a Stripe Checkout
  * session (a monthly subscription, plus the one-time build fee when the
  * website is bought on its own) and redirects there. Price IDs come from env vars,
- * one per plan and add-on, so prices are changed in Stripe, not here.
+ * one per product, so prices are changed in Stripe, not here. Links to the retired
+ * bundle plans go to /pricing.
  *
- * Until those env vars are set, it falls back to the payment links that
- * already exist, then to the booking page, so the button never dead-ends.
+ * Until those env vars are set, it falls back to the website payment link,
+ * then to the booking page, so the button never dead-ends.
  */
-type Plan = "site" | "machine" | "market";
 type Addon = "seo" | "content" | "social" | "ads";
 
 const ADDONS: Addon[] = ["seo", "content", "social", "ads"];
 
-/** Add-ons a bundle already includes (so they're never billed twice). */
-const COVERED: Record<Plan, Addon[]> = {
-  site: [],
-  machine: ["seo", "content"],
-  market: ["seo", "content", "social", "ads"],
-};
-
-const PRICE_ENV: Record<Plan | Addon | "buildFee", string> = {
+const PRICE_ENV: Record<"site" | Addon | "buildFee", string> = {
   site: "STRIPE_PRICE_SITE",
   buildFee: "STRIPE_PRICE_BUILD_FEE",
-  machine: "STRIPE_PRICE_MACHINE",
-  market: "STRIPE_PRICE_MARKET",
   seo: "STRIPE_PRICE_SEO",
   content: "STRIPE_PRICE_CONTENT",
   social: "STRIPE_PRICE_SOCIAL",
   ads: "STRIPE_PRICE_ADS",
 };
 
-/** Payment links that work today, for the picks they match exactly. */
-const FALLBACK_LINKS: Partial<Record<Plan, string>> = {
-  site: "https://buy.stripe.com/7sY9ATeDa4ui3dwg7T7Zu0F",
-  machine: "https://api.rgvperformancemarketing.com/payment-link/6a25cba371a0aa761e46375b",
-};
+/** Payment link that works today, for the website on its own. */
+const FALLBACK_LINK = "https://buy.stripe.com/7sY9ATeDa4ui3dwg7T7Zu0F";
 
 export async function GET(req: NextRequest) {
   const params = req.nextUrl.searchParams;
   const planParam = params.get("plan");
-  const plan: Plan = planParam === "machine" || planParam === "market" ? planParam : "site";
+  if (planParam === "machine" || planParam === "market") {
+    return NextResponse.redirect(new URL("/pricing", req.nextUrl.origin), 303);
+  }
   const picked = Array.from(new Set((params.get("add") ?? "").split(",")))
-    .filter((a): a is Addon => (ADDONS as string[]).includes(a))
-    .filter((a) => !COVERED[plan].includes(a));
+    .filter((a): a is Addon => (ADDONS as string[]).includes(a));
   // Content Crew and Full Service Social are either/or; keep the bigger one.
   const addons = picked.includes("social") ? picked.filter((a) => a !== "content") : picked;
 
   const key = process.env.STRIPE_SECRET_KEY;
-  // The build fee is only for the website on its own; any add-on or bundle waives it.
-  const fee = plan === "site" && addons.length === 0 ? (["buildFee"] as const) : [];
-  const items = [plan, ...addons, ...fee].map((k) => process.env[PRICE_ENV[k]]);
+  // The build fee is only for the website on its own; any add-on waives it.
+  const fee = addons.length === 0 ? (["buildFee"] as const) : [];
+  const items = (["site", ...addons, ...fee] as const).map((k) => process.env[PRICE_ENV[k]]);
 
   if (!key || items.some((id) => !id)) {
-    const link = addons.length === 0 ? FALLBACK_LINKS[plan] : undefined;
-    return NextResponse.redirect(link ?? SITE.bookingUrl, 303);
+    return NextResponse.redirect(addons.length === 0 ? FALLBACK_LINK : SITE.bookingUrl, 303);
   }
 
   const origin = req.nextUrl.origin;
@@ -69,7 +57,7 @@ export async function GET(req: NextRequest) {
     allow_promotion_codes: "true",
     billing_address_collection: "auto",
     "phone_number_collection[enabled]": "true",
-    "subscription_data[metadata][plan]": plan,
+    "subscription_data[metadata][plan]": "site",
     "subscription_data[metadata][addons]": addons.join(","),
   });
   items.forEach((price, i) => {
