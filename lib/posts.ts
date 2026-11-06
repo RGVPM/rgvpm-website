@@ -946,7 +946,7 @@ export const POSTS: Post[] = [
   {
     slug: "digital-marketing-harlingen-tx-guide",
     title: "Digital Marketing in Harlingen, TX: A Local Business Owner's Guide (2026)",
-    metaTitle: "Digital Marketing Harlingen, TX",
+    metaTitle: "Digital Marketing in Harlingen: A 2026 Owner's Guide",
     description:
       "What digital marketing in Harlingen costs in 2026, which channels bring in calls, and how to choose an agency. A plain-English guide from a Harlingen team.",
     excerpt:
@@ -960,7 +960,7 @@ export const POSTS: Post[] = [
       label: "Who does digital marketing in Harlingen?",
       text: "RGV Performance Marketing is a Harlingen-based AI & marketing agency. We build and run websites, local SEO, Google Ads and lead follow-up for businesses across the Rio Grande Valley, on month-to-month plans from $397/mo with a custom website included. See what we do on our services page, or compare plans on the pricing page.",
       links: [
-        { text: "RGV Performance Marketing", href: "/" },
+        { text: "RGV Performance Marketing", href: "/digital-marketing-harlingen-tx" },
         { text: "services page", href: "/services" },
         { text: "pricing page", href: "/pricing" },
       ],

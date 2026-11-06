@@ -38,7 +38,7 @@ export const cities: City[] = [
       heroSub:
         "Fast, mobile-first websites for Harlingen businesses, built to rank on Google and turn local searches into booked customers.",
       description:
-        "Need a website builder in Harlingen? A local team designs, writes and launches your fast, SEO-ready site in 2–4 weeks, in English or Spanish. Free quote.",
+        "Need a website builder in Harlingen? A local team designs, writes and launches your SEO-ready site in 8 to 10 days, in English or Spanish. Free quote.",
       details: {
         heading: "Building a Website for the Harlingen Market",
         intro:
@@ -112,7 +112,7 @@ export const cities: City[] = [
       heroSub:
         "Websites for McAllen businesses that load fast, rank on Google, and turn the Valley's busiest market into booked customers.",
       description:
-        "McAllen web design for small businesses: fast, mobile-first sites in English and Spanish, with SEO and lead forms built in. Live in 2–4 weeks. Free quote.",
+        "McAllen web design for small businesses: mobile-first sites in English and Spanish, with SEO and lead forms built in. Live in 8 to 10 days. Free quote.",
       details: {
         heading: "Building a Website for the McAllen Market",
         intro:
@@ -195,7 +195,7 @@ export const cities: City[] = [
       heroSub:
         "Fast, mobile-first websites for Brownsville businesses, built to rank locally and turn a fast-growing market into customers.",
       description:
-        "Website design in Brownsville, TX: fast, mobile-first sites in English and Spanish, with SEO and lead forms built in. Live in 2–4 weeks. Free quote.",
+        "Website design in Brownsville, TX: fast, mobile-first sites in English and Spanish, with SEO and lead forms built in. Live in 8 to 10 days. Free quote.",
       details: {
         heading: "Building a Website for the Brownsville Market",
         intro:
