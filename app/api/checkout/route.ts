@@ -33,7 +33,7 @@ export async function GET(req: NextRequest) {
   const params = req.nextUrl.searchParams;
   const planParam = params.get("plan");
   if (planParam === "machine" || planParam === "market") {
-    return NextResponse.redirect(new URL("/pricing", req.nextUrl.origin), 303);
+    return NextResponse.redirect(`${SITE.url}/pricing`, 303);
   }
   const picked = Array.from(new Set((params.get("add") ?? "").split(",")))
     .filter((a): a is Addon => (ADDONS as string[]).includes(a));
@@ -49,11 +49,10 @@ export async function GET(req: NextRequest) {
     return NextResponse.redirect(addons.length === 0 ? FALLBACK_LINK : SITE.bookingUrl, 303);
   }
 
-  const origin = req.nextUrl.origin;
   const body = new URLSearchParams({
     mode: "subscription",
-    success_url: `${origin}/welcome?session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: `${origin}/pricing`,
+    success_url: `${SITE.url}/welcome?session_id={CHECKOUT_SESSION_ID}`,
+    cancel_url: `${SITE.url}/pricing`,
     allow_promotion_codes: "true",
     billing_address_collection: "auto",
     "phone_number_collection[enabled]": "true",
