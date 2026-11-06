@@ -81,7 +81,7 @@ export const MEDSPA_FAQS = [
   { q: "Do you work with medspas outside Texas?", a: "Yes. We're based in Harlingen, Texas and work with practices across the U.S. Everything runs remotely. The monthly on-site shoot in full service social is for South Texas; everywhere else, your team films and we handle the rest." },
   { q: "How much does medspa marketing cost?", a: "Plans start at $397 a month, and you add only what you need, like SEO for $297, ads management for $497 or an EMR consultant for $249. Ad spend is billed directly by Google or Meta. Every price is listed on this page." },
   { q: "Is there a contract?", a: "No. Every plan is month-to-month. We earn the next month by doing the work this month." },
-  { q: "What does an EMR consultant do for my practice?", a: "A monthly call to go over your account, plus direct support from our team when you need a change or something isn't working. It's $249 a month, added to any plan." },
+  { q: "What does an EMR consultant do for my practice?", a: "You get a monthly call to go over your account, plus direct support from our team when you need a change or something isn't working. It's $249 a month, added to any plan." },
   { q: "How long does medspa SEO take?", a: "Local SEO typically takes 60 to 90 days to show meaningful traction and keeps building from there. No honest agency can guarantee a specific ranking." },
   { q: "How do you handle client information?", a: "Our Terms include a HIPAA Business Associate Addendum that applies when we create, receive, maintain or transmit protected health information on your behalf." },
   { q: "Can I keep an agency I like?", a: "Of course. Pick only the pieces you need. If your social person is great, keep them and let us handle the website, Google and EMR." },
