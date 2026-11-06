@@ -24,6 +24,7 @@ const SERVICES: { name: string; path: string; summary: string }[] = [
   { name: "Paid Advertising", path: "/services/paid-advertising", summary: "Google and Meta ad campaigns managed to produce real leads." },
   { name: "Lead Management, SMS & Email", path: "/services/lead-management", summary: "One inbox for calls, forms, texts and email: instant replies, two-way SMS, follow-up sequences, broadcast campaigns and booking reminders." },
   { name: "Social Media & Newsletter", path: "/services/social-media-newsletter", summary: "Consistent, bilingual content and a done-for-you monthly newsletter." },
+  { name: "Medspa Marketing", path: "/medspa-marketing", summary: "Website, Google, social, ads and EMR account management for medspas across the U.S., run by one team on one bill." },
 ];
 
 const DIFFERENTIATORS = [

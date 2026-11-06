@@ -52,6 +52,7 @@ export default function Footer() {
                 { label: "Paid Advertising", href: "/services/paid-advertising" },
                 { label: "Lead Management, SMS & Email", href: "/services/lead-management" },
                 { label: "Social Media & Newsletter", href: "/services/social-media-newsletter" },
+                { label: "Medspa Marketing", href: "/medspa-marketing" },
                 { label: "Learn Claude Code 1-on-1", href: "/learn-claude-code" },
               ],
             },
