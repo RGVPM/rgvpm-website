@@ -177,7 +177,16 @@ export default function PostCover({
 }) {
   const photo = postImageSrc(slug);
   if (photo) {
-    return <Image src={photo} alt={POST_IMAGES[slug]} width={1680} height={944} sizes={sizes} priority={priority} className="rg-cover" />;
+    const { alt, line } = POST_IMAGES[slug];
+    return (
+      <>
+        <Image src={photo} alt={alt} width={1680} height={944} sizes={sizes} priority={priority} className="rg-cover" />
+        <span className="rg-cover-note">
+          <span className="rg-cover-tag">For medspas</span>
+          <span className="rg-cover-line">{line}</span>
+        </span>
+      </>
+    );
   }
 
   const art = ART[category] ?? { bg: SAND, draw: rings };
