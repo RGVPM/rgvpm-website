@@ -4,6 +4,7 @@ import WebDesignPage from "@/components/WebDesignPage";
 import { WEB_DESIGN, WEB_DESIGN_FAQS } from "@/lib/webDesign";
 import { canonical, breadcrumbSchema, faqSchema, SITE, LOCAL_BUSINESS_ID, socialMeta } from "@/lib/site";
 import { cities, webDesignCityPath } from "@/lib/cities";
+import { esAlternates } from "@/lib/es";
 
 const path = "/services/website-design";
 const url = canonical(path);
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
   title: WEB_DESIGN.metaTitle,
   description: WEB_DESIGN.metaDescription,
   keywords: WEB_DESIGN.keywordCluster,
-  alternates: { canonical: url },
+  alternates: { canonical: url, languages: esAlternates(path) },
   ...socialMeta({
     url,
     title: `${WEB_DESIGN.metaTitle} | ${SITE.name}`,

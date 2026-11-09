@@ -6,6 +6,7 @@ import { localSeoCityPath, LOCAL_SEO_CITIES } from "@/lib/localSeo";
 import { googleAdsCityPath, googleAdsCityIndexable, GOOGLE_ADS_CITIES } from "@/lib/googleAds";
 import { gbpCityPath, gbpCityIndexable, GBP_CITIES } from "@/lib/gbp";
 import { POSTS } from "@/lib/posts";
+import { ES_PATHS, esAlternates } from "@/lib/es";
 
 /**
  * Last real content update for non-blog pages. Bump this by hand when page
@@ -13,7 +14,10 @@ import { POSTS } from "@/lib/posts";
  * Google to ignore it). Blog posts use their own dates from lib/posts.ts.
  * changefreq and priority are left out on purpose: Google ignores both.
  */
-const PAGES_LAST_MODIFIED = "2026-11-06";
+const PAGES_LAST_MODIFIED = "2026-11-09";
+
+/** Pages with an /es twin (both sides of each pair). */
+const HAS_SPANISH_TWIN = new Set<string>([...Object.values(ES_PATHS), "/", "/pricing", "/services/website-design"]);
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPaths = [
@@ -61,9 +65,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...localSeoPaths,
     ...googleAdsPaths,
     ...gbpPaths,
+    ...Object.values(ES_PATHS),
   ].map((path) => ({
     url: path === "/" ? SITE.url : `${SITE.url}${path}`,
     lastModified: PAGES_LAST_MODIFIED,
+    // English/Spanish pairs list each other as hreflang alternates.
+    ...(HAS_SPANISH_TWIN.has(path) ? { alternates: { languages: esAlternates(path) } } : {}),
   }));
 
   // Blog posts: the post's own modified date (falls back to published).

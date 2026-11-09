@@ -12,6 +12,7 @@ import FinalCta from "@/components/home/FinalCta";
 import JsonLd from "@/components/JsonLd";
 import { faqSchema, socialMeta, SITE } from "@/lib/site";
 import { homeFaqs } from "@/lib/faqs";
+import { esAlternates } from "@/lib/es";
 
 export default function Home() {
   return (
@@ -43,6 +44,6 @@ const HOME_DESCRIPTION =
 export const metadata: Metadata = {
   title: { absolute: HOME_TITLE },
   description: HOME_DESCRIPTION,
-  alternates: { canonical: SITE.url },
+  alternates: { canonical: SITE.url, languages: esAlternates("/") },
   ...socialMeta({ url: SITE.url, title: HOME_TITLE, description: HOME_DESCRIPTION }),
 };
