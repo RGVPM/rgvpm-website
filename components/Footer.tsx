@@ -52,6 +52,7 @@ export default function Footer() {
                 { label: "Paid Advertising", href: "/services/paid-advertising" },
                 { label: "Lead Management, SMS & Email", href: "/services/lead-management" },
                 { label: "Social Media & Newsletter", href: "/services/social-media-newsletter" },
+                { label: "Medspa Marketing", href: "/medspa-marketing" },
                 { label: "Learn Claude Code 1-on-1", href: "/learn-claude-code" },
               ],
             },
@@ -59,9 +60,7 @@ export default function Footer() {
               title: "Plans",
               links: [
                 { label: "Website — $397/mo", href: "/pricing" },
-                { label: "Add-ons — from $397/mo", href: "/pricing" },
-                { label: "Build the Machine — $997/mo", href: "/pricing" },
-                { label: "Own the Market — $2,497/mo", href: "/pricing" },
+                { label: "Add-ons — from $297/mo", href: "/pricing" },
               ],
             },
             {
@@ -104,6 +103,9 @@ export default function Footer() {
               <div key={c.slug}>
                 <div style={{ fontSize: 13, fontWeight: 700, color: "rgba(255,255,255,0.85)", marginBottom: 8 }}>{c.name}, TX</div>
                 <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
+                  {c.slug === "harlingen" && (
+                    <Link href="/digital-marketing-harlingen-tx" style={{ fontSize: 12.5, color: "rgba(255,255,255,0.68)", textDecoration: "none" }}>Digital Marketing</Link>
+                  )}
                   <Link href={localSeoCityPath(c.slug)} style={{ fontSize: 12.5, color: "rgba(255,255,255,0.68)", textDecoration: "none" }}>Local SEO</Link>
                   <Link href={gbpCityPath(c.slug)} style={{ fontSize: 12.5, color: "rgba(255,255,255,0.68)", textDecoration: "none" }}>Google Business Profile</Link>
                   <Link href={googleAdsCityPath(c.slug)} style={{ fontSize: 12.5, color: "rgba(255,255,255,0.68)", textDecoration: "none" }}>Google Ads</Link>

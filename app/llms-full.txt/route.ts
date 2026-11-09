@@ -35,9 +35,9 @@ export function GET() {
   L.push("");
 
   L.push("## Pricing (detailed)");
-  L.push("Month-to-month, no long-term contracts: a website base, add-ons on top, or two discounted bundles. Paid ad spend is billed by Google/Meta directly, on top of management.");
+  L.push("Month-to-month, no long-term contracts: a website base with add-ons on top. Paid ad spend is billed by Google/Meta directly, on top of management.");
   for (const p of PLANS) L.push(`- **${p.name} — $${p.price.toLocaleString()}/mo:** ${p.description}`);
-  L.push("Every plan starts with the Plant the Flag website. On its own it has a one-time $399 build fee, which is waived when any add-on or bundle is added. Build the Machine and Own the Market include the website with no build or setup fee. All plans and add-ons are month-to-month.");
+  L.push("Every plan starts with the Plant the Flag website. On its own it has a one-time $399 build fee, which is waived when any add-on is added. All plans and add-ons are month-to-month.");
   L.push(`Full breakdown: ${u("/pricing")}`);
   L.push("");
 

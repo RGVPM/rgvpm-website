@@ -92,19 +92,15 @@ export const OPENING_HOURS = {
 
 export const STRIPE_LINKS = {
   plantTheFlag: "https://buy.stripe.com/28E00jcv2gd03dw1cZ7Zu0h",
-  buildTheMachine: "https://buy.stripe.com/5kQaEXfHed0O3dwdZL7Zu0i",
-  ownTheMarket: "https://buy.stripe.com/aFa3cv1Qo7Gu29sf3P7Zu0j",
 } as const;
 
 /** The monthly plans and add-ons — single source of truth for pricing schema and llms.txt. */
 export const PLANS = [
-  { name: "Plant the Flag (website)", price: 397, description: "A custom website built, hosted, and maintained for you, plus one inbox for every lead and automatic text and email follow-up. One-time $399 build fee, waived with any add-on or bundle. Every add-on builds on this." },
-  { name: "Local SEO & Google Profile add-on", price: 397, description: "Google Business Profile built out, city and service pages, on-page cleanup, monthly content and a monthly report." },
-  { name: "Content Crew add-on", price: 647, description: "You shoot, we edit: 1 reel and 1 branded creative a week, plus stories. Also sold on its own." },
+  { name: "Plant the Flag (website)", price: 397, description: "A custom website built, hosted, and maintained for you, plus one inbox for every lead and automatic text and email follow-up. One-time $399 build fee, waived with any add-on. Every add-on builds on this." },
+  { name: "Local SEO & Google Profile add-on", price: 297, description: "Google Business Profile built out, city and service pages, on-page cleanup, monthly content and a monthly report." },
+  { name: "Content Crew add-on", price: 297, description: "You shoot, we edit: 1 reel and 1 branded creative a week, plus stories. Also sold on its own." },
   { name: "Full Service Social add-on", price: 1497, description: "2 reels and 1 post a week, unlimited stories, a monthly on-site shoot; we post and answer DMs. Also sold on its own." },
   { name: "Ads Management add-on", price: 497, description: "Google or Meta ads built and managed for you. Ad spend is billed by Google and Meta directly." },
-  { name: "Build the Machine (bundle)", price: 997, description: "Website + Local SEO & Google Profile + Content Crew. Saves $444/mo versus buying them separately." },
-  { name: "Own the Market (bundle)", price: 2497, description: "Website + every add-on (SEO, Full Service Social, ads on Google and Meta) plus a dedicated strategist." },
 ] as const;
 
 /** Absolute canonical URL for a given path ("/" or "/services/local-seo"). */
@@ -251,6 +247,7 @@ export function websiteSchema() {
     "@id": WEBSITE_ID,
     url: SITE.url,
     name: SITE.name,
+    alternateName: "RGVPM",
     description: SITE.description,
     inLanguage: "en-US",
     publisher: { "@id": ORGANIZATION_ID },

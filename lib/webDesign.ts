@@ -21,7 +21,7 @@ export const WEB_DESIGN = {
     "Fast, mobile-first websites built to rank on Google and turn visitors into leads — not just look good. Every site we build is designed around one goal: growing your business.",
   metaTitle: "RGV Website Design Services",
   metaDescription:
-    "RGV website design for small businesses: fast, mobile-first sites in English or Spanish, with SEO and lead forms built in. Custom quote, live in 2–4 weeks.",
+    "RGV website design for small businesses: fast, mobile-first sites in English or Spanish, with SEO and lead forms built in. Custom quote, live in 8 to 10 days.",
   primaryKeyword: "website design services",
   keywordCluster: [
     "website design",

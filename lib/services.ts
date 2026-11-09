@@ -155,14 +155,14 @@ export const services: Service[] = [
       "Monthly content and local link building",
       "Monthly report: what moved, what's next",
     ],
-    startsAt: { plan: "the Local SEO & Google Profile add-on", price: "$397/mo", note: "on top of your $397/mo website, or included in Build the Machine ($997/mo)" },
+    startsAt: { plan: "the Local SEO & Google Profile add-on", price: "$297/mo", note: "on top of your $397/mo website" },
     planFit: {
       heading: "Which plan fits",
-      intro: "Local SEO is an add-on to your website, or part of a bundle. Here is how to pick.",
+      intro: "Local SEO is an add-on to your website. Here is how it fits with the rest.",
       rows: [
         { plan: "Local SEO & Google Profile add-on", fit: "The usual pick. Added to your website, it covers your Google Business Profile, city and service pages, on-page cleanup, monthly content and a monthly report." },
-        { plan: "Build the Machine (bundle)", fit: "Local SEO plus Content Crew, so your Google profile and social feeds get fresh reels and posts every week. Pick this if you also want social handled." },
-        { plan: "Own the Market (bundle)", fit: "Local SEO, ads on Google and Meta, Full Service Social and a dedicated strategist. For businesses competing in several cities at once." },
+        { plan: "Content Crew add-on", fit: "Add it if you also want fresh reels and posts every week for your Google profile and social feeds." },
+        { plan: "Ads Management add-on", fit: "Add it for calls now while SEO builds. Ad spend is billed by Google or Meta directly." },
       ],
     },
     reading: [
@@ -279,14 +279,14 @@ export const services: Service[] = [
       "Regular posts and fresh photos",
       "Ongoing monitoring",
     ],
-    startsAt: { plan: "the Local SEO & Google Profile add-on", price: "$397/mo", note: "on top of your $397/mo website, or included in Build the Machine ($997/mo)" },
+    startsAt: { plan: "the Local SEO & Google Profile add-on", price: "$297/mo", note: "on top of your $397/mo website" },
     planFit: {
       heading: "Which plan fits",
-      intro: "Your Google profile is managed as part of the Local SEO & Google Profile add-on, or inside a bundle.",
+      intro: "Your Google profile is managed as part of the Local SEO & Google Profile add-on, on top of your website.",
       rows: [
         { plan: "Local SEO & Google Profile add-on", fit: "Profile setup and management, review requests, posts and photos, plus the city and service pages that back the profile up. Added to your website." },
-        { plan: "Build the Machine (bundle)", fit: "Everything above plus Content Crew, so your profile gets fresh photos and posts from the reels we edit each week." },
-        { plan: "Own the Market (bundle)", fit: "Everything above plus ads on Google and Meta, Full Service Social with a monthly on-site shoot, and a dedicated strategist." },
+        { plan: "Plant the Flag (website)", fit: "The base the profile links to: a fast website and a lead inbox that texts every new lead back." },
+        { plan: "Content Crew add-on", fit: "Add it for fresh photos and posts from the reels we edit each week." },
       ],
     },
     reading: [
@@ -366,7 +366,7 @@ export const services: Service[] = [
     faqs: [
       {
         q: "Does my ad spend come out of the monthly fee?",
-        a: "No. The Ads Management add-on (or Own the Market) covers building and running your campaigns. The ad spend itself, what you pay Google or Meta to show the ads, is a separate budget the platform bills to you directly. We help you set the right budget and manage every dollar of it; you fund the account.",
+        a: "No. The Ads Management add-on covers building and running your campaigns. The ad spend itself, what you pay Google or Meta to show the ads, is a separate budget the platform bills to you directly. We help you set the right budget and manage every dollar of it; you fund the account.",
       },
       {
         q: "How quickly will paid ads generate leads?",
@@ -374,7 +374,7 @@ export const services: Service[] = [
       },
       {
         q: "Should I run Google Ads or Facebook Ads?",
-        a: "It depends on your business. Google Ads capture people actively searching for what you offer, which usually means higher intent. Facebook and Instagram ads are powerful for awareness, retargeting, and visual offers. We recommend the right mix based on your goals. The Ads Management add-on runs Google or Meta; Own the Market runs both together.",
+        a: "It depends on your business. Google Ads capture people actively searching for what you offer, which usually means higher intent. Facebook and Instagram ads are powerful for awareness, retargeting, and visual offers. We recommend the right mix based on your goals. The Ads Management add-on runs Google or Meta.",
       },
       {
         q: "How do you measure whether the ads are working?",
@@ -405,11 +405,11 @@ export const services: Service[] = [
     startsAt: { plan: "the Ads Management add-on", price: "$497/mo", note: "on top of your $397/mo website; ad spend is billed by Google and Meta directly" },
     planFit: {
       heading: "Which plan fits",
-      intro: "Ads are an add-on to your website, or part of Own the Market. Ad spend is always billed by Google or Meta directly.",
+      intro: "Ads are an add-on to your website. Ad spend is always billed by Google or Meta directly.",
       rows: [
         { plan: "Plant the Flag (website)", fit: "The base every ads client needs: a fast landing page, call and form tracking, and a lead inbox that texts every new lead back." },
         { plan: "Ads Management add-on", fit: "Google or Meta ads built and managed for you on top of your website, with reports on leads and cost per lead." },
-        { plan: "Own the Market (bundle)", fit: "Ads on Google and Meta together, plus Local SEO, Full Service Social and a dedicated strategist." },
+        { plan: "Local SEO & Google Profile add-on", fit: "Pair it with ads so you keep showing up on Google and Maps after the ad budget stops." },
       ],
     },
     reading: [
@@ -531,7 +531,7 @@ export const services: Service[] = [
       },
       {
         q: "Do I have to buy lead management separately?",
-        a: "No. The lead inbox and automatic text and email follow-up come with every website plan, starting with Plant the Flag. Every add-on and bundle builds on top of it.",
+        a: "No. The lead inbox and automatic text and email follow-up come with every website plan, starting with Plant the Flag. Every add-on builds on top of it.",
       },
     ],
     related: ["paid-advertising", "social-media-newsletter", "google-business-profile"],
@@ -550,7 +550,7 @@ export const services: Service[] = [
       rows: [
         { plan: "Plant the Flag (website)", fit: "Everything on this page: one inbox, instant replies, missed-call text back, two-way texting, campaigns and booking reminders, on a website we build and host." },
         { plan: "Ads Management add-on", fit: "A natural pair. Every lead from your Google or Meta ads lands in the same inbox and gets an instant reply." },
-        { plan: "Build the Machine (bundle)", fit: "The website and lead inbox plus Local SEO & Google Profile and Content Crew, for more people finding you and reaching out." },
+        { plan: "Local SEO & Google Profile add-on", fit: "More people finding you on Google and Maps, with every new lead landing in the same inbox." },
       ],
     },
     reading: [
@@ -590,7 +590,7 @@ export const services: Service[] = [
       heading: "What is social media & newsletter marketing?",
       body: [
         "Social media and newsletter marketing is how you stay visible to the customers you already have between purchases. Most businesses don't lose customers because they did bad work — they lose them because they faded from memory. Consistent content keeps your business in front of your audience so you're the first name they think of when they need you again.",
-        "Our service combines a social media planner — a tool to plan and schedule posts across your platforms from one place — with a done-for-you monthly newsletter. You choose the topic each month; we write, design, and send it. On the Own the Market plan, we manage and post your social content for you, too.",
+        "Our service combines a social media planner — a tool to plan and schedule posts across your platforms from one place — with a done-for-you monthly newsletter. You choose the topic each month; we write, design, and send it. With the Full Service Social add-on, we manage and post your social content for you, too.",
       ],
     },
     howWeDoIt: {
@@ -607,7 +607,7 @@ export const services: Service[] = [
         },
         {
           title: "Managed social content",
-          text: "On the Own the Market plan, we create and post your social content for you, including reels and shorts, so your brand stays consistently visible.",
+          text: "With the Full Service Social add-on, we create and post your social content for you, including reels and shorts, so your brand stays consistently visible.",
         },
         {
           title: "Bilingual content",
@@ -632,11 +632,11 @@ export const services: Service[] = [
       },
       {
         q: "What's the social media planner tool?",
-        a: "It's a scheduling tool included with every plan that lets you or your team plan and schedule posts across your social platforms from one place. On the Own the Market plan, we manage and post the content for you. On the other plans, you have the tool to do it yourself whenever you want.",
+        a: "It's a scheduling tool included with every plan that lets you or your team plan and schedule posts across your social platforms from one place. With the Full Service Social add-on, we manage and post the content for you. On the other plans, you have the tool to do it yourself whenever you want.",
       },
       {
         q: "Do you create the social media content for me?",
-        a: "On the Own the Market plan, yes — we create and post your content for you, including reels and shorts. On our other plans, you get the planner tool to schedule your own posts. We'll recommend the right level based on how hands-on you want to be.",
+        a: "With the Full Service Social add-on, yes — we create and post your content for you, including reels and shorts. On our other plans, you get the planner tool to schedule your own posts. We'll recommend the right level based on how hands-on you want to be.",
       },
       {
         q: "Can you produce content in Spanish?",
@@ -656,7 +656,7 @@ export const services: Service[] = [
       "Stories made from your content",
       "Your branding on everything",
     ],
-    startsAt: { plan: "Content Crew", price: "$647/mo", note: "we edit, you shoot; also included in Build the Machine ($997/mo)" },
+    startsAt: { plan: "Content Crew", price: "$297/mo", note: "we edit, you shoot" },
   },
 ];
 

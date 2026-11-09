@@ -127,6 +127,7 @@ export const LOCAL_SEO_CITIES: Record<string, LocalSeoCity> = {
       { q: "My business serves the whole Valley. Can I still rank in Harlingen?", a: "Yes. Your Google Business Profile ranks strongest near your address, and dedicated pages help you show up in the other cities you serve. We usually start with Harlingen, then add pages for McAllen, Brownsville or wherever your customers are." },
     ],
     nearby: [
+      { href: "/digital-marketing-harlingen-tx", label: "Digital marketing in Harlingen" },
       { href: "/website-design-harlingen-tx", label: "Website design in Harlingen" },
       { href: "/google-business-profile-harlingen-tx", label: "Google Business Profile optimization in Harlingen" },
       { href: "/google-ads-management-harlingen-tx", label: "Google Ads management in Harlingen" },

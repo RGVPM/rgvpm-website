@@ -38,6 +38,66 @@ export interface Post {
 
 export const POSTS: Post[] = [
   {
+    slug: "ai-friday-medspa-after-hours",
+    title: "AI Friday: How a Medspa Can Answer Consult Requests After Hours",
+    metaTitle: "AI Friday: Answer Medspa Consult Requests After Hours",
+    description:
+      "An AI Friday guide for medspa owners: what AI can answer after hours, what must go to your team, and how to keep consult requests from going cold.",
+    excerpt:
+      "Your front desk goes home, but people keep looking up treatments. Here is what AI can handle at night and what should always wait for your team.",
+    category: "AI Friday",
+    icon: "cpu",
+    datePublished: "2026-11-06",
+    dateModified: "2026-11-06",
+    readMinutes: 5,
+    tldr:
+      "A medspa can use AI to reply to consult requests right away, answer questions that have the same answer every time, and share a booking link after the front desk goes home. It should never give medical advice, say whether someone is a candidate for a treatment, or make up a price. Those go to your team.",
+    sections: [
+      { type: "p", text: "This AI Friday is for medspa owners. Your front desk closes, but the questions keep coming. Someone reads about a treatment after the kids are asleep, fills out your form, and waits until morning. By then they may have booked somewhere else. AI can cover that gap, as long as you decide exactly what it is allowed to say." },
+      { type: "h2", text: "What AI can handle after hours" },
+      { type: "p", text: "Give AI the questions that have the same answer every time. If your front desk could answer it without checking a chart, it is a good place to start:" },
+      { type: "ul", items: [
+        "A reply by text and email the moment a request comes in.",
+        "Your hours, location and parking.",
+        "The treatments you offer, in the words clients use, and the ones you do not.",
+        "How a consult works, including how long it takes and what to bring.",
+        "A link to book a consult, or a note that your team will call in the morning.",
+      ]},
+      { type: "h2", text: "What always goes to your team" },
+      { type: "p", text: "The rule is simple: if the honest answer depends on the person, AI collects the details and hands it off. That covers:" },
+      { type: "ul", items: [
+        "Whether someone is a good candidate for a treatment.",
+        "Side effects, a reaction, or how a treatment is healing. If it sounds urgent, the AI should share the contact you set for urgent concerns and stop there.",
+        "What results someone can expect. AI should never promise an outcome.",
+        "Any question about price, a quote, or a discount.",
+        "An upset client, or a complaint about a past visit.",
+        "A client who asks for a person. Every time, no argument.",
+      ]},
+      { type: "p", text: "For each one, write down who gets it and how. A hand-off that sits in an inbox nobody checks is no better than no reply at all." },
+      { type: "h2", text: "Be careful with client information" },
+      { type: "p", text: "A consult request can include health details, so treat it that way. Have the AI ask only for what your team needs to follow up: a name, a phone number, the treatment they are asking about, and a good time to call. Before you choose a tool, ask the company how it handles protected health information and whether it will sign a business associate agreement. Have whoever handles your compliance review the setup before it goes live." },
+      { type: "h2", text: "Connect it to what your team already uses" },
+      { type: "p", text: "Every conversation should land where your team already works: your calendar, your forms, and your lead management software. If bookings live in your EMR, find out whether the AI can connect to it or should send people to your booking link. If replies end up somewhere new that nobody opens, you have only moved the problem." },
+      { type: "h2", text: "Read every conversation for two weeks" },
+      { type: "p", text: "Once it is live, have someone read each conversation for the first couple of weeks. When the AI gets something wrong, the fix is usually one new line on your answer sheet or one new item on your hand-off list. We walked through how to write both in our AI receptionist guide.", links: [{ text: "AI receptionist guide", href: "/blog/ai-friday-ai-receptionist-answer-sheet" }] },
+      { type: "h2", text: "Your Friday homework" },
+      { type: "p", text: "Tonight, after you close, fill out your own website form and time how long it takes to get a reply. Then write down the ten questions your front desk answers most and five situations where you always want a person. If you want help turning that into a working setup, see how our AI consulting and implementation works, read how we run medspa marketing, or book a call.", links: [{ text: "AI consulting and implementation", href: "/services/ai-implementation" }, { text: "medspa marketing", href: "/medspa-marketing" }, { text: "book a call", href: "/contact" }] },
+    ],
+    faqs: [
+      { q: "Can AI answer medspa consult requests after hours?", a: "Yes. AI can reply right away by text and email, answer questions that have the same answer every time, and share a booking link. Anything that depends on the person should go to your team." },
+      { q: "Should AI give medical advice for a medspa?", a: "No. AI should not give medical advice or say whether someone is a candidate for a treatment. It should collect the details and hand the conversation to your team." },
+      { q: "Should a medspa's AI quote prices?", a: "No. Price questions belong on the hand-off list. The AI should collect the details and get a person on it, not make up a number or a promise you do not offer." },
+      { q: "How long does it take to set up?", a: "Most automations go live within one to three weeks, depending on scope. Write your answer sheet and hand-off list first, because they decide what the AI is allowed to say." },
+    ],
+    related: [
+      { href: "/blog/ai-friday-ai-receptionist-answer-sheet", label: "AI Friday: What Your AI Receptionist Should Say" },
+      { href: "/blog/ai-friday-first-consult-prep", label: "AI Friday: What to Bring to Your First AI Consult" },
+      { href: "/medspa-marketing", label: "Medspa Marketing" },
+      { href: "/services/ai-implementation", label: "AI Consulting & Implementation" },
+      { href: "/contact", label: "Book a Call" },
+    ],
+  },
+  {
     slug: "ai-friday-first-consult-prep",
     title: "AI Friday: What to Bring to Your First AI Consult",
     metaTitle: "AI Friday: What to Bring to Your First AI Consult",
@@ -420,13 +480,13 @@ export const POSTS: Post[] = [
       { type: "p", text: "They do different jobs. Ads can put you at the top of the page within days, and they stop the day you stop paying. Local SEO takes months to build, and it keeps bringing calls without a per-click charge. Many Valley businesses run ads for calls now while their map and organic rankings build. Our guide on how much SEO costs in the Rio Grande Valley covers the other side of that decision.", links: [{ text: "how much SEO costs in the Rio Grande Valley", href: "/blog/how-much-does-seo-cost-rio-grande-valley" }] },
       { type: "p", text: "If your Google Business Profile is thin or your site is slow, fix those first. Paying for clicks into a weak page wastes the budget. Our guide on how to rank higher on Google Maps is a good place to start.", links: [{ text: "how to rank higher on Google Maps", href: "/blog/how-to-rank-higher-google-maps-rio-grande-valley" }] },
       { type: "h2", text: "What does RGV Performance Marketing charge to manage Google Ads?" },
-      { type: "p", text: "Ads management is an add-on to any of our websites: Ads Management is $497 a month on top of the $397 website plan. Own the Market, $2,497 a month, includes ads on Google and Meta along with SEO, full-service social, and a dedicated strategist. Either way, ad spend is billed to you by Google or Meta directly, so you always see where every dollar went. All plans are month to month. Full details are on our pricing page.", links: [{ text: "pricing page", href: "/pricing" }] },
+      { type: "p", text: "Ads management is an add-on to any of our websites: Ads Management is $497 a month on top of the $397 website plan. Ad spend is billed to you by Google or Meta directly, so you always see where every dollar went. All plans are month to month. Full details are on our pricing page.", links: [{ text: "pricing page", href: "/pricing" }] },
       { type: "p", text: "To see how we build and track campaigns, read our paid advertising services page, or see how we run Google Ads management in McAllen. If you want a second opinion on an account you already run, book a call and we will look at your search terms, tracking, and landing page with you.", links: [{ text: "paid advertising services", href: "/services/paid-advertising" }, { text: "Google Ads management in McAllen", href: "/google-ads-management-mcallen-tx" }, { text: "book a call", href: "/contact" }] },
     ],
     faqs: [
       { q: "How much should a small business spend on Google Ads per month?", a: "Enough to get a meaningful number of clicks on one service in one area, and no more than you can afford to test with. Look up click prices for your terms in Google's Keyword Planner, decide how many clicks you need, and divide the monthly amount by 30.4 to get a daily budget." },
       { q: "Do I pay Google every time my ad shows?", a: "Not for standard search ads. You pay when someone clicks. Google can spend up to twice your average daily budget on a busy day, but over a month you will not be charged more than your average daily budget times 30.4." },
-      { q: "Does ad spend come out of the RGV Performance Marketing monthly fee?", a: "No. The Ads Management add-on and Own the Market cover running your campaigns, and you fund the ad spend. Google and Meta bill you directly, and we manage the campaigns." },
+      { q: "Does ad spend come out of the RGV Performance Marketing monthly fee?", a: "No. The Ads Management add-on covers running your campaigns, and you fund the ad spend. Google and Meta bill you directly, and we manage the campaigns." },
       { q: "How fast can Google Ads bring in calls?", a: "Ads can show at the top of the page within days of going live. The first few weeks are a learning period while tracking collects data and weak keywords get cut, so judge results after that window, not after the first week." },
       { q: "Can anyone guarantee results from Google Ads?", a: "No. Clicks are bought in an auction, and what a click turns into depends on your offer, your page, and how fast you answer. A good manager tells you what they will do each month and shows you leads and cost per lead, not just clicks." },
     ],
@@ -585,7 +645,7 @@ export const POSTS: Post[] = [
       { type: "p", text: "Hiring help makes sense when you lack the time to keep it up, when you have done the basics and still sit on page two, or when you want several cities and services covered at once. Whichever you choose, keep every account in your own name." },
       { type: "h2", text: "What does RGV Performance Marketing charge for SEO?" },
       { type: "p", text: "Our Local SEO & Google Profile add-on is $397 a month, month to month, on top of Plant the Flag, our $397 plan with a custom website built, hosted, and maintained for you plus one inbox for every lead. That's $794 a month for both. The add-on covers Google Business Profile and local SEO work: city and service pages, on-page and technical cleanup, a keyword plan, monthly content, and a monthly report on what moved. We do not guarantee #1 rankings." },
-      { type: "p", text: "Build the Machine bundles the website, local SEO, and our Content Crew social editing for $997 a month. Own the Market is $2,497 a month and adds managed ads on Google and Meta, full-service social, and a dedicated strategist. Ad spend is billed by Google or Meta directly. Current details are on our pricing page.", links: [{ text: "pricing page", href: "/pricing" }] },
+      { type: "p", text: "Local SEO is a $297 a month add-on to our $397 a month website, and our Content Crew social editing adds $297 a month more. Managed ads on Google or Meta and full-service social are add-ons too. Ad spend is billed by Google or Meta directly. Current details are on our pricing page.", links: [{ text: "pricing page", href: "/pricing" }] },
       { type: "p", text: "To see what the work looks like, our local SEO services page covers the process, and there are city pages for local SEO in Harlingen and local SEO in Brownsville. If you are pricing a new site at the same time, read how much a website costs in the RGV.", links: [{ text: "local SEO services", href: "/services/local-seo" }, { text: "local SEO in Harlingen", href: "/local-seo-harlingen-tx" }, { text: "local SEO in Brownsville", href: "/local-seo-brownsville-tx" }, { text: "how much a website costs in the RGV", href: "/blog/how-much-does-a-website-cost-rio-grande-valley" }] },
       { type: "p", text: "Or book a call. We will look at where you show up today, which cities and services are worth chasing, and whether the SEO add-on fits or the website alone would do for now.", links: [{ text: "book a call", href: "/contact" }] },
     ],
@@ -864,7 +924,7 @@ export const POSTS: Post[] = [
       ]},
       { type: "p", text: "Local SEO in Harlingen, local SEO in Brownsville, and website design are the service pages those searches should land on. This article exists so the broader \"RGV SEO and digital marketing\" search has somewhere specific to go.", links: [{ text: "Local SEO in Harlingen", href: "/local-seo-harlingen-tx" }, { text: "local SEO in Brownsville", href: "/local-seo-brownsville-tx" }, { text: "website design", href: "/services/website-design" }] },
       { type: "h2", text: "What it costs, without the fog" },
-      { type: "p", text: "A managed program for a Valley business typically runs from a few hundred dollars a month for a website and lead system up to a full local plan. At RGV Performance Marketing the published range is $397/mo to $2,497/mo, month to month, and ad spend is separate. Every plan starts with a custom website ($397/mo), with add-ons like local SEO ($397/mo) on top, or bundles at $997/mo and $2,497/mo that include the site. The pricing page has the current prices. If an agency will not show the number, that is the useful piece of information.", links: [{ text: "pricing page", href: "/pricing" }] },
+      { type: "p", text: "A managed program for a Valley business typically runs from a few hundred dollars a month for a website and lead system up to a full local plan. At RGV Performance Marketing every plan starts with a custom website ($397/mo), with add-ons like local SEO ($297/mo) on top, month to month, and ad spend is separate. The pricing page has the current prices. If an agency will not show the number, that is the useful piece of information.", links: [{ text: "pricing page", href: "/pricing" }] },
       { type: "h2", text: "How to tell if the work is real" },
       { type: "p", text: "Ask for calls, form fills, and booked jobs, broken out by city. Lead management that puts every call and form in one place makes that count easy. Impressions going up while the phone stays quiet means the snippet or the page is wrong. Rankings stuck on page 3 usually mean the city page is thin or your Google profile is incomplete. A Harlingen marketing agency that cannot show those two numbers is reporting activity, not customers.", links: [{ text: "Lead management", href: "/services/lead-management" }] },
       { type: "p", text: "If you want this run for your business, book a call and we will look at which cities you already show up for and which page is missing.", links: [{ text: "book a call", href: "/contact" }] },
@@ -874,7 +934,7 @@ export const POSTS: Post[] = [
       { q: "How is this different from regular SEO?", a: "Regular SEO competes for broad searches with no city attached. RGV SEO targets searches tied to Harlingen, Brownsville, McAllen, and nearby towns, plus the Google map pack. A Valley business usually gets more calls from the local work than from a national keyword." },
       { q: "How long does SEO take in the Rio Grande Valley?", a: "Most local businesses see early movement in 30 to 60 days, with stronger city and map-pack rankings building over 90 to 180 days. Paid ads can produce leads in the first week if the landing page is ready. Rankings keep compounding only if the pages and the Google profile stay maintained." },
       { q: "Do I need a separate page for each Valley city?", a: "Yes, if you want to rank in that city. A Harlingen page does not win \"seo brownsville tx,\" and a generic homepage rarely wins \"mcallen web design.\" Each city page should describe that city and link to your other locations, not repeat the same paragraph with the name swapped." },
-      { q: "How much does digital marketing cost in the RGV?", a: "Published plans at RGV Performance Marketing run from $397 per month for a website and lead system up to $2,497 per month for a full local program, month to month. Ad spend paid to Google or Meta is separate. Every plan includes a custom website, and add-ons such as local SEO, ads management, and social content are priced individually on the pricing page." },
+      { q: "How much does digital marketing cost in the RGV?", a: "Published plans at RGV Performance Marketing start at $397 per month for a website and lead system, with add-ons from $297 per month, month to month. Ad spend paid to Google or Meta is separate. Every plan includes a custom website, and add-ons such as local SEO, ads management, and social content are priced individually on the pricing page." },
     ],
     related: [
       { href: "/blog/digital-marketing-harlingen-tx-guide", label: "Digital Marketing in Harlingen" },
@@ -886,7 +946,7 @@ export const POSTS: Post[] = [
   {
     slug: "digital-marketing-harlingen-tx-guide",
     title: "Digital Marketing in Harlingen, TX: A Local Business Owner's Guide (2026)",
-    metaTitle: "Digital Marketing Harlingen, TX",
+    metaTitle: "Digital Marketing in Harlingen: A 2026 Owner's Guide",
     description:
       "What digital marketing in Harlingen costs in 2026, which channels bring in calls, and how to choose an agency. A plain-English guide from a Harlingen team.",
     excerpt:
@@ -900,13 +960,13 @@ export const POSTS: Post[] = [
       label: "Who does digital marketing in Harlingen?",
       text: "RGV Performance Marketing is a Harlingen-based AI & marketing agency. We build and run websites, local SEO, Google Ads and lead follow-up for businesses across the Rio Grande Valley, on month-to-month plans from $397/mo with a custom website included. See what we do on our services page, or compare plans on the pricing page.",
       links: [
-        { text: "RGV Performance Marketing", href: "/" },
+        { text: "RGV Performance Marketing", href: "/digital-marketing-harlingen-tx" },
         { text: "services page", href: "/services" },
         { text: "pricing page", href: "/pricing" },
       ],
     },
     tldr:
-      "Digital marketing in Harlingen, TX is the mix of channels a local business uses to get found online and turn searches into customers — primarily a fast website, local SEO, an optimized Google Business Profile, and paid ads. At RGV Performance Marketing, published plans run from $397/mo to $2,497/mo, month-to-month, with ad spend billed separately by Google or Meta, and the right approach is local-first and bilingual (English and Spanish).",
+      "Digital marketing in Harlingen, TX is the mix of channels a local business uses to get found online and turn searches into customers — primarily a fast website, local SEO, an optimized Google Business Profile, and paid ads. At RGV Performance Marketing, published plans start at $397/mo with add-ons from $297/mo, month-to-month, with ad spend billed separately by Google or Meta, and the right approach is local-first and bilingual (English and Spanish).",
     sections: [
       { type: "p", text: "If you run a business in Harlingen, your next customer is almost certainly looking for you on Google first. They search \"near me,\" they check your reviews, they glance at your website on their phone — and in a few seconds they decide whether to call you or the competitor down the road. Digital marketing is simply the work of winning that moment. This guide breaks down what it actually involves in the Harlingen and Rio Grande Valley market, what it costs, and how to pick a partner who delivers leads instead of vanity metrics." },
       { type: "h2", text: "What does digital marketing in Harlingen actually include?" },
@@ -925,7 +985,7 @@ export const POSTS: Post[] = [
       { type: "p", text: "It's also a bilingual market. A huge share of RGV customers search and buy in Spanish, yet most competitors only optimize for English. Marketing in both English and Spanish is one of the easiest ways for a Harlingen business to reach customers others are leaving on the table." },
       { type: "h2", text: "How much does digital marketing cost in Harlingen?" },
       { type: "p", text: "Pricing varies, and a lot of agencies hide it. What you pay depends on how many channels you're running and how hands-on the management is. Some agencies quote the website separately; on our two entry plans the website is included. Paid ad spend (what you pay Google or Meta) is its own budget on top of management, billed to you directly by the ad platform." },
-      { type: "p", text: "At RGV Performance Marketing, plans are transparent and month-to-month — $397/mo for a website and lead system, $397/mo more to add local SEO and your Google Business Profile, up to $2,497/mo to fully own your local market — with no long-term contracts. You can see the full breakdown on our pricing page.", links: [{ text: "pricing page", href: "/pricing" }] },
+      { type: "p", text: "At RGV Performance Marketing, plans are transparent and month-to-month — $397/mo for a website and lead system, $297/mo more to add local SEO and your Google Business Profile, and other add-ons priced individually — with no long-term contracts. You can see the full breakdown on our pricing page.", links: [{ text: "pricing page", href: "/pricing" }] },
       { type: "h2", text: "Local SEO: getting found in Harlingen and across the RGV" },
       { type: "p", text: "Local SEO is the work of ranking in local search results and Google's map pack — the three businesses shown on the map at the top of local searches. It's driven by your Google Business Profile, online reviews, consistent business information across the web, and location-specific content on your site.", links: [{ text: "Local SEO", href: "/services/local-seo" }, { text: "Google Business Profile", href: "/google-business-profile-harlingen-tx" }] },
       { type: "p", text: "It compounds: most businesses see early movement in 30–60 days and stronger rankings over 90–180 days. And it's not just Harlingen — the same playbook wins searches like \"brownsville seo,\" \"local seo brownsville,\" and \"harlingen seo,\" which is why a Valley-wide local SEO strategy beats a single-city effort. The businesses that rank in the map pack capture the calls; everyone else gets scrolled past.", links: [{ text: "brownsville seo", href: "/local-seo-brownsville-tx" }, { text: "harlingen seo", href: "/local-seo-harlingen-tx" }] },
@@ -949,7 +1009,7 @@ export const POSTS: Post[] = [
       { type: "p", text: "You don't have to do everything at once. Start with the foundation — make sure your Google Business Profile is claimed and optimized and your website is fast and mobile-friendly — then add local SEO and ads as you grow. If you'd rather have it handled for you, that's exactly what we do for local businesses across the Valley. Book a free call and we'll show you where you're losing leads and the fastest path to more customers.", links: [{ text: "that's exactly what we do", href: "/services" }, { text: "Book a free call", href: "/contact" }] },
     ],
     faqs: [
-      { q: "How much does digital marketing cost in Harlingen, TX?", a: "It depends on the channels and how hands-on the management is. At RGV Performance Marketing, plans run from $397 per month (a custom website plus one inbox for every lead) with add-ons such as local SEO and Google Business Profile work ($397 per month) and ads management ($497 per month), up to bundles at $997 and $2,497 per month, month-to-month. Ad spend is billed by Google or Meta on top. Be cautious of agencies that won't share pricing — transparent, month-to-month plans are a good sign." },
+      { q: "How much does digital marketing cost in Harlingen, TX?", a: "It depends on the channels and how hands-on the management is. At RGV Performance Marketing, plans run from $397 per month (a custom website plus one inbox for every lead) with add-ons such as local SEO and Google Business Profile work ($297 per month) and ads management ($497 per month), month-to-month. Ad spend is billed by Google or Meta on top. Be cautious of agencies that won't share pricing — transparent, month-to-month plans are a good sign." },
       { q: "What is the best digital marketing agency in the Rio Grande Valley?", a: "The best agency for an RGV business is one that's locally based, reports on real leads instead of vanity metrics, prices transparently with no long-term contracts, and can market in both English and Spanish. RGV Performance Marketing is a Harlingen-based, AI-powered agency built specifically for local businesses across the Rio Grande Valley, with transparent month-to-month plans." },
       { q: "How long does SEO take to work in Harlingen?", a: "Most Harlingen businesses see early local SEO movement — Google Business Profile gains and long-tail rankings — within 30 to 60 days, with stronger map-pack and city-level rankings building over 90 to 180 days. SEO compounds over time, while paid ads can generate leads within the first week if you need results faster." },
       { q: "Do I need a new website or just marketing?", a: "It depends on your current site. If it's slow, outdated, hard to use on a phone, or not built for SEO, a new website is usually the highest-leverage first step because everything else — SEO, ads, your Google profile — funnels traffic into it. If your site is already fast and modern, you may just need marketing to drive traffic to it. A quick audit will tell you which camp you're in." },

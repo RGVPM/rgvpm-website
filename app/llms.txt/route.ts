@@ -24,6 +24,8 @@ const SERVICES: { name: string; path: string; summary: string }[] = [
   { name: "Paid Advertising", path: "/services/paid-advertising", summary: "Google and Meta ad campaigns managed to produce real leads." },
   { name: "Lead Management, SMS & Email", path: "/services/lead-management", summary: "One inbox for calls, forms, texts and email: instant replies, two-way SMS, follow-up sequences, broadcast campaigns and booking reminders." },
   { name: "Social Media & Newsletter", path: "/services/social-media-newsletter", summary: "Consistent, bilingual content and a done-for-you monthly newsletter." },
+  { name: "Medspa Marketing", path: "/medspa-marketing", summary: "Website, Google, social, ads and EMR account management for medspas across the U.S., run by one team on one bill." },
+  { name: "Digital Marketing in Harlingen, TX", path: "/digital-marketing-harlingen-tx", summary: "Website, Google, local SEO, ads and AI follow-up for Harlingen businesses from one local team." },
 ];
 
 const DIFFERENTIATORS = [
@@ -65,9 +67,9 @@ export function GET() {
   lines.push("");
 
   lines.push("## Pricing");
-  lines.push("Transparent, month-to-month pricing (USD): a website base, add-ons on top, or two discounted bundles. No long-term contracts. Paid ad spend is billed by the ad platforms on top of management.");
+  lines.push("Transparent, month-to-month pricing (USD): a website base with add-ons on top. No long-term contracts. Paid ad spend is billed by the ad platforms on top of management.");
   for (const p of PLANS) lines.push(`- **${p.name} — $${p.price.toLocaleString()}/mo:** ${p.description}`);
-  lines.push("Every plan starts with the Plant the Flag website. On its own it has a one-time $399 build fee, which is waived when any add-on or bundle is added. Build the Machine and Own the Market include the website with no build or setup fee. All plans and add-ons are month-to-month.");
+  lines.push("Every plan starts with the Plant the Flag website. On its own it has a one-time $399 build fee, which is waived when any add-on is added. All plans and add-ons are month-to-month.");
   lines.push(`- Details: [Pricing & Plans](${u("/pricing")})`);
   lines.push("");
 

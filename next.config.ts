@@ -14,6 +14,9 @@ const nextConfig: NextConfig = {
       // "One team, one bill" page for practices (Nov 2026), sent to past
       // medspa clients nationwide. Built in rgv-marketing practice-landing.
       { source: "/practices", destination: "/practices.html" },
+      // VBS partner pricing (Nov 2026): plans only for Valley Beauty Supply
+      // customers. Built in rgv-marketing clients/rgvpm/vbs-landing.
+      { source: "/vbs", destination: "/vbs.html" },
     ];
   },
   async redirects() {

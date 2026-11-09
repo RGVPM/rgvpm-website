@@ -16,7 +16,7 @@ import CityLinks, { type CityLink } from "@/components/CityLinks";
  * cream and white keep alternating.
  */
 
-/** "Build the Machine (bundle)" -> "Build the Machine"; "Ads Management add-on" -> "Ads Management". */
+/** "Plant the Flag (website)" -> "Plant the Flag"; "Ads Management add-on" -> "Ads Management". */
 function planLabel(name: string) {
   return name.replace(/ \((bundle|website)\)$/, "").replace(/ add-on$/, "");
 }

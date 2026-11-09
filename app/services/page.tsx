@@ -41,6 +41,13 @@ const HATS: Hat[] = [
     href: "/services/ai-implementation",
     cta: "AI consulting & builds",
   },
+  {
+    hat: "Medspa Marketer",
+    sub: "+ one team for your practice",
+    text: "Your website, Google, social, ads and EMR account, run by one team on one bill, for medspas across the U.S.",
+    href: "/medspa-marketing",
+    cta: "Medspa marketing",
+  },
 ];
 
 const url = canonical("/services");
@@ -77,6 +84,7 @@ export default function ServicesHub() {
             { name: "Paid Advertising", path: "/services/paid-advertising" },
             { name: "Lead Management, SMS & Email", path: "/services/lead-management" },
             { name: "Social Media & Newsletter", path: "/services/social-media-newsletter" },
+            { name: "Medspa Marketing", path: "/medspa-marketing" },
           ]),
         ]}
       />
@@ -113,7 +121,7 @@ export default function ServicesHub() {
                   </Link>
                 </li>
               ))}
-              <li className="rg-reveal rg-hats-span2">
+              <li className="rg-reveal">
                 <a href={SITE.bookingUrl} target="_blank" rel="noopener noreferrer" className="rg-hat rg-hat--navy">
                   <span className="rg-hat-pill">Not sure?</span>
                   <h2 className="rg-display rg-hat-title">Start With a Call</h2>
