@@ -2655,6 +2655,14 @@ a:hover > .rg-brandmark img,
 .rg-compare .rg-plan-check { margin: 0 auto; }
 .rg-plan-head { max-width: 680px; margin: var(--s9) auto var(--s7); text-align: center; }
 .rg-plan-head p { margin: var(--s4) auto 0; max-width: 56ch; font-size: 16px; line-height: 1.7; color: var(--muted); }
+.rg-nosite { list-style: none; margin: 0 auto; padding: 0; max-width: 1020px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s4); }
+.rg-nosite-item { padding: var(--s5); border: 1.5px solid var(--navy); border-radius: var(--r-xl); background: #fff; }
+.rg-nosite-name { margin: 0; font-size: 18px; font-weight: 700; color: var(--navy); }
+.rg-nosite-price { margin: 6px 0 0; font-size: 15px; font-weight: 700; color: var(--blue-ink); }
+.rg-nosite-text { margin: 10px 0 0; font-size: 15px; line-height: 1.6; color: var(--muted); }
+.rg-nosite-cta { margin-top: var(--s6); text-align: center; }
+.rg-nosite-cta .rg-plan-cta { width: auto; gap: 8px; padding-inline: 40px; }
+@media (max-width: 760px) { .rg-nosite { grid-template-columns: minmax(0, 1fr); } }
 .rg-plan-grid--build { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
 @media (min-width: 1024px) { .rg-plan-grid--build { margin-bottom: var(--s5); } }
 

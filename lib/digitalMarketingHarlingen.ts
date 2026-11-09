@@ -69,7 +69,7 @@ export const HARLINGEN_STEPS = [
 ];
 
 export const HARLINGEN_FAQS = [
-  { q: "How much does digital marketing cost in Harlingen?", a: "Every plan starts with a custom website at $397 a month. Add-ons start at $297 a month, so you only pay for what you want handed off. Plans are month-to-month, and ad spend is billed directly by Google or Meta. Every price is on our pricing page." },
+  { q: "How much does digital marketing cost in Harlingen?", a: "A custom website is $397 a month, and add-ons start at $297 a month, so you only pay for what you want handed off. Plans are month-to-month, and ad spend is billed directly by Google or Meta. Every price is on our pricing page." },
   { q: "Are you actually based in Harlingen?", a: "Yes. We're a Harlingen team, so we can meet in person or talk by phone or video, whichever is easier for you." },
   { q: "Do you guarantee rankings or a number of leads?", a: "No. Nobody controls Google, and an agency that guarantees a ranking or lead count is guessing. We commit to the work, and a monthly report shows what it brought in." },
   { q: "Can you market my business in Spanish?", a: "Yes. We can build your website, Google content and ads in English and Spanish." },

@@ -7,7 +7,7 @@ export const homeFaqs = [
   },
   {
     q: "Is website design included in the plans?",
-    a: "Yes. Every plan starts with a custom website we build, host, and keep updated. On its own, Plant the Flag is $397/mo plus a one-time $399 build fee, waived when you add any add-on.",
+    a: "Yes. Website plans include a custom site we build, host, and keep updated. On its own, Plant the Flag is $397/mo plus a one-time $399 build fee, waived when you add any add-on. Keeping your own website? Book a call about ads or social.",
   },
   {
     q: "How does the newsletter work?",
