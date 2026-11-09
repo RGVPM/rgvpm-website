@@ -47,4 +47,5 @@ export const CLIENTS: Client[] = [
   { name: "EZ Clean Express", url: "https://www.ezcleanexpress.com", logo: "/clients/ez-clean-express.png", maxHeight: 80 },
   // laferiacoop.com doesn't resolve yet, so the logo renders unlinked.
   { name: "La Feria Co-op Gin & Supply", logo: "/clients/la-feria-coop.png", maxHeight: 84 },
+  { name: "DrBrainRx", url: "https://www.drbrainrx.com", logo: "/clients/drbrainrx.svg" },
 ];
