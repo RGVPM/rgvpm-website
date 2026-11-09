@@ -236,16 +236,38 @@ function SocialCompare() {
           </tbody>
         </table>
       </div>
-      <p className="rg-plan-fine">
-        Only need social? Both work on their own, no website from us required:{" "}
-        <a href={BOOKING} target="_blank" rel="noopener noreferrer" className="rg-text-link">
-          start Content Crew
-        </a>{" "}
-        or{" "}
-        <a href="https://api.rgvperformancemarketing.com/payment-link/6a25076203b17c94f5714f74" target="_blank" rel="noopener noreferrer" className="rg-text-link">
-          start Full Service Social
+    </>
+  );
+}
+
+/* -------------------------- no website from us -------------------------- */
+
+/** Everything but SEO works on a site we didn't build, and those sign-ups go through a call. */
+function KeepYourSite() {
+  return (
+    <>
+      <SectionHead
+        pill="Already have a website?"
+        title="Keep Your Site. Hand Off the Rest."
+        text="Ads, Content Crew and Full Service Social work with the website you already have. Book a call and we'll look at your site first. No build fee."
+      />
+      <ul className="rg-nosite">
+        {ADDONS.filter((a) => a.id !== "seo").map((a) => (
+          <li key={a.id} className="rg-nosite-item">
+            <h3 className="rg-nosite-name">{a.name}</h3>
+            <p className="rg-nosite-price">{money(a.price)}/mo</p>
+            <p className="rg-nosite-text">{a.text}</p>
+          </li>
+        ))}
+      </ul>
+      <div className="rg-nosite-cta">
+        <a href={BOOKING} target="_blank" rel="noopener noreferrer" className="rg-btn rg-plan-cta">
+          Book a Call <span aria-hidden="true">→</span>
         </a>
-        .
+      </div>
+      <p className="rg-plan-fine">
+        Local SEO &amp; Google Profile is built into the site, so it comes with a website from us. So do the lead inbox and
+        automatic follow-up.
       </p>
     </>
   );
@@ -283,7 +305,7 @@ export default function PricingPlans() {
         <SectionHead
           pill="Pricing"
           title="Start With a Website. Add the Hats You Want."
-          text="Every plan starts with a website that catches leads. Add only the jobs you want off your plate, and drop them any month."
+          text="Get a website that catches leads, then add only the jobs you want off your plate. Drop them any month."
         />
         <div className="rg-plan-grid rg-plan-grid--build">
           <Card
@@ -310,6 +332,8 @@ export default function PricingPlans() {
         </div>
 
         <SocialCompare />
+
+        <KeepYourSite />
 
         <p className="rg-plan-fine" style={{ marginTop: "var(--s7)" }}>
           All plans and add-ons are month-to-month. Ad spend is billed by Google and Meta directly. Want to see what&rsquo;s

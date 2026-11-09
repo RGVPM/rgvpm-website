@@ -37,7 +37,7 @@ export function GET() {
   L.push("## Pricing (detailed)");
   L.push("Month-to-month, no long-term contracts: a website base with add-ons on top. Paid ad spend is billed by Google/Meta directly, on top of management.");
   for (const p of PLANS) L.push(`- **${p.name} — $${p.price.toLocaleString()}/mo:** ${p.description}`);
-  L.push("Every plan starts with the Plant the Flag website. On its own it has a one-time $399 build fee, which is waived when any add-on is added. All plans and add-ons are month-to-month.");
+  L.push("Website plans start with Plant the Flag. On its own it has a one-time $399 build fee, which is waived when any add-on is added. Clients who keep their own website can get Ads Management, Content Crew or Full Service Social by booking a call; Local SEO & Google Profile requires a website from RGV Performance Marketing. All plans and add-ons are month-to-month.");
   L.push(`Full breakdown: ${u("/pricing")}`);
   L.push("");
 

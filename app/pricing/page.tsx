@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 const pricingFaqs = [
   {
     q: "How does your pricing work?",
-    a: "Every plan starts with a website: Plant the Flag, $397/mo. It includes your lead inbox and automatic follow-up by text and email. From there you add only the jobs you want handed off: Local SEO & Google Profile ($297/mo), Content Crew ($297/mo) or Full Service Social ($1,497/mo), and Ads Management ($497/mo).",
+    a: "Website plans start with Plant the Flag, $397/mo. It includes your lead inbox and automatic follow-up by text and email. From there you add only the jobs you want handed off: Local SEO & Google Profile ($297/mo), Content Crew ($297/mo) or Full Service Social ($1,497/mo), and Ads Management ($497/mo). Already have a website? Book a call and you can get ads or social without one from us.",
   },
   {
     q: "Is text and email follow-up included?",
@@ -51,8 +51,8 @@ const pricingFaqs = [
     a: "Yes. Because everything is month-to-month, you can add or drop an add-on as your needs change. Many clients start with the website to get a lead system in place, then add SEO or content when they're ready to grow.",
   },
   {
-    q: "Can I get social media without a website from you?",
-    a: "Yes. Content Crew and Full Service Social also work on their own, so you can keep your current website and just hand off your social media.",
+    q: "Can I work with you without getting a website from you?",
+    a: "Yes, for Ads Management, Content Crew and Full Service Social. Keep your current website and book a call so we can look at it first. Local SEO & Google Profile is the exception: it's built into the site, so it comes with a website from us.",
   },
 ];
 
@@ -80,7 +80,7 @@ export default function PricingPage() {
               <span style={{ color: "var(--navy)" }}>For Less Than One Hire.</span>
             </>
           }
-          subtitle="Start with a website and add only the jobs you want handed off. Month-to-month, no long-term contracts and no hidden fees."
+          subtitle="Get a website and add only the jobs you want handed off, or keep your site and hand off your ads or social. Month-to-month, no long-term contracts and no hidden fees."
           crumbs={[{ name: "Home", path: "/" }, { name: "Pricing", path: "/pricing" }]}
         >
           <ul className="rg-about-proof">
