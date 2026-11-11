@@ -12,6 +12,10 @@ import { SITE } from "@/lib/site";
  *
  * Until those env vars are set, it falls back to the website payment link,
  * then to the booking page, so the button never dead-ends.
+ *
+ * &promo=bf (Black Friday 2026): no build fee and the first month
+ * free. The card is taken at checkout for $0 (sent on the launch call, when the
+ * site goes live) and the first charge lands 30 days later, then monthly.
  */
 type Addon = "seo" | "content" | "social" | "ads";
 
@@ -29,6 +33,13 @@ const PRICE_ENV: Record<"site" | Addon | "buildFee", string> = {
 /** Payment link that works today, for the website on its own. */
 const FALLBACK_LINK = "https://buy.stripe.com/7sY9ATeDa4ui3dwg7T7Zu0F";
 
+/**
+ * Black Friday requests close Mon Nov 30, 2026; the link stays good through Mon Dec 7,
+ * 11:59 PM CT (06:00 UTC Dec 8), so late requests can still check out on their launch call.
+ */
+const BF_ENDS = Date.UTC(2026, 11, 8, 6);
+const BF_FREE_DAYS = 30;
+
 export async function GET(req: NextRequest) {
   const params = req.nextUrl.searchParams;
   const planParam = params.get("plan");
@@ -40,13 +51,17 @@ export async function GET(req: NextRequest) {
   // Content Crew and Full Service Social are either/or; keep the bigger one.
   const addons = picked.includes("social") ? picked.filter((a) => a !== "content") : picked;
 
+  const now = Date.now();
+  const bf = params.get("promo") === "bf" && now < BF_ENDS;
+
   const key = process.env.STRIPE_SECRET_KEY;
-  // The build fee is only for the website on its own; any add-on waives it.
-  const fee = addons.length === 0 ? (["buildFee"] as const) : [];
+  // The build fee is only for the website on its own; any add-on (or the BF deal) waives it.
+  const fee = addons.length === 0 && !bf ? (["buildFee"] as const) : [];
   const items = (["site", ...addons, ...fee] as const).map((k) => process.env[PRICE_ENV[k]]);
 
   if (!key || items.some((id) => !id)) {
-    return NextResponse.redirect(addons.length === 0 ? FALLBACK_LINK : SITE.bookingUrl, 303);
+    // The payment link charges today, so a BF signup goes to a call instead.
+    return NextResponse.redirect(addons.length === 0 && !bf ? FALLBACK_LINK : SITE.bookingUrl, 303);
   }
 
   const body = new URLSearchParams({
@@ -59,6 +74,18 @@ export async function GET(req: NextRequest) {
     "subscription_data[metadata][plan]": "site",
     "subscription_data[metadata][addons]": addons.join(","),
   });
+  if (bf) {
+    const day = new Date(now + BF_FREE_DAYS * 86_400_000)
+      .toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "America/Chicago" });
+    body.set("payment_method_collection", "always");
+    body.set("subscription_data[trial_period_days]", String(BF_FREE_DAYS));
+    body.set("subscription_data[trial_settings][end_behavior][missing_payment_method]", "cancel");
+    body.set("subscription_data[metadata][promo]", "bf-2026");
+    body.set(
+      "custom_text[submit][message]",
+      `Black Friday: no build fee and your first month is free. Your first charge is on ${day}, then every month on that date. Cancel before ${day} and you pay nothing; your site comes down.`,
+    );
+  }
   items.forEach((price, i) => {
     body.set(`line_items[${i}][price]`, price!);
     body.set(`line_items[${i}][quantity]`, "1");
