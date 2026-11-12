@@ -38,15 +38,12 @@ export const CLIENTS: Client[] = [
   // Unlinked by request.
   { name: "6 Day Medical Weight Loss", logo: "/clients/6-day-medical-weight-loss.png", maxHeight: 56 },
   { name: "V&S Painting & More", url: "https://vspaintingaustin.com", logo: "/clients/vs-painting.png", maxHeight: 60 },
-  { name: "STX Swing Doctor", url: "https://www.stxswingdoctor.com", logo: "/clients/stx-swing-doctor.png", maxHeight: 94 },
   // Recolored navy from the champagne original so it reads on the cream strip.
   { name: "The Spa Business Coach", logo: "/clients/the-spa-business-coach.png", maxHeight: 70 },
   // No website yet (Instagram only), so it renders unlinked.
   { name: "Tsukie Coffee", logo: "/clients/tsukie-coffee.png", maxHeight: 96 },
   { name: "Glammed Up Aesthetics", logo: "/clients/glammed-up-aesthetics.png", maxHeight: 76 },
   { name: "EZ Clean Express", url: "https://www.ezcleanexpress.com", logo: "/clients/ez-clean-express.png", maxHeight: 80 },
-  // laferiacoop.com doesn't resolve yet, so the logo renders unlinked.
-  { name: "La Feria Co-op Gin & Supply", logo: "/clients/la-feria-coop.png", maxHeight: 84 },
   // Unlinked by request.
   { name: "DrBrainRx", logo: "/clients/drbrainrx.svg" },
   { name: "Naples Beauty Co.", logo: "/clients/naples-beauty-co.png", maxHeight: 84 },

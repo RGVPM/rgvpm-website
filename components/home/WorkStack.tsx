@@ -1,23 +1,27 @@
 import { Fragment } from "react";
 import Image from "next/image";
+import PhoneVideo from "./PhoneVideo";
 
 /**
  * Hero visual: four real client websites, shown on phones.
  *
  * Every phone is an actual mobile screenshot of a site we designed, and each
- * live one links to it, so the hero shows proof rather than decoration. Server component: the only motion is a CSS entrance
+ * live one links to it, so the hero shows proof rather than decoration.
+ * Phones with a `video` play a short muted loop of that site's real hero
+ * over the screenshot once the page has loaded (see PhoneVideo). Server component: the only motion is a CSS entrance
  * (see `.rg-phone*` in globals.css).
  *
  * Screenshots are 585x1266 (a 390x844 phone screen at 1.5x) in
  * /public/work/phone. All four are above the fold on desktop, so every
  * phone loads with priority.
  */
-const SITES: { name: string; short: string; url?: string; screenshot: string }[] = [
+const SITES: { name: string; short: string; url?: string; screenshot: string; video?: string }[] = [
   {
-    name: "NeuroMotion Rehabilitation",
-    short: "NeuroMotion",
-    url: "https://neuromotionrehabilitation.com",
-    screenshot: "/work/phone/neuromotion.webp",
+    // Our redesign isn't live yet, so this phone renders unlinked.
+    name: "Skin Perfections Medical Spa",
+    short: "Skin Perfections",
+    screenshot: "/work/phone/skinperfections.webp",
+    video: "/work/phone/video/skinperfections.mp4",
   },
   {
     // Our redesign isn't live yet (naplesbeautyco.com is still the old
@@ -25,6 +29,7 @@ const SITES: { name: string; short: string; url?: string; screenshot: string }[]
     name: "Naples Beauty Co.",
     short: "Naples Beauty Co.",
     screenshot: "/work/phone/naples.webp",
+    video: "/work/phone/video/naples.mp4",
   },
   {
     name: "Glammed Up Aesthetics",
@@ -106,6 +111,7 @@ function PhoneScreen({ site }: { site: (typeof SITES)[number] }) {
           sizes="(max-width: 1023px) 34vw, 17vw"
           style={{ display: "block", width: "100%", height: "auto" }}
         />
+        {site.video && <PhoneVideo src={site.video} />}
       </span>
       <span className="rg-phone-island" aria-hidden="true" />
     </>
