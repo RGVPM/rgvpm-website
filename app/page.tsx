@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import HomeHero from "@/components/home/HomeHero";
 import { IndustryStrip } from "@/components/Sections";
-import MedspaBand from "@/components/home/MedspaBand";
 import Capabilities from "@/components/home/Capabilities";
 import ProblemsSolved from "@/components/home/ProblemsSolved";
 import Process from "@/components/home/Process";
@@ -22,7 +21,6 @@ export default function Home() {
         <HomeHero />
         {/* Client logo marquee — each logo links out to the client's site. */}
         <IndustryStrip />
-        <MedspaBand />
         <Capabilities />
         <ProblemsSolved />
         <Process />
