@@ -51,4 +51,5 @@ export const CLIENTS: Client[] = [
   { name: "DrBrainRx", logo: "/clients/drbrainrx.svg" },
   { name: "Naples Beauty Co.", logo: "/clients/naples-beauty-co.png", maxHeight: 84 },
   { name: "Skin Perfections Medical Spa", logo: "/clients/skin-perfections.png", maxHeight: 84 },
+  { name: "Belleza De Oro Salon", url: "https://www.bellezadeorosalon.com", logo: "/clients/belleza-de-oro.png", maxHeight: 84 },
 ];
