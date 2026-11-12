@@ -24,12 +24,10 @@ const SITES: { name: string; short: string; url?: string; screenshot: string; vi
     video: "/work/phone/video/skinperfections.mp4",
   },
   {
-    // Our redesign isn't live yet (naplesbeautyco.com is still the old
-    // site), so this phone renders unlinked. Add the url once it launches.
-    name: "Naples Beauty Co.",
-    short: "Naples Beauty Co.",
-    screenshot: "/work/phone/naples.webp",
-    video: "/work/phone/video/naples.mp4",
+    name: "D'Vash Aesthetics",
+    short: "D'Vash",
+    url: "https://dvashaesthetics.com",
+    screenshot: "/work/phone/dvash.webp",
   },
   {
     name: "Glammed Up Aesthetics",
@@ -38,10 +36,12 @@ const SITES: { name: string; short: string; url?: string; screenshot: string; vi
     screenshot: "/work/phone/glammedup.webp",
   },
   {
-    name: "Us To You Mobile Health",
-    short: "Us To You",
-    url: "https://www.ustoyoumobilehealth.com",
-    screenshot: "/work/phone/ustoyou.webp",
+    // Our redesign isn't live yet (naplesbeautyco.com is still the old
+    // site), so this phone renders unlinked. Add the url once it launches.
+    name: "Naples Beauty Co.",
+    short: "Naples Beauty Co.",
+    screenshot: "/work/phone/naples.webp",
+    video: "/work/phone/video/naples.mp4",
   },
 ];
 
