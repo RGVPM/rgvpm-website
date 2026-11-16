@@ -36,6 +36,10 @@ const nextConfig: NextConfig = {
       // two pages described the same product. The permanent redirect passes
       // the old page's ranking to the merged one.
       { source: "/services/sms-email-marketing", destination: "/services/lead-management", permanent: true },
+      // HVAC industry page retired Nov 2026: the agency repositioned to
+      // medical aesthetics. Send the old URL to the medspa page with a 301.
+      // The trailing-slash form is normalized by Next first, then lands here.
+      { source: "/hvac-marketing-rgv", destination: "/medspa-marketing", statusCode: 301 },
     ];
   },
 };

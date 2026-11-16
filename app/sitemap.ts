@@ -25,7 +25,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/services",
     "/medspa-marketing",
     "/digital-marketing-harlingen-tx",
-    "/hvac-marketing-rgv",
     "/pricing",
     // Paid-traffic offer page. Indexable and canonical to itself — it targets
     // "$0 upfront website" intent that /pricing doesn't. Its thank-you page is
