@@ -26,7 +26,6 @@ const SERVICES: { name: string; path: string; summary: string }[] = [
   { name: "Social Media & Newsletter", path: "/services/social-media-newsletter", summary: "Consistent, bilingual content and a done-for-you monthly newsletter." },
   { name: "Medspa Marketing", path: "/medspa-marketing", summary: "Website, Google, social, ads and EMR account management for medspas across the U.S., run by one team on one bill." },
   { name: "Digital Marketing in Harlingen, TX", path: "/digital-marketing-harlingen-tx", summary: "Website, Google, local SEO, ads and AI follow-up for Harlingen businesses from one local team." },
-  { name: "HVAC Marketing in the Rio Grande Valley", path: "/hvac-marketing-rgv", summary: "Website, Google Maps, local SEO, ads and missed-call text back for HVAC and AC repair companies in McAllen, Harlingen, Brownsville and across the RGV." },
 ];
 
 const DIFFERENTIATORS = [

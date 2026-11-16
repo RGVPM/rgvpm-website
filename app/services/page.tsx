@@ -48,13 +48,6 @@ const HATS: Hat[] = [
     href: "/medspa-marketing",
     cta: "Medspa marketing",
   },
-  {
-    hat: "HVAC Marketer",
-    sub: "+ more no-cool calls",
-    text: "Google Maps, a website that gets the call and missed-call text back for HVAC and AC repair companies across the Valley.",
-    href: "/hvac-marketing-rgv",
-    cta: "HVAC marketing",
-  },
 ];
 
 const url = canonical("/services");
