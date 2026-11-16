@@ -664,11 +664,24 @@ body {
 .rg-phone--3 .rg-phone-frame { --tilt: 2.5deg; }
 .rg-phone--4 .rg-phone-frame { --tilt: 7deg; }
 .rg-phone-screen {
+  position: relative;
   display: block;
   overflow: hidden;
   border-radius: 11.5cqw;
   background: #fff;
 }
+/* Hero loop over the screenshot; fades in once it is actually playing. */
+.rg-phone-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.rg-phone-video.is-playing { opacity: 1; }
+.rg-phone--1 .rg-phone-video.is-playing, .rg-phone--4 .rg-phone-video.is-playing { opacity: 0.9; }
 .rg-phone--1 img, .rg-phone--4 img { opacity: 0.9; }
 .rg-phone-island {
   position: absolute;
