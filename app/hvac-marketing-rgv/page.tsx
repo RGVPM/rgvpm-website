@@ -129,9 +129,9 @@ export default function HvacMarketingPage() {
             </div>
             <div style={{ border: "1px solid var(--border)", borderRadius: "var(--r-xl)", overflow: "hidden" }}>
               {HVAC_CHECKLIST.map((row, i) => (
-                <div key={row.item} style={{ display: "grid", gridTemplateColumns: "minmax(140px, 220px) 1fr", gap: 16, padding: "16px 22px", background: i % 2 ? "var(--cream)" : "#fff", borderTop: i ? "1px solid var(--border)" : "none" }}>
-                  <h3 style={{ fontSize: 15, fontWeight: 700, color: "var(--navy)" }}>{row.item}</h3>
-                  <p style={{ fontSize: 15, color: "var(--muted)", lineHeight: 1.6 }}>{row.good}</p>
+                <div key={row.item} style={{ display: "flex", flexWrap: "wrap", gap: "4px 16px", padding: "16px 22px", background: i % 2 ? "var(--cream)" : "#fff", borderTop: i ? "1px solid var(--border)" : "none" }}>
+                  <h3 style={{ flex: "0 0 200px", fontSize: 15, fontWeight: 700, color: "var(--navy)" }}>{row.item}</h3>
+                  <p style={{ flex: "1 1 300px", fontSize: 15, color: "var(--muted)", lineHeight: 1.6 }}>{row.good}</p>
                 </div>
               ))}
             </div>
