@@ -13,7 +13,7 @@ import { POSTS } from "@/lib/posts";
  * Google to ignore it). Blog posts use their own dates from lib/posts.ts.
  * changefreq and priority are left out on purpose: Google ignores both.
  */
-const PAGES_LAST_MODIFIED = "2026-11-06";
+const PAGES_LAST_MODIFIED = "2026-11-16";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPaths = [
@@ -21,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/services",
     "/medspa-marketing",
     "/digital-marketing-harlingen-tx",
+    "/hvac-marketing-rgv",
     "/pricing",
     // Paid-traffic offer page. Indexable and canonical to itself — it targets
     // "$0 upfront website" intent that /pricing doesn't. Its thank-you page is
