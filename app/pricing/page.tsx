@@ -5,6 +5,7 @@ import FaqAccordion from "@/components/FaqAccordion";
 import InnerCTA from "@/components/InnerCTA";
 import JsonLd from "@/components/JsonLd";
 import { canonical, breadcrumbSchema, faqSchema, pricingSchema, SITE, socialMeta } from "@/lib/site";
+import { esAlternates } from "@/lib/es";
 
 const url = canonical("/pricing");
 
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
   title: "Pricing & Plans — Digital Marketing for Local Business",
   description:
     "Simple, transparent digital marketing pricing. Month-to-month plans from $397/mo, including a custom website and lead management. No long-term contracts, no hidden fees.",
-  alternates: { canonical: url },
+  alternates: { canonical: url, languages: esAlternates("/pricing") },
   ...socialMeta({
     url,
     title: `Pricing & Plans | ${SITE.name}`,
