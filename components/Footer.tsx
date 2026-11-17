@@ -121,6 +121,7 @@ export default function Footer() {
         <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: 28, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
           <div style={{ fontSize: 12, color: "rgba(255,255,255,0.6)" }}>
             © {new Date().getFullYear()} RGV Performance Marketing. All rights reserved.
+            <div style={{ fontSize: 11, marginTop: 4 }}>Website Agent preview test</div>
           </div>
           <div style={{ fontFamily: "var(--font-dm-mono), monospace", fontSize: 10, letterSpacing: "0.1em", color: "rgba(255,255,255,0.62)" }}>
             THE RGV PERFORMANCE MARKETING TEAM
