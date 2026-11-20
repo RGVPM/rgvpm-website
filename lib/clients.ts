@@ -49,4 +49,9 @@ export const CLIENTS: Client[] = [
   { name: "Naples Beauty Co.", logo: "/clients/naples-beauty-co.png", maxHeight: 84 },
   { name: "Skin Perfections Medical Spa", logo: "/clients/skin-perfections.png", maxHeight: 84 },
   { name: "Belleza De Oro Salon", url: "https://www.bellezadeorosalon.com", logo: "/clients/belleza-de-oro.png", maxHeight: 84 },
+  // DNA-helix logo from faceforwardstl.com: black background knocked out and
+  // the white parts recolored navy so it reads on the cream strip. Taller than
+  // default so the small "Regenerative Aesthetics" line stays legible.
+  // Unlinked by request.
+  { name: "Face Forward Regenerative Aesthetics", logo: "/clients/face-forward.png", maxHeight: 120 },
 ];
