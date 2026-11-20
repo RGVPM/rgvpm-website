@@ -52,5 +52,6 @@ export const CLIENTS: Client[] = [
   // DNA-helix logo from faceforwardstl.com: black background knocked out and
   // the white parts recolored navy so it reads on the cream strip. Taller than
   // default so the small "Regenerative Aesthetics" line stays legible.
-  { name: "Face Forward Regenerative Aesthetics", url: "https://faceforwardstl.com", logo: "/clients/face-forward.png", maxHeight: 120 },
+  // Unlinked by request.
+  { name: "Face Forward Regenerative Aesthetics", logo: "/clients/face-forward.png", maxHeight: 120 },
 ];
