@@ -173,8 +173,8 @@ export default function AestheticRecordLeadarPage() {
         </section>
 
         <InnerCTA
-          heading="Get More Out of the Software You Already Pay For"
-          text="Fifteen minutes with someone who worked there. Tell us what isn't working, and we'll tell you honestly what's worth fixing first."
+          heading="Get Even More Out of Aesthetic Record & LeadAR"
+          text="Fifteen minutes with someone who worked there. Tell us what you want your software to do for you, and we'll show you where to start."
         />
       </main>
     </>
