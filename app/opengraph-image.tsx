@@ -41,7 +41,7 @@ export default async function OpengraphImage() {
             Less Guesswork.
           </div>
           <div style={{ display: "flex", color: "#FDF8EC", opacity: 0.92, fontSize: 34, marginTop: 28, maxWidth: 960 }}>
-            AI-powered websites, SEO, ads & automation for local businesses.
+            AI-powered websites, SEO, ads & automation for med spas and aesthetic practices.
           </div>
         </div>
 
