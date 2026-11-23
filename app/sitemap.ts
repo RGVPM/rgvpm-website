@@ -30,6 +30,7 @@ const PAGE_LAST_MODIFIED: Record<string, string> = {
   "/research/texas-med-spa-website-report-2026": "2026-11-22",
   "/scanrank": "2026-11-22",
   "/areas-we-serve": "2026-11-22",
+  "/built-by-rgvpm": "2026-11-22",
   ...Object.fromEntries(TEXAS_CITIES.map((c) => [c.path, "2026-11-22"])),
 };
 
@@ -58,6 +59,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/learn-claude-code",
     "/claude-code-templates",
     "/about",
+    // Landing page for the "Designed by RGV Performance Marketing" credit links.
+    "/built-by-rgvpm",
     "/contact",
     "/blog",
     // Legal pages are indexable (index, follow) so they belong here too.
