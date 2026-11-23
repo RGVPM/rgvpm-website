@@ -166,7 +166,7 @@ export default function AestheticRecordLeadarPage() {
               <h2 className="rg-display rg-svc-h2">Aesthetic Record & LeadAR Questions</h2>
             </div>
             <FaqAccordion items={AR_LEADAR_FAQS} />
-            <p style={{ fontSize: 13, color: "var(--muted)", lineHeight: 1.6, marginTop: 32, textAlign: "center", maxWidth: "70ch", marginInline: "auto" }}>
+            <p style={{ fontSize: 13, color: "var(--muted)", lineHeight: 1.6, maxWidth: "80ch", margin: "var(--s7) auto 0", textAlign: "center" }}>
               {AR_LEADAR_DISCLAIMER}
             </p>
           </div>

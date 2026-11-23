@@ -189,6 +189,14 @@ export const FOUNDER_BACKGROUND = [
   },
 ] as const;
 
+/**
+ * Independence sentence, verbatim (2026-11-22). Used on /company-facts and on the
+ * Aesthetic Record & LeadAR consultant page, paired with AR_TRADEMARKS.
+ */
+export const AR_INDEPENDENCE_LINE =
+  "RGV Performance Marketing is independent and is not affiliated with, endorsed by, or sponsored by Aesthetic Record or LeadAR.";
+export const AR_TRADEMARKS = "Aesthetic Record and LeadAR are trademarks of their owners.";
+
 export const AR_INDEPENDENCE =
   "RGV Performance Marketing is an independent agency and is not affiliated with Aesthetic Record. Aesthetic Record and LeadAR are trademarks of their owners.";
 

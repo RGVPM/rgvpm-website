@@ -1,4 +1,5 @@
 import type { IconName } from "@/components/Icon";
+import { AR_INDEPENDENCE_LINE, AR_TRADEMARKS } from "@/lib/site";
 
 // Aesthetic Record & LeadAR consultant page (/aesthetic-record-leadar-consultant), added 2026-11-21.
 // A door-opener for medspa owners who search for help with their software. Background facts come from Derrick
@@ -75,5 +76,5 @@ export const AR_LEADAR_FAQS = [
   { q: "How do you handle client information?", a: "Our Terms include a HIPAA Business Associate Addendum that applies when we create, receive, maintain or transmit protected health information on your behalf." },
 ];
 
-export const AR_LEADAR_DISCLAIMER =
-  "RGV Performance Marketing is an independent agency and is not affiliated with, endorsed by or sponsored by Aesthetic Record. Aesthetic Record and LeadAR are trademarks of their respective owners.";
+/** Visible independence note (same sentence as /company-facts). */
+export const AR_LEADAR_DISCLAIMER = `${AR_INDEPENDENCE_LINE} ${AR_TRADEMARKS}`;
