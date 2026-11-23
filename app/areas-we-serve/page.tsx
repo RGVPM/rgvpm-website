@@ -18,7 +18,7 @@ import { canonical, breadcrumbSchema, socialMeta, SITE, ENTITY_LINE } from "@/li
 const PATH = "/areas-we-serve";
 const TITLE = "Areas We Serve: Texas and the Rio Grande Valley";
 const DESCRIPTION =
-  "RGV Performance Marketing is based in Harlingen, Texas and works with med spas and aesthetic practices nationwide. Find our pages for Houston, San Antonio, Dallas, Austin and every Rio Grande Valley city.";
+  "RGV Performance Marketing is based in Harlingen, Texas and serves med spas nationwide. Pages for Houston, San Antonio, Dallas, Austin and every RGV city.";
 
 export const metadata: Metadata = {
   title: TITLE,
