@@ -1,7 +1,6 @@
 const items = [
-  "Medspas", "Home Services", "Salons & Barbershops", "Contractors",
-  "Restaurants & Food", "Healthcare & Clinics", "Retail",
-  "Professional Services", "Auto Services",
+  "Med Spas", "Aesthetic Practices", "Injectors", "Laser & Skin Clinics",
+  "Wellness & IV", "Plastic Surgery Practices",
 ];
 
 export default function Marquee() {

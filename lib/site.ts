@@ -258,6 +258,19 @@ export function cofounderRef() {
   };
 }
 
+/** People who can be credited as a blog post's author. */
+export type PostAuthorName = "Derrick Tamez" | "Kelsey Tamez";
+
+/**
+ * Byline data for a blog post author: the schema.org Person reference (same
+ * @id as that person's node on /about) plus the portrait for the byline.
+ * Defaults to Derrick when a post names no author.
+ */
+export function postAuthor(name: PostAuthorName = "Derrick Tamez") {
+  if (name === "Kelsey Tamez") return { ref: cofounderRef(), photo: "/founders/kelsey.jpg" };
+  return { ref: founderRef(), photo: "/founders/derrick.jpg" };
+}
+
 /** The single business node (Organization + ProfessionalService). Rendered once, site-wide. */
 export function businessSchema() {
   const node: Record<string, unknown> = {
