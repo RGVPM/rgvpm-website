@@ -3043,10 +3043,19 @@ a.rg-contact-value:hover { color: var(--blue-ink); }
 .rg-built-list span { color: var(--muted); }
 .rg-built-note { font-size: 15.5px; line-height: 1.65; color: var(--muted); margin-bottom: 0; }
 .rg-built-list + .rg-built-note { margin-top: var(--s4); }
-.rg-built-work { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: var(--s3) var(--s6); }
+/* "Some of our work": the hero's phones (.rg-phone-frame etc.) in a calm
+   row. No tilt, no float, no entrance animation; hover lift only. */
+.rg-built-phones { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s5); max-width: 760px; }
+.rg-built-phones li { min-width: 0; text-align: center; }
+.rg-built-phone { container-type: inline-size; }
+.rg-built-phone .rg-phone-frame { animation: none; box-shadow: 0 24px 40px -24px rgba(4,9,20,0.45), inset 0 0 0 1.2cqw #1E2A3E; }
+.rg-built-phone .rg-phone-frame:hover,
+.rg-built-phone .rg-phone-frame:focus-visible { box-shadow: 0 30px 50px -24px rgba(4,9,20,0.55), inset 0 0 0 1.2cqw #1E2A3E, 0 0 0 2px var(--blue); }
+.rg-built-phone-name { display: block; margin-top: 12px; font-family: var(--font-dm-mono), ui-monospace, monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
 .rg-built-cta { display: flex; align-items: center; flex-wrap: wrap; gap: var(--s5); margin-top: var(--s8); }
 .rg-built-btn { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 16px; line-height: 1; padding: 16px 28px; border-radius: 999px; text-decoration: none; color: #fff; background: var(--blue); box-shadow: var(--shadow-blue); transition: transform var(--t-fast) var(--ease), background var(--t-fast) var(--ease); }
 .rg-built-btn:hover { background: var(--blue-deep); }
 @media (max-width: 640px) {
   .rg-built-list li { grid-template-columns: 1fr; gap: 4px; }
+  .rg-built-phones { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s5) var(--s4); max-width: 400px; }
 }

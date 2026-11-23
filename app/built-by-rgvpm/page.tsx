@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
+import WorkPhone from "@/components/home/WorkPhone";
+import { NAPLES, SKIN_PERFECTIONS, GLAMMED_UP, DVASH } from "@/lib/work";
 import { canonical, breadcrumbSchema, socialMeta, SITE, ENTITY_LINE, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/site";
 
 /**
@@ -31,12 +33,12 @@ const SERVICES = [
   { name: "AI follow-up", text: "We text back missed calls and follow up with new leads by text and email." },
 ];
 
-/** Live client sites that carry our footer credit. Names and links only. */
-const WORK = [
-  { name: "Naples Beauty Co.", url: "https://naplesbeautyco.com" },
-  { name: "Skin Perfections Medical Spa", url: "https://skinperfectionsrgv.com" },
-  { name: "Glammed Up Aesthetics", url: "https://glammedupaesthetics.com" },
-];
+/**
+ * Live client sites, shown on phones like the homepage hero (shared
+ * WorkPhone + lib/work.ts). Below the fold on mobile, so screenshots
+ * lazy-load and the two video loops start only when on screen.
+ */
+const WORK = [NAPLES, SKIN_PERFECTIONS, GLAMMED_UP, DVASH];
 
 export default function BuiltByPage() {
   return (
@@ -85,10 +87,13 @@ export default function BuiltByPage() {
 
           <section aria-labelledby="built-work" className="rg-built-section">
             <h2 id="built-work" className="rg-built-h2">Some of our work</h2>
-            <ul className="rg-built-work">
+            <ul className="rg-built-phones">
               {WORK.map((w) => (
-                <li key={w.url}>
-                  <a href={w.url} target="_blank" rel="noopener" className="rg-text-link">{w.name}</a>
+                <li key={w.name}>
+                  <div className="rg-built-phone">
+                    <WorkPhone site={w} sizes="(max-width: 560px) 42vw, 170px" />
+                  </div>
+                  <span className="rg-built-phone-name">{w.short}</span>
                 </li>
               ))}
             </ul>
