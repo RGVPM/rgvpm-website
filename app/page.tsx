@@ -9,7 +9,7 @@ import BlogEditorial from "@/components/home/BlogEditorial";
 import HomeFaq from "@/components/home/HomeFaq";
 import FinalCta from "@/components/home/FinalCta";
 import JsonLd from "@/components/JsonLd";
-import { faqSchema, socialMeta, SITE } from "@/lib/site";
+import { faqSchema, socialMeta, SITE, PLANS } from "@/lib/site";
 import { homeFaqs } from "@/lib/faqs";
 import { esAlternates } from "@/lib/es";
 
@@ -36,8 +36,7 @@ export default function Home() {
 
 // Keep "AI & Marketing Agency" in the title (owner's positioning call).
 const HOME_TITLE = "AI & Digital Marketing Agency | Harlingen TX & Nationwide";
-const HOME_DESCRIPTION =
-  "AI & marketing agency in Harlingen, TX, serving businesses nationwide: websites, SEO, Google Ads and AI that follows up on every lead. From $397/mo.";
+const HOME_DESCRIPTION = `AI & marketing agency for med spas and aesthetic practices, based in Harlingen, TX, serving practices nationwide: websites, SEO, ads and AI follow-up. From $${PLANS[0].price}/mo.`;
 
 export const metadata: Metadata = {
   title: { absolute: HOME_TITLE },
