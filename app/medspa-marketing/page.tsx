@@ -107,7 +107,7 @@ export default function MedspaMarketingPage() {
             <div>
               <h2 className="rg-display rg-svc-h2" style={{ color: "var(--cream)" }}>Run by Someone Who Knows Clinics</h2>
               <p style={{ fontSize: 16.5, color: "rgba(253,248,236,0.86)", lineHeight: 1.75, marginTop: 16, maxWidth: "60ch" }}>
-                Our co-founder Kelsey Tamez spent five years at Aesthetic Record as a Senior Account Manager, working with hundreds of clinic owners and staff as they set up their software, trained their teams and grew their practices.
+                Our co-founder Kelsey Tamez spent five years at Aesthetic Record, growing from training engineer to Senior Strategic Account Manager, working with hundreds of clinic owners and staff as they set up their software, trained their teams and grew their practices.
               </p>
               <p style={{ fontSize: 16.5, color: "rgba(253,248,236,0.86)", lineHeight: 1.75, marginTop: 14, maxWidth: "60ch" }}>
                 She runs onboarding and delivery here, so you work with her directly instead of being handed off.
