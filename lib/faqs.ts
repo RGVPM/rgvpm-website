@@ -31,6 +31,6 @@ export const homeFaqs = [
   },
   {
     q: "What kinds of businesses do you work with?",
-    a: "We work with service-based local businesses across industries — home services, salons, contractors, restaurants, retail, healthcare, auto services, and professional services. If you serve customers locally and need more of them finding you online, we can help.",
+    a: "Our focus is med spas and aesthetic practices across the U.S.: medical spas, injector and laser clinics, and aesthetic practices. Our founders each spent five years at Aesthetic Record, software built for that industry, so we know how these practices book and sell. We still serve a number of other local service businesses, mostly here in the Rio Grande Valley.",
   },
 ];

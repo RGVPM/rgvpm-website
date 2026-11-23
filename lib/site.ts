@@ -13,11 +13,30 @@ export const SITE = {
   /** Approx. coordinates for Harlingen, TX (service-area business — no public street address). */
   geo: { latitude: 26.1906, longitude: -97.6961 },
   description:
-    "An AI & marketing agency based in Harlingen, Texas, serving businesses nationwide. We build websites, SEO, and ads, plus the AI systems that answer calls, follow up with leads, and cut the busywork. Locally rooted. Built to scale.",
+    "RGV Performance Marketing is an AI & marketing agency for med spas and aesthetic practices, based in Harlingen, Texas, serving practices nationwide. We build websites, Google and local SEO, social and ads, plus the AI systems that answer calls and follow up with every lead.",
   team: "The RGV Performance Marketing Team",
   /** Booking / discovery-call URL (used as a contact action). */
   bookingUrl: "https://api.rgvperformancemarketing.com/widget/bookings/rgvpmdiscoverycall",
 } as const;
+
+/**
+ * The one-sentence company description (owner's wording, 2026-11-22). Use it
+ * verbatim wherever the site describes the company: metadata, schema, llms.txt,
+ * About, footer. City and service pages keep their own copy.
+ */
+export const ENTITY_LINE =
+  "RGV Performance Marketing is an AI & marketing agency for med spas and aesthetic practices, based in Harlingen, Texas, serving practices nationwide.";
+
+/** Short form for tight spaces (footer, meta descriptions). */
+export const ENTITY_SHORT =
+  "An AI & marketing agency for med spas and aesthetic practices, based in Harlingen, Texas, serving practices nationwide.";
+
+/**
+ * Tells AI engines and Google which "RGV" marketing company this is. Do not
+ * name other businesses here.
+ */
+export const DISAMBIGUATING_DESCRIPTION =
+  "RGV Performance Marketing (RGVPM) is a medical aesthetics marketing agency in Harlingen, Texas. It works with med spas and aesthetic practices across the United States and is a separate company from other Rio Grande Valley SEO and marketing firms with similar names.";
 
 /**
  * Cities the agency actively serves across the Rio Grande Valley.
@@ -48,7 +67,8 @@ export const SOCIAL_PROFILES: string[] = [
   "https://www.instagram.com/rgvperformancemarketing/",
   "https://www.facebook.com/people/RGVPM/61572104973174/",
   "https://www.linkedin.com/company/rgv-performance-marketing/",
-  // TODO(owner): add YouTube if/when it exists.
+  "https://www.tiktok.com/@rgvpm", // verified 2026-11-22
+  "https://www.youtube.com/@RGVPM", // verified 2026-11-22 (channel renamed from @DerrickTamez)
 ];
 
 /**
@@ -94,6 +114,9 @@ export const STRIPE_LINKS = {
   plantTheFlag: "https://buy.stripe.com/28E00jcv2gd03dw1cZ7Zu0h",
 } as const;
 
+/** One-time build fee on the Plant the Flag website alone; waived with any add-on. Matches PLANS[0].description. */
+export const BUILD_FEE = 399;
+
 /** The monthly plans and add-ons — single source of truth for pricing schema and llms.txt. */
 export const PLANS = [
   { name: "Plant the Flag (website)", price: 397, description: "A custom website built, hosted, and maintained for you, plus one inbox for every lead and automatic text and email follow-up. One-time $399 build fee, waived with any add-on. Every add-on builds on this." },
@@ -101,6 +124,29 @@ export const PLANS = [
   { name: "Content Crew add-on", price: 297, description: "You shoot, we edit: 1 reel and 1 branded creative a week, plus stories. Also sold on its own." },
   { name: "Full Service Social add-on", price: 1497, description: "2 reels and 1 post a week, unlimited stories, a monthly on-site shoot; we post and answer DMs. Also sold on its own." },
   { name: "Ads Management add-on", price: 497, description: "Google or Meta ads built and managed for you. Ad spend is billed by Google and Meta directly." },
+] as const;
+
+/** "$1,497" from 1497. */
+export const usd = (n: number) => `$${n.toLocaleString("en-US")}`;
+
+/** A plan's price by its exact PLANS name. Throws at build time if the name drifts. */
+export function planPrice(name: (typeof PLANS)[number]["name"]): number {
+  const plan = PLANS.find((p) => p.name === name);
+  if (!plan) throw new Error(`Unknown plan: ${name}`);
+  return plan.price;
+}
+
+/**
+ * Plain-language pricing terms. Every number comes from PLANS / BUILD_FEE.
+ * Shared by /pricing, llms.txt and llms-full.txt so they can't disagree.
+ */
+export const PRICING_TERMS = [
+  `${PLANS[0].name} is the base: ${usd(PLANS[0].price)}/mo. On its own it has a one-time ${usd(BUILD_FEE)} build fee, waived when you add any add-on.`,
+  "No setup or activation fees on anything.",
+  "Every plan and add-on is month-to-month. No long-term contracts.",
+  "Ad spend is not included. Google and Meta bill it to you directly; the Ads Management add-on covers running the campaigns.",
+  "Content Crew and Full Service Social are also sold on their own, without the website.",
+  "We no longer sell bundles to new clients. Existing Build the Machine and Own the Market clients keep their plans and prices.",
 ] as const;
 
 /** Absolute canonical URL for a given path ("/" or "/services/local-seo"). */
@@ -122,6 +168,29 @@ export const WEBSITE_ID = `${SITE.url}/#website`;
 /** Stable @ids for the people on /about (Person nodes are fully described there). */
 export const PERSON_DERRICK_ID = `${SITE.url}/about#derrick-tamez`;
 export const PERSON_KELSEY_ID = `${SITE.url}/about#kelsey-tamez`;
+
+/**
+ * The founders' Aesthetic Record background, in Derrick's wording (2026-11-21).
+ * Used on /about (copy + Person schema) and llms.txt. Speak well of Aesthetic
+ * Record and LeadAR, and never imply a partnership: we are independent.
+ */
+export const FOUNDER_BACKGROUND = [
+  {
+    id: PERSON_DERRICK_ID,
+    name: "Derrick Tamez",
+    role: "Founder & CEO",
+    text: "Derrick spent 5 years at Aesthetic Record. He started as a sales specialist, became Sales Operations Manager, and helped launch and grow LeadAR.",
+  },
+  {
+    id: PERSON_KELSEY_ID,
+    name: "Kelsey Tamez",
+    role: "Co-Founder & Operations Director",
+    text: "Kelsey spent 5 years at Aesthetic Record as a training engineer, then a client success coach, then Senior Strategic Account Manager.",
+  },
+] as const;
+
+export const AR_INDEPENDENCE =
+  "RGV Performance Marketing is an independent agency and is not affiliated with Aesthetic Record. Aesthetic Record and LeadAR are trademarks of their owners.";
 
 /** Default share card: the output of app/opengraph-image.tsx. */
 export const DEFAULT_OG_IMAGE = {
@@ -178,6 +247,17 @@ export function founderRef() {
   };
 }
 
+/** Co-founder reference; the full Person node lives on /about. */
+export function cofounderRef() {
+  return {
+    "@type": "Person",
+    "@id": PERSON_KELSEY_ID,
+    name: "Kelsey Tamez",
+    jobTitle: "Co-Founder & Operations Director",
+    url: canonical("/about"),
+  };
+}
+
 /** The single business node (Organization + ProfessionalService). Rendered once, site-wide. */
 export function businessSchema() {
   const node: Record<string, unknown> = {
@@ -187,6 +267,7 @@ export function businessSchema() {
     name: SITE.name,
     alternateName: "RGVPM",
     description: SITE.description,
+    disambiguatingDescription: DISAMBIGUATING_DESCRIPTION,
     url: SITE.url,
     email: SITE.email,
     telephone: SITE.phone,
@@ -196,9 +277,19 @@ export function businessSchema() {
     currenciesAccepted: "USD",
     knowsLanguage: ["en", "es"],
     areaServed: [
+      { "@type": "Country", name: "United States" },
       ...SERVICE_AREA_CITIES.map((name) => ({ "@type": "City", name })),
       { "@type": "AdministrativeArea", name: "Rio Grande Valley" },
-      { "@type": "Country", name: "United States" },
+    ],
+    knowsAbout: [
+      "Med spa marketing",
+      "Aesthetic practice marketing",
+      "Med spa websites",
+      "Local SEO",
+      "Google Business Profile",
+      "Google Ads and Meta ads",
+      "AI lead follow-up and automation",
+      "Aesthetic Record and LeadAR",
     ],
     slogan: "AI & Marketing Agency",
     address: {
@@ -235,7 +326,8 @@ export function businessSchema() {
   };
 
   if (SOCIAL_PROFILES.length > 0) node.sameAs = SOCIAL_PROFILES;
-  if (FOUNDER) node.founder = founderRef();
+  if (FOUNDER) node.founder = [founderRef(), cofounderRef()];
+  node.employee = [{ "@id": PERSON_DERRICK_ID }, { "@id": PERSON_KELSEY_ID }];
   return node;
 }
 
@@ -264,7 +356,7 @@ export function pricingSchema() {
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": `${url}#service`,
-    name: "AI & marketing plans for small businesses",
+    name: "AI & marketing plans for med spas and aesthetic practices",
     serviceType: "Website, local SEO, advertising and marketing automation",
     url,
     provider: { "@id": ORGANIZATION_ID },

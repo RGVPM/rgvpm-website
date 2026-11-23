@@ -16,6 +16,13 @@ import { ES_PATHS, esAlternates } from "@/lib/es";
  */
 const PAGES_LAST_MODIFIED = "2026-11-16";
 
+/** Pages updated after PAGES_LAST_MODIFIED, with their own date. */
+const PAGE_LAST_MODIFIED: Record<string, string> = {
+  "/": "2026-11-22",
+  "/about": "2026-11-22",
+  "/pricing": "2026-11-22",
+};
+
 /** Pages with an /es twin (both sides of each pair). */
 const HAS_SPANISH_TWIN = new Set<string>([...Object.values(ES_PATHS), "/", "/pricing", "/services/website-design"]);
 
@@ -68,7 +75,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...Object.values(ES_PATHS),
   ].map((path) => ({
     url: path === "/" ? SITE.url : `${SITE.url}${path}`,
-    lastModified: PAGES_LAST_MODIFIED,
+    lastModified: PAGE_LAST_MODIFIED[path] ?? PAGES_LAST_MODIFIED,
     // English/Spanish pairs list each other as hreflang alternates.
     ...(HAS_SPANISH_TWIN.has(path) ? { alternates: { languages: esAlternates(path) } } : {}),
   }));

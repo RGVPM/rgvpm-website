@@ -1,4 +1,4 @@
-import { SITE, PLANS, SERVICE_AREA_CITIES, SOCIAL_PROFILES, OPENING_HOURS } from "@/lib/site";
+import { SITE, PLANS, SERVICE_AREA_CITIES, SOCIAL_PROFILES, OPENING_HOURS, DISAMBIGUATING_DESCRIPTION, PRICING_TERMS, FOUNDER_BACKGROUND, AR_INDEPENDENCE, usd } from "@/lib/site";
 import { services } from "@/lib/services";
 import { citySlugs, webDesignCityPath, aiCityPath } from "@/lib/cities";
 import { localSeoCityPath } from "@/lib/localSeo";
@@ -19,14 +19,16 @@ export function GET() {
   const to12 = (t: string) => { const [h] = t.split(":").map(Number); const ap = h >= 12 ? "PM" : "AM"; const hr = h % 12 === 0 ? 12 : h % 12; return `${hr} ${ap}`; };
 
   const L: string[] = [];
-  L.push(`# ${SITE.name} — Full Reference`);
+  L.push(`# ${SITE.name} (RGVPM) — Full Reference`);
   L.push("");
-  L.push(`> ${SITE.description} Local clients across the ${SITE.areaServed}; remote clients nationwide; English and Spanish. This is the expanded reference; the concise version is at ${u("/llms.txt")}.`);
+  L.push(`> ${SITE.description} Local clients across the ${SITE.areaServed}; practices nationwide; English and Spanish. This is the expanded reference; the concise version is at ${u("/llms.txt")}.`);
   L.push("");
   L.push("## Business details");
   L.push(`- **Name:** ${SITE.name}`);
-  L.push(`- **Location:** ${SITE.city}, ${SITE.region} (service-area business)`);
-  L.push(`- **Service area:** ${SERVICE_AREA_CITIES.join(", ")}, and the wider Rio Grande Valley`);
+  L.push(`- **Industry focus:** med spas and aesthetic practices`);
+  L.push(`- **Location:** ${SITE.city}, ${SITE.region}, United States`);
+  L.push(`- **Service area:** practices across the United States; local clients in ${SERVICE_AREA_CITIES.join(", ")} and the wider Rio Grande Valley`);
+  L.push(`- **Disambiguation:** ${DISAMBIGUATING_DESCRIPTION}`);
   L.push(`- **Phone:** ${SITE.phoneHuman}`);
   L.push(`- **Email:** ${SITE.email}`);
   L.push(`- **Hours:** ${days}, ${to12(OPENING_HOURS.opens)}–${to12(OPENING_HOURS.closes)} (closed weekends)`);
@@ -34,10 +36,15 @@ export function GET() {
   if (SOCIAL_PROFILES.length > 0) L.push(`- **Profiles:** ${SOCIAL_PROFILES.join(" · ")}`);
   L.push("");
 
+  L.push("## Founders");
+  for (const f of FOUNDER_BACKGROUND) L.push(`- **${f.name}, ${f.role}:** ${f.text}`);
+  L.push(AR_INDEPENDENCE);
+  L.push("");
+
   L.push("## Pricing (detailed)");
   L.push("Month-to-month, no long-term contracts: a website base with add-ons on top. Paid ad spend is billed by Google/Meta directly, on top of management.");
-  for (const p of PLANS) L.push(`- **${p.name} — $${p.price.toLocaleString()}/mo:** ${p.description}`);
-  L.push("Every plan starts with the Plant the Flag website. On its own it has a one-time $399 build fee, which is waived when any add-on is added. All plans and add-ons are month-to-month.");
+  for (const p of PLANS) L.push(`- **${p.name} — ${usd(p.price)}/mo:** ${p.description}`);
+  for (const t of PRICING_TERMS) L.push(`- ${t}`);
   L.push(`Full breakdown: ${u("/pricing")}`);
   L.push("");
 
