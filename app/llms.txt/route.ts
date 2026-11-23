@@ -5,6 +5,7 @@ import { googleAdsCityPath } from "@/lib/googleAds";
 import { gbpCityPath } from "@/lib/gbp";
 import { homeFaqs } from "@/lib/faqs";
 import { POSTS } from "@/lib/posts";
+import { GUIDES, GUIDES_HUB, guidePath } from "@/lib/arGuides";
 
 /**
  * /llms.txt — a Markdown brief for AI assistants and answer engines
@@ -67,6 +68,7 @@ export function GET() {
   lines.push(AR_INDEPENDENCE);
   lines.push(`- Team: [About](${u("/about")})`);
   lines.push(`- Aesthetic Record & LeadAR help: [Aesthetic Record & LeadAR Consultant](${u("/aesthetic-record-leadar-consultant")})`);
+  lines.push(`- Aesthetic Record & LeadAR how-to guides: [Aesthetic Record & LeadAR Guides](${u(GUIDES_HUB.path)})`);
   lines.push("");
 
   lines.push("## Why RGV Performance Marketing");
@@ -90,6 +92,11 @@ export function GET() {
     lines.push(f.a);
     lines.push("");
   }
+
+  lines.push("## Aesthetic Record & LeadAR how-to guides");
+  lines.push("Step-by-step guides written by the founders, who spent five years each at Aesthetic Record. Each one follows and links to Aesthetic Record's public Learning Lab articles. RGVPM is independent and not affiliated with Aesthetic Record.");
+  for (const g of GUIDES) lines.push(`- [${g.title}](${u(guidePath(g.slug))}): ${g.answer}`);
+  lines.push("");
 
   lines.push("## Guides & articles");
   for (const post of POSTS) {

@@ -7,6 +7,7 @@ import { googleAdsCityPath, googleAdsCityIndexable, GOOGLE_ADS_CITIES } from "@/
 import { gbpCityPath, gbpCityIndexable, GBP_CITIES } from "@/lib/gbp";
 import { POSTS } from "@/lib/posts";
 import { ES_PATHS, esAlternates } from "@/lib/es";
+import { GUIDES_HUB, GUIDES_UPDATED, guidePaths } from "@/lib/arGuides";
 
 /**
  * Last real content update for non-blog pages. Bump this by hand when page
@@ -26,6 +27,8 @@ const PAGE_LAST_MODIFIED: Record<string, string> = {
   "/med-spa-marketing-agency-pricing": "2026-11-22",
   "/aesthetic-record-leadar-consultant": "2026-11-22",
   "/services/lead-management": "2026-11-22",
+  [GUIDES_HUB.path]: GUIDES_UPDATED,
+  ...Object.fromEntries(guidePaths().map((p) => [p, GUIDES_UPDATED])),
 };
 
 /** Pages with an /es twin (both sides of each pair). */
@@ -39,6 +42,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/growth99-alternatives",
     "/med-spa-marketing-agency-pricing",
     "/aesthetic-record-leadar-consultant",
+    GUIDES_HUB.path,
+    ...guidePaths(),
     "/digital-marketing-harlingen-tx",
     "/pricing",
     // Paid-traffic offer page. Indexable and canonical to itself — it targets

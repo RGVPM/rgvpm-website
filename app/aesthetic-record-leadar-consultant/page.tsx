@@ -125,6 +125,13 @@ export default function AestheticRecordLeadarPage() {
               <h2 className="rg-display rg-svc-h2">Where We Help With Aesthetic Record & LeadAR</h2>
             </div>
             <CardGrid items={AR_LEADAR_HELP} />
+            <p style={{ fontSize: 16, color: "var(--muted)", lineHeight: 1.7, marginTop: 28 }}>
+              Prefer to do it yourself? Our free{" "}
+              <Link href="/aesthetic-record-leadar-guides" style={{ color: "var(--blue-ink)", fontWeight: 700 }}>
+                Aesthetic Record &amp; LeadAR guides
+              </Link>{" "}
+              walk through online booking, review requests, memberships and more, step by step.
+            </p>
           </div>
         </section>
 

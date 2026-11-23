@@ -6,6 +6,7 @@ import { googleAdsCityPath } from "@/lib/googleAds";
 import { gbpCityPath } from "@/lib/gbp";
 import { homeFaqs } from "@/lib/faqs";
 import { POSTS } from "@/lib/posts";
+import { GUIDES, GUIDES_HUB, GUIDE_AUTHORS, guidePath } from "@/lib/arGuides";
 
 /**
  * /llms-full.txt — the expanded, comprehensive knowledge base for AI agents
@@ -72,6 +73,18 @@ export function GET() {
   for (const f of homeFaqs) {
     L.push(`### ${f.q}`);
     L.push(f.a);
+    L.push("");
+  }
+
+  L.push("## Aesthetic Record & LeadAR how-to guides (full answers)");
+  L.push(`Hub: ${u(GUIDES_HUB.path)}. Written by the founders, who spent five years each at Aesthetic Record; steps follow Aesthetic Record's public Learning Lab. RGVPM is independent and not affiliated with Aesthetic Record.`);
+  L.push("");
+  for (const g of GUIDES) {
+    L.push(`### ${g.title}`);
+    L.push(`URL: ${u(guidePath(g.slug))} (by ${GUIDE_AUTHORS[g.author].name})`);
+    L.push(g.answer);
+    L.push("");
+    for (const f of g.faqs) L.push(`- **${f.q}** ${f.a}`);
     L.push("");
   }
 
