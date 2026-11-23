@@ -5,6 +5,7 @@ import { googleAdsCityPath } from "@/lib/googleAds";
 import { gbpCityPath } from "@/lib/gbp";
 import { homeFaqs } from "@/lib/faqs";
 import { POSTS } from "@/lib/posts";
+import { TEXAS_CITIES } from "@/lib/texasMedspa";
 
 /**
  * /llms.txt — a Markdown brief for AI assistants and answer engines
@@ -95,6 +96,11 @@ export function GET() {
   for (const post of POSTS) {
     lines.push(`- [${post.title}](${u(`/blog/${post.slug}`)}): ${post.tldr}`);
   }
+  lines.push("");
+
+  lines.push("## Med spa marketing in Texas metros");
+  lines.push("Remote service from Harlingen (no office in these cities). Each page covers the local market (U.S. Census figures) and Texas Medical Board rules on cosmetic procedures.");
+  for (const c of TEXAS_CITIES) lines.push(`- [${c.metaTitle}](${u(c.path)}): ${c.metaDescription}`);
   lines.push("");
 
   lines.push("## City service areas");
