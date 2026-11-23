@@ -110,6 +110,8 @@ export function GET() {
   lines.push(`- [Home](${SITE.url})`);
   lines.push(`- [Services](${u("/services")})`);
   lines.push(`- [Pricing](${u("/pricing")})`);
+  lines.push(`- [Med Spa Marketing Agency Pricing Compared](${u("/med-spa-marketing-agency-pricing")})`);
+  lines.push(`- [Growth99 Alternatives for Med Spas](${u("/growth99-alternatives")})`);
   lines.push(`- [About](${u("/about")})`);
   lines.push(`- [Contact](${u("/contact")})`);
   lines.push(`- [Blog](${u("/blog")})`);
