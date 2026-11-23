@@ -6,7 +6,7 @@ import PhoneVideo from "./PhoneVideo";
  * Hero visual: four real client websites, shown on phones.
  *
  * Every phone is an actual mobile screenshot of a site we designed, and each
- * live one links to it, so the hero shows proof rather than decoration.
+ * one links to its live site, so the hero shows proof rather than decoration.
  * Phones with a `video` play a short muted loop of that site's real hero
  * over the screenshot once the page has loaded (see PhoneVideo). Server component: the only motion is a CSS entrance
  * (see `.rg-phone*` in globals.css).
@@ -17,9 +17,10 @@ import PhoneVideo from "./PhoneVideo";
  */
 const SITES: { name: string; short: string; url?: string; screenshot: string; video?: string }[] = [
   {
-    // Our redesign isn't live yet, so this phone renders unlinked.
+    // Our redesign is live (confirmed 2026-11-22).
     name: "Skin Perfections Medical Spa",
     short: "Skin Perfections",
+    url: "https://skinperfectionsrgv.com",
     screenshot: "/work/phone/skinperfections.webp",
     video: "/work/phone/video/skinperfections.mp4",
   },
@@ -36,10 +37,10 @@ const SITES: { name: string; short: string; url?: string; screenshot: string; vi
     screenshot: "/work/phone/glammedup.webp",
   },
   {
-    // Our redesign isn't live yet (naplesbeautyco.com is still the old
-    // site), so this phone renders unlinked. Add the url once it launches.
+    // Our redesign is live (confirmed 2026-11-22).
     name: "Naples Beauty Co.",
     short: "Naples Beauty Co.",
+    url: "https://naplesbeautyco.com",
     screenshot: "/work/phone/naples.webp",
     video: "/work/phone/video/naples.mp4",
   },
