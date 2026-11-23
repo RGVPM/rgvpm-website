@@ -22,16 +22,16 @@ const title = REPORT.title;
 const description = `We scanned ${REPORT.sample} med spa and aesthetic practice homepages, mostly in Texas, for booking, click-to-call, text and chat, schema, llms.txt, reviews and published prices. Aggregate results and methodology.`;
 
 export const metadata: Metadata = {
-  title,
+  title: { absolute: REPORT.seoTitle },
   description,
   alternates: { canonical: url },
-  ...socialMeta({ url, title: `${title} | ${SITE.name}`, description, type: "article" }),
+  ...socialMeta({ url, title: REPORT.seoTitle, description, type: "article" }),
 };
 
 const crumbs = [
   { name: "Home", path: "/" },
   { name: "Medspa Marketing", path: "/medspa-marketing" },
-  { name: "State of Med Spa Websites 2026", path },
+  { name: "Texas Med Spa Website Report 2026", path },
 ];
 
 const published = "November 22, 2026";
@@ -60,7 +60,7 @@ const datasetSchema = {
   "@context": "https://schema.org",
   "@type": "Dataset",
   "@id": `${url}#dataset`,
-  name: "State of Med Spa Websites 2026 (aggregate results)",
+  name: "The Texas Med Spa Website Report 2026 (aggregate results)",
   description: `Aggregate results from an automated scan of ${REPORT.sample} public med spa and aesthetic practice homepages, collected ${REPORT.dateCollected}. Measures HTTPS, mobile viewport, online booking platform links, tap-to-call links, text and chat options, LocalBusiness and FAQ schema, llms.txt, AI crawler rules in robots.txt, on-page reviews, published prices and HTML size. Only shares across the sample are published; no individual practice is identified.`,
   url,
   creator: founderRef(),
@@ -148,7 +148,7 @@ export default function StateOfMedSpaWebsitesPage() {
           tone="blue"
           eyebrow="Original research"
           title={title}
-          subtitle={`We scanned the public homepages of ${REPORT.sample} med spa and aesthetic practice websites, almost all in Texas. This report shows what those sites have, what they skip, and which fixes cost the least.`}
+          subtitle={`We checked ${REPORT.sample} med spa websites across Texas. 79% give patients no way to text or chat.`}
           crumbs={crumbs}
         >
           <div className="rpt-meta">
@@ -293,10 +293,10 @@ export default function StateOfMedSpaWebsitesPage() {
 
         <section className="rg-svc-band" style={{ background: "var(--cream)" }}>
           <div className="rg-container" style={{ maxWidth: 960 }}>
-            <SectionHead pill="Page weight" heading="Homepage Size and Server Speed">
+            <SectionHead pill="Page weight" heading="Homepage Size and Server Response">
               <p className="rg-svc-body">
-                We measured the HTML document and how fast the server answered. We did not run full page-speed tests,
-                so these numbers leave out images, scripts and fonts.
+                We measured the HTML document and how fast the server answered. These numbers cover the HTML only, not
+                images, scripts or fonts.
               </p>
             </SectionHead>
             <div className="rpt-table-wrap">
@@ -310,7 +310,7 @@ export default function StateOfMedSpaWebsitesPage() {
                 </thead>
                 <tbody>
                   <tr><td>Median HTML size</td><td>{SPEED.htmlKbMedian} KB</td></tr>
-                  <tr><td>HTML size, slowest quarter starts at</td><td>{SPEED.htmlKbP75} KB</td></tr>
+                  <tr><td>HTML size, heaviest quarter starts at</td><td>{SPEED.htmlKbP75} KB</td></tr>
                   <tr><td>Sites with more than 500 KB of HTML</td><td>{Math.round(SPEED.htmlOver500Pct)}%</td></tr>
                   <tr><td>Median time to first byte</td><td>{SPEED.ttfbMedian} s</td></tr>
                   <tr><td>Sites taking longer than 1 second to first byte</td><td>{Math.round(SPEED.ttfbOver1sPct)}%</td></tr>
@@ -397,7 +397,7 @@ export default function StateOfMedSpaWebsitesPage() {
                 <li><strong>AI crawlers:</strong> whether robots.txt blocks the homepage for GPTBot, OAI-SearchBot, PerplexityBot, ClaudeBot or Google-Extended.</li>
                 <li><strong>Reviews:</strong> a review widget, review schema, or a reviews or testimonials section in the page text.</li>
                 <li><strong>Prices:</strong> at least two different dollar amounts next to treatment words (units, syringes, facials, laser, sessions and so on) on the homepage or on a linked pricing page. We ignored discounts, gift cards, financing and deposits.</li>
-                <li><strong>Page weight:</strong> HTML size and time to first byte from one request. We planned Google PageSpeed Insights tests on a random subset, but the free API had no quota left on scan day, so we report HTML size and response time only.</li>
+                <li><strong>HTML size and response time:</strong> the size of the homepage HTML and the time to first byte, from one request.</li>
               </ul>
 
               <h3>How we collected it</h3>
@@ -437,7 +437,7 @@ export default function StateOfMedSpaWebsitesPage() {
                 You can quote these numbers in articles, decks and posts. Please link back to this page.
               </p>
               <code>
-                Tamez, D. (2026). State of Med Spa Websites 2026. RGV Performance Marketing. {url}
+                Tamez, D. (2026). The Texas Med Spa Website Report 2026. RGV Performance Marketing. {url}
               </code>
               <p style={{ marginTop: 14, marginBottom: 0, fontSize: 14.5 }}>
                 Questions about the data? Email <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.

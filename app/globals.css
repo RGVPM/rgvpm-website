@@ -2930,7 +2930,7 @@ a.rg-contact-value:hover { color: var(--blue-ink); }
   .medspa-compare-row p span { display: inline; font-weight: 700; }
 }
 
-/* /research/state-of-med-spa-websites-2026: stat tiles, CSS bar charts, cite box. */
+/* /research/texas-med-spa-website-report-2026: stat tiles, CSS bar charts, cite box. */
 .rpt-meta { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 24px; font-family: var(--font-dm-mono), ui-monospace, monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(253,248,236,0.92); }
 .rpt-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
 @media (max-width: 1023px) { .rpt-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

@@ -1,5 +1,5 @@
 /**
- * "State of Med Spa Websites 2026": aggregate results only.
+ * "The Texas Med Spa Website Report 2026": aggregate results only.
  *
  * Source: a homepage scan RGV Performance Marketing ran on 2026-11-22. The raw
  * per-site file (with business names) stays private and is never published
@@ -9,8 +9,9 @@
  */
 
 export const REPORT = {
-  path: "/research/state-of-med-spa-websites-2026",
-  title: "State of Med Spa Websites 2026",
+  path: "/research/texas-med-spa-website-report-2026",
+  title: "The Texas Med Spa Website Report 2026",
+  seoTitle: "Texas Med Spa Website Report 2026: 686 Sites Checked | RGVPM",
   datePublished: "2026-11-22",
   dateCollected: "2026-11-22",
   /** Unique practice domains in the starting lists. */
