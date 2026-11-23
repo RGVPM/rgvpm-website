@@ -189,8 +189,14 @@ export const FOUNDER_BACKGROUND = [
   },
 ] as const;
 
-export const AR_INDEPENDENCE =
-  "RGV Performance Marketing is an independent agency and is not affiliated with Aesthetic Record. Aesthetic Record and LeadAR are trademarks of their owners.";
+/**
+ * Independence sentence, verbatim (2026-11-22). Used on /company-facts and on the
+ * Aesthetic Record & LeadAR consultant page, paired with AR_TRADEMARKS.
+ */
+export const AR_INDEPENDENCE_LINE =
+  "RGV Performance Marketing is independent and is not affiliated with, endorsed by, or sponsored by Aesthetic Record or LeadAR.";
+export const AR_TRADEMARKS = "Aesthetic Record and LeadAR are trademarks of their owners.";
+
 
 /** Default share card: the output of app/opengraph-image.tsx. */
 export const DEFAULT_OG_IMAGE = {
@@ -305,6 +311,7 @@ export function businessSchema() {
       "Aesthetic Record and LeadAR",
     ],
     slogan: "AI & Marketing Agency",
+    foundingDate: "2026",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Harlingen",

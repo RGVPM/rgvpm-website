@@ -31,6 +31,7 @@ const PAGE_LAST_MODIFIED: Record<string, string> = {
   "/scanrank": "2026-11-22",
   "/areas-we-serve": "2026-11-22",
   "/built-by-rgvpm": "2026-11-22",
+  "/company-facts": "2026-11-22",
   ...Object.fromEntries(TEXAS_CITIES.map((c) => [c.path, "2026-11-22"])),
 };
 
@@ -59,6 +60,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/learn-claude-code",
     "/claude-code-templates",
     "/about",
+    // Quotable company facts in FAQPage schema (lib/companyFacts.ts).
+    "/company-facts",
     // Landing page for the "Designed by RGV Performance Marketing" credit links.
     "/built-by-rgvpm",
     "/contact",
