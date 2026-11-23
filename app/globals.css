@@ -2930,6 +2930,53 @@ a.rg-contact-value:hover { color: var(--blue-ink); }
   .medspa-compare-row p span { display: inline; font-weight: 700; }
 }
 
+/* /research/texas-med-spa-website-report-2026: stat tiles, CSS bar charts, cite box. */
+.rpt-meta { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 24px; font-family: var(--font-dm-mono), ui-monospace, monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(253,248,236,0.92); }
+.rpt-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 1023px) { .rpt-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px)  { .rpt-stats { grid-template-columns: 1fr; } }
+.rpt-stat { background: var(--cream); border: 1.5px solid var(--navy); border-radius: var(--r-lg); padding: 22px 20px; }
+.rpt-stat .rpt-stat-num { font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px, 5vw, 64px); line-height: 0.9; color: var(--navy); margin: 0; }
+.rpt-stat .rpt-stat-num span { color: var(--blue-ink); }
+.rpt-stat p { margin: 10px 0 0; font-size: 15px; line-height: 1.5; color: var(--navy); }
+.rpt-chart { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+.rpt-bar-row { display: grid; grid-template-columns: minmax(150px, 260px) 1fr 52px; gap: 14px; align-items: center; }
+.rpt-bar-label { font-size: 15px; color: var(--navy); line-height: 1.3; }
+.rpt-bar-track { height: 18px; background: var(--cream-dark); border-radius: var(--r-xs); overflow: hidden; }
+.rpt-bar-fill { height: 100%; background: var(--blue); border-radius: var(--r-xs); }
+.rpt-bar-fill--navy { background: var(--navy); }
+.rpt-bar-val { font-family: var(--font-dm-mono), ui-monospace, monospace; font-size: 14px; font-weight: 600; color: var(--navy); text-align: right; }
+@media (max-width: 640px) {
+  .rpt-bar-row { grid-template-columns: 1fr 48px; gap: 4px 10px; }
+  .rpt-bar-label { grid-column: 1 / -1; }
+}
+.rpt-cols { display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); gap: 8px; align-items: end; height: 220px; padding-top: 24px; border-bottom: 1.5px solid var(--navy); }
+.rpt-col { display: flex; flex-direction: column; justify-content: flex-end; align-items: center; height: 100%; }
+.rpt-col-bar { width: 100%; max-width: 56px; background: var(--blue); border-radius: var(--r-xs) var(--r-xs) 0 0; }
+.rpt-col-val { font-family: var(--font-dm-mono), ui-monospace, monospace; font-size: 12px; color: var(--navy); margin-bottom: 4px; }
+.rpt-col-axis { display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); gap: 8px; margin-top: 8px; text-align: center; font-family: var(--font-dm-mono), ui-monospace, monospace; font-size: 12px; color: var(--muted); }
+.rpt-stack { display: flex; height: 28px; border-radius: var(--r-sm); overflow: hidden; border: 1.5px solid var(--navy); }
+.rpt-stack span { display: block; height: 100%; }
+.rpt-legend { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 12px 0 0; padding: 0; list-style: none; font-size: 14px; color: var(--navy); }
+.rpt-legend i { display: inline-block; width: 12px; height: 12px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; border: 1px solid var(--navy); }
+.rpt-note { font-size: 14px; line-height: 1.6; color: var(--muted); margin: 16px 0 0; }
+.rpt-check { margin: 0; padding: 0; list-style: none; display: grid; gap: 14px; counter-reset: rpt; }
+.rpt-check li { position: relative; padding: 18px 20px 18px 58px; background: #fff; border: 1px solid var(--border); border-radius: var(--r-md); font-size: 16px; line-height: 1.6; color: var(--navy); counter-increment: rpt; }
+.rpt-check li::before { content: counter(rpt, decimal-leading-zero); position: absolute; left: 18px; top: 18px; font-family: var(--font-dm-mono), ui-monospace, monospace; font-size: 13px; font-weight: 600; color: var(--orange-ink); }
+.rpt-check strong { display: block; margin-bottom: 2px; }
+.rpt-method { font-size: 15.5px; line-height: 1.7; color: var(--muted); }
+.rpt-method h3 { font-size: 17px; color: var(--navy); margin: 28px 0 8px; }
+.rpt-method ul { padding-left: 20px; margin: 0; }
+.rpt-method li { margin: 4px 0; }
+.rpt-table { width: 100%; border-collapse: collapse; font-size: 14.5px; margin-top: 12px; }
+.rpt-table th, .rpt-table td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); color: var(--navy); }
+.rpt-table th { font-weight: 700; }
+.rpt-table td:last-child, .rpt-table th:last-child { text-align: right; }
+.rpt-table-wrap { overflow-x: auto; }
+.rpt-cite { background: var(--navy); color: var(--cream); border-radius: var(--r-xl); padding: clamp(24px, 3vw, 36px); }
+.rpt-cite p { margin: 0 0 12px; line-height: 1.6; }
+.rpt-cite code { display: block; white-space: pre-wrap; word-break: break-word; font-family: var(--font-dm-mono), ui-monospace, monospace; font-size: 13.5px; line-height: 1.6; background: rgba(253,248,236,0.08); border: 1px solid rgba(253,248,236,0.2); border-radius: var(--r-md); padding: 14px 16px; color: var(--cream); }
+.rpt-cite a { color: var(--blue-on-dark); }
 /* ── ScanRank (/scanrank) ─────────────────── */
 .avc-card {
   background: #fff;
