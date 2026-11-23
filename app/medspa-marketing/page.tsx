@@ -17,6 +17,7 @@ import {
   MEDSPA_CLIENTS,
   MEDSPA_FAQS,
 } from "@/lib/medspa";
+import { TEXAS_CITIES } from "@/lib/texasMedspa";
 import { canonical, breadcrumbSchema, faqSchema, SITE, LOCAL_BUSINESS_ID, socialMeta } from "@/lib/site";
 
 const path = "/medspa-marketing";
@@ -229,7 +230,29 @@ export default function MedspaMarketingPage() {
           </div>
         </section>
 
-        <section className="rg-svc-band" style={{ background: "#fff" }}>
+        <section id="texas" className="rg-svc-band" style={{ background: "#fff" }}>
+          <div className="rg-container">
+            <div style={{ maxWidth: 680, marginBottom: 32 }}>
+              <span className="rg-pill">Texas</span>
+              <h2 className="rg-display rg-svc-h2">Med Spa Marketing Across Texas</h2>
+              <p style={{ fontSize: 16, color: "var(--muted)", lineHeight: 1.7, marginTop: 14 }}>
+                We&apos;re based in Harlingen and work with practices in every big Texas metro, remotely. Each page covers that market and the Texas Medical Board rules that shape your marketing.
+              </p>
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 16 }} className="svc-grid-responsive">
+              {TEXAS_CITIES.map((c) => (
+                <Link key={c.slug} href={c.path} style={{ display: "block", background: "var(--cream)", border: "1px solid var(--border)", borderRadius: "var(--r-xl)", padding: 24, textDecoration: "none" }}>
+                  <span style={{ display: "block", fontSize: 17, fontWeight: 700, color: "var(--navy)" }}>{c.city}, TX</span>
+                  <span style={{ display: "inline-block", marginTop: 8, fontSize: 14, fontWeight: 700, color: "var(--blue-ink)" }}>
+                    Med spa marketing in {c.city} <span aria-hidden="true">→</span>
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="rg-svc-band" style={{ background: "var(--cream)" }}>
           <div className="rg-container">
             <div style={{ textAlign: "center", marginBottom: 32 }}>
               <span className="rg-pill">FAQ</span>
