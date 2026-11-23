@@ -54,6 +54,7 @@ export default function Footer() {
                 { label: "Med Spa Advertising", href: "/med-spa-advertising" },
                 { label: "Med Spa Social Media", href: "/med-spa-social-media-marketing" },
                 { label: "ScanRank: AI Readiness Score", href: "/scanrank" },
+                { label: "Does ChatGPT Recommend You?", href: "/does-chatgpt-recommend-my-med-spa" },
                 { label: "Aesthetic Record & LeadAR Help", href: "/aesthetic-record-leadar-consultant" },
                 { label: "Learn Claude Code 1-on-1", href: "/learn-claude-code" },
               ],

@@ -183,6 +183,10 @@ export default function ScanRankPage() {
               <Link href="/services/local-seo" className="rg-text-link">local SEO</Link> and{" "}
               <Link href="/pricing" className="rg-text-link">our prices</Link>.
             </p>
+            <p className="rg-svc-body" style={{ marginTop: 12, maxWidth: "70ch" }}>
+              ScanRank shows if AI can read your site. To see if ChatGPT actually names your spa, try our other free
+              check: <Link href="/does-chatgpt-recommend-my-med-spa" className="rg-text-link">Does ChatGPT recommend your med spa?</Link>
+            </p>
           </div>
         </section>
 
