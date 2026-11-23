@@ -54,6 +54,7 @@ export default function Footer() {
                 { label: "Lead Management, SMS & Email", href: "/services/lead-management" },
                 { label: "Social Media & Newsletter", href: "/services/social-media-newsletter" },
                 { label: "Medspa Marketing", href: "/medspa-marketing" },
+                { label: "Free AI Visibility Check", href: "/ai-visibility-check" },
                 { label: "Aesthetic Record & LeadAR Help", href: "/aesthetic-record-leadar-consultant" },
                 { label: "Learn Claude Code 1-on-1", href: "/learn-claude-code" },
               ],

@@ -18,6 +18,7 @@ const SERVICES: { name: string; path: string; summary: string }[] = [
   { name: "Website Design", path: "/services/website-design", summary: "Fast, mobile-first, SEO-ready websites with lead capture built in." },
   { name: "AI Consulting & Builds", path: "/services/ai-implementation", summary: "AI strategy and consulting, custom AI agents and tools, AI receptionist, instant lead follow-up, chatbots, and workflow automation." },
   { name: "Free AI Inbox Agent + Claude Code Starter Kit", path: "/claude-code-templates", summary: "A free Google Apps Script agent that reviews your Gmail every morning at 8 and emails you a briefing (optional Claude AI summary), plus a CLAUDE.md template, a Claude Code cheat sheet, and a 5-day email course." },
+  { name: "Free AI Visibility Check for Med Spas", path: "/ai-visibility-check", summary: "A free tool that scores a med spa website out of 100 on whether Google and AI assistants can find, understand and recommend it: AI crawler access, business schema, titles, booking and contact links, speed, sitemap and llms.txt, with a plain-English fix for each." },
   { name: "Learn Claude Code 1-on-1", path: "/learn-claude-code", summary: "One-on-one and team sessions teaching business owners to build real tools with AI coding agents like Claude Code and Codex. No coding background needed." },
   { name: "Local SEO", path: "/services/local-seo", summary: "On-page optimization, local content, and citation building to rank in your city and service area." },
   { name: "Google Business Profile", path: "/services/google-business-profile", summary: "GBP optimization, reviews, and map-pack visibility." },
@@ -114,6 +115,7 @@ export function GET() {
   lines.push(`- [Pricing](${u("/pricing")})`);
   lines.push(`- [Med Spa Marketing Agency Pricing Compared](${u("/med-spa-marketing-agency-pricing")})`);
   lines.push(`- [Growth99 Alternatives for Med Spas](${u("/growth99-alternatives")})`);
+  lines.push(`- [Free AI Visibility Check for Med Spas](${u("/ai-visibility-check")})`);
   lines.push(`- [About](${u("/about")})`);
   lines.push(`- [Contact](${u("/contact")})`);
   lines.push(`- [Blog](${u("/blog")})`);
