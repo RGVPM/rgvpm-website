@@ -6,6 +6,10 @@ const nextConfig: NextConfig = {
   // cross-origin dev resources and the client never hydrates, leaving the page
   // visible but non-interactive on those devices.
   allowedDevOrigins: ["192.168.1.233"],
+  // Inlined at build time. netlify.toml sets AI_CHECK_MOCK=1 for deploy
+  // previews only, and netlify.toml variables never reach functions at
+  // runtime, so this is how the check route sees it. See lib/aiRecommend.
+  env: { AI_CHECK_MOCK: process.env.AI_CHECK_MOCK ?? "" },
   async rewrites() {
     return [
       // VBS Hair Show VIP offer (Oct 2026): a self-contained HTML page in

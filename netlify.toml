@@ -7,3 +7,9 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+# Deploy previews of /does-chatgpt-recommend-my-med-spa return canned answers
+# (no OpenAI/Perplexity calls, no cost). Build-time only: next.config.ts
+# inlines it. Production never sets it.
+[context.deploy-preview.environment]
+  AI_CHECK_MOCK = "1"

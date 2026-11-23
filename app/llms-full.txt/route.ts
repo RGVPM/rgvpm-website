@@ -94,6 +94,16 @@ export function GET() {
     L.push("");
   }
 
+  L.push("## Free tools");
+  L.push("### ScanRank: AI readiness score for med spas");
+  L.push(`URL: ${SITE.url}/scanrank`);
+  L.push("Scores a med spa website out of 100 on whether ChatGPT, Google and other AI assistants can find and understand it, with a plain-English fix for each check. Free, no email needed.");
+  L.push("");
+  L.push("### Does ChatGPT Recommend Your Med Spa?");
+  L.push(`URL: ${SITE.url}/does-chatgpt-recommend-my-med-spa`);
+  L.push("From the makers of ScanRank. The owner enters their med spa name, city and state, and up to two treatments. The tool asks ChatGPT (OpenAI API with web search) and Perplexity three questions a local patient would ask, then shows whether the spa was named in each answer, which spas were named instead, the sources cited, and a score (X of N answers mention you). AI answers change daily, so results are a snapshot. The spa name and website are never sent to the AI tools. Free.");
+  L.push("");
+
   L.push("## Original research");
   L.push("### The Texas Med Spa Website Report 2026");
   L.push(`${SITE.url}/research/texas-med-spa-website-report-2026`);
