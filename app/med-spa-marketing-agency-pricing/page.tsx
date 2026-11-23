@@ -52,11 +52,11 @@ const MODELS = [
 const faqs = [
   {
     q: "How much does a med spa marketing agency cost?",
-    a: `It varies a lot, and many agencies don't publish prices. Of the providers on this page, PatientGain lists plans from $800 to $4,000 a month, with $1,600 to $4,000 a month on its med spa page; Growth99, DoctorLogic and Studio III Marketing do not publish prices (${AS_LISTED}). RGV Performance Marketing starts at ${usd(base.price)}/mo for the website, with add-ons on top.`,
+    a: `It varies a lot, and many agencies don't publish prices. Of the providers on this page, PatientGain lists plans from $800 to $4,000 a month, with $1,600 to $4,000 a month on its med spa page. DoctorLogic's company facts page says it starts at $11,000 a year for a single-provider practice. Growth99 and Studio III Marketing do not publish prices (${AS_LISTED}). RGV Performance Marketing starts at ${usd(base.price)}/mo for the website, with add-ons on top.`,
   },
   {
     q: "Do med spa marketing agencies require contracts?",
-    a: `Terms differ. PatientGain's pricing page shows a 12-month contract under its Competitive plan. Growth99, DoctorLogic and Studio III Marketing don't state contract terms on the pages we checked (${AS_LISTED}). RGV Performance Marketing is month-to-month on every plan.`,
+    a: `Terms differ. PatientGain's pricing page shows a 12-month contract under its Competitive plan. DoctorLogic says its agreements last one year and renew automatically. Growth99 and Studio III Marketing don't state contract terms on the pages we checked (${AS_LISTED}). RGV Performance Marketing is month-to-month on every plan.`,
   },
   {
     q: "Is ad spend included in agency pricing?",
@@ -102,7 +102,7 @@ export default function MedSpaAgencyPricingPage() {
               <span className="rg-pill">Side by side</span>
               <h2 className="rg-display rg-svc-h2">Published Prices and Terms</h2>
               <p className="rg-svc-body">
-                Only two of the five providers below publish prices. Where a company doesn&apos;t, the table says
+                Three of the five providers below publish prices. Where a company doesn&apos;t, the table says
                 so instead of guessing.
               </p>
             </div>
@@ -156,7 +156,8 @@ export default function MedSpaAgencyPricingPage() {
             </div>
             <QuestionsToAsk />
             <p className="rg-svc-body" style={{ marginTop: 24 }}>
-              Looking at Growth99 specifically? See{" "}
+              New to this? Start with{" "}
+              <Link href="/how-to-choose-a-med-spa-marketing-agency" className="rg-text-link">how to choose a med spa marketing agency</Link>. Looking at Growth99 specifically? See{" "}
               <Link href="/growth99-alternatives" className="rg-text-link">Growth99 alternatives for med spas</Link>. Our own prices are on{" "}
               <Link href="/pricing" className="rg-text-link">the pricing page</Link>, and our med spa services are on{" "}
               <Link href="/medspa-marketing" className="rg-text-link">medspa marketing</Link>.

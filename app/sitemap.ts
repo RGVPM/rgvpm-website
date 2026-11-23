@@ -8,6 +8,7 @@ import { gbpCityPath, gbpCityIndexable, GBP_CITIES } from "@/lib/gbp";
 import { POSTS } from "@/lib/posts";
 import { ES_PATHS, esAlternates } from "@/lib/es";
 import { TEXAS_CITIES } from "@/lib/texasMedspa";
+import { VS_PAGES, GUIDE_PATH } from "@/lib/vsPages";
 import { MEDSPA_SERVICE_LIST } from "@/lib/medspaServicePages";
 
 /**
@@ -26,6 +27,8 @@ const PAGE_LAST_MODIFIED: Record<string, string> = {
   "/medspa-marketing": "2026-11-22",
   "/growth99-alternatives": "2026-11-22",
   "/med-spa-marketing-agency-pricing": "2026-11-22",
+  [GUIDE_PATH]: "2026-11-22",
+  ...Object.fromEntries(VS_PAGES.map((v) => [v.path, "2026-11-22"])),
   "/aesthetic-record-leadar-consultant": "2026-11-22",
   "/services/lead-management": "2026-11-22",
   "/research/texas-med-spa-website-report-2026": "2026-11-22",
@@ -47,6 +50,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/medspa-marketing",
     "/growth99-alternatives",
     "/med-spa-marketing-agency-pricing",
+    // Buyer's guide + RGVPM vs <competitor> pages (lib/vsPages.ts).
+    GUIDE_PATH,
+    ...VS_PAGES.map((v) => v.path),
     "/aesthetic-record-leadar-consultant",
     // Med spa service pages (lib/medspaServicePages.ts).
     ...MEDSPA_SERVICE_LIST.map((p) => p.path),
