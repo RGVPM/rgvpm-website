@@ -4,7 +4,7 @@ import PageHero from "@/components/PageHero";
 import InnerCTA from "@/components/InnerCTA";
 import JsonLd from "@/components/JsonLd";
 import TeamGrid, { type TeamMember } from "@/components/TeamGrid";
-import { canonical, breadcrumbSchema, SITE, SOCIAL_PROFILES, socialMeta, ORGANIZATION_ID, PERSON_DERRICK_ID, PERSON_KELSEY_ID } from "@/lib/site";
+import { canonical, breadcrumbSchema, SITE, SOCIAL_PROFILES, socialMeta, ORGANIZATION_ID, PERSON_DERRICK_ID, PERSON_KELSEY_ID, ENTITY_LINE, FOUNDER_BACKGROUND, AR_INDEPENDENCE } from "@/lib/site";
 
 const url = canonical("/about");
 const linkedinUrl = SOCIAL_PROFILES.find((u) => u.includes("linkedin"));
@@ -12,13 +12,13 @@ const linkedinUrl = SOCIAL_PROFILES.find((u) => u.includes("linkedin"));
 export const metadata: Metadata = {
   title: "Meet the Team",
   description:
-    "Meet the RGV Performance Marketing team in Harlingen, TX: founder and CEO Derrick Tamez, MBA, co-founder Kelsey Tamez, Director of Marketing Anthony Lopez, and Client Success Coach Shaye Arenas. See who builds and runs your marketing, and how to join us.",
+    "Meet the RGV Performance Marketing team, an AI & marketing agency for med spas and aesthetic practices in Harlingen, TX. Founders Derrick and Kelsey Tamez each spent five years at Aesthetic Record.",
   alternates: { canonical: url },
   ...socialMeta({
     url,
     title: `About ${SITE.name}`,
     description:
-      "Meet the leadership and team behind RGV Performance Marketing in Harlingen, TX. We're hiring.",
+      "Meet the team behind RGV Performance Marketing, an AI & marketing agency for med spas and aesthetic practices in Harlingen, TX. We're hiring.",
   }),
 };
 
@@ -38,6 +38,7 @@ const LEADERSHIP: TeamMember[] = [
     photo: "/founders/derrick.jpg",
     facts: [
       "10+ years in sales & marketing leadership",
+      "5 years at Aesthetic Record",
       "Sales operations & systems",
       "AI Guru",
       "Lean Six Sigma Black Belt",
@@ -60,13 +61,14 @@ const LEADERSHIP: TeamMember[] = [
     initials: "KT",
     photo: "/founders/kelsey.jpg",
     facts: [
-      "5 years as a Senior Account Manager",
+      "5 years at Aesthetic Record",
+      "Senior Strategic Account Manager",
       "UTSA, Early Childhood Education",
       "Client onboarding & operations",
     ],
     bio: [
       "Kelsey graduated from the University of Texas at San Antonio with a degree in early childhood education, a field that teaches you how to meet people where they are, explain things clearly, and build routines that hold up under pressure. She brought all of that into business.",
-      "She spent five years at Aesthetic Record, starting as a training engineer and client success coach and growing into a Senior Strategic Account Manager, working with hundreds of clinic owners and staff as they set up their software, trained their teams, and grew their practices. Day after day she watched which setups worked and which ones fell apart, and she developed an eye for the most effective way to organize a business so it runs smoothly from the start.",
+      "She spent five years at Aesthetic Record, starting as a training engineer, then becoming a client success coach and finally a Senior Strategic Account Manager, working with hundreds of clinic owners and staff as they set up their software, trained their teams, and grew their practices. Day after day she watched which setups worked and which ones fell apart, and she developed an eye for the most effective way to organize a business so it runs smoothly from the start.",
       "At RGV Performance Marketing, Kelsey runs onboarding, client communication, and delivery. When a new client comes on, she is the one mapping out how their systems should fit together, keeping the timeline honest, and making sure nothing gets lost between kickoff and launch. Clients get her directly, not a handoff.",
     ],
   },
@@ -123,6 +125,9 @@ const values = [
 
 const mono = "var(--font-dm-mono), ui-monospace, monospace";
 
+/** A founder's Aesthetic Record line, if this person has one. */
+const arBackground = (id: string): string | undefined => FOUNDER_BACKGROUND.find((b) => b.id === id)?.text;
+
 export default function AboutPage() {
   return (
     <>
@@ -144,6 +149,13 @@ export default function AboutPage() {
               ...(f.photo ? { image: `${SITE.url}${f.photo}` } : {}),
               worksFor: { "@id": ORGANIZATION_ID },
               url,
+              ...(arBackground(f.id)
+                ? {
+                    description: arBackground(f.id),
+                    alumniOf: { "@type": "Organization", name: "Aesthetic Record" },
+                    knowsAbout: ["Aesthetic Record", "LeadAR", "Med spa marketing", "Aesthetic practice operations"],
+                  }
+                : {}),
             };
           }),
         ]}
@@ -159,7 +171,7 @@ export default function AboutPage() {
               <span style={{ color: "var(--navy)" }}>Rooted in the Valley. Working Nationwide.</span>
             </>
           }
-          subtitle="We're based in Harlingen, Texas, and work with businesses across the U.S. We build your website, Google, ads and follow-up, then run all of it so you don't have to. Here's who does the work."
+          subtitle={`${ENTITY_LINE} We build your website, Google, ads and follow-up, then run all of it so you don't have to. Here's who does the work.`}
           crumbs={[{ name: "Home", path: "/" }, { name: "About", path: "/about" }]}
         >
           <ul className="rg-about-proof">
@@ -203,8 +215,40 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* ── Founders' background ─────────────────────────────── */}
+        <section aria-labelledby="founders-heading" className="rg-svc-band" style={{ background: "var(--cream)" }}>
+          <div className="rg-container">
+            <div className="rg-reveal" style={{ maxWidth: 720 }}>
+              <span className="rg-pill">Our background</span>
+              <h2 id="founders-heading" className="rg-display rg-svc-h2">
+                Ten Years Inside <span style={{ color: "var(--blue)" }}>Aesthetics Software.</span>
+              </h2>
+              <p className="rg-svc-body">
+                Before RGV Performance Marketing, both founders worked at Aesthetic Record, a leading
+                software platform for med spas and aesthetic practices. It&apos;s a great company, and it
+                taught us how practices book, sell packages and follow up with clients. That&apos;s why we
+                focus on med aesthetics now.
+              </p>
+            </div>
+            <ul className="rg-values rg-reveal" style={{ marginTop: "var(--s6)", maxWidth: 820 }}>
+              {FOUNDER_BACKGROUND.map((f) => (
+                <li key={f.id}>
+                  <span className="rg-handled-check" aria-hidden="true">✓</span>
+                  <div>
+                    <h3>{f.name}, {f.role}</h3>
+                    <p>{f.text}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <p style={{ margin: "var(--s6) 0 0", fontSize: 14, color: "var(--muted)", maxWidth: "72ch" }}>
+              {AR_INDEPENDENCE}
+            </p>
+          </div>
+        </section>
+
         {/* ── Why we started ───────────────────────────────────── */}
-        <section className="rg-svc-band" style={{ background: "var(--cream)" }}>
+        <section className="rg-svc-band" style={{ background: "#fff" }}>
           <div className="rg-container rg-svc-split">
             <div className="rg-reveal">
               <span className="rg-pill">Why we started</span>
@@ -213,7 +257,7 @@ export default function AboutPage() {
                 <span style={{ display: "block", color: "var(--blue)" }}>We Take Some Off.</span>
               </h2>
               <p className="rg-svc-body">
-                Most small businesses are invisible online. Not because the work isn&apos;t good, but
+                Most med spas and local practices are invisible online. Not because the work isn&apos;t good, but
                 because nobody built them a system to get found. The owner is busy running the
                 business, marketing falls to the bottom of the list, and the competitor down the
                 street who simply shows up first wins the customer.
@@ -246,7 +290,7 @@ export default function AboutPage() {
         </section>
 
         {/* ── We're hiring ─────────────────────────────────────── */}
-        <section aria-labelledby="hiring-heading" className="rg-svc-band" style={{ background: "#fff" }}>
+        <section aria-labelledby="hiring-heading" className="rg-svc-band" style={{ background: "var(--cream)" }}>
           <div className="rg-container">
             <div className="rg-hiring rg-reveal">
               <div>

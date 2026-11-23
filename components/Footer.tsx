@@ -3,7 +3,7 @@ import { cities, webDesignCityPath, aiCityPath } from "@/lib/cities";
 import { localSeoCityPath } from "@/lib/localSeo";
 import { googleAdsCityPath } from "@/lib/googleAds";
 import { gbpCityPath } from "@/lib/gbp";
-import { SOCIAL_PROFILES } from "@/lib/site";
+import { SOCIAL_PROFILES, ENTITY_SHORT } from "@/lib/site";
 import BrandMark from "@/components/BrandMark";
 
 function socialLabel(url: string): string {
@@ -11,6 +11,7 @@ function socialLabel(url: string): string {
   if (url.includes("facebook")) return "Facebook";
   if (url.includes("linkedin")) return "LinkedIn";
   if (url.includes("youtube")) return "YouTube";
+  if (url.includes("tiktok")) return "TikTok";
   if (url.includes("google")) return "Google";
   return "Profile";
 }
@@ -23,7 +24,7 @@ export default function Footer() {
           <div>
             <div style={{ marginBottom: 18 }}><BrandMark size={64} tone="dark" /></div>
             <p style={{ fontSize: 13, color: "rgba(255,255,255,0.62)", lineHeight: 1.7, maxWidth: 260, marginBottom: 20 }}>
-              An AI and marketing agency for local businesses. Websites, SEO, ads, and AI systems that answer calls and follow up for you. Locally rooted. Built to scale.
+              {ENTITY_SHORT}
             </p>
             <address style={{ fontSize: 13, color: "rgba(255,255,255,0.55)", lineHeight: 1.9, fontStyle: "normal" }}>
               <div>📍 Harlingen, TX</div>

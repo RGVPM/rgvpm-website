@@ -5,15 +5,14 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
 import JsonLd from "@/components/JsonLd";
-import { businessSchema, websiteSchema } from "@/lib/site";
+import { businessSchema, websiteSchema, SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: {
     default: "RGV Performance Marketing | AI & Marketing Agency",
     template: "%s | RGV Performance Marketing",
   },
-  description:
-    "An AI and marketing agency for local businesses. We build websites, SEO, and ads, plus the AI systems that answer calls, follow up with leads, and cut the busywork. Locally rooted. Built to scale.",
+  description: SITE.description,
   metadataBase: new URL("https://rgvperformancemarketing.com"),
   // No url/title/description here: pages that don't set their own openGraph
   // inherit this, and Next fills title/description from the page itself.
