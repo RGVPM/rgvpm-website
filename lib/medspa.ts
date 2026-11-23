@@ -29,9 +29,9 @@ export const MEDSPA_INTRO = {
 
 export const MEDSPA_SERVICES: { icon: IconName; title: string; text: string; href?: string }[] = [
   { icon: "globe", title: "Website", text: "A custom site built around your treatments and your Book button, live in 8 to 10 days. We host it and keep it updated.", href: "/services/website-design" },
-  { icon: "search", title: "Google & SEO", text: "Your Google Business Profile, treatment and city pages, and a monthly report, so you show up when clients search near you.", href: "/services/local-seo" },
-  { icon: "megaphone", title: "Social Media", text: "Weekly reels and posts. You can shoot and let us edit, or have us post and answer DMs too.", href: "/services/social-media-newsletter" },
-  { icon: "target", title: "Google & Meta Ads", text: "Campaigns built, run and tuned for consults. Your ad spend is billed directly by Google or Meta.", href: "/services/paid-advertising" },
+  { icon: "search", title: "Google & SEO", text: "Your Google Business Profile, treatment and city pages, and a monthly report, so you show up when clients search near you.", href: "/med-spa-seo" },
+  { icon: "megaphone", title: "Social Media", text: "Weekly reels and posts. You can shoot and let us edit, or have us post and answer DMs too.", href: "/med-spa-social-media-marketing" },
+  { icon: "target", title: "Google & Meta Ads", text: "Campaigns built, run and tuned for consults. Your ad spend is billed directly by Google or Meta.", href: "/med-spa-advertising" },
   { icon: "chat", title: "Follow-Up & One Inbox", text: "Every call, form and message lands in one inbox, with automatic replies, reminders and win-back campaigns.", href: "/services/lead-management" },
   { icon: "calendar", title: "EMR Consultant", text: "Bookings, memberships and packages all live in your EMR. Your consultant helps you get more from it, with a monthly call and direct support.", href: "/aesthetic-record-leadar-consultant" },
 ];
