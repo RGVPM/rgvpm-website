@@ -197,8 +197,6 @@ export const AR_INDEPENDENCE_LINE =
   "RGV Performance Marketing is independent and is not affiliated with, endorsed by, or sponsored by Aesthetic Record or LeadAR.";
 export const AR_TRADEMARKS = "Aesthetic Record and LeadAR are trademarks of their owners.";
 
-export const AR_INDEPENDENCE =
-  "RGV Performance Marketing is an independent agency and is not affiliated with Aesthetic Record. Aesthetic Record and LeadAR are trademarks of their owners.";
 
 /** Default share card: the output of app/opengraph-image.tsx. */
 export const DEFAULT_OG_IMAGE = {

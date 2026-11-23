@@ -11,7 +11,7 @@ import { esAlternates } from "@/lib/es";
 const url = canonical("/pricing");
 
 export const metadata: Metadata = {
-  title: "Pricing & Plans — Digital Marketing for Local Business",
+  title: "Med Spa Marketing Pricing & Plans",
   description:
     `Published pricing for med spas and aesthetic practices, from an AI & marketing agency based in Harlingen, Texas, serving practices nationwide. Month-to-month plans from ${usd(PLANS[0].price)}/mo, including a custom website and lead follow-up. No long-term contracts, no setup fees.`,
   alternates: { canonical: url, languages: esAlternates("/pricing") },

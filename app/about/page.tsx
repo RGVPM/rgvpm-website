@@ -4,7 +4,7 @@ import PageHero from "@/components/PageHero";
 import InnerCTA from "@/components/InnerCTA";
 import JsonLd from "@/components/JsonLd";
 import TeamGrid, { type TeamMember } from "@/components/TeamGrid";
-import { canonical, breadcrumbSchema, SITE, SOCIAL_PROFILES, socialMeta, ORGANIZATION_ID, PERSON_DERRICK_ID, PERSON_KELSEY_ID, ENTITY_LINE, FOUNDER_BACKGROUND, AR_INDEPENDENCE } from "@/lib/site";
+import { canonical, breadcrumbSchema, SITE, SOCIAL_PROFILES, socialMeta, ORGANIZATION_ID, PERSON_DERRICK_ID, PERSON_KELSEY_ID, ENTITY_LINE, FOUNDER_BACKGROUND, AR_INDEPENDENCE_LINE, AR_TRADEMARKS } from "@/lib/site";
 
 const url = canonical("/about");
 const linkedinUrl = SOCIAL_PROFILES.find((u) => u.includes("linkedin"));
@@ -249,7 +249,7 @@ export default function AboutPage() {
               .
             </p>
             <p style={{ margin: "var(--s4) 0 0", fontSize: 14, color: "var(--muted)", maxWidth: "72ch" }}>
-              {AR_INDEPENDENCE}
+              {AR_INDEPENDENCE_LINE} {AR_TRADEMARKS}
             </p>
           </div>
         </section>
