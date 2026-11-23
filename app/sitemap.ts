@@ -8,6 +8,7 @@ import { gbpCityPath, gbpCityIndexable, GBP_CITIES } from "@/lib/gbp";
 import { POSTS } from "@/lib/posts";
 import { ES_PATHS, esAlternates } from "@/lib/es";
 import { TEXAS_CITIES } from "@/lib/texasMedspa";
+import { MEDSPA_SERVICE_LIST } from "@/lib/medspaServicePages";
 
 /**
  * Last real content update for non-blog pages. Bump this by hand when page
@@ -33,6 +34,7 @@ const PAGE_LAST_MODIFIED: Record<string, string> = {
   "/built-by-rgvpm": "2026-11-22",
   "/company-facts": "2026-11-22",
   ...Object.fromEntries(TEXAS_CITIES.map((c) => [c.path, "2026-11-22"])),
+  ...Object.fromEntries(MEDSPA_SERVICE_LIST.map((p) => [p.path, "2026-11-22"])),
 };
 
 /** Pages with an /es twin (both sides of each pair). */
@@ -46,6 +48,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/growth99-alternatives",
     "/med-spa-marketing-agency-pricing",
     "/aesthetic-record-leadar-consultant",
+    // Med spa service pages (lib/medspaServicePages.ts).
+    ...MEDSPA_SERVICE_LIST.map((p) => p.path),
     "/research/texas-med-spa-website-report-2026",
     "/scanrank",
     "/areas-we-serve",
