@@ -40,7 +40,7 @@ const BOOKING_PLATFORMS: [RegExp, string][] = [
 const CHAT_WIDGETS: [RegExp, string][] = [
   [/podium\.com/i, "Podium"],
   [/birdeye\.com/i, "Birdeye"],
-  [/widgets\.leadconnectorhq\.com|chat-widget|msgsndr\.com\/chat/i, "GoHighLevel chat"],
+  [/widgets\.leadconnectorhq\.com|msgsndr\.com\/chat/i, "GoHighLevel chat"],
   [/intercom(?:cdn)?\.(?:io|com)/i, "Intercom"],
   [/tawk\.to/i, "Tawk.to"],
   [/tidio\.co/i, "Tidio"],
