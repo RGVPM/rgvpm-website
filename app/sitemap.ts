@@ -9,6 +9,7 @@ import { POSTS } from "@/lib/posts";
 import { ES_PATHS, esAlternates } from "@/lib/es";
 import { TEXAS_CITIES } from "@/lib/texasMedspa";
 import { VS_PAGES, GUIDE_PATH } from "@/lib/vsPages";
+import { MEDSPA_SERVICE_LIST } from "@/lib/medspaServicePages";
 
 /**
  * Last real content update for non-blog pages. Bump this by hand when page
@@ -34,7 +35,9 @@ const PAGE_LAST_MODIFIED: Record<string, string> = {
   "/scanrank": "2026-11-22",
   "/areas-we-serve": "2026-11-22",
   "/built-by-rgvpm": "2026-11-22",
+  "/company-facts": "2026-11-22",
   ...Object.fromEntries(TEXAS_CITIES.map((c) => [c.path, "2026-11-22"])),
+  ...Object.fromEntries(MEDSPA_SERVICE_LIST.map((p) => [p.path, "2026-11-22"])),
 };
 
 /** Pages with an /es twin (both sides of each pair). */
@@ -51,6 +54,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     GUIDE_PATH,
     ...VS_PAGES.map((v) => v.path),
     "/aesthetic-record-leadar-consultant",
+    // Med spa service pages (lib/medspaServicePages.ts).
+    ...MEDSPA_SERVICE_LIST.map((p) => p.path),
     "/research/texas-med-spa-website-report-2026",
     "/scanrank",
     "/areas-we-serve",
@@ -65,6 +70,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/learn-claude-code",
     "/claude-code-templates",
     "/about",
+    // Quotable company facts in FAQPage schema (lib/companyFacts.ts).
+    "/company-facts",
     // Landing page for the "Designed by RGV Performance Marketing" credit links.
     "/built-by-rgvpm",
     "/contact",

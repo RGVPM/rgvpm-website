@@ -1,4 +1,4 @@
-import { SITE, PLANS, SERVICE_AREA_CITIES, SOCIAL_PROFILES, OPENING_HOURS, DISAMBIGUATING_DESCRIPTION, PRICING_TERMS, FOUNDER_BACKGROUND, AR_INDEPENDENCE, usd } from "@/lib/site";
+import { SITE, PLANS, SERVICE_AREA_CITIES, SOCIAL_PROFILES, OPENING_HOURS, DISAMBIGUATING_DESCRIPTION, PRICING_TERMS, FOUNDER_BACKGROUND, AR_INDEPENDENCE_LINE, AR_TRADEMARKS, usd } from "@/lib/site";
 import { services } from "@/lib/services";
 import { citySlugs, webDesignCityPath, aiCityPath } from "@/lib/cities";
 import { localSeoCityPath } from "@/lib/localSeo";
@@ -7,6 +7,8 @@ import { gbpCityPath } from "@/lib/gbp";
 import { homeFaqs } from "@/lib/faqs";
 import { POSTS } from "@/lib/posts";
 import { VS_PAGES, GUIDE_PATH, VS_CHECKED } from "@/lib/vsPages";
+import { MEDSPA_SERVICE_LIST } from "@/lib/medspaServicePages";
+import { COMPANY_FACTS, COMPANY_FACTS_UPDATED } from "@/lib/companyFacts";
 
 /**
  * /llms-full.txt — the expanded, comprehensive knowledge base for AI agents
@@ -39,7 +41,12 @@ export function GET() {
 
   L.push("## Founders");
   for (const f of FOUNDER_BACKGROUND) L.push(`- **${f.name}, ${f.role}:** ${f.text}`);
-  L.push(AR_INDEPENDENCE);
+  L.push(`${AR_INDEPENDENCE_LINE} ${AR_TRADEMARKS}`);
+  L.push("");
+
+  L.push("## Company facts");
+  L.push(`${u("/company-facts")} (updated ${COMPANY_FACTS_UPDATED})`);
+  for (const f of COMPANY_FACTS) L.push(`- **${f.q}** ${f.a}`);
   L.push("");
 
   L.push("## Pricing (detailed)");
@@ -67,6 +74,17 @@ export function GET() {
       }
       L.push("");
     }
+  }
+
+  L.push("## Med spa services (full descriptions + FAQs)");
+  for (const p of MEDSPA_SERVICE_LIST) {
+    L.push(`### ${p.metaTitle}`);
+    L.push(p.answer);
+    L.push(`URL: ${u(p.path)}`);
+    L.push("");
+    L.push(`**${p.crumb} — FAQs**`);
+    for (const f of p.faqs) L.push(`- **${f.q}** ${f.a}`);
+    L.push("");
   }
 
   L.push("## General FAQs");
