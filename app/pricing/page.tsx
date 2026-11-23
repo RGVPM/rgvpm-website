@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import PricingPlans from "@/components/PricingPlans";
 import PageHero from "@/components/PageHero";
 import FaqAccordion from "@/components/FaqAccordion";
@@ -146,6 +147,10 @@ export default function PricingPage() {
                 </tbody>
               </table>
             </div>
+            <p className="rg-svc-body" style={{ textAlign: "center", marginTop: "var(--s6)" }}>
+              Comparing agencies?{" "}
+              <Link href="/med-spa-marketing-agency-pricing" className="rg-text-link">See med spa marketing agency pricing compared</Link>.
+            </p>
             <ul className="rg-values" style={{ maxWidth: 820, margin: "var(--s7) auto 0" }}>
               {PRICING_TERMS.map((t) => (
                 <li key={t}>

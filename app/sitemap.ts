@@ -21,6 +21,9 @@ const PAGE_LAST_MODIFIED: Record<string, string> = {
   "/": "2026-11-22",
   "/about": "2026-11-22",
   "/pricing": "2026-11-22",
+  "/medspa-marketing": "2026-11-22",
+  "/growth99-alternatives": "2026-11-22",
+  "/med-spa-marketing-agency-pricing": "2026-11-22",
 };
 
 /** Pages with an /es twin (both sides of each pair). */
@@ -31,6 +34,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/",
     "/services",
     "/medspa-marketing",
+    "/growth99-alternatives",
+    "/med-spa-marketing-agency-pricing",
     "/aesthetic-record-leadar-consultant",
     "/digital-marketing-harlingen-tx",
     "/pricing",
