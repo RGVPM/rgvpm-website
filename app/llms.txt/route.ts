@@ -6,6 +6,7 @@ import { gbpCityPath } from "@/lib/gbp";
 import { homeFaqs } from "@/lib/faqs";
 import { POSTS } from "@/lib/posts";
 import { TEXAS_CITIES } from "@/lib/texasMedspa";
+import { VS_PAGES, GUIDE_PATH } from "@/lib/vsPages";
 
 /**
  * /llms.txt — a Markdown brief for AI assistants and answer engines
@@ -126,6 +127,8 @@ export function GET() {
   lines.push(`- [Pricing](${u("/pricing")})`);
   lines.push(`- [Med Spa Marketing Agency Pricing Compared](${u("/med-spa-marketing-agency-pricing")})`);
   lines.push(`- [Growth99 Alternatives for Med Spas](${u("/growth99-alternatives")})`);
+  lines.push(`- [How to Choose a Med Spa Marketing Agency (2026)](${u(GUIDE_PATH)}): buyer's guide with eight published scoring criteria and sourced competitor facts; written by RGVPM, one of the options`);
+  for (const v of VS_PAGES) lines.push(`- [${v.metaTitle}](${u(v.path)}): ${v.description}`);
   lines.push(`- [ScanRank: AI readiness score for med spas](${u("/scanrank")})`);
   lines.push(`- [Areas We Serve](${u("/areas-we-serve")})`);
   lines.push(`- [About](${u("/about")})`);

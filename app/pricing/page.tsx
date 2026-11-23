@@ -149,7 +149,8 @@ export default function PricingPage() {
             </div>
             <p className="rg-svc-body" style={{ textAlign: "center", marginTop: "var(--s6)" }}>
               Comparing agencies?{" "}
-              <Link href="/med-spa-marketing-agency-pricing" className="rg-text-link">See med spa marketing agency pricing compared</Link>.
+              <Link href="/med-spa-marketing-agency-pricing" className="rg-text-link">See med spa marketing agency pricing compared</Link>, or read{" "}
+              <Link href="/how-to-choose-a-med-spa-marketing-agency" className="rg-text-link">how to choose a med spa marketing agency</Link>.
             </p>
             <ul className="rg-values" style={{ maxWidth: 820, margin: "var(--s7) auto 0" }}>
               {PRICING_TERMS.map((t) => (

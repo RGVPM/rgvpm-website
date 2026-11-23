@@ -50,16 +50,17 @@ export const PROVIDERS: Provider[] = [
   {
     name: "DoctorLogic",
     model: "Patient acquisition platform with managed services",
-    pricing: "Not published. The pricing link goes to a demo booking page",
-    contract: "Not stated",
-    adSpend: "Google Ads management is an optional add-on; ad spend terms not stated",
+    pricing: "Starts at $11,000 a year for a single-provider, single-location practice (company facts page); the pricing page goes to a demo request",
+    contract: "One-year agreements that renew automatically (company facts page)",
+    adSpend: "Google Ads add-on needs a three-month commitment and $2,000/mo minimum ad spend (company facts page)",
     summary:
       "DoctorLogic calls itself a \"Patient Acquisition Platform for Medical Practices.\" It builds and hosts practice websites, writes content with in-house healthcare writers, collects reviews, handles SEO and Google Business Profile, and can manage Google Ads. It serves aesthetics (plastic and cosmetic surgery, dermatology, med spas, hair restoration), dental, vision and other specialties.",
     fits: "Practices, including multi-location groups, that want a website and SEO system built for healthcare, with reporting on where new patients come from.",
-    tradeoffs: "It covers many specialties, not only aesthetics. Pricing comes through a demo. Their site says that if you leave, your content leaves with you.",
+    tradeoffs: "It covers many specialties, not only aesthetics. Agreements run a year and renew automatically. Their site says that if you leave, you keep your domain and get an export of your content; the design and technology stay with DoctorLogic.",
     sources: [
       { label: "doctorlogic.com", url: "https://doctorlogic.com/" },
       { label: "doctorlogic.com/pricing", url: "https://doctorlogic.com/pricing" },
+      { label: "doctorlogic.com/company-facts", url: "https://doctorlogic.com/company-facts" },
     ],
   },
   {

@@ -1,11 +1,21 @@
-import { PROVIDERS, NOT_A_FIT, QUESTIONS_TO_ASK, AS_LISTED, CHECKED } from "@/lib/comparisons";
+import { PROVIDERS, NOT_A_FIT, QUESTIONS_TO_ASK, AS_LISTED, CHECKED, type Provider } from "@/lib/comparisons";
 
 /**
  * Shared, server-rendered blocks for the med spa provider comparison pages.
  * Data and sourcing rules live in lib/comparisons.ts.
  */
 
-export function ProviderTable({ caption }: { caption: string }) {
+export function ProviderTable({
+  caption,
+  providers = PROVIDERS,
+  asListed = AS_LISTED,
+}: {
+  caption: string;
+  /** Rows to show. Defaults to the Growth99 / pricing page set. */
+  providers?: Provider[];
+  /** Dated "as listed" phrase for the footnote. */
+  asListed?: string;
+}) {
   return (
     <>
       <div className="rg-compare" style={{ maxWidth: "none" }}>
@@ -21,7 +31,7 @@ export function ProviderTable({ caption }: { caption: string }) {
             </tr>
           </thead>
           <tbody>
-            {PROVIDERS.map((p) => (
+            {providers.map((p) => (
               <tr key={p.name}>
                 <th scope="row">{p.isUs ? <strong style={{ color: "var(--blue-ink)" }}>{p.name}</strong> : p.name}</th>
                 <td style={{ textAlign: "left" }}>{p.model}</td>
@@ -34,7 +44,7 @@ export function ProviderTable({ caption }: { caption: string }) {
         </table>
       </div>
       <p style={{ fontSize: 13, color: "var(--muted)", lineHeight: 1.6, marginTop: 16, maxWidth: "80ch" }}>
-        Competitor details are {AS_LISTED}, taken from each company&apos;s own public pages (sources below).
+        Competitor details are {asListed}, taken from each company&apos;s own public pages (sources below).
         Prices and terms change, so confirm with each company before you decide.
       </p>
     </>
@@ -106,12 +116,20 @@ export function QuestionsToAsk() {
   );
 }
 
-export function TrademarkNote() {
+const DEFAULT_TRADEMARK_NAMES = ["Growth99", "DoctorLogic", "Studio III Marketing", "PatientGain"];
+
+/** "A, B and C" */
+function listNames(names: string[]) {
+  return names.length < 2 ? names.join("") : `${names.slice(0, -1).join(", ")} and ${names[names.length - 1]}`;
+}
+
+export function TrademarkNote({ names = DEFAULT_TRADEMARK_NAMES, checked = CHECKED }: { names?: string[]; checked?: string }) {
+  const many = names.length > 1;
   return (
     <p style={{ fontSize: 13, color: "var(--muted)", lineHeight: 1.6, maxWidth: "80ch", margin: "var(--s7) 0 0" }}>
       This page is written by RGV Performance Marketing, one of the providers compared, so read it with that in mind.
-      Growth99, DoctorLogic, Studio III Marketing and PatientGain are trademarks of their owners. We are not affiliated
-      with any of them. Details checked {CHECKED}.
+      {" "}{listNames(names)} {many ? "are trademarks" : "is a trademark"} of {many ? "their" : "its"} owners. We are not affiliated
+      with any of these companies. Details checked {checked}.
     </p>
   );
 }

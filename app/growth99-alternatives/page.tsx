@@ -121,6 +121,11 @@ export default function Growth99AlternativesPage() {
             </div>
             <QuestionsToAsk />
             <p className="rg-svc-body" style={{ marginTop: 24 }}>
+              Comparing one provider with us? See{" "}
+              <Link href="/rgvpm-vs-doctorlogic" className="rg-text-link">RGVPM vs DoctorLogic</Link>,{" "}
+              <Link href="/rgvpm-vs-patientgain" className="rg-text-link">RGVPM vs PatientGain</Link>,{" "}
+              <Link href="/rgvpm-vs-studio-iii-marketing" className="rg-text-link">RGVPM vs Studio III</Link>, or the full{" "}
+              <Link href="/how-to-choose-a-med-spa-marketing-agency" className="rg-text-link">guide to choosing a med spa marketing agency</Link>.
               Want the cost side in more detail? Read{" "}
               <Link href="/med-spa-marketing-agency-pricing" className="rg-text-link">med spa marketing agency pricing compared</Link>, or see{" "}
               <Link href="/pricing" className="rg-text-link">our full price list</Link>.
