@@ -4,7 +4,7 @@ import BlogIndex from "@/components/BlogIndex";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import InnerCTA from "@/components/InnerCTA";
 import JsonLd from "@/components/JsonLd";
-import { canonical, breadcrumbSchema, founderRef, SITE, ORGANIZATION_ID, socialMeta } from "@/lib/site";
+import { canonical, breadcrumbSchema, postAuthor, SITE, ORGANIZATION_ID, socialMeta } from "@/lib/site";
 import { POSTS } from "@/lib/posts";
 
 const url = canonical("/blog");
@@ -37,7 +37,7 @@ const blogSchema = {
     url: canonical(`/blog/${p.slug}`),
     datePublished: p.datePublished,
     dateModified: p.dateModified,
-    author: founderRef(),
+    author: postAuthor(p.author).ref,
   })),
 };
 

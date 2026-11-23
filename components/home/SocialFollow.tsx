@@ -98,7 +98,7 @@ export default function SocialFollow() {
               }}
             >
               Client launches, before-and-afters, and straight talk about what&rsquo;s working for
-              Valley businesses. LinkedIn is where the longer breakdowns live.
+              med spas and aesthetic practices. LinkedIn is where the longer breakdowns live.
             </p>
 
             <a

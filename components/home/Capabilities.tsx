@@ -69,7 +69,7 @@ export default function Capabilities() {
     <Section background="#fff" labelledBy="capabilities-heading">
       <div className="rg-container">
         <div className="rg-reveal" style={{ maxWidth: 760 }}>
-          <p className="rg-hats-kicker">As a business owner, you&rsquo;re expected to be a&hellip;</p>
+          <p className="rg-hats-kicker">As a med spa owner, you&rsquo;re expected to be a&hellip;</p>
           <h2
             id="capabilities-heading"
             className="rg-display"

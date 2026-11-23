@@ -61,7 +61,7 @@ export default function FinalCta() {
           className="rg-display"
           style={{ fontSize: "clamp(42px, 6vw, 88px)", color: "var(--cream)", margin: "0 auto var(--s5)", maxWidth: "16ch" }}
         >
-          Ready to Grow Your Business?
+          Ready to Grow Your Practice?
         </h2>
         <p style={{ fontSize: 17, color: "rgba(253,248,236,0.94)", lineHeight: 1.7, margin: "0 auto var(--s7)", maxWidth: "50ch" }}>
           Tell us what you&rsquo;re trying to grow. We&rsquo;ll map out the plan on a quick call and can

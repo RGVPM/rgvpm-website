@@ -24,6 +24,13 @@ export interface Post {
   dateModified: string; // ISO date
   readMinutes: number;
   /**
+   * Who wrote the post. Omit for Derrick (the default). Use "Kelsey Tamez" for
+   * posts written from her side: Aesthetic Record admin and training,
+   * memberships, booking, client success. Drives the byline and the
+   * BlogPosting author in JSON-LD.
+   */
+  author?: "Derrick Tamez" | "Kelsey Tamez";
+  /**
    * Optional callout above the Quick Answer that tells a searcher who does this
    * work locally and where to go next (home, services, pricing). Each `links`
    * text must appear verbatim, in order, in `text`.

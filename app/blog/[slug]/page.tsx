@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPost, postSlugs, POSTS } from "@/lib/posts";
 import { postImageSrc } from "@/lib/postImages";
-import { canonical, breadcrumbSchema, faqSchema, founderRef, socialMeta, SITE, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/site";
+import { canonical, breadcrumbSchema, faqSchema, postAuthor, socialMeta, SITE, ORGANIZATION_ID, WEBSITE_ID } from "@/lib/site";
 import Image from "next/image";
 import ArticleToc, { type TocItem } from "@/components/ArticleToc";
 import BlogCard, { type PostCard } from "@/components/BlogCard";
@@ -115,7 +115,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     { name: post.title, path: `/blog/${slug}` },
   ];
 
-  const author = founderRef();
+  const { ref: author, photo: authorPhoto } = postAuthor(post.author);
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -152,7 +152,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             <h1 className="rg-ahead-title">{post.title}</h1>
             <p className="rg-ahead-deck">{post.excerpt}</p>
             <div className="rg-byline">
-              <Image src="/founders/derrick.jpg" alt="" width={48} height={48} />
+              <Image src={authorPhoto} alt="" width={48} height={48} />
               <p>
                 <Link href="/about">{author.name}</Link>
                 <span>
@@ -253,7 +253,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
               )}
 
               <div className="rg-author">
-                <Image src="/founders/derrick.jpg" alt={author.name} width={72} height={72} />
+                <Image src={authorPhoto} alt={author.name} width={72} height={72} />
                 <p>
                   <span>Written by</span>
                   <Link href="/about">{author.name}</Link>
