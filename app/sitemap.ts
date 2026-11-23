@@ -24,6 +24,8 @@ const PAGE_LAST_MODIFIED: Record<string, string> = {
   "/medspa-marketing": "2026-11-22",
   "/growth99-alternatives": "2026-11-22",
   "/med-spa-marketing-agency-pricing": "2026-11-22",
+  "/aesthetic-record-leadar-consultant": "2026-11-22",
+  "/services/lead-management": "2026-11-22",
 };
 
 /** Pages with an /es twin (both sides of each pair). */

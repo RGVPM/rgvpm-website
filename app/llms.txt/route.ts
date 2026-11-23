@@ -66,6 +66,7 @@ export function GET() {
   for (const f of FOUNDER_BACKGROUND) lines.push(`- **${f.name}, ${f.role}:** ${f.text}`);
   lines.push(AR_INDEPENDENCE);
   lines.push(`- Team: [About](${u("/about")})`);
+  lines.push(`- Aesthetic Record & LeadAR help: [Aesthetic Record & LeadAR Consultant](${u("/aesthetic-record-leadar-consultant")})`);
   lines.push("");
 
   lines.push("## Why RGV Performance Marketing");
