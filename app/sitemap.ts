@@ -14,7 +14,7 @@ import { ES_PATHS, esAlternates } from "@/lib/es";
  * Google to ignore it). Blog posts use their own dates from lib/posts.ts.
  * changefreq and priority are left out on purpose: Google ignores both.
  */
-const PAGES_LAST_MODIFIED = "2026-11-16";
+const PAGES_LAST_MODIFIED = "2026-11-21";
 
 /** Pages updated after PAGES_LAST_MODIFIED, with their own date. */
 const PAGE_LAST_MODIFIED: Record<string, string> = {
@@ -31,6 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/",
     "/services",
     "/medspa-marketing",
+    "/aesthetic-record-leadar-consultant",
     "/digital-marketing-harlingen-tx",
     "/pricing",
     // Paid-traffic offer page. Indexable and canonical to itself — it targets
