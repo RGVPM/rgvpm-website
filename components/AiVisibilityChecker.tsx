@@ -5,8 +5,8 @@ import { SITE } from "@/lib/site";
 import type { CheckResult, CheckStatus, ScanReport } from "@/lib/aiVisibility/checks";
 
 /**
- * The AI Visibility Check form and report card. Everything shown comes back
- * from /ai-visibility-check/scan as plain strings and is rendered as React
+ * The ScanRank form and report card. Everything shown comes back
+ * from /scanrank/scan as plain strings and is rendered as React
  * text (escaped). No fetched HTML is ever inserted into the page.
  */
 
@@ -42,7 +42,7 @@ export default function AiVisibilityChecker() {
     setError(null);
     setReport(null);
     try {
-      const res = await fetch("/ai-visibility-check/scan", {
+      const res = await fetch("/scanrank/scan", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url, businessName: name, city }),
@@ -124,7 +124,7 @@ function ReportCard({ report }: { report: ScanReport }) {
   return (
     <>
       <div className="avc-summary">
-        <div className={`avc-score avc-score--${tone}`} role="img" aria-label={`Score ${report.score} out of 100`}>
+        <div className={`avc-score avc-score--${tone}`} role="img" aria-label={`ScanRank score ${report.score} out of 100`}>
           <span className="rg-display">{report.score}</span>
           <small>/100</small>
         </div>
@@ -136,6 +136,9 @@ function ReportCard({ report }: { report: ScanReport }) {
           </p>
         </div>
       </div>
+      <p className="avc-note">
+        ScanRank checks whether AI can find and understand your site. Whether AI recommends you also depends on reviews and mentions on other sites. That&apos;s the part we help with.
+      </p>
 
       <ol className="avc-list">
         {checks.map((c) => (

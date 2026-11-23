@@ -19,7 +19,7 @@ import type { Readable } from "node:stream";
  *   no cookies sent or kept, a fixed User-Agent
  */
 
-export const SCAN_UA = "RGVPM-AI-Visibility-Check/1.0 (+https://rgvperformancemarketing.com/ai-visibility-check)";
+export const SCAN_UA = "RGVPM-AI-Visibility-Check/1.0 (+https://rgvperformancemarketing.com/scanrank)";
 
 export class BlockedUrlError extends Error {
   constructor(message: string) {

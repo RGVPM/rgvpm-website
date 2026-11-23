@@ -8,11 +8,11 @@ import AiVisibilityChecker from "@/components/AiVisibilityChecker";
 import { CHECKS } from "@/lib/aiVisibility/checks";
 import { canonical, breadcrumbSchema, faqSchema, SITE, socialMeta, ORGANIZATION_ID } from "@/lib/site";
 
-const path = "/ai-visibility-check";
+const path = "/scanrank";
 const url = canonical(path);
-const title = "Free AI Visibility Check for Med Spas";
+const title = "ScanRank: AI Readiness Score for Med Spas";
 const description =
-  "Can ChatGPT, Google and other AI assistants find and recommend your med spa? Enter your website for a free score out of 100 and a plain-English list of fixes.";
+  "ScanRank is a free AI readiness score for med spas. Enter your website to see whether ChatGPT, Google and other AI assistants can find and understand it, with a plain-English list of fixes.";
 
 export const metadata: Metadata = {
   title,
@@ -24,27 +24,31 @@ export const metadata: Metadata = {
 const crumbs = [
   { name: "Home", path: "/" },
   { name: "Medspa Marketing", path: "/medspa-marketing" },
-  { name: "AI Visibility Check", path },
+  { name: "ScanRank", path },
 ];
 
 const weights = CHECKS.map((c) => `${c.label} (${c.weight})`).join(", ");
 
 const faqs = [
   {
+    q: "What is ScanRank?",
+    a: "ScanRank is a free AI readiness score for med spas from RGV Performance Marketing. It reads your public website and scores it out of 100 on whether ChatGPT, Google and other AI assistants can find and understand it, then tells you what to fix.",
+  },
+  {
     q: "What is AEO for a med spa?",
     a: "AEO stands for answer engine optimization. It means setting up your website so AI assistants like ChatGPT, Perplexity, Google AI Overviews and Bing Copilot can read it, understand what treatments you offer and where you are, and name you when someone asks for a med spa nearby.",
   },
   {
     q: "Do people use ChatGPT to find a med spa?",
-    a: "A growing number do. Someone types \"best place for Botox in McAllen\" or \"med spa near me with lip filler\" and the assistant answers with a few names. It can only suggest practices whose websites it can read and understand, which is what this check looks at.",
+    a: "A growing number do. Someone types \"best place for Botox in McAllen\" or \"med spa near me with lip filler\" and the assistant answers with a few names. It can only suggest practices whose websites it can read and understand, which is what ScanRank looks at.",
   },
   {
-    q: "How is the score calculated?",
+    q: "How is the ScanRank score calculated?",
     a: `We run ${CHECKS.length} checks worth 100 points in total. A pass earns the full points, \"needs work\" earns half and \"missing\" earns zero. The weights: ${weights}.`,
   },
   {
-    q: "Does a high score mean AI assistants will recommend me?",
-    a: "No tool can promise that. Reviews, your Google Business Profile, other sites that mention you and how long you've been around all play a part. A high score means you've removed the technical reasons an assistant would skip you.",
+    q: "Does a high ScanRank score mean AI assistants will recommend me?",
+    a: "Not on its own. ScanRank checks whether AI can find and understand your site. Whether AI recommends you also depends on your reviews, your Google Business Profile and mentions of you on other sites. That's the part we help with.",
   },
   {
     q: "Why does it say AI crawlers are blocked when I never blocked them?",
@@ -56,7 +60,7 @@ const faqs = [
   },
   {
     q: "Do you save my website or ask for my email?",
-    a: "No. The check reads your public homepage, robots.txt, llms.txt and sitemap, shows the results in your browser and keeps nothing. We don't ask for an email address.",
+    a: "No. ScanRank reads your public homepage, robots.txt, llms.txt and sitemap, shows the results in your browser and keeps nothing. We don't ask for an email address.",
   },
 ];
 
@@ -75,7 +79,8 @@ const appSchema = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "@id": `${url}#tool`,
-  name: "AI Visibility Check for Med Spas",
+  name: "ScanRank",
+  alternateName: "ScanRank: AI readiness score for med spas",
   url,
   description,
   applicationCategory: "BusinessApplication",
@@ -104,7 +109,7 @@ const AEO_POINTS = [
   },
 ];
 
-export default function AiVisibilityCheckPage() {
+export default function ScanRankPage() {
   return (
     <>
       <JsonLd data={[pageSchema, appSchema, breadcrumbSchema(crumbs), faqSchema(faqs)]} />
@@ -112,8 +117,13 @@ export default function AiVisibilityCheckPage() {
         <PageHero
           tone="blue"
           eyebrow="Free tool for med spas"
-          title={title}
-          subtitle="Find out whether ChatGPT, Google and other AI assistants can read your website and recommend your practice. You get a score out of 100 and a short list of fixes."
+          title={
+            <>
+              ScanRank
+              <span style={{ display: "block", fontSize: "0.5em", lineHeight: 1.1, marginTop: 10 }}>AI readiness score for med spas</span>
+            </>
+          }
+          subtitle="Find out whether ChatGPT, Google and other AI assistants can find and understand your website. You get a score out of 100 and a short list of fixes."
           crumbs={crumbs}
         />
 
@@ -180,7 +190,7 @@ export default function AiVisibilityCheckPage() {
           <div className="rg-container">
             <div style={{ textAlign: "center", marginBottom: 32 }}>
               <span className="rg-pill">FAQ</span>
-              <h2 className="rg-display rg-svc-h2">AI Visibility Questions</h2>
+              <h2 className="rg-display rg-svc-h2">ScanRank Questions</h2>
             </div>
             <FaqAccordion items={faqs} />
           </div>

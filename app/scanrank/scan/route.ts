@@ -2,9 +2,9 @@ import { runScan, clean } from "@/lib/aiVisibility/scan";
 import { BlockedUrlError, FetchFailedError, assertPublicUrl } from "@/lib/aiVisibility/safeFetch";
 
 /**
- * POST /ai-visibility-check/scan  { url, businessName?, city? }
+ * POST /scanrank/scan  { url, businessName?, city? }
  *
- * Backs the free AI Visibility Check. Lives outside app/api on purpose
+ * Backs ScanRank, the free AI readiness score. Lives outside app/api on purpose
  * (app/api/** is off-limits per brain/sites.json). Runs on the Node runtime
  * because the scanner needs node:dns and node:https for its SSRF guard.
  * Returns JSON facts only; fetched HTML never leaves the server.
@@ -125,7 +125,7 @@ export async function POST(req: Request) {
   } catch (e) {
     if (e instanceof BlockedUrlError) return fail(e.message, 400);
     if (e instanceof FetchFailedError) return fail(e.message, 422);
-    console.error("ai-visibility-check scan failed", e instanceof Error ? e.message : e);
+    console.error("scanrank scan failed", e instanceof Error ? e.message : e);
     return fail("Something went wrong while checking that site. Try again in a minute.", 500);
   }
 }

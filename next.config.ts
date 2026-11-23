@@ -40,6 +40,10 @@ const nextConfig: NextConfig = {
       // medical aesthetics. Send the old URL to the medspa page with a 301.
       // The trailing-slash form is normalized by Next first, then lands here.
       { source: "/hvac-marketing-rgv", destination: "/medspa-marketing", statusCode: 301 },
+      // The free AI tool was renamed ScanRank (Nov 2026) and moved from
+      // /ai-visibility-check. Keep the old URL (and its scan endpoint) working.
+      { source: "/ai-visibility-check", destination: "/scanrank", permanent: true },
+      { source: "/ai-visibility-check/:path*", destination: "/scanrank/:path*", permanent: true },
     ];
   },
 };

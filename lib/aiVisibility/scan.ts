@@ -2,7 +2,7 @@ import { safeFetch, FetchFailedError, type SafeResponse } from "./safeFetch";
 import { CHECKS, gradeFor, pointsFor, type CheckId, type CheckResult, type CheckStatus, type ScanReport } from "./checks";
 
 /**
- * Runs the AI Visibility Check against one public site. Fetches the homepage,
+ * Runs a ScanRank check against one public site. Fetches the homepage,
  * robots.txt, llms.txt and a sitemap (in parallel, each through safeFetch),
  * then pulls measurable facts out of the raw HTML with plain string parsing.
  * Nothing fetched is ever returned as HTML: every "found" string is plain
