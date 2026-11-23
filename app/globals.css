@@ -3085,6 +3085,14 @@ a.rg-contact-value:hover { color: var(--blue-ink); }
 .adc-check input { width: 18px; height: 18px; flex-shrink: 0; accent-color: var(--blue); }
 .adc-check:has(input:checked) { border-color: var(--blue); background: #EEF7FE; }
 .adc-check--wide { max-width: 420px; }
+.adc-upload { border-top: 1px solid var(--border); padding-top: 18px; }
+.adc-file { display: block; width: 100%; font-size: 15px; color: var(--navy); }
+.adc-file::file-selector-button {
+  margin-right: 12px; padding: 10px 16px; border: 1px solid var(--blue); border-radius: 999px; cursor: pointer;
+  background: #fff; color: var(--blue-ink); font: inherit; font-weight: 600;
+}
+.adc-private { font-size: 14px; color: var(--navy); line-height: 1.55; margin: 10px 0 0; font-weight: 600; }
+.adc-ocr-status { font-size: 14.5px; color: var(--blue-ink); margin: 10px 0 0; }
 .adc-actions { display: flex; gap: 18px; flex-wrap: wrap; }
 .adc-link-btn {
   background: none; border: 0; padding: 4px 0; cursor: pointer; font: inherit; font-size: 15px; font-weight: 600;

@@ -15,18 +15,21 @@ import {
  * on every keystroke. Nothing leaves the browser.
  */
 
-export type AdField = "primary" | "headline" | "description";
+export type AdField = "primary" | "headline" | "description" | "image";
 
 export const FIELD_LABEL: Record<AdField, string> = {
   primary: "Primary text",
   headline: "Headline",
   description: "Description",
+  image: "In your image",
 };
 
 export type AdInput = {
   primary: string;
   headline: string;
   description: string;
+  /** Text read from the uploaded ad image(s) by OCR, after the user edits it. */
+  image: string;
   topics: Topic[];
   beforeAfter: boolean;
 };
@@ -50,7 +53,7 @@ export type Risk = "Low" | "Medium" | "High";
 export type AdReport = { risk: Risk; flags: Flag[]; hits: Hit[] };
 
 const RANK: Record<Severity, number> = { high: 0, medium: 1, low: 2 };
-const FIELDS: AdField[] = ["primary", "headline", "description"];
+const FIELDS: AdField[] = ["primary", "headline", "description", "image"];
 
 function overlaps(a: { field: AdField; start: number; end: number }, b: { field: AdField; start: number; end: number }) {
   return a.field === b.field && a.start < b.end && b.start < a.end;

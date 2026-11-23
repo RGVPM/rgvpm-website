@@ -1,13 +1,16 @@
 "use client";
-import { useMemo, useState, type FormEvent } from "react";
+import { useMemo, useRef, useState, type ChangeEvent, type FormEvent } from "react";
 import Link from "next/link";
 import { TOPICS, DISCLAIMER, type Topic } from "@/lib/adChecker/rules";
 import { checkAd, segments, FIELD_LABEL, type AdField, type Flag } from "@/lib/adChecker/check";
+import { OCR_MAX_BYTES, OCR_MAX_FILES, OCR_TYPES, readImages, type OcrProgress } from "@/lib/adChecker/ocr";
 import { track } from "@/lib/track";
 
 /**
  * The Med Spa Ad Checker. Runs lib/adChecker rules in the browser on every
- * keystroke: no API, no server, nothing saved. The optional lead box below it
+ * keystroke: no API, no server, nothing saved. Uploaded images are read with
+ * in-browser OCR (lib/adChecker/ocr.ts) and never leave the device. The
+ * optional lead box below it
  * posts to Netlify Forms (form "ad-checker-lead", registered by
  * public/__forms.html).
  */
@@ -44,12 +47,50 @@ export default function AdChecker() {
   const [description, setDescription] = useState("");
   const [topics, setTopics] = useState<Topic[]>([]);
   const [beforeAfter, setBeforeAfter] = useState(false);
+  const [imageText, setImageText] = useState("");
+  const [ocr, setOcr] = useState<OcrProgress | null>(null);
+  const [ocrError, setOcrError] = useState<string | null>(null);
+  const [showImageBox, setShowImageBox] = useState(false);
+  const fileRef = useRef<HTMLInputElement>(null);
 
   const report = useMemo(
-    () => checkAd({ primary, headline, description, topics, beforeAfter }),
-    [primary, headline, description, topics, beforeAfter],
+    () => checkAd({ primary, headline, description, image: imageText, topics, beforeAfter }),
+    [primary, headline, description, imageText, topics, beforeAfter],
   );
-  const hasText = Boolean(primary.trim() || headline.trim() || description.trim());
+  const hasText = Boolean(primary.trim() || headline.trim() || description.trim() || imageText.trim());
+
+  async function onImages(e: ChangeEvent<HTMLInputElement>) {
+    const files = Array.from(e.target.files ?? []);
+    if (!files.length) return;
+    setOcrError(null);
+    if (files.length > OCR_MAX_FILES) {
+      setOcrError(`Pick up to ${OCR_MAX_FILES} images at a time.`);
+      return;
+    }
+    const bad = files.find((f) => !OCR_TYPES.includes(f.type));
+    if (bad) {
+      setOcrError(`${bad.name} isn't a PNG, JPG or WebP image.`);
+      return;
+    }
+    const big = files.find((f) => f.size > OCR_MAX_BYTES);
+    if (big) {
+      setOcrError(`${big.name} is over 10 MB. Try a smaller export.`);
+      return;
+    }
+    setOcr({ file: 0, files: files.length, status: "loading", progress: 0 });
+    setShowImageBox(true);
+    try {
+      const texts = await readImages(files, setOcr);
+      const found = texts.filter(Boolean).join("\n\n");
+      if (!found) setOcrError("We couldn't find any text in that image. If it has text, type it in the box below.");
+      setImageText(found);
+    } catch {
+      setOcrError("We couldn't read that image. You can type the text from it into the box below instead.");
+    } finally {
+      setOcr(null);
+      if (fileRef.current) fileRef.current.value = "";
+    }
+  }
 
   function toggleTopic(t: Topic) {
     setTopics((cur) => (cur.includes(t) ? cur.filter((x) => x !== t) : [...cur, t]));
@@ -69,6 +110,9 @@ export default function AdChecker() {
     setDescription("");
     setTopics([]);
     setBeforeAfter(false);
+    setImageText("");
+    setOcrError(null);
+    setShowImageBox(false);
   }
 
   const flags = report.flags.filter((f) => !f.reminder);
@@ -77,6 +121,7 @@ export default function AdChecker() {
     { key: "primary", value: primary },
     { key: "headline", value: headline },
     { key: "description", value: description },
+    { key: "image", value: imageText },
   ];
 
   return (
@@ -122,6 +167,46 @@ export default function AdChecker() {
             <span>This ad uses before-and-after images</span>
           </label>
         </fieldset>
+
+        <div className="adc-full adc-upload">
+          <label htmlFor="adc-image" style={label}>
+            Upload your ad image <span className="avc-opt">(optional, PNG, JPG or WebP, up to 3 for a carousel)</span>
+          </label>
+          <input
+            ref={fileRef}
+            id="adc-image"
+            type="file"
+            accept="image/png,image/jpeg,image/webp"
+            multiple
+            disabled={ocr !== null}
+            onChange={onImages}
+            className="adc-file"
+          />
+          <p className="adc-private">Your image stays on your device. We don&apos;t upload or save it. We only read the words on it.</p>
+          {ocr && (
+            <p className="adc-ocr-status" role="status">
+              {ocr.status === "recognizing text"
+                ? `Reading image ${ocr.file} of ${ocr.files}… ${Math.round(ocr.progress * 100)}%`
+                : "Getting the text reader ready…"}
+            </p>
+          )}
+          {ocrError && <p role="alert" className="avc-error" style={{ marginTop: 10 }}>{ocrError}</p>}
+          {showImageBox && ocr === null && (
+            <div style={{ marginTop: 14 }}>
+              <label htmlFor="adc-image-text" style={label}>
+                Text found in your image <span className="avc-opt">(fix any mistakes)</span>
+              </label>
+              <textarea
+                id="adc-image-text"
+                rows={4}
+                maxLength={3000}
+                value={imageText}
+                onChange={(e) => setImageText(e.target.value)}
+                style={{ ...field, resize: "vertical" }}
+              />
+            </div>
+          )}
+        </div>
 
         <div className="adc-full adc-actions">
           <button type="button" className="adc-link-btn" onClick={loadSample}>Try a sample ad</button>

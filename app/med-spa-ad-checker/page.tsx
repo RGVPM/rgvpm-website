@@ -87,8 +87,12 @@ const faqs = [
     a: "Not for sure. This tool checks the words in your ad for common reasons Meta rejects med spa ads. Meta reviews every ad itself, including the images, the landing page and your targeting. Passing here lowers your risk. It doesn't guarantee approval, and it isn't legal advice.",
   },
   {
+    q: "Can it check the words on my ad image?",
+    a: "Yes. Upload up to 3 images (PNG, JPG or WebP). The checker reads the words on them right in your browser and runs the same rules on that text. Your image stays on your device. We don't upload or save it. The text reader can miss or misread fancy, script or very small fonts, and text on busy photos, so check the \"Text found in your image\" box and fix any mistakes. It reads words only. It doesn't judge the photo itself, so before-and-after photos still need the checkbox.",
+  },
+  {
     q: "Do you save my ad or need my email?",
-    a: "No. The checker runs in your browser with a fixed list of rules. Your ad text never leaves your device. The form under the results is optional and only for people who want us to write and run their ads.",
+    a: "No. The checker runs in your browser with a fixed list of rules. Your ad text and images never leave your device. The form under the results is optional and only for people who want us to write and run their ads.",
   },
 ];
 
@@ -136,7 +140,7 @@ export default function MedSpaAdCheckerPage() {
             <p className="rg-svc-body" style={{ maxWidth: "70ch", marginBottom: 24 }}>
               Meta has strict rules for cosmetic treatments, weight loss and
               prescription drugs like Botox and semaglutide. This checker looks for the most common problems we see.
-              It runs in your browser, works without an email, and every rule links to the policy it comes from.
+              You can also upload your ad image and we&apos;ll read the words on it. It all runs in your browser, works without an email, and every rule links to the policy it comes from.
             </p>
             <div className="avc-card">
               <AdChecker />

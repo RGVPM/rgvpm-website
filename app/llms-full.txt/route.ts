@@ -101,7 +101,7 @@ export function GET() {
   L.push("");
   L.push("### Med Spa Ad Checker: will Meta reject your ad?");
   L.push(`${u("/med-spa-ad-checker")}`);
-  L.push("Checks Facebook and Instagram ad text in the browser for common reasons Meta rejects med spa ads: \"you\" statements about the reader's body or health (personal attributes), body shaming, prescription drug names such as Botox, Dysport, semaglutide and tirzepatide, before-and-after images, 18+ age targeting, guaranteed or fast results, cure claims, and FTC-style claims like \"FDA approved\", \"clinically proven\" and \"#1\". Highlights the exact words, gives a plain-English reason and a suggested rewrite, and links each rule to Meta's Advertising Standards or FTC guidance. Shows a Low, Medium or High rejection risk. Free; no email needed; not legal advice, and Meta reviews every ad itself.");
+  L.push("Checks Facebook and Instagram ad text in the browser for common reasons Meta rejects med spa ads: \"you\" statements about the reader's body or health (personal attributes), body shaming, prescription drug names such as Botox, Dysport, semaglutide and tirzepatide, before-and-after images, 18+ age targeting, guaranteed or fast results, cure claims, and FTC-style claims like \"FDA approved\", \"clinically proven\" and \"#1\". Can also read the words on up to 3 uploaded ad images with in-browser OCR; images never leave the device. Highlights the exact words, gives a plain-English reason and a suggested rewrite, and links each rule to Meta's Advertising Standards or FTC guidance. Shows a Low, Medium or High rejection risk. Free; no email needed; not legal advice, and Meta reviews every ad itself.");
   L.push("");
 
   L.push("## Original research");
