@@ -146,6 +146,10 @@ export default function MedspaMarketingPage() {
               <Link href="/growth99-alternatives" className="rg-text-link">Growth99 alternatives for med spas</Link> and{" "}
               <Link href="/med-spa-marketing-agency-pricing" className="rg-text-link">med spa marketing agency pricing compared</Link>.
             </p>
+            <p style={{ fontSize: 15, color: "var(--navy)", lineHeight: 1.6, marginTop: 12 }}>
+              Wondering whether ChatGPT and Google can find your practice? Run our{" "}
+              <Link href="/scanrank" className="rg-text-link">ScanRank, our free AI readiness score for med spas</Link>.
+            </p>
           </div>
         </section>
 
