@@ -6,6 +6,7 @@ import { googleAdsCityPath } from "@/lib/googleAds";
 import { gbpCityPath } from "@/lib/gbp";
 import { homeFaqs } from "@/lib/faqs";
 import { POSTS } from "@/lib/posts";
+import { MEDSPA_SERVICE_LIST } from "@/lib/medspaServicePages";
 
 /**
  * /llms-full.txt — the expanded, comprehensive knowledge base for AI agents
@@ -66,6 +67,17 @@ export function GET() {
       }
       L.push("");
     }
+  }
+
+  L.push("## Med spa services (full descriptions + FAQs)");
+  for (const p of MEDSPA_SERVICE_LIST) {
+    L.push(`### ${p.metaTitle}`);
+    L.push(p.answer);
+    L.push(`URL: ${u(p.path)}`);
+    L.push("");
+    L.push(`**${p.crumb} — FAQs**`);
+    for (const f of p.faqs) L.push(`- **${f.q}** ${f.a}`);
+    L.push("");
   }
 
   L.push("## General FAQs");
