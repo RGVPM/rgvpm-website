@@ -1,5 +1,6 @@
 <!-- Netlify Forms registration only. Netlify reads this at deploy time to learn the
-     form's fields; the real form is components/AgentSignupForm.tsx, which POSTs here. -->
+     forms' fields. The real forms POST here: components/AgentSignupForm.tsx
+     ("free-inbox-agent") and components/AdChecker.tsx ("ad-checker-lead"). -->
 <!DOCTYPE html>
 <html><body>
   <form name="free-inbox-agent" data-netlify="true" netlify-honeypot="company" hidden>
@@ -8,5 +9,14 @@
     <input name="email" type="email" />
     <input name="phone" type="tel" />
     <input name="company" />
+  </form>
+  <form name="ad-checker-lead" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" value="ad-checker-lead" />
+    <input name="name" />
+    <input name="email" type="email" />
+    <input name="practice" />
+    <input name="phone" type="tel" />
+    <input name="risk" />
+    <input name="bot-field" />
   </form>
 </body></html>

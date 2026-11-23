@@ -33,6 +33,7 @@ const PAGE_LAST_MODIFIED: Record<string, string> = {
   "/services/lead-management": "2026-11-22",
   "/research/texas-med-spa-website-report-2026": "2026-11-22",
   "/scanrank": "2026-11-22",
+  "/med-spa-ad-checker": "2026-11-23",
   "/areas-we-serve": "2026-11-22",
   "/built-by-rgvpm": "2026-11-22",
   "/company-facts": "2026-11-22",
@@ -58,6 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...MEDSPA_SERVICE_LIST.map((p) => p.path),
     "/research/texas-med-spa-website-report-2026",
     "/scanrank",
+    "/med-spa-ad-checker",
     "/areas-we-serve",
     // Texas metro med spa pages (lib/texasMedspa.ts).
     ...TEXAS_CITIES.map((c) => c.path),
