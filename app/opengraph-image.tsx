@@ -2,7 +2,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
-export const alt = "RGV Performance Marketing — AI-Powered Digital Marketing for Local Businesses";
+export const alt = "RGV Performance Marketing — AI & marketing for med spas and aesthetic practices";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

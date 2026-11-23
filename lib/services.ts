@@ -361,6 +361,7 @@ export const services: Service[] = [
       "lead nurturing automation",
       "lead pipeline software",
       "appointment scheduling automation",
+      "missed call text back",
       "SMS and email marketing",
       "two-way SMS marketing",
       "business text message marketing",
@@ -389,7 +390,7 @@ export const services: Service[] = [
         },
         {
           title: "Instant reply by text & email",
-          text: "The moment a lead comes in, a text and email go out, answering fast while your business is still top of mind and before a slower competitor gets there.",
+          text: "The moment a lead comes in, a text and email go out, answering fast while your business is still top of mind and before a slower competitor gets there. If you miss a call, missed call text back sends the caller a text right away, so they hear from you instead of dialing the next business.",
         },
         {
           title: "Follow-ups & broadcast campaigns",
@@ -426,6 +427,10 @@ export const services: Service[] = [
         a: "Yes. We set up appointment scheduling automation so qualified leads can book themselves into your calendar, with automatic reminders that reduce no-shows. It keeps your schedule full without the back-and-forth of manually coordinating every booking.",
       },
       {
+        q: "What is missed call text back?",
+        a: "When a call goes unanswered, the caller automatically gets a text from your business number so the conversation keeps going. They can reply right there, and the thread lands in the same inbox as your other leads. Missed call text back is included with every Plant the Flag website.",
+      },
+      {
         q: "Will this replace my team?",
         a: "No — it makes your team far more effective. Automation handles the repetitive, time-sensitive work: instant replies, scheduled follow-ups, reminders. Your people focus on the conversations that actually need a human, instead of losing leads to tasks that should have happened automatically.",
       },
@@ -451,6 +456,7 @@ export const services: Service[] = [
     includes: [
       "One inbox for calls, forms, texts & email",
       "Instant reply to every new lead",
+      "Missed call text back",
       "Two-way texting from your business number",
       "Follow-ups, promos & rebooking texts",
       "Online booking with reminders",
