@@ -142,7 +142,7 @@ export const MEDSPA_SERVICE_PAGES: Record<MedspaServiceSlug, MedspaServicePage> 
     slug: "advertising",
     path: "/med-spa-advertising",
     metaTitle: "Med Spa Advertising: Google & Meta Ads",
-    metaDescription: `Med spa advertising on Google and Meta (Facebook and Instagram), built around health ad rules and booked consults. ${usd(ADS)}/mo flat; ad spend billed by Google or Meta directly.`,
+    metaDescription: `Med spa advertising on Google and Meta, built around health ad rules and booked consults. ${usd(ADS)}/mo flat; ad spend billed by Google or Meta directly.`,
     keywordCluster: ["med spa advertising", "medspa ads", "medical spa ads", "med spa google ads", "med spa facebook ads", "med spa meta ads"],
     serviceType: "Med spa advertising (Google Ads and Meta ads management)",
     crumb: "Med Spa Advertising",

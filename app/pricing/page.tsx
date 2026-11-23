@@ -13,7 +13,7 @@ const url = canonical("/pricing");
 export const metadata: Metadata = {
   title: "Med Spa Marketing Pricing & Plans",
   description:
-    `Published pricing for med spas and aesthetic practices, from an AI & marketing agency based in Harlingen, Texas, serving practices nationwide. Month-to-month plans from ${usd(PLANS[0].price)}/mo, including a custom website and lead follow-up. No long-term contracts, no setup fees.`,
+    `Published med spa marketing pricing from an AI & marketing agency in Harlingen, TX. Month-to-month plans from ${usd(PLANS[0].price)}/mo with a website and lead follow-up.`,
   alternates: { canonical: url, languages: esAlternates("/pricing") },
   ...socialMeta({
     url,

@@ -11,7 +11,7 @@ export const AR_LEADAR = {
   path: "/aesthetic-record-leadar-consultant",
   metaTitle: "Aesthetic Record & LeadAR Consultant for Medspas",
   metaDescription:
-    "Aesthetic Record and LeadAR help from two people who spent five years each at Aesthetic Record. Plus medspa websites, Google rankings and AI that works with the software you use.",
+    "Aesthetic Record and LeadAR help from two people who each spent five years at Aesthetic Record, plus med spa websites, Google rankings and AI tools.",
   keywordCluster: [
     "aesthetic record consultant",
     "leadar consultant",

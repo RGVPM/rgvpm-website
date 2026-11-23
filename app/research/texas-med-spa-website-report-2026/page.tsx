@@ -19,7 +19,7 @@ import { canonical, breadcrumbSchema, SITE, socialMeta, founderRef, ORGANIZATION
 const path = REPORT.path;
 const url = canonical(path);
 const title = REPORT.title;
-const description = `We scanned ${REPORT.sample} med spa and aesthetic practice homepages, mostly in Texas, for booking, click-to-call, text and chat, schema, llms.txt, reviews and published prices. Aggregate results and methodology.`;
+const description = `We scanned ${REPORT.sample} med spa and aesthetic practice homepages, mostly in Texas, for booking, click-to-call, chat, schema, llms.txt, reviews and prices.`;
 
 export const metadata: Metadata = {
   title: { absolute: REPORT.seoTitle },

@@ -12,7 +12,7 @@ const linkedinUrl = SOCIAL_PROFILES.find((u) => u.includes("linkedin"));
 export const metadata: Metadata = {
   title: "Meet the Team",
   description:
-    "Meet the RGV Performance Marketing team, an AI & marketing agency for med spas and aesthetic practices in Harlingen, TX. Founders Derrick and Kelsey Tamez each spent five years at Aesthetic Record.",
+    "The team behind RGVPM, an AI & marketing agency for med spas in Harlingen, TX. Founders Derrick and Kelsey Tamez each spent five years at Aesthetic Record.",
   alternates: { canonical: url },
   ...socialMeta({
     url,

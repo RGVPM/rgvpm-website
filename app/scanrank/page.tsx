@@ -12,7 +12,7 @@ const path = "/scanrank";
 const url = canonical(path);
 const title = "ScanRank: AI Readiness Score for Med Spas";
 const description =
-  "ScanRank is a free AI readiness score for med spas. Enter your website to see whether ChatGPT, Google and other AI assistants can find and understand it, with a plain-English list of fixes.";
+  "ScanRank is a free AI readiness score for med spas. See whether ChatGPT, Google and other AI assistants can find and understand your site, with fixes.";
 
 export const metadata: Metadata = {
   title,
