@@ -7,6 +7,7 @@ import { googleAdsCityPath, googleAdsCityIndexable, GOOGLE_ADS_CITIES } from "@/
 import { gbpCityPath, gbpCityIndexable, GBP_CITIES } from "@/lib/gbp";
 import { POSTS } from "@/lib/posts";
 import { ES_PATHS, esAlternates } from "@/lib/es";
+import { TEXAS_CITIES } from "@/lib/texasMedspa";
 
 /**
  * Last real content update for non-blog pages. Bump this by hand when page
@@ -26,6 +27,7 @@ const PAGE_LAST_MODIFIED: Record<string, string> = {
   "/med-spa-marketing-agency-pricing": "2026-11-22",
   "/aesthetic-record-leadar-consultant": "2026-11-22",
   "/services/lead-management": "2026-11-22",
+  ...Object.fromEntries(TEXAS_CITIES.map((c) => [c.path, "2026-11-22"])),
 };
 
 /** Pages with an /es twin (both sides of each pair). */
@@ -39,6 +41,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/growth99-alternatives",
     "/med-spa-marketing-agency-pricing",
     "/aesthetic-record-leadar-consultant",
+    // Texas metro med spa pages (lib/texasMedspa.ts).
+    ...TEXAS_CITIES.map((c) => c.path),
     "/digital-marketing-harlingen-tx",
     "/pricing",
     // Paid-traffic offer page. Indexable and canonical to itself — it targets
