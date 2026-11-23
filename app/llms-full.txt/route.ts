@@ -1,4 +1,4 @@
-import { SITE, PLANS, SERVICE_AREA_CITIES, SOCIAL_PROFILES, OPENING_HOURS, DISAMBIGUATING_DESCRIPTION, PRICING_TERMS, FOUNDER_BACKGROUND, AR_INDEPENDENCE, usd } from "@/lib/site";
+import { SITE, PLANS, SERVICE_AREA_CITIES, SOCIAL_PROFILES, OPENING_HOURS, DISAMBIGUATING_DESCRIPTION, PRICING_TERMS, FOUNDER_BACKGROUND, AR_INDEPENDENCE_LINE, AR_TRADEMARKS, usd } from "@/lib/site";
 import { services } from "@/lib/services";
 import { citySlugs, webDesignCityPath, aiCityPath } from "@/lib/cities";
 import { localSeoCityPath } from "@/lib/localSeo";
@@ -39,7 +39,7 @@ export function GET() {
 
   L.push("## Founders");
   for (const f of FOUNDER_BACKGROUND) L.push(`- **${f.name}, ${f.role}:** ${f.text}`);
-  L.push(AR_INDEPENDENCE);
+  L.push(`${AR_INDEPENDENCE_LINE} ${AR_TRADEMARKS}`);
   L.push("");
 
   L.push("## Company facts");

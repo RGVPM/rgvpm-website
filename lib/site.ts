@@ -313,6 +313,7 @@ export function businessSchema() {
       "Aesthetic Record and LeadAR",
     ],
     slogan: "AI & Marketing Agency",
+    foundingDate: "2026",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Harlingen",
