@@ -105,6 +105,7 @@ export function GET() {
   lines.push("");
 
   lines.push("## City service areas");
+  lines.push(`All city pages in one list: [Areas We Serve](${u("/areas-we-serve")})`);
   for (const slug of citySlugs) {
     const name = slug.split("-").map((w) => w[0].toUpperCase() + w.slice(1)).join(" ");
     lines.push(`- [Local SEO in ${name}, TX](${u(localSeoCityPath(slug))})`);
@@ -122,6 +123,7 @@ export function GET() {
   lines.push(`- [Med Spa Marketing Agency Pricing Compared](${u("/med-spa-marketing-agency-pricing")})`);
   lines.push(`- [Growth99 Alternatives for Med Spas](${u("/growth99-alternatives")})`);
   lines.push(`- [ScanRank: AI readiness score for med spas](${u("/scanrank")})`);
+  lines.push(`- [Areas We Serve](${u("/areas-we-serve")})`);
   lines.push(`- [About](${u("/about")})`);
   lines.push(`- [Contact](${u("/contact")})`);
   lines.push(`- [Blog](${u("/blog")})`);

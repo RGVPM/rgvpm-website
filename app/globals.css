@@ -3023,3 +3023,7 @@ a.rg-contact-value:hover { color: var(--blue-ink); }
   .avc-score span { font-size: 48px; }
   .avc-row { grid-template-columns: 1fr; gap: 10px; padding: 16px; }
 }
+
+/* /areas-we-serve link groups */
+.areas-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+@media (max-width: 420px) { .areas-grid { grid-template-columns: 1fr; } }

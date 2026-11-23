@@ -1,8 +1,4 @@
 import Link from "next/link";
-import { cities, webDesignCityPath, aiCityPath } from "@/lib/cities";
-import { localSeoCityPath } from "@/lib/localSeo";
-import { googleAdsCityPath } from "@/lib/googleAds";
-import { gbpCityPath } from "@/lib/gbp";
 import { SOCIAL_PROFILES, ENTITY_SHORT } from "@/lib/site";
 import BrandMark from "@/components/BrandMark";
 
@@ -32,7 +28,7 @@ export default function Footer() {
               <div style={{ wordBreak: "break-word" }}>✉️ <a href="mailto:info@rgvperformancemarketing.com" style={{ color: "var(--blue-on-dark)", textDecoration: "none" }}>info@rgvperformancemarketing.com</a></div>
             </address>
             {SOCIAL_PROFILES.length > 0 && (
-              <div style={{ display: "flex", gap: 16, marginTop: 18 }}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "10px 16px", marginTop: 18 }}>
                 {SOCIAL_PROFILES.map((href) => (
                   <a key={href} href={href} target="_blank" rel="noopener noreferrer" style={{ fontSize: 12.5, fontWeight: 600, color: "rgba(255,255,255,0.75)", textDecoration: "none" }}>
                     {socialLabel(href)}
@@ -97,28 +93,14 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Areas We Serve — internal links to every city landing page */}
-        <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: 28, marginBottom: 8 }}>
-          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.66)", marginBottom: 14 }}>
-            Areas We Serve
-          </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))", gap: "22px 24px" }}>
-            {cities.map((c) => (
-              <div key={c.slug}>
-                <div style={{ fontSize: 13, fontWeight: 700, color: "rgba(255,255,255,0.85)", marginBottom: 8 }}>{c.name}, TX</div>
-                <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
-                  {c.slug === "harlingen" && (
-                    <Link href="/digital-marketing-harlingen-tx" style={{ fontSize: 12.5, color: "rgba(255,255,255,0.68)", textDecoration: "none" }}>Digital Marketing</Link>
-                  )}
-                  <Link href={localSeoCityPath(c.slug)} style={{ fontSize: 12.5, color: "rgba(255,255,255,0.68)", textDecoration: "none" }}>Local SEO</Link>
-                  <Link href={gbpCityPath(c.slug)} style={{ fontSize: 12.5, color: "rgba(255,255,255,0.68)", textDecoration: "none" }}>Google Business Profile</Link>
-                  <Link href={googleAdsCityPath(c.slug)} style={{ fontSize: 12.5, color: "rgba(255,255,255,0.68)", textDecoration: "none" }}>Google Ads</Link>
-                  <Link href={webDesignCityPath(c.slug)} style={{ fontSize: 12.5, color: "rgba(255,255,255,0.68)", textDecoration: "none" }}>Website Design</Link>
-                  <Link href={aiCityPath(c.slug)} style={{ fontSize: 12.5, color: "rgba(255,255,255,0.68)", textDecoration: "none" }}>AI Implementation</Link>
-                </div>
-              </div>
-            ))}
-          </div>
+        {/* Areas We Serve: one compact line. Every city page is linked from
+            /areas-we-serve (and the Texas metros from /medspa-marketing#texas). */}
+        <div className="footer-areas" style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: 24, paddingBottom: 24, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "8px 20px", fontSize: 13, color: "rgba(255,255,255,0.7)" }}>
+          <span>Based in Harlingen, TX · Serving med spas nationwide</span>
+          <span style={{ display: "flex", flexWrap: "wrap", gap: "8px 16px" }}>
+            <Link href="/medspa-marketing#texas" style={{ color: "var(--blue-on-dark)", textDecoration: "none", fontWeight: 600 }}>Texas</Link>
+            <Link href="/areas-we-serve" style={{ color: "var(--blue-on-dark)", textDecoration: "none", fontWeight: 600 }}>Areas we serve</Link>
+          </span>
         </div>
 
         <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: 28, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
