@@ -28,6 +28,7 @@ const PAGE_LAST_MODIFIED: Record<string, string> = {
   "/aesthetic-record-leadar-consultant": "2026-11-22",
   "/services/lead-management": "2026-11-22",
   "/scanrank": "2026-11-22",
+  "/areas-we-serve": "2026-11-22",
   ...Object.fromEntries(TEXAS_CITIES.map((c) => [c.path, "2026-11-22"])),
 };
 
@@ -43,6 +44,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/med-spa-marketing-agency-pricing",
     "/aesthetic-record-leadar-consultant",
     "/scanrank",
+    "/areas-we-serve",
     // Texas metro med spa pages (lib/texasMedspa.ts).
     ...TEXAS_CITIES.map((c) => c.path),
     "/digital-marketing-harlingen-tx",
