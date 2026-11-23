@@ -91,6 +91,10 @@ export function GET() {
     lines.push("");
   }
 
+  lines.push("## Original research");
+  lines.push(`- [State of Med Spa Websites 2026](${u("/research/state-of-med-spa-websites-2026")}): Aggregate results from a November 2026 scan of 686 med spa and aesthetic practice homepages, mostly in Texas: online booking, tap-to-call, text and chat, schema, llms.txt, AI crawler rules, reviews and published prices, with methodology.`);
+  lines.push("");
+
   lines.push("## Guides & articles");
   for (const post of POSTS) {
     lines.push(`- [${post.title}](${u(`/blog/${post.slug}`)}): ${post.tldr}`);
