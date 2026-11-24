@@ -60,7 +60,7 @@ const faqs = [
   },
   {
     q: "Do you save my website or ask for my email?",
-    a: "No. ScanRank reads your public homepage, robots.txt, llms.txt and sitemap, shows the results in your browser and keeps nothing. We don't ask for an email address.",
+    a: "Your score is free, with no sign-up. To see the full fix list, you share your name and email. We save that report so we can follow up if you want help fixing it. We don't sell your info. If you only check your score, we don't ask for anything. Our privacy policy has the details.",
   },
 ];
 
@@ -142,7 +142,7 @@ export default function ScanRankPage() {
               <h2 className="rg-display rg-svc-h2">What We Check</h2>
               <p className="rg-svc-body">
                 Every check is something we can measure from your public website. Points are out of 100. Each result comes
-                with the reason it matters and what to change.
+                with what we found and why it matters. The fix for each one unlocks when you share your name and email.
               </p>
             </div>
             <ul className="avc-checks">
