@@ -170,7 +170,7 @@ export const COMPANY_FACT_GROUPS: FactGroup[] = [
     faqs: [
       {
         q: "What is ScanRank?",
-        a: `ScanRank is a free tool from RGV Performance Marketing. It scores a med spa website out of 100 on whether ChatGPT, Google and other AI assistants can find and understand it. It runs ${CHECKS.length} checks and gives a plain-English fix for each one.`,
+        a: `ScanRank is a free tool from RGV Performance Marketing. It scores a med spa website out of 100 on whether ChatGPT, Google and other AI assistants can find and understand it. It runs ${CHECKS.length} checks and gives a suggested fix for each one.`,
       },
       {
         q: `What is ${REPORT.title}?`,

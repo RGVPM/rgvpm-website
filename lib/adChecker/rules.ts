@@ -63,7 +63,7 @@ export type TextRule = {
   severity: Severity;
   /** Each pattern must use the g and i flags. */
   patterns: RegExp[];
-  /** Plain-English reason, about a 6th-grade reading level. */
+  /** Simple reason, about a 6th-grade reading level. */
   reason: string;
   /** What to write instead. */
   fix: string;

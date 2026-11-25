@@ -1,6 +1,6 @@
 /**
  * ScanRank's report card: one entry per check, with its weight
- * out of 100 and the plain-English copy shown to the visitor. Shared by the
+ * out of 100 and the simple copy shown to the visitor. Shared by the
  * scanner (server) and the /scanrank page (the "What we check"
  * list), so the two can't drift. No Node imports here.
  *
