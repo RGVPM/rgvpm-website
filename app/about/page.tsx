@@ -72,6 +72,23 @@ const LEADERSHIP: TeamMember[] = [
       "At RGV Performance Marketing, Kelsey runs onboarding, client communication, and delivery. When a new client comes on, she is the one mapping out how their systems should fit together, keeping the timeline honest, and making sure nothing gets lost between kickoff and launch. Clients get her directly, not a handoff.",
     ],
   },
+  {
+    id: `${SITE.url}/about#sarah-denham`,
+    first: "Sarah",
+    name: "Sarah Denham",
+    title: "Fractional Chief Growth Officer",
+    initials: "SD",
+    photo: "/founders/sarah.jpg",
+    facts: [
+      "Med spa growth strategy",
+      "The Spa Business Coach",
+      "Aesthetics industry leader",
+    ],
+    bio: [
+      "Sarah has spent her career in the medical aesthetics industry, helping med spa owners grow their practices. Through The Spa Business Coach, she works directly with owners on the strategy behind a growing spa.",
+      "As our Fractional Chief Growth Officer, Sarah works alongside Derrick on where RGV Performance Marketing goes next: which practices we serve, how our services are packaged, and how we grow alongside the med spas we work with.",
+    ],
+  },
 ];
 
 const SALES_MARKETING: TeamMember[] = [
