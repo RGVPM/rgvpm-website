@@ -80,12 +80,15 @@ const LEADERSHIP: TeamMember[] = [
     initials: "SD",
     photo: "/founders/sarah.jpg",
     facts: [
-      "Med spa growth strategy",
+      "Former Director of LeadAR at Aesthetic Record",
+      "Grew LeadAR to hundreds of practices",
+      "Speaker: Aesthetic Next, BeautiPHIcation, Twilio SIGNAL",
       "The Spa Business Coach",
-      "Aesthetics industry leader",
     ],
     bio: [
-      "Sarah has spent her career in the medical aesthetics industry, helping med spa owners grow their practices. Through The Spa Business Coach, she works directly with owners on the strategy behind a growing spa.",
+      "Sarah led LeadAR, Aesthetic Record's lead management platform for aesthetic practices, as its Director. LeadAR launched in 2023, and under her leadership it grew fast, from a new product into a market leader supporting hundreds of practices. She built the third-party partnerships and market positioning behind that growth.",
+      "She is a regular speaker in the aesthetics industry, with sessions at Aesthetic Next and the BeautiPHIcation conference. At Twilio SIGNAL 2025 she co-presented a session on how Aesthetic Record engages patients securely and prevents fraud.",
+      "Before aesthetics, Sarah held leadership roles at Dillard's and at Altitude Trampoline Park, where she helped grow the brand into one of the country's top family entertainment franchises. Today, through The Spa Business Coach, she works directly with med spa owners on the strategy behind a growing practice.",
       "As our Fractional Chief Growth Officer, Sarah works alongside Derrick on where RGV Performance Marketing goes next: which practices we serve, how our services are packaged, and how we grow alongside the med spas we work with.",
     ],
   },
