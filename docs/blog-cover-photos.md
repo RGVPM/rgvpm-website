@@ -21,3 +21,11 @@ Stock photos found through Openverse, filtered to CC0 or public domain. No credi
 | `how-much-does-a-website-cost-rio-grande-valley` | stocksnap | CC0 | https://stocksnap.io/photo/macbook-laptop-8RHJJUNLZL |
 | `how-to-rank-higher-google-maps-rio-grande-valley` | stocksnap | CC0 | https://stocksnap.io/photo/people-man-12EN7A4DA6 |
 | `local-seo-vs-regular-seo` | rawpixel | CC0 | https://www.rawpixel.com/image/5941376/free-public-domain-cc0-photo |
+
+## Generated covers
+
+Made with Kie.ai (nano-banana-pro). No real people, places or brands.
+
+| Post | Made | Prompt summary |
+|---|---|---|
+| `best-ai-tools-for-med-spas` | 2026-11-25 | Med spa front desk after hours: tablet with booking calendar, glowing phone, orchids, treatment room behind. No people or text. |

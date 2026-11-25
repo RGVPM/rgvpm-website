@@ -5,6 +5,10 @@
  * Sources and licenses are listed in docs/blog-cover-photos.md.
  */
 export const POST_IMAGES: Record<string, { alt: string; line: string }> = {
+  "best-ai-tools-for-med-spas": {
+    alt: "A med spa front desk after hours, with a tablet showing a booking calendar and a phone glowing beside white orchids.",
+    line: "The AI tools worth a look for your medspa",
+  },
   "ai-friday-medspa-after-hours": {
     alt: "A woman resting on a treatment table with warm lights glowing behind her.",
     line: "Keep consult requests from going cold overnight",

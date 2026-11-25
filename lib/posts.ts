@@ -48,7 +48,7 @@ export const POSTS: Post[] = [
     // Vendor facts checked on each vendor's own site 2026-11-25. No CRMs or
     // GoHighLevel-based tools (owner's rule), and no prices: they change too often.
     slug: "best-ai-tools-for-med-spas",
-    title: "Best AI Tools for Med Spas, by Job",
+    title: "Best AI Tools for Med Spas",
     metaTitle: "Best AI Tools for Med Spas (2027)",
     description:
       "The AI tools med spas actually use, grouped by job: answering calls, charting, consults, review replies and content. Plus the BAA question to ask every vendor.",
