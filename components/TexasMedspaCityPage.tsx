@@ -120,10 +120,6 @@ export default function TexasMedspaCityPage({ city: c }: { city: TexasCity }) {
                 </div>
               ))}
             </div>
-            <p style={{ fontSize: 15, color: "var(--navy)", lineHeight: 1.6, marginTop: 24 }}>
-              On Aesthetic Record or LeadAR? Our founders each spent five years there. See{" "}
-              <Link href="/aesthetic-record-leadar-consultant" className="rg-text-link">Aesthetic Record &amp; LeadAR help</Link>.
-            </p>
           </div>
         </section>
 

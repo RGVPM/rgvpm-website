@@ -32,7 +32,6 @@ const SERVICES: { name: string; path: string; summary: string }[] = [
   { name: "Social Media & Newsletter", path: "/services/social-media-newsletter", summary: "Consistent, bilingual content and a done-for-you monthly newsletter." },
   { name: "Medspa Marketing", path: "/medspa-marketing", summary: "Website, Google, social, ads and EMR account management for medspas across the U.S., run by one team on one bill." },
   ...MEDSPA_SERVICE_LIST.map((p) => ({ name: p.metaTitle, path: p.path, summary: p.answer })),
-  { name: "Aesthetic Record & LeadAR Consultant", path: "/aesthetic-record-leadar-consultant", summary: "Aesthetic Record and LeadAR help for medspas from two founders who each spent five years at Aesthetic Record, plus websites, Google rankings and AI implementation. Independent, not affiliated with Aesthetic Record." },
   { name: "Digital Marketing in Harlingen, TX", path: "/digital-marketing-harlingen-tx", summary: "Website, Google, local SEO, ads and AI follow-up for Harlingen businesses from one local team." },
 ];
 
@@ -74,7 +73,6 @@ export function GET() {
   lines.push(`${AR_INDEPENDENCE_LINE} ${AR_TRADEMARKS}`);
   lines.push(`- Team: [About](${u("/about")})`);
   lines.push(`- Quick facts (founded, founders, prices, contracts, contact): [Company Facts](${u("/company-facts")})`);
-  lines.push(`- Aesthetic Record & LeadAR help: [Aesthetic Record & LeadAR Consultant](${u("/aesthetic-record-leadar-consultant")})`);
   lines.push("");
 
   lines.push("## Why RGV Performance Marketing");

@@ -50,7 +50,6 @@ const RELATED = [
   { label: "Pricing", href: "/pricing" },
   { label: "About the team", href: "/about" },
   { label: "Med spa marketing", href: "/medspa-marketing" },
-  { label: "Aesthetic Record & LeadAR help", href: "/aesthetic-record-leadar-consultant" },
   { label: "ScanRank", href: "/scanrank" },
   { label: "The Texas Med Spa Website Report", href: "/research/texas-med-spa-website-report-2026" },
   { label: "Terms & Conditions", href: "/terms" },

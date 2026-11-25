@@ -33,7 +33,7 @@ export const MEDSPA_SERVICES: { icon: IconName; title: string; text: string; hre
   { icon: "megaphone", title: "Social Media", text: "Weekly reels and posts. You can shoot and let us edit, or have us post and answer DMs too.", href: "/med-spa-social-media-marketing" },
   { icon: "target", title: "Google & Meta Ads", text: "Campaigns built, run and tuned for consults. Your ad spend is billed directly by Google or Meta.", href: "/med-spa-advertising" },
   { icon: "chat", title: "Follow-Up & One Inbox", text: "Every call, form and message lands in one inbox, with automatic replies, reminders and win-back campaigns.", href: "/services/lead-management" },
-  { icon: "calendar", title: "EMR Consultant", text: "Bookings, memberships and packages all live in your EMR. Your consultant helps you get more from it, with a monthly call and direct support.", href: "/aesthetic-record-leadar-consultant" },
+  { icon: "calendar", title: "EMR Consultant", text: "Bookings, memberships and packages all live in your EMR. Your consultant helps you get more from it, with a monthly call and direct support." },
 ];
 
 export const MEDSPA_DIFFERENCES = [

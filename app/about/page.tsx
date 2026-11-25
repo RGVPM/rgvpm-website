@@ -239,14 +239,7 @@ export default function AboutPage() {
                 </li>
               ))}
             </ul>
-            <p className="rg-svc-body" style={{ margin: "var(--s6) 0 0", maxWidth: "72ch" }}>
-              Run your practice on Aesthetic Record or LeadAR?{" "}
-              <Link href="/aesthetic-record-leadar-consultant" className="rg-text-link">
-                See how we help practices get more from Aesthetic Record and LeadAR
-              </Link>
-              .
-            </p>
-            <p style={{ margin: "var(--s4) 0 0", fontSize: 14, color: "var(--muted)", maxWidth: "72ch" }}>
+            <p style={{ margin: "var(--s6) 0 0", fontSize: 14, color: "var(--muted)", maxWidth: "72ch" }}>
               {AR_INDEPENDENCE_LINE} {AR_TRADEMARKS}
             </p>
           </div>

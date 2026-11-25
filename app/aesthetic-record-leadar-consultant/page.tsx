@@ -26,6 +26,8 @@ export const metadata: Metadata = {
   description: AR_LEADAR.metaDescription,
   keywords: AR_LEADAR.keywordCluster,
   alternates: { canonical: url },
+  // Hidden 2026-11-25 by owner: reachable by direct link only, not indexed or linked anywhere on the site.
+  robots: { index: false, follow: false },
   ...socialMeta({
     url,
     title: `${AR_LEADAR.metaTitle} | ${SITE.name}`,
