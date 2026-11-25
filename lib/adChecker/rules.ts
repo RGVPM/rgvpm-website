@@ -4,7 +4,7 @@
  * Deterministic, browser-only checks for Facebook/Instagram ad copy. Every
  * rule cites the published page it is based on. If a rule can't be tied to
  * a source on Meta's Advertising Standards or the FTC's guidance, it doesn't
- * belong here. Sources were read on 2026-11-23; Meta edits these pages often,
+ * belong here. Sources were last checked on RULES_CHECKED (below); Meta edits these pages often,
  * so re-read them before changing a rule.
  */
 
@@ -304,6 +304,32 @@ export const PROMO_RULE: SettingRule = {
   fix: "Say what's included, the real price, and when the offer ends. Example: \"$10 off per unit through Dec 31. New clients only.\"",
   sources: [SOURCES.metaCommercial],
 };
+
+/**
+ * Shown when the advertiser ticks "We're LegitScript certified (or Meta has
+ * approved us for prescription drug ads)". Replaces the High drug-name flag
+ * with a reminder. Quotes only Meta's Drugs and Pharmaceuticals page.
+ */
+export const RX_CERTIFIED_RULE: SettingRule = {
+  id: "prescription-drugs",
+  title: "Names a prescription drug (you said you're certified)",
+  severity: "low",
+  reminder: true,
+  reason:
+    "Certified advertisers can name prescription drugs, but must still include Meta's required disclaimer and 18+ targeting. Meta's Drugs and Pharmaceuticals policy says advertisers \"actively certified with LegitScript\" (or approved through Meta's internal review) must \"include a disclaimer to consult a licensed health professional or obtain a valid prescription,\" \"only target people 18 years or older,\" only target eligible countries (United States, Canada or New Zealand) where they are certified, and \"obtain authorization from Meta.\"",
+  fix: "Add a line like \"Talk to a licensed provider to see if this treatment is right for you,\" and set the audience to 18+ in the countries you're certified in.",
+  sources: [SOURCES.metaDrugs],
+};
+
+/** Prefixed to the drug-name flag when the certified box is NOT ticked. */
+export const RX_NOT_CERTIFIED_NOTE = "This assumes you're not LegitScript certified.";
+
+/**
+ * The date these rules were last checked against the source pages above.
+ * Updated by the monthly policy watcher, which re-reads Meta's and the FTC's
+ * pages and bumps this date (and any rule that changed). Shown on the page.
+ */
+export const RULES_CHECKED = "2026-11-25";
 
 export const DISCLAIMER =
   "This checks common reasons Meta rejects med spa ads. Meta reviews every ad itself, so passing here doesn't guarantee approval. Not legal advice.";

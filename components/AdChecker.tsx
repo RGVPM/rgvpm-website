@@ -1,7 +1,7 @@
 "use client";
 import { useMemo, useRef, useState, type ChangeEvent, type FormEvent } from "react";
 import Link from "next/link";
-import { TOPICS, DISCLAIMER, type Topic } from "@/lib/adChecker/rules";
+import { TOPICS, DISCLAIMER, RULES_CHECKED, type Topic } from "@/lib/adChecker/rules";
 import { checkAd, segments, FIELD_LABEL, type AdField, type Flag } from "@/lib/adChecker/check";
 import { OCR_MAX_BYTES, OCR_MAX_FILES, OCR_TYPES, readImages, type OcrProgress } from "@/lib/adChecker/ocr";
 import { track } from "@/lib/track";
@@ -47,6 +47,7 @@ export default function AdChecker() {
   const [description, setDescription] = useState("");
   const [topics, setTopics] = useState<Topic[]>([]);
   const [beforeAfter, setBeforeAfter] = useState(false);
+  const [certified, setCertified] = useState(false);
   const [imageText, setImageText] = useState("");
   const [ocr, setOcr] = useState<OcrProgress | null>(null);
   const [ocrError, setOcrError] = useState<string | null>(null);
@@ -54,8 +55,8 @@ export default function AdChecker() {
   const fileRef = useRef<HTMLInputElement>(null);
 
   const report = useMemo(
-    () => checkAd({ primary, headline, description, image: imageText, topics, beforeAfter }),
-    [primary, headline, description, imageText, topics, beforeAfter],
+    () => checkAd({ primary, headline, description, image: imageText, topics, beforeAfter, certified }),
+    [primary, headline, description, imageText, topics, beforeAfter, certified],
   );
   const hasText = Boolean(primary.trim() || headline.trim() || description.trim() || imageText.trim());
 
@@ -110,6 +111,7 @@ export default function AdChecker() {
     setDescription("");
     setTopics([]);
     setBeforeAfter(false);
+    setCertified(false);
     setImageText("");
     setOcrError(null);
     setShowImageBox(false);
@@ -165,6 +167,14 @@ export default function AdChecker() {
           <label className="adc-check adc-check--wide">
             <input type="checkbox" checked={beforeAfter} onChange={(e) => setBeforeAfter(e.target.checked)} />
             <span>This ad uses before-and-after images</span>
+          </label>
+        </fieldset>
+
+        <fieldset className="adc-full adc-fieldset">
+          <legend style={label}>Prescription drug ads</legend>
+          <label className="adc-check adc-check--wide">
+            <input type="checkbox" checked={certified} onChange={(e) => setCertified(e.target.checked)} />
+            <span>We&apos;re LegitScript certified (or Meta has approved us for prescription drug ads).</span>
           </label>
         </fieldset>
 
@@ -261,6 +271,9 @@ export default function AdChecker() {
             )}
 
             <p className="adc-disclaimer">{DISCLAIMER}</p>
+            <p className="adc-disclaimer" style={{ marginTop: 6 }}>
+              Rules last checked against Meta and FTC policy: <time dateTime={RULES_CHECKED}>{formatDate(RULES_CHECKED)}</time>
+            </p>
           </div>
         )}
       </div>
@@ -383,4 +396,9 @@ function LeadBox({ risk }: { risk: string }) {
       </p>
     </div>
   );
+}
+
+function formatDate(iso: string): string {
+  const [y, m, d] = iso.split("-").map(Number);
+  return new Date(Date.UTC(y, m - 1, d)).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
 }

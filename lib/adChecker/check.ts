@@ -3,6 +3,8 @@ import {
   AGE_TOPICS,
   BEFORE_AFTER_HIGH_TOPICS,
   BEFORE_AFTER_RULE,
+  RX_CERTIFIED_RULE,
+  RX_NOT_CERTIFIED_NOTE,
   PROMO_RULE,
   TEXT_RULES,
   type Severity,
@@ -32,6 +34,8 @@ export type AdInput = {
   image: string;
   topics: Topic[];
   beforeAfter: boolean;
+  /** LegitScript certified, or authorized by Meta for prescription drug ads. */
+  certified?: boolean;
 };
 
 export type Hit = { ruleId: string; field: AdField; start: number; end: number; text: string; severity: Severity };
@@ -94,6 +98,14 @@ export function checkAd(input: AdInput): AdReport {
         return true;
       })
       .map((h) => ({ field: h.field, text: h.text }));
+    if (rule.id === "prescription-drugs") {
+      flags.push(
+        input.certified
+          ? { ...RX_CERTIFIED_RULE, reminder: true, matches }
+          : { id: rule.id, title: rule.title, severity: rule.severity, reminder: false, reason: `${RX_NOT_CERTIFIED_NOTE} ${rule.reason}`, fix: rule.fix, sources: rule.sources, matches },
+      );
+      continue;
+    }
     flags.push({ id: rule.id, title: rule.title, severity: rule.severity, reminder: false, reason: rule.reason, fix: rule.fix, sources: rule.sources, matches });
   }
 
