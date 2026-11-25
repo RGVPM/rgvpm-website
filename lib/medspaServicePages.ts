@@ -2,8 +2,8 @@ import type { IconName } from "@/components/Icon";
 import { PLANS, BUILD_FEE, usd, planPrice } from "@/lib/site";
 import { REPORT, HAVE_IT } from "@/lib/medspaWebsiteReport";
 
-// Med spa service pages, added 2026-11-22 (preview, waiting on Derrick's ok):
-// /med-spa-seo, /med-spa-advertising, /med-spa-social-media-marketing.
+// Med spa service pages, added 2026-11-22: /med-spa-seo, /med-spa-advertising,
+// /med-spa-social-media-marketing. /med-spa-website-design added 2026-11-25.
 // Keyword targets come from ~/rgv-marketing/agency/aeo/2026-11-22/keyword-gap.md.
 //
 // Rules for anyone editing these:
@@ -13,7 +13,7 @@ import { REPORT, HAVE_IT } from "@/lib/medspaWebsiteReport";
 // - No invented results, client names, testimonials, guarantees or "#1 / best" claims.
 // - No HIPAA certification claims. Don't mention CRM or GoHighLevel (say "lead inbox").
 
-export type MedspaServiceSlug = "seo" | "advertising" | "social";
+export type MedspaServiceSlug = "website" | "seo" | "advertising" | "social";
 
 export type MedspaServicePage = {
   slug: MedspaServiceSlug;
@@ -64,6 +64,79 @@ const buildFeeNote = `The one-time ${usd(BUILD_FEE)} build fee is waived when yo
 const monthToMonth = "Every plan is month-to-month. Cancel any time.";
 
 export const MEDSPA_SERVICE_PAGES: Record<MedspaServiceSlug, MedspaServicePage> = {
+  website: {
+    slug: "website",
+    path: "/med-spa-website-design",
+    metaTitle: "Med Spa Website Design (2027)",
+    metaDescription: `Med spa website design built to book consults: treatment pages, a Book button on every screen, tap-to-call and one lead inbox. ${usd(WEBSITE.price)}/mo, hosted and kept up to date.`,
+    keywordCluster: ["med spa website design", "med spa web design", "medspa website design", "med spa website", "best med spa websites", "medical spa website design"],
+    serviceType: "Med spa website design",
+    crumb: "Med Spa Website Design",
+    eyebrow: "Med Spa Websites",
+    h1: "Med Spa Website Design That Books Consults",
+    answer: `A good med spa website makes booking easy: a clear page for each treatment, a Book button on every screen, tap-to-call and a fast load on phones. We build yours custom, host it and keep it up to date, and every form and call goes to one lead inbox with automatic follow-up. It's ${usd(WEBSITE.price)}/mo, month-to-month.`,
+    included: {
+      heading: "What's in Our Med Spa Websites",
+      intro: "Everything in Plant the Flag, our website plan:",
+      items: [
+        { icon: "globe", title: "Custom design", text: "Built around your treatments, your providers and your brand. Not a template with your logo dropped in." },
+        { icon: "calendar", title: "Booking on every screen", text: "A Book button that links to the booking system you already use, plus tap-to-call on phones." },
+        { icon: "target", title: "A page per treatment", text: "Each treatment gets its own page: what it is, who it's for, what to expect and how to book." },
+        { icon: "bolt", title: "Fast on phones", text: "Most clients find you on a phone. We build for phones first and keep pages fast." },
+        { icon: "chat", title: "One lead inbox", text: "Forms, calls and texts land in one inbox, with missed-call text back and automatic email and text follow-up." },
+        { icon: "cpu", title: "Ready for Google and AI", text: "LocalBusiness and FAQ schema and clean titles, so Google and AI tools can read your site." },
+      ],
+    },
+    pricing: {
+      heading: "What a Med Spa Website Costs",
+      rows: [
+        websiteRow,
+        { name: "Add Local SEO", price: `+${usd(SEO)}/mo`, text: "Google profile, treatment and city pages, monthly content and a report. Adding it waives the build fee." },
+      ],
+      notes: [
+        `The website alone has a one-time ${usd(BUILD_FEE)} build fee. It's waived when you add any add-on. No setup fees.`,
+        "Hosting, updates and fixes are part of the monthly price.",
+        monthToMonth,
+      ],
+    },
+    steps: [
+      { title: "Book a 15-minute call", text: "Tell us your treatments, your booking system and what you like and don't like about your site today." },
+      { title: "We design and build", text: "We write the pages, design the site and connect your Book button. Most sites go live in 8 to 10 days." },
+      { title: "We keep it up to date", text: "New treatments, price changes and fixes are part of the monthly plan. Tell us what changed and we update it." },
+    ],
+    whoFor: {
+      bullets: [
+        "Med spas and aesthetic practices whose site is slow, dated or hard to book from",
+        "Practices adding treatments and tired of waiting on someone to update the site",
+        "Owners who want the site, hosting and follow-up handled by one team",
+      ],
+      notFor: [
+        "You want to own and edit the site code yourself. Our sites are hosted and maintained by us.",
+        "You need an online store with hundreds of products. We build for booking consults.",
+      ],
+    },
+    compliance: {
+      heading: "Website Rules We Follow",
+      points: [
+        "Before-and-after photos need the patient's written consent. We only add photos you confirm you have consent for.",
+        "Treatment pages describe what a treatment is and who it's for. They don't promise results.",
+      ],
+    },
+    research: {
+      stat: missing("Link to an online booking platform"),
+      text: `of the ${sample} med spa homepages in our Texas report had no link to an online booking platform, ${missing("Tap-to-call phone link")} had no tap-to-call link and only ${Math.round(have("Treatment prices published"))}% published treatment prices. The best med spa websites make booking the easiest thing on the page.`,
+    },
+    faqs: [
+      { q: "What makes a good med spa website?", a: "A good med spa website makes it easy to book. It has a page for each treatment, a Book button on every screen, tap-to-call on phones, real photos of your team and space, reviews, and fast load times. It also has the code that tells Google and AI tools who you are and where you are." },
+      { q: "How much does a med spa website cost?", a: `Our med spa website is ${usd(WEBSITE.price)}/mo. That covers the custom build, hosting, updates, one lead inbox and automatic follow-up. There's a one-time ${usd(BUILD_FEE)} build fee on the website alone, waived when you add any add-on.` },
+      { q: "How long does it take to build a med spa website?", a: "Most of our med spa sites go live in 8 to 10 days once we have your treatments, photos and booking link." },
+      { q: "Can my website connect to my booking system?", a: "Yes. Your Book button links to the booking system you already use, like Boulevard, Aesthetic Record, Zenoti or Vagaro. You don't have to switch systems." },
+      { q: "Should my med spa website show prices?", a: `It's your call, but it helps. Only ${Math.round(have("Treatment prices published"))}% of the med spa homepages in our Texas report published treatment prices. Even a "starting at" price can help people decide to book a consult.` },
+      { q: "Do you write the website copy?", a: "Yes. We write the treatment pages and the rest of the site in plain words, and you review it before it goes live." },
+      { q: "Is there a contract?", a: "No. The website plan is month-to-month. You can cancel any time." },
+    ],
+    offers: ["Plant the Flag (website)"],
+  },
   seo: {
     slug: "seo",
     path: "/med-spa-seo",
