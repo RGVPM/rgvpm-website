@@ -29,7 +29,6 @@ const PAGE_LAST_MODIFIED: Record<string, string> = {
   "/med-spa-marketing-agency-pricing": "2026-11-22",
   [GUIDE_PATH]: "2026-11-25",
   ...Object.fromEntries(VS_PAGES.map((v) => [v.path, "2026-11-22"])),
-  "/aesthetic-record-leadar-consultant": "2026-11-22",
   "/services/lead-management": "2026-11-22",
   "/research/texas-med-spa-website-report-2026": "2026-11-22",
   "/scanrank": "2026-11-22",
@@ -54,7 +53,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Buyer's guide + RGVPM vs <competitor> pages (lib/vsPages.ts).
     GUIDE_PATH,
     ...VS_PAGES.map((v) => v.path),
-    "/aesthetic-record-leadar-consultant",
     // Med spa service pages (lib/medspaServicePages.ts).
     ...MEDSPA_SERVICE_LIST.map((p) => p.path),
     "/research/texas-med-spa-website-report-2026",
