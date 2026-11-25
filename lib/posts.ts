@@ -45,6 +45,75 @@ export interface Post {
 
 export const POSTS: Post[] = [
   {
+    // Vendor facts checked on each vendor's own site 2026-11-25. No CRMs or
+    // GoHighLevel-based tools (owner's rule), and no prices: they change too often.
+    slug: "best-ai-tools-for-med-spas",
+    title: "Best AI Tools for Med Spas",
+    metaTitle: "Best AI Tools for Med Spas (2027)",
+    description:
+      "The AI tools med spas actually use, grouped by job: answering calls, charting, consults, review replies and content. Plus the BAA question to ask every vendor.",
+    excerpt:
+      "AI tools for med spas, sorted by the job they do: phones, charting, consults, reviews and content. Plus what to ask before any of them touch patient information.",
+    category: "AI Friday",
+    icon: "cpu",
+    datePublished: "2026-11-25",
+    dateModified: "2026-11-25",
+    readMinutes: 7,
+    tldr:
+      "The most useful AI tools for med spas answer calls and texts after hours, write chart notes from dictation, draft review replies and speed up social content. Start with the AI already built into your booking system or EMR, and get a signed Business Associate Agreement (BAA) from any tool that handles patient information.",
+    sections: [
+      { type: "p", text: "Every week there's a new AI tool pitched to med spas. Most practices only need a few, and the right ones depend on where your team loses time. This guide sorts the tools by the job they do, so you can start with the job that costs you the most." },
+      { type: "p", text: "We checked every tool below on its maker's own website on November 25, 2026. We don't earn anything from any of them. AI features change fast, so confirm details with each vendor." },
+      { type: "h2", text: "Start with the AI you may already pay for" },
+      { type: "p", text: "Several med spa booking systems and EMRs now have AI built in. If yours does, try it before you add another tool, because it already knows your calendar and your clients." },
+      { type: "table", text: "AI features listed by each system's maker.", headers: ["System", "AI feature", "What it does"], rows: [
+        ["Aesthetic Record", "ChartSmart AI", "Turns dictation and telehealth visits into chart notes"],
+        ["Boulevard", "Beau AI receptionist, AI scribe", "Answers calls and books, and writes visit notes"],
+        ["Zenoti", "Zeenie, AI scribe", "AI assistant inside the platform, plus visit notes"],
+        ["Mangomint", "Mira", "AI receptionist for beauty and wellness businesses"],
+      ]},
+      { type: "h2", text: "Answering calls and texts" },
+      { type: "p", text: "Missed calls are missed consults. An AI receptionist answers around the clock, handles common questions, collects the caller's details and books or hands off to your team. Standalone options include:" },
+      { type: "table", text: "Checked on each vendor's site. \"Med spa page\" means the vendor names med spas or aesthetics on its site.", headers: ["Tool", "What it does", "Med spa page"], rows: [
+        ["My AI Front Desk", "AI receptionist for scheduling and 24/7 call handling", "Yes"],
+        ["Weave AI Receptionist", "AI receptionist inside Weave's phone and messaging platform", "No (healthcare practices)"],
+        ["Smith.ai", "AI call answering, with live receptionists available", "No"],
+        ["Goodcall", "AI phone agent priced by unique caller", "No"],
+      ]},
+      { type: "p", text: "Before any AI answers your phone, write down what it should say and what it must hand to a person. Prices, medical questions and upset clients always go to a human. Our AI Friday post on receptionist answer sheets walks through it.", links: [{ text: "receptionist answer sheets", href: "/blog/ai-friday-ai-receptionist-answer-sheet" }] },
+      { type: "h2", text: "Consults and skin analysis" },
+      { type: "p", text: "Imaging tools help clients see what a treatment targets. Canfield's VISIA line captures and analyzes skin and now includes AI features like skin age and lip assessment. These are sold through sales demos, so expect a bigger investment than a monthly app. Never show a simulation as a promised result." },
+      { type: "h2", text: "Review replies" },
+      { type: "p", text: "AI can draft review replies in seconds. Google Business Profile has a free beta tool that drafts replies, and Birdeye's review agent replies across locations. Read every reply before it posts. Don't confirm that a reviewer is your patient or mention their treatment: HHS has fined practices for sharing patient details in review replies." },
+      { type: "p", text: "Never use AI to write reviews. The FTC's 2024 rule bans fake reviews, including AI-generated ones, and allows civil penalties.", links: [{ text: "FTC's 2024 rule", href: "https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials" }] },
+      { type: "h2", text: "Social content and copy" },
+      { type: "ul", items: [
+        "ChatGPT or Claude: first drafts of captions, treatment FAQs and emails.",
+        "Canva Magic Studio: resize and restyle branded posts.",
+        "CapCut: cut reels, add captions and clean up audio.",
+      ]},
+      { type: "p", text: "Keep patient names, photos and details out of general AI tools unless the vendor has signed a BAA with you. Don't post AI-made faces or results as your own work." },
+      { type: "h2", text: "The one question to ask every AI vendor" },
+      { type: "p", text: "\"Will you sign a Business Associate Agreement with my practice?\" If a tool records calls, reads messages or writes chart notes, it may handle patient information, and HIPAA requires a BAA for that. \"HIPAA compliant\" on a website isn't the same as a signed BAA. Ask your attorney what applies to your practice." },
+      { type: "h2", text: "Where to start" },
+      { type: "p", text: "Pick the job that costs you the most: missed calls, slow charting, unanswered reviews or not enough posts. Try one tool for that job for a month and read what it does. Our website plan already includes missed-call text back and automatic follow-up, and our free ScanRank tool shows whether AI search tools can find your practice.", links: [{ text: "website plan", href: "/med-spa-website-design" }, { text: "ScanRank", href: "/scanrank" }] },
+      { type: "p", text: "Product names in this guide are trademarks of their owners. RGV Performance Marketing is independent and isn't affiliated with any of these companies." },
+    ],
+    faqs: [
+      { q: "What are the best AI tools for med spas?", a: "The most useful are AI receptionists that answer calls and texts after hours, AI scribes that write chart notes, review reply drafting and content tools like ChatGPT, Claude, Canva and CapCut. Start with the AI already in your booking system or EMR, such as Aesthetic Record's ChartSmart AI, Boulevard's Beau or Zenoti's Zeenie." },
+      { q: "Can AI answer my med spa's phone?", a: "Yes. AI receptionists answer around the clock, answer common questions, collect details and book or hand off to staff. Write down what it should say and what it must hand to a person before you turn it on." },
+      { q: "Is it safe to use ChatGPT at my med spa?", a: "For captions, FAQs and drafts that contain no patient information, yes. Keep patient names, photos and details out of any AI tool unless the vendor has signed a BAA with your practice." },
+      { q: "Do AI tools for med spas need to be HIPAA compliant?", a: "If a tool stores or handles patient information for a HIPAA-covered practice, you need a signed Business Associate Agreement with the vendor. Ask every vendor for one and ask your attorney what applies to you." },
+      { q: "Can I use AI to write reviews for my med spa?", a: "No. The FTC's 2024 rule bans fake reviews, including AI-generated ones. AI can help you draft replies to real reviews. Read each one before it posts." },
+    ],
+    related: [
+      { href: "/blog/ai-friday-ai-receptionist-answer-sheet", label: "AI Friday: Setting Up an AI Receptionist" },
+      { href: "/blog/ai-friday-medspa-after-hours", label: "AI Friday: Answering Consult Requests After Hours" },
+      { href: "/scanrank", label: "ScanRank: Free AI Readiness Score" },
+      { href: "/contact", label: "Book a Call" },
+    ],
+  },
+  {
     slug: "ai-friday-medspa-answer-sheet",
     title: "AI Friday: Write Your Medspa's AI Answer Sheet",
     metaTitle: "AI Friday: Write Your Medspa's AI Answer Sheet",

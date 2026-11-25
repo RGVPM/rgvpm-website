@@ -15,9 +15,9 @@ import { canonical, breadcrumbSchema, faqSchema, SITE, socialMeta, founderRef, O
 
 const path = GUIDE_PATH;
 const url = canonical(path);
-const title = "How to Choose a Med Spa Marketing Agency (2026)";
+const title = "How to Choose a Med Spa Marketing Agency (2027)";
 const description =
-  "A buyer's guide for med spa owners: eight published scoring criteria, the questions to ask, and sourced facts on DoctorLogic, PatientGain, Med Spa Magic Marketing, Studio III Marketing, Aesthetix Media and RGVPM. Written by RGVPM, one of the options.";
+  "How to choose a med spa marketing agency: eight scoring criteria, the questions to ask, and sourced facts on six agencies, including RGVPM, the author.";
 
 export const metadata: Metadata = {
   title,

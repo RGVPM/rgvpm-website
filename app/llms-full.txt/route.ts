@@ -112,7 +112,7 @@ export function GET() {
 
   L.push("## Comparisons and buyer's guide");
   L.push(`Written by RGV Performance Marketing, one of the options compared. Competitor facts come from each company's own site, read ${VS_CHECKED}, with source links on each page. We are not affiliated with any of these companies.`);
-  L.push("### How to Choose a Med Spa Marketing Agency (2026)");
+  L.push("### How to Choose a Med Spa Marketing Agency (2027)");
   L.push(`URL: ${u(GUIDE_PATH)}`);
   L.push("Eight published scoring criteria (100 points): a price you can see, contract and exit terms, who owns what, ad spend and fees, proof you can check, aesthetics experience, who does the work, and fit for your size and tools. The guide does not rank agencies.");
   L.push("");

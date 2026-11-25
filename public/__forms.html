@@ -1,6 +1,9 @@
-<!-- Netlify Forms registration only. Netlify reads this at deploy time to learn the
-     forms' fields. The real forms POST here: components/AgentSignupForm.tsx
-     ("free-inbox-agent") and components/AdChecker.tsx ("ad-checker-lead"). -->
+<!-- Netlify Forms registration only. Netlify reads this at deploy time to learn each
+     form's fields; the real forms POST here:
+       free-inbox-agent  components/AgentSignupForm.tsx
+       scanrank-report   components/AiVisibilityChecker.tsx (ScanRank unlock form)
+       ad-checker-lead   components/AdChecker.tsx (Med Spa Ad Checker lead box)
+     Every field name a form sends must be listed here or Netlify drops it. -->
 <!DOCTYPE html>
 <html><body>
   <form name="free-inbox-agent" data-netlify="true" netlify-honeypot="company" hidden>
@@ -8,6 +11,25 @@
     <input name="name" />
     <input name="email" type="email" />
     <input name="phone" type="tel" />
+    <input name="company" />
+  </form>
+  <form name="scanrank-report" data-netlify="true" netlify-honeypot="company" hidden>
+    <input type="hidden" name="form-name" value="scanrank-report" />
+    <input name="first_name" />
+    <input name="email" type="email" />
+    <input name="phone" type="tel" />
+    <input name="business_name" />
+    <input name="sms_consent" type="checkbox" value="yes" />
+    <input name="website" />
+    <input name="score" />
+    <input name="failing_checks" />
+    <input name="landing_page" />
+    <input name="referrer" />
+    <input name="utm_source" />
+    <input name="utm_medium" />
+    <input name="utm_campaign" />
+    <input name="utm_term" />
+    <input name="utm_content" />
     <input name="company" />
   </form>
   <form name="ad-checker-lead" data-netlify="true" netlify-honeypot="bot-field" hidden>

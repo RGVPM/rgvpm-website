@@ -17,7 +17,7 @@ export const AI_IMPL = {
     "We run our own agency on AI. We'll show you where it fits in yours, build it for you, or sit down one-on-one and teach you to build it yourself: custom agents, custom tools, and AI that answers calls and follows up with every lead.",
   metaTitle: "AI Consulting & Implementation for Small Business",
   metaDescription:
-    "AI consulting and builds for small and local businesses: 1-on-1 build sessions with Claude Code and Codex, custom AI agents and tools, AI strategy, AI receptionists and follow-up, and team AI workshops. Book an AI session with RGV Performance Marketing.",
+    "AI consulting for small businesses: 1-on-1 Claude Code and Codex build sessions, custom AI agents, AI receptionists and follow-up, and team AI workshops.",
   primaryKeyword: "AI implementation for small business",
   keywordCluster: [
     "AI implementation for small business",

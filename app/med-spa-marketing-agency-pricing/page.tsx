@@ -12,7 +12,7 @@ const path = "/med-spa-marketing-agency-pricing";
 const url = canonical(path);
 const title = "Med Spa Marketing Agency Pricing Compared";
 const description =
-  "What med spa marketing agencies charge, from the ones that publish prices: Growth99, DoctorLogic, Studio III Marketing, PatientGain and RGV Performance Marketing, with contract and ad spend terms.";
+  "What med spa marketing agencies charge, from those that publish prices: Growth99, DoctorLogic, Studio III, PatientGain and RGVPM, plus contract terms.";
 
 export const metadata: Metadata = {
   title,

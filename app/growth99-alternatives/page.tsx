@@ -12,7 +12,7 @@ const path = "/growth99-alternatives";
 const url = canonical(path);
 const title = "Growth99 Alternatives for Med Spas";
 const description =
-  "Growth99 alternatives for med spas compared: DoctorLogic, Studio III Marketing, PatientGain and RGV Performance Marketing. Models, published pricing and contract terms side by side.";
+  "Growth99 alternatives for med spas: DoctorLogic, Studio III Marketing, PatientGain and RGV Performance Marketing, with pricing and contract terms.";
 
 export const metadata: Metadata = {
   title,
