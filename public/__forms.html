@@ -2,6 +2,7 @@
      form's fields; the real forms POST here:
        free-inbox-agent  components/AgentSignupForm.tsx
        scanrank-report   components/AiVisibilityChecker.tsx (ScanRank unlock form)
+       ad-checker-lead   components/AdChecker.tsx (Med Spa Ad Checker lead box)
      Every field name a form sends must be listed here or Netlify drops it. -->
 <!DOCTYPE html>
 <html><body>
@@ -30,5 +31,14 @@
     <input name="utm_term" />
     <input name="utm_content" />
     <input name="company" />
+  </form>
+  <form name="ad-checker-lead" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" value="ad-checker-lead" />
+    <input name="name" />
+    <input name="email" type="email" />
+    <input name="practice" />
+    <input name="phone" type="tel" />
+    <input name="risk" />
+    <input name="bot-field" />
   </form>
 </body></html>

@@ -16,3 +16,6 @@
 .vercel
 tsconfig.tsbuildinfo
 .netlify
+
+# OCR assets copied from node_modules by scripts/copy-ocr-assets.mjs
+/public/ocr/
