@@ -88,7 +88,7 @@ const LEADERSHIP: TeamMember[] = [
     bio: [
       "Sarah has spent her career in the medical aesthetics industry, helping med spa owners grow their practices. As Director of LeadAR at Aesthetic Record, she grew the lead management platform from its 2023 launch into a market leader supporting hundreds of practices. Today, through The Spa Business Coach, she works directly with owners on the strategy behind a growing spa.",
       "She is a regular speaker in the aesthetics industry, with sessions at Aesthetic Next, the BeautiPHIcation conference, and Twilio SIGNAL.",
-      "As our Fractional Chief Growth Officer, Sarah works alongside Derrick on where RGV Performance Marketing goes next: which practices we serve, how our services are packaged, and how we grow alongside the med spas we work with.",
+      "As our Fractional Chief Growth Officer, Sarah works alongside Derrick and Kelsey on where RGVPM goes next: sharpening what we offer med spas, building partnerships across the aesthetics industry, and making sure every practice we work with grows right alongside us.",
     ],
   },
 ];
