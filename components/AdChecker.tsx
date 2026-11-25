@@ -242,7 +242,7 @@ export default function AdChecker() {
 
             {report.hits.length > 0 && (
               <div className="adc-preview">
-                <p className="avc-host">Your ad, with flagged words highlighted</p>
+                <p className="avc-host adc-label">Your ad, with flagged words highlighted</p>
                 {fields
                   .filter((f) => f.value.trim())
                   .map((f) => (
