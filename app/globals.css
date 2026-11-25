@@ -3047,6 +3047,7 @@ a.rg-contact-value:hover { color: var(--blue-ink); }
 .avc-row--pass .avc-status { color: var(--blue-ink); }
 .avc-row--warn .avc-status { color: var(--orange-ink); }
 .avc-row--fail .avc-status { color: #A93226; }
+.adc-label { word-break: normal; overflow-wrap: break-word; }
 .avc-found { font-size: 15px; color: var(--navy); line-height: 1.55; margin: 6px 0 8px; overflow-wrap: anywhere; }
 .avc-why, .avc-todo { font-size: 14px; color: var(--muted); line-height: 1.6; margin: 4px 0 0; }
 .avc-why strong, .avc-todo strong { color: var(--navy); font-weight: 600; }
