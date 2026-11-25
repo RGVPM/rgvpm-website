@@ -115,26 +115,6 @@ const SALES_MARKETING: TeamMember[] = [
   },
 ];
 
-const CLIENT_SUCCESS: TeamMember[] = [
-  {
-    id: `${SITE.url}/about#shaye-arenas`,
-    first: "Shaye",
-    name: "Shaye Arenas",
-    title: "Client Success Coach",
-    initials: "SA",
-    facts: [
-      "Computer science degree",
-      "CRM specialist",
-      "Experience across industries",
-    ],
-    bio: [
-      "Shaye earned her degree in computer science, and she puts it to work on the systems that keep client accounts running. As our CRM specialist, she knows how leads, pipelines, automations, and follow-ups fit together, and how to keep them clean.",
-      "She has worked with businesses across a wide range of industries, so she is quick to learn how a new client operates and what they need from their CRM.",
-      "As Client Success Coach, Shaye helps clients get the most out of the systems we build: answering questions, walking them through their inbox and pipeline, and making sure the tools actually get used.",
-    ],
-  },
-];
-
 const values = [
   { icon: "cpu" as const, title: "AI-Powered, Human-Led", text: "We use modern AI tools to move faster and smarter, but every strategy and decision is led by people who care about your results." },
   { icon: "chart" as const, title: "Results Over Vanity", text: "We report on leads, calls, and booked appointments, the numbers that actually grow a business, not impressions and likes." },
@@ -156,7 +136,7 @@ export default function AboutPage() {
             { name: "Home", path: "/" },
             { name: "About", path: "/about" },
           ]),
-          ...[...LEADERSHIP, ...SALES_MARKETING, ...CLIENT_SUCCESS].map((f) => {
+          ...[...LEADERSHIP, ...SALES_MARKETING].map((f) => {
             const [name, suffix] = f.name.split(", ");
             return {
               "@context": "https://schema.org",
@@ -218,7 +198,6 @@ export default function AboutPage() {
               groups={[
                 { label: "Leadership", members: LEADERSHIP },
                 { label: "Sales & Marketing", members: SALES_MARKETING },
-                { label: "Client Success", members: CLIENT_SUCCESS },
               ]}
             />
 
