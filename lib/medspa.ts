@@ -28,7 +28,7 @@ export const MEDSPA_INTRO = {
 };
 
 export const MEDSPA_SERVICES: { icon: IconName; title: string; text: string; href?: string }[] = [
-  { icon: "globe", title: "Website", text: "A custom site built around your treatments and your Book button, live in 8 to 10 days. We host it and keep it updated.", href: "/services/website-design" },
+  { icon: "globe", title: "Website", text: "A custom site built around your treatments and your Book button, live in 8 to 10 days. We host it and keep it updated.", href: "/med-spa-website-design" },
   { icon: "search", title: "Google & SEO", text: "Your Google Business Profile, treatment and city pages, and a monthly report, so you show up when clients search near you.", href: "/med-spa-seo" },
   { icon: "megaphone", title: "Social Media", text: "Weekly reels and posts. You can shoot and let us edit, or have us post and answer DMs too.", href: "/med-spa-social-media-marketing" },
   { icon: "target", title: "Google & Meta Ads", text: "Campaigns built, run and tuned for consults. Your ad spend is billed directly by Google or Meta.", href: "/med-spa-advertising" },

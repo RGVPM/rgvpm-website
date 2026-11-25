@@ -24,10 +24,10 @@ const PAGE_LAST_MODIFIED: Record<string, string> = {
   "/": "2026-11-22",
   "/about": "2026-11-22",
   "/pricing": "2026-11-22",
-  "/medspa-marketing": "2026-11-22",
+  "/medspa-marketing": "2026-11-25",
   "/growth99-alternatives": "2026-11-22",
   "/med-spa-marketing-agency-pricing": "2026-11-22",
-  [GUIDE_PATH]: "2026-11-22",
+  [GUIDE_PATH]: "2026-11-25",
   ...Object.fromEntries(VS_PAGES.map((v) => [v.path, "2026-11-22"])),
   "/aesthetic-record-leadar-consultant": "2026-11-22",
   "/services/lead-management": "2026-11-22",
@@ -37,7 +37,7 @@ const PAGE_LAST_MODIFIED: Record<string, string> = {
   "/built-by-rgvpm": "2026-11-22",
   "/company-facts": "2026-11-22",
   ...Object.fromEntries(TEXAS_CITIES.map((c) => [c.path, "2026-11-22"])),
-  ...Object.fromEntries(MEDSPA_SERVICE_LIST.map((p) => [p.path, "2026-11-22"])),
+  ...Object.fromEntries(MEDSPA_SERVICE_LIST.map((p) => [p.path, p.slug === "website" ? "2026-11-25" : "2026-11-22"])),
 };
 
 /** Pages with an /es twin (both sides of each pair). */

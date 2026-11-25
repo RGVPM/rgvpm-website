@@ -15,7 +15,7 @@ import { canonical, breadcrumbSchema, faqSchema, SITE, socialMeta, founderRef, O
 
 const path = GUIDE_PATH;
 const url = canonical(path);
-const title = "How to Choose a Med Spa Marketing Agency (2026)";
+const title = "How to Choose a Med Spa Marketing Agency (2027)";
 const description =
   "How to choose a med spa marketing agency: eight scoring criteria, the questions to ask, and sourced facts on six agencies, including RGVPM, the author.";
 

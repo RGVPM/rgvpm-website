@@ -10,7 +10,7 @@ import { REPORT } from "@/lib/medspaWebsiteReport";
 import { canonical, breadcrumbSchema, faqSchema, SITE, ORGANIZATION_ID, socialMeta, PLANS } from "@/lib/site";
 
 /**
- * Shared layout for the three med spa service pages (/med-spa-seo,
+ * Shared layout for the med spa service pages (/med-spa-website-design, /med-spa-seo,
  * /med-spa-advertising, /med-spa-social-media-marketing). Copy lives in
  * lib/medspaServicePages.ts; the look matches /medspa-marketing and
  * /aesthetic-record-leadar-consultant.
