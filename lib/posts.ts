@@ -45,6 +45,91 @@ export interface Post {
 
 export const POSTS: Post[] = [
   {
+    // Vendor facts checked on each vendor's own site 2026-11-25. Booking shares come from
+    // lib/medspaWebsiteReport.ts (BOOKING_PLATFORMS). Keep Aesthetic Record and LeadAR in a
+    // good light and keep AR_INDEPENDENCE_LINE in the post. No prices: they change too often.
+    slug: "med-spa-emr-software-guide",
+    title: "Med Spa EMR Software: How to Choose One",
+    metaTitle: "Med Spa EMR Software: How to Choose One (2027)",
+    description:
+      "How to choose med spa EMR software: the features that matter, the questions to ask, ten systems med spas use, and which ones Texas med spas link to most.",
+    excerpt:
+      "Your EMR holds your charts, photos, consents, memberships and bookings. Here is what to look for, what to ask before you sign, and the systems med spas actually use.",
+    category: "Digital Marketing",
+    icon: "settings",
+    datePublished: "2026-11-25",
+    dateModified: "2026-11-25",
+    readMinutes: 8,
+    author: "Kelsey Tamez",
+    tldr:
+      "The best med spa EMR is the one built for aesthetics that covers your charting, before-and-after photos, consent forms, memberships, online booking and payments in one place, and that will sign a Business Associate Agreement (BAA). Among Texas med spa homepages that link to a booking system, the most common are Boulevard, Aesthetic Record, Square and Zenoti.",
+    sections: [
+      { type: "p", text: "Your EMR (electronic medical record) is the system your whole practice runs on. It holds your charts and photos, your consent forms, your memberships and packages, your calendar and your payments. Switching later is a big job, so it pays to choose well the first time." },
+      { type: "p", text: "I spent five years at Aesthetic Record before Derrick and I started RGV Performance Marketing, so I've seen a lot of med spas set up their software. This guide covers what to look for, what to ask, and the systems med spas use most. We don't sell any EMR and we don't earn anything when you pick one." },
+      { type: "h2", text: "What a med spa EMR should do" },
+      { type: "p", text: "A general medical EMR isn't built for aesthetics. A med spa EMR should handle the work your team does every day:" },
+      { type: "ul", items: [
+        "Charting for injectables, lasers and skin treatments, ideally with face and body maps.",
+        "Before-and-after photos stored with the chart, with side-by-side compare.",
+        "Digital intake and consent forms clients can sign before the visit.",
+        "Memberships, packages and prepaid treatments.",
+        "Online booking that clients can use from your website and social profiles.",
+        "Payments and checkout in the same system.",
+        "Inventory, including product, lot number and expiration for what you inject.",
+      ]},
+      { type: "p", text: "Lot tracking is a best practice, not a federal rule we could find. It lets you find every client who got a product if it's ever recalled. Check your state board's rules for what your charts must include." },
+      { type: "h2", text: "Ask for a signed BAA" },
+      { type: "p", text: "Under HIPAA, a covered practice needs a written Business Associate Agreement (BAA) with any vendor that stores or handles patient information for it. That includes cloud software. \"HIPAA compliant\" on a website is a claim. A signed BAA is a contract. Ask every vendor for one before you sign, and have your attorney confirm what applies to your practice.", links: [{ text: "Business Associate Agreement", href: "https://www.hhs.gov/hipaa/for-professionals/covered-entities/sample-business-associate-agreement-provisions/index.html" }] },
+      { type: "h2", text: "Ten systems med spas use" },
+      { type: "table", text: "Checked on each vendor's own website, November 25, 2026. \"Prices on site\" means the vendor publishes at least a starting price. Features change, so confirm with each vendor.", headers: ["System", "Built for", "Prices on site", "Med spa features the vendor lists"], rows: [
+        ["Aesthetic Record", "Aesthetic practices, from solo providers to enterprise", "Yes", "Procedure charting, photo management, memberships, online booking, payments, inventory, telehealth, ChartSmart AI charting"],
+        ["Boulevard", "Self-care businesses, with a med spa solution", "Yes", "Forms and charts, AI scribe, memberships, self-booking, payments"],
+        ["Zenoti", "Med spas, single and multi-location", "No", "Face and body maps, injectable notes with lot and expiration, photos, digital consent, memberships, booking, POS"],
+        ["PatientNow", "Aesthetic medicine only", "No", "Injectable and device charting, photos, consent packets, memberships, booking, inventory"],
+        ["Mangomint", "Salons, spas and med spas", "Yes", "Forms and charting, memberships and packages, booking, POS, inventory"],
+        ["Moxie", "Aesthetic practices (EMR plus consulting)", "No", "Charting, inventory with lot and expiration, consent templates, GFE tracking, memberships, booking"],
+        ["Nextech", "Plastic surgery, dermatology and med spas", "No", "Specialty charting, before-and-after photos, memberships, payments"],
+        ["AestheticsPro", "Med spa and aesthetics", "Yes", "Consent forms, photo compare, memberships, booking, payments, inventory, telemedicine"],
+        ["Vagaro", "Med spas, solo to multi-location", "Yes", "SOAP notes, injectable unit tracking, photos, consent forms, memberships, booking, POS, inventory"],
+        ["Pabau", "Clinics, including medical aesthetics", "No", "Before-and-after photos, form builder, packages and memberships, booking, POS, inventory, video consults"],
+      ]},
+      { type: "h2", text: "What Texas med spas use" },
+      { type: "p", text: "In our Texas Med Spa Website Report we checked 686 med spa homepages. 389 of them linked to an online booking system. Here is which systems those links went to:", links: [{ text: "Texas Med Spa Website Report", href: "/research/texas-med-spa-website-report-2026" }] },
+      { type: "table", text: "Share of the 389 Texas med spa homepages that link to a booking system. Some of these are booking tools, not full EMRs.", headers: ["Booking system", "Share"], rows: [
+        ["Boulevard", "16.7%"], ["Aesthetic Record", "13.6%"], ["Square", "10.3%"], ["Zenoti", "8.0%"], ["Vagaro", "6.4%"], ["GlossGenius", "5.7%"], ["PatientNow", "5.4%"], ["Jane", "4.9%"], ["AestheticsPro", "4.9%"], ["Moxie", "4.6%"], ["Mangomint", "3.6%"], ["Others (25+ tools)", "19.8%"],
+      ]},
+      { type: "h2", text: "Questions to ask before you sign" },
+      { type: "ul", items: [
+        "Will you sign a BAA with my practice?",
+        "Can I export my charts, photos and client list if I leave, and in what format?",
+        "What does onboarding include, and who moves my data from my old system?",
+        "What's included in the monthly price, and what costs extra (payments, texting, AI features)?",
+        "Is pricing per location, per provider or per user?",
+        "Can clients book online from my website and Instagram?",
+        "Who do I call when something breaks, and how fast do they answer?",
+      ]},
+      { type: "p", text: "Under HIPAA, a BAA has to cover returning or destroying patient information when the contract ends, so the export question and the BAA go together. How long you keep records is set by your state, not HIPAA." },
+      { type: "h2", text: "Already have an EMR? Get more out of it" },
+      { type: "p", text: "Most practices use a small part of what their EMR can do. Memberships, automated reminders, online booking links and review requests are often already paid for and turned off. If you use Aesthetic Record or LeadAR, our EMR consultant service helps you set those up, with a monthly call and direct support.", links: [{ text: "EMR consultant service", href: "/aesthetic-record-leadar-consultant" }] },
+      { type: "p", text: "RGV Performance Marketing is independent and is not affiliated with, endorsed by, or sponsored by Aesthetic Record or LeadAR. Other product names in this guide are trademarks of their owners." },
+    ],
+    faqs: [
+      { q: "What is the best EMR for a med spa?", a: "The best med spa EMR is one built for aesthetics that covers charting, before-and-after photos, consent forms, memberships, online booking and payments, and that will sign a BAA. Aesthetic Record, Boulevard, Zenoti, PatientNow, Mangomint and Moxie are all built with med spas in mind. Book demos with two or three and compare them on your real workflow." },
+      { q: "What EMR do most med spas use?", a: "Among the 389 Texas med spa homepages in our report that link to a booking system, Boulevard (16.7%) and Aesthetic Record (13.6%) were the most common, followed by Square, Zenoti and Vagaro." },
+      { q: "Does my med spa EMR need to be HIPAA compliant?", a: "If your practice is covered by HIPAA, you need a signed Business Associate Agreement with any vendor that stores patient information for you. Ask each vendor for a BAA, and ask your attorney what applies to your practice." },
+      { q: "Should my EMR track injectable lot numbers?", a: "It's a good idea. Tracking product, lot number and expiration lets you find every client who got a product if it's recalled. Check your state board's rules for what your charts must include." },
+      { q: "How hard is it to switch med spa EMRs?", a: "It takes planning. Before you sign, ask how you'd export charts, photos and client lists, and who handles the move from your old system." },
+      { q: "Does RGV Performance Marketing sell EMR software?", a: "No. We're an independent marketing agency. We build med spa websites, run Google, SEO, social and ads, and offer an EMR consultant service for practices on Aesthetic Record or LeadAR." },
+    ],
+    related: [
+      { href: "/aesthetic-record-leadar-consultant", label: "Aesthetic Record & LeadAR Consultant" },
+      { href: "/research/texas-med-spa-website-report-2026", label: "The Texas Med Spa Website Report 2026" },
+      { href: "/blog/best-ai-tools-for-med-spas", label: "Best AI Tools for Med Spas" },
+      { href: "/medspa-marketing", label: "Medspa Marketing" },
+      { href: "/contact", label: "Book a Call" },
+    ],
+  },
+  {
     // Vendor facts checked on each vendor's own site 2026-11-25. No CRMs or
     // GoHighLevel-based tools (owner's rule), and no prices: they change too often.
     slug: "best-ai-tools-for-med-spas",
@@ -65,7 +150,7 @@ export const POSTS: Post[] = [
       { type: "p", text: "Every week there's a new AI tool pitched to med spas. Most practices only need a few, and the right ones depend on where your team loses time. This guide sorts the tools by the job they do, so you can start with the job that costs you the most." },
       { type: "p", text: "We checked every tool below on its maker's own website on November 25, 2026. We don't earn anything from any of them. AI features change fast, so confirm details with each vendor." },
       { type: "h2", text: "Start with the AI you may already pay for" },
-      { type: "p", text: "Several med spa booking systems and EMRs now have AI built in. If yours does, try it before you add another tool, because it already knows your calendar and your clients." },
+      { type: "p", text: "Several med spa booking systems and EMRs now have AI built in. If yours does, try it before you add another tool, because it already knows your calendar and your clients.", links: [{ text: "med spa booking systems and EMRs", href: "/blog/med-spa-emr-software-guide" }] },
       { type: "table", text: "AI features listed by each system's maker.", headers: ["System", "AI feature", "What it does"], rows: [
         ["Aesthetic Record", "ChartSmart AI", "Turns dictation and telehealth visits into chart notes"],
         ["Boulevard", "Beau AI receptionist, AI scribe", "Answers calls and books, and writes visit notes"],
@@ -107,6 +192,7 @@ export const POSTS: Post[] = [
       { q: "Can I use AI to write reviews for my med spa?", a: "No. The FTC's 2024 rule bans fake reviews, including AI-generated ones. AI can help you draft replies to real reviews. Read each one before it posts." },
     ],
     related: [
+      { href: "/blog/med-spa-emr-software-guide", label: "Med Spa EMR Software: How to Choose One" },
       { href: "/blog/ai-friday-ai-receptionist-answer-sheet", label: "AI Friday: Setting Up an AI Receptionist" },
       { href: "/blog/ai-friday-medspa-after-hours", label: "AI Friday: Answering Consult Requests After Hours" },
       { href: "/scanrank", label: "ScanRank: Free AI Readiness Score" },
