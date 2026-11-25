@@ -12,7 +12,7 @@ const path = "/med-spa-ad-checker";
 const url = canonical(path);
 const title = "Med Spa Ad Checker: Will Meta Reject Your Ad?";
 const description =
-  "Free Med Spa Ad Checker. Paste your Facebook or Instagram ad and see the words Meta is likely to reject, why, and what to write instead. Runs in your browser. No email needed.";
+  "Free Med Spa Ad Checker. Add your Facebook or Instagram ad, tap Grade, and get a simple PASS or FAIL with why and how to fix it. Runs in your browser. No email needed.";
 
 export const metadata: Metadata = {
   title,
@@ -88,7 +88,7 @@ const faqs = [
   },
   {
     q: "Can it check the words on my ad image?",
-    a: "Yes. Upload up to 3 images (PNG, JPG or WebP). The checker reads the words on them right in your browser and runs the same rules on that text. Your image stays on your device. We don't upload or save it. The text reader can miss or misread fancy, script or very small fonts, and text on busy photos, so check the \"Text found in your image\" box and fix any mistakes. It reads words only. It doesn't judge the photo itself, so before-and-after photos still need the checkbox.",
+    a: "Yes. Upload up to 3 images (PNG, JPG or WebP). The checker reads the words on them right in your browser and runs the same rules on that text. Your image stays on your device. We don't upload or save it. The text reader can miss or misread fancy, script or very small fonts, and text on busy photos, so open \"See the words we read from your picture\" and fix any mistakes. It reads words only. It doesn't judge the photo itself, so answer the before-and-after question too.",
   },
   {
     q: "Do you save my ad or need my email?",
@@ -131,17 +131,12 @@ export default function MedSpaAdCheckerPage() {
           tone="blue"
           eyebrow="Free tool for med spas"
           title={title}
-          subtitle="Paste your Facebook or Instagram ad. We'll flag the words Meta is likely to reject, tell you why, and suggest what to write instead."
+          subtitle="Add your Facebook or Instagram ad. Tap Grade. We'll tell you if it passes or fails, why, and how to fix it."
           crumbs={crumbs}
         />
 
         <section className="rg-svc-band" style={{ background: "var(--cream)" }} id="check">
           <div className="rg-container" style={{ maxWidth: 900 }}>
-            <p className="rg-svc-body" style={{ maxWidth: "70ch", marginBottom: 24 }}>
-              Meta has strict rules for cosmetic treatments, weight loss and
-              prescription drugs like Botox and semaglutide. This checker looks for the most common problems we see.
-              You can also upload your ad image and we&apos;ll read the words on it. It all runs in your browser, works without an email, and every rule links to the policy it comes from.
-            </p>
             <div className="avc-card">
               <AdChecker />
             </div>

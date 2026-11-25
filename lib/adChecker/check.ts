@@ -20,10 +20,10 @@ import {
 export type AdField = "primary" | "headline" | "description" | "image";
 
 export const FIELD_LABEL: Record<AdField, string> = {
-  primary: "Primary text",
+  primary: "Your ad words",
   headline: "Headline",
   description: "Description",
-  image: "In your image",
+  image: "Words in your picture",
 };
 
 export type AdInput = {
@@ -45,6 +45,7 @@ export type Flag = {
   title: string;
   severity: Severity;
   reminder: boolean;
+  simple: string;
   reason: string;
   fix: string;
   sources: Source[];
@@ -54,7 +55,10 @@ export type Flag = {
 
 export type Risk = "Low" | "Medium" | "High";
 
-export type AdReport = { risk: Risk; flags: Flag[]; hits: Hit[] };
+/** The headline grade: FAIL if anything high or medium risk was found. */
+export type Grade = "PASS" | "FAIL";
+
+export type AdReport = { risk: Risk; grade: Grade; flags: Flag[]; hits: Hit[] };
 
 const RANK: Record<Severity, number> = { high: 0, medium: 1, low: 2 };
 const FIELDS: AdField[] = ["primary", "headline", "description", "image"];
@@ -102,11 +106,11 @@ export function checkAd(input: AdInput): AdReport {
       flags.push(
         input.certified
           ? { ...RX_CERTIFIED_RULE, reminder: true, matches }
-          : { id: rule.id, title: rule.title, severity: rule.severity, reminder: false, reason: `${RX_NOT_CERTIFIED_NOTE} ${rule.reason}`, fix: rule.fix, sources: rule.sources, matches },
+          : { id: rule.id, title: rule.title, severity: rule.severity, reminder: false, simple: rule.simple, reason: `${RX_NOT_CERTIFIED_NOTE} ${rule.reason}`, fix: rule.fix, sources: rule.sources, matches },
       );
       continue;
     }
-    flags.push({ id: rule.id, title: rule.title, severity: rule.severity, reminder: false, reason: rule.reason, fix: rule.fix, sources: rule.sources, matches });
+    flags.push({ id: rule.id, title: rule.title, severity: rule.severity, reminder: false, simple: rule.simple, reason: rule.reason, fix: rule.fix, sources: rule.sources, matches });
   }
 
   // 3. Checkbox-driven rules.
@@ -128,7 +132,9 @@ export function checkAd(input: AdInput): AdReport {
   const n = (s: Severity) => counted.filter((f) => f.severity === s).length;
   const risk: Risk = n("high") > 0 || n("medium") >= 3 ? "High" : n("medium") > 0 || n("low") >= 2 ? "Medium" : "Low";
 
-  return { risk, flags, hits };
+  const grade: Grade = n("high") > 0 || n("medium") > 0 ? "FAIL" : "PASS";
+
+  return { risk, grade, flags, hits };
 }
 
 /** Splits a field's text into plain and highlighted pieces for display. */

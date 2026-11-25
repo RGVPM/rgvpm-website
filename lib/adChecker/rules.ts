@@ -56,6 +56,24 @@ export const TOPICS: TopicOption[] = [
   { id: "promo", label: "Membership / promo" },
 ];
 
+/**
+ * Guesses what the ad promotes from its words, so nobody has to tick topic
+ * boxes. Drives the before-and-after strictness, the 18+ reminder and the
+ * offer-terms reminder.
+ */
+const TOPIC_WORDS: Record<Topic, RegExp> = {
+  neurotoxin: /\b(?:botox|dysport|xeomin|jeuveau|daxxify|letybo|neurotoxins?|neuromodulators?|tox|wrinkle relaxers?|lip flips?)\b/i,
+  filler: /\b(?:fillers?|juvederm|restylane|rha|sculptra|radiesse|lip (?:filler|injections?)|cheek filler)\b/i,
+  weightLoss: /\b(?:weight|glp-?1s?|semaglutide|tirzepatide|ozempic|wegovy|mounjaro|zepbound|pounds|lbs)\b/i,
+  laserBody: /\b(?:laser|lasers|coolsculpting|emsculpt|body contouring|body sculpting|ipl|hair removal|fat (?:freezing|reduction))\b/i,
+  skin: /\b(?:facials?|hydrafacials?|peels?|microneedling|skin|acne|prp|morpheus8?|dermaplaning)\b/i,
+  promo: /(?:\$\s?\d|\d+\s?%\s?off|\b(?:specials?|memberships?|deals?|discounts?|sale|promo|off per unit|bogo|free consult(?:ation)?s?)\b)/i,
+};
+
+export function detectTopics(text: string): Topic[] {
+  return (Object.keys(TOPIC_WORDS) as Topic[]).filter((t) => TOPIC_WORDS[t].test(text));
+}
+
 /** A rule that looks for words in the ad text. */
 export type TextRule = {
   id: string;
@@ -63,6 +81,8 @@ export type TextRule = {
   severity: Severity;
   /** Each pattern must use the g and i flags. */
   patterns: RegExp[];
+  /** One short sentence a 2nd grader can follow. Shown first on the result card. */
+  simple: string;
   /** Simple reason, about a 6th-grade reading level. */
   reason: string;
   /** What to write instead. */
@@ -77,6 +97,8 @@ export type SettingRule = {
   severity: Severity;
   /** Reminders show up but don't raise the overall risk. */
   reminder?: boolean;
+  /** One short sentence a 2nd grader can follow. */
+  simple: string;
   reason: string;
   fix: string;
   sources: Source[];
@@ -106,6 +128,7 @@ export const TEXT_RULES: TextRule[] = [
       // Meta's own example: "Ready to upgrade your skin to look younger?"
       /\byour\s+(?:[a-z'-]+\s+){0,3}?to\s+look\s+younger\b/gi,
     ],
+    simple: "Your ad talks about the reader's body, like \"your wrinkles.\" Meta doesn't allow that.",
     reason:
       "Meta does not allow ads that say or hint that they know something personal about the reader, like their health, their body or their age. \"You\" and \"your\" are fine on their own. They become a problem when they point at a body part, a flaw or a health issue, like \"your wrinkles\" or \"Are you tired of your belly fat?\"",
     fix:
@@ -119,6 +142,7 @@ export const TEXT_RULES: TextRule[] = [
     patterns: [
       /\b(?:ugly|uglier|gross|disgusting|hideous|unsightly|unattractive|embarrassing|flabby|saggy|chubby|frumpy|bingo wings|fat rolls|muffin tops?|turkey necks?|cankles|thunder thighs|old[- ]looking|look(?:ing)? old|look(?:ing)? tired|look(?:ing)? your age|hate your body|stop hiding|cover up your|don'?t let (?:your )?(?:wrinkles|fat|weight|acne|age))\b/gi,
     ],
+    simple: "Your ad uses mean words about how people look. Meta doesn't allow that.",
     reason:
       "Meta bans weight loss and cosmetic ads with \"statements of inferiority about physical appearance,\" meaning words that attack how someone looks or a body part. Its standards also bar content meant to make people feel bad about themselves to sell diet, weight loss or other health products.",
     fix:
@@ -132,6 +156,7 @@ export const TEXT_RULES: TextRule[] = [
     patterns: [
       /\b(?:botox|dysport|xeomin|jeuveau|daxxify|letybo|semaglutide|tirzepatide|ozempic|wegovy|mounjaro|zepbound|rybelsus|saxenda|liraglutide|phentermine|glp-?1s?)\b/gi,
     ],
+    simple: "Your ad names a prescription drug. Only spas with a special license can do that on Meta.",
     reason:
       "These are prescription drugs. Meta's Drugs and Pharmaceuticals policy says ads that promote prescription drugs are only allowed from advertisers who are actively certified by LegitScript or approved through Meta's own review, who include a disclaimer to consult a licensed health professional or get a valid prescription, who finish Meta's onboarding for prescription drugs, and who target only people 18+ in the United States, Canada or New Zealand where they are certified. Meta's page does not list drugs by brand name.",
     fix:
@@ -148,6 +173,7 @@ export const TEXT_RULES: TextRule[] = [
       /\b(?:melts?|burns?|torch(?:es)?)\s+(?:away\s+)?(?:the\s+)?(?:fat|pounds|weight)\b/gi,
       /\b(?:fast|rapid|quick|effortless|easy)\s+weight\s+loss\b/gi,
     ],
+    simple: "Your ad promises a number of pounds or sizes. Meta doesn't allow that.",
     reason:
       "Meta bans clickbait in weight loss ads: \"sensational language with exaggerated or extreme claims, or promises of specific outcomes within a set timeframe without disclaimers or qualifiers.\" A number of pounds or sizes, or a promise of fast loss, reads that way.",
     fix:
@@ -161,6 +187,7 @@ export const TEXT_RULES: TextRule[] = [
     patterns: [
       /\b(?:guarantee[ds]?|guaranteeing|100%\s+(?:results|effective|guaranteed|satisfaction)|miracle|magic(?:al)?\s+(?:results|fix|shot|cure)|works for everyone|never fails)\b/gi,
     ],
+    simple: "Your ad promises results for sure. No treatment works the same on everyone.",
     reason:
       "Meta bans health and weight loss ads with \"sensational language with exaggerated or extreme claims.\" The FTC also says health claims must be backed by \"competent and reliable scientific evidence,\" and no treatment works the same on everyone.",
     fix:
@@ -177,6 +204,7 @@ export const TEXT_RULES: TextRule[] = [
       /\b(?:see|get|guaranteed)\s+results\s+in\s+(?:just\s+|only\s+)?(?:\d+|one|two|three|a)\s+(?:minutes?|hours?|days?|weeks?)\b/gi,
       /\bin\s+(?:just|only)\s+(?:\d+|one|two|three|a)\s+(?:minutes?|hours?|days?|weeks?|sessions?)\b/gi,
     ],
+    simple: "Your ad promises fast results. Meta flags promises with a deadline.",
     reason:
       "Meta flags health ads that promise \"specific outcomes within a set timeframe without disclaimers or qualifiers.\" \"Instant\" or \"in just 3 days\" is that kind of promise.",
     fix:
@@ -188,6 +216,7 @@ export const TEXT_RULES: TextRule[] = [
     title: "Says results are permanent or last forever",
     severity: "medium",
     patterns: [/\b(?:permanent(?:ly)?|forever|for good|never come back|last(?:s)? a lifetime|lifetime results)\b/gi],
+    simple: "Your ad says results last forever. That's very hard to prove.",
     reason:
       "\"Permanent\" is an extreme claim for most med spa treatments, and Meta bans exaggerated or extreme claims in health ads. The FTC says health claims need solid scientific proof.",
     fix:
@@ -201,6 +230,7 @@ export const TEXT_RULES: TextRule[] = [
     patterns: [
       /\b(?:painless|pain[- ]free|no pain|zero pain|100%\s+safe|completely safe|totally safe|perfectly safe|risk[- ]free|no risks?|no side effects|zero side effects|side[- ]effect[- ]free|zero risk)\b/gi,
     ],
+    simple: "Your ad says it won't hurt or has no risk. That's very hard to prove.",
     reason:
       "The FTC says claims about a health product's safety need \"competent and reliable scientific evidence,\" and ads should not hide real risks. Every injection or laser treatment has some risk or discomfort, so \"painless\" or \"no side effects\" is hard to prove.",
     fix:
@@ -214,6 +244,7 @@ export const TEXT_RULES: TextRule[] = [
     patterns: [
       /\b(?:cures?|cured|curing|heals?|healed|healing|eliminates?|eliminated|eliminating)\s+(?:your\s+|my\s+)?(?:type\s*[12]\s+)?(?:diabetes|herpes|thyroid(?:\s+(?:disease|problems|issues))?|hypothyroidism|psoriasis|ebola|cancer|autism|alzheimer'?s|parkinson'?s|als|hiv)\b/gi,
     ],
+    simple: "Your ad says a treatment cures a disease. Meta doesn't allow that.",
     reason:
       "Meta bans claims to \"cure, heal, or eliminate\" diseases on its list, which includes diabetes, thyroid, psoriasis and cancer. This is true even when a health professional makes the claim. Talking about treating or managing symptoms is allowed.",
     fix:
@@ -225,6 +256,7 @@ export const TEXT_RULES: TextRule[] = [
     title: "Says \"clinically proven\" or \"doctor proven\"",
     severity: "medium",
     patterns: [/\b(?:clinically|scientifically|medically|doctor)[- ](?:proven|tested and proven|backed|validated)\b/gi],
+    simple: "Your ad says \"clinically proven.\" You need a study to back that up.",
     reason:
       "The FTC says health claims need \"competent and reliable scientific evidence.\" Saying a treatment is clinically proven means you need studies that prove it for that exact use.",
     fix:
@@ -236,6 +268,7 @@ export const TEXT_RULES: TextRule[] = [
     title: "Uses \"FDA approved\" loosely",
     severity: "medium",
     patterns: [/\bFDA[- ](?:approved|certified|registered|endorsed)\b/gi, /\bapproved by (?:the )?FDA\b/gi],
+    simple: "Your ad says \"FDA approved\" without saying exactly what for.",
     reason:
       "The FTC warns marketers not to overstate what a government agency has reviewed or approved. FDA approval or clearance covers a specific product for a specific use, not your whole treatment or every result.",
     fix:
@@ -249,6 +282,7 @@ export const TEXT_RULES: TextRule[] = [
     patterns: [
       /(?:#\s?1\b|\bnumber\s+one\b|\bno\.\s?1\b|\btop[- ]rated\b|\bhighest[- ]rated\b|\bvoted\s+(?:the\s+)?best\b|\baward[- ]winning\b|\b(?:most|best)\s+(?:trusted|experienced|reviewed)\b|\bleading\s+(?:med\s?spa|provider|clinic)\b)/gi,
     ],
+    simple: "Your ad says \"#1\" or \"top rated.\" You need proof people can check.",
     reason:
       "\"#1\" and \"top rated\" sound like facts. The FTC says \"before a company runs an ad, it has to have a 'reasonable basis' for the claims.\" If you can't show the ranking or rating, it can be seen as misleading.",
     fix:
@@ -260,6 +294,7 @@ export const TEXT_RULES: TextRule[] = [
     title: "Says \"best\"",
     severity: "low",
     patterns: [/\b(?:the\s+)?best\b(?!\s+(?:time|way|part|friend|of luck))/gi],
+    simple: "Your ad says \"best.\" That's fine as an opinion, but not as a fact you can't prove.",
     reason:
       "\"Best\" as an opinion is usually fine. The FTC says claims people can judge for themselves get less attention. But if it reads like a fact, such as \"best results in Texas,\" you need a \"reasonable basis\" to back it up.",
     fix:
@@ -272,6 +307,7 @@ export const BEFORE_AFTER_RULE: SettingRule = {
   id: "before-after",
   title: "Uses before-and-after images",
   severity: "medium",
+  simple: "Before-and-after photos have extra rules on Meta.",
   reason:
     "Meta's Health and Wellness policy page has changed several times. Some versions ban side-by-side before-and-after photos for weight loss and for wrinkle treatments like Botox and fillers. The version live today allows before-and-after for general cosmetic procedures when the ad targets people 18+. For weight loss ads it bans close-ups that pinch fat. It also says the ad should \"clearly indicate the time taken to achieve noticeable results.\"",
   fix:
@@ -286,6 +322,7 @@ export const AGE_RULE: SettingRule = {
   title: "Set your audience to 18+",
   severity: "low",
   reminder: true,
+  simple: "Show this ad only to people 18 and older.",
   reason:
     "Meta says ads for weight loss products and services, and for cosmetic procedures, \"must be targeted to people at least 18 years or older.\" Ads for prescription drugs must also target 18+ only.",
   fix: "In Ads Manager, set the age range to start at 18 or older before you publish.",
@@ -299,6 +336,7 @@ export const PROMO_RULE: SettingRule = {
   title: "Make the offer terms clear",
   severity: "low",
   reminder: true,
+  simple: "Make sure the price in your ad is the real price at the front desk.",
   reason:
     "Meta's rules on prohibited commercial practices list \"deceptive pricing\" as something it doesn't allow. A specials or membership ad should match what people pay at the front desk.",
   fix: "Say what's included, the real price, and when the offer ends. Example: \"$10 off per unit through Dec 31. New clients only.\"",
@@ -315,6 +353,7 @@ export const RX_CERTIFIED_RULE: SettingRule = {
   title: "Names a prescription drug (you said you're certified)",
   severity: "low",
   reminder: true,
+  simple: "You can name the drug, but add a \"talk to a provider\" line and show the ad only to people 18+.",
   reason:
     "Certified advertisers can name prescription drugs, but must still include Meta's required disclaimer and 18+ targeting. Meta's Drugs and Pharmaceuticals policy says advertisers \"actively certified with LegitScript\" (or approved through Meta's internal review) must \"include a disclaimer to consult a licensed health professional or obtain a valid prescription,\" \"only target people 18 years or older,\" only target eligible countries (United States, Canada or New Zealand) where they are certified, and \"obtain authorization from Meta.\"",
   fix: "Add a line like \"Talk to a licensed provider to see if this treatment is right for you,\" and set the audience to 18+ in the countries you're certified in.",
