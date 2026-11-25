@@ -156,7 +156,7 @@ export const MEDSPA_SERVICE_PAGES: Record<MedspaServiceSlug, MedspaServicePage> 
         { icon: "globe", title: "Treatment and city pages", text: "A clear page for each treatment you offer and each area you serve. Each one answers the questions clients ask before they book." },
         { icon: "wrench", title: "On-page cleanup", text: "Titles, headings, links and schema markup fixed so Google and AI tools understand what you do and where." },
         { icon: "megaphone", title: "Monthly content", text: "New content each month that answers real client questions about your treatments." },
-        { icon: "chart", title: "Monthly report", text: "A plain-English report each month on what we did and how your search results are moving." },
+        { icon: "chart", title: "Monthly report", text: "A clear report each month on what we did and how your search results are moving." },
         { icon: "cpu", title: "Ready for AI search", text: "The same work helps ChatGPT and Google's AI answers understand your practice. Check yours free with ScanRank." },
       ],
     },

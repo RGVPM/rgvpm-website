@@ -8,7 +8,7 @@ import type { IconName } from "@/components/Icon";
 // - Every number below comes from a public source listed in that city's `sources`, read 2026-11-22.
 //   Census figures: Vintage 2024 metro/county estimates (cbsa-est2024-alldata.csv) and ACS 2024 1-year
 //   tables C16001 (language at home, age 5+) and B19013 (median household income). Re-check before changing.
-// - Texas rules come from the Texas Medical Board FAQ, 22 TAC §169.25 and TDLR's medical spa page. Plain-English
+// - Texas rules come from the Texas Medical Board FAQ, 22 TAC §169.25 and TDLR's medical spa page. Simple
 //   summary only; no legal advice, no health or results claims.
 // - Never name or compare local practices. Prices come from PLANS in lib/site.ts (rendered by the page), never typed here.
 
@@ -58,7 +58,7 @@ export const TEXAS_RULE_SOURCES: Source[] = [
   { label: "Texas Department of Licensing and Regulation, Medical Spas", url: "https://www.tdlr.texas.gov/barbering-and-cosmetology/medical-spas.htm" },
 ];
 
-/** Shared across the four pages: what Texas regulators say, in plain English. */
+/** Shared across the four pages: what Texas regulators say, in simple terms. */
 export const TEXAS_RULES = {
   heading: "Texas Rules That Shape Your Marketing",
   intro:
@@ -88,7 +88,7 @@ export const TEXAS_RULES = {
   howWeUseIt:
     "What we do with it: your treatment pages say who performs each treatment by credential, we never promise results, and you approve treatment copy before it goes live.",
   disclaimer:
-    "A plain-English summary of public guidance, read November 22, 2026. It is not legal advice. Ask a Texas healthcare attorney about your own setup.",
+    "A simple summary of public guidance, read November 22, 2026. It is not legal advice. Ask a Texas healthcare attorney about your own setup.",
 };
 
 export const TEXAS_CITIES: TexasCity[] = [

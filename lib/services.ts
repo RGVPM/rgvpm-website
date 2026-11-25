@@ -31,7 +31,7 @@ export interface Service {
   related: string[];
   /** The "hat" we wear for the owner (the homepage hats cards). */
   hat: string;
-  /** Plain-English "what you get", shown as checked cards on the page. */
+  /** Simple "what you get", shown as checked cards on the page. */
   includes: string[];
   /** Cheapest plan that includes this service. */
   startsAt: { plan: string; price: string; note?: string };

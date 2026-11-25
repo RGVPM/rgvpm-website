@@ -131,7 +131,7 @@ export default function MedSpaAdCheckerPage() {
           tone="blue"
           eyebrow="Free tool for med spas"
           title={title}
-          subtitle="Paste your Facebook or Instagram ad. We'll flag the words Meta is likely to reject, tell you why in plain English, and suggest what to write instead."
+          subtitle="Paste your Facebook or Instagram ad. We'll flag the words Meta is likely to reject, tell you why, and suggest what to write instead."
           crumbs={crumbs}
         />
 

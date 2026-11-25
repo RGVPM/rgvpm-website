@@ -146,7 +146,7 @@ export default function ServicesHub() {
               while the organic work builds, and <Link href="/services/lead-management" style={linkStyle}>lead management</Link>{" "}
               makes sure every call, text and form gets a fast reply. In Harlingen? See{" "}
               <Link href="/website-design-harlingen-tx" style={linkStyle}>website design for Harlingen businesses</Link>, or
-              read <Link href="/blog" style={linkStyle}>our blog</Link> for plain-English local marketing guides.
+              read <Link href="/blog" style={linkStyle}>our blog</Link> for practical local marketing guides.
             </p>
           </div>
         </section>

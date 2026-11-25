@@ -15,7 +15,7 @@ export const KIT_NAME = "Claude Code Starter Kit";
 export const KIT_LANDING = "/claude-code-templates";
 
 
-/** What the landing page promises, in plain English. */
+/** What the landing page promises, in simple terms. */
 export const KIT_PROMISE = [
   "A free AI agent that reviews your inbox every morning at 8",
   "Step-by-step setup: copy, paste, done in 10 minutes",

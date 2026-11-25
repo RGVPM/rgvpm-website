@@ -12,13 +12,13 @@ const url = canonical("/blog");
 export const metadata: Metadata = {
   title: "Medspa Marketing & AI Blog",
   description:
-    "Plain-English AI and marketing playbooks for medspa owners and local businesses: AI receptionists, automation, Google, ads and what it all costs.",
+    "Practical AI and marketing playbooks for medspa owners: AI receptionists, automation, Google, ads and what it all costs.",
   alternates: { canonical: url },
   ...socialMeta({
     url,
     title: `Blog | ${SITE.name}`,
     description:
-      "Plain-English AI and marketing playbooks for medspa owners and local businesses.",
+      "Practical AI and marketing playbooks for medspa owners.",
   }),
 };
 
@@ -26,7 +26,7 @@ const blogSchema = {
   "@context": "https://schema.org",
   "@type": "Blog",
   name: `${SITE.name} Blog`,
-  description: "Plain-English AI and marketing playbooks for medspa owners and local businesses.",
+  description: "Practical AI and marketing playbooks for medspa owners.",
   url,
   publisher: { "@id": ORGANIZATION_ID },
   blogPost: POSTS.map((p) => ({
@@ -63,7 +63,7 @@ export default function BlogPage() {
               AI that works <em>the night shift.</em>
             </h1>
             <p className="rg-bmast-text">
-              Plain-English playbooks for medspa owners on AI, Google and ads, so your front desk keeps working after it goes home.
+              Practical playbooks for medspa owners on AI, Google and ads, so your front desk keeps working after it goes home.
             </p>
             <Link href="/medspa-marketing" className="rg-bmast-link">
               How we run marketing for medspas <span aria-hidden="true">→</span>

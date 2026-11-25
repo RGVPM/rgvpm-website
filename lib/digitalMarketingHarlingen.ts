@@ -65,7 +65,7 @@ export const HARLINGEN_SERVICES: { icon: IconName; title: string; text: string; 
 export const HARLINGEN_STEPS = [
   { title: "Free strategy call", text: "We look at your website, your Google listing and what your customers search, then tell you what we'd fix first." },
   { title: "Build the foundation", text: "Your website, Google profile, tracking and lead inbox get set up first, so every lead lands in one place." },
-  { title: "Grow and report", text: "We add the add-ons you choose, like SEO or ads, and send a plain-English report each month." },
+  { title: "Grow and report", text: "We add the add-ons you choose, like SEO or ads, and send a clear report each month." },
 ];
 
 export const HARLINGEN_FAQS = [

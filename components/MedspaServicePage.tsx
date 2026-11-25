@@ -205,7 +205,7 @@ export default function MedspaServicePage({ slug }: { slug: MedspaServiceSlug })
                 ))}
               </div>
               <p style={{ fontSize: 13, color: "var(--muted)", lineHeight: 1.6, marginTop: 20, maxWidth: "70ch" }}>
-                Platform rules change often. This is a plain-English summary, not legal advice.
+                Platform rules change often. This is a simple summary, not legal advice.
               </p>
             </div>
           </section>

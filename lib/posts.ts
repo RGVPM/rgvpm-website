@@ -811,7 +811,7 @@ export const POSTS: Post[] = [
     sections: [
       { type: "p", text: "Three AI Fridays ago we said to automate the lead answer first. Since then we covered the weekly task and the AI receptionist. This week answers the question that comes next: once you know the job, who builds it? You, with an AI coding agent beside you, or someone who does it for a living." },
       { type: "h2", text: "AI coding agents changed who can build" },
-      { type: "p", text: "Tools like Claude Code and Codex write and run software from plain-English instructions. That puts a custom dashboard, a small internal app, or a simple report within reach of an owner with no coding background. We teach this one-on-one: you build a real tool for your own business, from an empty folder to a live link, and you keep everything you build.", links: [{ text: "We teach this one-on-one", href: "/learn-claude-code" }] },
+      { type: "p", text: "Tools like Claude Code and Codex write and run software from typed instructions. That puts a custom dashboard, a small internal app, or a simple report within reach of an owner with no coding background. We teach this one-on-one: you build a real tool for your own business, from an empty folder to a live link, and you keep everything you build.", links: [{ text: "We teach this one-on-one", href: "/learn-claude-code" }] },
       { type: "p", text: "That does not mean everyone should. Building takes your time, and your time is already the scarcest thing in a Valley business. So ask three questions first." },
       { type: "h2", text: "Question 1: Is the tool small and only for your team?" },
       { type: "p", text: "An internal dashboard, a quote sheet, a tracker for jobs in Harlingen or McAllen: these are good first builds. If it breaks on a Tuesday, your team shrugs and you fix it. The stakes are low and the learning is real. The more a tool touches customers directly, the stronger the case for having it built and watched by someone else." },
@@ -1091,7 +1091,7 @@ export const POSTS: Post[] = [
     title: "Local SEO in Brownsville, TX: A Checklist You Can Run Yourself",
     metaTitle: "Local SEO Brownsville TX: A Do-It-Yourself Checklist",
     description:
-      "A plain-English local SEO checklist for Brownsville, TX owners: your Google profile, listings, a real Brownsville page, Spanish, reviews, and what to skip.",
+      "A practical local SEO checklist for Brownsville, TX owners: your Google profile, listings, a real Brownsville page, Spanish, reviews, and what to skip.",
     excerpt:
       "Most of what moves a Brownsville business up in local search is work an owner can do in a few evenings. Here is the checklist, in order, plus the shortcuts that get profiles suspended.",
     category: "Local SEO",
@@ -1368,9 +1368,9 @@ export const POSTS: Post[] = [
     title: "Digital Marketing in Harlingen, TX: A Local Business Owner's Guide (2026)",
     metaTitle: "Digital Marketing in Harlingen: A 2026 Owner's Guide",
     description:
-      "What digital marketing in Harlingen costs in 2026, which channels bring in calls, and how to choose an agency. A plain-English guide from a Harlingen team.",
+      "What digital marketing in Harlingen costs in 2026, which channels bring in calls, and how to choose an agency. A practical guide from a Harlingen team.",
     excerpt:
-      "A plain-English guide to digital marketing for Harlingen and Rio Grande Valley businesses — what it includes, what it costs, and how to choose an agency that drives real leads.",
+      "A practical guide to digital marketing for Harlingen and Rio Grande Valley businesses — what it includes, what it costs, and how to choose an agency that drives real leads.",
     category: "Digital Marketing",
     icon: "chart",
     datePublished: "2026-06-24",
@@ -1552,7 +1552,7 @@ export const POSTS: Post[] = [
     title: "Local SEO vs. Regular SEO: What's the Difference?",
     metaTitle: "Local SEO vs. Regular SEO: What's the Difference? (2026)",
     description:
-      "Local SEO vs. regular SEO in plain English: what each one does, how they differ, and which one a Rio Grande Valley business actually needs.",
+      "Local SEO vs. regular SEO: what each one does, how they differ, and which one a Rio Grande Valley business actually needs.",
     excerpt:
       "Regular SEO helps you rank for broad searches anywhere. Local SEO helps you rank for searches tied to your city and the map pack. For a business that serves a local area, local SEO is what drives calls.",
     category: "Local SEO",
