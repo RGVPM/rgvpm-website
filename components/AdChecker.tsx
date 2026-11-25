@@ -1,26 +1,28 @@
 "use client";
-import { useMemo, useRef, useState, type ChangeEvent, type FormEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type ChangeEvent, type DragEvent, type FormEvent } from "react";
 import Link from "next/link";
-import { TOPICS, DISCLAIMER, RULES_CHECKED, type Topic } from "@/lib/adChecker/rules";
+import { DISCLAIMER, RULES_CHECKED, detectTopics } from "@/lib/adChecker/rules";
 import { checkAd, segments, FIELD_LABEL, type AdField, type Flag } from "@/lib/adChecker/check";
 import { OCR_MAX_BYTES, OCR_MAX_FILES, OCR_TYPES, readImages, type OcrProgress } from "@/lib/adChecker/ocr";
 import { track } from "@/lib/track";
 
 /**
- * The Med Spa Ad Checker. Runs lib/adChecker rules in the browser on every
- * keystroke: no API, no server, nothing saved. Uploaded images are read with
- * in-browser OCR (lib/adChecker/ocr.ts) and never leave the device. The
- * optional lead box below it
- * posts to Netlify Forms (form "ad-checker-lead", registered by
- * public/__forms.html).
+ * The Med Spa Ad Checker, built so anyone can use it: add your ad (picture
+ * and/or words), answer one yes/no question, tap Grade, get PASS or FAIL with
+ * a plain reason and a fix for each problem. Topics are guessed from the
+ * words (lib/adChecker/rules detectTopics), so there are no topic boxes.
+ * Runs lib/adChecker rules in the browser: no API, no server, nothing saved.
+ * Pictures are read with in-browser OCR (lib/adChecker/ocr.ts) and never
+ * leave the device. The optional lead box posts to Netlify Forms (form
+ * "ad-checker-lead", registered by public/__forms.html).
  */
 
 const field: React.CSSProperties = {
   width: "100%",
-  padding: "14px 16px",
-  fontSize: 16, // 16px stops iOS zooming into the field on focus
-  border: "1px solid var(--border)",
-  borderRadius: 10,
+  padding: "16px 18px",
+  fontSize: 17, // 16px+ stops iOS zooming into the field on focus
+  border: "2px solid var(--border)",
+  borderRadius: 14,
   background: "#fff",
   color: "var(--navy)",
   fontFamily: "var(--font-dm-sans), sans-serif",
@@ -28,160 +30,148 @@ const field: React.CSSProperties = {
 };
 const label: React.CSSProperties = { display: "block", fontSize: 14, fontWeight: 600, color: "var(--navy)", marginBottom: 6 };
 
-const SAMPLE = {
-  primary:
-    "Are you tired of your wrinkles? Our Botox specials are back! Get $3 off per unit and see instant results. Guaranteed to take 10 years off.",
-  headline: "#1 Botox in McAllen",
-  description: "Painless treatments by expert injectors",
-  topics: ["neurotoxin", "promo"] as Topic[],
-  beforeAfter: true,
-};
+const SAMPLE =
+  "Are you tired of your wrinkles? Our Botox specials are back! Get $3 off per unit and see instant results. Guaranteed to take 10 years off. #1 Botox in McAllen. Painless treatments by expert injectors.";
 
-const SEVERITY_LABEL = { high: "High risk", medium: "Medium risk", low: "Low risk" } as const;
-const ROW_CLASS = { high: "fail", medium: "warn", low: "warn" } as const;
-const ROW_ICON = { high: "✕", medium: "!", low: "!" } as const;
+type YesNo = "yes" | "no" | null;
 
 export default function AdChecker() {
-  const [primary, setPrimary] = useState("");
-  const [headline, setHeadline] = useState("");
-  const [description, setDescription] = useState("");
-  const [topics, setTopics] = useState<Topic[]>([]);
-  const [beforeAfter, setBeforeAfter] = useState(false);
-  const [certified, setCertified] = useState(false);
+  const [words, setWords] = useState("");
   const [imageText, setImageText] = useState("");
+  const [thumbs, setThumbs] = useState<string[]>([]);
+  const [beforeAfter, setBeforeAfter] = useState<YesNo>(null);
+  const [certified, setCertified] = useState<YesNo>(null);
+  const [graded, setGraded] = useState(false);
   const [ocr, setOcr] = useState<OcrProgress | null>(null);
   const [ocrError, setOcrError] = useState<string | null>(null);
-  const [showImageBox, setShowImageBox] = useState(false);
+  const [dragging, setDragging] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
+  const resultRef = useRef<HTMLDivElement>(null);
 
+  const allText = `${words}\n${imageText}`;
   const report = useMemo(
-    () => checkAd({ primary, headline, description, image: imageText, topics, beforeAfter, certified }),
-    [primary, headline, description, imageText, topics, beforeAfter, certified],
+    () =>
+      checkAd({
+        primary: words,
+        headline: "",
+        description: "",
+        image: imageText,
+        topics: detectTopics(allText),
+        beforeAfter: beforeAfter === "yes",
+        certified: certified === "yes",
+      }),
+    [words, imageText, allText, beforeAfter, certified],
   );
-  const hasText = Boolean(primary.trim() || headline.trim() || description.trim() || imageText.trim());
+  const hasAd = Boolean(words.trim() || imageText.trim());
+  const namesDrug = report.flags.some((f) => f.id === "prescription-drugs");
 
-  async function onImages(e: ChangeEvent<HTMLInputElement>) {
-    const files = Array.from(e.target.files ?? []);
+  useEffect(() => () => thumbs.forEach((u) => URL.revokeObjectURL(u)), [thumbs]);
+
+  async function addImages(files: File[]) {
     if (!files.length) return;
     setOcrError(null);
-    if (files.length > OCR_MAX_FILES) {
-      setOcrError(`Pick up to ${OCR_MAX_FILES} images at a time.`);
-      return;
-    }
+    if (files.length > OCR_MAX_FILES) return setOcrError(`Pick up to ${OCR_MAX_FILES} pictures at a time.`);
     const bad = files.find((f) => !OCR_TYPES.includes(f.type));
-    if (bad) {
-      setOcrError(`${bad.name} isn't a PNG, JPG or WebP image.`);
-      return;
-    }
+    if (bad) return setOcrError(`${bad.name} isn't a picture we can read. Use PNG, JPG or WebP.`);
     const big = files.find((f) => f.size > OCR_MAX_BYTES);
-    if (big) {
-      setOcrError(`${big.name} is over 10 MB. Try a smaller export.`);
-      return;
-    }
+    if (big) return setOcrError(`${big.name} is too big (over 10 MB). Try a smaller one.`);
+    setThumbs(files.map((f) => URL.createObjectURL(f)));
     setOcr({ file: 0, files: files.length, status: "loading", progress: 0 });
-    setShowImageBox(true);
     try {
       const texts = await readImages(files, setOcr);
       const found = texts.filter(Boolean).join("\n\n");
-      if (!found) setOcrError("We couldn't find any text in that image. If it has text, type it in the box below.");
+      if (!found) setOcrError("We didn't see any words in your picture. That's OK. If it has words, type them in the box.");
       setImageText(found);
     } catch {
-      setOcrError("We couldn't read that image. You can type the text from it into the box below instead.");
+      setOcrError("We couldn't read that picture. Type the words from it in the box instead.");
     } finally {
       setOcr(null);
       if (fileRef.current) fileRef.current.value = "";
     }
   }
 
-  function toggleTopic(t: Topic) {
-    setTopics((cur) => (cur.includes(t) ? cur.filter((x) => x !== t) : [...cur, t]));
+  function onPick(e: ChangeEvent<HTMLInputElement>) {
+    addImages(Array.from(e.target.files ?? []));
   }
 
-  function loadSample() {
-    setPrimary(SAMPLE.primary);
-    setHeadline(SAMPLE.headline);
-    setDescription(SAMPLE.description);
-    setTopics(SAMPLE.topics);
-    setBeforeAfter(SAMPLE.beforeAfter);
+  function onDrop(e: DragEvent<HTMLLabelElement>) {
+    e.preventDefault();
+    setDragging(false);
+    if (ocr) return;
+    addImages(Array.from(e.dataTransfer.files ?? []));
   }
 
-  function clearAll() {
-    setPrimary("");
-    setHeadline("");
-    setDescription("");
-    setTopics([]);
-    setBeforeAfter(false);
-    setCertified(false);
+  function grade() {
+    if (!hasAd) return;
+    setGraded(true);
+    requestAnimationFrame(() => resultRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }));
+  }
+
+  function trySample() {
+    setWords(SAMPLE);
+    setBeforeAfter("yes");
+    setGraded(false);
+  }
+
+  function startOver() {
+    setWords("");
     setImageText("");
+    setThumbs([]);
+    setBeforeAfter(null);
+    setCertified(null);
+    setGraded(false);
     setOcrError(null);
-    setShowImageBox(false);
   }
 
-  const flags = report.flags.filter((f) => !f.reminder);
-  const reminders = report.flags.filter((f) => f.reminder);
+  const problems = report.flags.filter((f) => !f.reminder && f.severity !== "low");
+  const tips = report.flags.filter((f) => f.reminder || f.severity === "low");
   const fields: { key: AdField; value: string }[] = [
-    { key: "primary", value: primary },
-    { key: "headline", value: headline },
-    { key: "description", value: description },
+    { key: "primary", value: words },
     { key: "image", value: imageText },
   ];
 
   return (
     <div>
-      <form className="adc-form" onSubmit={(e) => e.preventDefault()} noValidate>
-        <div className="adc-full">
-          <label htmlFor="adc-primary" style={label}>Primary text</label>
-          <textarea
-            id="adc-primary"
-            rows={5}
-            maxLength={3000}
-            placeholder="Paste the main text of your Facebook or Instagram ad"
-            value={primary}
-            onChange={(e) => setPrimary(e.target.value)}
-            style={{ ...field, resize: "vertical" }}
-          />
-        </div>
-        <div>
-          <label htmlFor="adc-headline" style={label}>Headline</label>
-          <input id="adc-headline" type="text" maxLength={300} value={headline} onChange={(e) => setHeadline(e.target.value)} style={field} />
-        </div>
-        <div>
-          <label htmlFor="adc-description" style={label}>Description <span className="avc-opt">(optional)</span></label>
-          <input id="adc-description" type="text" maxLength={300} value={description} onChange={(e) => setDescription(e.target.value)} style={field} />
-        </div>
+      <ol className="adc-steps" aria-label="How it works">
+        <li><span>1</span>Add your ad</li>
+        <li><span>2</span>Tap Grade</li>
+        <li><span>3</span>See pass or fail</li>
+      </ol>
 
-        <fieldset className="adc-full adc-fieldset">
-          <legend style={label}>What does the ad promote? <span className="avc-opt">(tick all that apply)</span></legend>
-          <div className="adc-checks">
-            {TOPICS.map((t) => (
-              <label key={t.id} className="adc-check">
-                <input type="checkbox" checked={topics.includes(t.id)} onChange={() => toggleTopic(t.id)} />
-                <span>{t.label}</span>
-              </label>
-            ))}
-          </div>
-        </fieldset>
+      <form className="adc-simple" onSubmit={(e) => { e.preventDefault(); grade(); }} noValidate>
+        <h3 className="adc-q"><span className="adc-num">1</span>Add your ad</h3>
 
-        <fieldset className="adc-full adc-fieldset">
-          <legend style={label}>Images</legend>
-          <label className="adc-check adc-check--wide">
-            <input type="checkbox" checked={beforeAfter} onChange={(e) => setBeforeAfter(e.target.checked)} />
-            <span>This ad uses before-and-after images</span>
-          </label>
-        </fieldset>
-
-        <fieldset className="adc-full adc-fieldset">
-          <legend style={label}>Prescription drug ads</legend>
-          <label className="adc-check adc-check--wide">
-            <input type="checkbox" checked={certified} onChange={(e) => setCertified(e.target.checked)} />
-            <span>We&apos;re LegitScript certified (or Meta has approved us for prescription drug ads).</span>
-          </label>
-        </fieldset>
-
-        <div className="adc-full adc-upload">
-          <label htmlFor="adc-image" style={label}>
-            Upload your ad image <span className="avc-opt">(optional, PNG, JPG or WebP, up to 3 for a carousel)</span>
-          </label>
+        <label
+          htmlFor="adc-image"
+          className={`adc-drop${dragging ? " adc-drop--over" : ""}${ocr ? " adc-drop--busy" : ""}`}
+          onDragOver={(e) => { e.preventDefault(); setDragging(true); }}
+          onDragLeave={() => setDragging(false)}
+          onDrop={onDrop}
+        >
+          {thumbs.length > 0 ? (
+            <span className="adc-thumbs">
+              {thumbs.map((u) => (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img key={u} src={u} alt="Your ad picture" />
+              ))}
+            </span>
+          ) : (
+            <svg className="adc-drop-icon" aria-hidden="true" viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="3" />
+              <circle cx="8.5" cy="8.5" r="1.8" />
+              <path d="M21 15l-5-5L5 21" />
+            </svg>
+          )}
+          <span className="adc-drop-big">
+            {ocr
+              ? ocr.status === "recognizing text"
+                ? `Reading your picture… ${Math.round(ocr.progress * 100)}%`
+                : "Getting ready to read your picture…"
+              : thumbs.length
+                ? "Tap to pick a different picture"
+                : "Tap here to add your ad picture"}
+          </span>
+          {!ocr && !thumbs.length && <span className="adc-drop-small">or drag it here. Up to 3 for a carousel.</span>}
           <input
             ref={fileRef}
             id="adc-image"
@@ -189,85 +179,115 @@ export default function AdChecker() {
             accept="image/png,image/jpeg,image/webp"
             multiple
             disabled={ocr !== null}
-            onChange={onImages}
-            className="adc-file"
+            onChange={onPick}
+            className="adc-file-hidden"
           />
-          <p className="adc-private">Your image stays on your device. We don&apos;t upload or save it. We only read the words on it.</p>
-          {ocr && (
-            <p className="adc-ocr-status" role="status">
-              {ocr.status === "recognizing text"
-                ? `Reading image ${ocr.file} of ${ocr.files}… ${Math.round(ocr.progress * 100)}%`
-                : "Getting the text reader ready…"}
-            </p>
-          )}
-          {ocrError && <p role="alert" className="avc-error" style={{ marginTop: 10 }}>{ocrError}</p>}
-          {showImageBox && ocr === null && (
-            <div style={{ marginTop: 14 }}>
-              <label htmlFor="adc-image-text" style={label}>
-                Text found in your image <span className="avc-opt">(fix any mistakes)</span>
-              </label>
-              <textarea
-                id="adc-image-text"
-                rows={4}
-                maxLength={3000}
-                value={imageText}
-                onChange={(e) => setImageText(e.target.value)}
-                style={{ ...field, resize: "vertical" }}
-              />
-            </div>
-          )}
-        </div>
+        </label>
+        {ocrError && <p role="alert" className="avc-error" style={{ marginTop: 10 }}>{ocrError}</p>}
 
-        <div className="adc-full adc-actions">
-          <button type="button" className="adc-link-btn" onClick={loadSample}>Try a sample ad</button>
-          {hasText && <button type="button" className="adc-link-btn" onClick={clearAll}>Clear</button>}
-        </div>
-        <p className="avc-fine">Free. No email needed. Results update as you type. Your ad stays in your browser. We don&apos;t save it.</p>
+        {imageText && !ocr && (
+          <details className="adc-read">
+            <summary>See the words we read from your picture</summary>
+            <label htmlFor="adc-image-text" style={{ ...label, marginTop: 10 }}>Fix anything we got wrong:</label>
+            <textarea
+              id="adc-image-text"
+              rows={3}
+              maxLength={3000}
+              value={imageText}
+              onChange={(e) => setImageText(e.target.value)}
+              style={{ ...field, resize: "vertical" }}
+            />
+          </details>
+        )}
+
+        <label htmlFor="adc-words" className="adc-words-label">And paste your ad words here</label>
+        <textarea
+          id="adc-words"
+          rows={5}
+          maxLength={3000}
+          placeholder="Copy the words from your Facebook or Instagram ad and paste them here. Headline too!"
+          value={words}
+          onChange={(e) => setWords(e.target.value)}
+          style={{ ...field, resize: "vertical" }}
+        />
+
+        <h3 className="adc-q"><span className="adc-num">2</span>Does your ad show a before-and-after photo?</h3>
+        <YesNoButtons name="before-after" value={beforeAfter} onChange={setBeforeAfter} />
+
+        {namesDrug && (
+          <>
+            <h3 className="adc-q"><span className="adc-num">!</span>Your ad names a prescription drug. Is your spa LegitScript certified?</h3>
+            <YesNoButtons name="certified" value={certified} onChange={setCertified} noLabel="No / not sure" />
+          </>
+        )}
+
+        <button type="submit" className="adc-grade-btn" disabled={!hasAd || ocr !== null}>
+          Grade my ad
+        </button>
+        <p className="adc-under">
+          {hasAd ? "Free. No email. Your ad stays on your device." : "Add a picture or paste your words to start."}{" "}
+          <button type="button" className="adc-link-btn" onClick={trySample}>Try an example</button>
+          {hasAd && <> · <button type="button" className="adc-link-btn" onClick={startOver}>Start over</button></>}
+        </p>
       </form>
 
-      <div aria-live="polite">
-        {hasText && (
+      <div aria-live="polite" ref={resultRef} style={{ scrollMarginTop: 96 }}>
+        {graded && hasAd && (
           <div className="avc-report">
-            <div className="adc-summary">
-              <p className={`adc-risk adc-risk--${report.risk.toLowerCase()}`}>
-                <span className="rg-display">{report.risk}</span> rejection risk
-              </p>
-              <p className="avc-counts">
-                {flags.length === 0
-                  ? "We didn't find any of the common problems we check for."
-                  : `${flags.length} possible ${flags.length === 1 ? "problem" : "problems"} found.`}
-                {reminders.length > 0 && ` Plus ${reminders.length} ${reminders.length === 1 ? "reminder" : "reminders"}.`}
-              </p>
+            <div className={`adc-verdict adc-verdict--${report.grade.toLowerCase()}`}>
+              <span className="adc-verdict-icon" aria-hidden="true">{report.grade === "PASS" ? "✓" : "✕"}</span>
+              <div>
+                <p className="adc-verdict-word rg-display">{report.grade}</p>
+                <p className="adc-verdict-text">
+                  {report.grade === "PASS"
+                    ? tips.length
+                      ? "Nice! We didn't find anything Meta usually rejects. Read the tips below before you post."
+                      : "Nice! We didn't find anything Meta usually rejects."
+                    : `Meta will probably reject this ad. Fix ${problems.length === 1 ? "this 1 thing" : `these ${problems.length} things`} first.`}
+                </p>
+              </div>
             </div>
 
-            {report.hits.length > 0 && (
-              <div className="adc-preview">
-                <p className="avc-host adc-label">Your ad, with flagged words highlighted</p>
-                {fields
-                  .filter((f) => f.value.trim())
-                  .map((f) => (
-                    <div key={f.key} className="adc-preview-field">
-                      <span className="adc-preview-label">{FIELD_LABEL[f.key]}</span>
-                      <p>
-                        {segments(f.value, report.hits, f.key).map((s, i) =>
-                          s.hit ? (
-                            <mark key={i} className={`adc-mark adc-mark--${s.hit.severity}`}>{s.text}</mark>
-                          ) : (
-                            <span key={i}>{s.text}</span>
-                          ),
-                        )}
-                      </p>
-                    </div>
-                  ))}
-              </div>
+            {problems.length > 0 && (
+              <>
+                <h3 className="adc-list-h">{problems.length === 1 ? "What to fix" : `What to fix (${problems.length})`}</h3>
+                <ol className="adc-cards">
+                  {problems.map((f) => <ResultCard key={f.id} f={f} tone="fail" />)}
+                </ol>
+              </>
             )}
 
-            {report.flags.length > 0 && (
-              <ol className="avc-list">
-                {report.flags.map((f) => (
-                  <FlagRow key={f.id} f={f} />
-                ))}
-              </ol>
+            {tips.length > 0 && (
+              <>
+                <h3 className="adc-list-h">{report.grade === "PASS" ? "Tips before you post" : "Also check"}</h3>
+                <ol className="adc-cards">
+                  {tips.map((f) => <ResultCard key={f.id} f={f} tone="tip" />)}
+                </ol>
+              </>
+            )}
+
+            {report.hits.length > 0 && (
+              <details className="adc-read" style={{ marginTop: 20 }}>
+                <summary>Show my ad with the problem words marked</summary>
+                <div className="adc-preview" style={{ marginTop: 12 }}>
+                  {fields
+                    .filter((f) => f.value.trim())
+                    .map((f) => (
+                      <div key={f.key} className="adc-preview-field">
+                        <span className="adc-preview-label">{FIELD_LABEL[f.key]}</span>
+                        <p>
+                          {segments(f.value, report.hits, f.key).map((s, i) =>
+                            s.hit ? (
+                              <mark key={i} className={`adc-mark adc-mark--${s.hit.severity}`}>{s.text}</mark>
+                            ) : (
+                              <span key={i}>{s.text}</span>
+                            ),
+                          )}
+                        </p>
+                      </div>
+                    ))}
+                </div>
+              </details>
             )}
 
             <p className="adc-disclaimer">{DISCLAIMER}</p>
@@ -278,44 +298,71 @@ export default function AdChecker() {
         )}
       </div>
 
-      <LeadBox risk={hasText ? report.risk : ""} />
+      <LeadBox risk={graded && hasAd ? report.grade : ""} />
     </div>
   );
 }
 
-function FlagRow({ f }: { f: Flag }) {
-  const tone = f.reminder ? "pass" : ROW_CLASS[f.severity];
+function YesNoButtons({
+  name,
+  value,
+  onChange,
+  noLabel = "No",
+}: {
+  name: string;
+  value: YesNo;
+  onChange: (v: YesNo) => void;
+  noLabel?: string;
+}) {
   return (
-    <li className={`avc-row avc-row--${tone}`}>
-      <span className="avc-badge" aria-hidden="true">{f.reminder ? "i" : ROW_ICON[f.severity]}</span>
+    <div className="adc-yesno" role="radiogroup" aria-label={name}>
+      {(["yes", "no"] as const).map((v) => (
+        <button
+          key={v}
+          type="button"
+          role="radio"
+          aria-checked={value === v}
+          className={`adc-yn${value === v ? " adc-yn--on" : ""}`}
+          onClick={() => onChange(v)}
+        >
+          {v === "yes" ? "Yes" : noLabel}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function ResultCard({ f, tone }: { f: Flag; tone: "fail" | "tip" }) {
+  return (
+    <li className={`adc-card adc-card--${tone}`}>
+      <span className="adc-card-icon" aria-hidden="true">{tone === "fail" ? "✕" : "i"}</span>
       <div className="avc-row-body">
-        <div className="avc-row-head">
-          <h3>{f.title}</h3>
-          <span className="avc-status">{f.reminder ? "Reminder" : SEVERITY_LABEL[f.severity]}</span>
-        </div>
+        <p className="adc-card-simple">{f.simple}</p>
         {f.matches.length > 0 && (
           <p className="avc-found">
-            Found:{" "}
+            We found:{" "}
             {f.matches.map((m, i) => (
               <span key={i}>
                 {i > 0 && ", "}
-                <mark className={`adc-mark adc-mark--${f.severity}`}>{m.text}</mark>{" "}
-                <span className="adc-where">({FIELD_LABEL[m.field].toLowerCase()})</span>
+                <mark className={`adc-mark adc-mark--${f.severity}`}>{m.text}</mark>
               </span>
             ))}
           </p>
         )}
-        <p className="avc-why"><strong>Why:</strong> {f.reason}</p>
-        <p className="avc-todo"><strong>Try this instead:</strong> {f.fix}</p>
-        <p className="adc-source">
-          Source:{" "}
-          {f.sources.map((s, i) => (
-            <span key={s.url}>
-              {i > 0 && "; "}
-              <a href={s.url} target="_blank" rel="noopener noreferrer">{s.label}</a>
-            </span>
-          ))}
-        </p>
+        <p className="adc-card-fix"><strong>Try this:</strong> {f.fix}</p>
+        <details className="adc-more">
+          <summary>Why? (the details)</summary>
+          <p className="avc-why">{f.reason}</p>
+          <p className="adc-source">
+            Source:{" "}
+            {f.sources.map((s, i) => (
+              <span key={s.url}>
+                {i > 0 && "; "}
+                <a href={s.url} target="_blank" rel="noopener noreferrer">{s.label}</a>
+              </span>
+            ))}
+          </p>
+        </details>
       </div>
     </li>
   );
@@ -366,19 +413,19 @@ function LeadBox({ risk }: { risk: string }) {
             </p>
             <div>
               <label htmlFor="adc-lead-name" style={label}>Name</label>
-              <input id="adc-lead-name" name="name" required autoComplete="name" maxLength={100} style={field} />
+              <input id="adc-lead-name" name="name" required autoComplete="name" maxLength={100} style={{ ...field, fontSize: 16, padding: "14px 16px", borderWidth: 1, borderRadius: 10 }} />
             </div>
             <div>
               <label htmlFor="adc-lead-email" style={label}>Email</label>
-              <input id="adc-lead-email" name="email" type="email" required autoComplete="email" maxLength={200} style={field} />
+              <input id="adc-lead-email" name="email" type="email" required autoComplete="email" maxLength={200} style={{ ...field, fontSize: 16, padding: "14px 16px", borderWidth: 1, borderRadius: 10 }} />
             </div>
             <div>
               <label htmlFor="adc-lead-practice" style={label}>Practice name</label>
-              <input id="adc-lead-practice" name="practice" required autoComplete="organization" maxLength={150} style={field} />
+              <input id="adc-lead-practice" name="practice" required autoComplete="organization" maxLength={150} style={{ ...field, fontSize: 16, padding: "14px 16px", borderWidth: 1, borderRadius: 10 }} />
             </div>
             <div>
               <label htmlFor="adc-lead-phone" style={label}>Phone <span className="avc-opt">(optional)</span></label>
-              <input id="adc-lead-phone" name="phone" type="tel" autoComplete="tel" inputMode="tel" maxLength={30} style={field} />
+              <input id="adc-lead-phone" name="phone" type="tel" autoComplete="tel" inputMode="tel" maxLength={30} style={{ ...field, fontSize: 16, padding: "14px 16px", borderWidth: 1, borderRadius: 10 }} />
             </div>
             <button type="submit" className="rg-btn avc-submit" disabled={status === "sending"}>
               {status === "sending" ? "Sending…" : <>Send <span aria-hidden="true">→</span></>}
