@@ -45,6 +45,68 @@ export interface Post {
 
 export const POSTS: Post[] = [
   {
+    slug: "ai-friday-medspa-ai-search",
+    title: "AI Friday: How Medspas Get Named in ChatGPT and AI Overviews",
+    metaTitle: "AI Friday: How Medspas Get Named in AI Search",
+    description:
+      "An AI Friday guide for medspa owners: what helps ChatGPT and AI Overviews name your medspa, a checklist to run yourself, and what no one can promise",
+    excerpt:
+      "More people ask ChatGPT and Google's AI Overviews which medspa to try. Here is what helps an AI describe your medspa correctly, and a checklist to run this week.",
+    category: "AI Friday",
+    icon: "cpu",
+    datePublished: "2026-11-27",
+    dateModified: "2026-11-27",
+    readMinutes: 6,
+    tldr:
+      "AI search tools name the medspas whose facts they can find and trust: a clear site, a complete Google Business Profile, consistent details across the web, real reviews and answers written the way people ask. Nobody can promise a mention, but you can check whether AI can read your site and fix the gaps.",
+    sections: [
+      { type: "p", text: "This AI Friday is for medspa owners anywhere in the U.S. who have noticed that people now ask ChatGPT or Google's AI Overviews which medspa to try, instead of scrolling a page of links. Our earlier AI Friday posts were about AI working inside your practice. This week is about AI working on your behalf outside it: what an AI needs to find your medspa, describe it correctly and name it when someone asks." },
+      { type: "h2", text: "How do AI tools decide which medspa to name?" },
+      { type: "p", text: "Nobody outside those companies knows the exact recipe, and it changes. What we can say is that an AI assistant answers from pages it can read. If your site is vague, your details disagree from one listing to the next, or the answer to a question lives only in a PDF or an image, the AI has less to work with and may describe you wrong or skip you." },
+      { type: "p", text: "That is why the work is mostly the same good habits that help local search, written so a machine can read them too. Our medspa SEO post covers the local side, and this checklist builds on it.", links: [{ text: "medspa SEO post", href: "/blog/medspa-seo-show-up-locally" }] },
+      { type: "h2", text: "What can a medspa fix this week?" },
+      { type: "table", text: "A checklist to run yourself", headers: ["Check", "What good looks like"], rows: [
+        ["Who you are", "One sentence on your homepage that names your medspa, your city and the treatments you offer, in the same words everywhere"],
+        ["Name, address, phone", "Identical on your site, Google Business Profile and every directory you appear in"],
+        ["Google Business Profile", "Complete, with the right categories, current hours and your real services"],
+        ["Treatment pages", "One page per treatment you offer, with the questions clients ask answered near the top"],
+        ["FAQs", "Short, direct answers to real questions, written as text on the page"],
+        ["Reviews", "Real client reviews that you answer yourself, without confirming anyone's treatment"],
+        ["Readable pages", "Key facts in text, not only in images, PDFs or pop-ups"],
+      ]},
+      { type: "h2", text: "Why do answer-first pages matter?" },
+      { type: "p", text: "People ask AI full questions, like \"what should I know before my first consult?\" A page that opens with a direct answer of a few sentences, then explains, is easy for an AI to quote and easy for a person to trust. Write the answer the way you would say it at your front desk, then add detail below it." },
+      { type: "h2", text: "What should stay out of your answers?" },
+      { type: "ul", items: [
+        "Medical advice, or who is a good candidate for a treatment.",
+        "Promised results from any treatment.",
+        "Reviews or testimonials you did not earn from real clients. AI-written reviews are off limits.",
+        "Claims about your medspa that you cannot back up.",
+      ]},
+      { type: "p", text: "Ask your compliance or legal contact to review your page wording, and check the current Google and Meta policy pages if you advertise treatments." },
+      { type: "h2", text: "How can you tell whether AI can read your site?" },
+      { type: "p", text: "Ask the question yourself. Type \"best medspa in your city\" and a few treatment questions into ChatGPT and Google, and note whether you are named and whether the details are right. Write down what is wrong, because each error points to a page to fix. For a faster read, our free ScanRank tool scores whether AI assistants can find and understand your site and lists fixes.", links: [{ text: "ScanRank", href: "/scanrank" }] },
+      { type: "h2", text: "Can anyone promise you a spot in ChatGPT?" },
+      { type: "p", text: "No. Be careful with anyone who does. AI answers vary from one person and one day to the next. What you control is the quality of the facts you publish and how easy they are to read. We build that into our medspa marketing, and we use AI in our own work every day, so we will tell you plainly what is worth doing and what is not.", links: [{ text: "medspa marketing", href: "/medspa-marketing" }] },
+      { type: "h2", text: "Where do you go from here?" },
+      { type: "p", text: "Your Friday homework: run the checklist above, ask ChatGPT and Google five questions about your medspa, and fix the single biggest gap first. If you want a hand, see how our AI consulting and implementation works, or book a call.", links: [{ text: "AI consulting and implementation", href: "/services/ai-implementation" }, { text: "book a call", href: "/contact" }] },
+    ],
+    faqs: [
+      { q: "How do I get my medspa recommended by ChatGPT?", a: "No one can guarantee a recommendation. You can make it easier for AI to name you correctly: keep your name, address and phone identical everywhere, complete your Google Business Profile, build clear treatment pages with direct answers, and earn real reviews." },
+      { q: "What are Google AI Overviews?", a: "They are AI-written summaries that can appear at the top of some Google searches. They draw on pages Google can read, so clear facts on your site and profile help." },
+      { q: "Is this different from medspa SEO?", a: "It overlaps a lot. Good local SEO habits also help AI, and AI search adds a focus on direct answers and readable text on the page." },
+      { q: "Can I use AI to write my reviews?", a: "No. Reviews must come from real clients. AI can help you draft replies to real reviews, but read each one before it posts and never confirm that a reviewer was your client." },
+      { q: "How can I check whether AI can find my medspa?", a: "Ask ChatGPT and Google a few questions a client would ask and note what they say about you. You can also run our free ScanRank tool for an AI readiness score and a list of fixes." },
+    ],
+    related: [
+      { href: "/medspa-marketing", label: "Medspa Marketing" },
+      { href: "/scanrank", label: "ScanRank: Free AI Readiness Score" },
+      { href: "/blog/medspa-seo-show-up-locally", label: "Medspa SEO: What Actually Helps You Show Up Locally" },
+      { href: "/services/ai-implementation", label: "AI Consulting & Implementation" },
+      { href: "/contact", label: "Book a Call" },
+    ],
+  },
+  {
     // Vendor facts checked on each vendor's own site 2026-11-25. No CRMs or
     // GoHighLevel-based tools (owner's rule), and no prices: they change too often.
     slug: "best-ai-tools-for-med-spas",
